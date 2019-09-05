@@ -25,6 +25,7 @@ class Moco(object):
         self.Company = models.Company(self)
         self.Unit = models.Unit(self)
         self.Project = models.Project(self)
+        self.ProjectContract = models.ProjectContract(self)
 
     def request(self, method, path, params=None, data=None):
         """Send a request to an URL with the specified params and data"""

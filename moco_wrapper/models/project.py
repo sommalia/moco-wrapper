@@ -94,8 +94,7 @@ class Project(MocoBase):
         :param labels: array of additional labels
         :param custom_properties: custom values used by the project
         :param info: additional information
-        :returns: the created project object
-
+        :returns: the updated project object
         """
 
         data = {}
@@ -255,5 +254,7 @@ class Project(MocoBase):
         :param id: id of the project
         :returns: report with the most important project business indicators
         """
-        return self._moco.get(API_PATH["project_report"].format(id=id))     
+        return self._moco.get(API_PATH["project_report"].format(id=id))    
+
+    
     

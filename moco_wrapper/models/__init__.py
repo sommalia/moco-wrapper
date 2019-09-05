@@ -10,3 +10,4 @@ from .contact import Contact
 from .company import Company
 from .unit import Unit
 from .project import Project
+from .project_contract import ProjectContract
