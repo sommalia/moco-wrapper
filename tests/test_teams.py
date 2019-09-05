@@ -3,6 +3,8 @@
 
 """Tests for `moco_wrapper` package."""
 
+from const import TEST_API_KEY, TEST_DOMAIN
+
 import pytest
 from moco_wrapper.moco_wrapper import Moco
 
@@ -16,11 +18,6 @@ def moco():
     """
     # import requests
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-    moco = Moco(api_key="0ce6832b47a362994b5c07a21b958f3a", domain="asdf")
+    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
     return moco
 
-def test_create(moco):
-    #760644958
-    response = moco.Unit.create(name="hier steht jetzt ganz anderer text")
-    print(response.content)
-    assert response.status_code == 200

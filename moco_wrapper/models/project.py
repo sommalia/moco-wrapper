@@ -30,16 +30,15 @@ class Project(MocoBase):
         :param finish_date: finish date formatted YYYY-MM-DD
         :param leader_id: user id of the project leader
         :param customer_id: company id of the customer
-        :param identifier: only mandatory if number ranges are manual
-        :param billing_address: adress the invoices go to
-        :param billing_variant: project, task or user (default is project)
+        :param identifier: project identifier is only mandatory if number ranges are manual
+        :param billing_address: billing adress the invoices go to
+        :param billing_variant: "project", "task" or "user" (default is project)
         :param hourly_rate: hourly rate that will get billed 
         :param budget: budget for the project
         :param labels: array of additional labels
         :param custom_properties: custom values used by the project
         :param info: additional information
         :returns: the created project object
-
         """
         data = {
             "name": name,
@@ -185,5 +184,76 @@ class Project(MocoBase):
 
 
         return self._moco.get(API_PATH["project_getlist"], params=params)
-        
+
+    def assigned(
+        self,
+        active = None,
+        sort_by = None,
+        sort_order = 'asc'
+        ):
+        """get list of all project currently assigned to the user 
+
+        :param active: true/false show only active or inacitve projects
+        :param sort_by: sort by field
+        :param sort_order: asc or desc
+        :returns: list of project objects
+        """
+
+        params = {}
+        for key, value in (
+            ("active", active)
+        ):
+            if value is not None:
+                data[key] = value
+
+        if sort_by is not None:
+            data["sort_by"] = "{} {}".format(sort_by, sort_order)
+
+        return self._moco.get(API_PATH["project_assigned"], params=params)
+
+    def delete(
+        self,
+        id
+        ):
+        """delete a project
+
+        deleting a project is not possible via API
+
+        :param id: id of the project to delete
+
+        """
+        pass
+
+    def archive(
+        self,
+        id
+        ):
+        """archive a project
+
+        :param id: id of the project to archive
+        """
+        return self._moco.put(API_PATH["project_archive"].format(id=id))
+
+    def unarchive(
+        self,
+        id
+        ):
+        """unarchive a project
+
+        :param id: id of the project to unarchive
+        """
+        return self._moco.put(API_PATH["project_unarchive"].format(id=id))
+
+    def report(
+        self,
+        id
+        ):
+        """retrieve a project report
+
+        all cost are in the accounts main currency, it might differ from the budget and billable items
+
+        :param id: id of the project
+        :returns: report with the most important project business indicators
+        """
+        return self._moco.get(API_PATH["project_report"].format(id=id))     
     

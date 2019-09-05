@@ -3,7 +3,7 @@
 from . import models
 from requests import get, post, put, delete
 from json import dumps
-from const import API_PATH
+from .const import API_PATH
 
 """Main module."""
 class Moco(object):
@@ -24,6 +24,7 @@ class Moco(object):
         self.Contact = models.Contact(self)
         self.Company = models.Company(self)
         self.Unit = models.Unit(self)
+        self.Project = models.Project(self)
 
     def request(self, method, path, params=None, data=None):
         """Send a request to an URL with the specified params and data"""
@@ -33,6 +34,8 @@ class Moco(object):
             return self.put(path, params=params, data=data)
         elif method == "POST":
             return self.post(path, params=params, data=data)
+        elif method == "DELETE":
+            return self.delete(path, params=params, data=data)
         
     def get(self, path, params=None, data=None):
         response = get(self.full_domain + path, json=data, headers=self.headers, params=params)

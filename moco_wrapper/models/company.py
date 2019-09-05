@@ -154,7 +154,7 @@ class Company(MocoBase):
         self,
         company_type = None,
         tags = None,
-        identifer = None
+        identifer = None,
         sort_by = None,
         sort_order = 'asc'
         ):

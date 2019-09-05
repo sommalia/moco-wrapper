@@ -21,7 +21,7 @@ class Unit(MocoBase):
         return self._moco.get(API_PATH["unit_get"].format(id=id))
 
     def getlist(
-        self
+        self,
         sort_by = None,
         sort_order = 'asc'
         ):
