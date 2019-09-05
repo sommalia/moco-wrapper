@@ -34,7 +34,7 @@ class Contact(MocoBase):
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
         :param gender: either F, M, U
-        :param customer_id: Id of the customer the contact belongs to
+        :param customer_id: Id of the customer (company) the contact belongs to
         :param title: Title the contact has
         :param mobile_phone: Mobile phone number the contact has
         :param work_fax: Fax number for work purposes
@@ -95,7 +95,7 @@ class Contact(MocoBase):
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
         :param gender: either F, M, U
-        :param customer_id: Id of the customer the contact belongs to
+        :param customer_id: Id of the customer (company) the contact belongs to
         :param title: Title the contact has
         :param mobile_phone: Mobile phone number the contact has
         :param work_fax: Fax number for work purposes
