@@ -8,3 +8,4 @@ __version__ = '0.1.0'
 
 from .contact import Contact
 from .company import Company
+from .unit import Unit

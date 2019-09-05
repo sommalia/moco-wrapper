@@ -16,7 +16,7 @@ def moco():
     """
     # import requests
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-    moco = Moco(api_key="63fe903a9672df962ef7319d815a86d1", domain="test")
+    moco = Moco(api_key="0ce6832b47a362994b5c07a21b958f3a", domain="asdf")
     return moco
 
 def test_create(moco):
