@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from . import models
-from requests import get, post, put
+from requests import get, post, put, delete
 from json import dumps
 from const import API_PATH
 
@@ -37,13 +37,16 @@ class Moco(object):
         response = get(self.full_domain + path, json=data, headers=self.headers, params=params)
         return response
         
-
     def post(self, path, params=None, data=None):
         response = post(self.full_domain + path, json=data, headers=self.headers, params=params)
         return response
 
     def put(self, path, params=None, data=None):
         response = put(self.full_domain + path, json=data, headers=self.headers, params=params)
+        return response
+
+    def delete(self, path, params=None, data=None):
+        response = delete(self.full_domain + path, json=data, headers=self.headers, params=params)
         return response
 
     @property
