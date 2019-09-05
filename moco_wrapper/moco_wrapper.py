@@ -23,6 +23,7 @@ class Moco(object):
 
         self.Contact = models.Contact(self)
         self.Company = models.Company(self)
+        self.Unit = models.Unit(self)
 
     def request(self, method, path, params=None, data=None):
         """Send a request to an URL with the specified params and data"""
