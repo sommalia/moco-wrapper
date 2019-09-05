@@ -155,12 +155,16 @@ class Company(MocoBase):
         company_type = None,
         tags = None,
         identifer = None
+        sort_by = None,
+        sort_order = 'asc'
         ):
         """Get a list of company objects
         
         :param company_type: either "customer", "supplier", "organization"
         :param tags: list of tags
         :param identifer: company identifer
+        :param sort_by: field to sort by
+        :param sort_order: asc or desc
         :returns: list of companyies
         """
 
@@ -172,6 +176,9 @@ class Company(MocoBase):
         ):
             if value is not None:
                 params[key] = value
+
+        if sort_by is not None:
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["company_getlist"], params=params)
 

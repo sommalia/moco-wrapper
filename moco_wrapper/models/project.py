@@ -181,7 +181,7 @@ class Project(MocoBase):
 
         #add sort order if set
         if sort_by is not None:
-            params["sort_by"] = "{0} {1}".format(sort_by, sort_order)
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
 
         return self._moco.get(API_PATH["project_getlist"], params=params)

@@ -152,4 +152,24 @@ class User(MocoBase):
     def getlist(
         self,
         include_archived = None
-    )
+        sort_by = None:
+        sort_order = 'asc'
+        ):
+        """Get a list of users
+
+        :param include_archived: true/false include archived users in the lsit
+        :param sort_by: sort by key
+        :param sort_order: asc or desc
+        :returns: list of users
+        """
+        params = {}
+        for key, value in (
+            ("include_archived", include_archived)
+        ):
+            if value is not None:
+                params[key] = value
+
+        if sort_by is not None:
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
+
+        return self._moco.get(API_PATH["user_getlist"], params=params)
