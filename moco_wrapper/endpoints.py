@@ -17,5 +17,9 @@ API_PATH = {
     "project_contract_get":     "/projects/{project_id}/contracts/{contract_id}",
     "project_contract_create":  "/projects/{project_id}/contracts",
     "project_contract_update":  "/projects/{project_id}/contracts/{contract_id}",
-    "project_contract_delete":  "/projects/{project_id}/contracts/{contract_id}"
+    "project_contract_delete":  "/projects/{project_id}/contracts/{contract_id}",
+    "contact_getlist":          "/contacts/people",
+    "contact_get":              "/contacts/people/{id}",
+    "contact_create":           "/contacts/people",
+    "contact_update":           "/contacts/people/{id}"
 }

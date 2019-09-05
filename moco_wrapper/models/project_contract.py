@@ -93,7 +93,7 @@ class ProjectContract(MocoBase):
         sort_by = None,
         sort_order = 'asc'
         ):
-        """retrive all staff assignments for a project
+        """retrive all active staff assignments for a project
 
         :param project_id: id of the project
         :param sort_by: sort by field
