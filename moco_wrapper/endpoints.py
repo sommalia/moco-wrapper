@@ -21,5 +21,18 @@ API_PATH = {
     "contact_getlist":          "/contacts/people",
     "contact_get":              "/contacts/people/{id}",
     "contact_create":           "/contacts/people",
-    "contact_update":           "/contacts/people/{id}"
+    "contact_update":           "/contacts/people/{id}",
+    "comment_create":           "/comments",
+    "comment_update":           "/comments/{id}",
+    "comment_getlist":          "/comments",
+    "comment_get":              "/comments/{id}",
+    "comment_create_bulk":      "/comments/bulk",
+    "comment_delete":           "/comments/{id}",
+    "unit_get":                 "/units/{id}",
+    "unit_getlist":             "/units",
+    "user_get":                 "/users/{id}",
+    "user_getlist":             "/users",
+    "user_create":              "/users",
+    "user_update":              "/users/{id}",
+    "user_delete":              "/users/{id}"
 }

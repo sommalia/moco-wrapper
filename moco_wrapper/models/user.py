@@ -51,7 +51,7 @@ class User(MocoBase):
         }
 
         for key, value in (
-            ("active": active),
+            ("active", active),
             ("external", external),
             ("language", language),
             ("mobile_phone", mobile_phone),
@@ -110,8 +110,8 @@ class User(MocoBase):
             ("lastname", lastname),
             ("email", email),
             ("password", password),
-            ("unit_id", unit_id)
-            ("active": active),
+            ("unit_id", unit_id),
+            ("active", active),
             ("external", external),
             ("language", language),
             ("mobile_phone", mobile_phone),
@@ -151,20 +151,21 @@ class User(MocoBase):
 
     def getlist(
         self,
-        include_archived = None
-        sort_by = None:
+        include_archived = None,
+        sort_by = None,
         sort_order = 'asc'
         ):
         """Get a list of users
 
-        :param include_archived: true/false include archived users in the lsit
+        :param include_archived: true/false include archived users in the list
         :param sort_by: sort by key
         :param sort_order: asc or desc
         :returns: list of users
         """
+               
         params = {}
         for key, value in (
-            ("include_archived", include_archived)
+            ("include_archived", include_archived),
         ):
             if value is not None:
                 params[key] = value

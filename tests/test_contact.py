@@ -3,7 +3,7 @@
 
 """Tests for `moco_wrapper` package."""
 
-from const import TEST_API_KEY, TEST_DOMAIN, KNOWN_CUSTOMER_ID, KNOWN_PROJECT_ID, KNOWN_USER_ID
+from const import TEST_API_KEY, TEST_DOMAIN
 import pytest
 from moco_wrapper.moco_wrapper import Moco
 
@@ -21,34 +21,31 @@ def moco():
     moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
     return moco
 
+@pytest.fixture
+def contact_id():
+    contact_id = -1
+    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
+    contacts = moco.Contact.getlist().json()
+    if len(contacts) == 0:
+        contact = moco.Contact.create("t", "t", "F")
+        contact_id = contact.json()["id"]
+    else:
+        contact_id = contacts[0]["id"]
+
+    return contact_id
+
 def test_contact_create(moco: Moco):
     response = moco.Contact.create("testfirstname", "testlastname", "M")
     print(response.content)
     assert response.status_code == 200
 
-def test_contact_update(moco: Moco):
-    contact_id = -1
-    contacts = moco.Contact.getlist().json()
-    if len(contacts) == 0:
-        contact = moco.Contact.create("t", "t", "F")
-        contact_id = contact.json()["id"]
-    else:
-        contact_id = contacts[0]["id"]
-
+def test_contact_update(moco: Moco, contact_id):
     response = moco.Contact.update(contact_id, firstname="updated firstname")
     print(response.content)
     assert response.status_code == 200
 
 
-def test_contact_get(moco: Moco):
-    contact_id = -1
-    contacts = moco.Contact.getlist().json()
-    if len(contacts) == 0:
-        contact = moco.Contact.create("t", "t", "F")
-        contact_id = contact.json()["id"]
-    else:
-        contact_id = contacts[0]["id"]
-
+def test_contact_get(moco: Moco, contact_id):
     response = moco.Contact.get(contact_id)
     print(response.content)
     assert response.status_code == 200

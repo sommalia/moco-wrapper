@@ -10,14 +10,25 @@ from moco_wrapper.moco_wrapper import Moco
 
 from click.testing import CliRunner
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def moco():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
     moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
     return moco
 
+
+@pytest.fixture(scope="module")
+def unit_id(moco):
+    units = moco.Unit.getlist().json()
+    return units[0]["id"]
+
+
+
+def test_unit_get(moco: Moco, unit_id):
+    response = moco.Unit.get(unit_id)
+    print(response.content)
+    assert response.status_code == 200
+
+def test_unit_getlist(moco: Moco):
+    response = moco.Unit.getlist()
+    print(response.content)
+    assert response.status_code == 200

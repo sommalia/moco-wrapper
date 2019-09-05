@@ -99,7 +99,7 @@ class Company(MocoBase):
         billing_tax = None,
         default_invoice_due_days = None
         ):
-        """Update a company
+        """update a company
 
         :param id: Id of the company
         :param name: Name of the company
@@ -137,6 +137,7 @@ class Company(MocoBase):
             if value is not None:
                 data[key] = value
 
+        print(data)
         return self._moco.put(API_PATH["company_update"].format(id=id), data=data)
 
     def get(
