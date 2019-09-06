@@ -137,7 +137,6 @@ class Company(MocoBase):
             if value is not None:
                 data[key] = value
 
-        print(data)
         return self._moco.put(API_PATH["company_update"].format(id=id), data=data)
 
     def get(
