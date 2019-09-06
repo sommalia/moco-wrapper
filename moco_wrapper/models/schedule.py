@@ -102,6 +102,7 @@ class Schedule(MocoBase):
 
     def update(
         self,
+        id,
         date = None,
         project_id = None,
         absence_code = None,
@@ -143,3 +144,14 @@ class Schedule(MocoBase):
                 data[key] = value
 
         return self._moco.put(API_PATH["schedule_update"].format(id=id), data=data)
+
+    def delete(
+        self,
+        id
+        ):
+        """delete a planned entry
+
+        :param id: id of the entry to delete
+        """
+
+        return self._moco.delete(API_PATH["schedule_delete"].format(id=id))

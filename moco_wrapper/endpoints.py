@@ -34,5 +34,10 @@ API_PATH = {
     "user_getlist":             "/users",
     "user_create":              "/users",
     "user_update":              "/users/{id}",
-    "user_delete":              "/users/{id}"
+    "user_delete":              "/users/{id}",
+    "schedule_get":             "/schedules/{id}",
+    "schedule_getlist":         "/schedules",
+    "schedule_create":          "/schedules",
+    "schedule_update":          "/schedules/{id}",
+    "schedule_delete":          "/schedules/{id}"
 }
