@@ -1,30 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests for `moco_wrapper` package."""
+"""Tests for moco_wrapper model contact"""
 
-from const import TEST_API_KEY, TEST_DOMAIN
 import pytest
 from moco_wrapper.moco_wrapper import Moco
-
+from fixtures import moco
 from click.testing import CliRunner
 
-
-@pytest.fixture
-def moco():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    return moco
-
-@pytest.fixture
-def contact_id():
+@pytest.fixture(scope="module")
+def contact_id(moco):
     contact_id = -1
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
     contacts = moco.Contact.getlist().json()
     if len(contacts) == 0:
         contact = moco.Contact.create("t", "t", "F")

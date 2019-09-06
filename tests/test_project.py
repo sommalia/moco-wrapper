@@ -1,43 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests for `moco_wrapper` package."""
-
-from const import TEST_API_KEY, TEST_DOMAIN, KNOWN_CUSTOMER_ID, KNOWN_PROJECT_ID, KNOWN_USER_ID
+"""Tests for moco_wrapper model project"""
 import pytest
 from moco_wrapper.moco_wrapper import Moco
-
+from fixtures import moco, user_id, customer_id, project_id
 from click.testing import CliRunner
 
-
-
-
-@pytest.fixture(scope="module")
-def moco():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    return moco
-
-@pytest.fixture(scope="module")
-def user_id(moco):
-    users = moco.User.getlist().json()
-    return users[0]["id"]
-
-@pytest.fixture(scope="module")
-def customer_id(moco):
-    customers = moco.Company.getlist(company_type="customer").json()
-    return customers[0]["id"]
-
-@pytest.fixture(scope="module")
-def project_id(moco):
-    projects = moco.Project.getlist().json()
-    return projects[-1]["id"]
-    
 
 def test_project_create(moco: Moco, user_id, customer_id):
     """Sample pytest test function with the pytest fixture as an argument."""

@@ -38,7 +38,7 @@ class User(MocoBase):
         :param home_address: users home address 
         :param bday: users birthday (format YYYY-MM-DD)
         :param custom_properties: custom fields to add to the user
-        :parma info: additional information abotu the user
+        :param info: additional information abotu the user
         :returns: the created user object
 
         """
@@ -100,7 +100,7 @@ class User(MocoBase):
         :param home_address: users home address 
         :param bday: users birthday (format YYYY-MM-DD)
         :param custom_properties: custom fields to add to the user
-        :parma info: additional information abotu the user
+        :param info: additional information abotu the user
         :returns: the created user object
 
         """

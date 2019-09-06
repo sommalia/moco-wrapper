@@ -72,7 +72,7 @@ class Schedule(MocoBase):
         :param date: date of the entry (format YYYY-MM-DD)
         :param project_id: project id (either project id or absence code must be specified)
         :param absence_code: 1,2,3,4 (absence, public holiday, sick day, holiday) (either project id or absence code must be specified)
-        :parma user_id: user id
+        :param user_id: user id
         :param am: morning yes/no
         :param pm: afternoon yes/no
         :param comment: comment text
@@ -118,7 +118,7 @@ class Schedule(MocoBase):
         :param date: date of the entry (format YYYY-MM-DD)
         :param project_id: project id (either project id or absence code must be specified)
         :param absence_code: 1,2,3,4 (absence, public holiday, sick day, holiday) (either project id or absence code must be specified)
-        :parma user_id: user id
+        :param user_id: user id
         :param am: morning yes/no
         :param pm: afternoon yes/no
         :param comment: comment text

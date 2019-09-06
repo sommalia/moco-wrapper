@@ -2,57 +2,23 @@
 # -*- coding: utf-8 -*-
 
 """Tests for `moco_wrapper` package."""
-
-from const import TEST_API_KEY, TEST_DOMAIN
 import pytest
 from moco_wrapper.moco_wrapper import Moco
-
+from fixtures import moco, customer_id, user_id
 from click.testing import CliRunner
 
-@pytest.fixture(scope="module")
-def moco():
-    """Sample pytest fixture.
 
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    return moco
 
 @pytest.fixture(scope="module")
-def customer_id():
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    customers = moco.Company.getlist(company_type="customer").json()
-    if len(customers) > 1:
-        return customers[-1]["id"]
-    else:
-        customer = moco.Company.create("company created by project contract test", company_type="customer").json()
-        return customer["id"]
-
-@pytest.fixture(scope="module")
-def unit_id():
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
+def unit_id(moco: Moco):
     units = moco.Unit.getlist().json()
     return units[0]["id"]
 
-@pytest.fixture(scope="module")
-def user_id(unit_id):
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    users = moco.User.getlist().json()
-    if len(users) > 1:
-        return users[0]["id"]
-    else:
-        user = moco.User.create("user created by", "project contract test", "usercreatedbyprojectcontracttest@byom.de", "init12345.", unit_id).json()
-        return user["id"]
-
 
 @pytest.fixture(scope="module")
-def project_id(user_id, customer_id):
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
+def project_id(moco: Moco,user_id, customer_id):
     project = moco.Project.create("project created for contract test", "EUR", "2019-10-10",user_id,customer_id).json()
     return project["id"]
-
 
 
 def test_projectcontract_create(moco: Moco, project_id, user_id):
@@ -96,7 +62,7 @@ def test_projectcontract_delete(moco: Moco, project_id):
         created_contract = moco.ProjectContract.create(project_id, user_id).json()
         contract_id = created_contract["id"]
     else:
-        contract_id = contracts[0]["id"]
+        contract_id = contracts[-1]["id"]
 
 
     response = moco.ProjectContract.delete(project_id, contract_id)

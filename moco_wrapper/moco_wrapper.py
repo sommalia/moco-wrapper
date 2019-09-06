@@ -25,7 +25,10 @@ class Moco(object):
         self.Company = models.Company(self)
         self.Comment = models.Comment(self)
         self.Unit = models.Unit(self)
+        
         self.User = models.User(self)
+        self.Schedule = models.Schedule(self)
+
         self.Project = models.Project(self)
         self.ProjectContract = models.ProjectContract(self)
 

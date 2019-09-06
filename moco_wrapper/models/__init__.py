@@ -11,6 +11,7 @@ from .company import Company
 from .comment import Comment
 from .unit import Unit
 from .user import User
+from .schedule import Schedule
 
 from .project import Project
 from .project_contract import ProjectContract

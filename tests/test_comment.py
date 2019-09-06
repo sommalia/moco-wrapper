@@ -1,43 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests for `moco_wrapper` package."""
-
-from const import TEST_API_KEY, TEST_DOMAIN, KNOWN_USER_ID, KNOWN_PROJECT_ID
-
+"""Tests for moco_wrapper model comment."""
 import pytest
+from fixtures import moco, project_id, project_ids
 from moco_wrapper.moco_wrapper import Moco
-
 from click.testing import CliRunner
 
-
-@pytest.fixture
-def moco():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    return moco
-
-@pytest.fixture
-def project_id():
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    projects = moco.Project.getlist().json()
-    return projects[0]["id"]
-
-@pytest.fixture
-def project_ids():
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
-    projects = moco.Project.getlist().json()
-    project_ids = [x["id"] for x in projects]
-    return project_ids
-
-@pytest.fixture
-def comment_id():
-    moco = Moco(api_key=TEST_API_KEY, domain=TEST_DOMAIN)
+        
+@pytest.fixture()
+def comment_id(moco: Moco):
+    """return a comment id"""
     comments = moco.Comment.getlist().json()
 
     if len(comments) > 0:
@@ -45,7 +18,7 @@ def comment_id():
     else:
         comment = moco.Comment.create(project_id(), "Project", "comment created for fix").json()
         return comment["id"]
-        
+
 
 
 def test_comment_create_single(moco: Moco, project_id):
