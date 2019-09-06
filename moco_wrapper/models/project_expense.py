@@ -125,6 +125,8 @@ class ProjectExpense(MocoBase):
             if value is not None:
                 data[key] = value
 
+        print (API_PATH["project_expense_update"].format(project_id=project_id, expense_id=expense_id))
+
         return self._moco.put(API_PATH["project_expense_update"].format(project_id=project_id, expense_id=expense_id), data=data)
 
     def delete(
@@ -206,7 +208,7 @@ class ProjectExpense(MocoBase):
 
     def getlist(
         self,
-        project_id
+        project_id,
         sort_by = None,
         sort_order = 'asc'
         ):

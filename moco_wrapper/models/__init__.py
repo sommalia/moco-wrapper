@@ -15,3 +15,4 @@ from .schedule import Schedule
 
 from .project import Project
 from .project_contract import ProjectContract
+from. project_expense import ProjectExpense

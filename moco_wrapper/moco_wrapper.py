@@ -25,12 +25,13 @@ class Moco(object):
         self.Company = models.Company(self)
         self.Comment = models.Comment(self)
         self.Unit = models.Unit(self)
-        
+
         self.User = models.User(self)
         self.Schedule = models.Schedule(self)
 
         self.Project = models.Project(self)
         self.ProjectContract = models.ProjectContract(self)
+        self.ProjectExpense = models.ProjectExpense(self)
 
     def request(self, method, path, params=None, data=None):
         """Send a request to an URL with the specified params and data"""
