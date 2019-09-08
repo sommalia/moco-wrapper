@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from . import models
+from . import util
 from requests import get, post, put, delete
 from json import dumps
 from .const import API_PATH
@@ -33,32 +34,31 @@ class Moco(object):
         self.ProjectContract = models.ProjectContract(self)
         self.ProjectExpense = models.ProjectExpense(self)
 
+        self.requester = util.RateLimiter()
+
     def request(self, method, path, params=None, data=None):
+        full_path = self.full_domain + path
         """Send a request to an URL with the specified params and data"""
         if method == "GET":
-            return self.get(path, params=params, data=data)
+            return self.requester.get(full_path, params=params, data=data, headers=self.headers)
         elif method == "PUT":
-            return self.put(path, params=params, data=data)
+            return self.requester.put(full_path, params=params, data=data, headers=self.headers)
         elif method == "POST":
-            return self.post(path, params=params, data=data)
+            return self.requester.post(full_path, params=params, data=data, headers=self.headers)
         elif method == "DELETE":
-            return self.delete(path, params=params, data=data)
+            return self.requester.delete(full_path, params=params, data=data, headers=self.headers)
         
     def get(self, path, params=None, data=None):
-        response = get(self.full_domain + path, json=data, headers=self.headers, params=params)
-        return response
+        return self.request("GET", path, params=params, data=data)
         
     def post(self, path, params=None, data=None):
-        response = post(self.full_domain + path, json=data, headers=self.headers, params=params)
-        return response
+        return self.request("POST", path, params=params, data=data)
 
     def put(self, path, params=None, data=None):
-        response = put(self.full_domain + path, json=data, headers=self.headers, params=params)
-        return response
+        return self.request("PUT", path, params=params, data=data)
 
     def delete(self, path, params=None, data=None):
-        response = delete(self.full_domain + path, json=data, headers=self.headers, params=params)
-        return response
+        return self.request("DELETE", path, params=params, data=data)
 
     @property
     def headers(self):
