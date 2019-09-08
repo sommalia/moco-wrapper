@@ -1,7 +1,7 @@
 import requests
 import time
 
-class RateLimiter(object):
+class RateLimitedRequestor(object):
 
     def __init__(self):
         self.session = requests.Session()
@@ -20,6 +20,8 @@ class RateLimiter(object):
             return self.session.post(path, params=params, data=data, **kwargs)
         elif method == "PUT":
             return self.session.put(path, params=params, data=data, **kwargs)
+        elif method == "PATCH":
+            return self.session.patch(path, params=params, data=data, **kwargs)
 
     def get(self, path, params = None, **kwargs):
         return self.request(path, "GET", params=params, **kwargs)
@@ -32,3 +34,19 @@ class RateLimiter(object):
 
     def delete(self, path, data = None, params = None, **kwargs):
         return self.request(path, "DELETE", data=data, params=params, **kwargs)
+
+    def patch(eslf, path, data = None, params = None, **kwargs):
+        return self.request(pah, "PATCH", data=data, params=params, **kwargs)
+
+
+class TestRequester(RateLimitedRequestor):
+    def request(self, path, method, params = None, data = None, **kwargs):
+        return {
+            "path": path,
+            "data" : data,
+            "method": method,
+            "params" : params,
+            "args": kwargs.items()
+        }
+
+    

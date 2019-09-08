@@ -6,7 +6,7 @@ class Contact(MocoBase):
 
     def __init__(self, moco):
         """Initialize a contact instance
-        
+
         :param moco: An instance of :class Moco
 
         """
@@ -44,7 +44,7 @@ class Contact(MocoBase):
         :param home_address: Home address
         :param birthday: Birthday (format YYYY-MM-DD)
         :param info: More information about the contact
-        :param tags: Array of additional tags 
+        :param tags: Array of additional tags
         :returns: the created contact object
         """
         data = {
@@ -105,12 +105,12 @@ class Contact(MocoBase):
         :param home_address: Home address
         :param birthday: Birthday (format YYYY-MM-DD)
         :param info: More information about the contact
-        :param tags: Array of additional tags 
+        :param tags: Array of additional tags
         :returns: the created contact object
         """
 
         data = {}
-        for key,value in (
+        for key, value in (
             ("firstname", firstname),
             ("lastname", lastname),
             ("gender", gender),

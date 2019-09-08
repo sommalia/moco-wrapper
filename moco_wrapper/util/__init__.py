@@ -7,4 +7,5 @@ __email__ = 'sommalia@protonmail.com'
 __version__ = '0.1.0'
 
 
-from .rate_limit import RateLimiter
+from .requester import RateLimitedRequestor
+from .requester import TestRequester

@@ -16,12 +16,11 @@ class Moco(object):
     moco = moco_wrapper.Moco(email='EMAIL_ADDRESS', password='PASSWORD', api_key='API_KEY', domain='DOMAIN')
 
     """
-    def __init__(self, api_key = None, domain = None):
+    def __init__(self, api_key = None, domain = None, **kwargs):
         self.api_key = api_key
         self.domain = domain
 
-        #init contacts model
-
+        self.Activity = models.Activity(self)
         self.Contact = models.Contact(self)
         self.Company = models.Company(self)
         self.Comment = models.Comment(self)
@@ -34,7 +33,18 @@ class Moco(object):
         self.ProjectContract = models.ProjectContract(self)
         self.ProjectExpense = models.ProjectExpense(self)
 
-        self.requester = util.RateLimiter()
+
+        self._requestor = None
+        for key, value in kwargs.items():
+            if key == "http":
+                self._requestor = value
+
+
+
+        #set default values if not already set
+        if self._requestor is None:
+            #default requestor is one that will fire 1 request every second
+            self._requestor = util.RateLimitedRequestor()
 
     def request(self, method, path, params=None, data=None):
         full_path = self.full_domain + path
