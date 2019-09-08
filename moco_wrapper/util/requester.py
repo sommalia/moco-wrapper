@@ -35,8 +35,8 @@ class RateLimitedRequestor(object):
     def delete(self, path, data = None, params = None, **kwargs):
         return self.request(path, "DELETE", data=data, params=params, **kwargs)
 
-    def patch(eslf, path, data = None, params = None, **kwargs):
-        return self.request(pah, "PATCH", data=data, params=params, **kwargs)
+    def patch(self, path, data = None, params = None, **kwargs):
+        return self.request(path, "PATCH", data=data, params=params, **kwargs)
 
 
 class TestRequester(RateLimitedRequestor):

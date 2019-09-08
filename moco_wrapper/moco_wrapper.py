@@ -50,13 +50,15 @@ class Moco(object):
         full_path = self.full_domain + path
         """Send a request to an URL with the specified params and data"""
         if method == "GET":
-            return self.requester.get(full_path, params=params, data=data, headers=self.headers)
+            return self._requestor.get(full_path, params=params, data=data, headers=self.headers)
         elif method == "PUT":
-            return self.requester.put(full_path, params=params, data=data, headers=self.headers)
+            return self._requestor.put(full_path, params=params, data=data, headers=self.headers)
         elif method == "POST":
-            return self.requester.post(full_path, params=params, data=data, headers=self.headers)
+            return self._requestor.post(full_path, params=params, data=data, headers=self.headers)
         elif method == "DELETE":
-            return self.requester.delete(full_path, params=params, data=data, headers=self.headers)
+            return self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
+        elif method == "PATCH":
+            return self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
         
     def get(self, path, params=None, data=None):
         return self.request("GET", path, params=params, data=data)
@@ -69,6 +71,9 @@ class Moco(object):
 
     def delete(self, path, params=None, data=None):
         return self.request("DELETE", path, params=params, data=data)
+
+    def patch(self, path, params=None, data=None):
+        return self.request("PATCH", path, params=params, data=data)
 
     @property
     def headers(self):

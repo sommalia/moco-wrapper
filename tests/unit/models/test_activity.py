@@ -8,9 +8,95 @@ class TestActivity(UnitTest):
         task_id = 2
         hours = 4.5
 
-        response = self.moco.Activity.create(, project_id , task_id, hours)
+        response = self.moco.Activity.create(date, project_id , task_id, hours)
         response_data = response["data"] 
         assert response_data["date"] == date
         assert response_data["project_id"] == project_id
         assert response_data["task_id"] == task_id
         assert response_data["hours"] == hours
+
+    def test_getlist(self):
+        from_date = "2019-01-01"
+        to_date = "2020-01-01"
+        user_id = 21
+        project_id = 22
+        sort_by = "sort by field"
+
+        response = self.moco.Activity.getlist(from_date=from_date, to_date=to_date, user_id=user_id, project_id=project_id, sort_by=sort_by)
+
+        response_params = response["params"]
+        assert response_params["from"] == from_date
+        assert response_params["to"] == to_date
+        assert response_params["user_id"] == user_id
+        assert response_params["project_id"] == project_id
+        assert response_params["sort_by"] == "{} asc".format(sort_by)
+
+    def test_getlist_sort_order(self):
+        sort_by = "sort by field"
+
+
+        response = self.moco.Activity.getlist(sort_by=sort_by, sort_order="desc")
+
+        response_params = response["params"]
+        assert response_params["sort_by"] == "{} desc".format(sort_by)
+
+    def test_get(self):
+        activity_id = 21
+        response = self.moco.Activity.get(activity_id)
+
+        assert response["params"] == None
+        assert response["data"] == None
+        assert response["path"].endswith("/activities/{}".format(activity_id))
+
+    def test_update(self):
+        project_id = 12412
+        task_id = 22
+        hours = 4.5
+        activity_id = 33
+
+        response = self.moco.Activity.update(activity_id, project_id=project_id, task_id=task_id, hours=hours)
+        response_data = response["data"]
+
+        assert response_data["project_id"] == project_id
+        assert response_data["task_id"] == task_id
+        assert response_data["hours"] == hours
+
+        assert response["path"].endswith("/activities/{}".format(activity_id))
+
+    def test_start_timer(self):
+        activity_id = 123
+
+        response = self.moco.Activity.start_timer(activity_id)
+        
+        assert response["path"].endswith("{}/start_timer".format(activity_id))
+        assert response["method"] == "PATCH"
+
+    def test_stop_timer(self):
+        activity_id = 123
+
+        response = self.moco.Activity.stop_timer(activity_id)
+
+        assert response["path"].endswith("{}/stop_timer".format(activity_id))
+        assert response["method"] == "PATCH"
+
+    def delete(self):
+        activity_id = 123
+
+        response = self.moco.Activity.delete(activity_id)
+
+        assert response["path"].endswith("/activities/{}".format(activity_id))
+        assert response["method"] == "DELETE"
+
+    def disregard(self):
+        reason = "because i said so"
+        activity_ids = [123, 124, 125]
+        project_id = 1
+        customer_id = 2
+
+        response = self.moco.Activity.disregard(reason, activity_ids, project_id, customer_id)
+        response_data = response["data"]
+
+        assert response_data["reason"] == reason
+        assert response_data["activity_ids"] == activity_ids
+        assert response_data["project_id"] == project_id
+        assert response_data["customer_id"] == customer_id        
