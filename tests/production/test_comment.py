@@ -5,8 +5,6 @@
 import pytest
 from fixtures import moco, project_id, project_ids
 from moco_wrapper.moco_wrapper import Moco
-from click.testing import CliRunner
-
         
 @pytest.fixture()
 def comment_id(moco: Moco):

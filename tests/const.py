@@ -1,2 +1,0 @@
-TEST_API_KEY = "743527d1a135c95b3f9374b2e8c9abdb"
-TEST_DOMAIN = "asdf"
