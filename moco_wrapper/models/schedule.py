@@ -13,7 +13,7 @@ class Schedule(MocoBase):
         to_date = None,
         user_id = None,
         project_id = None,
-        abscence_code = None,
+        absence_code  = None,
         sort_by = None,
         sort_order = 'asc'
         ):
@@ -23,7 +23,7 @@ class Schedule(MocoBase):
         :param to_date: end date (format YYYY-MM-DD)
         :param user_id: user id the planned entries are belonging to
         :param project_id: project id
-        :param abscence_code: 1,2,3,4 (absence, public holiday, sick day, holiday)
+        :param absence_code: 1,2,3,4 (absence, public holiday, sick day, holiday)
         :param sort_by: field to sort the results by
         :param sort_order: asc or desc
         :returns: list of schedule objects
@@ -34,7 +34,7 @@ class Schedule(MocoBase):
             ("to", to_date),
             ("user_id", user_id),
             ("project_id", project_id),
-            ("absence_code", abscence_code)
+            ("absence_code ", absence_code)
         ):
             if value is not None:
                 params[key] = value
