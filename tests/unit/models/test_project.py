@@ -21,7 +21,7 @@ class TestProject(UnitTest):
         info = "more information about boards"
 
         response = self.moco.Project.create(name, currency, finish_date, leader_id, customer_id, identifier=identifier, billing_address=billing_address, billing_variant=billing_variant, hourly_rate=hourly_rate, budget=budget, labels=labels, custom_properties=custom_properties, info=info)
-        data = reponse["data"]
+        data = response["data"]
 
         assert data["name"] == name
         assert data["currency"] == currency
@@ -40,7 +40,6 @@ class TestProject(UnitTest):
     def test_update(self):
         project_id = 213
         name = "custom boards 200000"
-        currency = "EUR"
         finish_date = "2019-05-15"
         leader_id = 4123
         customer_id = 4
@@ -55,11 +54,10 @@ class TestProject(UnitTest):
         }
         info = "more information about boards"
 
-        response = self.moco.Project.update(project_id, name=name, currency=currency, finish=finish_date, leader_id=leader_id, customer_id=customer_id, identifier=identifier, billing_address=billing_address, billing_variant=billing_variant, hourly_rate=hourly_rate, budget=budget, labels=labels, custom_properties=custom_properties, info=info)
-        data = reponse["data"]
+        response = self.moco.Project.update(project_id, name=name, finish_date=finish_date, leader_id=leader_id, customer_id=customer_id, identifier=identifier, billing_address=billing_address, billing_variant=billing_variant, hourly_rate=hourly_rate, budget=budget, labels=labels, custom_properties=custom_properties, info=info)
+        data = response["data"]
 
         assert data["name"] == name
-        assert data["currency"] == currency
         assert data["finish_date"] == finish_date
         assert data["leader_id"] == leader_id
         assert data["customer_id"] == customer_id
@@ -85,7 +83,7 @@ class TestProject(UnitTest):
         leader_id = 34
         company_id = 43
         created_from = '2019-01-01'
-        create_to = '2019-10-10'
+        created_to = '2019-10-10'
         updated_from = '2015-01-01'
         updated_to = '2015-05-05'
         tags = ["these", "are", "my", "tags"]
@@ -99,7 +97,7 @@ class TestProject(UnitTest):
         assert params["leader_id"] == leader_id
         assert params["company_id"] == company_id
         assert params["created_from"] == created_from
-        assert params["creatd_to"] == creatd_to
+        assert params["created_to"] == created_to
         assert params["updated_from"] == updated_from
         assert params["updated_to"] == updated_to
         assert params["tags"] == tags
@@ -144,5 +142,26 @@ class TestProject(UnitTest):
         response = self.moco.Project.assigned(sort_by=sort_by, sort_order=sort_order)
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
+
+    def test_archive(self):
+        project_id = 123
+
+        response = self.moco.Project.archive(project_id)
+
+        assert response["method"] == "PUT"
+
+    def test_unarchive(self):
+        project_id = 123
+
+        response = self.moco.Project.unarchive(project_id)
+
+        assert response["method"] == "PUT"
+
+    def test_report(self):
+        project_id = 123
+
+        response = self.moco.Project.report(project_id)
+
+        assert response["method"] == "GET"
 
     

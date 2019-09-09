@@ -85,20 +85,20 @@ class TestActivity(UnitTest):
 
         assert response["method"] == "PATCH"
 
-    def delete(self):
+    def test_delete(self):
         activity_id = 123
 
         response = self.moco.Activity.delete(activity_id)
 
         assert response["method"] == "DELETE"
 
-    def disregard(self):
+    def test_disregard(self):
         reason = "because i said so"
         activity_ids = [123, 124, 125]
         project_id = 1
         customer_id = 2
 
-        response = self.moco.Activity.disregard(reason, activity_ids, project_id, customer_id)
+        response = self.moco.Activity.disregard(reason, activity_ids, customer_id, project_id)
         response_data = response["data"]
 
         assert response_data["reason"] == reason

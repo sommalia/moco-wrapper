@@ -207,4 +207,4 @@ class Activity(MocoBase):
             "project_id": project_id
         }  
 
-        return self._moco.post(API_PATH["activity_disregarrd"], data=data)
+        return self._moco.post(API_PATH["activity_disregard"], data=data)

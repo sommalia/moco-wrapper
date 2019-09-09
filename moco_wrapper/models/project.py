@@ -200,28 +200,15 @@ class Project(MocoBase):
 
         params = {}
         for key, value in (
-            ("active", active)
+            ("active", active),
         ):
             if value is not None:
-                data[key] = value
+                params[key] = value
 
         if sort_by is not None:
-            data["sort_by"] = "{} {}".format(sort_by, sort_order)
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["project_assigned"], params=params)
-
-    def delete(
-        self,
-        id
-        ):
-        """delete a project
-
-        deleting a project is not possible via API
-
-        :param id: id of the project to delete
-
-        """
-        pass
 
     def archive(
         self,
