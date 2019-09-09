@@ -15,8 +15,8 @@ class Company(MocoBase):
 
     def create(
         self,
-        name = None,
-        company_type = None,
+        name,
+        company_type,
         website = None,
         fax = None,
         phone = None,
@@ -84,7 +84,6 @@ class Company(MocoBase):
         self,
         id,
         name = None,
-        company_type = None,
         website = None,
         fax = None,
         phone = None,
@@ -103,7 +102,6 @@ class Company(MocoBase):
 
         :param id: Id of the company
         :param name: Name of the company
-        :param company_type: Either customer, supplier or organization
         :param website: Url of the companies website
         :param fax: Fax number of the company
         :param phone: Phone number of the company
@@ -154,7 +152,7 @@ class Company(MocoBase):
         self,
         company_type = None,
         tags = None,
-        identifer = None,
+        identifier = None,
         sort_by = None,
         sort_order = 'asc'
         ):
@@ -162,7 +160,7 @@ class Company(MocoBase):
         
         :param company_type: either "customer", "supplier", "organization"
         :param tags: list of tags
-        :param identifer: company identifer
+        :param identifier: company identifer
         :param sort_by: field to sort by
         :param sort_order: asc or desc
         :returns: list of companyies
@@ -172,7 +170,7 @@ class Company(MocoBase):
         for key, value in (
             ("type", company_type),
             ("tags", tags),
-            ("identifer", identifer)
+            ("identifier", identifier)
         ):
             if value is not None:
                 params[key] = value

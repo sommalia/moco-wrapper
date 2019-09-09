@@ -15,6 +15,8 @@ class TestComment(UnitTest):
         assert data["commentable_type"] == commentable_type
         assert data["text"] == text
 
+        assert response["method"] == "POST"
+
     def test_create_bulk(self):
         commentable_type = "Offer"
         commentable_ids = [123, 124, 125]
@@ -26,6 +28,8 @@ class TestComment(UnitTest):
         assert data["commentable_ids"] == commentable_ids
         assert data["commentable_type"] == commentable_type
         assert data["text"] == text
+
+        assert response["method"] == "POST"
 
     def test_getlist(self):
         commentable_type = "Customer"
@@ -42,19 +46,24 @@ class TestComment(UnitTest):
         assert params["user_id"] == user_id
         assert params["manual"] == manual
 
-    def test_getlist_sort(self):
+        assert response["method"] == "GET"
+
+    def test_getlist_sort_default(self):
         sort_by = "sort field"
 
         response = self.moco.Comment.getlist(sort_by=sort_by)
         params = response["params"]
-        
 
         assert params["sort_by"] == "{} asc".format(sort_by)
+        
+    def test_getlist_sort_overwrite(self):
+        sort_by = "sort field"
+        sort_order = "desc"
 
-        response = self.moco.Comment.getlist(sort_by=sort_by, sort_order="desc")
+        response = self.moco.Comment.getlist(sort_by=sort_by, sort_order=sort_order)
         params = response["params"]
 
-        assert params["sort_by"] == "{} desc".format(sort_by)
+        assert params["sort_by"] == "{} {}".format(sort_by, sort_order)
 
     def test_get(self):
         comment_id = 5
@@ -62,6 +71,7 @@ class TestComment(UnitTest):
         response = self.moco.Comment.get(comment_id)
 
         assert response["path"].endswith("/comments/{}".format(comment_id))
+        assert response["method"] == "GET"
 
     def test_delete(self):
         comment_id = 5

@@ -15,30 +15,38 @@ class TestActivity(UnitTest):
         assert response_data["task_id"] == task_id
         assert response_data["hours"] == hours
 
+        assert response["method"] == "POST"
+
     def test_getlist(self):
         from_date = "2019-01-01"
         to_date = "2020-01-01"
         user_id = 21
         project_id = 22
-        sort_by = "sort by field"
 
-        response = self.moco.Activity.getlist(from_date=from_date, to_date=to_date, user_id=user_id, project_id=project_id, sort_by=sort_by)
+        response = self.moco.Activity.getlist(from_date=from_date, to_date=to_date, user_id=user_id, project_id=project_id)
 
         response_params = response["params"]
         assert response_params["from"] == from_date
         assert response_params["to"] == to_date
         assert response_params["user_id"] == user_id
         assert response_params["project_id"] == project_id
-        assert response_params["sort_by"] == "{} asc".format(sort_by)
 
-    def test_getlist_sort_order(self):
+        assert response["method"] == "GET"
+
+    def test_getlist_sort_default(self):
         sort_by = "sort by field"
-
-
-        response = self.moco.Activity.getlist(sort_by=sort_by, sort_order="desc")
+        response = self.moco.Activity.getlist(sort_by=sort_by)
 
         response_params = response["params"]
-        assert response_params["sort_by"] == "{} desc".format(sort_by)
+        assert response_params["sort_by"] == "{} asc".format(sort_by)
+
+    def test_getlist_sort_overwrite(self):
+        sort_by = "sort by field"
+        sort_order = "desc"
+        response = self.moco.Activity.getlist(sort_by=sort_by, sort_order=sort_order)
+
+        response_params = response["params"]
+        assert response_params["sort_by"] == "{} {}".format(sort_by, sort_order)
 
     def test_get(self):
         activity_id = 21
@@ -47,6 +55,8 @@ class TestActivity(UnitTest):
         assert response["params"] == None
         assert response["data"] == None
         assert response["path"].endswith("/activities/{}".format(activity_id))
+
+        assert response["method"] == "GET"
 
     def test_update(self):
         project_id = 12412
@@ -62,6 +72,8 @@ class TestActivity(UnitTest):
         assert response_data["hours"] == hours
 
         assert response["path"].endswith("/activities/{}".format(activity_id))
+
+        assert response["method"] == "PUT"
 
     def test_start_timer(self):
         activity_id = 123
@@ -99,4 +111,6 @@ class TestActivity(UnitTest):
         assert response_data["reason"] == reason
         assert response_data["activity_ids"] == activity_ids
         assert response_data["project_id"] == project_id
-        assert response_data["customer_id"] == customer_id        
+        assert response_data["customer_id"] == customer_id   
+
+        assert response["method"] == "POST"     
