@@ -86,7 +86,6 @@ class TestCompany(UnitTest):
         assert data["default_invoice_due_days"] == default_invoice_due_days
 
         assert response["method"] == "PUT"
-        assert response["path"].endswith("/companies/{}".format(company_id))
 
     def test_get(self):
         company_id = 1234
@@ -94,7 +93,6 @@ class TestCompany(UnitTest):
         response = self.moco.Company.get(company_id)
 
         assert response["method"] == "GET"
-        assert response["path"].endswith("/companies/{}".format(company_id))
 
     def test_getlist(self):
         company_type = "supplier",
@@ -109,7 +107,6 @@ class TestCompany(UnitTest):
         assert params["identifier"] == identifier
 
         assert response["method"] == "GET"
-        assert response["path"].endswith("/companies")
 
     def test_getlist_sort_default(self):
         sort_by = "test sort field"

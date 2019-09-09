@@ -20,12 +20,14 @@ class Contact(MocoBase):
         gender,
         customer_id = None,
         title = None,
+        job_position = None,
         mobile_phone = None,
         work_fax = None,
         work_phone = None,
         work_email = None,
         work_address = None,
         home_address = None,
+        home_email = None,
         birthday = None,
         info = None,
         tags = None):
@@ -36,12 +38,14 @@ class Contact(MocoBase):
         :param gender: either F, M, U
         :param customer_id: Id of the customer (company) the contact belongs to
         :param title: Title the contact has
+        :param job_position: name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
         :param work_fax: Fax number for work purposes
         :param work_phone: Phone number for work purposes
         :param work_email: Work email address
         :param work_address: Work address
         :param home_address: Home address
+        :param home_email: home email address
         :param birthday: Birthday (format YYYY-MM-DD)
         :param info: More information about the contact
         :param tags: Array of additional tags
@@ -56,12 +60,14 @@ class Contact(MocoBase):
         for key, value in (
             ("customer_id", customer_id),
             ("title", title),
+            ("job_position", job_position),
             ("mobile_phone", mobile_phone),
             ("work_fax", work_fax),
             ("work_phone", work_phone),
             ("work_email", work_email),
             ("work_address", work_address),
             ("home_address", home_address),
+            ("home_email", home_email),
             ("birthday", birthday),
             ("info", info),
             ("tags", tags)
@@ -79,12 +85,14 @@ class Contact(MocoBase):
         gender = None,
         customer_id = None,
         title = None,
+        job_position = None,
         mobile_phone = None,
         work_fax = None,
         work_phone = None,
         work_email = None,
         work_address = None,
         home_address = None,
+        home_email = None,
         birthday = None,
         info = None,
         tags = None
@@ -97,12 +105,14 @@ class Contact(MocoBase):
         :param gender: either F, M, U
         :param customer_id: Id of the customer (company) the contact belongs to
         :param title: Title the contact has
+        :param job_position: name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
         :param work_fax: Fax number for work purposes
         :param work_phone: Phone number for work purposes
         :param work_email: Work email address
         :param work_address: Work address
         :param home_address: Home address
+        :param home_email: home email address
         :param birthday: Birthday (format YYYY-MM-DD)
         :param info: More information about the contact
         :param tags: Array of additional tags
@@ -116,12 +126,14 @@ class Contact(MocoBase):
             ("gender", gender),
             ("customer_id", customer_id),
             ("title", title),
+            ("job_position", job_position),
             ("mobile_phone", mobile_phone),
             ("work_fax", work_fax),
             ("work_phone", work_phone),
             ("work_email", work_email),
             ("work_address", work_address),
             ("home_address", home_address),
+            ("home_email", home_email),
             ("birthday", birthday),
             ("info", info),
             ("tags", tags)
@@ -156,8 +168,13 @@ class Contact(MocoBase):
         :param sort_order: asc or desc
         :returns: list of contact objects
         """
-
         params = {}
+        for key, value in (
+            ("tags", tags),
+        ):
+            if value is not None:
+                params[key] = value
+
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 

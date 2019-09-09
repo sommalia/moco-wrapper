@@ -70,7 +70,6 @@ class TestComment(UnitTest):
 
         response = self.moco.Comment.get(comment_id)
 
-        assert response["path"].endswith("/comments/{}".format(comment_id))
         assert response["method"] == "GET"
 
     def test_delete(self):
@@ -78,7 +77,6 @@ class TestComment(UnitTest):
 
         response = self.moco.Comment.delete(comment_id)
 
-        assert response["path"].endswith("/comments/{}".format(comment_id))
         assert response["method"] == "DELETE"
 
     def test_update(self):
@@ -96,5 +94,4 @@ class TestComment(UnitTest):
         assert data["commentable_id"] == commentable_id
         assert data["commentable_type"] == commentable_type
 
-        assert response["path"].endswith("/comments/{}".format(comment_id))
         assert response["method"] == "PUT"

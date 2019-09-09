@@ -54,8 +54,6 @@ class TestActivity(UnitTest):
 
         assert response["params"] == None
         assert response["data"] == None
-        assert response["path"].endswith("/activities/{}".format(activity_id))
-
         assert response["method"] == "GET"
 
     def test_update(self):
@@ -71,8 +69,6 @@ class TestActivity(UnitTest):
         assert response_data["task_id"] == task_id
         assert response_data["hours"] == hours
 
-        assert response["path"].endswith("/activities/{}".format(activity_id))
-
         assert response["method"] == "PUT"
 
     def test_start_timer(self):
@@ -80,7 +76,6 @@ class TestActivity(UnitTest):
 
         response = self.moco.Activity.start_timer(activity_id)
         
-        assert response["path"].endswith("{}/start_timer".format(activity_id))
         assert response["method"] == "PATCH"
 
     def test_stop_timer(self):
@@ -88,7 +83,6 @@ class TestActivity(UnitTest):
 
         response = self.moco.Activity.stop_timer(activity_id)
 
-        assert response["path"].endswith("{}/stop_timer".format(activity_id))
         assert response["method"] == "PATCH"
 
     def delete(self):
@@ -96,7 +90,6 @@ class TestActivity(UnitTest):
 
         response = self.moco.Activity.delete(activity_id)
 
-        assert response["path"].endswith("/activities/{}".format(activity_id))
         assert response["method"] == "DELETE"
 
     def disregard(self):
