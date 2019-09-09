@@ -37,6 +37,9 @@ class TestMocoWrapper(UnitTest):
     def test_project_contact_set(self):
         assert isinstance(self.moco.ProjectContract, models.ProjectContract)
 
+    def test_proejct_deal_set(self):
+        assert isinstance(self.moco.Deal, models.Deal)
+
     def test_wrapper_init(self):
         new_moco = moco_wrapper.Moco(api_key="api_key", domain="domain")
         assert new_moco.api_key == "api_key"

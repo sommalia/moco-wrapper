@@ -33,6 +33,8 @@ class Moco(object):
         self.ProjectContract = models.ProjectContract(self)
         self.ProjectExpense = models.ProjectExpense(self)
 
+        self.Deal = models.Deal(self)
+
 
         self._requestor = None
         for key, value in kwargs.items():

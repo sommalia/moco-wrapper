@@ -1,0 +1,110 @@
+import pytest
+
+from .. import UnitTest
+
+class TestDeal(UnitTest):
+    def test_create(self):
+        name = "deal name"
+        currency = "EUR"
+        money = 23143
+        reminder_date = "2019-10-10"
+        user_id = 25
+        deal_category_id = 2
+        company_id = 2
+        info = "more deal information"
+        status = "potential"
+
+        response = self.moco.Deal.create(name, currency, money, reminder_date, user_id, deal_category_id, company_id=company_id, info=info, status=status)
+        data = response["data"]
+
+        assert data["name"] == name
+        assert data["currency"] == currency
+        assert data["money"] == money
+        assert data["reminder_date"] == reminder_date
+        assert data["user_id"] == user_id
+        assert data["deal_category_id"] == deal_category_id
+        assert data["company_id"] == company_id
+        assert data["info"] == info
+        assert data["status"] == status
+
+        assert response["method"] == "POST"
+
+    def test_create_default_statuts(self):
+        name = "deal name"
+        currency = "EUR"
+        money = 23143
+        reminder_date = "2019-10-10"
+        user_id = 25
+        deal_category_id = 2
+        response = self.moco.Deal.create(name, currency, money, reminder_date, user_id, deal_category_id)
+        data = response["data"]
+
+        assert data["name"] == name
+        assert data["currency"] == currency
+        assert data["money"] == money
+        assert data["reminder_date"] == reminder_date
+        assert data["user_id"] == user_id
+        assert data["deal_category_id"] == deal_category_id
+        assert data["status"] == "pending"
+
+
+    def test_update(self):
+        deal_id = 333
+        name = "deal name"
+        currency = "EUR"
+        money = 23143
+        reminder_date = "2019-10-10"
+        user_id = 25
+        deal_category_id = 2
+        company_id = 2
+        info = "more deal information"
+        status = "potential"
+
+        response = self.moco.Deal.update(deal_id, name=name, currency=currency, money=money, reminder_date=reminder_date, user_id=user_id, deal_category_id=deal_category_id, company_id=company_id, info=info, status=status)
+        data = response["data"]
+
+        assert data["name"] == name
+        assert data["currency"] == currency
+        assert data["money"] == money
+        assert data["reminder_date"] == reminder_date
+        assert data["user_id"] == user_id
+        assert data["deal_category_id"] == deal_category_id
+        assert data["company_id"] == company_id
+        assert data["info"] == info
+        assert data["status"] == status
+
+        assert response["method"] == "PUT"
+
+    def test_get(self):
+        deal_id = 333
+
+        response = self.moco.Deal.get(deal_id)
+
+        assert response["method"] == "GET"
+
+    def test_getlist(self):
+        status = "lost"
+        tags = ["thios", "is", "the", "story", "of"]
+
+        response = self.moco.Deal.getlist(status=status, tags=tags)
+        params = response["params"]
+
+        assert params["status"] == status
+        assert params["tags"] == tags
+        assert response["method"] == "GET"
+
+    def test_getlist_sort_default(self):
+        sort_by = "test field to sort by"
+
+        response = self.moco.Deal.getlist(sort_by=sort_by)
+        
+        assert response["params"]["sort_by"] == "{} asc".format(sort_by)
+
+    def test_getlist_sort_overwrite(self):
+        sort_by = "test field to sort by"
+        sort_order = "desc"
+
+        response = self.moco.Deal.getlist(sort_by=sort_by, sort_order=sort_order)
+        
+        assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)   
+
