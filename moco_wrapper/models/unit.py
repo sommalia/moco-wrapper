@@ -34,7 +34,7 @@ class Unit(MocoBase):
 
         params = {}
         if sort_order is not None:
-            params["sort_order"] = "{} {}".format(sort_order, sort_by)
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["unit_getlist"], params=params)
 
