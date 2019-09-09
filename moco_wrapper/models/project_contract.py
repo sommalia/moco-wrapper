@@ -105,7 +105,7 @@ class ProjectContract(MocoBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_contract_getlist"].format(project_id=project_id))
+        return self._moco.get(API_PATH["project_contract_getlist"].format(project_id=project_id), params=params)
 
     def delete(
         self,
