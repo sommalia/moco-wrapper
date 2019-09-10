@@ -1,7 +1,7 @@
 from .. import UnitTest
 import pytest
 
-class ProjectRecurringExpense(UnitTest):
+class TestProjectRecurringExpense(UnitTest):
     def test_getlist(self):
         assert False
 

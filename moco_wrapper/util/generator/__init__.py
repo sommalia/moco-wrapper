@@ -1,1 +1,2 @@
 from .invoice_item_generator import InvoiceItemGenerator
+from .invoice_payment_generator import InvoicePaymentGenerator
