@@ -18,6 +18,8 @@ from .invoice import Invoice
 from .invoice_payment import InvoicePayment
 from .offer import Offer
 
+
 from .project import Project
 from .project_contract import ProjectContract
-from. project_expense import ProjectExpense
+from .project_expense import ProjectExpense
+from .project_task import ProjectTask

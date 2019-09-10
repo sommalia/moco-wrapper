@@ -37,6 +37,9 @@ class TestMocoWrapper(UnitTest):
     def test_project_contact_set(self):
         assert isinstance(self.moco.ProjectContract, models.ProjectContract)
 
+    def test_project_task_set(self):
+        assert isinstance(self.moco.ProjectTask, models.ProjectTask)
+
     def test_project_deal_set(self):
         assert isinstance(self.moco.Deal, models.Deal)
 

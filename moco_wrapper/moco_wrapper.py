@@ -32,12 +32,14 @@ class Moco(object):
         self.Project = models.Project(self)
         self.ProjectContract = models.ProjectContract(self)
         self.ProjectExpense = models.ProjectExpense(self)
+        self.ProjectTask = models.ProjectTask(self)
 
         self.Deal = models.Deal(self)
 
         self.Invoice = models.Invoice(self)
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
+        
 
         self._requestor = None
         for key, value in kwargs.items():
