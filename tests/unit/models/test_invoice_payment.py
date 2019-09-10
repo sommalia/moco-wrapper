@@ -25,3 +25,5 @@ class TestInvoicePayment(UnitTest):
 
     def test_delete(self):
         assert False
+
+        
