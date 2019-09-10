@@ -34,23 +34,26 @@ class TestMocoWrapper(UnitTest):
     def test_project_expense_set(self):
         assert isinstance(self.moco.ProjectExpense, models.ProjectExpense)
 
-    def test_project_contact_set(self):
+    def test_contact_set(self):
         assert isinstance(self.moco.ProjectContract, models.ProjectContract)
 
     def test_project_task_set(self):
         assert isinstance(self.moco.ProjectTask, models.ProjectTask)
 
-    def test_project_deal_set(self):
+    def test_deal_set(self):
         assert isinstance(self.moco.Deal, models.Deal)
 
-    def test_project_invoice_set(self):
+    def test_invoice_set(self):
         assert isinstance(self.moco.Invoice, models.Invoice)
 
-    def test_project_invoice_payment_set(self):
+    def test_invoice_payment_set(self):
         assert isinstance(self.moco.InvoicePayment, models.InvoicePayment)
 
-    def test_project_offer_set(self):
+    def test_offer_set(self):
         assert isinstance(self.moco.Offer, models.Offer)
+
+    def test_presence_set(self):
+        assert isinstance(self.moco.Presence, models.Presence)
 
     def test_wrapper_init(self):
         new_moco = moco_wrapper.Moco(api_key="api_key", domain="domain")
