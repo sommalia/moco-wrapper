@@ -18,6 +18,7 @@ from .invoice import Invoice
 from .invoice_payment import InvoicePayment
 from .offer import Offer
 from .presence import Presence
+from .holiday import Holiday
 
 from .project import Project
 from .project_contract import ProjectContract

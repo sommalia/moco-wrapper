@@ -55,6 +55,9 @@ class TestMocoWrapper(UnitTest):
     def test_presence_set(self):
         assert isinstance(self.moco.Presence, models.Presence)
 
+    def test_holiday_set(self):
+        assert isinstance(self.moco.Holiday, models.Holiday)
+
     def test_wrapper_init(self):
         new_moco = moco_wrapper.Moco(api_key="api_key", domain="domain")
         assert new_moco.api_key == "api_key"

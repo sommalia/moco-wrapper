@@ -40,6 +40,7 @@ class Moco(object):
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
         self.Presence = models.Presence(self)
+        self.Holiday = models.Holiday(self)
         
 
         self._requestor = None
