@@ -34,6 +34,7 @@ class Moco(object):
         self.ProjectExpense = models.ProjectExpense(self)
 
         self.Deal = models.Deal(self)
+        self.Invoice = models.Invoice(self)
 
 
         self._requestor = None

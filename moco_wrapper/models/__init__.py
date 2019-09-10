@@ -14,6 +14,7 @@ from .unit import Unit
 from .user import User
 from .schedule import Schedule
 from .deal import Deal
+from .invoice import Invoice
 
 from .project import Project
 from .project_contract import ProjectContract
