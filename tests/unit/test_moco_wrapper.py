@@ -61,6 +61,9 @@ class TestMocoWrapper(UnitTest):
     def test_employment_set(self):
         assert isinstance(self.moco.Employment, models.Employment)
 
+    def test_project_recurring_expense_set(self):
+        assert isinstance(self.moco.ProjectRecurringExpense, models.ProjectRecurringExpense)
+
     def test_wrapper_init(self):
         new_moco = moco_wrapper.Moco(api_key="api_key", domain="domain")
         assert new_moco.api_key == "api_key"
