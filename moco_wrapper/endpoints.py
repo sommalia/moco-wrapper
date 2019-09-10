@@ -17,6 +17,8 @@ API_PATH = {
     "deal_update":                  "/deals/{id}",
     "deal_get":                     "/deals/{id}",
     "deal_getlist":                 "/deals",
+    "employment_get":               "/users/employments/{id}",
+    "employment_getlist":           "/users/employments",
     "invoice_getlist":              "/invoices",
     "invoice_get":                  "/invoices/{id}",
     "invoice_locked":               "/invoices/locked",
