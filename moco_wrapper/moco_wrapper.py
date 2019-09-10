@@ -37,6 +37,7 @@ class Moco(object):
 
         self.Invoice = models.Invoice(self)
         self.InvoicePayment = models.InvoicePayment(self)
+        self.Offer = models.Offer(self)
 
         self._requestor = None
         for key, value in kwargs.items():

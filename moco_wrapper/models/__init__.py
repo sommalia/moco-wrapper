@@ -16,6 +16,7 @@ from .schedule import Schedule
 from .deal import Deal
 from .invoice import Invoice
 from .invoice_payment import InvoicePayment
+from .offer import Offer
 
 from .project import Project
 from .project_contract import ProjectContract
