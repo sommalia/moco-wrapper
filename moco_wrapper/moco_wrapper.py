@@ -41,6 +41,7 @@ class Moco(object):
         self.Offer = models.Offer(self)
         self.Presence = models.Presence(self)
         self.Holiday = models.Holiday(self)
+        self.Employment = models.Employment(self)
         
 
         self._requestor = None
