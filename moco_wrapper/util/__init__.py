@@ -9,3 +9,5 @@ __version__ = '0.1.0'
 
 from .requester import RateLimitedRequestor
 from .requester import TestRequester
+
+from .generator import InvoiceItemGenerator
