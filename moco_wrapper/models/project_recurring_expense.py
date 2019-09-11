@@ -20,7 +20,11 @@ class ProjectRecurringExpense(MocoBase):
         :param sort_order: asc or desc
         :returns: list of recurring expenses
         """
-        pass
+        params = {}
+        if sort_by is not None:
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
+
+        return self._moco.get(API_PATH["project_recurring_expense_getlist"].format(project_id=project_id), params=params)
 
     def get(
         self,
@@ -33,7 +37,7 @@ class ProjectRecurringExpense(MocoBase):
         :param recurring_expense_id: id of the recurring expense
         :returns: a single recurring expense object
         """
-        pass
+        return self._moco.get(API_PATH["project_recurring_expense_get"].format(project_id=project_id, recurring_expense_id=recurring_expense_id))
 
     def create(
         self,
@@ -47,11 +51,48 @@ class ProjectRecurringExpense(MocoBase):
         unit_cost,
         finish_date = None,
         description = None,
-        billable = None,
-        budget_relevant = None,
+        billable = True,
+        budget_relevant = False,
         custom_properties = None,
         ):
-        pass
+        """create a new recurring expense on a project
+
+        :param project_id: id of the project to create the expense for
+        :param start_date: starting date of the expense (format YYYY-MM-DD)
+        :param period: period of the expense ("weekly", "biweekly", "monthly", "quarterly", "biannual" or "annual")
+        :param title: title of the expense
+        :param quantity: quantity (ex. 5)
+        :param unit: unit name (ex. "Server")
+        :param unit_price: unit price (ex. 400.50)
+        :param unit_cost: unit cost (ex. 320.13)
+        :param finish_date: finish date (format YYYY-MM-DD) (if empty: unlimited)
+        :param description: description text
+        :param billable: true/false billable or not (default true)
+        :param budget_relevant: true/false budget relevant or not (default false)
+        :param custom_properties: custom fields to add
+        :returns: the created recurring expense object
+        """
+        data = {
+            "start_date": start_date,
+            "period": period,
+            "title": title,
+            "quantity": quantity,
+            "unit": unit,
+            "unit_price": unit_price,
+            "unit_cost": unit_cost
+        }
+
+        for key, value in (
+            ("finish_date", finish_date),
+            ("description", description),
+            ("billable", billable),
+            ("budget_relevant", budget_relevant),
+            ("custom_properties", custom_properties)
+        ):
+            if value is not None:
+                data[key] = value
+
+        return self._moco.post(API_PATH["project_recurring_expense_create"].format(project_id=project_id), data=data)
 
     def update(
         self,
@@ -68,11 +109,48 @@ class ProjectRecurringExpense(MocoBase):
         budget_relevant = None,
         custom_properties = None,
         ):
-        pass
+        """update an existing recurring expense
+
+        :param project_id: id of the project
+        :param recurring_expense_id: id of the expense to update
+        :param title: title of the expense
+        :param quantity: quantity (ex. 5)
+        :param unit: unit name (ex. "Server")
+        :param unit_price: unit price (ex. 400.50)
+        :param unit_cost: unit cost (ex. 320.13)
+        :param finish_date: finish date (format YYYY-MM-DD) (if empty: unlimited)
+        :param description: description text
+        :param billable: true/false billable or not
+        :param budget_relevant: true/false budget relevant or not
+        :param custom_properties: custom fields to add
+        :returns: the updated recurring expense object
+        """
+        data = {}
+        for key, value in (
+            ("title", title),
+            ("quantity", quantity),
+            ("unit", unit),
+            ("unit_price", unit_price),
+            ("unit_cost", unit_cost),
+            ("finish_date", finish_date),
+            ("description", description),
+            ("billable", billable),
+            ("budget_relevant", budget_relevant),
+            ("custom_properties", custom_properties)
+        ):
+            if value is not None:
+                data[key] = value
+
+        return self._moco.put(API_PATH["project_recurring_expense_update"].format(project_id=project_id, recurring_expense_id=recurring_expense_id), data=data)
 
     def delete(
         self,
         project_id,
         recurring_expense_id,
         ):
-        pass
+        """deletes an existing expense
+
+        :param project_id: project id the expense belongs to
+        :param recurring_expense_id: id of the expense to delete
+        """
+        return self._moco.delete(API_PATH["project_recurring_expense_delete"].format(project_id=project_id, recurring_expense_id=recurring_expense_id))
