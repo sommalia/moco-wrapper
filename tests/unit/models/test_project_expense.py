@@ -33,6 +33,39 @@ class TestProjectExpense(UnitTest):
 
         assert response["method"] == "POST"
 
+    def test_create_default_billable(self):
+        billable_default = True
+
+        project_id = 2
+        date = '2019-10-10'
+        title = "this is an expense"
+        quantity = 3
+        unit = "server"
+        unit_price = 200
+        unit_cost = 100
+
+        response = self.moco.ProjectExpense.create(project_id, date, title, quantity, unit, unit_price, unit_cost)
+        data = response["data"]
+
+        assert data["billable"] == billable_default
+
+    def test_create_default_budget_relevant(self):
+        budget_relevant_default = False
+
+        project_id = 2
+        date = '2019-10-10'
+        title = "this is an expense"
+        quantity = 3
+        unit = "server"
+        unit_price = 200
+        unit_cost = 100
+
+        response = self.moco.ProjectExpense.create(project_id, date, title, quantity, unit, unit_price, unit_cost)
+        data = response["data"]
+
+        assert data["budget_relevant"] == budget_relevant_default
+
+
     def test_create_bulk(self):
         project_id = 2
         items = [

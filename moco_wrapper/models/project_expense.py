@@ -17,8 +17,8 @@ class ProjectExpense(MocoBase):
         unit_price,
         unit_cost,
         description = None,
-        billable = None,
-        budget_relevant = None,
+        billable = True,
+        budget_relevant = False,
         custom_properties = None
         ):
         """create an additional project expense
@@ -31,8 +31,8 @@ class ProjectExpense(MocoBase):
         :param unit_price: price of the unit that is sold
         :param unit_cost: const of the unit that is sold
         :param description: descripion of the expense
-        :param billable: true/false is this expense billable, yes or no?
-        :param budget_relevant: true/false is this expense relevant for the budget of the project?
+        :param billable: true/false is this expense billable, yes or no? (default true)
+        :param budget_relevant: true/false is this expense relevant for the budget of the project? (default false)
         :param custom_properties: additional fields as dictionary
         :returns: the created expense object
 
@@ -66,7 +66,7 @@ class ProjectExpense(MocoBase):
         """create an multiple expenses for a project
 
         :param project_id: id of the project to created the expnses for
-        :param items: bulk expense entries to create. A single entry consists of the same fields that are used when only creating one entry
+        :param items: bulk expense entries to create. A single entry consists of the same fields that are used when only creating one entry (also see PaymentExpenseGenerator)
         :returns: the created entries
         """
         
