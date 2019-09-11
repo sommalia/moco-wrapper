@@ -12,3 +12,4 @@ from .requester import TestRequester
 
 from .generator import InvoiceItemGenerator
 from .generator import InvoicePaymentGenerator
+from .generator import ProjectExpenseGenerator

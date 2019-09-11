@@ -167,7 +167,7 @@ class Invoice(MocoBase):
         :param title: invoice title
         :param tax: tax percent
         :param currency: a valid currency code of the accoutn (ex. EUR)
-        :param items: invoice item (see util/generator::InvoiceItemGenerator)
+        :param items: invoice item (see InvoiceItemGenerator)
         :param status: status of the invoice ("created", "draft"), default is created
         :param change_address: address propagation ("invoice", "project", "customer"), default is "invoice"
         :param salutation: salutation text
