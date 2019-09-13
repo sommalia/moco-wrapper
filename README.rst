@@ -6,34 +6,55 @@ moco-wrapper
 .. image:: https://img.shields.io/pypi/v/moco_wrapper.svg
         :target: https://pypi.python.org/pypi/moco_wrapper
 
-.. image:: https://img.shields.io/travis/sommalia/moco_wrapper.svg
-        :target: https://travis-ci.org/sommalia/moco_wrapper
-
-.. image:: https://readthedocs.org/projects/moco-wrapper/badge/?version=latest
-        :target: https://moco-wrapper.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+.. image:: https://img.shields.io/travis/sommalia/moco-wrapper.svg
+        :target: https://travis-ci.org/sommalia/moco-wrapper
 
 
+The "moco-wrapper" is a python package that allows for simple access to Mocos API. 
+
+## Disclaimer (semi-serious) ##
+
+This project is in no way finished, or polished. I am not responsible for any commercial, financial or emotional damage that may or may not be caused by using this project.
+
+I am also not affiliated with the people behind moco. The package implements the api as described in its readme (https://github.com/hundertzehn/mocoapp-api-docs)
 
 
-Wrapper package for using the moco api interface
 
 
-* Free software: GNU General Public License v3
-* Documentation: https://moco-wrapper.readthedocs.io.
+
+### Running the tests
+
+Tests can be run with the tox command
+
+```
+tox
+```
+
+This command will run all the tests.
+
+If you want to only run a specific set of tests, they are structured in the follwing 3 Folders.
+
+* production (need configuration to run)
+* integration (not implemented)
+* unit
 
 
-Features
---------
+## License
 
-* TODO
+This project is licensed under the GNU Public License - see the [LICENSE](LICENSE) file for details
 
-Credits
--------
+
+## Credits
+
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+This package tries to imitate the way that the praw-package, for wrapping arount the reddit api, was structured
+
+.. praw: https://github.com/praw-dev/praw
 
 ....
