@@ -12,22 +12,22 @@ moco-wrapper
 
 The "moco-wrapper" is a python package that allows for simple access to Mocos API. 
 
-## Disclaimer (semi-serious) ##
+Disclaimer (semi-serious)
+-------------------------
 
 This project is in no way finished, or polished. I am not responsible for any commercial, financial or emotional damage that may or may not be caused by using this project.
 
-I am also not affiliated with the people behind moco. The package implements the api as described in its readme (https://github.com/hundertzehn/mocoapp-api-docs)
+I am also not affiliated with the people behind moco. The package implements the api as described in its readme https://github.com/hundertzehn/mocoapp-api-docs
 
 
 
+Running the tests
+-----------------
 
-
-### Running the tests
-
-Tests can be run with the tox command
+Tests can be run by executing the *tox* commend inside the root direcotry of this project
 
 ```
-tox
+> tox
 ```
 
 This command will run all the tests.
@@ -39,12 +39,14 @@ If you want to only run a specific set of tests, they are structured in the foll
 * unit
 
 
-## License
+License
+-------
 
 This project is licensed under the GNU Public License - see the [LICENSE](LICENSE) file for details
 
 
-## Credits
+Credits
+-------
 
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
