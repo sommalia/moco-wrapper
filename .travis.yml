@@ -15,7 +15,6 @@ script: tox
 
 #set environment variables
 env:
-  - mocotest_apikey="[APIKEY]"
-  - mocotest_domain="[DOMAIN]"
+  - mocotest_apikey="[APIKEY]" mocotest_domain="[DOMAIN]"
 
 
