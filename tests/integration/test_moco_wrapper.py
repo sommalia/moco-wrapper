@@ -4,5 +4,5 @@ import pytest
 class TestMocoWrapper(IntegrationTest):
     
     def test_placeholder(self):
-        print (pytest.placeholders)
-        assert False
+        print (pytest.placeholders.test_placeholder)
+        assert True

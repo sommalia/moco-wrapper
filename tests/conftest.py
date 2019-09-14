@@ -1,7 +1,7 @@
 import pytest
 
 placeholders = {
-    "test_placeholder" : "best"
+    "test_placeholder" : "this is a test placeholder"
 } 
 
 class Placeholders(object):
