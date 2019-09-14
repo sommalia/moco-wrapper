@@ -98,5 +98,10 @@ class Moco(object):
     def full_domain(self):
         return "https://{}.mocoapp.com/api/v1".format(self.domain)
 
+    @property
+    def http(self):
+        """access the http session of the wrappers requestor"""
+        return self._requestor.session
+
     
     

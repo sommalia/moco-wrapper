@@ -1,4 +1,6 @@
 import pytest
+import betamax
+
 from moco_wrapper.moco_wrapper import Moco
 
 class IntegrationTest(object):
@@ -9,7 +11,7 @@ class IntegrationTest(object):
         self.setup_betamax()
 
     def setup_betamax(self):
-        self.recorder = Betamax(self._moco._session)
+        self.recorder = betamax.Betamax(self._moco.http)
 
     def setup_moco(self):
         self._moco = Moco()

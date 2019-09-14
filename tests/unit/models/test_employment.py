@@ -1,8 +1,8 @@
 from .. import UnitTest
-import pytest
 
 class TestEmployment(UnitTest):
-
+    """class for testing the employment model"""
+    
     def test_getlist(self):
         from_date = "2019-10-10"
         to_date = "2020-10-10"

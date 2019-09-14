@@ -1,12 +1,22 @@
 import requests
 import time
 
-class RateLimitedRequestor(object):
+class BaseRequestor(object):
+
+    @property
+    def session(self):
+        return None
+
+class RateLimitedRequestor(BaseRequestor):
 
     def __init__(self):
-        self.session = requests.Session()
+        self._session = requests.Session()
 
         self.requests_timestamps = []
+
+    @property
+    def session(self):
+        return self._session
 
     def request(self, path, method, params = None, data = None, **kwargs):
 
