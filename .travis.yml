@@ -14,7 +14,7 @@ install: pip install -U tox-travis
 script: tox
 
 #set environment variables
-env:
-  - mocotest_apikey="[APIKEY]" mocotest_domain="[DOMAIN]"
+#env:
+#  - mocotest_apikey="[APIKEY]" mocotest_domain="[DOMAIN]"
 
 
