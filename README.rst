@@ -39,6 +39,18 @@ If you want to only run a specific set of tests, they are structured in the foll
 * unit
 
 
+Setting up integration tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For the integration tests 2 environment variables are needed *mocotest_apikey* and *mocotest_domain*. Set them like this
+
+```
+> export mocotest_apikey="this is the api key"
+> export mocotest_domain="testdomain"
+```
+
+
+
 License
 -------
 
