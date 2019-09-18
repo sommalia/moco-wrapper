@@ -126,7 +126,7 @@ class TestInvoice(UnitTest):
 
         assert response["method"] == "GET"
 
-    def test_get_locked(self):
+    def test_locked(self):
         status = "created",
         date_from = '2019-10-10'
         date_to = '2020-10-10'
@@ -144,20 +144,32 @@ class TestInvoice(UnitTest):
         assert response["method"] == "GET"
 
 
-    def test_get_locked_sort_default(self):
+    def test_locked_sort_default(self):
         sort_by = "this is the field to sort by"
 
         response = self.moco.Invoice.locked(sort_by=sort_by)
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
-    def test_get_locked_sort_overwrite(self):
+    def test_locked_sort_overwrite(self):
         sort_by = "this is the field to sort by"
         sort_order = "desc"
 
         response = self.moco.Invoice.locked(sort_by=sort_by, sort_order=sort_order)
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
+
+    def test_locked_page_default(self):
+        page_default = 1
+
+        response = self.moco.Invoice.locked()
+        assert response["params"]["page"] == page_default
+
+    def test_locked_page_overwrite(self):
+        page_overwrite = 22
+
+        response = self.moco.Invoice.locked(page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite
 
     def test_getlist(self):
         status = "created",
@@ -192,3 +204,15 @@ class TestInvoice(UnitTest):
         response = self.moco.Invoice.getlist(sort_by=sort_by, sort_order=sort_order)
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
+
+    def test_getlist_page_default(self):
+        page_default = 1
+
+        response = self.moco.Invoice.getlist()
+        assert response["params"]["page"] == page_default
+
+    def test_getlist_page_overwrite(self):
+        page_overwrite = 22
+
+        response = self.moco.Invoice.getlist(page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite

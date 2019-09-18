@@ -123,4 +123,16 @@ class TestCompany(UnitTest):
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order) 
 
+    def test_getlist_page_default(self):
+        page_default = 1
+
+        response = self.moco.Company.getlist()
+        assert response["params"]["page"] == page_default
+
+    def test_getlist_page_overwrite(self):
+        page_overwrite = 22
+
+        response = self.moco.Company.getlist(page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite
+
         

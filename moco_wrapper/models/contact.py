@@ -159,18 +159,21 @@ class Contact(MocoBase):
         self,
         tags = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve a list of contact objects
 
         :param tags: array of tags
         :param sort_by: field to the results by
         :param sort_order: asc or desc
+        :param page: page number (default 1)
         :returns: list of contact objects
         """
         params = {}
         for key, value in (
             ("tags", tags),
+            ("page", page)
         ):
             if value is not None:
                 params[key] = value

@@ -26,6 +26,20 @@ class TestProjectTask(UnitTest):
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
+    def test_getlist_page_default(self):
+        project_id = 1
+        page_default = 1
+
+        response = self.moco.ProjectTask.getlist(project_id)
+        assert response["params"]["page"] == page_default
+
+    def test_getlist_page_overwrite(self):
+        project_id = 1
+        page_overwrite = 22
+
+        response = self.moco.ProjectTask.getlist(project_id, page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite
+
     def test_get(self):
         project_id = 2
         task_id = 3

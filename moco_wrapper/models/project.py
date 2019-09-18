@@ -142,7 +142,8 @@ class Project(MocoBase):
         tags = None,
         identifier = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """Get a list of projects
 
@@ -158,6 +159,7 @@ class Project(MocoBase):
         :param identifier: project identifer
         :param sort_by: field to sort the results by
         :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of project objects
         """
 
@@ -172,7 +174,8 @@ class Project(MocoBase):
             ("updated_from", updated_from),
             ("updated_to", updated_to),
             ("tags", tags),
-            ("identifier", identifier)
+            ("identifier", identifier),
+            ("page", page),
         ):
             if value is not None:
                 params[key] = value
@@ -188,19 +191,22 @@ class Project(MocoBase):
         self,
         active = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc', 
+        page = 1
         ):
         """get list of all project currently assigned to the user 
 
         :param active: true/false show only active or inacitve projects
         :param sort_by: sort by field
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of project objects
         """
 
         params = {}
         for key, value in (
             ("active", active),
+            ("page", page),
         ):
             if value is not None:
                 params[key] = value

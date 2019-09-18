@@ -48,6 +48,22 @@ class TestActivity(UnitTest):
         response_params = response["params"]
         assert response_params["sort_by"] == "{} {}".format(sort_by, sort_order)
 
+    def test_getlist_page_default(self):
+        default_page = 1
+
+        response = self.moco.Activity.getlist()
+        params = response["params"]
+
+        assert params["page"] == default_page
+
+    def test_getlist_page_overwrite(self):
+        overwrite_page = 22
+
+        response = self.moco.Activity.getlist(page=overwrite_page)
+        params = response["params"]
+
+        assert params["page"] == overwrite_page
+
     def test_get(self):
         activity_id = 21
         response = self.moco.Activity.get(activity_id)

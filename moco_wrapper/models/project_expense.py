@@ -168,21 +168,24 @@ class ProjectExpense(MocoBase):
         from_date = None,
         to_date = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """get a list of all additional expenses
 
         :param from_date: starting date, format (YYYY-MM-DD)
         :param to_date: end date, format (YYYY-MM-DD)
         :param sort_by: sort results by field
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of expense objects
         """
 
         params = {}
         for key, value in (
             ("from", from_date),
-            ("to", to_date)
+            ("to", to_date),
+            ("page", page),
         ):
             if value is not None:
                 params[key] = value
@@ -210,17 +213,26 @@ class ProjectExpense(MocoBase):
         self,
         project_id,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve all expenses of a project
 
         :param project_id: id of the project
         :param sort_by: sort results by field
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of expense objects
         """
 
         params = {}
+
+        for key, value in (
+            ("page", page),
+        ):
+            if value is not None:
+                params[key] = value
+
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 

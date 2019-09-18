@@ -153,19 +153,22 @@ class User(MocoBase):
         self,
         include_archived = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """Get a list of users
 
         :param include_archived: true/false include archived users in the list
         :param sort_by: sort by key
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of users
         """
                
         params = {}
         for key, value in (
             ("include_archived", include_archived),
+            ("page", page),
         ):
             if value is not None:
                 params[key] = value

@@ -9,13 +9,25 @@ class InvoicePayment(MocoBase):
     def getlist(
         self,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve all invoice payments
 
+        :param sort_by: field to sort results by
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of invoice payments
         """
+
+
         params = {}
+        for key, value in (
+            ("page", page),
+        ):
+            if value is not None:
+                params[key] = value
+
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 

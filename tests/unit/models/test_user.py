@@ -108,6 +108,18 @@ class TestUser(UnitTest):
         response = self.moco.User.getlist(sort_by=sort_by, sort_order=sort_order)
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
+
+    def test_getlist_page_default(self):
+        page_default = 1
+
+        response = self.moco.User.getlist()
+        assert response["params"]["page"] == page_default
+
+    def test_getlist_page_overwrite(self):
+        page_overwrite = 22
+
+        response = self.moco.User.getlist(page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite
     
     def test_delete(self):
         user_id = 123

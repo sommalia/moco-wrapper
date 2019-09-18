@@ -91,17 +91,26 @@ class ProjectContract(MocoBase):
         self,
         project_id,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrive all active staff assignments for a project
 
         :param project_id: id of the project
         :param sort_by: sort by field
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: a list of contract objects
         """
 
         params = {}
+
+        for key, value in (
+            ("page", page),
+        ):
+            if value is not None:
+                params[key] = value
+
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 

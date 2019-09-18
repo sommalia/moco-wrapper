@@ -114,19 +114,23 @@ class Deal(MocoBase):
         status = None,
         tags = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve a list of leads
 
         :param status: status of the leads ("potential", "pending", "won", "lost" or "dropped")
         :param tags: array of tags
         :param sort_by: field to order results by
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
+        :returns: list of deal objects
         """
         params = {}
         for key, value in (
             ("status", status),
-            ("tags", tags)
+            ("tags", tags),
+            ("page", page)
         ):
             if value is not None:
                 params[key] = value

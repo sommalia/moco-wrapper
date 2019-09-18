@@ -25,6 +25,18 @@ class TestInvoicePayment(UnitTest):
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
+    def test_getlist_page_default(self):
+        page_default = 1
+
+        response = self.moco.InvoicePayment.getlist()
+        assert response["params"]["page"] == page_default
+
+    def test_getlist_page_overwrite(self):
+        page_overwrite = 22
+
+        response = self.moco.InvoicePayment.getlist(page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite
+
     def test_get(self):
         payment_id = 5
 

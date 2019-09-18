@@ -154,7 +154,8 @@ class Company(MocoBase):
         tags = None,
         identifier = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """Get a list of company objects
         
@@ -163,6 +164,7 @@ class Company(MocoBase):
         :param identifier: company identifer
         :param sort_by: field to sort by
         :param sort_order: asc or desc
+        :param page: page number (default 1)
         :returns: list of companyies
         """
 
@@ -170,7 +172,8 @@ class Company(MocoBase):
         for key, value in (
             ("type", company_type),
             ("tags", tags),
-            ("identifier", identifier)
+            ("identifier", identifier),
+            ("page", page)
         ):
             if value is not None:
                 params[key] = value

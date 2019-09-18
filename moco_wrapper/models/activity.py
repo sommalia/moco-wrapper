@@ -13,7 +13,8 @@ class Activity(MocoBase):
         user_id = None,
         project_id = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1,
         ):
         """get a list of acitivty objects
 
@@ -23,6 +24,7 @@ class Activity(MocoBase):
         :param project_id: project the activity belongs to
         :param sort_by: field to sort results by
         :param sort_order: asc or desc
+        :param page: page number (default 1)
         :returns: list of activities
 
         """
@@ -32,6 +34,7 @@ class Activity(MocoBase):
             ("to", to_date),
             ("user_id", user_id),
             ("project_id", project_id),
+            ("page", page)
         ):
             if value is not None:
                 params[key] = value

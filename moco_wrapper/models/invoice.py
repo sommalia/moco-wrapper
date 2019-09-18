@@ -16,7 +16,8 @@ class Invoice(MocoBase):
         identifier = None,
         term = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve a list of invoices
 
@@ -27,7 +28,8 @@ class Invoice(MocoBase):
         :param identifier: identifier string (ex. R1903-003)
         :param term: wildcard search term withing title and identifier
         :param sort_by: field to sort results by
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of invoice objects
         """
         params = {}
@@ -38,6 +40,7 @@ class Invoice(MocoBase):
             ("tags", tags),
             ("identifier", identifier),
             ("term", term),
+            ("page", page),
         ):
             if value is not None:
                 params[key] = value
@@ -56,7 +59,8 @@ class Invoice(MocoBase):
         identifier = None,
         term = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):        
         """retrieve a list of locked invoices
 
@@ -66,7 +70,8 @@ class Invoice(MocoBase):
         :param tags: list of tags
         :param identifier: identifier string (ex. R1903-003)
         :param sort_by: field to sort results by
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of invoice objects
         """
         params = {}
@@ -76,6 +81,7 @@ class Invoice(MocoBase):
             ("date_to", date_to),
             ("tags", tags),
             ("identifier", identifier),
+            ("page", page)
         ):
             if value is not None:
                 params[key] = value

@@ -15,7 +15,8 @@ class Schedule(MocoBase):
         project_id = None,
         absence_code  = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve all planned events
 
@@ -25,7 +26,8 @@ class Schedule(MocoBase):
         :param project_id: project id
         :param absence_code: 1,2,3,4 (absence, public holiday, sick day, holiday)
         :param sort_by: field to sort the results by
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of schedule objects
         """
         params = {}
@@ -34,7 +36,8 @@ class Schedule(MocoBase):
             ("to", to_date),
             ("user_id", user_id),
             ("project_id", project_id),
-            ("absence_code ", absence_code)
+            ("absence_code ", absence_code),
+            ("page", page),
         ):
             if value is not None:
                 params[key] = value

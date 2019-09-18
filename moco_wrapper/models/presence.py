@@ -13,7 +13,8 @@ class Presence(MocoBase):
         to_date = None,
         user_id = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve all presences
 
@@ -21,7 +22,8 @@ class Presence(MocoBase):
         :param to_date: end date (must be provided together with from_date) (format YYYY-MM-DD)
         :param user_id: id of the user
         :param sort_by: field to sort results by
-        :param sort_order: asc or desc
+        :param sort_order: asc or desc (default asc)
+        :param page: page number (default 1)
         :returns: list of presence objets
         """
         params = {}
@@ -29,7 +31,8 @@ class Presence(MocoBase):
         for key, value in (
             ("from", from_date),
             ("to", to_date),
-            ("user_id", user_id)
+            ("user_id", user_id),
+            ("page", page),
         ):
             if value is not None:
                 params[key] = value

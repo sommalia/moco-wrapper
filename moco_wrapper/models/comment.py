@@ -102,7 +102,8 @@ class Comment(MocoBase):
         user_id = None,
         manual = None,
         sort_by = None,
-        sort_order = 'asc'
+        sort_order = 'asc',
+        page = 1
         ):
         """retrieve a list of comments
 
@@ -112,6 +113,7 @@ class Comment(MocoBase):
         :param manual: true/false user-created of generated
         :param sort_by: field to sort the results by
         :param sort_order: asc or desc
+        :param page: page number (default 1)
         :returns: list of comemnt objects
         """
         params = {}
@@ -119,7 +121,8 @@ class Comment(MocoBase):
             ("commentable_type", commentable_type),
             ("commentable_id", commentable_id),
             ("user_id", user_id),
-            ("manual", manual)
+            ("manual", manual),
+            ("page", page)
         ):
             if value is not None:
                 params[key] = value

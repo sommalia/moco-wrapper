@@ -173,6 +173,18 @@ class TestProjectExpense(UnitTest):
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
+    def test_getall_page_default(self):
+        page_default = 1
+
+        response = self.moco.ProjectExpense.getall()
+        assert response["params"]["page"] == page_default
+
+    def test_getall_page_overwrite(self):
+        page_overwrite = 22
+
+        response = self.moco.ProjectExpense.getall(page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite
+
     def test_get(self):
         project_id = 2
         expense_id = 4
@@ -204,7 +216,21 @@ class TestProjectExpense(UnitTest):
 
         response = self.moco.ProjectExpense.getlist(project_id, sort_by=sort_by, sort_order=sort_order)
 
-        assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)            
+        assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)      
+
+    def test_getlist_page_default(self):
+        project_id = 1
+        page_default = 1
+
+        response = self.moco.ProjectExpense.getlist(project_id)
+        assert response["params"]["page"] == page_default
+
+    def test_getlist_page_overwrite(self):
+        project_id = 1
+        page_overwrite = 22
+
+        response = self.moco.ProjectExpense.getlist(project_id, page=page_overwrite)
+        assert response["params"]["page"] == page_overwrite      
 
 
 
