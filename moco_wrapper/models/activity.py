@@ -1,7 +1,7 @@
-from .base import MocoBase
+from .base import MWRAPBase
 from ..const import API_PATH
 
-class Activity(MocoBase):
+class Activity(MWRAPBase):
 
     def __init__(self, moco):
         self._moco = moco

@@ -1,7 +1,7 @@
+from .base import MWRAPBase
 from ..const import API_PATH
-from .base import MocoBase
 
-class Invoice(MocoBase):
+class Invoice(MWRAPBase):
     """Models for handling invoices."""
 
     def __init__(self, moco):

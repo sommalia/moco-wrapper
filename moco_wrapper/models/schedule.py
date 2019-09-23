@@ -1,7 +1,7 @@
-from .base import MocoBase
+from .base import MWRAPBase
 from ..const import API_PATH
 
-class Schedule(MocoBase):
+class Schedule(MWRAPBase):
     """Class for handling schedules (german "Planung")."""
 
     def __init__(self, moco):

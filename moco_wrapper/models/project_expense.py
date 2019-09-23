@@ -1,7 +1,7 @@
-from .base import MocoBase
+from .base import MWRAPBase
 from ..const import API_PATH
 
-class ProjectExpense(MocoBase):
+class ProjectExpense(MWRAPBase):
     """Class for handling additional project expenses.  """
 
     def __init__(self, moco):

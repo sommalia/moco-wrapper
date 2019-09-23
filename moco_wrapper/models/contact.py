@@ -1,7 +1,7 @@
-from .base import MocoBase
+from .base import MWRAPBase
 from ..const import API_PATH
 
-class Contact(MocoBase):
+class Contact(MWRAPBase):
     """Class for handling contacts"""
 
     def __init__(self, moco):

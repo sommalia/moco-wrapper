@@ -1,7 +1,7 @@
+from .base import MWRAPBase
 from ..const import API_PATH
-from .base import MocoBase
 
-class Offer(MocoBase):
+class Offer(MWRAPBase):
     """class for handling offers (in german "angebote")."""
 
     def __init__(self, moco):

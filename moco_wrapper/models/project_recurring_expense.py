@@ -1,7 +1,7 @@
+from .base import MWRAPBase
 from ..const import API_PATH
-from .base import MocoBase
 
-class ProjectRecurringExpense(MocoBase):
+class ProjectRecurringExpense(MWRAPBase):
     """class for handling recurring expenses of a project."""
 
     def __init__(self, moco):

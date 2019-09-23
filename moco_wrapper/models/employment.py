@@ -1,7 +1,7 @@
+from .base import MWRAPBase
 from ..const import API_PATH
-from .base import MocoBase
 
-class Employment(MocoBase):
+class Employment(MWRAPBase):
     """class for handling employment schemes (in german "wochenmodell")."""
 
     def __init__(self, moco):

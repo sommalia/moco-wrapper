@@ -1,7 +1,7 @@
+from .base import MWRAPBase
 from ..const import API_PATH
-from .base import MocoBase
 
-class Presence(MocoBase):
+class Presence(MWRAPBase):
     """class for handling presences (in german "arbeitszeiten")."""
 
     def __init__(self, moco):

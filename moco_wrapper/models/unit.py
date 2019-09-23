@@ -1,7 +1,7 @@
-from .base import MocoBase
+from .base import MWRAPBase
 from ..const import API_PATH
 
-class Unit(MocoBase):
+class Unit(MWRAPBase):
     """Class for handling units/teams."""
 
     def __init__(self, moco):

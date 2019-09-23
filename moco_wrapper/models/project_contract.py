@@ -1,7 +1,7 @@
-from .base import MocoBase
+from .base import MWRAPBase
 from ..const import API_PATH
 
-class ProjectContract(MocoBase):
+class ProjectContract(MWRAPBase):
     """Class for handling project contracts."""
 
     def __init__(self, moco):

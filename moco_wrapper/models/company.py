@@ -1,7 +1,7 @@
-from .base import MocoBase
+from .base import MWRAPBase
 from ..const import API_PATH
 
-class Company(MocoBase):
+class Company(MWRAPBase):
     """Class for handling companies"""
 
 
