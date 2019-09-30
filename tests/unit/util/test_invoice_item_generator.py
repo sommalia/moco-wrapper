@@ -1,4 +1,4 @@
-from moco_wrapper.util import InvoiceItemGenerator
+from moco_wrapper.util.generator import InvoiceItemGenerator
 
 class TestInvoiceItemGenerator(object):
     def setup(self):

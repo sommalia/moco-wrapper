@@ -1,4 +1,4 @@
-from moco_wrapper.util import InvoicePaymentGenerator
+from moco_wrapper.util.generator import InvoicePaymentGenerator
 
 class TestInvoicePaymentGenerator(object):
 

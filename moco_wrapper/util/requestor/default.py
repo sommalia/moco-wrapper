@@ -1,13 +1,9 @@
 import requests
 import time
 
-class BaseRequestor(object):
+from .base import BaseRequestor
 
-    @property
-    def session(self):
-        return None
-
-class RateLimitedRequestor(BaseRequestor):
+class DefaultRequestor(BaseRequestor):
 
     def __init__(self):
         self._session = requests.Session()
@@ -48,15 +44,5 @@ class RateLimitedRequestor(BaseRequestor):
     def patch(self, path, data = None, params = None, **kwargs):
         return self.request(path, "PATCH", data=data, params=params, **kwargs)
 
-
-class TestRequester(RateLimitedRequestor):
-    def request(self, path, method, params = None, data = None, **kwargs):
-        return {
-            "path": path,
-            "data" : data,
-            "method": method,
-            "params" : params,
-            "args": kwargs.items()
-        }
 
     

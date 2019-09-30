@@ -2,9 +2,10 @@
 
 from . import models
 from . import util
+from .const import API_PATH
+
 from requests import get, post, put, delete
 from json import dumps
-from .const import API_PATH
 
 """Main module."""
 class Moco(object):
@@ -46,31 +47,48 @@ class Moco(object):
         
 
         self._requestor = None
+        self._objector = None
+
         for key, value in kwargs.items():
             if key == "http":
                 self._requestor = value
+            elif key == "objector":
+                self._objector = value
 
 
 
         #set default values if not already set
         if self._requestor is None:
             #default requestor is one that will fire 1 request every second
-            self._requestor = util.RateLimitedRequestor()
+            self._requestor = util.requestor.DefaultRequestor()
+
+        if self._objector is None:
+            self._objector = util.objector.DefaultObjector()
 
     def request(self, method, path, params=None, data=None):
+        """Send a request to an URL with the specified params and data
+        :returns an object that was returns by the objetor currently assigned to the moco warpper object
+        """
+
+
         full_path = self.full_domain + path
-        """Send a request to an URL with the specified params and data"""
+        response = None
+
         if method == "GET":
-            return self._requestor.get(full_path, params=params, data=data, headers=self.headers)
+            response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
         elif method == "PUT":
-            return self._requestor.put(full_path, params=params, data=data, headers=self.headers)
+            response = self._requestor.put(full_path, params=params, data=data, headers=self.headers)
         elif method == "POST":
-            return self._requestor.post(full_path, params=params, data=data, headers=self.headers)
+            response = self._requestor.post(full_path, params=params, data=data, headers=self.headers)
         elif method == "DELETE":
-            return self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
+            response = self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
         elif method == "PATCH":
-            return self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
-        
+            response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
+
+        #push the response to the current objector
+        return self.objector.convert(response)
+
+
     def get(self, path, params=None, data=None):
         return self.request("GET", path, params=params, data=data)
         
@@ -103,5 +121,8 @@ class Moco(object):
         """access the http session of the wrappers requestor"""
         return self._requestor.session
 
+    @property
+    def objector(self):
+        return self._objector
     
     

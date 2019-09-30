@@ -1,4 +1,4 @@
-from moco_wrapper.util import ProjectExpenseGenerator
+from moco_wrapper.util.generator import ProjectExpenseGenerator
 
 class TestProjectExpenseGenerator(object):
     def setup(self):
