@@ -11,4 +11,4 @@ class ErrorResponse(MWRAPResponse):
         pass
     
     def __init__(self, response):
-        super(MWRAPResponse,response).__init()
+        super(ErrorResponse, self).__init__(response)

@@ -75,6 +75,7 @@ class Moco(object):
         full_path = self.full_domain + path
         response = None
 
+        #format data submitted to requests as json
         if method == "GET":
             response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
         elif method == "PUT":

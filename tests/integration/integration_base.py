@@ -14,4 +14,8 @@ class IntegrationTest(object):
         self.recorder = betamax.Betamax(self._moco.http)
 
     def setup_moco(self):
-        self._moco = Moco()
+        self._moco = Moco(pytest.placeholders.mocotest_apikey, pytest.placeholders.mocotest_domain)
+
+    @property
+    def moco(self):
+        return self._moco

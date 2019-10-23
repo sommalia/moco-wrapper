@@ -1,10 +1,11 @@
 from .base import MWRAPResponse
+import json
 
-class ListingReponse(MWRAPResponse):
+class ListingResponse(MWRAPResponse):
 
     @property 
     def items(self):
-        return self.items
+        return self._items
 
     @property 
     def next(self):
@@ -16,16 +17,17 @@ class ListingReponse(MWRAPResponse):
 
     @property
     def data(self):
-        return self.items
+        return self._items
     
 
     def __init__(self, response):
-        super(MWRAPResponse,response).__init()
+        super(ListingResponse, self).__init__(response)
 
         #get object contents
         json_content = response.json()
-        self.items = []
-        for json_item in content:
-            self.items.append(self.json_to_object(json_item))
+        self._items = []
+        for json_item in json_content:
+            print(json_item)
+            self._items.append(self.json_to_object(json.dumps(json_item)))
 
         

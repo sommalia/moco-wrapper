@@ -1,16 +1,16 @@
 import json
+from collections import namedtuple
 
 class MWRAPResponse(object):
     """base class for all responses, created by an objector"""
 
     def __init__(self, response):
-        self.reponse = response
-        self.data = response
+        self.response = response
 
-    def json_to_object(self, json_content):
-        return json.loads(json_content, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
+    def json_to_object(self, content):
+        return json.loads(content, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
 
 
     @property 
     def data(self):
-        return self.data
+        return self.response

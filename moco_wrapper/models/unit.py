@@ -42,7 +42,7 @@ class Unit(MWRAPBase):
             if value is not None:
                 params[key] = value
 
-        if sort_order is not None:
+        if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["unit_getlist"], params=params)

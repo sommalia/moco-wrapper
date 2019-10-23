@@ -4,9 +4,9 @@ class JsonResponse(MWRAPResponse):
 
     @property 
     def data(self):
-        return self.data
+        return self._data
 
     def __init__(self, response):
-        super(MWRAPResponse,response).__init()
+        super(JsonResponse, self).__init__(response)
 
-        self.data = self.json_to_object(response)
+        self._data = self.json_to_object(response.text)
