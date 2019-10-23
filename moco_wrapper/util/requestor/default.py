@@ -3,6 +3,8 @@ import time
 
 from .base import BaseRequestor
 
+from ..response import ListingReponse, JsonResponse, ErrorResponse
+
 class DefaultRequestor(BaseRequestor):
 
     def __init__(self):
@@ -18,31 +20,35 @@ class DefaultRequestor(BaseRequestor):
 
         time.sleep(1)
 
+        response = None
         if method == "GET":
-            return self.session.get(path, params=params, data=data, **kwargs)
+            response =  self.session.get(path, params=params, data=data, **kwargs)
         elif method == "POST":
-            return self.session.post(path, params=params, data=data, **kwargs)
+            response = self.session.post(path, params=params, data=data, **kwargs)
         elif method == "DELETE":
-            return self.session.post(path, params=params, data=data, **kwargs)
+            response = self.session.post(path, params=params, data=data, **kwargs)
         elif method == "PUT":
-            return self.session.put(path, params=params, data=data, **kwargs)
+            response = self.session.put(path, params=params, data=data, **kwargs)
         elif method == "PATCH":
-            return self.session.patch(path, params=params, data=data, **kwargs)
+            response = self.session.patch(path, params=params, data=data, **kwargs)
 
-    def get(self, path, params = None, **kwargs):
-        return self.request(path, "GET", params=params, **kwargs)
+        #convert the reponse into an MWRAPResponse object
+        try:
+            response_content = response.json()
+            if isinstance(response_content, list):
+                return ListingResponse(response)
+            else:
+                return JsonResponse(response)
+        except ValueError:
+            response_obj = ErrorResponse(response)
 
-    def post(self, path, data= None, **kwargs):
-        return self.request(path, "POST", data=data, **kwargs)
+            if response_obj.is_recoverable == True:
+                #error is recoverable, try the ressource again
+                return self.request(path, method, params, data, kwargs)
+            else:
+                return response_obj
 
-    def put(self, path, data = None, params = None, **kwargs):
-        return self.request(path, "PUT", data=data, params=params, **kwargs)
 
-    def delete(self, path, data = None, params = None, **kwargs):
-        return self.request(path, "DELETE", data=data, params=params, **kwargs)
-
-    def patch(self, path, data = None, params = None, **kwargs):
-        return self.request(path, "PATCH", data=data, params=params, **kwargs)
 
 
     

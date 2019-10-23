@@ -63,9 +63,10 @@ class Moco(object):
             self._requestor = util.requestor.DefaultRequestor()
 
         if self._objector is None:
-            self._objector = util.objector.DefaultObjector()
+            #default: no conversion on reponse objects
+            self._objector = util.objector.RawObjector()
 
-    def request(self, method, path, params=None, data=None):
+    def request(self, method, path, params=None, data=None, current_try=1):
         """Send a request to an URL with the specified params and data
         :returns an object that was returns by the objetor currently assigned to the moco warpper object
         """
@@ -84,6 +85,7 @@ class Moco(object):
             response = self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
         elif method == "PATCH":
             response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
+
 
         #push the response to the current objector
         return self.objector.convert(response)
