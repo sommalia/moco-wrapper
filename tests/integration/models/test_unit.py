@@ -6,7 +6,7 @@ from .. import IntegrationTest
 
 class TestUnit(IntegrationTest):
 
-    def test_get_list(self):
-        with self.recorder.use_cassette("TestUnit.test_get_list"):
+    def test_getlist(self):
+        with self.recorder.use_cassette("TestUnit.test_getlist"):
             response = self.moco.Unit.getlist()
             assert isinstance(response, ListingResponse)
