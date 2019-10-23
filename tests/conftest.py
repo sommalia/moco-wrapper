@@ -9,8 +9,8 @@ placeholders = {
 } 
 
 ##init placeholders from environment
-placeholders["mocotest_apikey"] = os.environ.get("mocotest_apikey", "[APIKEY]")
-placeholders["mocotest_domain"] = os.environ.get("mocotest_domain", "[DOMAIN]")
+placeholders["mocotest_apikey"] = os.environ.get("mocotest_apikey", "test_api_key")
+placeholders["mocotest_domain"] = os.environ.get("mocotest_domain", "test_domain")
 
 
 class Placeholders(object):
@@ -24,3 +24,4 @@ betamax.Betamax.register_serializer(pretty_json.PrettyJSONSerializer)
 with betamax.Betamax.configure() as config:
     config.cassette_library_dir = "tests/integration/cassettes"
     config.default_cassette_options["serialize_with"] = "prettyjson"
+    config.default_cassette_options["match_requests_on"] = ["path", "method"]
