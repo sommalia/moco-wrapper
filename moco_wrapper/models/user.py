@@ -20,20 +20,20 @@ class User(MWRAPBase):
 
     def create(
         self,
-        firstname,
-        lastname,
-        email,
-        password,
-        unit_id,
-        active = None,
-        external = None,
-        language = None,
-        mobile_phone = None,
-        work_phone = None,
-        home_address = None,
-        bday = None,
-        custom_properties = None,
-        info = None,
+        firstname: str,
+        lastname: str,
+        email: str,
+        password: str,
+        unit_id: int,
+        active: bool = None,
+        external: bool = None,
+        language: UserLanguage = None,
+        mobile_phone: str = None,
+        work_phone: str = None,
+        home_address: str = None,
+        bday: date = None,
+        custom_properties: dict = None,
+        info: str = None,
         ):
         """Creates a new user
 
@@ -68,25 +68,21 @@ class User(MWRAPBase):
             "unit_id": unit_id
         }
 
-        for key, value, required_type in (
-            ("active", active, bool),
-            ("external", external, bool),
-            ("language", language, UserLanguage),
-            ("mobile_phone", mobile_phone, str),
-            ("work_phone", work_phone, str),
-            ("home_address", home_address, str),
-            ("bday", bday, date),
-            ("custom_properties", custom_properties, dict),
-            ("info", info, str)
+        for key, value in (
+            ("active", active),
+            ("external", external),
+            ("language", language),
+            ("mobile_phone", mobile_phone),
+            ("work_phone", work_phone),
+            ("home_address", home_address),
+            ("bday", bday),
+            ("custom_properties", custom_properties),
+            ("info", info)
         ):
             if value is not None:
-
-                #type check optional parameters
-                if not isinstance(value, required_type):
-                    raise ValueError("{0} must be of type {1}, got {2}".format(key, str(required_type), type(value)))
                     
-                if isinstance(value, date):
-                    data[key] = value.isoformat() #format datetime date for yyyy-mm-dd
+                if key == "bday" and isinstance(value, date):
+                    data[key] = value.isoformat()
                 else:
                     data[key] = value
 
@@ -95,20 +91,20 @@ class User(MWRAPBase):
     def update(
         self,
         id,
-        firstname = None,
-        lastname = None,
-        email = None,
-        password = None,
-        unit_id = None,
-        active = None,
-        external = None,
-        language = None,
-        mobile_phone = None,
-        work_phone = None,
-        home_address = None,
-        bday = None,
-        custom_properties = None,
-        info = None,
+        firstname: str = None,
+        lastname: str = None,
+        email: str = None,
+        password: str = None,
+        unit_id: int = None,
+        active: bool = None,
+        external: bool = None,
+        language: UserLanguage = None,
+        mobile_phone: str = None,
+        work_phone: str = None,
+        home_address: str = None,
+        bday: date = None,
+        custom_properties: dict = None,
+        info: str = None,
         ):
         """Updates an existing user
 
@@ -148,14 +144,17 @@ class User(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                data[key] = value
+                if key == "bday" and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         #check if length > 0 TODO
         return self._moco.put(API_PATH["user_update"].format(id=id), data=data)
 
     def delete(
         self,
-        id
+        id: int
         ):
         """Deletes an existing user
 
@@ -166,7 +165,7 @@ class User(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """Get a single user
 
@@ -177,10 +176,10 @@ class User(MWRAPBase):
 
     def getlist(
         self,
-        include_archived = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        include_archived: bool = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """Get a list of users
 
