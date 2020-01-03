@@ -1,6 +1,7 @@
 import pytest
 
 from moco_wrapper.util.response import JsonResponse, ErrorResponse, ListingResponse
+from moco_wrapper.models.user import UserLanguage
 
 from .. import IntegrationTest
 
@@ -29,6 +30,28 @@ class TestUser(IntegrationTest):
             data = response.data
 
         return data
+
+    def test_create_with_language(self):
+        with self.recorder.use_cassette("TestUser.test_create_with_language"):
+            unit = self.moco.Unit.getlist()
+            unit_id = unit.items[0].id
+
+            firstname = "user with other language"
+            lastname = "testlastname"
+            email = "email+user+with+language@email.de"
+            password = "password"
+            language = UserLanguage.FR
+
+            response = self.moco.User.create(firstname, lastname, email, password, unit_id, language=UserLanguage.FR)
+
+            assert isinstance(response, JsonResponse)
+            assert response.data.firstname == firstname
+            assert response.data.lastname == lastname
+            assert response.data.email == email
+            assert response.data.unit.id == unit_id
+
+
+
 
     def test_update(self):
         created_user = self.test_create()

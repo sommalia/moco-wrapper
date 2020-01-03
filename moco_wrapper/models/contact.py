@@ -4,7 +4,7 @@ from ..const import API_PATH
 from enum import Enum
 from datetime import date
 
-class ContactGender(Enum):
+class ContactGender(str, Enum):
     MALE = "M"
     FEMALE = "F"
     UNDEFINED = "U"
@@ -23,27 +23,27 @@ class Contact(MWRAPBase):
 
     def create(
         self,
-        firstname,
-        lastname,
-        gender,
-        customer_id = None,
-        title = None,
-        job_position = None,
-        mobile_phone = None,
-        work_fax = None,
-        work_phone = None,
-        work_email = None,
-        work_address = None,
-        home_address = None,
-        home_email = None,
-        birthday = None,
-        info = None,
-        tags = None):
+        firstname: str,
+        lastname: str,
+        gender: ContactGender,
+        customer_id: int = None,
+        title: str = None,
+        job_position: str = None,
+        mobile_phone: str = None,
+        work_fax: str = None,
+        work_phone: str = None,
+        work_email: str = None,
+        work_address: str = None,
+        home_address: str = None,
+        home_email: str = None,
+        birthday: date = None,
+        info: str = None,
+        tags: list = None):
         """creates a contact.
 
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
-        :param gender: ContactGender type
+        :param gender: gender of the contact (f, m or u) (user contact.ContactGender)
         :param customer_id: Id of the customer (company) the contact belongs to
         :param title: Title the contact has
         :param job_position: name of the job position this contact has
@@ -91,23 +91,23 @@ class Contact(MWRAPBase):
 
     def update(
         self,
-        id,
-        firstname = None,
-        lastname = None,
-        gender = None,
-        customer_id = None,
-        title = None,
-        job_position = None,
-        mobile_phone = None,
-        work_fax = None,
-        work_phone = None,
-        work_email = None,
-        work_address = None,
-        home_address = None,
-        home_email = None,
-        birthday = None,
-        info = None,
-        tags = None
+        id: int,
+        firstname: str = None,
+        lastname: str = None,
+        gender: ContactGender = None,
+        customer_id: int = None,
+        title: str = None,
+        job_position: str = None,
+        mobile_phone: str = None,
+        work_fax: str = None,
+        work_phone: str = None,
+        work_email: str = None,
+        work_address: str = None,
+        home_address: str = None,
+        home_email: str = None,
+        birthday: date = None,
+        info: str = None,
+        tags: list = None
         ):
         """updates a contact.
 
@@ -152,13 +152,16 @@ class Contact(MWRAPBase):
             ):
 
             if value is not None:
-                data[key] = value
+                if key == "birthday" and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         return self._moco.put(API_PATH["contact_update"].format(id=id), data=data)
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a single contact object
 
@@ -169,10 +172,10 @@ class Contact(MWRAPBase):
 
     def getlist(
         self,
-        tags = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        tags: list = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrieve a list of contact objects
 

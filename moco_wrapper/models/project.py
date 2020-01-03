@@ -1,6 +1,17 @@
 from .base import MWRAPBase  
 from ..const import API_PATH
 
+from enum import Enum
+from datetime import date
+
+class ProjectBillingVariant(str, Enum):
+    PROJECT = "project"
+    TASK = "task"
+    USER = "user"
+
+class ProjectCurrency(str, Enum):
+    EUR = "EUR"
+
 class Project(MWRAPBase):
     """Class for handling projects."""
 
@@ -9,30 +20,30 @@ class Project(MWRAPBase):
 
     def create(
         self,
-        name,
-        currency,
-        finish_date,
-        leader_id,
-        customer_id,
-        identifier = None,
-        billing_address = None,
-        billing_variant = None,
-        hourly_rate = None,
-        budget = None,
-        labels = None,
-        custom_properties = None,
-        info = None
+        name: str,
+        currency: ProjectCurrency,
+        finish_date: date,
+        leader_id: int,
+        customer_id: int,
+        identifier: str = None,
+        billing_address:str = None,
+        billing_variant: ProjectBillingVariant = None,
+        hourly_rate: int = None,
+        budget: int = None,
+        labels: list = None,
+        custom_properties: dict = None,
+        info: str = None
         ):
         """create a new project
 
         :param name: name of the project
-        :param currency: currency of the project (EUR)
+        :param currency: currency of the project (EUR) (use project.ProjectCurrency)
         :param finish_date: finish date formatted YYYY-MM-DD
         :param leader_id: user id of the project leader
         :param customer_id: company id of the customer
         :param identifier: project identifier is only mandatory if number ranges are manual
         :param billing_address: billing adress the invoices go to
-        :param billing_variant: "project", "task" or "user" (default is project)
+        :param billing_variant: "project", "task" or "user" (default is project) (use project.ProjectBillingVariant)
         :param hourly_rate: hourly rate that will get billed 
         :param budget: budget for the project
         :param labels: array of additional labels

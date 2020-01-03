@@ -8,7 +8,7 @@ __version__ = '0.1.0'
 
 from .activity import Activity
 from .contact import Contact, ContactGender
-from .company import Company
+from .company import Company, CompanyType, CompanyCurrency
 from .comment import Comment
 from .unit import Unit
 from .user import User, UserLanguage
@@ -22,7 +22,7 @@ from .holiday import Holiday
 from .employment import Employment
 
 
-from .project import Project
+from .project import Project, ProjectBillingVariant, ProjectCurrency
 from .project_contract import ProjectContract
 from .project_expense import ProjectExpense
 from .project_task import ProjectTask

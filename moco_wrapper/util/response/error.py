@@ -27,6 +27,9 @@ class ErrorResponse(MWRAPResponse):
         """
 
         return self.response.text
+
+    def __str__(self):
+        return "<ErrorResponse, Status Code: {}, Data: {}>".format(self.response.status_code, self.data)
     
     def __init__(self, response):
         """

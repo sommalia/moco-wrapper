@@ -4,7 +4,7 @@ from ..const import API_PATH
 from enum import Enum
 from datetime import date
 
-class UserLanguage(Enum):
+class UserLanguage(str, Enum):
     DE = "de"
     DE_AT = "de-AT"
     DE_CH = "de-CH"

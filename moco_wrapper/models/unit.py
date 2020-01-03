@@ -10,7 +10,7 @@ class Unit(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """Get a single team
 
@@ -22,9 +22,9 @@ class Unit(MWRAPBase):
 
     def getlist(
         self,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """Get a list of teams
         

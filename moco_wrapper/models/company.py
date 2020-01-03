@@ -1,8 +1,18 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from enum import Enum
+
+class CompanyType(str, Enum):
+    CUSTOMER = "customer",
+    SUPPLIER = "supplier",
+    ORGANIZATION = "organization"
+
+class CompanyCurrency(str, Enum):
+    EUR = "EUR"
+
 class Company(MWRAPBase):
-    """Class for handling companies"""
+    """Class for handling companies/customers"""
 
 
     def __init__(self, moco):
@@ -57,7 +67,10 @@ class Company(MWRAPBase):
         }
 
         if(company_type == "customer"):
-            data["currency"] = currency
+            if currency == None:
+                raise ValueError("parameter currency must be set when company_type is customer")
+            else:
+                data["currency"] = currency
 
         #make check for all required arguments here
         #TODO

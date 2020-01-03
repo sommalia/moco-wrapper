@@ -1,110 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-01-03T12:08:52",
+      "recorded_at": "2020-01-03T12:33:23",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
-        },
-        "headers": {
-          "Accept": [
-            "*/*"
-          ],
-          "Accept-Encoding": [
-            "gzip, deflate"
-          ],
-          "Authorization": [
-            "Token token=ff0b42305c816caf63ed0ece93ddec46"
-          ],
-          "Connection": [
-            "keep-alive"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "User-Agent": [
-            "python-requests/2.22.0"
-          ]
-        },
-        "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/units?page=1"
-      },
-      "response": {
-        "body": {
-          "base64_string": "H4sIAAAAAAAA/4SMscqDQBAGX+Xnq1fYu/PXuM9hlSBy6AaEGOVureTePU1SpEo7zMztxDJDOu5cU//XTHjGVSHoNa5/DoTpyLat4562XZMtmiFnIRxZU4Z8+hAa33ahIdyXlO09Mc0GwiN+kzIQpqTRdB6jQeDZc8Wu4tDzRXwrzl9BOPb5h1OGVwAAAP//+GkTBMEAAAA=",
-          "encoding": "utf-8"
-        },
-        "headers": {
-          "Cache-Control": [
-            "max-age=0, private, must-revalidate"
-          ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "152"
-          ],
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ],
-          "Date": [
-            "Fri, 03 Jan 2020 12:08:52 GMT"
-          ],
-          "Etag": [
-            "W/\"dbc9c122cbe9919cae6620bb2ff5e42c\""
-          ],
-          "Referrer-Policy": [
-            "strict-origin-when-cross-origin"
-          ],
-          "Vary": [
-            "Origin",
-            "Accept-Encoding"
-          ],
-          "X-Content-Type-Options": [
-            "nosniff"
-          ],
-          "X-Download-Options": [
-            "noopen"
-          ],
-          "X-Frame-Options": [
-            "SAMEORIGIN"
-          ],
-          "X-Page": [
-            "1"
-          ],
-          "X-Per-Page": [
-            "100"
-          ],
-          "X-Permitted-Cross-Domain-Policies": [
-            "none"
-          ],
-          "X-Request-Id": [
-            "fdabe2cd-78b6-4403-b9b5-7d58ad38c9c2"
-          ],
-          "X-Runtime": [
-            "0.045710"
-          ],
-          "X-Total": [
-            "1"
-          ],
-          "X-Xss-Protection": [
-            "1; mode=block"
-          ]
-        },
-        "status": {
-          "code": 200,
-          "message": "OK"
-        },
-        "url": "https://testabcd.mocoapp.com/api/v1/units?page=1"
-      }
-    },
-    {
-      "recorded_at": "2020-01-03T12:08:54",
-      "request": {
-        "body": {
-          "encoding": "utf-8",
-          "string": "{\"lastname\": \"testlastname\", \"password\": \"password\", \"unit_id\": 909164540, \"firstname\": \"testfirstname\", \"email\": \"email@email.de\"}"
+          "string": "{\"name\": \"test contact company\", \"currency\": \"EUR\", \"type\": \"customer\"}"
         },
         "headers": {
           "Accept": [
@@ -120,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "131"
+            "71"
           ],
           "Content-Type": [
             "application/json"
@@ -130,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://testabcd.mocoapp.com/api/v1/users"
+        "uri": "https://testabcd.mocoapp.com/api/v1/companies"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPvW7DMAyEX6W4WSlkO0lrTX2ITF0MJmJgofoxJCptEfjdC9fp39SF5HckD7grnIXpu27fPvR9r3B2uUikwDAQLvLDCp7+rL5RgU7iLgwjubICvwnnCHMmXxYM5DzM2p8+671dvkI6Os/DNKa4eELhNeWX3zymwANZm7mUVXHxnNbp6LKMlt5hYvVegS4klIea/ZdyqkVSGKacJs7iuMBcZ4UancDckuu+2W93W61wS3ZgCncNZoVTZhK2AwkMWt3qjW42ujs0rdGPZtc9Q6FO9p+b+SMAAP//qhhkMGMBAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SQQU8DIRCF/4p5Z2rYxWxTzvbkzehFYzYUZiuGhQ3Mqpum/92w7UFPnoAvLzPf4wTvoLed3DZtJxsBXiaChp0Lp5EyBKIZK2EqfGNTZGPrOU4mLhD4okPxXAMQoNH4AB3nEASm9xSvfDDfl4txLlMpl4dNc+S89Da5mrvfQ4DNsUC/vgnMhTL0xW+nVNdud6oTGHwu/EsJAsH8JeeKDhSug3wc0lUjJa5D1+VrwX7KaaLMngr06SxgMxkm1xuGRitbuZHNRqqnptVK6Va9QGCe3L8Z7yiyH/y67kFKeVdhZMoRejChkMDBh+Djsef6O83uVlarnCnaBRr750cIOBrMHLj38TN5S72bqXdmKdBKCkw5fZDltej5JwAA///yJgmTywEAAA==",
           "encoding": "utf-8"
         },
         "headers": {
@@ -145,16 +46,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "236"
+            "304"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 03 Jan 2020 12:08:54 GMT"
+            "Fri, 03 Jan 2020 12:33:23 GMT"
           ],
           "Etag": [
-            "W/\"9f57752852e29baf15fec2ba5f759d06\""
+            "W/\"1c8f099cc0ff949db37430081377ae57\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -176,10 +77,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c1e07a0b-4e7d-4437-b4c9-4cd8f71f8e40"
+            "57ad9a31-4353-4a03-b1e1-cb448107fe8c"
           ],
           "X-Runtime": [
-            "1.663521"
+            "0.086046"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -189,7 +90,100 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/users"
+        "url": "https://testabcd.mocoapp.com/api/v1/companies"
+      }
+    },
+    {
+      "recorded_at": "2020-01-03T12:33:23",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"firstname\": \"test company contact\", \"customer_id\": 760712601, \"lastname\": \"lastname\", \"gender\": \"F\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=ff0b42305c816caf63ed0ece93ddec46"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "102"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://testabcd.mocoapp.com/api/v1/contacts/people"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SQQW7DIBBFrxL9NZGwUZ2GA/QEXbWqrIkhCS0GBOO2UZS7V46TKG4X3fE/DzTzjnAGWqm1fHgU2NlgbIbGEwS2LhcO1FtosC286GKfKBwWXQxMHUPA0424HQXYsR8rCLzHTZticeximJo+bpy3bdrHcGG+Yv5ot/R9l37f2p6cv8tkTLalTM0+9vaeOOcZsXGZ94YO0GHwXoA+iSm3Q/bXhmlXoF/fBLqhcOzblGOymZ0t0MeTwGV36EnYqpGrqm5kJcCHNI46vbMZAnNnZ1dXdzgJDGVUPP2zVqqpV2vV/NU913tuxjmyJbamJYZGLWu5lNVSqueq1krpWr1AYEjmX8aFbRzlnH4CAAD//5qp9f8BAgAA",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "288"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Fri, 03 Jan 2020 12:33:23 GMT"
+          ],
+          "Etag": [
+            "W/\"8f88cd30dfa7ec6e9d35ce01649adf02\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "2e8d39f3-3923-45cd-8a75-17144e11e0b3"
+          ],
+          "X-Runtime": [
+            "0.114737"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://testabcd.mocoapp.com/api/v1/contacts/people"
       }
     }
   ],

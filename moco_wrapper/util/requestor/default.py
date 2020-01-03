@@ -11,6 +11,7 @@ class DefaultRequestor(BaseRequestor):
         self._session = requests.Session()
 
         self.requests_timestamps = []
+        self.error_status_codes = [401, 403, 404, 422, 429]
 
 
     @property
@@ -35,7 +36,7 @@ class DefaultRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
-
+            
             if response.status_code == 200:
                 response_content = response.json()
                 if isinstance(response_content, list):
@@ -45,7 +46,9 @@ class DefaultRequestor(BaseRequestor):
             elif response.status_code == 204:
                 #no content but success
                 return None
-            
+            elif response.status_code in self.error_status_codes:
+                return ErrorResponse(response)
+
         except ValueError as ex:
             print(ex)
             response_obj = ErrorResponse(response)

@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-01-03T12:08:57",
+      "recorded_at": "2020-01-03T12:08:54",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -32,7 +32,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOy2rDMBBFf8Xc9QTGUupE+o6sWoIR8TQRxA+kEVkY/3sp9IEoNMszzDnctxVxgHfs2m7/smfCFEaBx0nC2LQgXErWeeyXNC+SNEqGXzdCyZIy/LdvbWcOznaE95iyfkVUsoJwD/Vlo8pyrrYmefS//Ef/wSpzZOY687mweUS9NbPeJDX3MF1LuP5bPBMuSYLK0AeFh2HDO253bE989ObgW/MKQlmGJz/b+SMAAP//GnVsmVoBAAA=",
+          "base64_string": "H4sIAAAAAAAA/4TMywqDMBCF4VcpZz1CLlabPIerFpGgUxBqlWRcSd69m14QF13+w3zntmEc4J1yuirPpSI8w8TwaDhMJw1CvyaZp26J88JRRk7wWyasiWOC/3hrK1M7WxHuY0zyHhFOAsIj7C+Zdsq5o/r1gX8zt4Q+chAeuiDwMMqoQulC2UZdvKm9NlcQ1mX485PbVwAAAP//3wzr0QgBAAA=",
           "encoding": "utf-8"
         },
         "headers": {
@@ -43,16 +43,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "194"
+            "164"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 03 Jan 2020 12:08:57 GMT"
+            "Fri, 03 Jan 2020 12:08:54 GMT"
           ],
           "Etag": [
-            "W/\"e67901537e07a803049d6240ab200108\""
+            "W/\"dd2992b1f4a097eba98cf91823d11cbd\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,10 +80,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "7a7c7a10-de01-414e-a27c-13b285918d70"
+            "65fb448b-9e2c-4315-b6cf-b82f5d948a2b"
           ],
           "X-Runtime": [
-            "0.045584"
+            "0.045211"
           ],
           "X-Total": [
             "1"
@@ -100,11 +100,11 @@
       }
     },
     {
-      "recorded_at": "2020-01-03T12:08:59",
+      "recorded_at": "2020-01-03T12:08:56",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"lastname\": \"user to delete\", \"password\": \"password\", \"unit_id\": 909164540, \"firstname\": \"user to delete\", \"email\": \"email+user+to+delete@email.de\"}"
+          "string": "{\"lastname\": \"testlastname\", \"password\": \"password\", \"unit_id\": 909164540, \"language\": \"fr\", \"firstname\": \"user with other language\", \"email\": \"email+user+with+language@email.de\"}"
         },
         "headers": {
           "Accept": [
@@ -120,7 +120,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "149"
+            "179"
           ],
           "Content-Type": [
             "application/json"
@@ -134,7 +134,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQy24yMQyFXwWdLeFXZrgIsvofglU3I0OMiJrLyHFoK8S7V9OhUjdVV/b57GPLviN4uMN6vev31nYGlyBVMyWGQ6ssCy0Lz5GVYRDp9xqdNdwYTqWxAb8rS4a7UKyTTBQi3ByXk3epZTl7/3/Bf34aksopRB7Ga8nTEhi8FXn9qa8l8UDeC9c6k5AvZc5OQfTq6QMutxgN6EZKMjSJ3+TcqpY0jFJGFg1c4e4Pg5aDwj1/YQ/dbrPdWIPnqUemtOjwMDgLk7IfSOHQ296ubLey62PXO7t32/0LDNro/+h5fAYAAP//CU1WZHUBAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SQzW7CQAyEXyWaK0u1CT+CPfUhOPUSGWLIqpvdyOuFVoh3r1J+1FtP9oxHn2Vf4Tu47WKxbjbWWoOjl6yRBoZDySzVxWtfJe1ZqkDxVOjEMAj0SilnfUkDOqg/M5xKYQP+UpYId6SQJzmQD3D3Opv4s4k/e5Lffwdv3QQa0t4Hbsc+xWkNDC5JPv/qPg3cUtcJ53x3fDyme7f3on1H33CxhGBAZ1KStkh4OoeSNQ3tKGlkUc8Z7nozKNEr3OMvdluvl6ulNXgcu2Maqho3g4MwKXctKRwa29i5red2sasbZzdutf6AQRm7fzK3nwAAAP//aJ4esYEBAAA=",
           "encoding": "utf-8"
         },
         "headers": {
@@ -145,16 +145,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "248"
+            "260"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 03 Jan 2020 12:08:58 GMT"
+            "Fri, 03 Jan 2020 12:08:56 GMT"
           ],
           "Etag": [
-            "W/\"c098508241fd64c608e26515f33a295d\""
+            "W/\"e1d9b0401b55afc2f77e8226e747bd03\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -176,10 +176,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "8346c9f8-b0fe-4b6b-9f9d-e637049edb20"
+            "82b99769-e1b5-4a1f-806b-1059c9130415"
           ],
           "X-Runtime": [
-            "1.754098"
+            "1.577256"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -190,90 +190,6 @@
           "message": "OK"
         },
         "url": "https://testabcd.mocoapp.com/api/v1/users"
-      }
-    },
-    {
-      "recorded_at": "2020-01-03T12:08:59",
-      "request": {
-        "body": {
-          "encoding": "utf-8",
-          "string": ""
-        },
-        "headers": {
-          "Accept": [
-            "*/*"
-          ],
-          "Accept-Encoding": [
-            "gzip, deflate"
-          ],
-          "Authorization": [
-            "Token token=ff0b42305c816caf63ed0ece93ddec46"
-          ],
-          "Connection": [
-            "keep-alive"
-          ],
-          "Content-Length": [
-            "0"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "User-Agent": [
-            "python-requests/2.22.0"
-          ]
-        },
-        "method": "DELETE",
-        "uri": "https://testabcd.mocoapp.com/api/v1/users/933628001"
-      },
-      "response": {
-        "body": {
-          "base64_string": "",
-          "encoding": null
-        },
-        "headers": {
-          "Cache-Control": [
-            "no-cache"
-          ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Date": [
-            "Fri, 03 Jan 2020 12:08:59 GMT"
-          ],
-          "Referrer-Policy": [
-            "strict-origin-when-cross-origin"
-          ],
-          "Vary": [
-            "Origin",
-            "Accept-Encoding"
-          ],
-          "X-Content-Type-Options": [
-            "nosniff"
-          ],
-          "X-Download-Options": [
-            "noopen"
-          ],
-          "X-Frame-Options": [
-            "SAMEORIGIN"
-          ],
-          "X-Permitted-Cross-Domain-Policies": [
-            "none"
-          ],
-          "X-Request-Id": [
-            "f04df790-0fee-4cbf-acce-28ee9c4b2799"
-          ],
-          "X-Runtime": [
-            "0.131000"
-          ],
-          "X-Xss-Protection": [
-            "1; mode=block"
-          ]
-        },
-        "status": {
-          "code": 204,
-          "message": "No Content"
-        },
-        "url": "https://testabcd.mocoapp.com/api/v1/users/933628001"
       }
     }
   ],
