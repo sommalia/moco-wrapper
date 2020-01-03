@@ -29,7 +29,8 @@ class Company(MWRAPBase):
         currency = None,
         identifier = None,
         billing_tax = None,
-        default_invoice_due_days = None
+        default_invoice_due_days = None,
+        country_code = None,
         ):
         """Create a company
 
@@ -47,6 +48,7 @@ class Company(MWRAPBase):
         :param identifer: Identifier of the company (only mandatory when not automatily assigned)
         :param billing_tax: Billing tax value 
         :param default_invoice_due_days: Default payment target days for the company when creating invoices
+        :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
         """
 
         data = {
@@ -73,7 +75,8 @@ class Company(MWRAPBase):
             ("currency", currency),
             ("identifier", identifier),
             ("billing_tax", billing_tax),
-            ("default_invoice_due_days", default_invoice_due_days)
+            ("default_invoice_due_days", default_invoice_due_days),
+            ("country_code", country_code)
         ):
             if value is not None:
                 data[key] = value;
@@ -96,7 +99,8 @@ class Company(MWRAPBase):
         currency = None,
         identifier = None,
         billing_tax = None,
-        default_invoice_due_days = None
+        default_invoice_due_days = None,
+        country_code = None
         ):
         """update a company
 
@@ -114,6 +118,7 @@ class Company(MWRAPBase):
         :param identifer: Identifier of the company (only mandatory when not automatily assigned)
         :param billing_tax: Billing tax value 
         :param default_invoice_due_days: Default payment target days for the company when creating invoices
+        :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
         """
         data = {}
         for key, value in (
@@ -130,7 +135,8 @@ class Company(MWRAPBase):
             ("currency", currency),
             ("identifier", identifier),
             ("billing_tax", billing_tax),
-            ("default_invoice_due_days", default_invoice_due_days)
+            ("default_invoice_due_days", default_invoice_due_days),
+            ("country_code", country_code)
         ):
             if value is not None:
                 data[key] = value

@@ -4,7 +4,11 @@ import betamax
 from moco_wrapper.moco_wrapper import Moco
 
 class IntegrationTest(object):
-    """Base class for integration tests."""
+    """Base class for integration tests.
+    
+    The Integration tests check if the requests that are created will be sent out correctly and can be parsed back into a real object
+    
+    """
 
     def setup(self):
         self.setup_moco()

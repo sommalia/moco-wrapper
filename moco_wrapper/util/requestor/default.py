@@ -27,7 +27,7 @@ class DefaultRequestor(BaseRequestor):
         elif method == "POST":
             response = self.session.post(path, params=params, json=data, **kwargs)
         elif method == "DELETE":
-            response = self.session.post(path, params=params, json=data, **kwargs)
+            response = self.session.delete(path, params=params, json=data, **kwargs)
         elif method == "PUT":
             response = self.session.put(path, params=params, json=data, **kwargs)
         elif method == "PATCH":
@@ -35,11 +35,17 @@ class DefaultRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
-            response_content = response.json()
-            if isinstance(response_content, list):
-                return ListingResponse(response)
-            else:
-                return JsonResponse(response)
+
+            if response.status_code == 200:
+                response_content = response.json()
+                if isinstance(response_content, list):
+                    return ListingResponse(response)
+                else:
+                    return JsonResponse(response)
+            elif response.status_code == 204:
+                #no content but success
+                return None
+            
         except ValueError as ex:
             print(ex)
             response_obj = ErrorResponse(response)

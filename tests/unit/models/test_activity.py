@@ -112,14 +112,14 @@ class TestActivity(UnitTest):
         reason = "because i said so"
         activity_ids = [123, 124, 125]
         project_id = 1
-        customer_id = 2
+        company_id = 2
 
-        response = self.moco.Activity.disregard(reason, activity_ids, customer_id, project_id)
+        response = self.moco.Activity.disregard(reason, activity_ids, company_id, project_id)
         response_data = response["data"]
 
         assert response_data["reason"] == reason
         assert response_data["activity_ids"] == activity_ids
         assert response_data["project_id"] == project_id
-        assert response_data["customer_id"] == customer_id   
+        assert response_data["company_id"] == company_id   
 
         assert response["method"] == "POST"     

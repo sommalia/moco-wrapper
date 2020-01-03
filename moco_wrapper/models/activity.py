@@ -192,21 +192,21 @@ class Activity(MWRAPBase):
         self,
         reason,
         activity_ids,
-        customer_id,
+        company_id,
         project_id
         ):
         """mark one or more activities as "already billed"
 
         :param reason: reason text for disregarding the activities
         :param activity_ids: array of activity ids to disregard
-        :param customer_id: customer id these activities belong to
+        :param company_id: customer id these activities belong to
         :param project_id: project id these activities belong to  
         """
 
         data = {
             "reason" : reason,
             "activity_ids" : activity_ids,
-            "customer_id": customer_id,
+            "company_id": company_id,
             "project_id": project_id
         }  
 
