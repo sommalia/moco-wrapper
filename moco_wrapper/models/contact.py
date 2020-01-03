@@ -1,6 +1,14 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from enum import Enum
+from datetime import date
+
+class ContactGender(Enum):
+    MALE = "M"
+    FEMALE = "F"
+    UNDEFINED = "U"
+
 class Contact(MWRAPBase):
     """Class for handling contacts"""
 
@@ -35,7 +43,7 @@ class Contact(MWRAPBase):
 
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
-        :param gender: either F, M, U
+        :param gender: ContactGender type
         :param customer_id: Id of the customer (company) the contact belongs to
         :param title: Title the contact has
         :param job_position: name of the job position this contact has
@@ -46,11 +54,12 @@ class Contact(MWRAPBase):
         :param work_address: Work address
         :param home_address: Home address
         :param home_email: home email address
-        :param birthday: Birthday (format YYYY-MM-DD)
+        :param birthday: Birthday date (datetime.date)
         :param info: More information about the contact
         :param tags: Array of additional tags
         :returns: the created contact object
         """
+
         data = {
             "firstname" : firstname,
             "lastname" : lastname,
@@ -73,7 +82,10 @@ class Contact(MWRAPBase):
             ("tags", tags)
         ):
             if value is not None:
-                data[key] = value
+                if isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         return self._moco.post(API_PATH['contact_create'], data=data);
 

@@ -1,6 +1,18 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from enum import Enum
+from datetime import date
+
+class UserLanguage(Enum):
+    DE = "de"
+    DE_AT = "de-AT"
+    DE_CH = "de-CH"
+    EN = "en"
+    IT = "it"
+    FR = "fr"
+
+
 class User(MWRAPBase):
     """Class for handling users"""
     def __init__(self, moco):
@@ -36,12 +48,18 @@ class User(MWRAPBase):
         :param mobile_phone: users mobile phone number
         :param work_phone: users work phone number
         :param home_address: users home address 
-        :param bday: users birthday (format YYYY-MM-DD)
+        :param bday: users birthday (datetime.date)
         :param custom_properties: custom fields to add to the user
         :param info: additional information abotu the user
         :returns: the created user object
 
         """
+
+        #type checks required parameters
+        if not isinstance(unit_id, int):
+            raise ValueError('parameter unit_id must be of type int')
+
+        
         data = {
             "firstname" : firstname,
             "lastname": lastname,
@@ -50,19 +68,27 @@ class User(MWRAPBase):
             "unit_id": unit_id
         }
 
-        for key, value in (
-            ("active", active),
-            ("external", external),
-            ("language", language),
-            ("mobile_phone", mobile_phone),
-            ("work_phone", work_phone),
-            ("home_address", home_address),
-            ("bday", bday),
-            ("custom_properties", custom_properties),
-            ("info", info)
+        for key, value, required_type in (
+            ("active", active, bool),
+            ("external", external, bool),
+            ("language", language, UserLanguage),
+            ("mobile_phone", mobile_phone, str),
+            ("work_phone", work_phone, str),
+            ("home_address", home_address, str),
+            ("bday", bday, date),
+            ("custom_properties", custom_properties, dict),
+            ("info", info, str)
         ):
             if value is not None:
-                data[key] = value
+
+                #type check optional parameters
+                if not isinstance(value, required_type):
+                    raise ValueError("{0} must be of type {1}, got {2}".format(key, str(required_type), type(value)))
+                    
+                if isinstance(value, date):
+                    data[key] = value.isoformat() #format datetime date for yyyy-mm-dd
+                else:
+                    data[key] = value
 
         return self._moco.post(API_PATH["user_create"], data=data)
 

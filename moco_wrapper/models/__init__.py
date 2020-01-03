@@ -7,11 +7,11 @@ __email__ = 'sommalia@protonmail.com'
 __version__ = '0.1.0'
 
 from .activity import Activity
-from .contact import Contact
+from .contact import Contact, ContactGender
 from .company import Company
 from .comment import Comment
 from .unit import Unit
-from .user import User
+from .user import User, UserLanguage
 from .schedule import Schedule
 from .deal import Deal
 from .invoice import Invoice

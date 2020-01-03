@@ -1,6 +1,10 @@
 import pytest
 from .. import UnitTest
 
+from datetime import date
+
+from moco_wrapper.models.user import UserLanguage
+
 class TestUser(UnitTest):
     def test_create(self):
         firstname = "firstname"
@@ -10,14 +14,14 @@ class TestUser(UnitTest):
         unit_id = 214
         active = True
         external = False
-        language = "DE"
+        language = UserLanguage.DE
         mobile_phone = "2134124 + 123"
         work_phone = "3215 +23 "
         home_address = "this is my home address"
-        bday = "1994-10-10"
+        bday = date(1994,10,10)
         custom_properties = {
             "custom_shirt": True
-        },
+        }
         info = "more information"
 
         response = self.moco.User.create(firstname, lastname, email, password, unit_id, active=active, external=external, language=language, mobile_phone=mobile_phone, work_phone=work_phone, home_address=home_address, bday=bday, custom_properties=custom_properties, info=info)
@@ -30,12 +34,12 @@ class TestUser(UnitTest):
         assert data["unit_id"] == unit_id
         assert data["active"] == active
         assert data["external"] == external
-        assert data["language"] == language
+        assert data["language"] ==  UserLanguage.DE
         assert data["mobile_phone"] == mobile_phone
         assert data["work_phone"] == work_phone
         assert data["home_address"] == home_address
         assert data["custom_properties"] == custom_properties
-        assert data["bday"] == bday
+        assert data["bday"] == bday.isoformat()
         assert data["info"] == info
 
         assert response["method"] == "POST"

@@ -54,6 +54,7 @@ class TestUser(IntegrationTest):
 
             response_delete = self.moco.User.delete(user_id_to_delete)
             assert not isinstance(response_delete, ErrorResponse)
+            assert response_delete == None
 
     def test_get(self):
         created_user = self.test_create()

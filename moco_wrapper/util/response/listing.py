@@ -13,13 +13,23 @@ class ListingResponse(MWRAPResponse):
         """
         return self._items
 
+    
+    @property
+    def x_page(self):
+        pass
+
     @property 
-    def next(self):
+    def x_per_page(self):
         pass
 
     @property
-    def before(self):
+    def x_total(self):
         pass
+
+    @property
+    def is_last(self):
+        pass
+
 
     @property
     def data(self):
