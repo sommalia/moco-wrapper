@@ -1,6 +1,15 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from enum import Enum
+
+class DealStatus(str, Enum):
+    POTENTIAL = "potential"
+    PENDING = "pending"
+    WON = "won"
+    LOST = "lost"
+    DROPPED = "dropped"
+
 class Deal(MWRAPBase):
     """Class for handling leads"""
 
