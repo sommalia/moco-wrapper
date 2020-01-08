@@ -10,56 +10,79 @@ from .. import IntegrationTest
 
 class TestContact(IntegrationTest):
     def test_create(self):
-        data = {}
         with self.recorder.use_cassette("TestContact.test_create"):
-            response = self.moco.Contact.create("first", "last", ContactGender.UNDEFINED)
-            data = response.data
-            assert isinstance(response, JsonResponse)
-            assert response.data != None
+            contact_create = self.moco.Contact.create("first", "last", ContactGender.UNDEFINED)
+            data = contact_create.data
 
-        return data
+            assert contact_create.response.status_code == 200
+
+            assert isinstance(contact_create, JsonResponse)
+            assert contact_create.data != None
+
 
     def test_create_with_company(self):
         with self.recorder.use_cassette("TestContact.test_create_with_company"):
-            company_create_response = self.moco.Company.create("test contact company", CompanyType.CUSTOMER, currency=CompanyCurrency.EUR)
-            contact_create_response = self.moco.Contact.create("test company contact", "lastname", ContactGender.FEMALE, customer_id=company_create_response.data.id)
+            company_create = self.moco.Company.create("test contact company", CompanyType.CUSTOMER, currency=CompanyCurrency.EUR)
+            contact_create = self.moco.Contact.create("test company contact", "lastname", ContactGender.FEMALE, customer_id=company_create.data.id)
 
-            assert isinstance(contact_create_response, JsonResponse)
-            assert contact_create_response.data.company.id == company_create_response.data.id
+            assert company_create.response.status_code == 200
+            assert contact_create.response.status_code == 200
+
+            assert isinstance(contact_create, JsonResponse)
+            
+            assert contact_create.data.company.id == company_create.data.id
 
     def test_create_with_birthday(self):
         with self.recorder.use_cassette("TestContact.test_create_with_birthday"):
-            response = self.moco.Contact.create("contact with birthday", "lastname", ContactGender.MALE, birthday=date(2000, 1,1))
+            contact_create = self.moco.Contact.create("contact with birthday", "lastname", ContactGender.MALE, birthday=date(2000, 1,1))
 
-            assert isinstance(response, JsonResponse)
-            assert response.data.birthday == date(2000, 1,1).isoformat()
+            assert contact_create.response.status_code == 200
+
+            assert isinstance(contact_create, JsonResponse)
+            assert contact_create.data.birthday == date(2000, 1,1).isoformat()
 
     def test_create_with_tags(self):
         with self.recorder.use_cassette("TestContact.test_create_with_tags"):
             tags = ["print", "online"]
 
-            response = self.moco.Contact.create("contact with tags", "lastname", ContactGender.UNDEFINED, tags=tags)
-            assert isinstance(response, JsonResponse)
-            assert response.data.tags.sort() == tags.sort()
+            contact_create = self.moco.Contact.create("contact with tags", "lastname", ContactGender.UNDEFINED, tags=tags)
+
+            assert contact_create.response.status_code == 200
+
+            assert isinstance(contact_create, JsonResponse)
+            assert contact_create.data.tags.sort() == tags.sort()
 
     def test_update(self):
         with self.recorder.use_cassette("TestContact.test_update"):
-            created_response = self.moco.Contact.create("firstname", "lastname", ContactGender.UNDEFINED)
-            response = self.moco.Contact.update(created_response.data.id, firstname="new firstname")
-            assert isinstance(response, JsonResponse)
-            assert response.data != None
+            contact_create = self.moco.Contact.create("firstname", "lastname", ContactGender.UNDEFINED)
+            contact_update = self.moco.Contact.update(contact_create.data.id, firstname="new firstname")
+        
+            assert contact_create.response.status_code == 200
+            assert contact_update.response.status_code == 200
+
+            assert isinstance(contact_update, JsonResponse)
+
+            assert contact_update.data.firstname == "new firstname"
 
 
     def test_get(self):
         with self.recorder.use_cassette("TestContact.test_get"):
-            created_response = self.moco.Contact.create("firstname", "lastname", ContactGender.UNDEFINED)
-            response = self.moco.Contact.get(created_response.data.id)
+            contact_create = self.moco.Contact.create("firstname", "lastname", ContactGender.UNDEFINED)
+            contact_get = self.moco.Contact.get(contact_create.data.id)
 
-            assert isinstance(response, JsonResponse)
-            assert response.data != None
+            assert contact_create.response.status_code == 200
+            assert contact_get.response.status_code == 200
+
+            assert isinstance(contact_get, JsonResponse)
+
+            assert contact_get.data.firstname == "firstname"
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestContact.test_getlist"):
-            response = self.moco.Contact.getlist()
-            assert isinstance(response, ListingResponse)
-            assert response.data != None
+            contact_getlist = self.moco.Contact.getlist()
+
+            assert contact_getlist.response.status_code == 200
+
+            assert isinstance(contact_getlist, ListingResponse)
+
+            assert contact_getlist.data != None
