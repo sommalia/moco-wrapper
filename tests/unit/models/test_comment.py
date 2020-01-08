@@ -1,5 +1,6 @@
 import pytest
 
+from moco_wrapper.models.comment import CommentTargetType
 from .. import UnitTest
 
 class TestComment(UnitTest):
@@ -12,7 +13,7 @@ class TestComment(UnitTest):
         data = response["data"]
 
         assert data["commentable_id"] == commentable_id
-        assert data["commentable_type"] == commentable_type
+        assert data["commentable_type"] == CommentTargetType.OFFER
         assert data["text"] == text
 
         assert response["method"] == "POST"
@@ -26,7 +27,7 @@ class TestComment(UnitTest):
         data = response["data"]
 
         assert data["commentable_ids"] == commentable_ids
-        assert data["commentable_type"] == commentable_type
+        assert data["commentable_type"] == CommentTargetType.OFFER
         assert data["text"] == text
 
         assert response["method"] == "POST"
@@ -42,7 +43,7 @@ class TestComment(UnitTest):
         params = response["params"]
 
         assert params["commentable_id"] == commentable_id
-        assert params["commentable_type"] == commentable_type
+        assert params["commentable_type"] == CommentTargetType.CUSTOMER
         assert params["user_id"] == user_id
         assert params["manual"] == manual
 

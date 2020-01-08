@@ -1,6 +1,23 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from enum import Enum
+
+class CommentTargetType(str, Enum):
+    """
+    Enumeration of types that a comment can be created for.
+
+    If you comment on an Offer use CommentTargetType.OFFER and supply the offer id
+    """
+    USER = "User"
+    DEAL = "Deal"
+    OFFER = "Offer"
+    OFFERCONFIRMATION = "OfferConfirmation"
+    CUSTOMER = "Customer"
+    PROJECT = "Project"
+    INVOICE = "Invoice"
+    CONTACT = "Contact"
+
 class Comment(MWRAPBase):
     """Class for handling comments."""
 
@@ -9,9 +26,9 @@ class Comment(MWRAPBase):
 
     def create(
         self,
-        commentable_id,
-        commentable_type,
-        text
+        commentable_id: int,
+        commentable_type: CommentTargetType,
+        text: str
         ):
         """create a comment 
 
@@ -30,9 +47,9 @@ class Comment(MWRAPBase):
 
     def create_bulk(
         self,
-        commentable_ids,
-        commentable_type,
-        text
+        commentable_ids: list,
+        commentable_type: CommentTargetType,
+        text: str
         ):
         """create a comment under multplie objects of the same type
         :param commentable_ids: ids of the objects we want to comment under ie. [123, 124, 125]
@@ -49,10 +66,10 @@ class Comment(MWRAPBase):
 
     def update(
         self,
-        id,
-        commentable_id = None,
-        commentable_type = None,
-        text = None
+        id: int,
+        commentable_id: int = None,
+        commentable_type: CommentTargetType = None,
+        text: str = None
         ):
         """update a comment
 
@@ -75,7 +92,7 @@ class Comment(MWRAPBase):
 
     def delete(
         self,
-        id
+        id: int
         ):
         """delete a comment
 
@@ -86,7 +103,7 @@ class Comment(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a single comment
 
@@ -97,13 +114,13 @@ class Comment(MWRAPBase):
 
     def getlist(
         self,
-        commentable_type = None,
-        commentable_id = None,
-        user_id = None,
-        manual = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        commentable_type: CommentTargetType = None,
+        commentable_id: int = None,
+        user_id: int = None,
+        manual: bool = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrieve a list of comments
 

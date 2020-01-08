@@ -9,7 +9,7 @@ __version__ = '0.1.0'
 from .activity import Activity
 from .contact import Contact, ContactGender
 from .company import Company, CompanyType, CompanyCurrency
-from .comment import Comment
+from .comment import Comment, CommentTargetType
 from .unit import Unit
 from .user import User, UserLanguage
 from .schedule import Schedule
