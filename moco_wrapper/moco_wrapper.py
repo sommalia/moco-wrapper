@@ -37,6 +37,7 @@ class Moco(object):
         self.ProjectRecurringExpense = models.ProjectRecurringExpense(self)
 
         self.Deal = models.Deal(self)
+        self.DealCategory = models.DealCategory(self)
 
         self.Invoice = models.Invoice(self)
         self.InvoicePayment = models.InvoicePayment(self)

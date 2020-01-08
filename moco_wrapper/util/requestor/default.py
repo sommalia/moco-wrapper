@@ -3,7 +3,7 @@ import time
 
 from .base import BaseRequestor
 
-from ..response import ListingResponse, JsonResponse, ErrorResponse
+from ..response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse
 
 class DefaultRequestor(BaseRequestor):
 
@@ -45,7 +45,7 @@ class DefaultRequestor(BaseRequestor):
                     return JsonResponse(response)
             elif response.status_code == 204:
                 #no content but success
-                return None
+                return EmptyResponse(response)
             elif response.status_code in self.error_status_codes:
                 return ErrorResponse(response)
 

@@ -1,6 +1,6 @@
 import pytest
 
-from moco_wrapper.util.response import JsonResponse, ErrorResponse, ListingResponse
+from moco_wrapper.util.response import JsonResponse, ErrorResponse, ListingResponse, EmptyResponse
 from moco_wrapper.models.user import UserLanguage
 
 from .. import IntegrationTest
@@ -50,9 +50,6 @@ class TestUser(IntegrationTest):
             assert response.data.email == email
             assert response.data.unit.id == unit_id
 
-
-
-
     def test_update(self):
         created_user = self.test_create()
 
@@ -76,8 +73,7 @@ class TestUser(IntegrationTest):
             user_id_to_delete = response_create.data.id
 
             response_delete = self.moco.User.delete(user_id_to_delete)
-            assert not isinstance(response_delete, ErrorResponse)
-            assert response_delete == None
+            assert isinstance(response_delete, EmptyResponse)
 
     def test_get(self):
         created_user = self.test_create()

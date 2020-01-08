@@ -72,9 +72,6 @@ class Company(MWRAPBase):
             else:
                 data["currency"] = currency
 
-        #make check for all required arguments here
-        #TODO
-
         for key, value in (
             ("website", website),
             ("fax", fax),

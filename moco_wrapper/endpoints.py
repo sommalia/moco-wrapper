@@ -98,5 +98,10 @@ API_PATH = {
     "schedule_getlist":                 "/schedules",
     "schedule_create":                  "/schedules",
     "schedule_update":                  "/schedules/{id}",
-    "schedule_delete":                  "/schedules/{id}"
+    "schedule_delete":                  "/schedules/{id}",
+    "deal_category_getlist":          "/deal_categories",
+    "deal_category_get":              "/deal_categories/{id}",
+    "deal_category_create":           "/deal_categories",
+    "deal_category_update":           "/deal_categories/{id}",
+    "deal_category_delete":           "/deal_categories/{id}"
 }

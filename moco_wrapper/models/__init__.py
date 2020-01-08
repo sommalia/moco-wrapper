@@ -14,6 +14,7 @@ from .unit import Unit
 from .user import User, UserLanguage
 from .schedule import Schedule
 from .deal import Deal
+from .deal_category import DealCategory
 from .invoice import Invoice
 from .invoice_payment import InvoicePayment
 from .offer import Offer

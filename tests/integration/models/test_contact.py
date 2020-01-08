@@ -43,19 +43,17 @@ class TestContact(IntegrationTest):
             assert response.data.tags.sort() == tags.sort()
 
     def test_update(self):
-        created = self.test_create()
-
         with self.recorder.use_cassette("TestContact.test_update"):
-            response = self.moco.Contact.update(created.id, firstname="new firstname")
+            created_response = self.moco.Contact.create("firstname", "lastname", ContactGender.UNDEFINED)
+            response = self.moco.Contact.update(created_response.data.id, firstname="new firstname")
             assert isinstance(response, JsonResponse)
             assert response.data != None
 
 
     def test_get(self):
-        created = self.test_create()
-
         with self.recorder.use_cassette("TestContact.test_get"):
-            response = self.moco.Contact.get(created.id)
+            created_response = self.moco.Contact.create("firstname", "lastname", ContactGender.UNDEFINED)
+            response = self.moco.Contact.get(created_response.data.id)
 
             assert isinstance(response, JsonResponse)
             assert response.data != None

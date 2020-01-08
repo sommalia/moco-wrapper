@@ -1,0 +1,191 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-01-08T10:25:33",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"probability\": 50, \"name\": \"this category is to update\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=6be9ea68a4a713fd266ea0ee95a63685"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "57"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://testabcd.mocoapp.com/api/v1/deal_categories"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/3zLsQrCQAwG4Fc5/vkKafCw5DmcXCTtBQ2oV65xKOK7O7i7f98bXiHlyOWQ8dSHQRA339KiYdfW9+RbipZea9UwZKy9zTr73WOHFMpYumlYvWhAwMQ00DjQdBpJuAhPZ2T89j/z+QYAAP//pMjkkYkAAAA=",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "125"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Wed, 08 Jan 2020 10:25:28 GMT"
+          ],
+          "Etag": [
+            "W/\"cb2324af5a1ecbf9d78da94304beafa7\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "de136eee-9e06-485f-a238-97a57dce6c0a"
+          ],
+          "X-Runtime": [
+            "0.041404"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://testabcd.mocoapp.com/api/v1/deal_categories"
+      }
+    },
+    {
+      "recorded_at": "2020-01-08T10:25:33",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"probability\": 66}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=6be9ea68a4a713fd266ea0ee95a63685"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "19"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "PUT",
+        "uri": "https://testabcd.mocoapp.com/api/v1/deal_categories/57254"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/3zLsQrCQAwG4Fc5/vkKabC15DmcXCTtBQ2oV65xKOK7O7i7f98bXiDDkYdDxlMfBkHcfEuLhl1r25NvKWp6rUXDkLG2Ouvsd48dMo4ZSzMNKxcNCJiYOuo7mk49CQ/C0xkZv/3PfL4BAAD//1vLRXCJAAAA",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "126"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Wed, 08 Jan 2020 10:25:28 GMT"
+          ],
+          "Etag": [
+            "W/\"45d8e019620039fa640fc0bf243a95c7\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "b88f3ecc-1896-45fa-964f-0d437534d7bd"
+          ],
+          "X-Runtime": [
+            "0.035352"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://testabcd.mocoapp.com/api/v1/deal_categories/57254"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}
