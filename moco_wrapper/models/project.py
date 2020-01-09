@@ -241,7 +241,7 @@ class Project(MWRAPBase):
 
     def archive(
         self,
-        id
+        id: int
         ):
         """archive a project
 
@@ -251,7 +251,7 @@ class Project(MWRAPBase):
 
     def unarchive(
         self,
-        id
+        id: int
         ):
         """unarchive a project
 
@@ -261,7 +261,7 @@ class Project(MWRAPBase):
 
     def report(
         self,
-        id
+        id: int
         ):
         """retrieve a project report
 
