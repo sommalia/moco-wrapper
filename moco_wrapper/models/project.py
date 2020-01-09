@@ -26,10 +26,10 @@ class Project(MWRAPBase):
         leader_id: int,
         customer_id: int,
         identifier: str = None,
-        billing_address:str = None,
+        billing_address: str = None,
         billing_variant: ProjectBillingVariant = None,
-        hourly_rate: int = None,
-        budget: int = None,
+        hourly_rate: float = None,
+        budget: float = None,
         labels: list = None,
         custom_properties: dict = None,
         info: str = None
@@ -54,10 +54,16 @@ class Project(MWRAPBase):
         data = {
             "name": name,
             "currency" : currency,
-            "finish_date": finish_date,
             "leader_id": leader_id,
             "customer_id": customer_id
         }
+
+    
+        if isinstance(finish_date, date):
+            data["finish_date"] = finish_date.isoformat()
+        else:
+            data["finish_date"] = finish_date
+
 
         for key, value in (
             ("identifier", identifier),
@@ -76,19 +82,19 @@ class Project(MWRAPBase):
 
     def update(
         self,
-        id,
-        name = None,
-        finish_date = None,
-        leader_id = None,
-        customer_id = None,
-        identifier = None,
-        billing_address = None,
-        billing_variant = None,
-        hourly_rate = None,
-        budget = None,
-        labels = None,
-        custom_properties = None,
-        info = None
+        id: int,
+        name: str = None,
+        finish_date: date = None,
+        leader_id: int = None,
+        customer_id: int = None,
+        identifier: str = None,
+        billing_address: str = None,
+        billing_variant: ProjectBillingVariant = None,
+        hourly_rate: float = None,
+        budget: float = None,
+        labels: list = None,
+        custom_properties: dict = None,
+        info: str = None
         ):
         """updates an existing project
 
@@ -124,13 +130,16 @@ class Project(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                data[key] = value
+                if key == "finish_date" and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         return self._moco.put(API_PATH["project_update"].format(id=id), data=data)
 
     def get(
         self,
-        id
+        id: int
         ):
         """get a single project
 
@@ -142,19 +151,19 @@ class Project(MWRAPBase):
 
     def getlist(
         self,
-        include_archived = None,
-        include_company = None,
-        leader_id = None,
-        company_id = None,
-        created_from = None,
-        created_to = None,
-        updated_from = None,
-        updated_to = None,
-        tags = None,
-        identifier = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        include_archived: bool = None,
+        include_company: bool = None,
+        leader_id: int = None,
+        company_id: int = None,
+        created_from: date = None,
+        created_to: date = None,
+        updated_from: date = None,
+        updated_to: date = None,
+        tags: list = None,
+        identifier: str = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """Get a list of projects
 
@@ -189,7 +198,10 @@ class Project(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                params[key] = value
+                if key in ["created_from", "created_to", "updated_from", "updated_to" ] and isinstance(value, date):
+                    params[key] = value.isoformat()
+                else:
+                    params[key] = value
 
         #add sort order if set
         if sort_by is not None:
@@ -200,10 +212,10 @@ class Project(MWRAPBase):
 
     def assigned(
         self,
-        active = None,
-        sort_by = None,
-        sort_order = 'asc', 
-        page = 1
+        active: bool = None,
+        sort_by: str = None,
+        sort_order: str = 'asc', 
+        page: int = 1
         ):
         """get list of all project currently assigned to the user 
 
