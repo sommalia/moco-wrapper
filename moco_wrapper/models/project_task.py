@@ -51,21 +51,21 @@ class ProjectTask(MWRAPBase):
 
     def create(
         self,
-        project_id,
-        name,
-        billable = None,
-        active = None,
-        budget = None,
-        hourly_rate = None
+        project_id: int,
+        name: str,
+        billable: bool = True,
+        active: bool = True,
+        budget: float = None,
+        hourly_rate: float = None
         ):
         """create a task on a project
 
         :param project_id: id of the project the created task will belong to
         :param name: name of the task
-        :param billable: true/false, if this task is billable or not
-        :param active: true/false, if this task is active or not
-        :param budget: how much budget for the task (ex: 200)
-        :param hourly_rate: how much is the hourly rate for the task (ex: 120)
+        :param billable: true/false, if this task is billable or not (default true)
+        :param active: true/false, if this task is active or not (default true)
+        :param budget: how much budget for the task (ex: 200.75)
+        :param hourly_rate: how much is the hourly rate for the task (ex: 120.5)
         :returns: the created project task
         """
         data = {
