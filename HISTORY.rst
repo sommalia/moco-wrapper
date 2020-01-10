@@ -6,3 +6,9 @@ History
 ------------------
 
 * First release on PyPI.
+
+0.2.0 (2020-01-10)
+------------------
+
+* More tests
+* Implement deal categories
