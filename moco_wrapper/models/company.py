@@ -198,12 +198,4 @@ class Company(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["company_getlist"], params=params)
-
-    def delete(
-        self,
-        id
-        ):
-        """Deleting a company over the api is not possible for now"""
-        pass
-
         
