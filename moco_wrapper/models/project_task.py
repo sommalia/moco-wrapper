@@ -9,10 +9,10 @@ class ProjectTask(MWRAPBase):
 
     def getlist(
         self,
-        project_id,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        project_id: int,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrieve a list of task for a project
 
@@ -38,8 +38,8 @@ class ProjectTask(MWRAPBase):
 
     def get(
         self,
-        project_id,
-        task_id
+        project_id: int,
+        task_id: int
         ):
         """retrieve a single project task
 
@@ -85,13 +85,13 @@ class ProjectTask(MWRAPBase):
 
     def update(
         self,
-        project_id,
-        task_id,
-        name = None,
-        billable = None,
-        active = None,
-        budget = None,
-        hourly_rate = None
+        project_id: int,
+        task_id: int,
+        name: str = None,
+        billable: bool = None,
+        active: bool = None,
+        budget: float = None,
+        hourly_rate: float = None
         ):
         """update a task on a project
 
