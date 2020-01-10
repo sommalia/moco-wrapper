@@ -119,8 +119,8 @@ class ProjectTask(MWRAPBase):
 
     def delete(
         self,
-        project_id,
-        task_id
+        project_id: int,
+        task_id: int
         ):
         """deletes a task on a projects
 
