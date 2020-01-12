@@ -23,7 +23,7 @@ class TestActivity(UnitTest):
         user_id = 21
         project_id = 22
 
-        response = self.moco.Activity.getlist(from_date=from_date, to_date=to_date, user_id=user_id, project_id=project_id)
+        response = self.moco.Activity.getlist(from_date, to_date, user_id=user_id, project_id=project_id)
 
         response_params = response["params"]
         assert response_params["from"] == from_date
@@ -34,32 +34,40 @@ class TestActivity(UnitTest):
         assert response["method"] == "GET"
 
     def test_getlist_sort_default(self):
+        from_date = "2019-01-01"
+        to_date = "2020-01-01"
         sort_by = "sort by field"
-        response = self.moco.Activity.getlist(sort_by=sort_by)
+        response = self.moco.Activity.getlist(from_date, to_date, sort_by=sort_by)
 
         response_params = response["params"]
         assert response_params["sort_by"] == "{} asc".format(sort_by)
 
     def test_getlist_sort_overwrite(self):
+        from_date = "2019-01-01"
+        to_date = "2020-01-01"
         sort_by = "sort by field"
         sort_order = "desc"
-        response = self.moco.Activity.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.Activity.getlist(from_date, to_date, sort_by=sort_by, sort_order=sort_order)
 
         response_params = response["params"]
         assert response_params["sort_by"] == "{} {}".format(sort_by, sort_order)
 
     def test_getlist_page_default(self):
+        from_date = "2019-01-01"
+        to_date = "2020-01-01"
         default_page = 1
 
-        response = self.moco.Activity.getlist()
+        response = self.moco.Activity.getlist(from_date, to_date)
         params = response["params"]
 
         assert params["page"] == default_page
 
     def test_getlist_page_overwrite(self):
+        from_date = "2019-01-01"
+        to_date = "2020-01-01"
         overwrite_page = 22
 
-        response = self.moco.Activity.getlist(page=overwrite_page)
+        response = self.moco.Activity.getlist(from_date, to_date, page=overwrite_page)
         params = response["params"]
 
         assert params["page"] == overwrite_page

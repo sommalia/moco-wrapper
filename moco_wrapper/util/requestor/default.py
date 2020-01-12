@@ -11,7 +11,7 @@ class DefaultRequestor(BaseRequestor):
         self._session = requests.Session()
 
         self.requests_timestamps = []
-        self.error_status_codes = [401, 403, 404, 422, 429]
+        self.error_status_codes = [400, 401, 403, 404, 422, 429]
 
 
     @property
@@ -48,6 +48,8 @@ class DefaultRequestor(BaseRequestor):
                 return EmptyResponse(response)
             elif response.status_code in self.error_status_codes:
                 return ErrorResponse(response)
+
+            print(response)
 
         except ValueError as ex:
             print(ex)

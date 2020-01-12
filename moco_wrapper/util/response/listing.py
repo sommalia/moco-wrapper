@@ -1,5 +1,5 @@
 from .base import MWRAPResponse
-import json
+from json import dumps
 
 class ListingResponse(MWRAPResponse):
     """
@@ -51,6 +51,9 @@ class ListingResponse(MWRAPResponse):
         json_content = response.json()
         self._items = []
         for json_item in json_content:
-            self._items.append(self.json_to_object(json.dumps(json_item)))
+            self._items.append(self.json_to_object(dumps(json_item)))
+
+    def __str__(self):
+         return "<ListingResponse, Status Code: {}, Data: {}>".format(self.response.status_code, self.response.text)
 
         
