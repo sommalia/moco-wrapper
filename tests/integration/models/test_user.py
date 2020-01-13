@@ -1,5 +1,3 @@
-import pytest
-
 from moco_wrapper.util.response import JsonResponse, ErrorResponse, ListingResponse, EmptyResponse
 from moco_wrapper.models.user import UserLanguage
 

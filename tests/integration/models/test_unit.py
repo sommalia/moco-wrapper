@@ -1,5 +1,3 @@
-import pytest
-
 from moco_wrapper.util.response import JsonResponse, ListingResponse
 
 from .. import IntegrationTest
