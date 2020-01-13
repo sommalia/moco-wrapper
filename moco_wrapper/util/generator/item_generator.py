@@ -1,5 +1,4 @@
-
-class InvoiceItemGenerator(object):
+class ItemGenerator(object):
 
     def generate_title(
         self,
@@ -41,6 +40,43 @@ class InvoiceItemGenerator(object):
             "type": "seperator"
         }
 
+class OfferItemGenerator(ItemGenerator):
+    def generate_item(
+        self,
+        title,
+        quantity = None,
+        unit = None,
+        unit_price = None,
+        net_total = None,
+        optional = False
+        ):
+        """generate an invoice if tyoe "item"
+
+        :param title: title of the item
+        :param quantity: quantity of the supplied item
+        :param unit: unit name of the supplied item
+        :param unit_price: unit price of the supplied item
+        :param net_total: net total sum (either this is supplied or unit, unit_price, and quantity)
+        :param optional: wehter the item is an optional item or not (default False)
+        :returns: the item
+        """
+        data = {
+            "title": title
+        }
+
+        for key, value in (
+            ("quantity", quantity),
+            ("unit", unit),
+            ("unit_price", unit_price),
+            ("net_total", net_total),
+            ("optional", optional)
+        ):
+            if value is not None:
+                data[key] = value
+
+        return data
+
+class InvoiceItemGenerator(ItemGenerator):
     def generate_item(
         self,
         title,
