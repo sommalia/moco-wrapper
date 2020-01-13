@@ -27,20 +27,20 @@ class Company(MWRAPBase):
         self,
         name: str,
         company_type: CompanyType,
-        website = None,
-        fax = None,
-        phone = None,
-        email = None,
-        address = None,
-        info = None,
-        custom_properties = None,
-        labels = None,
-        user_id = None,
-        currency = None,
-        identifier = None,
-        billing_tax = None,
-        default_invoice_due_days = None,
-        country_code = None,
+        website: str = None,
+        fax: str = None,
+        phone: str = None,
+        email: str = None,
+        address: str = None,
+        info: str = None,
+        custom_properties: dict = None,
+        labels: list = None,
+        user_id: int = None,
+        currency: CompanyCurrency = None,
+        identifier: str = None,
+        billing_tax: float = None,
+        default_invoice_due_days: int = None,
+        country_code: str = None,
         ):
         """Create a company
 
@@ -90,23 +90,23 @@ class Company(MWRAPBase):
 
     def update(
         self,
-        id,
+        id: int,
         company_type: CompanyType = None,
-        name = None,
-        website = None,
-        fax = None,
-        phone = None,
-        email = None,
-        address = None,
-        info = None,
-        custom_properties = None,
-        labels = None,
-        user_id = None,
-        currency = None,
-        identifier = None,
-        billing_tax = None,
-        default_invoice_due_days = None,
-        country_code = None
+        name: str = None,
+        website: str = None,
+        fax: str = None,
+        phone: str = None,
+        email: str = None,
+        address: str = None,
+        info: str = None,
+        custom_properties: dict = None,
+        labels: list = None,
+        user_id: int = None,
+        currency: CompanyCurrency = None,
+        identifier: str = None,
+        billing_tax: float = None,
+        default_invoice_due_days: int = None,
+        country_code: str = None
         ):
         """update a company
 
@@ -157,7 +157,7 @@ class Company(MWRAPBase):
 
     def get(
         self, 
-        id
+        id: int
         ):
         """Get a single company by its id
 
@@ -168,12 +168,12 @@ class Company(MWRAPBase):
 
     def getlist(
         self,
-        company_type = None,
-        tags = None,
-        identifier = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        company_type: CompanyType = None,
+        tags: list = None,
+        identifier: str = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """Get a list of company objects
         
