@@ -42,12 +42,13 @@ class TestCompany(UnitTest):
         assert data["currency"] == currency
         assert data["identifier"] == identifier
         assert data["billing_tax"] == billing_tax
-        assert data["default_invoice_due_days"] == default_invoice_due_days
+        assert data["invoice_due_days"] == default_invoice_due_days
 
         assert response["method"] == "POST"#
     
     def test_update(self):
         company_id = 1234
+        company_type = "customer"
         name = "test company"
         website = "https://example.com"
         fax = "1234"
@@ -66,11 +67,12 @@ class TestCompany(UnitTest):
         billing_tax = 21
         default_invoice_due_days = 22
 
-        response = self.moco.Company.update(company_id, name=name, website=website, fax=fax, phone=phone, email=email, address=address, info=info, custom_properties=custom_properties, labels=labels, user_id=user_id, currency=currency, identifier=identifier, billing_tax=billing_tax, default_invoice_due_days=default_invoice_due_days)
+        response = self.moco.Company.update(company_id, company_type=company_type, name=name, website=website, fax=fax, phone=phone, email=email, address=address, info=info, custom_properties=custom_properties, labels=labels, user_id=user_id, currency=currency, identifier=identifier, billing_tax=billing_tax, default_invoice_due_days=default_invoice_due_days)
 
         data = response["data"]
 
         assert data["name"] == name
+        assert data["type"] == company_type
         assert data["website"] == website
         assert data["fax"] == fax
         assert data["phone"] == phone
@@ -83,7 +85,7 @@ class TestCompany(UnitTest):
         assert data["currency"] == currency
         assert data["identifier"] == identifier
         assert data["billing_tax"] == billing_tax
-        assert data["default_invoice_due_days"] == default_invoice_due_days
+        assert data["invoice_due_days"] == default_invoice_due_days
 
         assert response["method"] == "PUT"
 

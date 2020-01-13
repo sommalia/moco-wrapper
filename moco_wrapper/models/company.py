@@ -25,8 +25,8 @@ class Company(MWRAPBase):
 
     def create(
         self,
-        name,
-        company_type,
+        name: str,
+        company_type: CompanyType,
         website = None,
         fax = None,
         phone = None,
@@ -56,8 +56,8 @@ class Company(MWRAPBase):
         :param user_id: Id of the responsible person
         :param currency: Currency the company uses (only mandatory when type == customer)
         :param identifer: Identifier of the company (only mandatory when not automatily assigned)
-        :param billing_tax: Billing tax value 
-        :param default_invoice_due_days: Default payment target days for the company when creating invoices
+        :param billing_tax: Billing tax value (from 0 to 100)
+        :param default_invoice_due_days: payment target days for the company when creating invoices
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
         """
 
@@ -66,11 +66,6 @@ class Company(MWRAPBase):
             "type": company_type,
         }
 
-        if(company_type == "customer"):
-            if currency == None:
-                raise ValueError("parameter currency must be set when company_type is customer")
-            else:
-                data["currency"] = currency
 
         for key, value in (
             ("website", website),
@@ -85,17 +80,18 @@ class Company(MWRAPBase):
             ("currency", currency),
             ("identifier", identifier),
             ("billing_tax", billing_tax),
-            ("default_invoice_due_days", default_invoice_due_days),
+            ("invoice_due_days", default_invoice_due_days),
             ("country_code", country_code)
         ):
             if value is not None:
-                data[key] = value;
+                data[key] = value
 
         return self._moco.post(API_PATH["company_create"], data=data)
 
     def update(
         self,
         id,
+        company_type: CompanyType = None,
         name = None,
         website = None,
         fax = None,
@@ -115,6 +111,7 @@ class Company(MWRAPBase):
         """update a company
 
         :param id: Id of the company
+        :param company_type: Type of the company to modify
         :param name: Name of the company
         :param website: Url of the companies website
         :param fax: Fax number of the company
@@ -127,11 +124,16 @@ class Company(MWRAPBase):
         :param currency: Currency the company uses (only mandatory when type == customer)
         :param identifer: Identifier of the company (only mandatory when not automatily assigned)
         :param billing_tax: Billing tax value 
-        :param default_invoice_due_days: Default payment target days for the company when creating invoices
+        :param default_invoice_due_days: payment target days for the company when creating invoices
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
         """
-        data = {}
+        data = {
+  
+        }
+
+
         for key, value in (
+            ("type", company_type),
             ("name", name),
             ("website", website),
             ("fax", fax),
@@ -145,7 +147,7 @@ class Company(MWRAPBase):
             ("currency", currency),
             ("identifier", identifier),
             ("billing_tax", billing_tax),
-            ("default_invoice_due_days", default_invoice_due_days),
+            ("invoice_due_days", default_invoice_due_days),
             ("country_code", country_code)
         ):
             if value is not None:

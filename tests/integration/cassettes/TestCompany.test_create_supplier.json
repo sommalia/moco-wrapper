@@ -1,0 +1,98 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-01-13T09:58:24",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"type\": \"supplier\", \"name\": \"test company supplier\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=bfbc3dcce7456b30169347b75ae9ebf9"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "53"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://testabcd.mocoapp.com/api/v1/companies"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SQwU6EMBCGX2Xzn7tJFxTYnvUNPGkMKXTQJqVt2mmUbHh3g3BYT97ab/7882VusAaqbWRbXVrZCPASCQq5xOgsJQh4PW+EKfNpDHPUfjndjb9oyJa3BARo1tZB+eKcQPwM/uCT/t4f2phEOe+fMRTPaenHYLbc0zMEWH9kqLd3gZIpQe2C17puqq7uWoHJpsx3ThBw+i9ZNzSQO4qsn8KhEQJvpb/LS+Yw9zGFSIktZajbKjAm0kym1wyFSlbyLC/nS/0ir+qxU9XDKwRKNP9m7KD9foj1JwAA///S5On9ZAEAAA==",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "238"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Mon, 13 Jan 2020 09:58:24 GMT"
+          ],
+          "Etag": [
+            "W/\"1d64b6f70b29062db7923a13fa4d151c\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "b45793e2-d63b-4784-b035-fc291a5bb32d"
+          ],
+          "X-Runtime": [
+            "0.093368"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://testabcd.mocoapp.com/api/v1/companies"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}
