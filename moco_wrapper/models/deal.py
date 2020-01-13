@@ -2,6 +2,7 @@ from .base import MWRAPBase
 from ..const import API_PATH
 
 from enum import Enum
+from datetime import date
 
 class DealStatus(str, Enum):
     POTENTIAL = "potential"
@@ -9,6 +10,7 @@ class DealStatus(str, Enum):
     WON = "won"
     LOST = "lost"
     DROPPED = "dropped"
+
 
 class Deal(MWRAPBase):
     """Class for handling leads"""
@@ -18,20 +20,20 @@ class Deal(MWRAPBase):
 
     def create(
         self,
-        name,
-        currency,
-        money,
-        reminder_date,
-        user_id,
-        deal_category_id,
-        company_id = None,
-        info = None,
-        status = "pending"
+        name: str,
+        currency: str,
+        money: float,
+        reminder_date: date,
+        user_id: int,
+        deal_category_id: int,
+        company_id: int = None,
+        info: str = None,
+        status: str = "pending"
         ):
         """create a new lead
 
         :param name: name of the lead
-        :param currency: currency used (EUR)
+        :param currency: currency used (EUR, CHF)
         :param money: how much money is in this lead (ie 205.0)
         :param reminder_date: reminder date (format YYYY-MM-DD)
         :param user_id: user id that is responsible for this lead
@@ -46,10 +48,14 @@ class Deal(MWRAPBase):
             "name": name,
             "currency" : currency,
             "money": money,
-            "reminder_date" : reminder_date,
             "user_id" : user_id,
             "deal_category_id": deal_category_id
         }
+
+        if isinstance(reminder_date, date):
+            data["reminder_date"] = reminder_date.isoformat()
+        else:
+            data["reminder_date"] = reminder_date
 
         for key, value in (
             ("company_id", company_id),
