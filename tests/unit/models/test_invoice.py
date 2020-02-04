@@ -110,17 +110,17 @@ class TestInvoice(UnitTest):
         assert data["status"] == status
         assert response["method"] == "PUT"
     
-    def test_get_timesheet(self):
+    def test_timesheet(self):
         invoice_id = 2
 
-        response = self.moco.Invoice.get_timesheet(invoice_id)
+        response = self.moco.Invoice.timesheet(invoice_id)
 
         assert response["method"] == "GET"
 
-    def test_get_doc(self):
+    def test_pdf(self):
         invoice_id = 2
 
-        response = self.moco.Invoice.get_doc(invoice_id)
+        response = self.moco.Invoice.pdf(invoice_id)
 
         assert response["method"] == "GET"
 

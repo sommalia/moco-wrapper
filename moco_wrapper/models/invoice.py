@@ -125,22 +125,22 @@ class Invoice(MWRAPBase):
         """
         return self._moco.get(API_PATH["invoice_get"].format(id=id))
 
-    def get_doc(
+    def pdf(
         self,
         id: int
         ):
-        """retrieve the invoice document
+        """retrieve the invoice document as pdf 
 
         :param id: invoice id
         :returns: filestream of the invoice pdf file
         """
         return self._moco.get(API_PATH["invoice_get_doc"].format(id=id))
 
-    def get_timesheet(
+    def timesheet(
         self,
         id: int
         ):
-        """retrieve the invoice timesheet document
+        """retrieve the invoice timesheet document as pdf
 
         :param id: invoice id
         :return: filestream of the invoices timesheet document file
