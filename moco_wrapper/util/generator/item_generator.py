@@ -95,6 +95,7 @@ class InvoiceItemGenerator(ItemGenerator):
         :returns: the item
         """
         data = {
+            "type": "item",
             "title": title
         }
 

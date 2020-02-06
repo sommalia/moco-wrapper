@@ -239,6 +239,8 @@ class Invoice(MWRAPBase):
             if value is not None:
                 data[key] = value
 
+        print(data)
+
         return self._moco.post(API_PATH["invoice_create"], data=data)
 
 
