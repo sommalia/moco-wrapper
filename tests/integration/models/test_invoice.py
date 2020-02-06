@@ -75,30 +75,38 @@ class TestInvoice(IntegrationTest):
             assert inv_create.data.tax == tax
 
     def test_create_with_project(self):
-        customer_id = self.moco.Company.getlist(company_type=CompanyType.CUSTOMER).items[0].id
-        project_id = self.moco.Project.getlist(company_id=customer_id).items[0].id
-        recipient_address = "sehr geehrte damen und herren"
-        creation_date = date(2018, 9, 17)
-        due_date = date(2018, 10, 16)
-        title = "invoice"
-        tax = 8.0
-        currency = "EUR"
-        service_from_date = date(2019, 12, 1)
-        service_to_date = date(2019, 12, 31)
+        with self.recorder.use_cassette("TestInvoice.test_create_with_project"):
+            customer_id = self.moco.Company.getlist(company_type=CompanyType.CUSTOMER).items[0].id
+            
+            recipient_address = "sehr geehrte damen und herren"
+            creation_date = date(2018, 9, 17)
+            due_date = date(2018, 10, 16)
+            title = "invoice"
+            tax = 8.0
+            currency = "EUR"
+            service_from_date = date(2019, 12, 1)
+            service_to_date = date(2019, 12, 31)
 
-        item_generator = InvoiceItemGenerator()
-        items = [
-            item_generator.generate_title("Hours"),
-            item_generator.generate_description("Listing of all hours"),
-            item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
-        ]
+            item_generator = InvoiceItemGenerator()
+            items = [
+                item_generator.generate_title("Hours"),
+                item_generator.generate_description("Listing of all hours"),
+                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+            ]
 
-        inv_create = self.moco.Invoice.create(customer_id, recipient_address, creation_date, due_date, service_from_date, service_to_date, title, tax, currency, items, project_id=project_id)
 
-        print(inv_create)
+            #create a test project (project must belong to the customer)
+            user_id = self.moco.User.getlist().items[0].id
+            pro_create = self.moco.Project.create("name", "EUR", date(2020, 1, 1), user_id, customer_id)
+            project_id = pro_create.data.id
 
-        assert inv_create.response.status_code == 200
-        assert inv_create.data.project_id == project_id
+            inv_create = self.moco.Invoice.create(customer_id, recipient_address, creation_date, due_date, service_from_date, service_to_date, title, tax, currency, items, project_id=project_id)
+
+
+            assert pro_create.response.status_code == 200
+
+            assert inv_create.response.status_code == 200
+            assert inv_create.data.project_id == project_id
 
 
     def test_create_full(self):
