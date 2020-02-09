@@ -156,7 +156,7 @@ class Invoice(MWRAPBase):
 
         :param id: invoice id
         :param status: new status of the invoice, see InvoiceStatus
-        :returns: updated invoice object
+        :returns an empty response on success
 
         """
         data = {
