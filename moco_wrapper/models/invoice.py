@@ -134,7 +134,7 @@ class Invoice(MWRAPBase):
         :param id: invoice id
         :returns: filestream of the invoice pdf file
         """
-        return self._moco.get(API_PATH["invoice_get_doc"].format(id=id))
+        return self._moco.get(API_PATH["invoice_pdf"].format(id=id))
 
     def timesheet(
         self,
@@ -147,7 +147,7 @@ class Invoice(MWRAPBase):
         :param id: invoice id
         :return: an FileResponse when hours were found, an Error response if there are no hours
         """
-        return self._moco.get(API_PATH["invoice_get_timesheet"].format(id=id))
+        return self._moco.get(API_PATH["invoice_timesheet"].format(id=id))
 
     def update_status(
         self,
