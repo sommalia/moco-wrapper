@@ -69,16 +69,16 @@ class Deal(MWRAPBase):
 
     def update(
         self,
-        id,
-        name = None,
-        currency = None,
-        money = None,
-        reminder_date = None,
-        user_id = None,
-        deal_category_id = None,
-        company_id = None,
-        info = None,
-        status = "pending"
+        id: int,
+        name: str = None,
+        currency: str = None,
+        money: float = None,
+        reminder_date: date = None,
+        user_id: int = None,
+        deal_category_id: int = None,
+        company_id: int = None,
+        info: str = None,
+        status: DealStatus = None
         ):
         """update a new lead
         :param id: id of the lead
@@ -106,15 +106,19 @@ class Deal(MWRAPBase):
             ("info", info),
             ("status", status)
         ):
+
             if value is not None:
-                data[key] = value
+                if key in ["reminder_date"] and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         return self._moco.put(API_PATH["deal_update"].format(id=id), data=data)
 
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a single lead
 
@@ -126,11 +130,11 @@ class Deal(MWRAPBase):
 
     def getlist(
         self,
-        status = None,
-        tags = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        status: str = None,
+        tags: list = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrieve a list of leads
 
