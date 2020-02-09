@@ -48,6 +48,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/sommalia/moco-wrapper',
-    version='0.2.2.post2',
+    version='0.2.3',
     zip_safe=False,
 )
