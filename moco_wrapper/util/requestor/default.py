@@ -3,7 +3,7 @@ import time
 
 from .base import BaseRequestor
 
-from ..response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse
+from ..response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
 
 class DefaultRequestor(BaseRequestor):
 
@@ -12,6 +12,8 @@ class DefaultRequestor(BaseRequestor):
 
         self.requests_timestamps = []
         self.error_status_codes = [400, 401, 403, 404, 422, 429]
+
+        self.file_response_content_types = ["application/pdf"]
 
 
     @property
@@ -38,11 +40,17 @@ class DefaultRequestor(BaseRequestor):
         try:
             
             if response.status_code == 200:
-                response_content = response.json()
-                if isinstance(response_content, list):
-                    return ListingResponse(response)
+                #filter by content type what type of response this is 
+                if response.headers["Content-Type"] in self.file_response_content_types:
+                    return FileResponse(response)
                 else:
-                    return JsonResponse(response)
+                    #json response is the default
+                    response_content = response.json()
+                    if isinstance(response_content, list):
+                        return ListingResponse(response)
+                    else:
+                        return JsonResponse(response)
+
             elif response.status_code == 204:
                 #no content but success
                 return EmptyResponse(response)

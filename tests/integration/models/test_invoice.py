@@ -2,7 +2,7 @@ from .. import IntegrationTest
 
 from datetime import date
 
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
+from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse, FileResponse, ErrorResponse
 from moco_wrapper.models.invoice import InvoiceStatus, InvoiceChangeAddress
 from moco_wrapper.models.company import CompanyType
 
@@ -63,12 +63,62 @@ class TestInvoice(IntegrationTest):
             assert inv_get.data.due_date == due_date.isoformat()
 
     def test_pdf(self):
-        #create minimal invoice
-        pass
+        with self.recorder.use_cassette("TestInvoice.test_pdf"):
+            customer_id = self.moco.Company.getlist(company_type=CompanyType.CUSTOMER).items[0].id
+            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            creation_date = date(2018, 9, 17)
+            due_date = date(2018, 10, 16)
+            title = "invoice"
+            tax = 8.0
+            currency = "EUR"
+            service_from_date = date(2019, 12, 1)
+            service_to_date = date(2019, 12, 31)
 
-    def test_timesheet(self):
-        #create minimal invoice
-        pass
+            item_generator = InvoiceItemGenerator()
+            items = [
+                item_generator.generate_title("Hours"),
+                item_generator.generate_description("Listing of all hours"),
+                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+            ]
+
+            inv_create = self.moco.Invoice.create(customer_id, recipient_address, creation_date, due_date, service_from_date, service_to_date, title, tax, currency, items)
+
+            inv_pdf = self.moco.Invoice.pdf(inv_create.data.id)
+
+            assert inv_create.response.status_code == 200
+            assert inv_pdf.response.status_code == 200
+
+            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_pdf, FileResponse)
+
+    def test_timesheet_no_hours(self):
+        with self.recorder.use_cassette("TestInvoice.test_timesheet_no_hours"):
+            customer_id = self.moco.Company.getlist(company_type=CompanyType.CUSTOMER).items[0].id
+            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            creation_date = date(2018, 9, 17)
+            due_date = date(2018, 10, 16)
+            title = "invoice"
+            tax = 8.0
+            currency = "EUR"
+            service_from_date = date(2019, 12, 1)
+            service_to_date = date(2019, 12, 31)
+
+            item_generator = InvoiceItemGenerator()
+            items = [
+                item_generator.generate_title("Hours"),
+                item_generator.generate_description("Listing of all hours"),
+                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+            ]
+
+            inv_create = self.moco.Invoice.create(customer_id, recipient_address, creation_date, due_date, service_from_date, service_to_date, title, tax, currency, items)
+
+            inv_time = self.moco.Invoice.timesheet(inv_create.data.id)
+            
+            assert inv_create.response.status_code == 200
+            assert inv_time.response.status_code == 404
+
+            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_time, ErrorResponse)
 
     def test_update_status(self):
         with self.recorder.use_cassette("TestInvoice.test_update_status"):
@@ -173,10 +223,10 @@ class TestInvoice(IntegrationTest):
 
 
             assert pro_create.response.status_code == 200
+            assert inv_create.response.status_code == 200
 
             assert isinstance(inv_create, JsonResponse)
 
-            assert inv_create.response.status_code == 200
             assert inv_create.data.project_id == project_id
 
 

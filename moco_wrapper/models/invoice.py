@@ -142,8 +142,10 @@ class Invoice(MWRAPBase):
         ):
         """retrieve the invoice timesheet document as pdf
 
+        invoices that have timesheets cannot be created with the api and must be created manully by billing unbilled tasks
+
         :param id: invoice id
-        :return: filestream of the invoices timesheet document file
+        :return: an FileResponse when hours were found, an Error response if there are no hours
         """
         return self._moco.get(API_PATH["invoice_get_timesheet"].format(id=id))
 
@@ -239,8 +241,6 @@ class Invoice(MWRAPBase):
         ):
             if value is not None:
                 data[key] = value
-
-        print(data)
 
         return self._moco.post(API_PATH["invoice_create"], data=data)
 
