@@ -11,7 +11,7 @@ class InvoiceStatus(str, Enum):
     PARTIALLY_PAID = "partially_paid"
     PAID = "paid"
     OVERDUE = "overdue"
-    IGNORED = "ignored"
+    IGNORED = "ignored" #cannot use this status for creating invoices
 
 class InvoiceChangeAddress(str, Enum):
     INVOICE = "invoice"
@@ -206,6 +206,7 @@ class Invoice(MWRAPBase):
         :param cash_discount: cash discount in percent (between 0.0 and 100.0)
         :param cash_discount_days: how many days is the cash discount valid (ex. 4)
         :param project_id: id of the project the invoice belongs to
+            Note that if you create an invoice with a project, that project must also belong to the customer the invoice was created for
         :returns: the created invoice
         """
         data = {
