@@ -297,3 +297,21 @@ class TestOffer(IntegrationTest):
             assert offer_create.data.salutation == salutation
             assert offer_create.data.footer == footer
             assert offer_create.data.discount == discount
+
+    def test_pdf(self):
+        project = self.get_project()
+        
+        with self.recorder.use_cassette("TestOffer.test_pdf"):
+            gen = OfferItemGenerator()
+            items = [
+                gen.generate_title("title"),
+                gen.generate_lump_position("pos 1", 200)
+            ]
+
+            offer_create = self.moco.Offer.create(None, project.id, "rec address", date(2020, 1, 1), date(2021, 1, 1), "title", 21, "EUR", items)
+            offer_pdf = self.moco.Offer.pdf(offer_create.data.id)
+
+            assert offer_create.response.status_code == 201 
+            assert offer_pdf.response.status_code == 200
+
+            assert isinstance(offer_pdf, FileResponse)
