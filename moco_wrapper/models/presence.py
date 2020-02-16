@@ -1,6 +1,8 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from datetime import date
+
 class Presence(MWRAPBase):
     """class for handling presences (in german "arbeitszeiten")."""
 
@@ -55,27 +57,26 @@ class Presence(MWRAPBase):
 
     def create(
         self,
-        date,
+        pres_date,
         from_time,
         to_time = None
         ):
         """create a presence
 
-        :param date: date of the presence (format YYYY-MM-DD)
+        :param pres_date: date of the presence (format YYYY-MM-DD), or date object
         :param from_time: starting time of the presence (format HH:MM)
         :param to_time: end time of the presence (format HH:MM)
         :returns: the created presence 
         """
         data = {
-            "date": date,
-            "from": from_time
+            'from': from_time,
+            'to': to_time,
         }
 
-        for key, value in (
-            ("to", to_time),
-        ):
-            if value is not None:
-                data[key] = value
+        if isinstance(pres_date, date):
+            data["date"] = pres_date.isoformat()
+        else:
+            data["date"] = pres_date
 
         return self._moco.post(API_PATH["presence_create"], data=data)
 

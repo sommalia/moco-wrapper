@@ -283,8 +283,6 @@ class TestOffer(IntegrationTest):
                 contact_id=contact.id
             )
 
-            print(offer_create)
-
             assert offer_create.response.status_code == 201
 
             assert isinstance(offer_create, JsonResponse)

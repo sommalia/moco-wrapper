@@ -1,9 +1,12 @@
 import requests
 import time
+import collections
 
 from .base import BaseRequestor
 
 from ..response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
+
+
 
 class DefaultRequestor(BaseRequestor):
 
@@ -16,13 +19,22 @@ class DefaultRequestor(BaseRequestor):
 
         self.file_response_content_types = ["application/pdf"]
 
+    def _convert_to_object(self, obj):
+        
+        for key in obj.keys():
+            if key in ["from"]:
+                new_key = "_" + key
+
+                obj[new_key] = obj[key]
+                del obj[key]
+
+        return obj
 
     @property
     def session(self):
         return self._session
 
     def request(self, path, method, params = None, data = None, **kwargs):
-
 
         #format data submitted to requests as json
         response = None
@@ -39,14 +51,14 @@ class DefaultRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
-            
             if response.status_code in self.success_status_codes:
                 #filter by content type what type of response this is 
                 if response.headers["Content-Type"] in self.file_response_content_types:
                     return FileResponse(response)
                 else:
+                    #print(response.content)
                     #json response is the default
-                    response_content = response.json()
+                    response_content = response.json(object_hook=self._convert_to_object)
                     if isinstance(response_content, list):
                         return ListingResponse(response)
                     else:
@@ -58,10 +70,8 @@ class DefaultRequestor(BaseRequestor):
             elif response.status_code in self.error_status_codes:
                 return ErrorResponse(response)
 
-            print(response)
-
         except ValueError as ex:
-            print(ex)
+            print("ValueError in response conversion:" + str(ex))
             response_obj = ErrorResponse(response)
 
             if response_obj.is_recoverable == True:
