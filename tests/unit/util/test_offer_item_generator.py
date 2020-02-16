@@ -1,8 +1,8 @@
-from moco_wrapper.util.generator import InvoiceItemGenerator
+from moco_wrapper.util.generator import OfferItemGenerator
 
-class TestInvoiceItemGenerator(object):
+class TestOfferItemGenerator(object):
     def setup(self):
-        self.generator = InvoiceItemGenerator()
+        self.generator = OfferItemGenerator()
 
     def test_generate_title(self):
         title_text = "this is the content"
@@ -35,10 +35,29 @@ class TestInvoiceItemGenerator(object):
         assert item["quantity"] == quantity
         assert item["net_total"] == net_total
 
-    def test_generate_separator(self):
-        item = self.generator.generate_separator()
+    def test_generate_detail_item(self):
+        title = "this is the title"
+        unit = "h"
+        unit_price = 25
+        quantity = 3
 
-        assert item["type"] == "separator"
+        item = self.generator.generate_detail_postion(title, quantity, unit, unit_price)
+
+        assert item["type"] == "item"
+        assert item["title"] == title
+        assert item["unit"] == unit
+        assert item["unit_price"] == unit_price
+        assert item["quantity"] == quantity
+
+    def test_generate_lump_item(self):
+        title = "this is the title"
+        net_total = 300
+
+        item = self.generator.generate_lump_position(title, net_total)
+
+        assert item["type"] == "item"
+        assert item["title"] == title
+        assert item["net_total"] == net_total
 
     def test_generate_separator(self):
         item = self.generator.generate_separator()

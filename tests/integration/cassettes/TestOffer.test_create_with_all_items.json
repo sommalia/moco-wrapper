@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-16T18:33:46",
+      "recorded_at": "2020-02-16T18:44:37",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"change_address\": \"offer\", \"items\": [{\"title\": \"This is the title of the offer\", \"type\": \"title\"}, {\"description\": \"this is the description\", \"type\": \"description\"}, {\"unit_price\": 100.0, \"unit\": \"h\", \"title\": \"MailChimp Einrichtung\", \"optional\": false, \"quantity\": 1, \"net_total\": 400, \"type\": \"item\"}, {\"unit_price\": 20, \"unit\": \"h\", \"title\": \"On Site Support\", \"optional\": true, \"quantity\": 20, \"net_total\": 400, \"type\": \"item\"}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"tax\": 21.5, \"title\": \"offer created from deal\", \"recipient_address\": \"this is the recpipient address\", \"deal_id\": 173169, \"currency\": \"EUR\"}"
+          "string": "{\"recipient_address\": \"this is the recipient address\", \"deal_id\": 173169, \"items\": [{\"type\": \"title\", \"title\": \"this is the title\"}, {\"type\": \"description\", \"description\": \"This is the first description\"}, {\"unit_price\": 65, \"type\": \"item\", \"optional\": false, \"title\": \"support\", \"quantity\": 1, \"unit\": \"h\"}, {\"type\": \"item\", \"optional\": false, \"net_total\": 200, \"title\": \"server hardware\"}, {\"type\": \"subtotal\", \"title\": \"subtotal position\"}, {\"unit_price\": 90, \"type\": \"item\", \"optional\": false, \"title\": \"special support\", \"quantity\": 3, \"unit\": \"h\"}, {\"type\": \"page-break\"}], \"change_address\": \"offer\", \"title\": \"offer title\", \"date\": \"2020-01-01\", \"tax\": 19, \"currency\": \"EUR\", \"due_date\": \"2021-01-01\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "624"
+            "708"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7STTW8bIRCG/wqaM7YAf8ThVrU5VpGa9NKqstDubEy1BgqDVKvyf69g7fU6UZ1Tb54PzzzzvuwfsC1otVwvpORgW3RkO4sRNHxQQqiZUAo4tIYQNCihxEzImai5jNtLXta8BA5kqS9J33UYWRPRELasi37PWjQ9cIjY2GDR0da0bcSUQAPtbGI2Mdohi9iEoYGdGzg0OUZ0zQE0PHz9Ahwc0pY8mR60FGIuOJD5DVrJ+YrDS/QpjeUh19rU+OwIdO1OZCiX1SfEssPvg3EH0C73PYcQ/U9s6BxWej0oJu8Wcn3PwZl9ufUZEz3Wez+VpiM/D90aGnVTM7l+lhu9WOjlar7Z3H8DDjm0t/rW85UQpe88z7urvsmEt5Vk+kyGbK0Ah857qtYCB0u4T6C/D+csxFKu7lYc6BDKPYOHFy+fJ+7UHPNdDarJ5TFgaqINw65Brl/ZOLJ0OMmdnR2VLL+3IdoGT8WJlzX2dVIJO9MnPPIp5nrEnG4dYc9mTYCuXtf1n/4b5d1IWaSeaPnZ2P7jzu4De7Au2mZH2b28J6G8wMEOrtlOr//t93CTb/MvvkfHniwhe8oh+EjvkSlxA029Jlu+JqOY8fjj+DcAAP//aWHMD4gEAAA=",
+          "base64_string": "H4sIAAAAAAAA/7yTT4/TPBDGv0o0Z7dyktbZ+vZKL2cktFxAqPLGk60htY09BirU747cNNmU1bYcFm6ePx7/5nmSn2A0yGol6nLDwGi0ZDqDAST8V3FeLXjVAAOtCEFCxSu+4OWClzmXcPuUL6c8Gepz0nUdhmKIGARsjTdoaau0DhgjSKCdiYWJBe2wmOrFWGfQphDQtgeQ8Ob9O2BgkbbkSPUg1/V6yRmQ+gGy3OTjY3AxjmVRi6VYM9Amti5ZAslzTyRFKT/dBlSEOj/i9l7ZA0ib+p6BD+4ztjSGGvO0QaWyqUuxYWDVPu93j5Hennb8Pzcd2Th0q2jSqlqU4r68k6uVrMWyEc0HYJC8vtbXLGvOc984z9mLvtmE55Wo+kSKzKkCDDrn6GQnMDCE+wjy47BOzVelqCoGdPB5n9Gp0b+5O2NNY2yD8cP4QaGvSVkydDgrnKyZxMvnrQ+mxXNx5t8pdqdJOexUH/HI5mT1RDZ/deIb/ZkBwf0MuTMhUnF59a+xribWrPFMxJi8d4FuSVc+4cAOLmnE+jecIXGVZ/0iD4ZvGIqdCvq7Cq9racVvCyUmsJgehntzsYZU4V00Z8v+5RfXvKiax9aovvhDN+srbm6eqdbcBrubwLx6xMVDQPXl6p/w+kJ9Ov4KAAD//4ThKhErBgAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -46,16 +46,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "482"
+            "507"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sun, 16 Feb 2020 18:33:46 GMT"
+            "Sun, 16 Feb 2020 18:44:37 GMT"
           ],
           "Etag": [
-            "W/\"bec831aebdce36c92d2601e4aaea1826\""
+            "W/\"c08c568b51714e8070d1afcc61c655fa\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +77,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "9d886bfc-9723-4a51-97a9-f9841e35f569"
+            "88ab71f5-8adc-4cb5-aea4-2c71b3c9da5b"
           ],
           "X-Runtime": [
-            "0.691536"
+            "0.610793"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

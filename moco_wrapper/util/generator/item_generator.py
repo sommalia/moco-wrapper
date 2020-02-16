@@ -29,11 +29,16 @@ class ItemGenerator(object):
             "description": description
         }
 
-    def generate_page_break(self):
-        pass
+    def generate_pagebreak(self):
+        return {
+            "type": "page-break"
+        }
 
-    def generatea_subtotal(self):
-        pass
+    def generate_subtotal(self, title):
+        return {
+            "title": title,
+            "type": "subtotal"    
+        }
 
     def generate_separator(
         self,

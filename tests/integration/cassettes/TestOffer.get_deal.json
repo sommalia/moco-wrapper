@@ -5,7 +5,7 @@
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"name\": \"TestOffer Deal\", \"user_id\": 933629433, \"deal_category_id\": 58689, \"money\": 1000, \"reminder_date\": \"2020-01-01\", \"currency\": \"EUR\", \"status\": \"pending\"}"
         },
         "headers": {
           "Accept": [
@@ -20,6 +20,9 @@
           "Connection": [
             "keep-alive"
           ],
+          "Content-Length": [
+            "161"
+          ],
           "Content-Type": [
             "application/json"
           ],
@@ -27,12 +30,12 @@
             "python-requests/2.22.0"
           ]
         },
-        "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&to=2020-01-31&status=accepted&from=2020-01-01&page=1"
+        "method": "POST",
+        "uri": "https://testabcd.mocoapp.com/api/v1/deals"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SQQWvjMBCF/8ryzpNFthNvovPuaQ+Fkl5aSlCscRC1JTEaH0zwfy+mSXrs8Q1v5r35rggetvrTVO2BEN3IsDhy0ae+Z/n1l90AQlGnU4FF5uhDvIAgPIboWU7e6bpTm9psTLUxFQhjijzDVsaY34bQTSIcuxkW/16eQQixT7AAQd2lwL69r6aiaTxlSZlFAxfY60KYCgvsV81D07T1Yds0hD5I0Vtd5aIgDO4xcefOYyFklpIibJyG4Z6wnrvpNGYX54d0ypck8z1tt2/330z+p6juQwMLRxCypLM7hyHo+udC6ISdsj85fcCoN1V7rPa2aex29wrClP0PnuUzAAD//44RlFCQAQAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -43,7 +46,7 @@
             "gzip"
           ],
           "Content-Length": [
-            "26"
+            "276"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
@@ -52,7 +55,7 @@
             "Sun, 16 Feb 2020 18:33:45 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"148137a6e5c209f24a358eaa4bcb6853\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -70,23 +73,14 @@
           "X-Frame-Options": [
             "SAMEORIGIN"
           ],
-          "X-Page": [
-            "1"
-          ],
-          "X-Per-Page": [
-            "100"
-          ],
           "X-Permitted-Cross-Domain-Policies": [
             "none"
           ],
           "X-Request-Id": [
-            "0342abf2-949c-43cc-86cb-3f9e2f26a077"
+            "945a7faa-03ba-4fd3-a4d8-bafff01b0743"
           ],
           "X-Runtime": [
-            "0.033886"
-          ],
-          "X-Total": [
-            "0"
+            "0.073831"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +90,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&to=2020-01-31&status=accepted&from=2020-01-01&page=1"
+        "url": "https://testabcd.mocoapp.com/api/v1/deals"
       }
     }
   ],

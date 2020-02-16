@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&to=2020-01-31&status=accepted&from=2020-01-01&page=1"
+        "uri": "https://testabcd.mocoapp.com/api/v1/users?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
+          "base64_string": "H4sIAAAAAAAA/2yPwWrzMBCEX+VnzsqPJLdprVMfIqeUYtbWhohKlpFWaUPIu5cQt/TQ287H7MD3ekHwcH3XbW3/0HUKh1CqzJQYDsJVoBDph9A4eSjQJOHEcFIaK/CncJnhDhTrLSYKcf2+9V/Gc07/PUMh5TFEHpZjnm9rUPjI5f13PubEA3lfuNY7CfMh368xFDl6OsPNLUYFOpFQGVqJ32RqVXIalpIXLhK4wl2uCm0OAreq6t5sH401CqvTjin9M7gqTIVJ2A8kcLDa6o22G93tzJMzz05v91Boi/+j0++McbZz2u5xffsKAAD//y5KrJhWAQAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -43,7 +43,7 @@
             "gzip"
           ],
           "Content-Length": [
-            "26"
+            "249"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
@@ -52,7 +52,7 @@
             "Sun, 16 Feb 2020 18:33:45 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"0efc43a1a3ae57f73863a5a1941dc03d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,13 +80,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "0342abf2-949c-43cc-86cb-3f9e2f26a077"
+            "6604fba7-71c1-4c78-ad70-70c4d7686808"
           ],
           "X-Runtime": [
-            "0.033886"
+            "0.043091"
           ],
           "X-Total": [
-            "0"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +96,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&to=2020-01-31&status=accepted&from=2020-01-01&page=1"
+        "url": "https://testabcd.mocoapp.com/api/v1/users?page=1"
       }
     }
   ],
