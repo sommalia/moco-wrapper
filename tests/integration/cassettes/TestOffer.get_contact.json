@@ -1,0 +1,98 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-02-16T19:01:24",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"firstname\": \"Offer\", \"gender\": \"u\", \"lastname\": \"Contact\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=4bd6e3d07436ce64370a4e8bd314d3be"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "60"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://testabcd.mocoapp.com/api/v1/contacts/people"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SQzU7rMBBG3+Vbu1Ka3PYq3vIAbGADQtEknrQGx2PZE35U9d1RKFQtG5bf8dFIPgd4B9tsNv/brcGOo+MMi3sYjD4XjTQxLG7HkTMMAp3RjUSlQWGgXsNCYPAsfZekePUST2SS3gfu0l7it/Mm+aUb6f1i/X7liXy42ORc5lJOZC8TXxpf+8rofda9ow/YOIdgQK+klLs5hx+itCuwj08Gw1xUpi5lSZzVc4E9HA0GmRLF84W5LFlOsdqm2dbtv6a5TqRc9LoQ9YPDciszKbuOFBZ1VVerql6tt3fr1lZrWzcPMJiT+9PxcZTlg8fPAAAA///8QYJEtQEAAA==",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "262"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Sun, 16 Feb 2020 19:01:24 GMT"
+          ],
+          "Etag": [
+            "W/\"8085fb323e25d1632f0dc242931e1c37\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "cd45ad5d-7f6a-4286-b479-43f90a23adf8"
+          ],
+          "X-Runtime": [
+            "0.060431"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://testabcd.mocoapp.com/api/v1/contacts/people"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

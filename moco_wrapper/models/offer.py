@@ -15,10 +15,6 @@ class OfferChangeAddress(str, Enum):
     OFFER = "offer"
     CUSTOMER = "customer"
 
-class OfferCreationBase(str, Enum):
-    PROJECT = "project"
-    DEAL = "deal"
-
 class Offer(MWRAPBase):
     """class for handling offers (in german "angebote")."""
 
@@ -92,8 +88,8 @@ class Offer(MWRAPBase):
 
     def create(
         self,
-        base_id: int,
-        base_type: OfferCreationBase,
+        deal_id: int,
+        project_id: int,
         recipient_address: str,
         creation_date: date,
         due_date: date,
@@ -110,10 +106,8 @@ class Offer(MWRAPBase):
         """
         create a new offer
 
-        :param base_id: id of the underlying object
-            this will either be a project or a deal (specify the type in the param base_type)
-        :param base_type: type of the underlying object
-            offers can be created with a deal or a project as its base, see OfferCreationBase
+        :param deal_id: deal id of the offer (either deal id or project id must be specified (or both)), set to null if none is specified
+        :param project_id: project id of the offer (either deal id or project id (or both) must be specified), set to null if none is specified
             available types are "project" and "deal"
         :param recipient_address: address of the recipient
         :param creation_date: creation date of the offer
@@ -130,21 +124,18 @@ class Offer(MWRAPBase):
         :param contact_id: id of the contact for the offer
         """
 
+        if project_id is None and deal_id is None:
+            raise ValueError("Either deal_id or project_id (or both) must be specified")
 
         data = {
+            "deal_id": deal_id,
+            "project_id": project_id,
             "recipient_address": recipient_address,
             "title": title,
             "tax": tax,
             "currency": currency,
             "items": items
         }
-
-        if base_type == OfferCreationBase.DEAL:
-            data["deal_id"] = base_id
-        elif base_type == OfferCreationBase.PROJECT:
-            data["project_id"] = base_id
-        else:
-            raise ValueError("Invalid OfferCreationBase type given")
 
         if isinstance(creation_date, date):
             data["date"] = creation_date.isoformat()
@@ -166,8 +157,6 @@ class Offer(MWRAPBase):
         ):
             if value is not None:
                 data[key] = value
-
-        print(data)
 
         return self._moco.post(API_PATH["offer_create"].format(id=id), data=data)
 

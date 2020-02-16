@@ -1,8 +1,6 @@
 from .. import UnitTest
 import pytest
 
-from moco_wrapper.models.offer import OfferCreationBase
-
 class TestOffer(UnitTest):
     def test_getlist(self):
         status = "created"
@@ -63,6 +61,7 @@ class TestOffer(UnitTest):
 
     def test_create(self):
         deal_id = 1
+        project_id = 2
         recipient_address = "My customer..."
         creation_date = "2018-09-17"
         due_date = "2018-10-16"
@@ -76,13 +75,14 @@ class TestOffer(UnitTest):
         discount = 10.2
         contact_id = 3
 
-        response = self.moco.Offer.create(deal_id, OfferCreationBase.DEAL, recipient_address, creation_date, due_date, title, tax, currency, items, change_address=change_address, salutation=salutation, footer=footer, discount=discount, contact_id=contact_id)
+        response = self.moco.Offer.create(deal_id, project_id, recipient_address, creation_date, due_date, title, tax, currency, items, change_address=change_address, salutation=salutation, footer=footer, discount=discount, contact_id=contact_id)
 
         data = response["data"]
 
         assert response["method"] == "POST"
 
         assert data["deal_id"] == deal_id
+        assert data["project_id"] == project_id
         assert data["recipient_address"] == recipient_address
         assert data["date"] == creation_date
         assert data["due_date"] == due_date

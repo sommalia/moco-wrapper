@@ -2,7 +2,7 @@ from .. import IntegrationTest
 
 from datetime import date
 
-from moco_wrapper.models.offer import OfferStatus, OfferCreationBase
+from moco_wrapper.models.offer import OfferStatus
 from moco_wrapper.util.response import ListingResponse, JsonResponse, FileResponse
 from moco_wrapper.util.generator import OfferItemGenerator
 
@@ -56,6 +56,12 @@ class TestOffer(IntegrationTest):
             return project_create.data
 
 
+    def get_contact(self):
+        with self.recorder.use_cassette("TestOffer.get_contact"):
+            contact_create = self.moco.Contact.create("Offer", "Contact", "u")
+            return contact_create.data
+
+
     def test_getlist(self):
         with self.recorder.use_cassette("TestOffer.test_getlist"):
             off_getlist = self.moco.Offer.getlist()
@@ -77,7 +83,6 @@ class TestOffer(IntegrationTest):
         user = self.get_user()        
 
         with self.recorder.use_cassette("TestOffer.test_get"):
-            offer_base_type = OfferCreationBase.DEAL
             rec_address = "this is the recpipient address"
             creation_date = date(2020, 1, 2)
             due_date = date(2021, 1, 1)
@@ -95,7 +100,7 @@ class TestOffer(IntegrationTest):
 
             offer_create = self.moco.Offer.create(
                 deal.id, 
-                OfferCreationBase.DEAL, 
+                None, 
                 rec_address, 
                 creation_date, 
                 due_date, 
@@ -126,7 +131,6 @@ class TestOffer(IntegrationTest):
         user = self.get_user()
 
         with self.recorder.use_cassette("TestOffer.test_create_from_deal"):
-            offer_base_type = OfferCreationBase.DEAL
             rec_address = "this is the recpipient address"
             creation_date = date(2020, 1, 2)
             due_date = date(2021, 1, 1)
@@ -144,7 +148,7 @@ class TestOffer(IntegrationTest):
 
             offer_create = self.moco.Offer.create(
                 deal.id, 
-                OfferCreationBase.DEAL, 
+                None, 
                 rec_address, 
                 creation_date, 
                 due_date, 
@@ -183,7 +187,7 @@ class TestOffer(IntegrationTest):
 
             offer_create = self.moco.Offer.create(
                 deal.id,
-                OfferCreationBase.DEAL,
+                None,
                 "this is the recipient address",
                 date(2020, 1, 1),
                 date(2021, 1, 1),
@@ -219,8 +223,8 @@ class TestOffer(IntegrationTest):
             ]
     
             offer_create = self.moco.Offer.create(
+                None,
                 project.id,
-                OfferCreationBase.PROJECT,
                 rec_address,
                 creation_date,
                 due_date,
@@ -239,3 +243,57 @@ class TestOffer(IntegrationTest):
             assert offer_create.data.title == title
             assert offer_create.data.tax == tax
             assert offer_create.data.currency == currency
+
+    def test_create_full(self):
+        project = self.get_project()
+        contact = self.get_contact()
+        deal = self.get_deal()
+
+        with self.recorder.use_cassette("TestOffer.test_create_full"):
+            rec_address = "this is the recpipient address"
+            creation_date = date(2020, 1, 2)
+            due_date = date(2021, 1, 1)
+            title = "offer created from deal"
+            tax = 21.5
+            currency = "EUR"
+            salutation = "salute"
+            footer = "footer"
+            discount = 20
+
+
+            gen = OfferItemGenerator()
+            items = [
+                gen.generate_title("offer from project title"),
+                gen.generate_lump_position("misc", 2000)
+            ]
+
+            offer_create = self.moco.Offer.create(
+                deal.id,
+                project.id,
+                rec_address,
+                creation_date,
+                due_date,
+                title, 
+                tax,
+                currency,
+                items,
+                salutation=salutation,
+                footer=footer,
+                discount=discount,
+                contact_id=contact.id
+            )
+
+            print(offer_create)
+
+            assert offer_create.response.status_code == 201
+
+            assert isinstance(offer_create, JsonResponse)
+
+            assert offer_create.data.project.id == project.id
+            assert offer_create.data.date == creation_date.isoformat()
+            assert offer_create.data.title == title
+            assert offer_create.data.tax == tax
+            assert offer_create.data.currency == currency
+            assert offer_create.data.salutation == salutation
+            assert offer_create.data.footer == footer
+            assert offer_create.data.discount == discount
