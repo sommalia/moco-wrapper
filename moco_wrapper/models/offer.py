@@ -63,7 +63,7 @@ class Offer(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a sigle offer
 
@@ -75,8 +75,8 @@ class Offer(MWRAPBase):
 
     def pdf(
         self,
-        id,
-        letter_paper_id = None
+        id: int,
+        letter_paper_id: int = None
         ):
         """retrive the offer document for a single offer
 
