@@ -35,6 +35,26 @@ class TestOffer(IntegrationTest):
 
             return deal.data
 
+    def get_customer(self):
+        with self.recorder.use_cassette("TestOffer.get_customer"):
+            customer = self.moco.Company.getlist(company_type="customer").items[0]
+            return customer
+
+    def get_project(self):
+        leader = self.get_user()
+        customer = self.get_customer()
+
+        with self.recorder.use_cassette("TestOffer.get_project"):
+            project_create = self.moco.Project.create(
+                "project for offer creation",
+                "EUR",
+                date(2020, 1, 1),
+                leader.id,
+                customer.id,
+                )
+            
+            return project_create.data
+
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestOffer.test_getlist"):
@@ -64,7 +84,6 @@ class TestOffer(IntegrationTest):
             title = "offer created from deal"
             tax = 21.5
             currency = "EUR"
-
 
             gen = OfferItemGenerator()
             items = [
@@ -180,3 +199,43 @@ class TestOffer(IntegrationTest):
             assert isinstance(offer_create, JsonResponse)
 
             assert len(offer_create.data.items) == 7 
+
+    def test_create_with_project(self):
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestOffer.test_create_with_project"):
+
+            rec_address = "this is the recpipient address"
+            creation_date = date(2020, 1, 2)
+            due_date = date(2021, 1, 1)
+            title = "offer created from deal"
+            tax = 21.5
+            currency = "EUR"
+
+            gen = OfferItemGenerator()
+            items = [
+                gen.generate_title("offer from project title"),
+                gen.generate_lump_position("misc", 2000)
+            ]
+    
+            offer_create = self.moco.Offer.create(
+                project.id,
+                OfferCreationBase.PROJECT,
+                rec_address,
+                creation_date,
+                due_date,
+                title, 
+                tax,
+                currency,
+                items
+            )
+
+            assert offer_create.response.status_code == 201
+
+            assert isinstance(offer_create, JsonResponse)
+
+            assert offer_create.data.project.id == project.id
+            assert offer_create.data.date == creation_date.isoformat()
+            assert offer_create.data.title == title
+            assert offer_create.data.tax == tax
+            assert offer_create.data.currency == currency

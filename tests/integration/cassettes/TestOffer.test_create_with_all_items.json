@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-16T18:44:37",
+      "recorded_at": "2020-02-16T18:54:25",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"recipient_address\": \"this is the recipient address\", \"deal_id\": 173169, \"items\": [{\"type\": \"title\", \"title\": \"this is the title\"}, {\"type\": \"description\", \"description\": \"This is the first description\"}, {\"unit_price\": 65, \"type\": \"item\", \"optional\": false, \"title\": \"support\", \"quantity\": 1, \"unit\": \"h\"}, {\"type\": \"item\", \"optional\": false, \"net_total\": 200, \"title\": \"server hardware\"}, {\"type\": \"subtotal\", \"title\": \"subtotal position\"}, {\"unit_price\": 90, \"type\": \"item\", \"optional\": false, \"title\": \"special support\", \"quantity\": 3, \"unit\": \"h\"}, {\"type\": \"page-break\"}], \"change_address\": \"offer\", \"title\": \"offer title\", \"date\": \"2020-01-01\", \"tax\": 19, \"currency\": \"EUR\", \"due_date\": \"2021-01-01\"}"
+          "string": "{\"change_address\": \"offer\", \"recipient_address\": \"this is the recipient address\", \"due_date\": \"2021-01-01\", \"items\": [{\"title\": \"this is the title\", \"type\": \"title\"}, {\"description\": \"This is the first description\", \"type\": \"description\"}, {\"title\": \"support\", \"unit\": \"h\", \"quantity\": 1, \"type\": \"item\", \"optional\": false, \"unit_price\": 65}, {\"title\": \"server hardware\", \"net_total\": 200, \"type\": \"item\", \"optional\": false}, {\"title\": \"subtotal position\", \"type\": \"subtotal\"}, {\"title\": \"special support\", \"unit\": \"h\", \"quantity\": 3, \"type\": \"item\", \"optional\": false, \"unit_price\": 90}, {\"type\": \"page-break\"}], \"currency\": \"EUR\", \"title\": \"offer title\", \"deal_id\": 173171, \"date\": \"2020-01-01\", \"tax\": 19}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7yTT4/TPBDGv0o0Z7dyktbZ+vZKL2cktFxAqPLGk60htY09BirU747cNNmU1bYcFm6ePx7/5nmSn2A0yGol6nLDwGi0ZDqDAST8V3FeLXjVAAOtCEFCxSu+4OWClzmXcPuUL6c8Gepz0nUdhmKIGARsjTdoaau0DhgjSKCdiYWJBe2wmOrFWGfQphDQtgeQ8Ob9O2BgkbbkSPUg1/V6yRmQ+gGy3OTjY3AxjmVRi6VYM9Amti5ZAslzTyRFKT/dBlSEOj/i9l7ZA0ib+p6BD+4ztjSGGvO0QaWyqUuxYWDVPu93j5Hennb8Pzcd2Th0q2jSqlqU4r68k6uVrMWyEc0HYJC8vtbXLGvOc984z9mLvtmE55Wo+kSKzKkCDDrn6GQnMDCE+wjy47BOzVelqCoGdPB5n9Gp0b+5O2NNY2yD8cP4QaGvSVkydDgrnKyZxMvnrQ+mxXNx5t8pdqdJOexUH/HI5mT1RDZ/deIb/ZkBwf0MuTMhUnF59a+xribWrPFMxJi8d4FuSVc+4cAOLmnE+jecIXGVZ/0iD4ZvGIqdCvq7Cq9racVvCyUmsJgehntzsYZU4V00Z8v+5RfXvKiax9aovvhDN+srbm6eqdbcBrubwLx6xMVDQPXl6p/w+kJ9Ov4KAAD//4ThKhErBgAA",
+          "base64_string": "H4sIAAAAAAAA/7yTTY/TMBCG/0o0Z7eynY9ufUOCMxIqFxCqvMlka0hjY4+BCvW/IzdNNmW1LYdlb54Pj5953+Q3mAaULKpcSgamwZ5Ma9CDgjeSc7ngOQcGjSYEBZJLvuBiwUXKRdw+5sWUJ0NdStq2RZ8NEQOPtXEGe9rqpvEYAiignQmZCRntMJvq2VhnUEfvsa8PoODdxw/AoEfakiXdgSrzcskZkP4FSqzT8cHbEMZylVfLqmTQmFDb2BMonnoCaYrp6dqjJmzSI3bvdH8A1ceuY+C8/Yo1jWGDadqgkljlYiUY9Hqf9ttgoPenHd+mpiMbh241TVrJhag24k6VhZLFsirKT8AguuZaX7kUlUx94zzbX/TNJjytBN1F0mROFWDQWksnO4GBIdwHUJ+HdXJeiCpfMaCDS/uMTo3+zd0Zaw2G2hs3jB8U+h51T4YOZ4Vjbybx0nnrvKnxXJz5d4rtaVIKW90FPLI52d1ENn914hv9mQHBZobcGh8ou7z631jXE2vSeCZiiM5ZT7ekE484sINLmqr8C2dIXOMp+LM86H+gz3baNz+1f1lLJb8pVCEmsBDvh3tzsYZU5mwwZ8te8Ysr5LOqOayN7rJ/dDO/4ub6iWqr22D5BOb0Ay7uPepvV/+Elxfqy/FPAAAA//9LwqC2KwYAAA==",
           "encoding": "utf-8"
         },
         "headers": {
@@ -46,16 +46,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "507"
+            "508"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sun, 16 Feb 2020 18:44:37 GMT"
+            "Sun, 16 Feb 2020 18:54:25 GMT"
           ],
           "Etag": [
-            "W/\"c08c568b51714e8070d1afcc61c655fa\""
+            "W/\"b4977abe86787cf4a082d111bedf5c19\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +77,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "88ab71f5-8adc-4cb5-aea4-2c71b3c9da5b"
+            "d4a7ec4c-2032-4374-b149-da6c8c0297c3"
           ],
           "X-Runtime": [
-            "0.610793"
+            "0.593660"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

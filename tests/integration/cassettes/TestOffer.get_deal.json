@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-16T18:33:45",
+      "recorded_at": "2020-02-16T18:54:21",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestOffer Deal\", \"user_id\": 933629433, \"deal_category_id\": 58689, \"money\": 1000, \"reminder_date\": \"2020-01-01\", \"currency\": \"EUR\", \"status\": \"pending\"}"
+          "string": "{\"status\": \"pending\", \"reminder_date\": \"2020-01-01\", \"money\": 1000, \"user_id\": 933629433, \"deal_category_id\": 58689, \"currency\": \"EUR\", \"name\": \"TestOffer Deal\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQQWvjMBCF/8ryzpNFthNvovPuaQ+Fkl5aSlCscRC1JTEaH0zwfy+mSXrs8Q1v5r35rggetvrTVO2BEN3IsDhy0ae+Z/n1l90AQlGnU4FF5uhDvIAgPIboWU7e6bpTm9psTLUxFQhjijzDVsaY34bQTSIcuxkW/16eQQixT7AAQd2lwL69r6aiaTxlSZlFAxfY60KYCgvsV81D07T1Yds0hD5I0Vtd5aIgDO4xcefOYyFklpIibJyG4Z6wnrvpNGYX54d0ypck8z1tt2/330z+p6juQwMLRxCypLM7hyHo+udC6ISdsj85fcCoN1V7rPa2aex29wrClP0PnuUzAAD//44RlFCQAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SQvW7jMBCEX+Uw9fpASv5lfVddcUDgNAkCg5ZWBhGJJJarQjD07oEQW23KWczuzH53hBbOHmp7sIToB4bDmYv+7zqWX3/Y9yAU9ToWOGSObYg3EISHEFuWS+t12alMZTbGbowFYUiRJzhrjPltCM0owrGZ4PD39QWEELsEBxDU3wrc+8diKpqGS5aUWTRwgbvPhLGwwH3XPNX1vjpt65rQBSn6qKtcFITerxN/bVrMhMxSUoSLY98/E5ZzD52G7OO0Sq98SzI903bH/fG0MvmXovpPDSwcQciSrv4a+qDLnzOhEfbK7cXrCqPa2P3ZHt1u6yr7BsKY2x8881cAAAD//36S2rGQAQAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -52,10 +52,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sun, 16 Feb 2020 18:33:45 GMT"
+            "Sun, 16 Feb 2020 18:54:21 GMT"
           ],
           "Etag": [
-            "W/\"148137a6e5c209f24a358eaa4bcb6853\""
+            "W/\"62344c303d652c6ac4f4573b34e4061c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +77,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "945a7faa-03ba-4fd3-a4d8-bafff01b0743"
+            "f7a52408-5e24-4744-8a3c-0c31bf19812e"
           ],
           "X-Runtime": [
-            "0.073831"
+            "0.071189"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
