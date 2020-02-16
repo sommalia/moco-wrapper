@@ -12,6 +12,7 @@ class DefaultRequestor(BaseRequestor):
 
         self.requests_timestamps = []
         self.error_status_codes = [400, 401, 403, 404, 422, 429]
+        self.success_status_codes = [200, 201]
 
         self.file_response_content_types = ["application/pdf"]
 
@@ -39,7 +40,7 @@ class DefaultRequestor(BaseRequestor):
         #convert the reponse into an MWRAPResponse object
         try:
             
-            if response.status_code == 200:
+            if response.status_code in self.success_status_codes:
                 #filter by content type what type of response this is 
                 if response.headers["Content-Type"] in self.file_response_content_types:
                     return FileResponse(response)

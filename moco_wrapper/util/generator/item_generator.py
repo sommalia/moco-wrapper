@@ -28,26 +28,34 @@ class ItemGenerator(object):
             "type" : "description",
             "description": description
         }
-        
-    def generate_seperator(
+
+    def generate_page_break(self):
+        pass
+
+    def generatea_subtotal(self):
+        pass
+
+    def generate_separator(
         self,
         ):
-        """generate an invoice item of type "seperator"
+        """generate an invoice item of type "separator"
 
         :returns: the item
         """
         return {
-            "type": "seperator"
+            "type": "separator"
         }
+        
+
 
 class OfferItemGenerator(ItemGenerator):
     def generate_item(
         self,
-        title,
-        quantity = None,
-        unit = None,
-        unit_price = None,
-        net_total = None,
+        title: str,
+        quantity: int = None,
+        unit: int = None ,
+        unit_price: float= None,
+        net_total: float = None,
         optional = False
         ):
         """generate an invoice if tyoe "item"
@@ -61,6 +69,7 @@ class OfferItemGenerator(ItemGenerator):
         :returns: the item
         """
         data = {
+            "type": "item",
             "title": title
         }
 
@@ -75,6 +84,42 @@ class OfferItemGenerator(ItemGenerator):
                 data[key] = value
 
         return data
+
+    def generate_detail_postion(
+        self,
+        title: str,
+        quantity: int,
+        unit: str,
+        unit_price: float,
+        optional: bool = False
+    ):
+        """
+        generates a detailed position item to be used in an offer items list (for example hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity))
+
+        :param title: title of the position item
+        :param quantity: how many of the things (i.e. how many hours)
+        :param unit: what is the thing (i.e. hours)
+        :param unit_price: price of a single thing (i.e. price of a single hour)
+        :param optional: if the position is optional or not (default False)
+        """
+        return self.generate_item(title, quantity=quantity, unit=unit, unit_price=unit_price, optional=optional)
+
+    def generate_lump_position(
+        self,
+        title: str,
+        net_total: float,
+        optional: bool = False
+    ):
+        """
+        generates a general position item to be used in a offer list (use this if the postion cannot (or do not want) to split the position into units)
+
+        :param title: title of the position
+        :param net_total: total price of the postion
+        :param optional: if the position is optional or not (default False)
+        """
+
+        return self.generate_item(title, net_total=net_total, optional=optional)
+
 
 class InvoiceItemGenerator(ItemGenerator):
     def generate_item(
@@ -109,3 +154,4 @@ class InvoiceItemGenerator(ItemGenerator):
                 data[key] = value
 
         return data
+

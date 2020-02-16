@@ -35,7 +35,7 @@ class TestInvoiceItemGenerator(object):
         assert item["quantity"] == quantity
         assert item["net_total"] == net_total
 
-    def test_generate_seperator(self):
-        item = self.generator.generate_seperator()
+    def test_generate_separator(self):
+        item = self.generator.generate_separator()
 
-        assert item["type"] == "seperator"
+        assert item["type"] == "separator"

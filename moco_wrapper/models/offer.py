@@ -111,6 +111,7 @@ class Offer(MWRAPBase):
         create a new offer
 
         :param base_id: id of the underlying object
+            this will either be a project or a deal (specify the type in the param base_type)
         :param base_type: type of the underlying object
             offers can be created with a deal or a project as its base, see OfferCreationBase
             available types are "project" and "deal"
@@ -165,6 +166,8 @@ class Offer(MWRAPBase):
         ):
             if value is not None:
                 data[key] = value
+
+        print(data)
 
         return self._moco.post(API_PATH["offer_create"].format(id=id), data=data)
 

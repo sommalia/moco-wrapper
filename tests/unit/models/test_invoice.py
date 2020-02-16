@@ -18,7 +18,7 @@ class TestInvoice(UnitTest):
         title = "Invoice"
         tax = 8.0
         currency = "CHF"
-        items = [generator.generate_title("this is the title"), generator.generate_seperator()]
+        items = [generator.generate_title("this is the title"), generator.generate_separator()]
         status = "created"
         change_address = "customer"
         salutation = "salute"
@@ -68,7 +68,7 @@ class TestInvoice(UnitTest):
         title = "Invoice"
         tax = 8.0
         currency = "CHF"
-        items = [generator.generate_title("this is the title"), generator.generate_seperator()]
+        items = [generator.generate_title("this is the title"), generator.generate_separator()]
 
 
         response = self.moco.Invoice.create(customer_id, recipient_address, created_date, due_date, service_period_from, service_period_to, title, tax, currency, items)
@@ -91,7 +91,7 @@ class TestInvoice(UnitTest):
         title = "Invoice"
         tax = 8.0
         currency = "CHF"
-        items = [generator.generate_title("this is the title"), generator.generate_seperator()]
+        items = [generator.generate_title("this is the title"), generator.generate_separator()]
 
 
         response = self.moco.Invoice.create(customer_id, recipient_address, created_date, due_date, service_period_from, service_period_to, title, tax, currency, items)
