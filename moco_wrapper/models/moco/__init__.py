@@ -1,4 +1,4 @@
-from .activity import Activity, DisregardedActivity
+from .activity import Activity
 from .project import Project
 from .project_task import ProjectTask
 from .presence import Presence

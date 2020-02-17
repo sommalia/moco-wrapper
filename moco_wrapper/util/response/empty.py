@@ -16,3 +16,6 @@ class EmptyResponse(MWRAPResponse):
     @property
     def data(self):
         return None
+
+    def __str__(self):
+        return "<EmptyResponse, Status Code: {}>".format(self.response.status_code)

@@ -23,7 +23,11 @@ class DefaultRequestor(BaseRequestor):
     def session(self):
         return self._session
 
-    def request(self, path, method, params = None, data = None, **kwargs):
+    def request(self, path, method, params = None, data = None, delay = 0, **kwargs):
+        #if the request is beeing retried wait for a bit to not trigger 429 error responses
+        if delay > 0:
+            time.sleep(delay)
+
 
         #format data submitted to requests as json
         response = None
@@ -60,7 +64,8 @@ class DefaultRequestor(BaseRequestor):
                 error_response = ErrorResponse(response)
 
                 if error_response.is_recoverable:
-                    return self.delayed_retry(path, method, params=params, data=data, **kwargs)
+                    new_delay = delay + 1
+                    return self.request(path, method, params=params, data=data, delay=new_delay, **kwargs)
                 else:
                     return error_response
 
@@ -71,13 +76,10 @@ class DefaultRequestor(BaseRequestor):
 
             if response_obj.is_recoverable:
                 #error is recoverable, try the ressource again
-                return self.delayed_retry(path, method, params=params, data=data, **kwargs)
+                new_delay = delay + 1
+                return self.request(path, method, params=params, data=data, delay=new_delay, **kwargs)
             else:
                 return response_obj
-
-    def delayed_retry(self, path, method, params = None, data = None, **kwargs):
-        time.sleep(1)
-        return self.request(path, method, params=params, data=data, **kwargs)
 
 
     

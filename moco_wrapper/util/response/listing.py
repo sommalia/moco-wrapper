@@ -56,6 +56,6 @@ class ListingResponse(MWRAPResponse):
         self._data = items
 
     def __str__(self):
-         return "<ListingResponse, Status Code: {}, Data: {}>".format(self.response.status_code, self.response.text)
+         return "<ListingResponse, Status Code: {}, Data: {}>".format(self.response.status_code, str(self._data))
 
         

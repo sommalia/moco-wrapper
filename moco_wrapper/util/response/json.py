@@ -24,4 +24,4 @@ class JsonResponse(MWRAPResponse):
         self._data = self.response.json()
 
     def __str__(self):
-        return "<JsonResponse, Status Code: {}, Data: {}>".format(self.response.status_code, self.response.text)
+        return "<JsonResponse, Status Code: {}, Data: {}>".format(self.response.status_code, str(self._data))
