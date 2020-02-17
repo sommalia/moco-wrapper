@@ -11,7 +11,7 @@ class TestPresence(IntegrationTest):
             to_time = "10:30"
 
             pre_create = self.moco.Presence.create(pres_date, from_time, to_time)
-            print (pre_create.data)
+            print (pre_create)
             assert pre_create.response.status_code == 200
             
             assert isinstance(pre_create, JsonResponse)

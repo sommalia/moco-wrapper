@@ -65,7 +65,7 @@ class Moco(object):
 
         if self._objector is None:
             #default: no conversion on reponse objects
-            self._objector = util.objector.RawObjector()
+            self._objector = util.objector.DefaultObjector()
 
     def request(self, method, path, params=None, data=None, current_try=1):
         """Send a request to an URL with the specified params and data

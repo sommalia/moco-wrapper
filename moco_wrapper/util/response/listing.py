@@ -11,7 +11,7 @@ class ListingResponse(MWRAPResponse):
         """
         Returns the list of objects the response contains
         """
-        return self._items
+        return self._data
 
     
     @property
@@ -36,7 +36,7 @@ class ListingResponse(MWRAPResponse):
         """
         Returns the list of object the response contains
         """
-        return self._items
+        return self._data
     
 
     def __init__(self, response):
@@ -49,9 +49,11 @@ class ListingResponse(MWRAPResponse):
 
         #loop over every single item in the json dictionary and convert it into an object by itself
         json_content = response.json()
-        self._items = []
+        items = []
         for json_item in json_content:
-            self._items.append(self.json_to_object(dumps(json_item)))
+            items.append(json_item)
+
+        self._data = items
 
     def __str__(self):
          return "<ListingResponse, Status Code: {}, Data: {}>".format(self.response.status_code, self.response.text)
