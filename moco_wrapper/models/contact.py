@@ -27,6 +27,7 @@ class Contact(MWRAPBase):
         lastname: str,
         gender: ContactGender,
         customer_id: int = None,
+        organization_id: int = None,
         title: str = None,
         job_position: str = None,
         mobile_phone: str = None,
@@ -45,6 +46,7 @@ class Contact(MWRAPBase):
         :param lastname: The last name of the contact
         :param gender: gender of the contact (f, m or u) (user contact.ContactGender)
         :param customer_id: Id of the customer (company) the contact belongs to
+        :param organization_id: Id of the organization (company) the contact belongs to
         :param title: Title the contact has
         :param job_position: name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
@@ -60,6 +62,10 @@ class Contact(MWRAPBase):
         :returns: the created contact object
         """
 
+
+        if customer_id is not None and organization_id is not None:
+            raise ValueError("Please specify either organization id or customer id (not both)")
+
         data = {
             "firstname" : firstname,
             "lastname" : lastname,
@@ -68,6 +74,7 @@ class Contact(MWRAPBase):
 
         for key, value in (
             ("customer_id", customer_id),
+            ("organization_id", organization_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
@@ -96,6 +103,7 @@ class Contact(MWRAPBase):
         lastname: str = None,
         gender: ContactGender = None,
         customer_id: int = None,
+        organization_id: int = None,
         title: str = None,
         job_position: str = None,
         mobile_phone: str = None,
@@ -116,6 +124,7 @@ class Contact(MWRAPBase):
         :param lastname: The last name of the contact
         :param gender: either F, M, U
         :param customer_id: Id of the customer (company) the contact belongs to
+        :param organization: Id of the organization (company) the contact belongs toa
         :param title: Title the contact has
         :param job_position: name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
@@ -131,12 +140,17 @@ class Contact(MWRAPBase):
         :returns: the created contact object
         """
 
+        if customer_id is not None and organization_id is not None:
+            raise ValueError("Please specify either organization id or customer id (not both)")
+
+
         data = {}
         for key, value in (
             ("firstname", firstname),
             ("lastname", lastname),
             ("gender", gender),
             ("customer_id", customer_id),
+            ("organization_id", organization_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
