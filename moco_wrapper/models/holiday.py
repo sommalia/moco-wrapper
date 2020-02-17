@@ -9,11 +9,11 @@ class Holiday(MWRAPBase):
 
     def getlist(
         self,
-        year = None,
-        user_id = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        year: int = None,
+        user_id: int = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrieve a list of holidays
 
@@ -40,7 +40,7 @@ class Holiday(MWRAPBase):
     
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve single holiday
 
@@ -105,7 +105,7 @@ class Holiday(MWRAPBase):
 
     def delete(
         self,
-        id
+        id: int
         ):
         """delete a holiday
 
