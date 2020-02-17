@@ -15,4 +15,3 @@ class Presence(object):
 
 
         self.__dict__.update(non_keyword_kwargs)
-        print(non_keyword_kwargs)
