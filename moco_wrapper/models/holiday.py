@@ -51,40 +51,35 @@ class Holiday(MWRAPBase):
 
     def create(
         self,
-        year, 
-        title,
-        hours = None,
-        user_id = None
+        year: int, 
+        title: str,
+        user_id: int,
+        hours: int = 0
         ):
-        """create a holiday
+        """create an users entitilement for holidays
 
         :param year: year of the holiday (ex. 2019)
         :param title: title of the holiday
-        :param hours: hours (ex. 160)
         :param user_id: user_id this holiday belongs to
+        :param hours: hours (ex. 160) (default 0)
         :returns: the created holiday object
         """
         data = {
             "year" : year,
             "title": title,
+            "hours": hours,
+            "user_id": user_id,
         }
-
-        for key, value in (
-            ("hours", hours),
-            ("user_id", user_id)
-        ):
-            if value is not None:
-                data[key] = value
 
         return self._moco.post(API_PATH["holiday_create"], data=data)
 
     def update(
         self,
-        id,
-        year = None,
-        title = None,
-        hours = None,
-        user_id = None
+        id: int,
+        year: int = None,
+        title: str = None,
+        user_id: int = None,
+        hours: int = None,
         ):
         """update a holiday
 

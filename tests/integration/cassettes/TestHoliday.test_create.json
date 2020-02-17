@@ -1,0 +1,98 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-02-17T21:33:35",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"hours\": 2, \"title\": \"last year holiday\", \"user_id\": 933629975, \"year\": 2019}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "78"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/users/holidays"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4TMMYrDMBCF4auYV48XebRaoznHVtsswlKwwLGDNCpM8N2Dk/Rp3/v57sgR8u3YjYQ9hQJhM3iCZl0SBEuo2p1HN29LjmEHYd5aqRD+MoRWU4G8GG/tD3s/OsIll6pruJ6Epqqgp/RewjRtbVUchKmkoCn+B4WADZvecD+MvzyItWLdHwjtFj80xyMAAP//mRszHcgAAAA=",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "161"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Mon, 17 Feb 2020 21:33:35 GMT"
+          ],
+          "Etag": [
+            "W/\"94db52f7f2c5090201c02044f5e04a5c\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "62bd7cc2-723b-442c-9270-14d0e8a2a869"
+          ],
+          "X-Runtime": [
+            "0.057587"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/users/holidays"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

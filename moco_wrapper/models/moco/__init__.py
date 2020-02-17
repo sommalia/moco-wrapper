@@ -12,3 +12,4 @@ from .deal_category import DealCategory
 from .company import Company
 from .comment import Comment
 from .employment import Employment
+from .holiday import Holiday
