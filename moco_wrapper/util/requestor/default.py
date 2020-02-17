@@ -19,17 +19,6 @@ class DefaultRequestor(BaseRequestor):
 
         self.file_response_content_types = ["application/pdf"]
 
-    def _convert_to_object(self, obj):
-        
-        for key in obj.keys():
-            if key in ["from"]:
-                new_key = "_" + key
-
-                obj[new_key] = obj[key]
-                del obj[key]
-
-        return obj
-
     @property
     def session(self):
         return self._session
@@ -58,7 +47,7 @@ class DefaultRequestor(BaseRequestor):
                 else:
                     #print(response.content)
                     #json response is the default
-                    response_content = response.json(object_hook=self._convert_to_object)
+                    response_content = response.json()
                     if isinstance(response_content, list):
                         return ListingResponse(response)
                     else:

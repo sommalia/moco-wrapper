@@ -9,18 +9,6 @@ class MWRAPResponse(object):
 
         self.prefix_key_words = ["from"]
 
-    def _convert_to_object(self, obj):
-        for key in obj.keys():
-            if key in self.prefix_key_words:
-                new_key = '_' + key
-                obj[new_key] = obj[key]
-                del obj[key]
-
-        return namedtuple('X', obj.keys(), rename=True)(*obj.values())
-
-    def json_to_object(self, content):
-        return json.loads(content, object_hook=self._convert_to_object)
-
 
     @property 
     def data(self):
