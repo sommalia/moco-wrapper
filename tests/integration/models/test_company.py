@@ -187,8 +187,6 @@ class TestCompany(IntegrationTest):
                 country_code=country_code
             )
 
-            print(company_update)
-
             assert company_create.response.status_code == 200
             assert company_update.response.status_code == 200
 

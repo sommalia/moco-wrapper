@@ -149,7 +149,7 @@ class TestActivity(IntegrationTest):
                 2.3, 
                 description="dummy activity, test_update"
             )
-            print(activity_create)
+            
             #update the activity
             activity_update = self.moco.Activity.update(
                 activity_create.data.id,
