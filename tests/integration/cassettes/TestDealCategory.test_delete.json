@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-01-08T10:25:34",
+      "recorded_at": "2020-02-17T20:31:01",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"probability\": 1, \"name\": \"this is a category to delete\"}"
+          "string": "{\"name\": \"dummy category, test delete\", \"probability\": 1}"
         },
         "headers": {
           "Accept": [
@@ -15,13 +15,13 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=6be9ea68a4a713fd266ea0ee95a63685"
+            "Token token=10cee7728f7aa84e73f982cdb1e46290"
           ],
           "Connection": [
             "keep-alive"
           ],
           "Content-Length": [
-            "58"
+            "57"
           ],
           "Content-Type": [
             "application/json"
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://testabcd.mocoapp.com/api/v1/deal_categories"
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TKQarCMBAG4KuEf53CZCC855zDlRuZNoMOVFPScVHEu3sE998b3iD1j2vNeOrDIIi778n3pGnRsFsfR4qemq0Whoxt9FlnXz0OSMlYhmlYu2pAwMQ0UZno/1xIuAqfLsh4be2H+XwDAAD//6Hg+FmKAAAA",
+          "base64_string": "H4sIAAAAAAAA/4TKwQrCMAwG4Fcp/7mDtMOJeQ5PXiRbghRWN2p2KOK7+wi7f18UBV9u4zRFvKUaGHrU2sMibq+t9RjcPh7UVnNDxN62WeayFu/gFLE0Ezd9ioORKdNAeUjXeyYeE1N6IOLY9cT8/gEAAP//sZ2X/4kAAAA=",
           "encoding": "utf-8"
         },
         "headers": {
@@ -46,16 +46,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "126"
+            "125"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 08 Jan 2020 10:25:29 GMT"
+            "Mon, 17 Feb 2020 20:31:01 GMT"
           ],
           "Etag": [
-            "W/\"e25d39f115810e6d6d6e437691a04379\""
+            "W/\"c38725d4abfc2f0057c7beaa5f4192cc\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +77,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3b9cc7ce-40b0-47c1-94e6-bcd293da4c04"
+            "d596184d-c8ae-4886-8ac6-8aba62268891"
           ],
           "X-Runtime": [
-            "0.050522"
+            "0.041324"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,11 +90,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/deal_categories"
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories"
       }
     },
     {
-      "recorded_at": "2020-01-08T10:25:34",
+      "recorded_at": "2020-02-17T20:31:01",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -108,7 +108,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=6be9ea68a4a713fd266ea0ee95a63685"
+            "Token token=10cee7728f7aa84e73f982cdb1e46290"
           ],
           "Connection": [
             "keep-alive"
@@ -124,7 +124,7 @@
           ]
         },
         "method": "DELETE",
-        "uri": "https://testabcd.mocoapp.com/api/v1/deal_categories/57255"
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories/59366"
       },
       "response": {
         "body": {
@@ -139,7 +139,7 @@
             "gzip"
           ],
           "Date": [
-            "Wed, 08 Jan 2020 10:25:29 GMT"
+            "Mon, 17 Feb 2020 20:31:01 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -161,10 +161,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "5483c912-bd42-4aa6-a2b5-24660804fc42"
+            "a85f4f9a-82de-43b6-a543-8d16d21e4748"
           ],
           "X-Runtime": [
-            "0.030324"
+            "0.038706"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -174,7 +174,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/deal_categories/57255"
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories/59366"
       }
     }
   ],
