@@ -111,7 +111,6 @@ class DefaultObjector(BaseObjector):
         if len(parts) == 1:
             parts.append("base")
 
-        print(parts)
         general_type, sub_type = parts
 
         if general_type in self.class_map.keys():
@@ -119,6 +118,8 @@ class DefaultObjector(BaseObjector):
                 return self.class_map[general_type][sub_type]    
         
         #return None by default (no conversion of objects will take place)
+        
+        print(parts)
         exit(1)
         return None
 

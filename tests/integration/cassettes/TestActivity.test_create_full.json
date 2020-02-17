@@ -5,7 +5,7 @@
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945148099, \"task_id\": 5164135, \"hours\": 3.5, \"date\": \"2020-01-01\", \"description\": \"activity create description\"}"
+          "string": "{\"project_id\": 945148099, \"remote_url\": \"https://jira.mycompany.com\", \"remote_service\": \"jira\", \"date\": \"2020-01-01\", \"description\": \"activity create description\", \"task_id\": 5164135, \"tag\": \"test_activity\", \"billable\": true, \"hours\": 3.5, \"remote_id\": \"JIRA-123\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "127"
+            "264"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5ySTW7DIBCFr2LNmkRg7Diw6x2y6sYieJLSYjuCIVJU5e4VKU76s6jUJY83j4+ZeQc3gFZKbhu1lQ2DwRCChprXfMXFigtg8DKnEEHLdctgwGiDO5GbJ9BgLLmzo0tlAxrC6ustg73zHgfQB+Mjfh7N3iNoCgkZkDmCBmAQcJwJ+4jh7Cx+0zLdlLy/Cyn4RTmF+RUtgS6faFrRbLlSDCYz5phiKHBDdZhDRRjJTceqkDuM8JPsmtHi25Lbik0jZPsrNXv+EW1TpHnEsMR3G941XSsf2DuM9FQaC1cGKT7cSspNrVTXMji4EKmU5KeBgTd3xVg7p4lyPbkRQx/JBMKhN7T0r7DflDLweiW6nei0FJq3z8AgnYY/PXk9/KUPt83ha379CAAA///CCvUfVQIAAA==",
+          "base64_string": "H4sIAAAAAAAA/5xSPW/bMBT8K8LNtEPqw7K4ZWzHIlMXgaGeE6aUKJCPAYzC/71gKldFlgIdebx37+7hfsJN0MPQnNvh3HQCk2GCRi1reZDqIBUEXkOOCbo5ln9KNrqVXVigYSy7d8fXykYyTNXfvwLPznuaoC/GJ/r9NM+eoDlmEmDzAg2mxONdBwKR5sA0JorvzhYrby6aHS928fXLt8eDqpsdztFD45V5TfrhoYwc56sN82qW69GGGQJrDG9kGXrL3HaqPcthEFjMXBZthC3LVF1CrIo7t7xUm0FHCZ+D3EqS9OOu26lTq8olP6kWzn9I25w4zBTv8v1J9m3fNbvtJ0r8eL/fTSCnnT00zakehr4TuLiYeBspqyHgzR/EWBvywmWe3UxxTGwi0zQahl6y9wKb9w9k60d9UP2T6nWjtOy+QyCv0z85pU3+OsaPosmjvP0KAAD//xUYiXeEAgAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -46,7 +46,7 @@
             "gzip"
           ],
           "Content-Length": [
-            "316"
+            "354"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
@@ -55,7 +55,7 @@
             "Mon, 17 Feb 2020 17:31:05 GMT"
           ],
           "Etag": [
-            "W/\"eab5e93749fe552728e9d081134b8124\""
+            "W/\"4891d07512551970e5139dc580c5fcb5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +77,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4bb8859e-0c33-480c-a18c-a11f7903a025"
+            "7d1d3a1c-db1d-4725-a37b-a797224f3e65"
           ],
           "X-Runtime": [
-            "0.056909"
+            "0.053396"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

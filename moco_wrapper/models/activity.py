@@ -2,6 +2,21 @@ from .base import MWRAPBase
 from ..const import API_PATH
 
 from datetime import date
+from enum import Enum
+
+class ActivityRemoteService(str, Enum):
+    TRELLO = "trello"
+    JIRA = "jira"
+    ASANA = "asana"
+    BASECAMP = "basecamp"
+    BASECAMP2 = "basecamp2"
+    BASECAMP3 = "basecamp3"
+    TOGGL = "toggl"
+    MITE = "mite"
+    GITHUB = "github"
+    WUNDERLIST = "wunderlist"
+    YOUTRACK = "youtrack"
+
 
 class Activity(MWRAPBase):
 

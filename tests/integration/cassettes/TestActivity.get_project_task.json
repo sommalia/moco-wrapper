@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T17:31:05",
+      "recorded_at": "2020-02-17T17:09:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945148099, \"task_id\": 5164135, \"hours\": 3.5, \"date\": \"2020-01-01\", \"description\": \"activity create description\"}"
+          "string": "{\"billable\": true, \"active\": true, \"name\": \"project task created for testing activities\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "127"
+            "89"
           ],
           "Content-Type": [
             "application/json"
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/activities"
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/projects/945148099/tasks"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5ySTW7DIBCFr2LNmkRg7Diw6x2y6sYieJLSYjuCIVJU5e4VKU76s6jUJY83j4+ZeQc3gFZKbhu1lQ2DwRCChprXfMXFigtg8DKnEEHLdctgwGiDO5GbJ9BgLLmzo0tlAxrC6ustg73zHgfQB+Mjfh7N3iNoCgkZkDmCBmAQcJwJ+4jh7Cx+0zLdlLy/Cyn4RTmF+RUtgS6faFrRbLlSDCYz5phiKHBDdZhDRRjJTceqkDuM8JPsmtHi25Lbik0jZPsrNXv+EW1TpHnEsMR3G941XSsf2DuM9FQaC1cGKT7cSspNrVTXMji4EKmU5KeBgTd3xVg7p4lyPbkRQx/JBMKhN7T0r7DflDLweiW6nei0FJq3z8AgnYY/PXk9/KUPt83ha379CAAA///CCvUfVQIAAA==",
+          "base64_string": "H4sIAAAAAAAA/4SMwcrCMBAGXyV85/Qn6W8t7nN48lK2zVqjsS3pRhDx3QURrx6HGeaBGECN3278f2Mx8VVAWPJ8lkGN8noxQxZWCeY4Z6OyapxGw4PGW9QoKyz6mBL3SUCai1i85Zf6EkZR0FRSsjjNJad7l1kF5P6cxWffsYJQu9pVrq58u/ctuR259gCLsoQfzfMVAAD//1zYdNPJAAAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -46,16 +46,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "316"
+            "162"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 17:31:05 GMT"
+            "Mon, 17 Feb 2020 17:09:07 GMT"
           ],
           "Etag": [
-            "W/\"eab5e93749fe552728e9d081134b8124\""
+            "W/\"9f7835992210db878203032fbcdf91cb\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +77,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4bb8859e-0c33-480c-a18c-a11f7903a025"
+            "c48c6245-d4ea-46ba-b658-c09012bf2abe"
           ],
           "X-Runtime": [
-            "0.056909"
+            "0.064279"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +90,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/activities"
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/projects/945148099/tasks"
       }
     }
   ],

@@ -26,7 +26,7 @@ class ErrorResponse(MWRAPResponse):
         Returns the text of the object (the error message itself)
         """
 
-        return response.text
+        return self.response.text
 
     def __str__(self):
         return "<ErrorResponse, Status Code: {}, Data: {}>".format(self.response.status_code, self.data)
