@@ -68,20 +68,27 @@ class DefaultRequestor(BaseRequestor):
                 #no content but success
                 return EmptyResponse(response)
             elif response.status_code in self.error_status_codes:
-                return ErrorResponse(response)
+                error_response = ErrorResponse(response)
+
+                if error_response.is_recoverable:
+                    return self.delayed_retry(path, method, params=params, data=data, **kwargs)
+                else:
+                    return error_response
+
 
         except ValueError as ex:
             print("ValueError in response conversion:" + str(ex))
             response_obj = ErrorResponse(response)
 
-            if response_obj.is_recoverable == True:
+            if response_obj.is_recoverable:
                 #error is recoverable, try the ressource again
-                time.sleep(1)
-                return self.request(path, method, params, data, kwargs)
+                return self.delayed_retry(path, method, params=params, data=data, **kwargs)
             else:
                 return response_obj
 
-
+    def delayed_retry(self, path, method, params = None, data = None, **kwargs):
+        time.sleep(1)
+        return self.request(path, method, params=params, data=data, **kwargs)
 
 
     
