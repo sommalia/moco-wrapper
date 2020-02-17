@@ -1,6 +1,8 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from datetime import date
+
 class Employment(MWRAPBase):
     """class for handling employment schemes (in german "wochenmodell")."""
 
@@ -9,7 +11,7 @@ class Employment(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a single employment
 
@@ -20,12 +22,12 @@ class Employment(MWRAPBase):
 
     def getlist(
         self,
-        from_date = None,
-        to_date = None,
-        user_id = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        from_date: date = None,
+        to_date: date = None,
+        user_id: int = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrieve a list of employments
 
@@ -46,7 +48,10 @@ class Employment(MWRAPBase):
             ("page", page)
         ):
             if value is not None:
-                params[key] = value
+                if key in ["from", "to"] and isinstance(value, date):
+                    params[key] = value.isoformat()
+                else:
+                    params[key] = value
 
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)

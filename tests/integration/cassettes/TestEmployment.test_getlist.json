@@ -1,0 +1,104 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-02-17T21:19:42",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/users/employments?page=1&user_id=933629975&to=2021-01-01&from=2020-01-01"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SOwWrDMBBE/2XOmyApToz3O3pqCGaxN22oLBlpRSnB/15yKaVQcpjLzDDzznfcZnAI/dB3hE/Vj/g1mpQ3tfE9t1LBnds7wipmWhL4DlnA527v6I8uhPW/aCNcS17ACC64nQs750GwDE4tRkKrWh7jD5zhcDiFYeiPhOutVEuyKBim1UCI8uPINOWWDBthKiqm8yj268P3L/7E/sg+vILQ1vlJZ7t8BwAA//8CPkJhEgEAAA==",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "190"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Mon, 17 Feb 2020 21:19:42 GMT"
+          ],
+          "Etag": [
+            "W/\"8e8c98fbaf566579c8b629dc83de3d5b\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Page": [
+            "1"
+          ],
+          "X-Per-Page": [
+            "100"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "dd51f53f-1715-4335-8f65-79c2627b4912"
+          ],
+          "X-Runtime": [
+            "0.041905"
+          ],
+          "X-Total": [
+            "1"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/users/employments?page=1&user_id=933629975&to=2021-01-01&from=2020-01-01"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

@@ -11,3 +11,4 @@ from .invoice import Invoice
 from .deal_category import DealCategory
 from .company import Company
 from .comment import Comment
+from .employment import Employment

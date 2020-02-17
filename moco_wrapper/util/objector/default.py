@@ -26,7 +26,8 @@ class DefaultObjector(BaseObjector):
             },
             "users": {
                 "base" : "User",
-                "presences": "Presence"
+                "presences": "Presence",
+                "employments": "Employment"
             },
             "units": {
                 "base": "Unit"
