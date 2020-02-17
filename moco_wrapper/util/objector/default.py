@@ -50,6 +50,10 @@ class DefaultObjector(BaseObjector):
             "contacts": {
                 "base": "Contact",
                 "people": "Contact"
+            },
+            "comments": {
+                "base": "Comment",
+                "bulk": "Comment",
             }
         }
 
@@ -119,6 +123,7 @@ class DefaultObjector(BaseObjector):
         
         #return None by default (no conversion of objects will take place)
         
+        print("Objector could not find a type, but should")
         print(parts)
         exit(1)
         return None

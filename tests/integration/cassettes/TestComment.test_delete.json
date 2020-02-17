@@ -1,0 +1,182 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-02-17T18:12:01",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"commentable_type\": \"Project\", \"commentable_id\": 945148132, \"text\": \"dummy comment ,test delete\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "98"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/comments"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SPPWoDMRBGr7J89Rj0s45XOkWKVGnMRJqAw0prtCOICb57EAmBVG7nvYH3feGSEWfvg/ELIW2lSFV+W+U8QJiPdl6sd/+R3q6CiOe2fUhSEFQ+FRG5l3Kbfs2JVHadsqyiAkLh2nlF1NaFkJqwSj7z+HPGmYNxB3t6sUu0Lhr7CkK/5sfOLg3xZ0bw/smFcDoS3i9t18plZI4MEFb+u3BKW6+K+/07AAD//6PoHb8AAQAA",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "189"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Mon, 17 Feb 2020 18:12:01 GMT"
+          ],
+          "Etag": [
+            "W/\"262edbacc85c7f30f40ad160c0253db0\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "6410fc2d-4540-499c-a639-cf367ea765bd"
+          ],
+          "X-Runtime": [
+            "0.046441"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/comments"
+      }
+    },
+    {
+      "recorded_at": "2020-02-17T18:12:01",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "0"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "DELETE",
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/comments/4339038"
+      },
+      "response": {
+        "body": {
+          "base64_string": "",
+          "encoding": null
+        },
+        "headers": {
+          "Cache-Control": [
+            "no-cache"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Date": [
+            "Mon, 17 Feb 2020 18:12:01 GMT"
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "4a1e8244-e1d8-4daa-b50f-32e72f660354"
+          ],
+          "X-Runtime": [
+            "0.034974"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 204,
+          "message": "No Content"
+        },
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/comments/4339038"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

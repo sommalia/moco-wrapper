@@ -10,3 +10,4 @@ from .contact import Contact
 from .invoice import Invoice
 from .deal_category import DealCategory
 from .company import Company
+from .comment import Comment

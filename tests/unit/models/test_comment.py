@@ -99,16 +99,11 @@ class TestComment(UnitTest):
     def test_update(self):
         comment_id = 65
         text = "updated text"
-        commentable_id = 1234
-        commentable_type = "Project"
 
-        response = self.moco.Comment.update(comment_id, text=text, commentable_id=commentable_id, 
-        commentable_type=commentable_type)
+        response = self.moco.Comment.update(comment_id, text)
 
         data = response["data"]
 
         assert data["text"] == text
-        assert data["commentable_id"] == commentable_id
-        assert data["commentable_type"] == commentable_type
 
         assert response["method"] == "PUT"

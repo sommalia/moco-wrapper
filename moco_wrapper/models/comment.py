@@ -7,7 +7,7 @@ class CommentTargetType(str, Enum):
     """
     Enumeration of types that a comment can be created for.
 
-    If you comment on an Offer use CommentTargetType.OFFER and supply the offer id
+    If you comment on an Offer use CommentTargetType.OFFER and supply the offer id in the parameter commentable_id
     """
     USER = "User"
     DEAL = "Deal"
@@ -67,32 +67,23 @@ class Comment(MWRAPBase):
     def update(
         self,
         id: int,
-        commentable_id: int = None,
-        commentable_type: CommentTargetType = None,
-        text: str = None
+        text: str
         ):
         """update a comment
 
         :param id: the id of the comment to update
-        :param commentable_id: id of the object to create the comment of (i.e the project id of the project we want to comment on)
-        :param commentable_type: type of object to create the comment of (i.e when we want to comment on a project this is "project"), available values are  "User", "Deal", "Offer", "OfferConfirmation", "Customer", "Project", "Invoice", "Contact"
         :param text: comment text
         :returns: the created comment
         """
-        data = {}
-        for key, value in (
-            ("commentable_id", commentable_id),
-            ("commentable_type", commentable_type),
-            ("text", text)
-        ):
-            if value is not None:
-                data[key] = value
+        data = {
+            "text" : text,  
+        }
 
         return self._moco.put(API_PATH["comment_update"].format(id=id), data=data)
 
     def delete(
         self,
-        id: int
+        id: int,
         ):
         """delete a comment
 
