@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-09T09:49:31",
+      "recorded_at": "2020-02-18T09:58:32",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=4bd6e3d07436ce64370a4e8bd314d3be"
+            "Token token=10cee7728f7aa84e73f982cdb1e46290"
           ],
           "Connection": [
             "keep-alive"
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/invoices?page=1"
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+zaTW7jNhQH8KsIXMvpe/yQRO66KNqi6GaQbmYyEDQSE6t1KIOigg6KAr1Dr9Ndb9KTFLRjTTKRaRlK20QVkIVB/m0H8g/S4yPf/ULqiqgsFSkmMSm71jW32uZ+ME0gZUJkIiZb2/yoS7cbNt1mE5O60sbV17W2RJE3FACAkphUhdNEEQqYrUCuMPVjnc4fjiOsMCExabW9q0udb7Wtm4oo8mQsv7bN7eEbP5tyTT/hCte1RJHS6sLpisTE6jtt22JD1HWxaXVMXO02/h/41tw1dal3kbLe1tq4vKgqq1v/Ad/r2kTfdabSV+abotu61tmibXWEVyYDgOjtn3/YulwTf6Ws1ab8SBT56oc3JCZGu9w1zn+n5PICYuKKn4nK/Ksb27TtYRaB8gtJY1LVbdl0xhEFPlQW7ToPjeVV8bG9n6j0h9rlprv94H+A/XUora6eDG6a8iddfboOxU1L1Lv38eFi5YXb/S4UVkBXwC4xU1Qqkb0lMem21bEMyxSlPnP4nMY8yjx49+czv8b36DKknE5Ex6aiQ/oFBZTH7Pl3yxXSFeDTiDfYB9gucIbFOkSx1Wsb3Wi9tk5HVXGrTdSZKlprz+6EP2QQ8sfhgr9MfcklckX933F9fUYc15cc1Zc81MeSdKI+/or1Be+E/1d+QqFUnAX57TP8GfhlE/mJhd8c+YkR/JLp/FKcyC9Z+M2NH0XF4QS/PjOR39TSL134zZEfjuAXWHmM5je19ssWfrPjxxQ7Vfv5zPTaj4uRD1/JBbIsSeigQbkYnJtBAQrDy999Zvrylwt+nkE+ZBBhMTg7g6hAnjKICqdXgTyB8wymgwZxMTg7g1TRkwapYpMNsmRsH8Yb5IBMDBqcvP2xGHxBBuUlSMUx2IzpM4FmjDxqUD42KM8zmAwafM27IYvBYV9U0UBHps/gdIPpGc9ibzAbNLjsiczPIFMi0JbpM4G2zGiDZ6yLvUE5aHDZGJmfQaEwUA8eMjRQD442OLIzfW+Qw6DBZXfknzGIcEGHEVL4FxgmCgItwj4TaBGOZsjOY4iDDJddkpky5CfvhokSz3E3HHku8MBwsFONs90teaYzg69fpFRwcq0sFUxdK6ciBXFEJB/oGfJMDNaI8Khn+ODY4iORfpytdue8/ovjqm90uTaduYn++u33qCjaYwa71mkbffn1ldm/7A1SdmWQMi6iw0RRuRMUP0FE+UTiHtILLBJ3p1KRKhF4OveZwOZJ8OTq+78DAAD//43M6T8wLQAA",
+          "base64_string": "H4sIAAAAAAAA/+zW32rbPhQH8FcJ51rO70i2Y1v3PxiM3ZTtpn8wqnTaakukIMllZQz2Dnud3e1N9iRDSdulTUnDEkYpuYvP+coKRx+ET76ANSDbrmwbzkAPMfkZhT4Xmwk2VdPylsE8+I+k06LshumUgTXkkr2wFEDCkUBEFMDAqEQgQSBvC+wK3uTaQP1qnWPBJ8AgUri2mvo5BesNSODiP4G8W2v1F8HPlqu7gosC+Xok+ZVAuQgklYYIEnQglcgAg0DXFKKagrxQ00gMkk3T/L+su/ZW0yKi7dySS70yJlDML3hH1o3eDs7QqXujhnmKKagYacRPXYuIo+OfP4LVV5AHGAI5fQMS/v9wBAwcpT75lPfkJY6RQVKfQbb512XwMd53KxxXDIyN2g8ugVyEtYpX/aZab9RNvG0YOrepd8PsPJ/K8px0ILNWnHr9icyfKajLCPLkjN2NqldpMU2BBYqCt++xk3Uja3EMDIa52ZQpc+buPd49yKysftz5ylYkih0llgeJr1xitYXEag8Syx0lVgeJr1xivYXEyR4kVjtKrF+oRHvpfDhI3IPEZguJ7R4k1jtKnLxQiYc7cV8Su+ckthJxZ4kNPv2d2FTNlhL5qsS8BV+aeSBR8Pv6mkTkY+TjvHb069v3UX4sF48bbK7s87TNHChvA3c258puhGmG2exmtJnn48wmg3k89wh5t6ZQlO2S0r9kmMKwncJW1ijxufuQd1LUf6nw7HcAAAD//z2fmAc5DwAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -43,16 +43,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "957"
+            "573"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sun, 09 Feb 2020 09:49:31 GMT"
+            "Tue, 18 Feb 2020 09:58:32 GMT"
           ],
           "Etag": [
-            "W/\"abc02c76dddf1ead9b8240f71c105b00\""
+            "W/\"1b5e4b5c36ca25f5c8b1b8bef4ec9854\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,13 +80,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "419210f6-75f6-4dba-8d8a-eeeeb072ee96"
+            "dc320d5b-1865-4086-a7b9-06fdb74bd97c"
           ],
           "X-Runtime": [
-            "0.299395"
+            "0.280145"
           ],
           "X-Total": [
-            "18"
+            "6"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +96,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/invoices?page=1"
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices?page=1"
       }
     }
   ],

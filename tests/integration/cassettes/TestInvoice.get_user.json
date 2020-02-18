@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T09:58:33",
+      "recorded_at": "2020-02-18T09:58:41",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/locked?page=1"
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/users?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
+          "base64_string": "H4sIAAAAAAAA/2zPz2rzMBAE8Ff5mLPyYSu1g3XqQ+SUUszG2sSi+mOkVdo05N1LSFp66G3nxzIwLxc4CzOs170ehk2ncHC5SKTAMBAuAgVPP0LTlGq8IU3iTgwjubICfwjnCHMgX24xkPMwOPWf01FTPs7P+3MK/y1DIaS98zwuc4q3Sii8p/z2O88p8EjWZi7lLi4e0v3auyyzpTNMrN4r0ImE8liz/5apFklhXHJaOIvjAnO5KtToBOaxtxnavlvrJ4XHsC1T+NfiqjBlJmE7ksBAN7pZNXrVbrZtb9rOtHoHhbrYv382phuMbna4vn4FAAD//3Oj46pbAQAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -43,16 +43,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "26"
+            "255"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:58:33 GMT"
+            "Tue, 18 Feb 2020 09:58:41 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"6a176dd68adfc9f7a783ee7ab042b970\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,13 +80,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "b1d66a83-d9b1-434c-b378-4d8a7c6a6f56"
+            "17d5eac3-cd21-4ec3-84fe-b59f884b9a01"
           ],
           "X-Runtime": [
-            "0.023029"
+            "0.045900"
           ],
           "X-Total": [
-            "0"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +96,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/locked?page=1"
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/users?page=1"
       }
     }
   ],

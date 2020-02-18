@@ -5,7 +5,7 @@
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"type\": \"customer\", \"name\": \"TestInvoice\"}"
         },
         "headers": {
           "Accept": [
@@ -20,6 +20,9 @@
           "Connection": [
             "keep-alive"
           ],
+          "Content-Length": [
+            "43"
+          ],
           "Content-Type": [
             "application/json"
           ],
@@ -27,12 +30,12 @@
             "python-requests/2.22.0"
           ]
         },
-        "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/locked?page=1"
+        "method": "POST",
+        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/companies"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SRwc4TIRSF3+WsqaEzttNhbRfGnakbjSEU7lQMhQncqU6avrthZjTu/h18uTl8h/uEd1DdUXbvu1PTCvA8EhTsVDjdKUMgmnslFyr8MT6StwSBX3QtniuHAN2ND1BxCkFg/JHixgfzez0Y5zKVsl5smiLnWdvk6tyHMwQehrV3FNkPnvLfKDa3AvXtu8BUKl1l+7Y9Nn3fHQQGnwtvfkyFIRDMP2Ls8hRelV4pbFk+DmnzS4lr7mK1FNZjTiNl9lSgni8Bm8kwOW0YCo1s5E42u/3pInt1OKm2/QqBaXRvzvxfDp+k3HcVRqYcoQYTCglcfQg+3jTXb9v372S1ypminaFw/vIZAo4GMwXWft2EdhNpZ+YC1UqBMaefZHkp+voTAAD//1LCXc/bAQAA",
           "encoding": "utf-8"
         },
         "headers": {
@@ -43,7 +46,7 @@
             "gzip"
           ],
           "Content-Length": [
-            "26"
+            "312"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
@@ -52,7 +55,7 @@
             "Tue, 18 Feb 2020 09:58:33 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"39becead6998a66a9062b274eb7ebebb\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -70,23 +73,14 @@
           "X-Frame-Options": [
             "SAMEORIGIN"
           ],
-          "X-Page": [
-            "1"
-          ],
-          "X-Per-Page": [
-            "100"
-          ],
           "X-Permitted-Cross-Domain-Policies": [
             "none"
           ],
           "X-Request-Id": [
-            "b1d66a83-d9b1-434c-b378-4d8a7c6a6f56"
+            "999b13d5-ea53-4f4c-b648-1bbd29f9594d"
           ],
           "X-Runtime": [
-            "0.023029"
-          ],
-          "X-Total": [
-            "0"
+            "0.092264"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +90,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/locked?page=1"
+        "url": "https://v6zcg2argh.mocoapp.com/api/v1/companies"
       }
     }
   ],
