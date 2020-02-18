@@ -137,4 +137,61 @@ class TestCompany(UnitTest):
         response = self.moco.Company.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
 
+    def test_create_supplier_with_iban(self):
+        iban = "CH1234"
+
+        response = self.moco.Company.create("test company", company_type="supplier", iban=iban)
+
+        assert response["data"]["iban"] == iban
+
+
+    def test_create_supplier_with_vat(self):
+        vat = "12345"
+
+        response = self.moco.Company.create("test company", company_type="supplier", vat_identifier=vat)
+
+        assert response["data"]["vat_identifier"] == vat
+
+    def test_create_customer_with_vat(self):
+        vat = "12345"
+
+        response = self.moco.Company.create("test company", company_type="supplier", vat_identifier=vat)
+
+        assert response["data"]["vat_identifier"] == vat
+
+    def test_create_vat_omitted_in_orga(self):
+        vat = "12345"
+
+        response = self.moco.Company.create("test company", company_type="organization", vat_identifier=vat)
+
+        assert "vat_identifier" not in response["data"].keys()
+
+    def test_create_iban_omitted_in_customer(self):
+        iban = "CHF1234"
+
+        response = self.moco.Company.create("test company", company_type="customer", iban=iban)
+
+        assert "iban" not in response["data"].keys()
+
+    
+    def test_create_iban_omitted_in_orga(self):
+        iban = "CHF1234"
+
+        response = self.moco.Company.create("test company", company_type="organization", iban=iban)
+
+        assert "vat_identifier" not in response["data"].keys()
+
+    def test_update_iban(self):
+        iban = "CHF1234"
+
+        response = self.moco.Company.update(1, iban=iban)
+
+        assert response["data"]["iban"] == iban
+
+    def test_update_vat(self):
+        vat = "12345"
+
+        response = self.moco.Company.update(1, vat_identifier=vat)
+
+        assert response["data"]["vat_identifier"] == vat 
         

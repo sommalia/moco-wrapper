@@ -41,6 +41,8 @@ class Company(MWRAPBase):
         billing_tax: float = None,
         default_invoice_due_days: int = None,
         country_code: str = None,
+        vat_identifier: str = None,
+        iban: str = None,
         ):
         """Create a company
 
@@ -59,6 +61,8 @@ class Company(MWRAPBase):
         :param billing_tax: Billing tax value (from 0 to 100)
         :param default_invoice_due_days: payment target days for the company when creating invoices
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
+        :param vat_identifier: vat identifier for eu companies (only supplier and customer)
+        :param iban: iban number (only supplier)
         """
 
         data = {
@@ -85,6 +89,23 @@ class Company(MWRAPBase):
         ):
             if value is not None:
                 data[key] = value
+                
+        #set company specific parameters
+        if company_type == CompanyType.SUPPLIER:
+            for key, value in (
+                ("iban", iban),
+                ("vat_identifier", vat_identifier)
+            ):
+                if value is not None:
+                    data[key] = value
+
+        if company_type == CompanyType.CUSTOMER:
+            for key, value in (
+                ("vat_identifier", vat_identifier),
+            ):
+                if value is not None:
+                    data[key] = value
+
 
         return self._moco.post(API_PATH["company_create"], data=data)
 
@@ -106,7 +127,9 @@ class Company(MWRAPBase):
         identifier: str = None,
         billing_tax: float = None,
         default_invoice_due_days: int = None,
-        country_code: str = None
+        country_code: str = None,
+        vat_identifier: str = None,
+        iban: str = None,
         ):
         """update a company
 
@@ -126,6 +149,8 @@ class Company(MWRAPBase):
         :param billing_tax: Billing tax value 
         :param default_invoice_due_days: payment target days for the company when creating invoices
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
+        :param vat_identifier: vat identifier for eu companies (only supplier and customer)
+        :param iban: iban number (only supplier)
         """
         data = {
   
@@ -148,7 +173,9 @@ class Company(MWRAPBase):
             ("identifier", identifier),
             ("billing_tax", billing_tax),
             ("invoice_due_days", default_invoice_due_days),
-            ("country_code", country_code)
+            ("country_code", country_code),
+            ("vat_identifier", vat_identifier),
+            ("iban", iban)
         ):
             if value is not None:
                 data[key] = value

@@ -232,3 +232,82 @@ class TestCompany(IntegrationTest):
             assert company_getlist.response.status_code == 200
 
             assert isinstance(company_getlist, ListingResponse)
+
+    def test_create_supplier_with_iban(self):
+        with self.recorder.use_cassette("TestCompany.test_create_supplier_with_iban"):
+            iban = "FI0342541877156574" # random iban
+            company_create = self.moco.Company.create(
+                "supplier with iban",
+                CompanyType.SUPPLIER,
+                iban=iban
+            )
+            print(company_create)
+            assert company_create.response.status_code == 200
+            
+
+            assert isinstance(company_create, JsonResponse)
+
+            assert company_create.data.iban == iban
+
+    def test_create_customer_with_vat(self):
+        with self.recorder.use_cassette("TestCompany.test_create_customer_with_vat"):
+            vat = "VAT-1234"
+            company_create = self.moco.Company.create(
+                "customer with vat",
+                CompanyType.CUSTOMER,
+                vat_identifier=vat
+            )
+
+            assert company_create.response.status_code == 200
+            
+            assert isinstance(company_create, JsonResponse)
+
+            assert company_create.data.vat_identifier == vat
+
+    def test_update_iban(self):
+        with self.recorder.use_cassette("TestCompany.test_update_iban"):
+            iban = "FI0342541877156574" # random iban
+
+            company_create = self.moco.Company.create(
+                "dummy company, update iban",
+                CompanyType.SUPPLIER,
+            )
+            
+            company_update = self.moco.Company.update(
+                company_create.data.id,
+                iban=iban 
+            )
+
+            assert company_create.response.status_code == 200
+            assert company_update.response.status_code == 200
+
+            assert isinstance(company_create, JsonResponse)
+            assert isinstance(company_update, JsonResponse)
+
+            assert company_update.data.iban == iban
+
+    def test_update_vat(self):
+        with self.recorder.use_cassette("TestCompany.test_update_vat"):
+            vat = "VAT-12345"
+
+            company_create = self.moco.Company.create(
+                "dummy company, update vat",
+                CompanyType.SUPPLIER,
+            )
+
+            company_update = self.moco.Company.update(
+                company_create.data.id,
+                vat_identifier=vat
+            )
+
+            assert company_create.response.status_code == 200
+            assert company_update.response.status_code == 200
+
+            assert isinstance(company_create, JsonResponse)
+            assert isinstance(company_update, JsonResponse)
+
+            assert company_update.data.vat_identifier == vat
+
+
+
+
