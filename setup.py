@@ -19,7 +19,7 @@ test_requirements = ['pytest', 'betamax']
 
 setup(
     author="Sommalia",
-    author_email='sommalia@protonmail.com',
+    author_email='sommalia@tutanota.com',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
