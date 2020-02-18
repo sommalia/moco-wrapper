@@ -15,7 +15,7 @@ class DefaultRequestor(BaseRequestor):
 
         self.requests_timestamps = []
         self.error_status_codes = [400, 401, 403, 404, 422, 429]
-        self.success_status_codes = [200, 201]
+        self.success_status_codes = [200, 201, 204]
 
         self.file_response_content_types = ["application/pdf"]
 
@@ -44,22 +44,27 @@ class DefaultRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
+
             if response.status_code in self.success_status_codes:
                 #filter by content type what type of response this is 
-                if response.headers["Content-Type"] in self.file_response_content_types:
-                    return FileResponse(response)
+                if response.status_code == 204:
+                    #no content but success
+                    return EmptyResponse(response)
+                elif response.status_code == 200 and response.text.strip() == "":
+                    #touch endpoint returns 200 with no content
+                    return EmptyResponse(response)
                 else:
-                    #print(response.content)
-                    #json response is the default
-                    response_content = response.json()
-                    if isinstance(response_content, list):
-                        return ListingResponse(response)
+                    if response.headers["Content-Type"] in self.file_response_content_types:
+                        return FileResponse(response)
                     else:
-                        return JsonResponse(response)
+                        #print(response.content)
+                        #json response is the default
+                        response_content = response.json()
+                        if isinstance(response_content, list):
+                            return ListingResponse(response)
+                        else:
+                            return JsonResponse(response)
 
-            elif response.status_code == 204:
-                #no content but success
-                return EmptyResponse(response)
             elif response.status_code in self.error_status_codes:
                 error_response = ErrorResponse(response)
 
@@ -71,9 +76,9 @@ class DefaultRequestor(BaseRequestor):
 
 
         except ValueError as ex:
+
             print("ValueError in response conversion:" + str(ex))
             response_obj = ErrorResponse(response)
-
             if response_obj.is_recoverable:
                 #error is recoverable, try the ressource again
                 new_delay = delay + 1

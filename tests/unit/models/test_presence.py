@@ -78,7 +78,7 @@ class TestPresence(UnitTest):
         from_time = '08:00'
         to_time = '14:00'
 
-        response = self.moco.Presence.update(presence_id, date=date, to_time=to_time, from_time=from_time)
+        response = self.moco.Presence.update(presence_id, pres_date=date, to_time=to_time, from_time=from_time)
         data = response["data"]
 
         assert data["date"] == date

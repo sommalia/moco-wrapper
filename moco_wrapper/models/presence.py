@@ -11,12 +11,12 @@ class Presence(MWRAPBase):
 
     def getlist(
         self,
-        from_date = None,
-        to_date = None,
-        user_id = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        from_date: date = None,
+        to_date: date = None,
+        user_id: int = None,
+        sort_by: str = None,
+        sort_order: str  = 'asc',
+        page: int = 1
         ):
         """retrieve all presences
 
@@ -37,7 +37,10 @@ class Presence(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                params[key] = value
+                if key in ["from", "to"] and isinstance(value, date):
+                    params[key] = value.isoformat()
+                else:
+                    params[key] = value
 
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
@@ -46,7 +49,7 @@ class Presence(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a single presence
 
@@ -57,9 +60,9 @@ class Presence(MWRAPBase):
 
     def create(
         self,
-        pres_date,
-        from_time,
-        to_time = None
+        pres_date: str,
+        from_time: str,
+        to_time: str = None
         ):
         """create a presence
 
@@ -91,33 +94,36 @@ class Presence(MWRAPBase):
 
     def update(
         self,
-        id,
-        date = None,
-        from_time = None,
-        to_time = None
+        id: int,
+        pres_date: date = None,
+        from_time: str = None,
+        to_time: str = None
         ):
         """update a presence
 
         :param id: id of the presence
-        :param date: date of the presence (format YYYY-MM-DD)
+        :param pres_date: date of the presence
         :param from_time: starting time of the presence (format HH:MM)
         :param to_time: end time of the presence (format HH:MM)
         :returns: the created presence 
         """
         data = {}
         for key, value in (
-            ("date", date),
+            ("date", pres_date),
             ("from", from_time),
             ("to", to_time),
         ):
             if value is not None:
-                data[key] = value
+                if key in ["date"] and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         return self._moco.put(API_PATH["presence_update"].format(id=id), data=data)
         
     def delete(
         self,
-        id
+        id: int
         ):
         """deletes a presence
 
