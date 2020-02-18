@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T09:58:38",
+      "recorded_at": "2020-02-18T17:27:56",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"customer_id\": 760747823, \"title\": \"invoice\", \"service_period_from\": \"2019-12-01\", \"status\": \"created\", \"currency\": \"EUR\", \"tax\": 8.0, \"change_address\": \"invoice\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit_price\": 65, \"net_total\": 130, \"type\": \"item\", \"title\": \"Service\", \"quantity\": 2, \"unit\": \"hours\"}], \"date\": \"2018-09-17\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"service_period_to\": \"2019-12-31\", \"due_date\": \"2018-10-16\"}"
+          "string": "{\"service_period_to\": \"2019-12-31\", \"due_date\": \"2018-10-16\", \"service_period_from\": \"2019-12-01\", \"title\": \"invoice\", \"status\": \"created\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"title\": \"Service\", \"net_total\": 130, \"quantity\": 2, \"type\": \"item\", \"unit_price\": 65, \"unit\": \"hours\"}], \"tax\": 8.0, \"change_address\": \"invoice\", \"customer_id\": 760748876, \"currency\": \"EUR\", \"date\": \"2018-09-17\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTwW7UMBD9lWjOTrGTbZP4jlQJuBS4lFaRa8+2hsQO9rhihfpn3Pgx5GR3m7ISvXBz5j3PvLx5/gnWgGy7um06BjpF8iOGPhebC95smraqGUzBf0VNc9mlYWBgDTqyW4sBJFxVnHPeAQOjCEFCxUVb8q4UTa4l7Nd1wUtxAQwihkersZ8wWG9AgqjeVFx0J1C/DX5cbnelqEouTinkV4R6JpCiFEGCDqgIDTAI+IghqgHkVg0RGZClIeuy7tFbjTNF28mio14ZEzDmBh/QuuJdcgZv3KVKE0UKKkYsxI1rOefF9e9fweoHyAaGgE7vQMLbz1fAwCH15CnPFDU/4wxI/QDZ5tN98DEe0Q0/2zAwNmqfHIGcyVrFh/5ftd6oXdwDBu8s9S6Nd3kry550QHNSHLz+hubZBXUfQX65ZQerekWzmxUveVWK9hPv5Hkr6+YaGKTJvMo59PHuBWd1+xSJakikyM4IMNh6T3O6gIElHLPEJa2bqhXnVceAdlPe3rLF521e+hRiDh5GHey0tFz+/HtSjizt9o4lZ+kA5XM/hRyDBVytjp/xJ7YaXvPj8PWQo4Sl44v58N5Gsu6+8NtCDUPxsBf5vxSJo6Js1sqNj8tDec2P6nk6HLStBVyc/6VgjvPTLYNJ7UZ0tI9QwNE6g2H+fPoTAAD//6lBsFlfBAAA",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K6s5O8V2dzdZ35EqAZcCl9Iqcu3Z1pDYwR5XrFD/GTf+GHKyHykrlQs3Z97zzMub55/gLKhms1xvGgYmJwo9xrYU6zWvl01TrxkMMXxFQ2PZ565j4Cx6cluHERRcS865XAEDqwlBgeSiqfimEnWpZWzndcErsQYGCeOTM9gOGF2woEDIN5KLzRnUbmPop9ubSsiKi3MKhRnhciSQppxAgYmoCS0wiPiEMekO1FZ3CRmQo67ocv4pOIMjxbjBoadWWxsxlQYf0PnFu+wt3vornQdKFHVKuBC3vuGcL25+/4rOPEIxMEb0ZgcK3n6+BgYeqaVAZaa45BecAekfoJpyeoghpSO65BdLBtYlE7InUCPZ6PTYvlZrrd6lPWDx3lHrc39ftjLtyUS0Z8UumG9oTy7ohwTqyx07WNVqGt2UvOKyEs0nUStZq9XqBhjkwb7GWRfOoU/wLziz2+dI0l0mTW5EgME2BBrTBQwcYV8kTmldymZV82Llbijbm7Z42uZVyDGV4GEy0Q1Ty+nPv2ftydFu71j2jg5QObdDLDGYwNnq+AV/ZvPh4jh8PuQoYer4Yj68d4mcf1iE7UJ33eJxL/J/KZJHRcWsmRsfp4fyLz/kaToctM0FrFd/KRjj/HzHYNC7Hj3tIxSxd95iHD+f/wQAAP//6BOXj18EAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "525"
+            "527"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:58:38 GMT"
+            "Tue, 18 Feb 2020 17:27:56 GMT"
           ],
           "Etag": [
-            "W/\"0899eaed85a127a33df997d646f685b3\""
+            "W/\"15276e38ab75ef0319373c60310775ea\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6a5598de-54c6-41b2-a489-aa7e5b3edadf"
+            "20e12b3f-2166-471c-9ad1-83a916685aca"
           ],
           "X-Runtime": [
-            "1.149531"
+            "1.251698"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,11 +91,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices"
       }
     },
     {
-      "recorded_at": "2020-02-18T09:58:38",
+      "recorded_at": "2020-02-18T17:27:56",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -108,7 +109,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -121,7 +122,7 @@
           ]
         },
         "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/893879/timesheet.pdf"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/894698/timesheet.pdf"
       },
       "response": {
         "body": {
@@ -139,7 +140,7 @@
             "application/pdf"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:58:38 GMT"
+            "Tue, 18 Feb 2020 17:27:56 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -160,10 +161,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "ffd906b8-3e37-4d60-8de4-cfa4ff8863ee"
+            "7e958c72-bc36-4a7f-94c3-fceedbf346fc"
           ],
           "X-Runtime": [
-            "0.050581"
+            "0.049771"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -173,7 +174,7 @@
           "code": 404,
           "message": "Not Found"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/893879/timesheet.pdf"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/894698/timesheet.pdf"
       }
     }
   ],

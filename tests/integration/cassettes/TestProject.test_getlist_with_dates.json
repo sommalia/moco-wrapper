@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-01-09T14:22:39",
+      "recorded_at": "2020-02-18T17:32:06",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=bfbc3dcce7456b30169347b75ae9ebf9"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/projects?page=1&created_from=2020-01-01&created_to=2020-01-01&updated_to=2020-01-01&updated_from=2020-01-01"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects?created_to=2020-01-01&created_from=2020-01-01&updated_to=2020-01-01&page=1&updated_from=2020-01-01"
       },
       "response": {
         "body": {
           "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
-          "encoding": "utf-8"
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -49,7 +50,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 09 Jan 2020 14:22:39 GMT"
+            "Tue, 18 Feb 2020 17:32:06 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -80,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "e6a859e8-4537-4b10-9960-b885c8599c54"
+            "cb3c4203-53c2-4baa-83d6-9105e6a43602"
           ],
           "X-Runtime": [
-            "0.030651"
+            "0.028163"
           ],
           "X-Total": [
             "0"
@@ -96,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/projects?page=1&created_from=2020-01-01&created_to=2020-01-01&updated_to=2020-01-01&updated_from=2020-01-01"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects?created_to=2020-01-01&created_from=2020-01-01&updated_to=2020-01-01&page=1&updated_from=2020-01-01"
       }
     }
   ],

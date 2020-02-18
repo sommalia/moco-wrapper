@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T09:19:25",
+      "recorded_at": "2020-02-18T17:27:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2019-12-31\", \"paid_total\": 1, \"invoice_id\": 893702, \"currency\": \"EUR\"}"
+          "string": "{\"invoice_id\": 894695, \"currency\": \"EUR\", \"date\": \"2019-12-31\", \"paid_total\": 1}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/payments"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOzUoEMRAE4FeROifS6TG4yd0XWPTiJYQkQsNuZgkdYZF5dxl/0Nseu/mqqA9IRfS8+AdvULM2RDC5YB3bxcFA+vsqpSF+00NYHokNpLau8iZtIOLIRES7VtHTXlHn+Xy9+81uBpcsNemq+YTo7un/I0lPuZR1dk1ljtF6uf6gvxNPL0cYlNGytpqyfu1kssTWHZ4pRBci+1cYzEu9YbbPAAAA//942MqX9wAAAA==",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4TOzWoDMQwE4Fcpc7aLpGaTrO99gdBeejHGdkGQeIORC0vZdy/9o73lKPHNMO/QgjDJjid2KMkqAoR49iz+geGg7W3RXBG+6XHe7efJQUttpq9aOwJOQkQicDC182dFGZfLeveb3RyuSUu0xdIZge/p/yNqiynnZTSLefReW15/0N+Jx+cTHHKvyWqJyb52CnkSz8cnPgQ5BNq/wGFcyw2zfQQAAP//gIMZnfcAAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "184"
+            "185"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:19:25 GMT"
+            "Tue, 18 Feb 2020 17:27:07 GMT"
           ],
           "Etag": [
-            "W/\"d44cad382bd104cba56fa800cf0bf547\""
+            "W/\"4c727bd5f9def32c3dd35249ea20e3d2\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "038fe065-650f-4d7a-b0c7-7fcc42922db7"
+            "b299f7a4-ff32-43cc-bda3-9542b260b580"
           ],
           "X-Runtime": [
-            "0.096109"
+            "0.080404"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,15 +91,15 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/payments"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments"
       }
     },
     {
-      "recorded_at": "2020-02-18T09:19:25",
+      "recorded_at": "2020-02-18T17:27:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-02\", \"paid_total\": 200, \"currency\": \"EUR\"}"
+          "string": "{\"currency\": \"EUR\", \"date\": \"2020-01-02\", \"paid_total\": 200}"
         },
         "headers": {
           "Accept": [
@@ -108,7 +109,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -124,12 +125,13 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/payments/523545"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/524151"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOQUrGMBDF8avIW6cymc9gm70XKLpxE0ISYaBNS5gIRXp3EbG6c/vnN8P7gGR4xzf34Axy1AIPJqaB7EAMA6nvm6QC/03H6fZIbCC5VJU3KQ0eMxMRWRio6PL1Ivd1Pe5+bk+DPUoOumlc4Jnonv6mIDXElLZeNaTeWqnpuNhvwNPLDIPUStSSQ9RrKw92fKbJ28mze4VB3/M/5vwMAAD//5W7p0P7AAAA",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/3zOwUrEMBDG8VeR75zKZNhud3P3BRa99BJCEmGgTUuYCEX67lLE6snrn98M3yckwfV8sb01SEEzHJiYOrIdMQykfCwSM9w3vd0v13tvICkXlXfJFQ4PJiI+tIpOx4vU5nl7+rndDdYgyeuiYYJjomf6m7wUH2JcWlEfW625xO1kvwEvbw8YxJqD5uSDnlu5s7dXOzgeHF1HGLQ1/WeGEftXAAAA//89jWHe+wAAAA==",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -139,16 +141,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "180"
+            "184"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:19:25 GMT"
+            "Tue, 18 Feb 2020 17:27:07 GMT"
           ],
           "Etag": [
-            "W/\"ced44923e71fc839fcf5b98281a673ee\""
+            "W/\"5489e4950e929a498e6dcf37af54bd54\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -170,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "7342f865-0db4-491c-a0b9-76a4b26167b0"
+            "337cfc30-475b-4c1c-82ff-09854c01ed11"
           ],
           "X-Runtime": [
-            "0.037404"
+            "0.034881"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -183,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/payments/523545"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/524151"
       }
     }
   ],

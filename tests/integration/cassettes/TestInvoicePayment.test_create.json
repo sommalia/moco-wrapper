@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T09:08:05",
+      "recorded_at": "2020-02-18T17:26:50",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-02\", \"paid_total\": 200, \"invoice_id\": 893702, \"currency\": \"EUR\"}"
+          "string": "{\"invoice_id\": 894695, \"currency\": \"EUR\", \"date\": \"2020-01-02\", \"paid_total\": 200}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/payments"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOwWqEMBDG8Vcp3zmWcUSqufcFpL30EkKSwoBGCZOCFN99WZZ197bXP78Zvn9IhO2565kNotcECyamhtqGGAaS/1YJCfZGh7H7IDaQmLLKr6QCi4mJiFoYqOh8fRHrsuxv99vDYPMSna7qZ1gmeqfn5CQ7H8Jas7pQS0k57Cd7BHx+TzAIJXlN0Xk9t3LTDl80Whos9T8wqFt8YY5LAAAA//+J50/o+wAAAA==",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4TOzUrFMBDF8VeRs05lMrT3I3tfoOjGTQhJhIE2LWEiFOm7SxGru7v985vhfEES3MC97a8GKWiGAxNTR7YjhoGUz0Vihvuht3t/uQ8GknJR+ZBc4TAyEfGhVXQ6XqQ2z9vT7+1usAZJXhcNExwTPdP/5KX4EOPSivrYas0lbif7C3h5G2EQaw6akw96buXO3l7t1fHFDfQOg7amB2b/DgAA//9vU2G++wAAAA==",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -52,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:08:05 GMT"
+            "Tue, 18 Feb 2020 17:26:50 GMT"
           ],
           "Etag": [
-            "W/\"f9c8c8ee8b8f01eace0b40f20cc51ee2\""
+            "W/\"4ee4d66f02c98592f199b8fe12f50e3c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6496e1e8-5086-4425-9d11-1aaa4e587f47"
+            "47ed84b5-46a3-46ea-9687-fa886f855b9a"
           ],
           "X-Runtime": [
-            "0.047856"
+            "0.066617"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices/payments"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments"
       }
     }
   ],

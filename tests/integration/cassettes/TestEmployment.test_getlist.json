@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T21:19:42",
+      "recorded_at": "2020-02-18T17:24:21",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/users/employments?page=1&user_id=933629975&to=2021-01-01&from=2020-01-01"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&user_id=933629975&to=2021-01-01&page=1"
       },
       "response": {
         "body": {
           "base64_string": "H4sIAAAAAAAA/4SOwWrDMBBE/2XOmyApToz3O3pqCGaxN22oLBlpRSnB/15yKaVQcpjLzDDzznfcZnAI/dB3hE/Vj/g1mpQ3tfE9t1LBnds7wipmWhL4DlnA527v6I8uhPW/aCNcS17ACC64nQs750GwDE4tRkKrWh7jD5zhcDiFYeiPhOutVEuyKBim1UCI8uPINOWWDBthKiqm8yj268P3L/7E/sg+vILQ1vlJZ7t8BwAA//8CPkJhEgEAAA==",
-          "encoding": "utf-8"
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -49,7 +50,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 21:19:42 GMT"
+            "Tue, 18 Feb 2020 17:24:21 GMT"
           ],
           "Etag": [
             "W/\"8e8c98fbaf566579c8b629dc83de3d5b\""
@@ -80,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "dd51f53f-1715-4335-8f65-79c2627b4912"
+            "bded37a9-d8c7-4271-95be-7e93c83bbfed"
           ],
           "X-Runtime": [
-            "0.041905"
+            "0.036952"
           ],
           "X-Total": [
             "1"
@@ -96,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/users/employments?page=1&user_id=933629975&to=2021-01-01&from=2020-01-01"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&user_id=933629975&to=2021-01-01&page=1"
       }
     }
   ],

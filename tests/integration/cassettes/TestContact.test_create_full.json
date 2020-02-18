@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T20:25:55",
+      "recorded_at": "2020-02-18T17:17:33",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"work_phone\": \"12345\", \"info\": \"Nothing, do not ask\", \"work_email\": \"peter.smith@mycompany.com\", \"birthday\": \"1990-01-01\", \"tags\": [\"Homeless\", \"Dangerous\"], \"work_fax\": \"67890\", \"gender\": \"M\", \"home_email\": \"peter.smith+personal@mycompany.com\", \"customer_id\": 760747648, \"lastname\": \"smith\", \"work_address\": \"Behind the dumpster at the grocery store\", \"title\": \"dr. med.\", \"mobile_phone\": \"45678\", \"job_position\": \"intern\", \"home_address\": \"Also behind the dumpster\", \"firstname\": \"peter\"}"
+          "string": "{\"home_email\": \"peter.smith+personal@mycompany.com\", \"birthday\": \"1990-01-01\", \"lastname\": \"smith\", \"work_fax\": \"67890\", \"mobile_phone\": \"45678\", \"home_address\": \"Also behind the dumpster\", \"job_position\": \"intern\", \"gender\": \"M\", \"customer_id\": 760748869, \"info\": \"Nothing, do not ask\", \"title\": \"dr. med.\", \"work_address\": \"Behind the dumpster at the grocery store\", \"work_phone\": \"12345\", \"tags\": [\"Homeless\", \"Dangerous\"], \"firstname\": \"peter\", \"work_email\": \"peter.smith@mycompany.com\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/contacts/people"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4RSTY/TMBT8K9Fccas0bZKNT3wduMBpTyAUufFrYzb2s+wXoFr1v6O020WrReL4nmc8Y888wlnobd1UuzuFIwVLCRqfoXBwKUswnqARSShBYTLPq+ydjFAQJ9My27QuPNk1FH7wvo+cnTgO0HBBKAUoeN67ifo4clgYu7pp76Dwi9NDfzC/odG0d115W91wm2q7q29L8sZNN0fri4m3/jSwjyac1gP7G9BYmyhnaLyn0QVbyEiFnX3MQqkwcpmPiQdKpyILJ4LCyJ7+JfEmUsoczPRK68L4q/VuylzsXwtCYe+SjNaclhd1XbkqN6tyAwXz04hJ/Zwm6DBPk4KYY4b+ho8mHCnxnKHwiT1Ni8Z3hWHOwr6PiSMlcZShH88KT8agr6G2Tdnu2mbJVU5x+cgr72LmKcR7yvKBg5hBiufTs8Kclxpc7+m226bqurZ+WQmhLC8bYYaB5yALf0hkhGxvBBpVWZWrslpt2vuq1FWt6/orFOZo/4tx4cDQ+MIyunBUheUisBQmP+D8JwAA//934tdQuwIAAA==",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4RSy27bMBD8FWGupQ09Ysniqa9DL+0ppxaFQItri43IFchVWyPwvxeyoxRBCvS4wxnOkDuPcBa62tX1rlQ4UbAUofEZCkcXkwTjCRoTCUUojOYZSt7JAAVxMi6zjdvMk91C4QcfuomTE8cBGi4IxQAFzwc3UjcNHBbF3a5u9lD4xfGhO5rf0KibfZuv0Moryuput4LkjRvXRNtriLf+3LOfTDhve/Yr0VgbKSVovKfBBZvJQJmd/ZSEYmbkOp8i9xTPWRKOBIWBPf3L4s1EMXEw4yuvq+Kv17sxcXZ4bQiFg4syWHNeXtS2+SYvNnkBBfPTiIndHEfoMI+jgphTgv6GjyacKPKcoPCJPY2Lx3eFfk7CvpsiTxTFUYJ+vCg8BYO+LbWp8+Zuv69bBTlPy0fedNcwT0u8pyQfOIjpJXs+vSjMaanB7Z62quqybZvdy0oIJXnZCNP3PAdZ9H0kI2Q7I9Ao8zLf5OWm2N8XjS4aXVVfoTBP9r8cF44MjS8sgwsnlVnOAktm0gMufwIAAP//9MfLfbsCAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "418"
+            "419"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 20:25:55 GMT"
+            "Tue, 18 Feb 2020 17:17:33 GMT"
           ],
           "Etag": [
-            "W/\"4dd3c8532f74061ea6080901b78a1c44\""
+            "W/\"7f071502cf7adb33ff9ec80518061f71\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "71d5fe3e-07ad-47d9-8422-c667e4503bf2"
+            "fc4062bb-d3c1-4761-b153-5d08ffad6ca7"
           ],
           "X-Runtime": [
-            "0.070836"
+            "0.074226"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/contacts/people"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
       }
     }
   ],

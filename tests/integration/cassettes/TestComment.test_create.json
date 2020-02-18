@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T17:59:20",
+      "recorded_at": "2020-02-18T17:09:29",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"commentable_type\": \"Project\", \"text\": \"test create comment\", \"commentable_id\": 945148132}"
+          "string": "{\"commentable_id\": 945149355, \"commentable_type\": \"Project\", \"text\": \"test create comment\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/comments"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/comments"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOzWqEMBSFX2U46wzkR0eTp+iiq27kNt6CxUSJN9BSfPciSqGr2Z7vO/D9YBoRGud67x8KcUmJs9D7zMMBfNOapjfO/kfyvTICXsryyVGgIPwlCBDe5BYLk/Dt8qGQKFeaEaRUVjjxONBxsNrqu7Z3072aLrQ+WP0GhbqOz52NC8LZ7517WO+7VuFjKptkSnzlQGGmv4ViXGoW7PtvAAAA//9i+etU+QAAAA==",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4SOy2rDMBBFfyXctQJ6WE1HX9FFV92EqTyFFEsO8ghaiv+9GJtCV9necy6cH9xGpCFE5yMZ5LkUqcrvk1w3QEN0A4UY/yP9vgsSXtr8KVlhoPKlSFBZ9JSbsMrp8GFQuHaekLR1MdjxeOXt4K23Z+vP7vnVXZKl5OkNBv0+PnYWaUh7P4Xw5Iku0eDj1hatXOTIgcHEfwvnPPeqWNffAAAA//9XLWso+QAAAA==",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -52,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 17:59:20 GMT"
+            "Tue, 18 Feb 2020 17:09:29 GMT"
           ],
           "Etag": [
-            "W/\"1476d516235a5c79fd0c2fb303c08ae9\""
+            "W/\"f1d9f15774677f06cd4b02d80743b14c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "17aa73c3-fdb0-41c1-aadc-1190f26c12ff"
+            "7cd88f06-e652-43db-a312-446227cd4941"
           ],
           "X-Runtime": [
-            "0.033039"
+            "0.037632"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/comments"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/comments"
       }
     }
   ],

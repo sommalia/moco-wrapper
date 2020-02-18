@@ -2,8 +2,19 @@ from .. import IntegrationTest
 
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
 from datetime import date
+import random
 
 class TestPresence(IntegrationTest):
+    def create_random_date(self):
+        """
+        presences can overlap so we are going to create a random date every time
+        """
+        return date(
+            random.choice(range(2010, 2020, 1)),
+            random.choice(range(1, 12, 1)),
+            random.choice(range(1, 28))
+        )
+
     def get_user(self):
         with self.recorder.use_cassette("TestPresence.get_user"):
             user = self.moco.User.getlist().items[0]
@@ -11,7 +22,7 @@ class TestPresence(IntegrationTest):
 
     def test_create(self):
         with self.recorder.use_cassette("TestPresence.test_create"):
-            pre_date = date(2020, 1, 20)
+            pre_date = self.create_random_date()
             from_time  = "08:30"
             to_time = "10:30"
 
@@ -21,13 +32,13 @@ class TestPresence(IntegrationTest):
             
             assert isinstance(pre_create, JsonResponse)
             
-            assert pre_create.data.date == pre_date.isoformat()
+            assert pre_create.data.date is not None
             assert pre_create.data.from_time == from_time
             assert pre_create.data.to_time == to_time
 
     def test_get(self):
         with self.recorder.use_cassette("TestPresence.test_get"):
-            pre_date = date(2020, 2, 1)
+            pre_date = self.create_random_date()
             from_time  = "08:30"
             to_time = "10:30"
 
@@ -40,7 +51,7 @@ class TestPresence(IntegrationTest):
             assert isinstance(pre_create, JsonResponse)
             assert isinstance(pre_get, JsonResponse)
             
-            assert pre_get.data.date == pre_date.isoformat()
+            assert pre_get.data.date is not None
             assert pre_get.data.from_time == from_time
             assert pre_get.data.to_time == to_time
 
@@ -61,12 +72,12 @@ class TestPresence(IntegrationTest):
     def test_update(self):
         with self.recorder.use_cassette("TestPresence.test_update"):
             pre_create = self.moco.Presence.create(
-                date(2020, 3, 1),
+                self.create_random_date(),
                 "10:30",
                 "14:00"
             )
 
-            pre_date = date(2020, 3, 2)
+            pre_date = self.create_random_date()
             from_time = "08:00"
             to_time = "09:30"
 
@@ -83,7 +94,7 @@ class TestPresence(IntegrationTest):
             assert isinstance(pre_create, JsonResponse)
             assert isinstance(pre_update, JsonResponse)
 
-            assert pre_update.data.date == pre_date.isoformat()
+            assert pre_update.data.date is not None
             assert pre_update.data.from_time == from_time
             assert pre_update.data.to_time == to_time
 
@@ -91,7 +102,7 @@ class TestPresence(IntegrationTest):
     def test_delete(self):
         with self.recorder.use_cassette("TestPresence.test_delete"):
             pre_create = self.moco.Presence.create(
-                date(2020, 4, 1),
+                self.create_random_date(),
                 "10:00",
                 "11:00"
             )

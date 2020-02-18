@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T10:20:43",
+      "recorded_at": "2020-02-18T17:29:34",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-04-01\", \"from\": \"10:00\", \"to\": \"11:00\"}"
+          "string": "{\"from\": \"10:00\", \"to\": \"11:00\", \"date\": \"2013-09-16\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/users/presences"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SNuwqDQBBF/+XWK8yM5rHzHanShMFdQYga1rEK/ntYBNuU53I554sxQTm2wrELSOYZCiGhhrqGGAFDWSYomJQIAb5U4AO2NRfoIYlte5UYb5eAYSyrzzZVl+fVEfC2c7G+X7bZsQf0JZvn9DI/q9Lw/cGkQtrJszY+6c9n/wUAAP//8oc0rsYAAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4SNwaqDMBBF/+WuE5hJnsbMd7xVNyWYCELVEsdV8d9LKnTb5blcznlhzhCOPgxdMMhJCwSO2FuKlnsYTHVbIGASIhjo1oAvOPZSIZcket+7GENnMM111zUtzaVlVxg80ndJ47gdq+I0GGtJWvI96afqyJKzPPxzEBfF/91a45l/fM53AAAA///QvTWtxgAAAA==",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "149"
+            "154"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 10:20:43 GMT"
+            "Tue, 18 Feb 2020 17:29:34 GMT"
           ],
           "Etag": [
-            "W/\"3598e30fc878c913eb29f82bb14e39f9\""
+            "W/\"365ae33d0fd524e160a86ec4cfdf5979\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d157ad05-3237-4f3a-8821-f96b156b0a32"
+            "6d155797-38df-457c-82e1-05c9a4e95571"
           ],
           "X-Runtime": [
-            "0.024696"
+            "0.026293"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,11 +91,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/users/presences"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences"
       }
     },
     {
-      "recorded_at": "2020-02-18T10:20:43",
+      "recorded_at": "2020-02-18T17:29:35",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -108,7 +109,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -124,12 +125,13 @@
           ]
         },
         "method": "DELETE",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/users/presences/1932194"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/1937857"
       },
       "response": {
         "body": {
           "base64_string": "",
-          "encoding": null
+          "encoding": null,
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -139,7 +141,7 @@
             "gzip"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 10:20:43 GMT"
+            "Tue, 18 Feb 2020 17:29:35 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -161,10 +163,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "1d8e371c-731d-4889-bbc3-39549ccfb63d"
+            "a0a7938c-c537-47fb-8a2a-9b72e6faf7f0"
           ],
           "X-Runtime": [
-            "0.020829"
+            "0.027871"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -174,7 +176,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/users/presences/1932194"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/1937857"
       }
     }
   ],

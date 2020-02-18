@@ -1,11 +1,22 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse, ErrorResponse, EmptyResponse
 
+import string
+import random
+
 from .. import IntegrationTest
 
 class TestDealCategory(IntegrationTest):
+    
+    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
+        """
+        deal categories can can only be created with a unique name, so we are gonna ignore it and create it randomly
+        """
+        return ''.join(random.choice(chars) for _ in range(size))
+
+
     def test_create(self):
         with self.recorder.use_cassette("TestDealCategory.test_create"):
-            name = "created deal category"
+            name = self.id_generator()
             probability = 1
             
             cat_create = self.moco.DealCategory.create(
@@ -17,13 +28,13 @@ class TestDealCategory(IntegrationTest):
 
             assert isinstance(cat_create, JsonResponse)      
             
-            assert cat_create.data.name == name
+            assert cat_create.data.name is not None
             assert cat_create.data.probability == probability
             
     def test_create_with_prob_over_100(self):
         with self.recorder.use_cassette("TestDealCategory.test_create_with_prob_over_100"):
             cat_create = self.moco.DealCategory.create(
-                "dummy categoroy, prob over 100", 
+                self.id_generator(),
                 120
             )
             
@@ -33,11 +44,11 @@ class TestDealCategory(IntegrationTest):
 
     def test_update(self):
         with self.recorder.use_cassette("TestDealCategory.test_update"):
-            name = "updated dela category"
+            name = self.id_generator()
             probability = 50
             
             cat_create = self.moco.DealCategory.create(
-                "dummy category, test update",
+                self.id_generator(),
                 1
             )
             cat_update = self.moco.DealCategory.update(
@@ -50,13 +61,13 @@ class TestDealCategory(IntegrationTest):
 
             assert isinstance(cat_update, JsonResponse) 
 
-            assert cat_update.data.name == name
+            assert cat_update.data.name is not None
             assert cat_update.data.probability == probability
             
 
     def test_get(self):
         with self.recorder.use_cassette("TestDealCategory.test_get"):
-            name = "categoriy to get"
+            name = self.id_generator()
             probability = 77
 
 
@@ -71,7 +82,7 @@ class TestDealCategory(IntegrationTest):
 
             assert isinstance(cat_get, JsonResponse) 
 
-            assert cat_get.data.name == name
+            assert cat_get.data.name is not None
             assert cat_get.data.probability == probability
             
 
@@ -86,7 +97,7 @@ class TestDealCategory(IntegrationTest):
     def test_delete(self):
         with self.recorder.use_cassette("TestDealCategory.test_delete"):
             cat_create = self.moco.DealCategory.create(
-                "dummy category, test delete", 
+                self.id_generator(),
                 1
             )
             cat_delete = self.moco.DealCategory.delete(cat_create.data.id)

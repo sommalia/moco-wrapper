@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T20:25:54",
+      "recorded_at": "2020-02-18T17:17:23",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/contacts/people"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQzW7qMBCFX+XqrI2UawgIP0e7aVVFgz2AW8cT2ZP+CPHuVaBF0C66PGc+HWm+A2KAm7dLu1ga7DgHLnC4h8E2lqqZeoaDctV/vjApwyDR5eAlK3mFgUZNUwODZ9l0g9SoUfK56WUTE3fDXvIX8yblpdvS+1X6eeWeYrrKFELhWs/NXnq+Jk75htjEovtAH3B5TMmAXkmpdGNJ343SrsI9Phn4sar03VBk4KKRK9zhaOClHyhfFsY6yTkrW8/nS7ter9rfom4NkfcyZsU0dxIYOlI42MY2s8bO/q/ubONs69rFAwzGIfzJxLyV6cfjZwAAAP//jUMa5L4BAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4SQzW7qMBCFX+XqrI0UEgEXP0e7aVVFgz2AW8cT2eP+CPHuVaBF0C66PGc+HWm+A4KH7RbL5aIx2HHynGFxD4NtyEUTDQwL5aL/XGZShkGky8FJUnIKAw0apwYGz7LpRylBg6RzM8gmRO7HvaQv5k3yS7+l96v088oDhXiVyfvMpZybvQx8TZzyDbEJWfeePmBTjdGAXkkp9zXH70ZpV2AfnwxcLSpDP2YZOWvgAns4GjgZRkqXhVomOWdl665btuv1avFb1K0hck5qUkxzJ4G+J4VF27TNrGln8/9385Wdr2zbPcCgjv5PJqStTD8ePwMAAP//X8Ww574BAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -52,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 20:25:54 GMT"
+            "Tue, 18 Feb 2020 17:17:23 GMT"
           ],
           "Etag": [
-            "W/\"6f036118b6f5acdc0dd8bb1c8edc6bd3\""
+            "W/\"ad685d773889e9f6f52a80c6348e308b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "7c2d745b-f03b-49a2-a76d-9276ba3409c4"
+            "c0537d6d-a2ea-4296-bac5-82129966c557"
           ],
           "X-Runtime": [
-            "0.067990"
+            "0.065647"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/contacts/people"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
       }
     }
   ],

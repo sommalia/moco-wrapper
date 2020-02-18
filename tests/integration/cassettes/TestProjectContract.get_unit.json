@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T14:34:32",
+      "recorded_at": "2020-02-18T17:32:48",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/units?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/units?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5zNzUrFMBQE4FeRWZ8LOYntNXmOu1JKCekRCrYpycmq9N1F8Ae7Ue52mG/mZcc8IXjjue+cfSSscREE3CQuDwxCalXzMm4lb1J0loqwH4RWpVSEL+9cb72/doTXuVT9HFGpCsJb/E5iSrmtioN+oDOG7W+Y8qolphP++DxL4++V/PR/ORBSkagyjVERYI01F2MvfL1xH7gLzM8gtG36o3MM7wEAAP//Oth4PHIBAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/6ySwYrDIBCGXyXM2YKjm3T1OXrapQQxs22g0aAjPZS8+xLYbUkupaHHEb/v/5X5vkHfgTXSYFNr9SEguIHAwoHcUCEI8CVzHNoxxZES95TB3iYBJVPKYP95rRtlzL4W8NOnzH8Spswg4OLuJ877WALDJB6gllKtwEDX9jEvDLPzPq40Gt+iUc1SM7+1uvZ8riKfKVUXF07FnV4ppt5txM+l0cfAyfnVd885a1KarSSqreS8WBszX2h7FOATOaaudQwWlFRyJ9UO9wdsLNYW8QsElLF7cmc6/gYAAP//kzBU5xgDAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -43,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "185"
+            "239"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 14:34:32 GMT"
+            "Tue, 18 Feb 2020 17:32:48 GMT"
           ],
           "Etag": [
-            "W/\"84b5cec0a716ac67240d4e0d51f6ce6d\""
+            "W/\"32a5ebf73d45e0813baf0f9f9f0c3908\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c3f9776c-a36c-4d62-8c09-f36bc62d767a"
+            "1b783083-5884-4273-b36d-c1d43ed28ef3"
           ],
           "X-Runtime": [
-            "0.043388"
+            "0.051616"
           ],
           "X-Total": [
             "1"
@@ -96,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/units?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/units?page=1"
       }
     }
   ],

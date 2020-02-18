@@ -1,9 +1,20 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse
 from moco_wrapper.models.company import CompanyCurrency, CompanyType
 
+import string
+import random
+
 from .. import IntegrationTest
 
 class TestCompany(IntegrationTest):
+ 
+    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
+        """
+        company identifiers must be uniqe, so we are going to create them randomly
+        """
+        return ''.join(random.choice(chars) for _ in range(size))
+
+
 
     def get_user(self):
         with self.recorder.use_cassette("TestCompany.get_user"):
@@ -71,7 +82,7 @@ class TestCompany(IntegrationTest):
             custom_properties = {"test": "test"}
             labels = ["these", "are", "labels"]
             currency = "EUR"
-            identifier = "COMP-T-9"
+            identifier = self.id_generator()
             billing_tax = 25.5
             default_invoice_due_days = 15
             country_code = "CH"
@@ -110,7 +121,7 @@ class TestCompany(IntegrationTest):
             assert sorted(company_create.data.labels) == sorted(labels)
             assert company_create.data.user.id == user.id
             assert company_create.data.currency == currency
-            assert company_create.data.identifier == identifier
+            assert company_create.data.identifier is not None
             assert company_create.data.billing_tax == billing_tax
             assert company_create.data.default_invoice_due_days == default_invoice_due_days
             assert company_create.data.country_code == country_code
@@ -162,7 +173,7 @@ class TestCompany(IntegrationTest):
             custom_properties = {"test": "test"}
             labels = ["these", "are", "labels"]
             currency = "EUR"
-            identifier = "COMP-U-7"
+            identifier = self.id_generator()
             billing_tax = 25.5
             default_invoice_due_days = 15
             country_code = "CH"
@@ -203,7 +214,7 @@ class TestCompany(IntegrationTest):
             assert sorted(company_update.data.labels) == sorted(labels)
             assert company_update.data.user.id == user.id
             assert company_update.data.currency == currency
-            assert company_update.data.identifier == identifier
+            assert company_update.data.identifier is not None
             assert company_update.data.billing_tax == billing_tax
             assert company_update.data.default_invoice_due_days == default_invoice_due_days
             assert company_update.data.country_code == country_code

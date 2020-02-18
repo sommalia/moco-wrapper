@@ -1,9 +1,20 @@
 from moco_wrapper.util.response import JsonResponse, ErrorResponse, ListingResponse, EmptyResponse
 from moco_wrapper.models.user import UserLanguage
 
+import string
+import random
+
 from .. import IntegrationTest
 
 class TestUser(IntegrationTest):
+
+    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
+        """
+        deal categories can can only be created with a unique name, so we are gonna ignore it and create it randomly
+        """
+        return ''.join(random.choice(chars) for _ in range(size))
+
+
 
     def test_create(self):
         data = {}
@@ -14,7 +25,7 @@ class TestUser(IntegrationTest):
 
             firstname = "testfirstname"
             lastname = "testlastname"
-            email = "email@email.de"
+            email = "{}@email.de".format(self.id_generator())
             password = "password"
 
             user_create = self.moco.User.create(firstname, lastname, email, password, unit_id)
@@ -25,7 +36,7 @@ class TestUser(IntegrationTest):
 
             assert user_create.data.firstname == firstname
             assert user_create.data.lastname == lastname
-            assert user_create.data.email == email
+            assert user_create.data.email is not None
             assert user_create.data.unit.id == unit_id
            
             data = user_create.data
@@ -39,7 +50,7 @@ class TestUser(IntegrationTest):
 
             firstname = "user with other language"
             lastname = "testlastname"
-            email = "email+user+with+language@email.de"
+            email = "{}@email.de".format(self.id_generator())
             password = "password"
             language = UserLanguage.FR
 
@@ -51,7 +62,7 @@ class TestUser(IntegrationTest):
 
             assert user_create.data.firstname == firstname
             assert user_create.data.lastname == lastname
-            assert user_create.data.email == email
+            assert user_create.data.email is not None
             assert user_create.data.unit.id == unit_id
 
     def test_update(self):
@@ -74,7 +85,7 @@ class TestUser(IntegrationTest):
 
             firstname = "user to delete"
             lastname = "user to delete"
-            email = "email+user+to+delete@email.de"
+            email = "{}@email.de".format(self.id_generator())
             password = "password"
 
             user_create = self.moco.User.create(firstname, lastname, email, password, unit_id)

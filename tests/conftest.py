@@ -25,3 +25,6 @@ with betamax.Betamax.configure() as config:
     config.cassette_library_dir = "tests/integration/cassettes"
     config.default_cassette_options["serialize_with"] = "prettyjson"
     config.default_cassette_options["match_requests_on"] = ["path", "method"]
+
+    config.define_cassette_placeholder('<TOKEN>', placeholders["mocotest_apikey"])
+    config.define_cassette_placeholder('<DOMAIN>', placeholders["mocotest_domain"].lower())

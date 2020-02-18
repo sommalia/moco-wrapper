@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-16T19:21:01",
+      "recorded_at": "2020-02-18T17:39:06",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"deal_id\": 173171, \"change_address\": \"offer\", \"tax\": 21.5, \"due_date\": \"2021-01-01\", \"salutation\": \"salute\", \"items\": [{\"type\": \"title\", \"title\": \"offer from project title\"}, {\"optional\": false, \"type\": \"item\", \"net_total\": 2000, \"title\": \"misc\"}], \"project_id\": 945146627, \"currency\": \"EUR\", \"date\": \"2020-01-02\", \"discount\": 20, \"footer\": \"footer\", \"contact_id\": 355796, \"recipient_address\": \"this is the recpipient address\", \"title\": \"offer created from deal\"}"
+          "string": "{\"due_date\": \"2021-01-01\", \"change_address\": \"offer\", \"discount\": 20, \"deal_id\": 174041, \"salutation\": \"salute\", \"tax\": 21.5, \"items\": [{\"type\": \"title\", \"title\": \"offer from project title\"}, {\"type\": \"item\", \"optional\": false, \"net_total\": 2000, \"title\": \"misc\"}], \"project_id\": 945149416, \"contact_id\": 356655, \"footer\": \"footer\", \"currency\": \"EUR\", \"date\": \"2020-01-02\", \"recipient_address\": \"this is the recpipient address\", \"title\": \"offer created from deal\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=4bd6e3d07436ce64370a4e8bd314d3be"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://testabcd.mocoapp.com/api/v1/offers"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/offers"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xSz8/TMAz9VyKfsylJu/ZbbiAQ3EDo4wJCU0hcvqA2KYkrMaH97yj9McZAnLjF9vPz84t/gHegVd1U6sjBOwzkO48JNDxTQqidqFrg4AwhaFBCiZ2QO6FKbsLTr7yc8xI4kKe+JGPXYWI2oSF0rEtxYA5NDxwSWj96DHQyziXMGTTQk8/MZ0ZPyBLacQGwDcDBTilhsGfQ8PL9O+AQkE4UyfSgZSPEXnAg8x20kvsDhy8p5nytH+u61J3PNk6BQKsZn8nQVKavKsuYOIwmnEEvzrSNaKvD4eHAIZihrPUcfR499uzV8Pk1XDiMKX5FS1vHsT7IumlUe2fn22Jn8XLlWdtYFxO7scrHUEhnp1ZG2VayldfGR8z0Zm54UUAXvqk/Gbr+kdrJ5lEetZJaiH3V1h+AwzS6f+HkXlQPBbfxxfAb7obhz0o2/USLfL0ECBy6GGnefn1w8IRDBv1xWa0StWwayYHOY9ltuZ37G5pvZ/NrgzjMNvlxmRimvufwbTKBPJ1Bz787BU9bqbxPY/IW1+LN9cxxnJlK2Jk+44XfClRXgUX+jb7BZ/tftSgh/irn0+VnAAAA//86hnRjqgMAAA==",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/6xSQc/TMAz9K5HP2ZRk3brmBgLBDYQ+LiA0hcTlC2qTkrgSE9p/R0nXMT4QJ26x/fz8/OIf4B1o1bSHdsfBOwzke48JNDxTQqiNkBI4OEMIGpRQYiPkRqiSm/H0Ky9rvmDJ01CSse8xMZvQEDrWpzgyh2YADgmtnzwGOhnnEuYMGujRZ+Yzo0dkCe20ANgK4GDnlDDYM2h4+f4dcAhIJ4pkBtDyIMRWcCDzHbSS2z2HLynmfKt3TVPqzmcb50CgVcVnMjSX6VeVZUwcJxPOoBdn2oNom3YvjxyCGctaz9HnyePAXo2fX8OFw5TiV7S0dnTNXjZdIw9P7HyrhDh2cOO5trE+JnZnlY+hkFanroyybUQjb40PmOlNbXhRQBe+qj8Zuv2R2sjjg2z1rtNiv1Xy8AE4zJP7N64TFbfyxfAb7o7hz0o2w0yLfL0ECBz6GKluf31w8IRjBv1xWW0n9m1XrKLzVHZbbufpDdXbWf1aIQ6zTX5aJoZ5GDh8m00gT2fQ9Xfn4GktlfdpSt7itXh3PTWOlamEvRkyXvi9wPYmsMi/0zf6bP+rFiXEX+V8uvwMAAD//7ZaAwOqAwAA",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "460"
+            "456"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sun, 16 Feb 2020 19:21:01 GMT"
+            "Tue, 18 Feb 2020 17:39:05 GMT"
           ],
           "Etag": [
-            "W/\"91cbd1de2c3ca29823c6d160ad2aa399\""
+            "W/\"94354bd2704cdb8986eec7fe7dc3d195\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a213978f-9d96-4e22-9498-4c9aa329d7ab"
+            "9ee3fb06-e339-418e-ae00-165070b53355"
           ],
           "X-Runtime": [
-            "0.745536"
+            "0.773249"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 201,
           "message": "Created"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/offers"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/offers"
       }
     }
   ],

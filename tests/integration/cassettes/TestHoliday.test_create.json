@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T21:33:35",
+      "recorded_at": "2020-02-18T17:25:36",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"hours\": 2, \"title\": \"last year holiday\", \"user_id\": 933629975, \"year\": 2019}"
+          "string": "{\"year\": 2019, \"user_id\": 933629975, \"hours\": 2, \"title\": \"last year holiday\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/users/holidays"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TMMYrDMBCF4auYV48XebRaoznHVtsswlKwwLGDNCpM8N2Dk/Rp3/v57sgR8u3YjYQ9hQJhM3iCZl0SBEuo2p1HN29LjmEHYd5aqRD+MoRWU4G8GG/tD3s/OsIll6pruJ6Epqqgp/RewjRtbVUchKmkoCn+B4WADZvecD+MvzyItWLdHwjtFj80xyMAAP//mRszHcgAAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4TMTa6CMBTF8a2QM7689OMB9q7DkRPT0BqaIJj2dkAMezeoc6fn/PN7IgXwf2eVJmzRZ7BR2hEkyRzBmH2R5jiaaZ1T8BsI01pzAZs/RaglZvCHcdb2xrmhI9xSLrL4+0FILAJ6S9/Fj+NaF8FOGHP0EsPVCxhGGdUq0+rTWQ9sOrb9BYT6CD+a/RUAAP//1NFFQ8gAAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -52,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 21:33:35 GMT"
+            "Tue, 18 Feb 2020 17:25:36 GMT"
           ],
           "Etag": [
-            "W/\"94db52f7f2c5090201c02044f5e04a5c\""
+            "W/\"a5aaf073d8fb6466e49984b451653326\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "62bd7cc2-723b-442c-9270-14d0e8a2a869"
+            "302fd358-9c98-43e6-b976-f0640bfc9194"
           ],
           "X-Runtime": [
-            "0.057587"
+            "0.056318"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/users/holidays"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays"
       }
     }
   ],

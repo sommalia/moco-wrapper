@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T20:31:00",
+      "recorded_at": "2020-02-18T17:22:12",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"dummy categoroy, prob over 100\", \"probability\": 120}"
+          "string": "{\"name\": \"33GQU0\", \"probability\": 120}"
         },
         "headers": {
           "Accept": [
@@ -15,13 +15,13 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
           ],
           "Content-Length": [
-            "62"
+            "38"
           ],
           "Content-Type": [
             "application/json"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6pWKijKT0pMyszJLKlUsopWyi0tLlFISlXISS0uVijJSMxTyC9SSC0sTcxRKMlXMDQwUIqtBQQAAP//EXTH8jUAAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/6pWKijKT0pMyszJLKlUsopWyi0tLlbIzknNzEstUshPSS1SSM9JzUzOUDA0MFAoTs3MU4qtBQQAAP//CxjJSzUAAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -52,7 +53,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 20:31:00 GMT"
+            "Tue, 18 Feb 2020 17:22:12 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -74,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "946d3cd2-0a42-4832-832e-0b9191806674"
+            "f159a3bc-c25c-411e-933c-f6a84918cb3d"
           ],
           "X-Runtime": [
-            "0.041752"
+            "0.036310"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -87,7 +88,7 @@
           "code": 422,
           "message": "Unprocessable Entity"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       }
     }
   ],

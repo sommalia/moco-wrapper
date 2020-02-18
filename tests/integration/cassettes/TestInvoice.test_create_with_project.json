@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T09:58:43",
+      "recorded_at": "2020-02-18T17:28:18",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"customer_id\": 760747823, \"title\": \"invoice\", \"service_period_from\": \"2019-12-01\", \"status\": \"created\", \"currency\": \"EUR\", \"project_id\": 945148529, \"tax\": 8.0, \"change_address\": \"invoice\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit_price\": 65, \"net_total\": 130, \"type\": \"item\", \"title\": \"Service\", \"quantity\": 2, \"unit\": \"hours\"}], \"date\": \"2018-09-17\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"service_period_to\": \"2019-12-31\", \"due_date\": \"2018-10-16\"}"
+          "string": "{\"service_period_to\": \"2019-12-31\", \"project_id\": 945149378, \"due_date\": \"2018-10-16\", \"service_period_from\": \"2019-12-01\", \"title\": \"invoice\", \"status\": \"created\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"title\": \"Service\", \"net_total\": 130, \"quantity\": 2, \"type\": \"item\", \"unit_price\": 65, \"unit\": \"hours\"}], \"tax\": 8.0, \"change_address\": \"invoice\", \"customer_id\": 760748876, \"currency\": \"EUR\", \"date\": \"2018-09-17\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K6s5O8X2ZruJ70iVgEuBS2kVufZsa8jawR5XrFD/GTf+GHKyHykrlQs3Z97zzPObl5/gLKimXTZNzcDkRGGLsSvF9SVf1+tGLhkMMXxFQ2O5rVeiblayZeAsenIbhxEUXEvOuZDAwGpCUCC5aCreVmJdahm7eV3wSlwCg4TxyRnsBowuWFAg5BvJRXsGdZsYttPtthKy4uKcQmFGWI4E0pQTKDARNaEFBhGfMCbdg9roPiEDctQXXc4/BWdwpBg3OPTUaWsjptLgAzq/eJe9xVt/pfNAiaJOCRfi1jec88XN71/RmUcoLsaI3uxAwdvP18DAI3UUqMwUS37BGZD+Aaopp4cYUjqiNb+oGViXTMieQI1ko9Nj91qts3qX9oDFe0edz9v7shWf+56Vx9uzYh/MN7QnF/RDAvXljh2s6jSNbkpecVmJ5hNv1apRtbwBBnmwr3GWhXPoE/wLzuz2OZJ0n0mTGxFgsAmBxnQBA0e4LRKnyNayEatVsXI3lO1NWzxt8yrkmErwMJnohqnl9PLvWXtytNs7lr2jA1TO3RBLDCZwtjp+wZ/ZfLg4Dp8POUqYOr6YD+9dIucfFmGz0H2/eNyL/F+K5FFRMWvmxsfpR/mXH/I0HQ7a5gIuV38pGOP8fMdg0LstetpHKOLWeYtx/Hz+EwAA///dIxGIZAQAAA==",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/6xTwW7UMBD9ldWcnWKn6cbxHakScClwKa0i155tDVk72OOKFeqfcePHkJPdbcpK5cLNmfc88/zm5Sc4C0p2TcsFA5MThS3GvhTbNW8bKds1gzGGr2hoKnfNhWi681YycBY9uY3DCAquas55LYGB1YSgoOZCVryrRFtqGftlXfBKrIFBwvjoDPYjRhcsKBD1m5qL7gTqNzFs59tdJeqKi1MKhQXhfCKQppxAgYmoCS0wiPiIMekB1EYPCRmQo6Hocv4xOIMTxbjRoadeWxsxlQYf0PnVu+wt3vhLnUdKFHVKuBI3XnLOV9e/f0VnHqC4GCN6swMFbz9fAQOP1FOgMlOc8zPOgPQPULKc7mNI6Yg2/KxhYF0yIXsCNZGNTg/9a7Xe6l3aAxbvHPU+b+/KVnweBlYeb0+KQzDf0D67oO8TqC+37GBVr2lys+YVryshP4lW1VKJ9hoY5NG+xpGFc+gT/AvO4vYpkvSQSZObEGCwCYGmdAEDR7gtEufINrW8aHnHgHZj2d68xedtXoYcUwkeJhPdOLecX/49a0+OdnvHsnd0gMq5H2OJwQwuVsfP+BNbDBf8OHw55Chh7vhiPrx3iZy/X4XNSg/D6mEv8n8pEkdFxayFGx/nH+VfftTP0+GgbSlgffGXginOT7cMRr3boqd9hCJunbcYp8+nPwEAAP//DRTCUGQEAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "532"
+            "533"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:58:43 GMT"
+            "Tue, 18 Feb 2020 17:28:18 GMT"
           ],
           "Etag": [
-            "W/\"e3f4bd7da5eabc8b91d8ab365ec97988\""
+            "W/\"354a79a4063d1adb441186db43557a09\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "eccc4bc4-241a-45a9-93ca-7b2f3cd0b268"
+            "9fefda7e-1a20-4785-bfb5-26e7e1cdc40b"
           ],
           "X-Runtime": [
-            "1.431940"
+            "1.146768"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices"
       }
     }
   ],

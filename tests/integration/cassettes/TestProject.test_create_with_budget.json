@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-01-09T13:39:01",
+      "recorded_at": "2020-02-18T17:31:31",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=bfbc3dcce7456b30169347b75ae9ebf9"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/users?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/2yPwWrrMBBFf+Vx18pDskMSz6ofkVVKMWNrQkQly0jjtCHk30tICqV0N/dwGDivVwQP6tp20+za3dbgGErViZOAoFIVBpF/Ex41nAWkZRED+VQpE+jIsd5n4hCfLg+jfxkuOf33AoOUhxCln095un+DwUcu7z/3KSfp2fsitT5ImI75cQ2h6MnzBTQtMRrwmZVLv5T4Tcalak79XPIsRYNU0PVmsExBQc9U27nNeuuswbNpL5z+OdwMxiKs4ntWEBrb2JV1K9vtXUNrR21zgMEy+7+dltqOrDvg9vYVAAD//xrNFzdWAQAA",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/9yWy47iOhCGXwXVFnfLNwLxqh+CVR8dRcYxxENsI8fh1uLdR+GSHsKIZkGP1NkkqdKfkvzVL1f99wEmB5EyltA0HY8QzE2oopNWg4CoqwgIStlmpFK+dk1SqmjWGkQMtUagt1EHB2Iuy6oJrTQlCFgne7WgMiyKt9nO29dcAwLrZ6bU2arwrikJCDY+LP+MC291JvM86Ko6ZYyb+9PXzIRY5HIHwtVliUCuZZQhq0N5yai6it5mq+BXOkSjKxAfBwS1MxHE+bw4JcmIUY7gfLCplnZA4IBABS2jzjMZQQDFFL9g+kLGU5IIMhKEvgOCepX/RTOZkrFgRNDROxzQJ1mGMe2QdXqTfcZXiBvobfgg5+P77fj8wYwnDWPOBUnvMj5qKL1hzMi3Mt4tR/vtrA+Qx4JhwZKvjIwFT2+NnFxDrisdBhsTi4GPhQ6DUrpFLRfP8vSwqT9s6g8vlfvQgZOFyQM2J7c2p/+qA3MVkz3vA++Tm/kDjuc3vMnkmrfyLgapOoOx6cKjXCd26fjyze6Utyvpdq/K2x8MlwvGBZ7chdtqOnBx+my4lwovzU89Yky4wPgLxmdN18D0WxkPSY8oUybo/e2j1XQHI382ZfzLRFn3Bm5y3Drur8+tpmvhp18TsUq3lewN3OP9yu4PuFZz+P93AAAA//8IBcBC9w0AAA==",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -43,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "243"
+            "523"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 09 Jan 2020 13:39:01 GMT"
+            "Tue, 18 Feb 2020 17:31:31 GMT"
           ],
           "Etag": [
-            "W/\"46ec3ef98b7107628f6f5d64800b8d0d\""
+            "W/\"7849a9309d8a64d514a315f1d3f99b44\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "8e30a874-3b1a-49d1-93d0-8ada2dec58a9"
+            "3ed1b6e5-87c9-40c6-9a33-cac0cca91a2e"
           ],
           "X-Runtime": [
-            "0.041917"
+            "0.046678"
           ],
           "X-Total": [
-            "1"
+            "10"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,11 +97,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/users?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
       }
     },
     {
-      "recorded_at": "2020-01-09T13:39:02",
+      "recorded_at": "2020-02-18T17:31:31",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -114,7 +115,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=bfbc3dcce7456b30169347b75ae9ebf9"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -127,12 +128,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/companies?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+RUzW7bPBB8FWHPzAf+2E7M21c0SIuiQFG0lyaGQIkrmwVNCeQqqRH43QtGcp2mdoIizSk3cmjP7O5o9vIWnAV9OuOnkkulGNCmQ9BQ94naNUZgEMw6I2/Qpc6hLy7W1TtgcINVcpRfgAGujfOgQ+89g27VhhFvzI/hYKyNmNJDnquwuyaKJiUshFRXQUg1mRb7J2MJGNRtHyhuyrq1mf7tOTAgs0ygLxcM+oQR9NDPXKmZPFNnpwwaFxONLRCmzOPN78g2QxX6kciFph2rb1vKpENbw0jKLrYdRnKYQN9uGdQRDaEtDYEGySU/4eKEz78IqSdCK/UNGPSdffI3zmIg17gsCB845yqDgTAG0I3xCRlUznsXliXlsYr5fzxXFSOGegMazr9+BgYWG9N7Kl24bl2Npe2xtGaTQCvOoIvtd6wptzqOajIVgk+n8wcVfJKcc7m3P09q/HNxBzEwNblrBE2xH2szlR/vW3affjY7O0Q//Wf0/BC9Ok5f3DhaFVVvl0h/KSUOSU2OS7FBa9X20W+KaOjJ3hY7yV0s5SOx/Ngnwlj8f/GMSP7iuArD8UAYdw+vMoryhaP4h+PiEcfzoExV22cY/vocFPcc3IfuZXapOrjsxN7B90Mhx9fA3Te2XWwXPwMAAP//eTNz1aAHAAA=",
-          "encoding": "utf-8"
+          "base64_string": "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",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -141,20 +143,23 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "509"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 09 Jan 2020 13:39:02 GMT"
+            "Tue, 18 Feb 2020 17:31:31 GMT"
           ],
           "Etag": [
-            "W/\"daa26a63808d0031ddc52e21933bfe98\""
+            "W/\"d02790a443890d314fc14ecf215c8432\""
+          ],
+          "Link": [
+            "<https://<DOMAIN>.mocoapp.com/api/v1/companies?page=2>; rel=\"last\", <https://<DOMAIN>.mocoapp.com/api/v1/companies?page=2>; rel=\"next\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -179,13 +184,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "f9e4644c-0470-4ae1-9ca0-b10f7a2bb5c8"
+            "108eabd6-39ea-4ca6-8e94-a10464171d5d"
           ],
           "X-Runtime": [
-            "0.040199"
+            "0.228274"
           ],
           "X-Total": [
-            "3"
+            "112"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -195,15 +200,15 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/companies?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies?page=1"
       }
     },
     {
-      "recorded_at": "2020-01-09T13:39:02",
+      "recorded_at": "2020-02-18T17:31:31",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"currency\": \"EUR\", \"name\": \"testproject name with budget\", \"customer_id\": 760720233, \"finish_date\": \"2020-01-01\", \"leader_id\": 933628387, \"budget\": 300.5}"
+          "string": "{\"budget\": 300.5, \"customer_id\": 760747518, \"currency\": \"EUR\", \"leader_id\": 933629975, \"name\": \"testproject name with budget\", \"finish_date\": \"2020-01-01\"}"
         },
         "headers": {
           "Accept": [
@@ -213,7 +218,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=bfbc3dcce7456b30169347b75ae9ebf9"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -229,12 +234,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://testabcd.mocoapp.com/api/v1/projects"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6yTT2/bMAzFv4rBs1rQUuLYOg4oumMxbJetg6FYTKJFkQ2J7h8U+e6D8q9udxiG9WZS4uPz70Ev4CzoZjYvS6yqRoCzFNitHEXQcCcRsQIBwewINDAlHmL/izoucqt4dLwplqNdE4MA07F7INAcRxKwdN6bpb/UK/dEth2i6wj0yvh06AWXNq01nOUlSrzC8gpLENCNMVLonkHDzbcvcNRzYd0+mOhMYNBwsjI5M9ZGSgk0fCKXBke+uN0tP9+Hc5k4mpSoKKW6D6VUs3nxemTsQev4O1ohXs/PZUtPA4VECTReo4BNP0b/3MaD8UPHhVUPGkAAm3UC/eOnAG+W5E/f3Zi437VD7AeK7LLSy16AJ2Mz61MQSlWyVvUio4mJJ9why73t7M+qrwKLChcSpVKXzN6AyCNs0jZ7Og7Majlf1PXl+l1mumVPjsewhj9jfBfyCVYYvX9HpUS8xr2Yrmkua24CP7pu6z98R4OXHbfRrNz2/+VzeH3gaDqecKuwrrCRcwFjotj+e3of4iuSYbKt4enzab6WSqtGo/wOAsbB/uXO/ncAAAD//9mmXHsGBAAA",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/6yTy27bPBCFX0WYNW2QulgWlz8Q5F8GRbtpUwg0ObZZ05RADnNB4Hcv6IvsposCbXaaIeec0XfAN7AGZFc3ou6qZcPAGvRk1xYDSHgoOV8IYODVHkECYaQxDD9QU5FbxbOlbbFKZoMEDJQm+4QgKSRksLLOqZWb6rV9QdOPwWoEuVYuHnvexm1vFGX5kpd8xsWMZ0udQkCvX0HC3ZdPcNKzftM/qWCVJ5BwXuXmTBkTMEaQ8B/aOFp0xf1+9f+jv5SRgooRC1FWj16UVd0U1yNljlqn35EV5/PmUvb4MqKPGEHyOWewHVJwr304Ln7sWL8eQAIwILWJIL99Z+DUCt35W6dIw74fwzBiIJuV3g4MHCqTWZ+DqKpF2XVtk9GESDfcIctNHaX1kDzB4SJ81WgXvK3bRiyn2H5hkUdIxV1e6zTQiLZpF9V0/SFj3ZFDS8lv4Pck3+V85uWTc+/ACM7n/MBuberJ5s7Ts9U79/EezeRxH9Ta7v5dPuc3eApK05VbveBdt2yWgkGKGPq/CvBDVguoCE2vaHpE5UwsP4tWVkJW4iswSKP5w53DzwAAAP//jAmqxAwEAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -244,16 +250,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "444"
+            "452"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 09 Jan 2020 13:39:02 GMT"
+            "Tue, 18 Feb 2020 17:31:31 GMT"
           ],
           "Etag": [
-            "W/\"c8e01774634b469e081712e5d2e4f577\""
+            "W/\"a72e933466f3a97fbba51b5eed4bb7b3\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -275,10 +281,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d6eda86e-5dfa-421d-a187-7003a78c8160"
+            "c838db70-bdaa-4455-ab68-8ff060aef5c4"
           ],
           "X-Runtime": [
-            "0.173800"
+            "0.295094"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -288,7 +294,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/projects"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects"
       }
     }
   ],

@@ -6,8 +6,6 @@ from .base import BaseRequestor
 
 from ..response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
 
-
-
 class DefaultRequestor(BaseRequestor):
 
     def __init__(self):
@@ -85,6 +83,3 @@ class DefaultRequestor(BaseRequestor):
                 return self.request(path, method, params=params, data=data, delay=new_delay, **kwargs)
             else:
                 return response_obj
-
-
-    

@@ -51,12 +51,10 @@ class Moco(object):
         self._objector = None
 
         for key, value in kwargs.items():
-            if key == "http":
+            if key == "http" or key == "requestor":
                 self._requestor = value
             elif key == "objector":
                 self._objector = value
-
-
 
         #set default values if not already set
         if self._requestor is None:

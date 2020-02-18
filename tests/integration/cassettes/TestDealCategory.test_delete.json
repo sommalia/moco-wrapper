@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T20:31:01",
+      "recorded_at": "2020-02-18T17:22:33",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"dummy category, test delete\", \"probability\": 1}"
+          "string": "{\"name\": \"Q3P41Y\", \"probability\": 1}"
         },
         "headers": {
           "Accept": [
@@ -15,13 +15,13 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
           ],
           "Content-Length": [
-            "57"
+            "36"
           ],
           "Content-Type": [
             "application/json"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TKwQrCMAwG4Fcp/7mDtMOJeQ5PXiRbghRWN2p2KOK7+wi7f18UBV9u4zRFvKUaGHrU2sMibq+t9RjcPh7UVnNDxN62WeayFu/gFLE0Ezd9ioORKdNAeUjXeyYeE1N6IOLY9cT8/gEAAP//sZ2X/4kAAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/6pWykxRsjK1NDEy0VHKS8xNVbJSCjQOMDGMVNJRKijKT0pMyszJLKlUsjLUUUouSk0sSU2JTyxRslIyMjAy0DUw0jW0CDE0tzIysjI2jlLSUSotSCGgphYQAAD//+VerMV0AAAA",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "125"
+            "111"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 20:31:01 GMT"
+            "Tue, 18 Feb 2020 17:22:33 GMT"
           ],
           "Etag": [
-            "W/\"c38725d4abfc2f0057c7beaa5f4192cc\""
+            "W/\"93f3e69621e8ceee6e7d5908b46299e3\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d596184d-c8ae-4886-8ac6-8aba62268891"
+            "28d2b1a4-2b18-49d0-8149-6dd929053c83"
           ],
           "X-Runtime": [
-            "0.041324"
+            "0.038196"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,11 +91,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       }
     },
     {
-      "recorded_at": "2020-02-17T20:31:01",
+      "recorded_at": "2020-02-18T17:22:33",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -108,7 +109,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -124,12 +125,13 @@
           ]
         },
         "method": "DELETE",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories/59366"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/59424"
       },
       "response": {
         "body": {
           "base64_string": "",
-          "encoding": null
+          "encoding": null,
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -139,7 +141,7 @@
             "gzip"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 20:31:01 GMT"
+            "Tue, 18 Feb 2020 17:22:33 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -161,10 +163,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a85f4f9a-82de-43b6-a543-8d16d21e4748"
+            "ae958ddb-52d8-41da-8351-6f8f4f482504"
           ],
           "X-Runtime": [
-            "0.038706"
+            "0.029849"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -174,7 +176,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/deal_categories/59366"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/59424"
       }
     }
   ],

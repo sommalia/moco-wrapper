@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T15:36:00",
+      "recorded_at": "2020-02-18T17:33:14",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestProjectExpense\", \"type\": \"customer\"}"
+          "string": "{\"type\": \"customer\", \"name\": \"TestProjectExpense\"}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/companies"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SRQe/TIBjGv8tz5m9Y69aVszt5MWZeNIYweDsxDBp4O9cs++6Gthpv3uDHm4ffA094B9UdZPf+2DVHAZ5HgoKdCqcbZQhEc6vkTIU/5fSTLJ8eI8VCEPhFl+K5HkOAbsYHqDiFIDD+SHHjg3msC+NcplLWjU1T5Dxrm1yd+3CCwN2w9o4i+8FT/hPF5lqgvn0XmEqlq3Pftoem77u9wOBz4U2TqTAEgvlLjF2uwqvSC4Uty8chbX4pcc1drJbeesxppMyeCtTzJWAzGSanDUOhkY18k83b7nje7VV7UFJ+hcA0uv/O/FsOH6Vs9hVGphyhBhMKCVx8CD5eNddn2/XvZLXKmaKdoXD68hkCjgYzBdY+3pO3pN1E2pm5QLVSYFy/aSn6+h0AAP//quTav+IBAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4SRQa/UIBSF/8tZ8wxt9bVl7azcGPPcaAxh4PaJYaCB23Gayfx3Q1uNu7eDj5vDd+AO76D6Z9m/H4ahFeB1JijYpXC6UIZANJdKXqjw55x+keXTbaZYCAK/6Vw812MI0MX4ABWXEATmnykefDK3fWGcy1TKvrFpiZxXbZOrcx9PELga1t5RZD95yn+j2LwWqO8/BJZS6e48dt1zO479B4HJ58KHJlNhCATzjxi7XYVHpWcKR5aPUzr8UuKau1ltvfWc00yZPRWo+0PAZjJMThuGQitb+STbp2Z4aXrVdarpvkFgmd2bM/+Xwycph6bCyJQj1GRCIYGzD8HHV8312ZrxnaxWOVO0KxROX79AwNFklsDax2vylrRbSDuzFqhOCsz7N21FH38CAAD//5dVDLbiAQAA",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "317"
+            "318"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 15:36:00 GMT"
+            "Tue, 18 Feb 2020 17:33:13 GMT"
           ],
           "Etag": [
-            "W/\"b8fecb34d4c2fbe873c04cab8595927c\""
+            "W/\"2cf99dff67d322f7127de1de7fee9657\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "2acb9ded-a611-4dcb-b428-b7b543c3b406"
+            "4431b0b4-ae91-43e1-8df8-dd48e7dbf13a"
           ],
           "X-Runtime": [
-            "0.078257"
+            "0.086843"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/companies"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
       }
     }
   ],

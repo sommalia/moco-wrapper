@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T20:25:56",
+      "recorded_at": "2020-02-18T17:17:50",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/contacts/people?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+yZTY+bPBDHvwqa60Mi3gmcnjdVvfS2vXS1ihyYTdxiG9lDt+kq370KbLNAVksUtcmq8tH2BJv5/WcGT24fgZeQh3EShIkLa5QlasjhI7hwz7UhyQRCDoSGnEIjIwQXKnZYKJQkVhC4QJyq/Qy48FmtlrUynLiS3YxQK17hst4o+WTzoPSX5T371huNV1EwXvXGrCw1GtPNbJTAvkU7HlisuKZNybaQy6aqXGBfGTG9bHT1c4bY2kB+e+dC0RhSYllrVaMmjgbyx50LhRI1k4cnNGbvnM5lWRgmQZal8bGjhh5iRaEaSbB/XOvAcskIcgi8wJt5wcxPbwIvD6I8iD6BC01dTtjs3GdokW+hXRFanPvhFLTOZgDNRtp1ocWTkdbZ9KGFix60DyNoNRLq4WGM4LTpwSr13BFYzo+hcUmo5TG6KE7SxZBfki4ybwzRD8IoHpNsTzRvD/G32D55d14ocYz4X9xwWTq0QadsRG0ItcOoHa+1KlBvHUNK41gKvS3+qlEbJVl1tNdILP9URjmr4w0HIgI/y7yZ5888H14RE/zP5Bq1agy48F4JrPZ7nCCxDmqaeGmUJtHCBdrWbYS1v2sP8wTxBg3918Wdc1jd/fZCEJ9QCOJRTgmtPK08LyDPM0teZOVp5XkZeZ5Q3P3xZ7Qt7lael5FnPFncO5uBPDMrTyvPNyvPMO3J891InmUjxNZ5vrz2DtW76joPnDaO0mtm77dX6iQFFuIbgnjmZ7aNxNMhDlNxekjF+3eX/Dtr3/TFdDyweJspOXulxTglhG6rPx3/RRLxOZ0cb7I7/CI55azRdod/BbTkBGjJCFpsoV23Wp5x649tpF35f5jJSOtsdnc/AgAA//+a3qtWqB4AAA==",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/+ybzY6rNhSAXwWdbZkRGDA/q/6p6qbqZrrp1VXkCZ6EFjCyTW/Tq3n3KpBSm0wBpXcSFJ0l5CR2+D7DsY/58BmKHLIgojT0XNjxOucSMvgFXHgppNI1qzhk8PPLC5fgQsmGU9+JWrOtBhd0ocvjGXDhN/G8aYQqdCHq/kwlnouSb5q9qE8xn4T8ffPC/jSOxp/yihWlcczyXHKl+jN7UXEzoju2Ip4Lqfc5O0BWt2XpAvuDaSY3rSz/OaPZTkH24aML21ZpUW0aKRoudcEVZJ9fXdiKqmH18AutOl6W/mKlQUBJmsaRfYk0V9q+Qmy7FW2t4fhzkjPN8w3TkAHxiPfgkQc/efJpFpIsSn4FF9omn4l5dQdcJKATuI59cfo27S5tEdr/hRY/ES8jYUbC/4ZmxpjQQh+h3RBalPnBHLQ+xoKGI+220KLZkdbHGNConyK02z3TjqPIn3mmnWJMaCRGaLeDFpDJ26MZY0KLpvJGhPau0OLMjzMyDW2IsbLHxID20whaw/U42VdVofcGrFw+OhXPH8+hFbXmsj5HF0Y0Tmx+NE5SbwzRJ0EYjUl2PXrsOvF1dThd3cetqM4Rf8v3RZ07es+dvK0apbl0mO6Od1JsuTw4SgvJxyoYTXzVcKlEzcqztkayfFMq4TyfN2hJBH6aeg+e/+D5MCETfM/qHZeiVeDCj6Li5bGNBYr1UGPqxWFMw8QFfWi6EdZ9r+vMCeITV/o0a3OGT1/fPU+OFuTJ0SjlClBP1PMKel44IwhRT9TzOnoumPv441UGfLijntfRM5p9uPcxlp4p6ol6rlVPSgjqeX96JnHqr0bPYf2LLlgjoyM9cWqEel5Jz3iBnslIT3y436OeCYnWpWdAJqdGZoypZ+ChnqjnavWMMPe8Sz1puiY9u4pQsKBqFIxLfZh7op5X0jNdoGc6Kmqa2wd+GOmZt1V1cP4tOxudMorUzqdC7x0hdwwr0zfaIkcQ4oogXlggw5G4HKK9iBoPt+Ljf6+Lv1j3T9+8HVsR61xM9VGES0RI4tRbnQjDms/czOa8JklJgiJcJEJCwnWKcOl2QbwjXCgCTdYoQr+9cPoFliHGytandmjPidA3de/4r5KjX7I9b37L75vkhLPjuOX3S0CbKByaMRa0CKHddiJ1wVauBZvrEdq7TnpmR1ofY+W6IUK77btH04uHQ4xVGZx/NROhvetkYiIRMWOsyQSOtNu+exROLwUMMa8f/w4AAP//yIp/AGpAAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -43,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "670"
+            "950"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 20:25:56 GMT"
+            "Tue, 18 Feb 2020 17:17:50 GMT"
           ],
           "Etag": [
-            "W/\"b07977c16ec0f6195495b0f29b09c32c\""
+            "W/\"74b839e6c64d40697301c976d36d54fb\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "132f8733-386f-4688-9777-fe60142e06be"
+            "9f7dd2e1-8bc6-4828-85c8-0489113a0582"
           ],
           "X-Runtime": [
-            "0.096685"
+            "0.142971"
           ],
           "X-Total": [
-            "15"
+            "31"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/contacts/people?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people?page=1"
       }
     }
   ],

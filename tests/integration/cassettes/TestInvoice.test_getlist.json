@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T09:58:32",
+      "recorded_at": "2020-02-18T17:27:29",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/invoices?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+zW32rbPhQH8FcJ51rO70i2Y1v3PxiM3ZTtpn8wqnTaakukIMllZQz2Dnud3e1N9iRDSdulTUnDEkYpuYvP+coKRx+ET76ANSDbrmwbzkAPMfkZhT4Xmwk2VdPylsE8+I+k06LshumUgTXkkr2wFEDCkUBEFMDAqEQgQSBvC+wK3uTaQP1qnWPBJ8AgUri2mvo5BesNSODiP4G8W2v1F8HPlqu7gosC+Xok+ZVAuQgklYYIEnQglcgAg0DXFKKagrxQ00gMkk3T/L+su/ZW0yKi7dySS70yJlDML3hH1o3eDs7QqXujhnmKKagYacRPXYuIo+OfP4LVV5AHGAI5fQMS/v9wBAwcpT75lPfkJY6RQVKfQbb512XwMd53KxxXDIyN2g8ugVyEtYpX/aZab9RNvG0YOrepd8PsPJ/K8px0ILNWnHr9icyfKajLCPLkjN2NqldpMU2BBYqCt++xk3Uja3EMDIa52ZQpc+buPd49yKysftz5ylYkih0llgeJr1xitYXEag8Syx0lVgeJr1xivYXEyR4kVjtKrF+oRHvpfDhI3IPEZguJ7R4k1jtKnLxQiYc7cV8Su+ckthJxZ4kNPv2d2FTNlhL5qsS8BV+aeSBR8Pv6mkTkY+TjvHb069v3UX4sF48bbK7s87TNHChvA3c258puhGmG2exmtJnn48wmg3k89wh5t6ZQlO2S0r9kmMKwncJW1ijxufuQd1LUf6nw7HcAAAD//z2fmAc5DwAA",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/+zazY6rNhQH8FeJzpqktjH4Y1+pUtXNVbu5H0Jc8Mx1SyAyZtRRVanv0Nfprm/SJ6lImGlmQgip3dtc5N3E/Akj5ydjzuHdL6BLkFzEnOEIiq61zVaZrB9kKWKUccwj2JnmR1XY/XDdVVUEulS11XdaGZDwhiCEEIEIytwqkEAQ5msk1pj1Y53KjscxWuMUImiVedCFynbK6KYECZh8RRAWJ4eyO9NsD2eLNSZrhE8jtjkKxPuAzW3XgoTCqNyqEiIw6kGZNq9A3uVVqyKw2lb9/6Xrh0YXah8p9E6r2mZ5WRrV9l/wndL16tuuLtX7+pu829nWmrxt1Qq/rzlCaPX2zz+MLj5BP4HGqLp4BAlf//AGIqiVzWxj+2viGG1QBDb/GSTv/7o3Tds+H6VoQyModVs0XW1B7sNF3n7KpsayMn9shwOl+qhtVnfbj/2vcvidCqPKk8GqKX5S5T+zkN+3IN99iJ6mKsvtfjYJWiOyxvx7JGTCZELeQgTdrpzKxH3m6Xua+kXm6OzXR36NjiQSR4lxkLhwiXSGROpBYuwokQaJC5eYzJCYepBIHSUmNypR39eNCRI9SGQzJHIPEhNHiemNSgxroi+J4pJELhHyIJGNSyTxTIksSFyyRC7j+LLE2Mc+kTtK5EHiwiVe3CdyGfvYJwpHiSJIXLjEi/vEp4ybRI7cJGJ0oxLDE4sviXyGROFB4pkqzmyJ+EYlhjXRk0SKLkuk2IPEM1Wc1xIFTTDlCRGjHEOjZekcLzZauKQeGi38TCnnOo6h2/Kfc8RoQ8Y9EvR5RM54kKbOD9I0xaMiOcfpzFt1aLgsdm3EqSRCkslN45Bx3jTStBfnJPFWGy5BoieJ8eSmccg4bxppikfL3FdIDA2XpUucvDsPGR9359Ey9xUSb7XhEko6viROlrmHjHOZm6Z4tMx9hcTQcFm6xMky95Bxfh2CpmS0zH0qcf8MLQhLRzmGrsvSOU6+E3GcceQ4+hb3lRzJrbZeFsTxfyzpHLRN17yHjHvNm6Hxt7kZZTM70i+6L/0l8IHNC4wEP4+fYER4g/CmP3f112+/r/qP8f7jBM+j64zz7APxEHjiucv1pM2y224fV9NCX2emGPbT8+wQixOIJOYHSp9zYbSmm1dY5DJBEl3qRmMhSeJhXRxVyDmeqZB8SQqN1XlVPWbB4xUehxVvsvUyZDx4FGcK3YzM9EiCx4V7ZJKkQ1PlrEcmCZOY/EuPH/4OAAD//+bZdUT/NwAA",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -43,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "573"
+            "951"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 09:58:32 GMT"
+            "Tue, 18 Feb 2020 17:27:29 GMT"
           ],
           "Etag": [
-            "W/\"1b5e4b5c36ca25f5c8b1b8bef4ec9854\""
+            "W/\"97a2f4b54d6305313ab6c8d4b27e0296\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "dc320d5b-1865-4086-a7b9-06fdb74bd97c"
+            "1d03d79a-d50e-447d-b4b3-c73ae4a3973c"
           ],
           "X-Runtime": [
-            "0.280145"
+            "0.306769"
           ],
           "X-Total": [
-            "6"
+            "22"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/invoices?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices?page=1"
       }
     }
   ],

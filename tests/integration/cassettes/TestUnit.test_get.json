@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-01-03T12:08:52",
+      "recorded_at": "2020-02-18T17:30:16",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=ff0b42305c816caf63ed0ece93ddec46"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://testabcd.mocoapp.com/api/v1/units/909164540"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/units/909165324"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SMsQqDQBAFfyW8eoW9O6Nxv8MqIcihGxBilLu1kvv3NDap0g4zc2CeIB13rqmvNRM+cVEIeo3LxYEw7tnWZdjSummyWTPkKIQ9a8qQx9mH0Pi2Cw3hNads58Q0Gwjv+EvKkzAmjabTEA0Cz54rdhWHnm/iW3H+DsK+TX+c8g0AAP//c+Mx7r8AAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/5yRwWrrMBBFf8XctQKS/Ow86TuyailGyNPEEEtGGpFF8L8XQ0iwu2jr5RU6Z+4wdww9rJFGtU2t/wkENxIsTuTGSkHAl8xx7KYUJ0o8UIa9zwIlU8qw7w++rlttzLER+BxS5oeEKTMEru754ryPJTBm8QJrKfUGDHTrXnllWJzPuNW0a81SsroNfKkiXyhVVxfOxZ3/YFRmbfQxcHJ+s9Uy5xv5fzep95Jyd9vl8r8lPwR8IsfUd45hoaWWB6kP6nhSrVWNVeoNAmXqf/gzfwUAAP//pZnAXn0CAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -43,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "149"
+            "230"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 03 Jan 2020 12:08:52 GMT"
+            "Tue, 18 Feb 2020 17:30:16 GMT"
           ],
           "Etag": [
-            "W/\"9a6d9c5111ca0d1602ff5fa51144360d\""
+            "W/\"a9d223c5101a90a7e0464d3f774fe35f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -74,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "22243ea7-ed1f-405b-a43e-33e2d26a031e"
+            "470abd9e-11ba-4da9-a53a-b072e38409f8"
           ],
           "X-Runtime": [
-            "0.038436"
+            "0.029958"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -87,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://testabcd.mocoapp.com/api/v1/units/909164540"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/units/909165324"
       }
     }
   ],

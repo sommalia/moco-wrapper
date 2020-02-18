@@ -9,7 +9,7 @@ class TestProjectTask(IntegrationTest):
             user_get = self.moco.User.getlist().items[0]
             company_get = self.moco.Company.getlist().items[0]
 
-            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id, "TASK_G-1");
+            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id);
             project_task_create = self.moco.ProjectTask.create(project_create.data.id, "single task to be retrieved", budget=100, hourly_rate=10)
 
             project_task_get = self.moco.ProjectTask.get(project_create.data.id, project_task_create.data.id)
@@ -28,7 +28,7 @@ class TestProjectTask(IntegrationTest):
             user_get = self.moco.User.getlist().items[0]
             company_get = self.moco.Company.getlist().items[0]
 
-            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id, "TASK_GL-3");
+            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id);
             project_task_create = self.moco.ProjectTask.create(project_create.data.id, "task in list to be retrieved", budget=100, hourly_rate=10)
             project_task_sec_create = self.moco.ProjectTask.create(project_create.data.id, "another task in list to be retrieved", budget=300, hourly_rate=5.5)
 
@@ -46,7 +46,7 @@ class TestProjectTask(IntegrationTest):
             user_get = self.moco.User.getlist().items[0]
             company_get = self.moco.Company.getlist().items[0]
 
-            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id, "TASK_C-1");
+            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id);
             project_task_create = self.moco.ProjectTask.create(project_create.data.id, "generic task")
             project_task_adv_create = self.moco.ProjectTask.create(project_create.data.id, "more advanced task", billable=True, budget=300.5, hourly_rate=20.5)
 
@@ -66,7 +66,7 @@ class TestProjectTask(IntegrationTest):
             user_get = self.moco.User.getlist().items[0]
             company_get = self.moco.Company.getlist().items[0]
 
-            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id, "TASK_C-2");
+            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id);
             project_task_create = self.moco.ProjectTask.create(project_create.data.id, "inactive task", active=False)
 
             assert isinstance(project_task_create, JsonResponse)
@@ -81,7 +81,7 @@ class TestProjectTask(IntegrationTest):
             user_get = self.moco.User.getlist().items[0]
             company_get = self.moco.Company.getlist().items[0]
 
-            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id, "TASK_C-3");
+            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id);
             project_task_create = self.moco.ProjectTask.create(project_create.data.id, "non-billable task", billable=False)
 
             assert isinstance(project_task_create, JsonResponse)
@@ -95,7 +95,7 @@ class TestProjectTask(IntegrationTest):
             user_get = self.moco.User.getlist().items[0]
             company_get = self.moco.Company.getlist().items[0]
 
-            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id, "TASK_D-1");
+            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id);
             project_task_create = self.moco.ProjectTask.create(project_create.data.id, "task to delete")
             project_task_delete = self.moco.ProjectTask.delete(project_create.data.id, project_task_create.data.id)
 
@@ -110,7 +110,7 @@ class TestProjectTask(IntegrationTest):
             user_get = self.moco.User.getlist().items[0]
             company_get = self.moco.Company.getlist().items[0]
 
-            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id, "TASK_U-1");
+            project_create = self.moco.Project.create("testproject with tasks", "EUR", date(2022, 1, 1), user_get.id, company_get.id);
             project_task_create = self.moco.ProjectTask.create(project_create.data.id, "task to be updated", billable=False, active=False, budget=100, hourly_rate=10)
             project_task_update = self.moco.ProjectTask.update(project_create.data.id, project_task_create.data.id, billable=True, active=True, budget=200, hourly_rate=20)
 

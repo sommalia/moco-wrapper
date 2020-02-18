@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T15:40:45",
+      "recorded_at": "2020-02-18T17:33:19",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"description\": \"misc tools\", \"unit_cost\": 20, \"billable\": true, \"unit\": \"stk\", \"date\": \"2020-01-01\", \"title\": \"fire hydrants\", \"budget_relevant\": true, \"unit_price\": 30, \"quantity\": 3.5}"
+          "string": "{\"title\": \"fire hydrants\", \"unit_cost\": 20, \"unit\": \"stk\", \"description\": \"misc tools\", \"budget_relevant\": true, \"unit_price\": 30, \"date\": \"2020-01-01\", \"billable\": true, \"quantity\": 3.5}"
         },
         "headers": {
           "Accept": [
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -31,12 +31,13 @@
           ]
         },
         "method": "POST",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/projects/945149168/expenses"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149399/expenses"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SRQa/bIBCE/4o1Z/IEjv0cc8+9qtJLLxaBTUuLsQtLVSvKf69I0ub4jjPfDqxmr/AOulOjGvcCzjBBo5Wt3Em1kwoC7DlU8+ITNd83l0zkDAFH2Sa/sl8iNGafbcPLEir6VUxkzxv0/q0XKNEzNDL/xENMa/KWoPfyTT4du2SGbu/GkyrZV/Ugw53YkhJFu0Hj+OUzBM7FfSOeEgX6bSJDcyokcPYhmHNd+6XJQV9MyCRw8YGmkgJ0LCHUZzMv87SmZaXEnjL09VZ/nlcTN+hHScO7HLrD0B4EoplrJSfK/CktP8jy8c9KMRNudf278y82dr3qRvX+irkyz1vzHBMNU+aGXnmbyDC5yfD/U7Q7dTipXndSd/3X2uLqPpi5/Q0AAP//Mk/sQNoBAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/4SRQY/bIBCF/4r1zmQFtlPb3PdeVdtLLxaBSUuLsQtDVWuV/16RpMlxj+9982D05h3eQfdq6lQv4AwTNFrZyoNUB6kgwJ5DNc8+UfNjd8lEzhBwlG3yG/s1QmPx2Ta8rqGi38VE9rxDdy9HgRI9QyPzL9zEvCVvCbqTL/Lu2DUzdHs17lTJY1U3MlyJLSlRtDs0Xr9+gcCpuO/Ec6JAf0xkaE6FBE4+BHOqaz81OeizCZkEzj7QXFKAjiWE+mzmdZm3tG6U2FOGfr/Un5fNxB36VtLwSQ79OI6tQDRLreSNMn9O60+y/Pp3o5gJl7r+1fkfm/qj6qdumh4xV5Zlb+5jomHK3NAzbxMZJjcbfpyiPajxTQ2667SavtUWN/fBzOVfAAAA//+DtW1a2gEAAA==",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -46,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "311"
+            "313"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 15:40:45 GMT"
+            "Tue, 18 Feb 2020 17:33:19 GMT"
           ],
           "Etag": [
-            "W/\"9056cfd04f9e9d65ae41207de5b806f5\""
+            "W/\"a77916693e32cef0bcab2ec0767241de\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -77,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "679a6da5-1ee6-4bbf-9793-b48741517e2b"
+            "a1fa5934-7351-470d-be82-00a6886dae03"
           ],
           "X-Runtime": [
-            "0.039018"
+            "0.059839"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/projects/945149168/expenses"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149399/expenses"
       }
     }
   ],

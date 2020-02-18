@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-17T17:31:06",
+      "recorded_at": "2020-02-18T17:08:10",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -15,7 +15,7 @@
             "gzip, deflate"
           ],
           "Authorization": [
-            "Token token=10cee7728f7aa84e73f982cdb1e46290"
+            "Token token=<TOKEN>"
           ],
           "Connection": [
             "keep-alive"
@@ -28,12 +28,13 @@
           ]
         },
         "method": "GET",
-        "uri": "https://v6zcg2argh.mocoapp.com/api/v1/activities?from=1990-01-01&page=1&to=2020-01-01"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities?from=1990-01-01&page=1&to=2020-01-01"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+zXvW7bMBAH8FcxbqYdUpQskVvGdiwytSgMhjonTPUF8hTAKPzuBR3JqduiCgK0Xjj6fDz/Tf0gSl++g6tBKyWrXGW5ZFAbQtCQ8YyvuVhzAQwe+9EH0HJTMKgxWO8Gcn0HGowl9+zosLIeDeHq528Z3LumwRr03jQBXz6a+wZBkx+RAZkH0AAMPLY94S6gf3YWL2oxXTc2zbkw+mauDL5/Qkugpz+RFyKvuFIMOtPGMVPDFK5e7Xu/IgzkuofVlNxhgF+THWO08G2eW4htLmTx29TY847RdgzUt+jn8eWWl3lZyNfYdxjodtpYODIYw2u3knKbKVUWDPbOB5qWxJ8GBo05V4y1/dhRXE+uRb8LZDxhvTM079+U/VSZLni2FuWdKDVXmpefgcE41Is9kUdz2PmTHL7hR3apqriCqrghu3nOn4g9OW8umcHHD59u1yKTcIkNHomGoG9u4pJNe7B9O5jusLF9CwnhP0ZYvQFh9RaE24QwIbwuQrlN52tSdRIjhM7Vgqpzz5KqdGtLCK+OsEoIE8L3ISz4MsKXnr8jrGSeztekKoqRQvNiQdW5Z0lVen9NCK+OMD3kJYT/H+HXHwEAAP//zcKUISEWAAA=",
-          "encoding": "utf-8"
+          "base64_string": "H4sIAAAAAAAA/+zcQW+jOBQH8K8SvTPt2NjG2Lc57h5XPe1qFTHEnWGWhAickapVv/uKTmDCzgwvyhhBy5N6Kf3HddOfjJ/t8Ne/UOzAGiNSaWIpIthl3oGFmMXsjvE7xiGCT9WpbsCKexXBzjV5XRx9UR3AQpb74kvhnzZ57TLvNpc/jeBDUZZuB/YxKxv39dvsQ+nA+vrkIvDZR7AAEdRuX3m3bVz9pcjd4Frbu8OpLPsLp7rsrhzr6rPLPdjzHyEVlykzJoJDtm+bOQfOndttHqt6413ji8PHzbnnhWvg/z17brvW/NO1q3giuVDftdpmbmg6PzW+2ru6a14nTEutxLduP7jGvz+/sfAcwan5ljZCJLExWkXwWNSNP7+k/dUQQZn1V7I8r04H377eF3tXbxuf1d7ttpnv3r9z31+unP/h8R3XD1xbZizTf0IEp+MOzbQ8yqdt/SKH3bPnaKhKzaCqfUO2XTs/Iva5qLMhM/j9tz/e3/FYwBAbfPL+2Nh379qX3O+f8mp/zA5P93m1B0I4McL0CoTpNQgTQkgI50UoErq/kqoXMZxbaRBVfQZTRUMbIZwdYUoICeFtCBXDEX7NjCNMhaT7K6lqxQhumUJU9RlMFdWvhHB2hDTJI4SzI9SEkBDeiDC5AmGCIdQq5vGrn+SZOImDq9LStEXYhKpSrfVCVKUPPLGxtEL+XNUwg6mao3SYdWgjhMtDuLpKgxAGQzgyyRtmMISrqzQI4dIQCj1HpRF6kqd5eFWKiWRiVUYuSpW2Cr2/dhlM1eo2KQhhMITo0NZlMISGEBLCmRGmcyyiEMK3gXBkJW+YGUeYsNd/HMoINkHp0H5NqyqN+ZJUCW6lQFT1GUzV+hZRCOHiEK5vEYUQhkKIlbt9BkO4vkqDEIZCiFUafWYUYSL0G9iuFYJNoOrl4wCTqhKLUiVTG4+c9BxmMFVzlA4zD22EcGkI13dmgBCGQsivQMivQbjCSoMQBkIYX4EwxhHKdHUHQwlhEISK4bu7fQZBaBghJIQ3IsTK3T4zjlCbt7CnIcKfeddKXpxWmkiVWpSqZPSDjcMMpmqFexqEcGkI11hpEMIwCLFyt89gCNdYaRDCJSHULJ7jHGnoSZ6UE6hS6eSqkuWo0pYxK0YeoTLMIKrE+s7kEcJACJEzAxcZBKEkhITwVoRXjIT4w6S0ZmqFG2uEMARCbtl4uXuRGUcoZnnYRehJnvp+JffXVSU/WHUOq0ouaH1YW4Z+BO0ig6ha4/2VEAZCiN5fuwyGcIXLyYQwBMLUMnQkTH/2MKm//wsAAP//ReDe425gAAA=",
+          "encoding": "utf-8",
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
@@ -43,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "473"
+            "989"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 17 Feb 2020 17:31:06 GMT"
+            "Tue, 18 Feb 2020 17:08:10 GMT"
           ],
           "Etag": [
-            "W/\"4182048d5d2414c799fb23bb0eb97d54\""
+            "W/\"132a2b6ac00e2b008169dad27552d84f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -80,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "a9befe6c-b59c-4862-8178-edab362055a9"
+            "58d5325e-7ce7-466a-a0c5-36c83534c92e"
           ],
           "X-Runtime": [
-            "0.031761"
+            "0.052238"
           ],
           "X-Total": [
-            "9"
+            "39"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -96,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://v6zcg2argh.mocoapp.com/api/v1/activities?from=1990-01-01&page=1&to=2020-01-01"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities?from=1990-01-01&page=1&to=2020-01-01"
       }
     }
   ],
