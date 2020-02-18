@@ -39,7 +39,10 @@ class DefaultObjector(BaseObjector):
             "invoices": {
                 "base": "Invoice",
                 "locked": "Invoice",
-                "payments": "InvoicePayment",
+                "payments": {
+                    "base": "InvoicePayment",
+                    "bulk": "InvoicePayment"
+                },
             },
             "deals": {
                 "base": "Deal"
@@ -114,22 +117,30 @@ class DefaultObjector(BaseObjector):
         if "?" in parts[-1]:
             parts[-1] = parts[-1].split("?")[0]
 
-        #append base case if url contains no secondary type
-        if len(parts) == 1:
-            parts.append("base")
+        #walk the class map
+        current_map = self.class_map
+        stack = [x for x in parts]
+        while len(stack) > 0:
+            key = stack.pop(0)
+            if key in current_map.keys():
+                current_map = current_map[key]
+            else:
+                raise ValueError("Objector could not find a type, but it should, path: {}".format(">".join(parts)))
 
-        general_type, sub_type = parts
+        #check value at the end of walking the class map
+        if current_map == None:
+            return None #no type conversion
+        elif isinstance(current_map, str):
+            return current_map #current map is a specific class name
+        elif isinstance(current_map, dict):
+            return current_map["base"] #more cases are present but we need the base case
 
-        if general_type in self.class_map.keys():
-            if sub_type in self.class_map[general_type].keys():
-                return self.class_map[general_type][sub_type]    
-        
-        #return None by default (no conversion of objects will take place)
-        
-        print("Objector could not find a type, but should")
-        print(parts)
-        exit(1)
-        return None
+        if isinstance(current_map, str):
+            return current_map
+        elif isinstance(current_map, dict):
+            return current_map["base"]
+        elif current_map == None:
+            return None
 
         
 
