@@ -117,7 +117,12 @@ class DefaultObjector(BaseObjector):
         if "?" in parts[-1]:
             parts[-1] = parts[-1].split("?")[0]
 
-        #walk the class map
+
+        #find classname by walking the classname
+        #pop the first item from the stack
+        #look into map if our item is a key of the map
+        #set map to map[key]
+        #repeat until stack is empty -> last value should be the class name
         current_map = self.class_map
         stack = [x for x in parts]
         while len(stack) > 0:
