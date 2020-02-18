@@ -1,5 +1,6 @@
 from .activity import Activity
 from .project import Project
+from .project_contract import ProjectContract
 from .project_task import ProjectTask
 from .presence import Presence
 from .user import User

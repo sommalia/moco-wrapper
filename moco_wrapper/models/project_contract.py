@@ -9,12 +9,12 @@ class ProjectContract(MWRAPBase):
 
     def create(
         self,
-        project_id,
-        user_id,
-        billable = None,
-        active = None,
-        budget = None,
-        hourly_rate = None
+        project_id: int,
+        user_id: int,
+        billable: bool = None,
+        active: bool = None,
+        budget: float = None,
+        hourly_rate: float = None
         ):
         """Assign a person to a project
 
@@ -43,12 +43,12 @@ class ProjectContract(MWRAPBase):
 
     def update(
         self,
-        project_id,
-        contract_id,
-        billable = None,
-        active = None,
-        budget = None,
-        hourly_rate = None
+        project_id: int,
+        contract_id: int,
+        billable: bool= None,
+        active: bool = None,
+        budget: float = None,
+        hourly_rate: float = None
         ):
         """update an existing staff assignment
 
@@ -75,8 +75,8 @@ class ProjectContract(MWRAPBase):
 
     def get(
         self,
-        project_id,
-        contract_id
+        project_id: int,
+        contract_id: int
         ):
         """retrieve a single staff assignment of a project
 
@@ -89,10 +89,10 @@ class ProjectContract(MWRAPBase):
 
     def getlist(
         self,
-        project_id,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        project_id: int,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrive all active staff assignments for a project
 
@@ -118,8 +118,8 @@ class ProjectContract(MWRAPBase):
 
     def delete(
         self,
-        project_id,
-        contract_id,
+        project_id: int,
+        contract_id: int,
         ):
         """delete a staff assignment
 
