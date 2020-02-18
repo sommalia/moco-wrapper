@@ -1,21 +1,23 @@
+from datetime import date
+
 class ProjectExpenseGenerator(object):
 
     def generate(
         self,
-        date,
-        title,
-        quantity,
-        unit,
-        unit_price,
-        unit_cost,
-        description = None,
-        billable = True,
-        budget_relevant = False
+        expense_date: date,
+        title: str,
+        quantity: float,
+        unit: str,
+        unit_price: float,
+        unit_cost: float,
+        description: str = None,
+        billable: bool = True,
+        budget_relevant: bool = False
         ):
         """create an item that can be used for creating bulk project expenses
 
         :param project_id: id of the project to create the expense for
-        :param date: date of the expense, format (YYYY-MM-DD)
+        :param expense_date: date of the expense
         :param title: title string of the expense
         :param quantity: quantity 
         :param unit: name of the unit that is sold
@@ -41,13 +43,16 @@ class ProjectExpenseGenerator(object):
         """ 
 
         data = {
-            "date": date,
+            "date": expense_date,
             "title": title,
             "quantity": quantity,
             "unit": unit,
             "unit_price": unit_price,
             "unit_cost": unit_cost,
         }
+
+        if isinstance(expense_date, date):
+            data["date"] = expense_date.isoformat()
 
         for key, value in (
             ("description", description),

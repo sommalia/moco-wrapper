@@ -98,7 +98,7 @@ class TestProjectExpense(UnitTest):
     def test_update(self):
         expense_id = 1
         project_id = 2
-        date = '2019-10-10'
+        expense_date = '2019-10-10'
         title = "this is an expense"
         quantity = 3
         unit = "server"
@@ -111,10 +111,10 @@ class TestProjectExpense(UnitTest):
             "server_os" : "Windows XP"
         }
 
-        response = self.moco.ProjectExpense.update(project_id, expense_id, date=date, title=title, quantity=quantity, unit=unit, unit_price=unit_price, unit_cost=unit_cost, description=description, billable=billable, budget_relevant=budget_relevant, custom_properties=custom_properties)
+        response = self.moco.ProjectExpense.update(project_id, expense_id, expense_date=expense_date, title=title, quantity=quantity, unit=unit, unit_price=unit_price, unit_cost=unit_cost, description=description, billable=billable, budget_relevant=budget_relevant, custom_properties=custom_properties)
         data = response["data"]
 
-        assert data["date"] == date
+        assert data["date"] == expense_date
         assert data["title"] == title
         assert data["quantity"] == quantity
         assert data["unit"] == unit

@@ -1,3 +1,5 @@
+from datetime import date
+
 from .base import MWRAPBase
 from ..const import API_PATH
 
@@ -9,22 +11,22 @@ class ProjectExpense(MWRAPBase):
 
     def create(
         self,
-        project_id,
-        date,
-        title,
-        quantity,
-        unit,
-        unit_price,
-        unit_cost,
-        description = None,
-        billable = True,
-        budget_relevant = False,
-        custom_properties = None
+        project_id: int,
+        expense_date: date,
+        title: str,
+        quantity: float,
+        unit: str,
+        unit_price: float,
+        unit_cost: float,
+        description: str = None,
+        billable: bool = True,
+        budget_relevant: bool = False,
+        custom_properties: dict = None
         ):
         """create an additional project expense
 
         :param project_id: id of the project to create the expense for
-        :param date: date of the expense, format (YYYY-MM-DD)
+        :param expense_date: date of the expense
         :param title: title string of the expense
         :param quantity: quantity 
         :param unit: name of the unit that is sold
@@ -39,13 +41,16 @@ class ProjectExpense(MWRAPBase):
         """ 
 
         data = {
-            "date": date,
+            "date": expense_date,
             "title" : title,
             "quantity": quantity,
             "unit" : unit,
             "unit_price": unit_price,
             "unit_cost" : unit_cost,
         }
+
+        if isinstance(expense_date, date):
+            data["date"] = expense_date.isoformat()
 
         for key, value in (
             ("description", description),
@@ -60,8 +65,8 @@ class ProjectExpense(MWRAPBase):
 
     def create_bulk(
         self,
-        project_id,
-        items,
+        project_id: int,
+        items: list,
         ):
         """create an multiple expenses for a project
 
@@ -79,24 +84,24 @@ class ProjectExpense(MWRAPBase):
 
     def update(
         self,
-        project_id,
-        expense_id,
-        date = None,
-        title = None,
-        quantity = None,
-        unit = None,
-        unit_price = None,
-        unit_cost = None,
-        description = None,
-        billable = None,
-        budget_relevant = None,
-        custom_properties = None
+        project_id: int,
+        expense_id: int,
+        expense_date: date = None,
+        title: str = None,
+        quantity: float = None,
+        unit: str = None,
+        unit_price: float = None,
+        unit_cost: float = None,
+        description: str = None,
+        billable: bool = None,
+        budget_relevant: bool = None,
+        custom_properties: dict = None
         ):
         """update an existing additional project expsnse
 
         :param project_id: id of the project
         :param expense_id: id of the expense we want to update
-        :param date: date of the expense, format (YYYY-MM-DD)
+        :param expense_date: date of the expense
         :param title: title string of the expense
         :param quantity: quantity 
         :param unit: name of the unit that is sold
@@ -111,7 +116,7 @@ class ProjectExpense(MWRAPBase):
 
         data = {}
         for key, value in (
-            ("date", date),
+            ("date", expense_date),
             ("title", title),
             ("quantity", quantity),
             ("unit", unit),
@@ -123,7 +128,10 @@ class ProjectExpense(MWRAPBase):
             ("custom_properties", custom_properties)
         ):
             if value is not None:
-                data[key] = value
+                if key in ["date"] and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         print (API_PATH["project_expense_update"].format(project_id=project_id, expense_id=expense_id))
 
@@ -131,8 +139,8 @@ class ProjectExpense(MWRAPBase):
 
     def delete(
         self,
-        project_id,
-        expense_id
+        project_id: int,
+        expense_id: int
         ):
         """deletes an expense
 
@@ -144,15 +152,16 @@ class ProjectExpense(MWRAPBase):
 
     def disregard(
         self,
-        project_id,
-        expense_ids,
-        reason
+        project_id: int,
+        expense_ids: list,
+        reason: str
         ):
-        """mark expenses as "already billed"
+        """disregard expeses
 
         :param project_id: id of the project
-        :param expense_ids: array of expense ids to mark as "already billed"
+        :param expense_ids: array of expense ids to disregard
         :param reason: reason for disregarding the expenses
+        :returns: empty response on success
         """
 
 
@@ -165,11 +174,11 @@ class ProjectExpense(MWRAPBase):
 
     def getall(
         self,
-        from_date = None,
-        to_date = None,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        from_date: date = None,
+        to_date: date= None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """get a list of all additional expenses
 
@@ -188,7 +197,10 @@ class ProjectExpense(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                params[key] = value
+                if key in ["from_date", "to_date"] and isinstance(value, date):
+                    params[key] = value.isoformat()
+                else:
+                    params[key] = value
 
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
@@ -197,8 +209,8 @@ class ProjectExpense(MWRAPBase):
 
     def get(
         self,
-        project_id,
-        expense_id
+        project_id: int,
+        expense_id: int
         ):
         """retrieve a single expense object
 
@@ -211,10 +223,10 @@ class ProjectExpense(MWRAPBase):
 
     def getlist(
         self,
-        project_id,
-        sort_by = None,
-        sort_order = 'asc',
-        page = 1
+        project_id: int,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
         ):
         """retrieve all expenses of a project
 

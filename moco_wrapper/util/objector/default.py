@@ -18,6 +18,10 @@ class DefaultObjector(BaseObjector):
                 "assigned": "Project",
                 "report": "Project",
                 "contracts": "ProjectContract",
+                "expenses": {
+                    "base": "ProjectExpense",
+                    "bulk": "ProjectExpense"
+                }
             },
             "activities": {
                 "base" : "Activity",
@@ -128,7 +132,7 @@ class DefaultObjector(BaseObjector):
         stack = [x for x in parts]
         while len(stack) > 0:
             key = stack.pop(0)
-            if key in current_map.keys():
+            if isinstance(current_map, dict) and key in current_map.keys():
                 current_map = current_map[key]
             else:
                 raise ValueError("Objector could not find a type, but it should, path: {}".format(">".join(parts)))
