@@ -8,6 +8,7 @@ from .offer import Offer
 from .deal import Deal
 from .contact import Contact
 from .invoice import Invoice
+from .invoice_payment import InvoicePayment
 from .deal_category import DealCategory
 from .company import Company
 from .comment import Comment

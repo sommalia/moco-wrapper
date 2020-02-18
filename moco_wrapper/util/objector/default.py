@@ -38,7 +38,8 @@ class DefaultObjector(BaseObjector):
             },
             "invoices": {
                 "base": "Invoice",
-                "locked": "Invoice"
+                "locked": "Invoice",
+                "payments": "InvoicePayment",
             },
             "deals": {
                 "base": "Deal"

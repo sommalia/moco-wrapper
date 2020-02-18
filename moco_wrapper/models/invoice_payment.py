@@ -1,6 +1,8 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from datetime import date
+
 class InvoicePayment(MWRAPBase):
     """class for handling invoice payments(in german "rechnungen")."""
     def __init__(self, moco):
@@ -8,12 +10,18 @@ class InvoicePayment(MWRAPBase):
 
     def getlist(
         self,
+        invoice_id: int = None,
+        date_from: date = None,
+        date_to: date = None,
         sort_by = None,
         sort_order = 'asc',
         page = 1
         ):
         """retrieve all invoice payments
 
+        :param invoice_id: Id of a corresponding invoice
+        :param date_from: starting filter date
+        :param date_to: end filter date
         :param sort_by: field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: page number (default 1)
@@ -23,10 +31,16 @@ class InvoicePayment(MWRAPBase):
 
         params = {}
         for key, value in (
+            ("invoice_id", invoice_id),
+            ("date_from", date_from),
+            ("date_to", date_to),
             ("page", page),
         ):
             if value is not None:
-                params[key] = value
+                if key in ["date_from", "date_to"] and isinstance(value, date):
+                    params[key] = value.isoformat()
+                else:
+                    params[key] = value
 
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
