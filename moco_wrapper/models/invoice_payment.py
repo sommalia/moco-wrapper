@@ -50,7 +50,7 @@ class InvoicePayment(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a single payment
 
@@ -61,25 +61,28 @@ class InvoicePayment(MWRAPBase):
 
     def create(
         self,
-        date,
+        payment_date,
         invoice_id,
         paid_total,
         currency
         ):
         """create a new payment
 
-        :param date: date of the payment (format YYYY-MM-DD)
+        :param payment_date: date of the payment (format YYYY-MM-DD)
         :param invoice_id: id of the invoice this payment belongs to
         :param paid_total: amount that was paid (ex. 2000)
         :param currency: currency of the amount that was paid (ex. EUR)
         :returns: the created payment object
         """
         data = {
-            "date": date,
+            "date": payment_date,
             "invoice_id": invoice_id,
             "paid_total": paid_total,
             "currency": currency
         }
+
+        if isinstance(payment_date, date):
+            data["date"] = payment_date.isoformat()
 
         return self._moco.post(API_PATH["invoice_payment_create"], data=data)
 
@@ -100,33 +103,36 @@ class InvoicePayment(MWRAPBase):
 
     def update(
         self,
-        id,
-        date = None,
-        paid_total = None,
-        currency = None
+        id: int,
+        payment_date: date = None,
+        paid_total: float = None,
+        currency: str= None
         ):
         """updates an existing payment
 
         :param id: id of the payment to update
-        :param date: date of the payment (format YYYY-MM-DD)
+        :param payment_date: date of the payment (format YYYY-MM-DD)
         :param paid_total: amount that was paid
         :param currency: currency of the payment (ex. EUR)
         :returns: the updated payment object
         """
         data = {}
         for key, value in (
-            ("date", date),
+            ("date", payment_date),
             ("paid_total", paid_total),
             ("currency", currency),
         ):
             if value is not None:
-                data[key] = value
+                if key in ["date"] and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
 
         return self._moco.put(API_PATH["invoice_payment_update"].format(id=id), data=data)
 
     def delete(
         self,
-        id
+        id: int
         ):
         """deletes a payment
 

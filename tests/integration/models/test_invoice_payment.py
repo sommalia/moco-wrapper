@@ -1,5 +1,5 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
-from moco_wrapper.util.generator import InvoiceItemGenerator
+from moco_wrapper.util.generator import InvoiceItemGenerator, InvoicePaymentGenerator
 
 from .. import IntegrationTest
 from datetime import date
@@ -48,6 +48,126 @@ class TestInvoicePayment(IntegrationTest):
             assert payment_list.response.status_code == 200
 
             assert isinstance(payment_list, ListingResponse)
+
+    def test_create(self):
+        invoice = self.get_invoice()
+
+        with self.recorder.use_cassette("TestInvoicePayment.test_create"):
+            payment_date = date(2020, 1, 2)
+            amount = 200
+            currency = "EUR"
+
+            payment_create = self.moco.InvoicePayment.create(
+                payment_date,
+                invoice.id,
+                amount,
+                "EUR"
+            )
+
+            assert payment_create.response.status_code == 200
+
+            assert isinstance(payment_create, JsonResponse)
+
+            assert payment_create.data.date == payment_date.isoformat()
+            assert payment_create.data.paid_total == amount
+            assert payment_create.data.currency == currency
+            assert payment_create.data.invoice.id == invoice.id 
+    
+    def test_create_bulk(self):
+        invoice = self.get_invoice()
+
+        with self.recorder.use_cassette("TestInvoicePayment.test_create_bulk"):
+            gen = InvoicePaymentGenerator()
+            items = [
+                gen.generate(date(2020, 1, 1), invoice.id, 200, "EUR"),
+                gen.generate(date(2020, 1, 2), invoice.id, 150, "EUR")
+            ]
+
+            payment_create = self.moco.InvoicePayment.create_bulk(items)
+
+            assert payment_create.response.status_code == 200
+            
+            assert isinstance(payment_create, ListingResponse )
+
+    def test_get(self):
+        invoice = self.get_invoice()
+
+        with self.recorder.use_cassette("TestInvoicePayment.test_get"):
+            payment_date = date(2020, 1, 2)
+            amount = 200
+            currency = "EUR"
+
+            payment_create = self.moco.InvoicePayment.create(
+                payment_date,
+                invoice.id,
+                amount,
+                "EUR"
+            )
+
+            payment_get = self.moco.InvoicePayment.get(payment_create.data.id)
+
+            assert payment_create.response.status_code == 200
+            assert payment_get.response.status_code == 200
+
+            assert isinstance(payment_create, JsonResponse)
+            assert isinstance(payment_get, JsonResponse)
+
+            assert payment_get.data.date == payment_date.isoformat()
+            assert payment_get.data.paid_total == amount
+            assert payment_get.data.currency == currency
+            assert payment_get.data.invoice.id == invoice.id 
+
+    def test_update(self):
+        invoice = self.get_invoice()
+
+        with self.recorder.use_cassette("TestInvoicePayment.test_update"):
+            payment_date = date(2020, 1, 2)
+            amount = 200
+            currency = "EUR"
+
+            payment_create = self.moco.InvoicePayment.create(
+                date(2019, 12, 31),
+                invoice.id,
+                1,
+                "EUR"
+            )
+
+            payment_update = self.moco.InvoicePayment.update(
+                payment_create.data.id,
+                payment_date=payment_date,
+                paid_total=amount,
+                currency="EUR"
+            )
+
+            assert payment_create.response.status_code == 200
+            assert payment_update.response.status_code == 200
+
+            assert isinstance(payment_create, JsonResponse)
+            assert isinstance(payment_update, JsonResponse)
+
+            assert payment_update.data.date == payment_date.isoformat()
+            assert payment_update.data.paid_total == amount
+            assert payment_update.data.currency == currency
+            assert payment_update.data.invoice.id == invoice.id
+
+    def test_delete(self):
+        invoice = self.get_invoice()
+
+        with self.recorder.use_cassette("TestInvoicePayment.test_delete"):
+            payment_create = self.moco.InvoicePayment.create(
+                date(2020, 1, 1),
+                invoice.id,
+                100,
+                "EUR"
+            )
+
+            payment_delete = self.moco.InvoicePayment.delete(payment_create.data.id)
+
+            assert payment_create.response.status_code == 200
+            assert payment_delete.response.status_code == 204
+
+            assert isinstance(payment_create, JsonResponse)
+            assert isinstance(payment_delete, EmptyResponse)
 
 
     

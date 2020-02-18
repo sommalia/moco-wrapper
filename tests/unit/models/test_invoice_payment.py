@@ -76,7 +76,7 @@ class TestInvoicePayment(UnitTest):
         paid_total = 200
         currency = "EUR"
 
-        response = self.moco.InvoicePayment.update(payment_id, date=date, paid_total=paid_total, currency=currency)
+        response = self.moco.InvoicePayment.update(payment_id, payment_date=date, paid_total=paid_total, currency=currency)
         data = response["data"]
 
         assert data["date"] == date
