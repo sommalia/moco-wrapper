@@ -2,6 +2,16 @@
 History
 =======
 
+0.4.0 (2020-02-19)
+
+* Finished reworking all the integration tests
+* Prefixed Employment, Holiday and Presense with "User" for clarification
+* Moved duplicated methods id_generator and create_random date into base class
+* Implented additional requestor that only tries once to request the api endpoint (no retrying)
+* Main moco object moved to namespace moco_wrapper.moco
+* Changed author email
+
+
 0.3.0 (2020-02-17) 
 ------------------
 
