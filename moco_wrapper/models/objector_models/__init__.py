@@ -21,3 +21,4 @@ from .invoice_payment import InvoicePayment
 from .deal_category import DealCategory
 from .company import Company
 from .comment import Comment
+from .schedule import Schedule

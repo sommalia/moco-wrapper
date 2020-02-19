@@ -65,6 +65,9 @@ class DefaultObjector(BaseObjector):
             "comments": {
                 "base": "Comment",
                 "bulk": "Comment",
+            },
+            "schedules": {
+                "base": "Schedule"    
             }
         }
 

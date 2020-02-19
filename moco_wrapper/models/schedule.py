@@ -1,6 +1,28 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
+from datetime import date
+from enum import Enum
+
+class ScheduleAbsenceCode(int, Enum):
+    UNPLANNED = 1
+    PUBLIC_HOLIDAY = 2
+    SICK_DAY = 3
+    HOLIDAY = 4
+    ABSENCE = 5
+
+class ScheduleSymbol(int, Enum):
+    HOME = 1
+    BUILDING = 2
+    CAR = 3
+    GRADUATION_CAP = 4
+    COCKTAIL = 5
+    BELLS = 6
+    BABY_CARRIAGE = 7
+    USERS = 8
+    MOON = 9
+    INFO_CIRCLE = 10
+
 class Schedule(MWRAPBase):
     """Class for handling schedules (german "Planung")."""
 
@@ -9,27 +31,28 @@ class Schedule(MWRAPBase):
 
     def getlist(
         self,
-        from_date = None,
-        to_date = None,
-        user_id = None,
-        project_id = None,
-        absence_code  = None,
-        sort_by = None,
-        sort_order = 'asc',
+        from_date: date = None,
+        to_date: date= None,
+        user_id: int = None,
+        project_id: int = None,
+        absence_code: ScheduleAbsenceCode  = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
         page = 1
         ):
         """retrieve all planned events
 
-        :param from_date: starting date (format YYYY-MM-DD)
-        :param to_date: end date (format YYYY-MM-DD)
+        :param from_date: starting date
+        :param to_date: end date
         :param user_id: user id the planned entries are belonging to
         :param project_id: project id
-        :param absence_code: 1,2,3,4 (absence, public holiday, sick day, holiday)
+        :param absence_code: 1,2,3,4,5 (unplanned absence, public holiday, sick day, holiday, absence)
         :param sort_by: field to sort the results by
         :param sort_order: asc or desc (default asc)
         :param page: page number (default 1)
         :returns: list of schedule objects
         """
+
         params = {}
         for key, value in (
             ("from", from_date),
@@ -40,7 +63,10 @@ class Schedule(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                params[key] = value
+                if key in ["from", "to"] and isinstance(value, date):
+                    params[key] = value.isoformat()
+                else:
+                    params[key] = value
 
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
@@ -49,7 +75,7 @@ class Schedule(MWRAPBase):
 
     def get(
         self,
-        id
+        id: int
         ):
         """retrieve a single planning entry
 
@@ -83,6 +109,11 @@ class Schedule(MWRAPBase):
         :param overwrite: yes/no overwrite existing entry
         :returns: the created planning entry
         """
+
+        if absence_code is not None and project_id is not None:
+            raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
+        elif absence_code is None and project_id is None:
+            raise ValueError("either abscence_code or project_id must be specified")
 
         data = {
             "date": date
@@ -130,6 +161,12 @@ class Schedule(MWRAPBase):
         :param overwrite: yes/no overwrite existing entry
         :returns: the created planning entry
         """
+        
+        if absence_code is not None and project_id is not None:
+            raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
+        elif absence_code is None and project_id is None:
+            raise ValueError("either abscence_code or project_id must be specified")
+
         data = {}
         
         for key, value in (
