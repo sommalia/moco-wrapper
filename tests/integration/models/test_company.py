@@ -7,15 +7,6 @@ import random
 from .. import IntegrationTest
 
 class TestCompany(IntegrationTest):
- 
-    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
-        """
-        company identifiers must be uniqe, so we are going to create them randomly
-        """
-        return ''.join(random.choice(chars) for _ in range(size))
-
-
-
     def get_user(self):
         with self.recorder.use_cassette("TestCompany.get_user"):
             user = self.moco.User.getlist().items[0]

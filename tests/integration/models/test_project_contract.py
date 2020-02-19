@@ -7,15 +7,6 @@ from datetime import date
 from .. import IntegrationTest
 
 class TestProjectContract(IntegrationTest):
-    """
-    class for testing project contracts
-
-    in every method a project will be also created becase the assignment to a project can only happen once
-    """
-    
-    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
-        return ''.join(random.choice(chars) for _ in range(size))
-
     def get_unit(self):
         with self.recorder.use_cassette("TestProjectContract.get_unit"):
             unit = self.moco.Unit.getlist().items[0]

@@ -6,14 +6,6 @@ import random
 from .. import IntegrationTest
 
 class TestDealCategory(IntegrationTest):
-    
-    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
-        """
-        deal categories can can only be created with a unique name, so we are gonna ignore it and create it randomly
-        """
-        return ''.join(random.choice(chars) for _ in range(size))
-
-
     def test_create(self):
         with self.recorder.use_cassette("TestDealCategory.test_create"):
             name = self.id_generator()

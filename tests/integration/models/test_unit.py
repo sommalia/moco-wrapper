@@ -6,14 +6,6 @@ import random
 from .. import IntegrationTest
 
 class TestUnit(IntegrationTest):
-
-    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
-        """
-        user emails must be uniqe, so we are going to create them randomly
-        """
-        return ''.join(random.choice(chars) for _ in range(size))
-
-
     def get_unit(self):
         with self.recorder.use_cassette("TestUnit.get_unit"):
             unit = self.moco.Unit.getlist().items[0]
