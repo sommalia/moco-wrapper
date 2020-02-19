@@ -4,6 +4,7 @@ from .project_recurring_expense import ProjectRecurringExpense
 from .project_expense import ProjectExpense
 from .project_contract import ProjectContract
 from .project_task import ProjectTask
+from .project_report import ProjectReport
 from .presence import Presence
 from .user import User
 from .unit import Unit

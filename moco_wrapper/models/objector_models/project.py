@@ -11,4 +11,20 @@ class Project(object):
             c = obj.Company(**kwargs["customer"])
             nk["customer"] = c
 
+        if "leader" in kwargs.keys() and kwargs["leader"] is not None:
+            u = obj.User(**kwargs["leader"])
+            nk["leader"] = u
+
+        if "contracts" in kwargs.keys() and kwargs["contracts"] is not None:
+            items = []
+            for c in kwargs["contracts"]:
+                items.append(obj.ProjectContract(**c))
+            nk["contracts"] = items
+
+        if "tasks" in kwargs.keys() and kwargs["tasks"] is not None:
+            items = []
+            for t in kwargs["tasks"]:
+                items.append(obj.ProjectTask(**t))
+            nk["tasks"] = items
+
         self.__dict__.update(nk)

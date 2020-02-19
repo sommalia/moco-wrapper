@@ -15,7 +15,7 @@ class DefaultObjector(BaseObjector):
                 "archive": "Project",
                 "unarchive": "Project",
                 "assigned": "Project",
-                "report": "Project",
+                "report": "ProjectReport",
                 "contracts": "ProjectContract",
                 "expenses": {
                     "base": "ProjectExpense",
