@@ -3,6 +3,7 @@ History
 =======
 
 0.4.0 (2020-02-19)
+------------------
 
 * Finished reworking all the integration tests
 * Prefixed Employment, Holiday and Presense with "User" for clarification
