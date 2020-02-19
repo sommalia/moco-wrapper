@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:24:21",
+      "recorded_at": "2020-02-19T11:55:11",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"year\": 2019, \"user_id\": 933630037, \"title\": \"last year holiday\", \"hours\": 2}"
         },
         "headers": {
           "Accept": [
@@ -20,6 +20,9 @@
           "Connection": [
             "keep-alive"
           ],
+          "Content-Length": [
+            "78"
+          ],
           "Content-Type": [
             "application/json"
           ],
@@ -27,12 +30,12 @@
             "python-requests/2.22.0"
           ]
         },
-        "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&user_id=933629975&to=2021-01-01&page=1"
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOwWrDMBBE/2XOmyApToz3O3pqCGaxN22oLBlpRSnB/15yKaVQcpjLzDDzznfcZnAI/dB3hE/Vj/g1mpQ3tfE9t1LBnds7wipmWhL4DlnA527v6I8uhPW/aCNcS17ACC64nQs750GwDE4tRkKrWh7jD5zhcDiFYeiPhOutVEuyKBim1UCI8uPINOWWDBthKiqm8yj268P3L/7E/sg+vILQ1vlJZ7t8BwAA//8CPkJhEgEAAA==",
+          "base64_string": "H4sIAAAAAAAA/4TMvQ6CMBTF8VchZ76Y3hY03OdwcjENrdKIoP0YiOHdDTo6uJ7zz++F4CBN27AhLN5GiFbcEXLIo4dgtClX21EN8xicXUAY5hITRO8UoSQfIV+mM2ZvlDIHwiXElCd734j+GsJUnvHmQB/vd18JffQ2e3e2GQKttKqVrrk7MkvbCvMJhPJwf5r1HQAA///BRcRT0QAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "190"
+            "160"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:24:21 GMT"
+            "Wed, 19 Feb 2020 11:55:11 GMT"
           ],
           "Etag": [
-            "W/\"8e8c98fbaf566579c8b629dc83de3d5b\""
+            "W/\"63591f4f4535bcca6765cbf4a279b30b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -71,23 +74,14 @@
           "X-Frame-Options": [
             "SAMEORIGIN"
           ],
-          "X-Page": [
-            "1"
-          ],
-          "X-Per-Page": [
-            "100"
-          ],
           "X-Permitted-Cross-Domain-Policies": [
             "none"
           ],
           "X-Request-Id": [
-            "bded37a9-d8c7-4271-95be-7e93c83bbfed"
+            "97e8cdbc-326f-4d59-8303-b2d7cf3a245e"
           ],
           "X-Runtime": [
-            "0.036952"
-          ],
-          "X-Total": [
-            "1"
+            "0.060536"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&user_id=933629975&to=2021-01-01&page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays"
       }
     }
   ],

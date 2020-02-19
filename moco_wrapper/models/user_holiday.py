@@ -1,7 +1,7 @@
 from .base import MWRAPBase
 from ..const import API_PATH
 
-class Holiday(MWRAPBase):
+class UserHoliday(MWRAPBase):
     """class for handling holidays (in german urlaubsanspruch)."""
 
     def __init__(self, moco):

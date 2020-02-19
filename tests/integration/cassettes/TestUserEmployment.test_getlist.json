@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:24:21",
+      "recorded_at": "2020-02-19T11:55:57",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?user_id=933630037&to=2021-01-01&from=2020-01-01&page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/9zWwW7iPBAH8FdBc8VUthMCmRMPwamfPkVDYoiX2EaODWUr3n0VCnRJV5QDl3IBZvTXSP4NcvLfO+gKME+STOb5ZMxgqX0bLBkFCEG1ARg0dOlQWbpouyaVQW8VYPBRMVBvQXkLuKSm7UpDugGEbfa7XEnyq3q22DvzUilgYNxCN6rY1M52I4HBzvn133XtjCqoqrxq24+Otkv38Wuhfagr2gPa2DQMaEuBfBF9c+6UsQ3OFBvvNsoHrVrA9wODaHUAPJ2X5yIbJzJlcDrYXJEZCDgwKL2ioKqCAiBILvmIy5GYzEWGYoxCvgKDuKn+kZnOxQR5jjJ5hQP7lE04lz1Zq3bFZ31F3KFfyjudj9+z4+cPNp52xmmKIr9pfMxI+dU4uzaOrfKDnQ71wIVa+UFDdhVp9SjuYTd/2M0fnic/zQakuGMD4ssGxPR6A6WzwVPZu0M6t3ulp2Zt0/XM7EtnNmT3L6UzPxg3xSRFPr2Je8n0cfNH44Y2f2vpuXCT9HvcLtPHlY/GPU8YHa8J8UTKMkF5+4a+ZHrK/OF/4SvlJzIWKXL+jfEp038Kpo825r90oPg0uBkmHJPbr3GXzOH/PwEAAP//3YGgZiILAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SOzWrDQBCD30XnSZjs5qeZ5+ipIZglnqQm67U7nqWU4HcvvpXSkoMukpC+0wNdCwnhhXeB8Kl6z1+NJ7upN+9DtQmy5TUTxuSuViAPpB5y2q6ZfulMGP+LZsLVhh6CwIFXHFa8AcEHSKk5E+qktowvOMcY95E5HgjXziYvqVcILreuK/XD7i0IOf3lz4SLaXJtm+Q/zjbHV95L3Ek8vIFQx/ZJZz5/BwAA///pg3aTGwEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "473"
+            "190"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:24:21 GMT"
+            "Wed, 19 Feb 2020 11:55:57 GMT"
           ],
           "Etag": [
-            "W/\"d5883143e27a7e4e753fd7a86b4ae64b\""
+            "W/\"e7a47a136b4f87452303e7bfbaa66ede\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "b8bd16b4-5674-4d3a-a444-8a988b2e75c7"
+            "3e01f0c8-91fc-4326-93a9-35e059003cae"
           ],
           "X-Runtime": [
-            "0.059022"
+            "0.034612"
           ],
           "X-Total": [
-            "8"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?user_id=933630037&to=2021-01-01&from=2020-01-01&page=1"
       }
     }
   ],

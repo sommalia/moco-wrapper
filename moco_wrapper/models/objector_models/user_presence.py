@@ -1,4 +1,4 @@
-class Presence(object):
+class UserPresence(object):
     def __init__(
         self,
         **kwargs

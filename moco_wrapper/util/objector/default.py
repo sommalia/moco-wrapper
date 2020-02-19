@@ -31,9 +31,9 @@ class DefaultObjector(BaseObjector):
             },
             "users": {
                 "base" : "User",
-                "presences": "Presence",
-                "employments": "Employment",
-                "holidays": "Holiday"
+                "presences": "UserPresence",
+                "employments": "UserEmployment",
+                "holidays": "UserHoliday"
             },
             "units": {
                 "base": "Unit"

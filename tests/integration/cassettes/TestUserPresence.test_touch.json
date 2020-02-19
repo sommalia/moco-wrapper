@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:29:29",
+      "recorded_at": "2020-02-19T11:54:35",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"from\": \"10:30\", \"to\": \"14:00\", \"date\": \"2013-06-18\"}"
+          "string": ""
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "54"
+            "0"
           ],
           "Content-Type": [
             "application/json"
@@ -31,32 +31,29 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/touch"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SNywrCMBBF/+WuE5gk9pH5DlduZGhSKNhWkulK+u8SBbcuz+VyzgtLArsYhrHrDZJoBsOTC5Z660YYzGVfwXDEgWCge4MLU4Oj5gL+SmIIvY9x6AzmpVTdZG0uzVVh8JDfItO0H5viNJhKFs3pLvqperLkrRuvbmAf2cdbazzTn8/5DgAA///AFXU0xgAAAA==",
-          "encoding": "utf-8",
+          "base64_string": "H4sIAAAAAAAA/wEAAP//AAAAAAAAAAA=",
+          "encoding": null,
           "string": ""
         },
         "headers": {
           "Cache-Control": [
-            "max-age=0, private, must-revalidate"
+            "no-cache"
           ],
           "Content-Encoding": [
             "gzip"
           ],
           "Content-Length": [
-            "154"
+            "23"
           ],
           "Content-Type": [
-            "application/json; charset=utf-8"
+            "application/json"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:29:29 GMT"
-          ],
-          "Etag": [
-            "W/\"9b30053e9b8c159b45fe873f31ae5790\""
+            "Wed, 19 Feb 2020 11:54:35 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "e96a1fd8-fb0e-48b5-8254-5d68ab2a8c87"
+            "e901f88a-9389-4a45-b816-49d499ce51db"
           ],
           "X-Runtime": [
-            "0.042946"
+            "0.103460"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,15 +88,15 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/touch"
       }
     },
     {
-      "recorded_at": "2020-02-18T17:29:29",
+      "recorded_at": "2020-02-19T11:54:35",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2011-10-27\", \"to\": \"09:30\", \"from\": \"08:00\"}"
+          "string": ""
         },
         "headers": {
           "Accept": [
@@ -115,7 +112,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "54"
+            "0"
           ],
           "Content-Type": [
             "application/json"
@@ -124,33 +121,30 @@
             "python-requests/2.22.0"
           ]
         },
-        "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/1937856"
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/touch"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SNQYqEMBBF7/LXCVQqaKw6x6xmMwQTQRh1iOVq8O5NuqG3vXyfz3v/WAs0SEzTMDqUbBUKphB8IM8JDks7NihoUiI42NFBNHa4ztqgL4nEOLJIGhyWtZ225627rJ4Gh9/8XvI8H9duuB3mVrPV8pPtWWXyxD5MXyEpi7J898Zf+fC5HwEAAP//Ax/nNcYAAAA=",
-          "encoding": "utf-8",
+          "base64_string": "H4sIAAAAAAAA/wEAAP//AAAAAAAAAAA=",
+          "encoding": null,
           "string": ""
         },
         "headers": {
           "Cache-Control": [
-            "max-age=0, private, must-revalidate"
+            "no-cache"
           ],
           "Content-Encoding": [
             "gzip"
           ],
           "Content-Length": [
-            "155"
+            "23"
           ],
           "Content-Type": [
-            "application/json; charset=utf-8"
+            "application/json"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:29:29 GMT"
-          ],
-          "Etag": [
-            "W/\"a704740808531295bf585bd3bd0ed45d\""
+            "Wed, 19 Feb 2020 11:54:35 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +166,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "71dc6cc2-c0e3-418d-a6a0-8d90179c42ca"
+            "6655a522-d322-4c95-8ab2-18542b61b7ce"
           ],
           "X-Runtime": [
-            "0.058426"
+            "0.033365"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +179,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/1937856"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/touch"
       }
     }
   ],

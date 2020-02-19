@@ -11,17 +11,20 @@ from .contact import Contact
 from .company import Company
 from .comment import Comment
 from .unit import Unit
-from .user import User, UserLanguage
 from .schedule import Schedule
+
 from .deal import Deal
 from .deal_category import DealCategory
+
 from .invoice import Invoice
 from .invoice_payment import InvoicePayment
-from .offer import Offer
-from .presence import Presence
-from .holiday import Holiday
-from .employment import Employment
 
+from .offer import Offer
+
+from .user import User
+from .user_presence import UserPresence
+from .user_holiday import UserHoliday
+from .user_employment import UserEmployment
 
 from .project import Project
 from .project_contract import ProjectContract

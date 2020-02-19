@@ -3,7 +3,7 @@ from ..const import API_PATH
 
 from datetime import date
 
-class Employment(MWRAPBase):
+class UserEmployment(MWRAPBase):
     """class for handling employment schemes (in german "wochenmodell")."""
 
     def __init__(self, moco):

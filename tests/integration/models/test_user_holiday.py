@@ -2,21 +2,21 @@ from moco_wrapper.util.response import JsonResponse, EmptyResponse, ListingRespo
 
 from .. import IntegrationTest
 
-class TestHolyday(IntegrationTest):
+class TestUserHoliday(IntegrationTest):
     def get_user(self):
-        with self.recorder.use_cassette("TestHoliday.get_user"):
+        with self.recorder.use_cassette("TestUserHoliday.get_user"):
             user = self.moco.User.getlist().items[0]
             return user
 
     def test_create(self):
         user = self.get_user()
 
-        with self.recorder.use_cassette("TestHoliday.test_create"):
+        with self.recorder.use_cassette("TestUserHoliday.test_create"):
             year = 2019
             title = "last year holiday"
             hours = 2
 
-            holi_create = self.moco.Holiday.create(
+            holi_create = self.moco.UserHoliday.create(
                 year, 
                 title, 
                 user.id, 
@@ -35,14 +35,14 @@ class TestHolyday(IntegrationTest):
     def test_update(self):
         user = self.get_user()
 
-        with self.recorder.use_cassette("TestHoliday.test_update"):
-            holi_create = self.moco.Holiday.create(2019, "dummy holiday, test update", user.id)
+        with self.recorder.use_cassette("TestUserHoliday.test_update"):
+            holi_create = self.moco.UserHoliday.create(2019, "dummy holiday, test update", user.id)
 
             year = 2020
             title = "this year holiday"
             hours = 100
 
-            holi_update = self.moco.Holiday.update(
+            holi_update = self.moco.UserHoliday.update(
                 holi_create.data.id,
                 year=year, 
                 title=title, 
@@ -64,10 +64,10 @@ class TestHolyday(IntegrationTest):
     def test_delete(self):
         user = self.get_user()
 
-        with self.recorder.use_cassette("TestHoliday.test_delete"):
-            holi_create = self.moco.Holiday.create(2020, "dummy holiday, test delete", user.id)
+        with self.recorder.use_cassette("TestUserHoliday.test_delete"):
+            holi_create = self.moco.UserHoliday.create(2020, "dummy holiday, test delete", user.id)
 
-            holi_delete = self.moco.Holiday.delete(holi_create.data.id)
+            holi_delete = self.moco.UserHoliday.delete(holi_create.data.id)
 
             assert holi_create.response.status_code == 200
             assert holi_delete.response.status_code == 204
@@ -77,19 +77,19 @@ class TestHolyday(IntegrationTest):
     def test_get(self):
         user = self.get_user()
 
-        with self.recorder.use_cassette("TestHoliday.test_get"):
+        with self.recorder.use_cassette("TestUserHoliday.test_get"):
             year = 2019
             title = "last year holiday"
             hours = 2
 
-            holi_create = self.moco.Holiday.create(
+            holi_create = self.moco.UserHoliday.create(
                 year, 
                 title, 
                 user.id, 
                 hours=hours
             )
 
-            holi_get = self.moco.Holiday.get(holi_create.data.id)
+            holi_get = self.moco.UserHoliday.get(holi_create.data.id)
 
             assert holi_create.response.status_code == 200
             assert holi_get.response.status_code == 200
@@ -103,8 +103,8 @@ class TestHolyday(IntegrationTest):
             assert holi_get.data.user.id == user.id
 
     def test_getlist(self):
-        with self.recorder.use_cassette("TestHoliday.test_getlist"):
-            hol_list = self.moco.Holiday.getlist()
+        with self.recorder.use_cassette("TestUserHoliday.test_getlist"):
+            hol_list = self.moco.UserHoliday.getlist()
 
             assert hol_list.response.status_code == 200
             

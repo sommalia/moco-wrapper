@@ -27,6 +27,10 @@ class Moco(object):
         self.Unit = models.Unit(self)
 
         self.User = models.User(self)
+        self.UserPresence = models.UserPresence(self)
+        self.UserHoliday = models.UserHoliday(self)
+        self.UserEmployment = models.UserEmployment(self)
+        
         self.Schedule = models.Schedule(self)
 
         self.Project = models.Project(self)
@@ -41,9 +45,6 @@ class Moco(object):
         self.Invoice = models.Invoice(self)
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
-        self.Presence = models.Presence(self)
-        self.Holiday = models.Holiday(self)
-        self.Employment = models.Employment(self)
         
 
         self._requestor = None

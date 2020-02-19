@@ -3,7 +3,7 @@ from ..const import API_PATH
 
 from datetime import date
 
-class Presence(MWRAPBase):
+class UserPresence(MWRAPBase):
     """class for handling presences (in german "arbeitszeiten")."""
 
     def __init__(self, moco):

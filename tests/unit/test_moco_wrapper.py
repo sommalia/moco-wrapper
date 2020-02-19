@@ -52,13 +52,13 @@ class TestMocoWrapper(UnitTest):
         assert isinstance(self.moco.Offer, models.Offer)
 
     def test_presence_set(self):
-        assert isinstance(self.moco.Presence, models.Presence)
+        assert isinstance(self.moco.UserPresence, models.UserPresence)
 
     def test_holiday_set(self):
-        assert isinstance(self.moco.Holiday, models.Holiday)
+        assert isinstance(self.moco.UserHoliday, models.UserHoliday)
 
     def test_employment_set(self):
-        assert isinstance(self.moco.Employment, models.Employment)
+        assert isinstance(self.moco.UserEmployment, models.UserEmployment)
 
     def test_project_recurring_expense_set(self):
         assert isinstance(self.moco.ProjectRecurringExpense, models.ProjectRecurringExpense)

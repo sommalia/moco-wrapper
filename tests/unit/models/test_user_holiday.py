@@ -1,12 +1,12 @@
 from .. import UnitTest
 import pytest
 
-class TestHoliday(UnitTest):
+class TestUserHoliday(UnitTest):
     def test_getlist(self):
         year = 2019
         user_id = 4
 
-        response = self.moco.Holiday.getlist(year=year, user_id=user_id)
+        response = self.moco.UserHoliday.getlist(year=year, user_id=user_id)
         params = response["params"]
 
         assert params["year"] == year
@@ -17,7 +17,7 @@ class TestHoliday(UnitTest):
     def test_getlist_sort_default(self):
         sort_by = "field to sort by"
 
-        response = self.moco.Holiday.getlist(sort_by=sort_by)
+        response = self.moco.UserHoliday.getlist(sort_by=sort_by)
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -25,26 +25,26 @@ class TestHoliday(UnitTest):
         sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.Holiday.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.UserHoliday.getlist(sort_by=sort_by, sort_order=sort_order)
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
     def test_getlist_page_default(self):
         page_default = 1
 
-        response = self.moco.Holiday.getlist()
+        response = self.moco.UserHoliday.getlist()
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.Holiday.getlist(page=page_overwrite)
+        response = self.moco.UserHoliday.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
 
     def test_get(self):
         holiday_id = 3
 
-        response = self.moco.Holiday.get(holiday_id)
+        response = self.moco.UserHoliday.get(holiday_id)
 
         assert response["method"] == "GET"
 
@@ -55,7 +55,7 @@ class TestHoliday(UnitTest):
         hours = 45
         user_id = 2
 
-        response = self.moco.Holiday.create(year, title, hours=hours, user_id=user_id)
+        response = self.moco.UserHoliday.create(year, title, hours=hours, user_id=user_id)
         data = response["data"]
 
         assert data["year"] == year
@@ -72,7 +72,7 @@ class TestHoliday(UnitTest):
         hours = 45
         user_id = 2
 
-        response = self.moco.Holiday.update(holiday_id, year=year, title=title, hours=hours, user_id=user_id)
+        response = self.moco.UserHoliday.update(holiday_id, year=year, title=title, hours=hours, user_id=user_id)
         data = response["data"]
 
         assert data["year"] == year
@@ -85,6 +85,6 @@ class TestHoliday(UnitTest):
     def test_delete(self):
         holiday_id = 444
 
-        response = self.moco.Holiday.delete(holiday_id)
+        response = self.moco.UserHoliday.delete(holiday_id)
 
         assert response["method"] == "DELETE"
