@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:32:01",
+      "recorded_at": "2020-02-19T10:14:44",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects?leader_id=933630037&updated_from=2019-01-01&include_company=True&include_archived=True&created_to=2021-12-31&updated_to=2021-12-31&page=1&company_id=760749030&created_from=2019-01-01"
       },
       "response": {
         "body": {
-          "base64_string": "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",
+          "base64_string": "H4sIAAAAAAAA/+zaUW+bOhQA4L8S+ZlWxzbG2O/TfZ2udl82TREFJ/UNIbnGrKum/PcrB5ImlJZpDVZoeSv01HaOOV8dm2+/kM6QFCHDoYhFGCCdqcLqhVYGSfSZAOAQBahI1gpJlFXr9eNsazb/qtQGM6tKO0s3hTVJaksUoCS1+odC0ppKBehO53lylx+vF/qnyuZbo1OF5CLJy/29Qpf38yyxrn0CBG4A3wBGAUorY1SRPiKJPv3zN6rb08Vy/iMxOikskqgZycnvkiwzqiyRRO5mlS2VRbKo8vxwNVc/t6ooVYkk3EKA7jeVyR/nZj+A/R1dLDb139tkWSL57XuA8uRO5c3PaVXazXq+NZutMla7ln7tApSrJHNJazJKaUQBKHcf0ZS2SWC61Lqo/jOrDLlGu+7vDj08NcYj4KEACseJ+KJK+7n58Ds30HLlRleHMxwDFvwYvA9c2VxpWxVL9HxiWtN2lrWz/GCAW9gFp93Ex24+FfZBp6v88n2IYx9/mWShV29v3k3j8bk95C2MMAAQRgJUlcrMT+aRteaxLgQXdT6PriJ0sTwrij8e6kkeDkPDz4f2B4/YRdJnVGJVNk/ssW7JDRZfMEgIJaFfUYCqbdYTc/h8NUACOgFirwNUP/wTPteDD8Vha8ZcTDNdTdpmD9re7+9fqETqjrEP9Sgmg6tHMfWqHh8HLbEMWR8tdcw5Ldz9o3pGC5ysbc4eznoIl0EFT6i8HRUuSBgNX9uuGz5wbbs+Yl+1DUKIOI6vvrZBSCp6lg1PMee1HRPRVdvs2mq7WS4+L+ylKpRJ8llpjVJ2RshJpe8z91ul3kQ2xX5o012adWL1pniqf5RvHma6SDdrlwd3YXS5QqcsvBwyCi0iCH1oEQEbXIsIIp8rAcBsDFqETGLRo0UT09KCdn3JgGjS4gNrwTzslrhuht4tcX143S2BCEahBZcU+rSoY1pahLhLC/4utPjtbxETFidYcOIFC06Gx4ITv1hwOgoshGS8D4s6po1F59IivjYsXttkuNDqgtyyyYumyKjw4kUIw3sRYr9eRGPwgmGJox4vmpi2F6zLCzF58aG9CIkfL6gHL0K/XvCReNH7ZaSJaXsRdZ2PwuTFx/bCy8EI93Awwv0djNRejOJghGHJ+rY6m5iWF6zzfQo8efGRvYipl/VFTIdfX+z38v15geH6X5JwFlAZxn1e1DEtL6JOL+gLXrgxTli8byxEDD6wEDEeHAsRE69Y0FGco7JIslffqHqKaWNBurAgL2BRNz958d694F4ORwQf/nBEcK+HI5h2vHd+lV5Q0u8FpV/R7vv/AQAA///EfVFmXzIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -43,20 +43,20 @@
           "Content-Encoding": [
             "gzip"
           ],
+          "Content-Length": [
+            "1006"
+          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:32:01 GMT"
+            "Wed, 19 Feb 2020 10:14:44 GMT"
           ],
           "Etag": [
-            "W/\"516bfe290460cc5cb61a494623eb7650\""
+            "W/\"f99a64a68039bfd0f9dc3255c30d55b2\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
-          ],
-          "Transfer-Encoding": [
-            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -81,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "b3404204-3da1-4010-8363-6f2ec091c2a4"
+            "f138090b-daeb-4a6b-b26e-675a22a6b042"
           ],
           "X-Runtime": [
-            "0.296906"
+            "0.357867"
           ],
           "X-Total": [
-            "71"
+            "12"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects?leader_id=933630037&updated_from=2019-01-01&include_company=True&include_archived=True&created_to=2021-12-31&updated_to=2021-12-31&page=1&company_id=760749030&created_from=2019-01-01"
       }
     }
   ],
