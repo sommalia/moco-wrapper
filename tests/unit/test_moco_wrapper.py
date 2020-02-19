@@ -1,9 +1,8 @@
 import pytest
 
 from . import UnitTest
-from moco_wrapper import models
-from moco_wrapper import util
-from moco_wrapper import moco_wrapper
+
+from moco_wrapper import moco, util, models
 
 class TestMocoWrapper(UnitTest):
 
@@ -65,14 +64,14 @@ class TestMocoWrapper(UnitTest):
         assert isinstance(self.moco.ProjectRecurringExpense, models.ProjectRecurringExpense)
 
     def test_wrapper_init(self):
-        new_moco = moco_wrapper.Moco(api_key="api_key", domain="domain")
+        new_moco = moco.Moco(api_key="api_key", domain="domain")
         assert new_moco.api_key == "api_key"
         assert new_moco.domain == "domain"
 
         assert isinstance(new_moco._requestor, util.requestor.DefaultRequestor)
 
     def test_wrapper_init_requestor_overwrite(self):
-        new_moco = moco_wrapper.Moco(api_key="api_key", domain="domain", http=util.requestor.RawRequestor())
+        new_moco = moco.Moco(api_key="api_key", domain="domain", http=util.requestor.RawRequestor())
         assert new_moco.api_key == "api_key"
         assert new_moco.domain == "domain"
 

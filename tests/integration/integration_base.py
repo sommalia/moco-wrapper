@@ -2,7 +2,7 @@ import pytest
 import betamax
 import time
 
-from moco_wrapper.moco_wrapper import Moco
+from moco_wrapper import moco
 from moco_wrapper.util.requestor import NoRetryRequestor
 
 class IntegrationTest(object):
@@ -20,7 +20,7 @@ class IntegrationTest(object):
         self.recorder = betamax.Betamax(self._moco.http)
 
     def setup_moco(self):
-        self._moco = Moco(
+        self._moco = moco.Moco(
             pytest.placeholders.mocotest_apikey,
             pytest.placeholders.mocotest_domain,
             http=NoRetryRequestor())

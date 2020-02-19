@@ -8,3 +8,5 @@ __version__ = '0.1.0'
 
 from . import models
 from . import util
+
+from .moco import Moco
