@@ -1,0 +1,193 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-02-19T07:13:44",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"billable\": true, \"period\": \"biweekly\", \"start_date\": \"2020-01-01\", \"title\": \"dummy recurring expense, test update\", \"unit\": \"h\", \"budget_relevant\": false, \"unit_cost\": 1, \"quantity\": 1, \"unit_price\": 2}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "204"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149515/recurring_expenses"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/3yQzU7rMBCFXyU6a/fKSate4T0vgGDDxnLsaTvCdYw9hkZV3x2lFKliwW4050ffzBkcYNbbXmuFKq6IDU4IBoMe9Er3K91DYceJ6+EmpRajQiHfik10+pUYVsMWCpkKTwEGI38SvcUZCsISF2Nox+PcXQsKp31Hp0ypkuqEqnQtX/sUAlVfOAtPCQZQeG8uCcsM0//TCi2xwOCA79Hmwp5ghh/N+qnKzXuv3a0XAkp+hsHjyxMUxhb2JLZQpA+XBGbnYiWFkWN040IvpdESrDIdbS5TpiJMFeZ8UfCFnFCwTu7+0T886/+mX5vN5nVhvd73l+fyFQAA//9tmouSlgEAAA==",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "268"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Wed, 19 Feb 2020 07:13:44 GMT"
+          ],
+          "Etag": [
+            "W/\"7b1430466e36348f50c260a518f2487e\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "d558c8e8-1579-4545-82fa-f0e0bff9b623"
+          ],
+          "X-Runtime": [
+            "0.158793"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149515/recurring_expenses"
+      }
+    },
+    {
+      "recorded_at": "2020-02-19T07:13:44",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"description\": \"dummy recurring expense, test update\", \"finish_date\": \"2021-01-01\", \"billable\": false, \"unit_cost\": 20.5, \"unit\": \"h\", \"budget_relevant\": true, \"title\": \"hosting xs - special support\", \"quantity\": 1.5, \"unit_price\": 32.5}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "238"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "PUT",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149515/recurring_expenses/36100"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/3yQzW7jMAyEX8WYsxzIdn52dd8XWOxeejFkm0mIOrJKUW2MIO9eOGmLoIfeJH4zGA4v4AGu2VbWGiT1ou3gleBQ29qWtiptBYM9B07HB1R9IaE+Sxvo/M1Zl/UWBpGEpwEOHb8RPY8zDJR1XITHKSmHQ3FORVmkSD37sUg5xkkUBgOlXjgqTwEOQz6d5uKWJouJzpFCIlMoJS1yvIUbvGQflHWGq1YbgxxYlyTcn20U7gmuqT9h209J4Wq7DD7o+tdqtzG4k8beP1mEQj/D4c//vzDo8nAgbYVGevVB4VQyGXQ8jr5b6u39mGgxJp1ObZQpkihTgrtcDXohrzS0Xh8uVv3+Z3euatx6/bRsfCv1k+b6HgAA//+yU5BAwAEAAA==",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "298"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Wed, 19 Feb 2020 07:13:44 GMT"
+          ],
+          "Etag": [
+            "W/\"207ceb654c048761ca9f5aaa1031de2c\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "933cb2af-3dc9-463a-bd43-5f0734114096"
+          ],
+          "X-Runtime": [
+            "0.086722"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149515/recurring_expenses/36100"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}
