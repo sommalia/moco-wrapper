@@ -23,6 +23,10 @@ class ScheduleSymbol(int, Enum):
     MOON = 9
     INFO_CIRCLE = 10
 
+class ScheduleAssignmentType(str, Enum):
+    PROJECT = "Project"
+    ABSENCE = "Absence"
+
 class Schedule(MWRAPBase):
     """Class for handling schedules (german "Planung")."""
 
@@ -32,7 +36,7 @@ class Schedule(MWRAPBase):
     def getlist(
         self,
         from_date: date = None,
-        to_date: date= None,
+        to_date: date = None,
         user_id: int = None,
         project_id: int = None,
         absence_code: ScheduleAbsenceCode  = None,
@@ -86,19 +90,19 @@ class Schedule(MWRAPBase):
 
     def create(
         self,
-        date,
-        project_id = None,
-        absence_code = None,
-        user_id = None,
-        am = None,
-        pm = None,
-        comment = None,
-        symbol = None,
-        overwrite = None,
+        schedule_date: date,
+        project_id: int = None,
+        absence_code: ScheduleAbsenceCode = None,
+        user_id: int = None,
+        am: bool = None,
+        pm: bool = None,
+        comment: str = None,
+        symbol: ScheduleSymbol = None,
+        overwrite: bool = None,
         ):
         """creates a new planned entry
 
-        :param date: date of the entry (format YYYY-MM-DD)
+        :param schedule_date: date of the entry (format YYYY-MM-DD)
         :param project_id: project id (either project id or absence code must be specified)
         :param absence_code: 1,2,3,4 (absence, public holiday, sick day, holiday) (either project id or absence code must be specified)
         :param user_id: user id
@@ -116,8 +120,11 @@ class Schedule(MWRAPBase):
             raise ValueError("either abscence_code or project_id must be specified")
 
         data = {
-            "date": date
+            "date": schedule_date
         }
+
+        if isinstance(schedule_date, date):
+            data["date"] = schedule_date.isoformat()
 
         for key, value in (
             ("project_id", project_id),
@@ -136,16 +143,14 @@ class Schedule(MWRAPBase):
 
     def update(
         self,
-        id,
-        date = None,
-        project_id = None,
-        absence_code = None,
-        user_id = None,
-        am = None,
-        pm = None,
-        comment = None,
-        symbol = None,
-        overwrite = None,
+        id: int,
+        project_id: int = None,
+        absence_code: ScheduleAbsenceCode = None,
+        am: bool = None,
+        pm: bool = None,
+        comment: str = None,
+        symbol: ScheduleSymbol = None,
+        overwrite: bool = None,
         ):
         """updates a planned entry
 
@@ -153,7 +158,6 @@ class Schedule(MWRAPBase):
         :param date: date of the entry (format YYYY-MM-DD)
         :param project_id: project id (either project id or absence code must be specified)
         :param absence_code: 1,2,3,4 (absence, public holiday, sick day, holiday) (either project id or absence code must be specified)
-        :param user_id: user id
         :param am: morning yes/no
         :param pm: afternoon yes/no
         :param comment: comment text
@@ -170,10 +174,8 @@ class Schedule(MWRAPBase):
         data = {}
         
         for key, value in (
-            ("date", date),
             ("project_id", project_id),
             ("absence_code", absence_code),
-            ("user_id", user_id),
             ("am", am),
             ("pm", pm),
             ("comment", comment),
@@ -187,11 +189,12 @@ class Schedule(MWRAPBase):
 
     def delete(
         self,
-        id
+        id: int
         ):
         """delete a planned entry
 
         :param id: id of the entry to delete
+        :returns: the deleted entry (no empty response)
         """
 
         return self._moco.delete(API_PATH["schedule_delete"].format(id=id))

@@ -55,7 +55,7 @@ class TestSchedule(UnitTest):
 
         assert response["method"] == "GET"
 
-    def test_create_project(self):
+    def test_create_with_project(self):
         date = "2019-10-10"
         project_id = 4
         user_id = 234
@@ -77,7 +77,7 @@ class TestSchedule(UnitTest):
 
         assert response["method"] == "POST"
 
-    def test_create_absence(self):
+    def test_create_with_absence(self):
         date = "2019-10-10"
         absence_code = 5
         user_id = 234
@@ -99,22 +99,18 @@ class TestSchedule(UnitTest):
 
         assert response["method"] == "POST"
 
-    def test_update_absence(self):
+    def test_update_with_absence(self):
         schedule_id = 2434
-        date = "2019-10-10"
         absence_code = 5
-        user_id = 234
         am = True
         pm = True
         comment = "this is the comment comment"
         overwrite = True
 
-        response = self.moco.Schedule.update(schedule_id, date=date, absence_code=absence_code, user_id=user_id, am=am, pm=pm, comment=comment, overwrite=overwrite)
+        response = self.moco.Schedule.update(schedule_id, absence_code=absence_code, am=am, pm=pm, comment=comment, overwrite=overwrite)
         data = response["data"]
 
-        assert data["date"] == date
         assert data["absence_code"] == absence_code
-        assert data["user_id"] == user_id
         assert data["am"] == am
         assert data["pm"] == pm
         assert data["comment"] == comment
@@ -123,22 +119,18 @@ class TestSchedule(UnitTest):
         assert response["method"] == "PUT"
 
 
-    def test_update_absence(self):
+    def test_update_with_project(self):
         schedule_id = 2434
-        date = "2019-10-10"
         project_id = 4
-        user_id = 234
         am = True
         pm = True
         comment = "this is the comment comment"
         overwrite = True
 
-        response = self.moco.Schedule.update(schedule_id, date=date, project_id=project_id, user_id=user_id, am=am, pm=pm, comment=comment, overwrite=overwrite)
+        response = self.moco.Schedule.update(schedule_id, project_id=project_id, am=am, pm=pm, comment=comment, overwrite=overwrite)
         data = response["data"]
 
-        assert data["date"] == date
         assert data["project_id"] == project_id
-        assert data["user_id"] == user_id
         assert data["am"] == am
         assert data["pm"] == pm
         assert data["comment"] == comment

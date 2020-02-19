@@ -5,16 +5,6 @@ from datetime import date
 import random
 
 class TestUserPresence(IntegrationTest):
-    def create_random_date(self):
-        """
-        presences can overlap so we are going to create a random date every time
-        """
-        return date(
-            random.choice(range(2010, 2020, 1)),
-            random.choice(range(1, 12, 1)),
-            random.choice(range(1, 28))
-        )
-
     def get_user(self):
         with self.recorder.use_cassette("TestUserPresence.get_user"):
             user = self.moco.User.getlist().items[0]

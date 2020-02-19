@@ -4,6 +4,7 @@ import time
 import string
 import random
 
+from datetime import date
 from moco_wrapper import moco
 from moco_wrapper.util.requestor import NoRetryRequestor
 
@@ -32,6 +33,16 @@ class IntegrationTest(object):
         create a radom string
         """
         return ''.join(random.choice(chars) for _ in range(size))
+
+    def create_random_date(self):
+        """
+        presences can overlap so we are going to create a random date every time
+        """
+        return date(
+            random.choice(range(2010, 2020, 1)),
+            random.choice(range(1, 12, 1)),
+            random.choice(range(1, 28))
+        )
 
     @property
     def moco(self):
