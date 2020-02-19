@@ -31,7 +31,7 @@ class User(MWRAPBase):
         mobile_phone: str = None,
         work_phone: str = None,
         home_address: str = None,
-        bday: date = None,
+        birthday: date = None,
         custom_properties: dict = None,
         info: str = None,
         ):
@@ -48,7 +48,7 @@ class User(MWRAPBase):
         :param mobile_phone: users mobile phone number
         :param work_phone: users work phone number
         :param home_address: users home address 
-        :param bday: users birthday (datetime.date)
+        :param birthday: users birthday date
         :param custom_properties: custom fields to add to the user
         :param info: additional information abotu the user
         :returns: the created user object
@@ -75,13 +75,13 @@ class User(MWRAPBase):
             ("mobile_phone", mobile_phone),
             ("work_phone", work_phone),
             ("home_address", home_address),
-            ("bday", bday),
+            ("bday", birthday),
             ("custom_properties", custom_properties),
             ("info", info)
         ):
             if value is not None:
                     
-                if key == "bday" and isinstance(value, date):
+                if key in ["bday"] and isinstance(value, date):
                     data[key] = value.isoformat()
                 else:
                     data[key] = value
@@ -102,7 +102,7 @@ class User(MWRAPBase):
         mobile_phone: str = None,
         work_phone: str = None,
         home_address: str = None,
-        bday: date = None,
+        birthday: date = None,
         custom_properties: dict = None,
         info: str = None,
         ):
@@ -120,7 +120,7 @@ class User(MWRAPBase):
         :param mobile_phone: users mobile phone number
         :param work_phone: users work phone number
         :param home_address: users home address 
-        :param bday: users birthday (format YYYY-MM-DD)
+        :param birthday: users birthday date
         :param custom_properties: custom fields to add to the user
         :param info: additional information abotu the user
         :returns: the created user object
@@ -139,12 +139,12 @@ class User(MWRAPBase):
             ("mobile_phone", mobile_phone),
             ("work_phone", work_phone),
             ("home_address", home_address),
-            ("bday", bday),
+            ("bday", birthday),
             ("custom_properties", custom_properties),
             ("info", info)
         ):
             if value is not None:
-                if key == "bday" and isinstance(value, date):
+                if key in ["bday"] and isinstance(value, date):
                     data[key] = value.isoformat()
                 else:
                     data[key] = value

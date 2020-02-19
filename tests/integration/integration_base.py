@@ -1,6 +1,8 @@
 import pytest
 import betamax
 import time
+import string
+import random
 
 from moco_wrapper import moco
 from moco_wrapper.util.requestor import NoRetryRequestor
@@ -24,6 +26,12 @@ class IntegrationTest(object):
             pytest.placeholders.mocotest_apikey,
             pytest.placeholders.mocotest_domain,
             http=NoRetryRequestor())
+
+    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
+        """
+        create a radom string
+        """
+        return ''.join(random.choice(chars) for _ in range(size))
 
     @property
     def moco(self):

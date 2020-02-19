@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from . import models
-from . import util
+from moco_wrapper import models, util
 from .const import API_PATH
 
 from requests import get, post, put, delete

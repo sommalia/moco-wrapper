@@ -18,13 +18,13 @@ class TestUser(UnitTest):
         mobile_phone = "2134124 + 123"
         work_phone = "3215 +23 "
         home_address = "this is my home address"
-        bday = date(1994,10,10)
+        birthday = date(1994,10,10)
         custom_properties = {
             "custom_shirt": True
         }
         info = "more information"
 
-        response = self.moco.User.create(firstname, lastname, email, password, unit_id, active=active, external=external, language=language, mobile_phone=mobile_phone, work_phone=work_phone, home_address=home_address, bday=bday, custom_properties=custom_properties, info=info)
+        response = self.moco.User.create(firstname, lastname, email, password, unit_id, active=active, external=external, language=language, mobile_phone=mobile_phone, work_phone=work_phone, home_address=home_address, birthday=birthday, custom_properties=custom_properties, info=info)
         data = response["data"]
 
         assert data["firstname"] == firstname
@@ -39,7 +39,7 @@ class TestUser(UnitTest):
         assert data["work_phone"] == work_phone
         assert data["home_address"] == home_address
         assert data["custom_properties"] == custom_properties
-        assert data["bday"] == bday.isoformat()
+        assert data["bday"] == birthday.isoformat()
         assert data["info"] == info
 
         assert response["method"] == "POST"
@@ -57,13 +57,13 @@ class TestUser(UnitTest):
         mobile_phone = "2134124 + 123"
         work_phone = "3215 +23 "
         home_address = "this is my home address"
-        bday = "1994-10-10"
+        birthday = "1994-10-10"
         custom_properties = {
             "custom_shirt": True
         },
         info = "more information"
 
-        response = self.moco.User.update(user_id, firstname=firstname, lastname=lastname, email=email, password=password, unit_id=unit_id, active=active, external=external, language=language, mobile_phone=mobile_phone, work_phone=work_phone, home_address=home_address, bday=bday, custom_properties=custom_properties, info=info)
+        response = self.moco.User.update(user_id, firstname=firstname, lastname=lastname, email=email, password=password, unit_id=unit_id, active=active, external=external, language=language, mobile_phone=mobile_phone, work_phone=work_phone, home_address=home_address, birthday=birthday, custom_properties=custom_properties, info=info)
         data = response["data"]
 
         assert data["firstname"] == firstname
@@ -78,7 +78,7 @@ class TestUser(UnitTest):
         assert data["work_phone"] == work_phone
         assert data["home_address"] == home_address
         assert data["custom_properties"] == custom_properties
-        assert data["bday"] == bday
+        assert data["bday"] == birthday
         assert data["info"] == info
 
         assert response["method"] == "PUT"
