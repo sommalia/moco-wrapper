@@ -1,4 +1,5 @@
-from .unit import Unit
+from moco_wrapper.models import objector_models as obj
+
 
 class User(object):
     def __init__(
@@ -8,7 +9,7 @@ class User(object):
         
         nk = kwargs
         if "unit" in kwargs.keys():
-            u = Unit(**kwargs["unit"])
+            u = obj.Unit(**kwargs["unit"])
             
             del nk["unit"]
             nk["unit"] = u

@@ -1,4 +1,5 @@
-from .invoice import Invoice
+from moco_wrapper.models import objector_models as obj
+
 
 class InvoicePayment(object):
     def __init__(
@@ -8,7 +9,7 @@ class InvoicePayment(object):
         nk = kwargs
 
         if "invoice" in kwargs.keys() and kwargs["invoice"] is not None:
-            i = Invoice(**kwargs["invoice"])
+            i = obj.Invoice(**kwargs["invoice"])
             nk["invoice"] = i
 
         self.__dict__.update(nk)

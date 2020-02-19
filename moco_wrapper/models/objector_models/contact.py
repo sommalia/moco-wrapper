@@ -1,4 +1,4 @@
-from .company import Company
+from moco_wrapper.models import objector_models as obj
 
 class Contact(object):
     def __init__(self, **kwargs):
@@ -6,7 +6,7 @@ class Contact(object):
         nk = kwargs
 
         if "company" in kwargs.keys() and kwargs["company"] is not None:
-            c = Company(**kwargs["company"])
+            c = obj.Company(**kwargs["company"])
             nk["company"] = c
 
 

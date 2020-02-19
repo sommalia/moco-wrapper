@@ -1,13 +1,12 @@
 from .base import BaseObjector
 
-from moco_wrapper.models.moco.activity import Activity
 from moco_wrapper.util.response import EmptyResponse, JsonResponse, ListingResponse
 
 from importlib import import_module
 
 class DefaultObjector(BaseObjector):
     def __init__(self):
-        self.module_path = "moco_wrapper.models.moco"
+        self.module_path = "moco_wrapper.models.objector_models"
     
         self.class_map = {
             "projects": {

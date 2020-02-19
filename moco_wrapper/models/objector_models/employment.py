@@ -1,4 +1,5 @@
-from .user import User
+from moco_wrapper.models import objector_models as obj
+
 
 class Employment(object):
     def __init__(
@@ -16,7 +17,7 @@ class Employment(object):
             del nk["to"]
 
         if "user" in kwargs.keys() and kwargs["user"] is not None:
-            u = User(**kwargs["user"])
+            u = obj.User(**kwargs["user"])
             nk["user"] = u
 
         self.__dict__.update(nk)
