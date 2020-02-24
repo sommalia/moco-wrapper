@@ -12,6 +12,7 @@ moco-wrapper
 
 The "moco-wrapper" is a python package that allows for simple access to Mocos API. 
 
+
 Disclaimer (semi-serious)
 -------------------------
 
@@ -24,19 +25,13 @@ I am also not affiliated with the people behind moco. The package implements the
 Running the tests
 -----------------
 
-Tests can be run by executing the *tox* commend inside the root direcotry of this project
+Tests can be run by executing the **tox** commend inside the root directory of the project.
 
-```
-> tox
-```
+.. code-block:: shell
+        $ tox
 
 This command will run all the tests.
 
-If you want to only run a specific set of tests, they are structured in the follwing 3 Folders.
-
-* production (need configuration to run)
-* integration (not implemented)
-* unit
 
 
 Setting up integration tests
@@ -44,17 +39,18 @@ Setting up integration tests
 
 For the integration tests 2 environment variables are needed *mocotest_apikey* and *mocotest_domain*. Set them like this
 
-```
-> export mocotest_apikey="this is the api key"
-> export mocotest_domain="testdomain"
-```
+.. code-block:: shell
+        
+        $ export mocotest_apikey="this is the api key"
+        $ export mocotest_domain="testdomain"
+
 
 
 
 License
 -------
 
-This project is licensed under the GNU Public License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU Public License - see the :ref:LICENSE file for details
 
 
 Credits
