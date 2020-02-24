@@ -15,7 +15,7 @@ requirements = [ "requests" ]
 
 setup_requirements = ['pytest-runner', ]
 
-test_requirements = ['pytest', 'betamax']
+test_requirements = ['pytest', 'betamax', 'betamax-serializers']
 
 setup(
     author = "sommalia",
