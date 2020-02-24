@@ -6,6 +6,7 @@ from .. import IntegrationTest
 from datetime import date
 
 class TestActivity(IntegrationTest):
+
     def get_customer(self):
         with self.recorder.use_cassette("TestActivity.get_customer"):
             customer_create = self.moco.Company.create(
@@ -46,9 +47,28 @@ class TestActivity(IntegrationTest):
             
             return project_task_create.data
 
+
+    def get_other_user(self):
+        unit = self.get_unit()
+
+        with self.recorder.use_cassette("TestActivity.get_other_user"):
+            user_create = self.moco.User.create(
+                "Test",
+                "Impersonation",
+                "{}@mycompany.com".format(self.id_generator()),
+                self.id_generator(),
+                unit.id
+            )
+
+            return user_create.data
+
+    def get_unit(self):
+        with self.recorder.use_cassette("TestActivity.get_unit"):
+            unit = self.moco.Unit.getlist().items[0]
+            return unit
+
     def test_create(self):
         customer = self.get_customer()
-        user = self.get_user()
         project = self.get_project()
         task = self.get_project_task()
 
@@ -76,11 +96,10 @@ class TestActivity(IntegrationTest):
             assert activity_create.data.task.id == task.id
             assert activity_create.data.hours == hours
             assert activity_create.data.customer.id == customer.id
-            assert activity_create.data.user.id == user.id
+            assert activity_create.data.user.id is not None
     
     def test_create_full(self):
         customer = self.get_customer()
-        user = self.get_user()
         project = self.get_project()
         task = self.get_project_task()
 
@@ -123,11 +142,10 @@ class TestActivity(IntegrationTest):
             assert activity_create.data.remote_id == remote_id
             assert activity_create.data.remote_url == remote_url
             assert activity_create.data.customer.id == customer.id
-            assert activity_create.data.user.id == user.id
+            assert activity_create.data.user.id is not None
 
     def test_update(self):
         customer = self.get_customer()
-        user = self.get_user()
         project = self.get_project()
         task = self.get_project_task()
 
@@ -182,7 +200,7 @@ class TestActivity(IntegrationTest):
             assert activity_update.data.remote_id == remote_id
             assert activity_update.data.remote_url == remote_url
             assert activity_update.data.customer.id == customer.id
-            assert activity_update.data.user.id == user.id
+            assert activity_update.data.user.id is not None
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestActivity.test_getlist"):
@@ -196,7 +214,6 @@ class TestActivity(IntegrationTest):
 
     def test_get(self):
         customer = self.get_customer()
-        user = self.get_user()
         project = self.get_project()
         task = self.get_project_task()
 
@@ -243,7 +260,7 @@ class TestActivity(IntegrationTest):
             assert activity_get.data.remote_id == remote_id
             assert activity_get.data.remote_url == remote_url
             assert activity_get.data.customer.id == customer.id
-            assert activity_get.data.user.id == user.id
+            assert activity_get.data.user.id is not None
 
     def test_start_timer(self):
         project = self.get_project()
@@ -339,3 +356,27 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert activity_create_sec.response.status_code == 200
             assert activity_disregard.response.status_code == 200
+
+    def test_create_impersonate(self):
+        other_user = self.get_other_user()
+        project = self.get_project()
+        task = self.get_project_task()
+
+        self.moco.impersonate(other_user.id)
+
+        activity_create = self.moco.Activity.create(
+            date(2020, 1, 1),
+            project.id,
+            task.id,
+            2,
+            description="dummy description, test impersonate"
+        )
+
+        assert activity_create.response.status_code == 200
+        
+        assert isinstance(activity_create, JsonResponse)
+
+        assert activity_create.user.id == other_user.id
+
+        self.moco.clear_impersonation()
+

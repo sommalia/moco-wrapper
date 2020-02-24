@@ -11,9 +11,9 @@ class UnitTest(object):
     def setup_moco(self):
         """create a moco instance where no requests will be fired against the api"""
         self._moco = moco.Moco(
-            api_key="[HERE IS THE API KEY]",
-            domain="[DOMAIN]",
-            http=RawRequestor(),
+            api_key="<TOKEN>",
+            domain="<DOMAIN>",
+            requestor=RawRequestor(),
             objector=RawObjector()
         )
 
