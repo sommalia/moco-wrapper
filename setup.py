@@ -20,7 +20,7 @@ test_requirements = ['pytest', 'betamax']
 setup(
     author = "sommalia",
     author_email = 'sommalia@tuta.io',
-    python_requires = '>=3.5.0'
+    python_requires = '>=3.5.0',
     classifiers = [
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',

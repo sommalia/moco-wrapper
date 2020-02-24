@@ -140,7 +140,7 @@ class Moco(object):
         }
 
         if self._impersonation_user_id is not None:
-            headers["X-IMPERSONATE-USER-ID"] = self._impersonation_user_id
+            headers["X-IMPERSONATE-USER-ID"] = str(self._impersonation_user_id)
 
         return headers
 
