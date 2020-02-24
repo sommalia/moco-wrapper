@@ -28,6 +28,7 @@ Running the tests
 Tests can be run by executing the **tox** commend inside the root directory of the project.
 
 .. code-block:: shell
+
         $ tox
 
 This command will run all the tests.
@@ -50,21 +51,19 @@ For the integration tests 2 environment variables are needed *mocotest_apikey* a
 License
 -------
 
-This project is licensed under the GNU Public License - see the :ref:LICENSE file for details
+This project is licensed under the GNU Public License - see the `LICENSE`_  file for details
 
 
 Credits
 -------
 
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with `Cookiecutter`_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
 
 This package tries to imitate the way that the praw-package, for wrapping arount the reddit api, was structured
 
-.. praw: https://github.com/praw-dev/praw
-
-....
+.. _`praw`: https://github.com/praw-dev/praw
