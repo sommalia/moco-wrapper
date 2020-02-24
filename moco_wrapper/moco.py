@@ -23,6 +23,7 @@ class Moco(object):
     :param domain: your company specific moco domain part (if your full domain is https://testabcd.mocoapp.com, provide testabcd)
     :param objector: objector (see util.objector)
     :param requestor: requestor (see util.requestor) 
+    :param impersonate_user_id: user id the client should impersonate (default none, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
     """
     def __init__(
         self, 
@@ -30,6 +31,7 @@ class Moco(object):
         domain = None, 
         objector = util.objector.DefaultObjector(), 
         requestor = util.requestor.DefaultRequestor(),
+        impersonate_user_id = None,
         **kwargs):
 
         self.api_key = api_key
@@ -74,6 +76,8 @@ class Moco(object):
             #default: no conversion on reponse objects
             self._objector = util.objector.DefaultObjector()
 
+        self._impersonation_user_id = impersonate_user_id
+
     def request(self, method, path, params=None, data=None, current_try=1):
         """Send a request to an URL with the specified params and data
         :returns an object that was returns by the objetor currently assigned to the moco warpper object
@@ -113,12 +117,31 @@ class Moco(object):
     def patch(self, path, params=None, data=None):
         return self.request("PATCH", path, params=params, data=data)
 
+
+    def impersonate(self, user_id):
+        """
+        Impersontates the user with the supplied user id
+
+        :param user_id: user id to impersonate
+        """
+        self._impersonation_user_id = user_id
+
+    def clear_impersonation(self):
+        """
+        Clears impersonation
+        """
+        self._impersonation_user_id = None
+
     @property
     def headers(self):
         headers = {
             'Content-Type' : 'application/json',
             'Authorization': 'Token token={}'.format(self.api_key)
         }
+
+        if self._impersonation_user_id is not None:
+            headers["X-IMPERSONATE-USER-ID"] = self._impersonation_user_id
+
         return headers
 
     @property

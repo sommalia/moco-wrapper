@@ -76,3 +76,26 @@ class TestMocoWrapper(UnitTest):
         assert new_moco.domain == "domain"
 
         assert isinstance(new_moco._requestor, util.requestor.RawRequestor)
+
+    def test_wrapper_init_impersonation(self):
+        impersonate_user_id = 123
+        new_moco = moco.Moco(impersonate_user_id=impersonate_user_id)
+
+        assert new_moco._impersonation_user_id == impersonate_user_id
+
+    def test_wrapper_impersonate(self):
+        impersonate_user_id = 123
+        new_moco = moco.Moco()
+        new_moco.impersonate(impersonate_user_id)
+
+        assert new_moco._impersonation_user_id == impersonate_user_id
+
+    def test_wrapper_clear_impersonation(self):
+        impersonate_user_id = 123
+        new_moco = moco.Moco()
+        new_moco.impersonate(impersonate_user_id)
+
+        assert new_moco._impersonation_user_id == impersonate_user_id
+
+        new_moco.clear_impersonation()
+        assert new_moco._impersonation_user_id is None
