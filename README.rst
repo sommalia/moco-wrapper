@@ -74,11 +74,3 @@ This package tries to imitate the way that the `praw-package`_, for wrapping aro
 .. _`praw-package`: https://github.com/praw-dev/praw
 .. _`LICENSE`: https://github.com/sommalia/moco-wrapper/blob/master/LICENSE
 .. _`moco-api-readme`: https://github.com/hundertzehn/mocoapp-api-docs
-
-
-
-
-<<<<<<< HEAD
-....
-=======
->>>>>>> 4cf68b534f07f82bb03ddd8ba27d04aa204af982
