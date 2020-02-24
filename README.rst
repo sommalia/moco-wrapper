@@ -10,6 +10,7 @@ moco-wrapper
         :target: https://travis-ci.org/sommalia/moco-wrapper
 
 
+
 The "moco-wrapper" is a python package that allows for simple access to Mocos API. 
 
 
@@ -18,7 +19,7 @@ Disclaimer (semi-serious)
 
 This project is in no way finished, or polished. I am not responsible for any commercial, financial or emotional damage that may or may not be caused by using this project.
 
-I am also not affiliated with the people behind moco. The package implements the api as described in its readme https://github.com/hundertzehn/mocoapp-api-docs
+I am also not affiliated with the people behind moco. The package implements the api as described in the `moco-api-readme`_.
 
 
 
@@ -59,11 +60,16 @@ Credits
 
 
 This package was created with `Cookiecutter`_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package tries to imitate the way that the `praw-package`_, for wrapping arount the reddit api, was structured
+
+
 
 .. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _`praw-package`: https://github.com/praw-dev/praw
+.. _`LICENSE`: https://github.com/sommalia/moco-wrapper/blob/master/LICENSE
+.. _`moco-api-readme`: https://github.com/hundertzehn/mocoapp-api-docs
 
 
-This package tries to imitate the way that the praw-package, for wrapping arount the reddit api, was structured
 
-.. _`praw`: https://github.com/praw-dev/praw
+
