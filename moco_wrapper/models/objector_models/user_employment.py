@@ -1,6 +1,5 @@
 from moco_wrapper.models import objector_models as obj
 
-
 class UserEmployment(object):
     def __init__(
         self,
