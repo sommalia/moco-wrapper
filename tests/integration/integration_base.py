@@ -20,7 +20,7 @@ class IntegrationTest(object):
         self.setup_betamax()
 
     def setup_betamax(self):
-        self.recorder = betamax.Betamax(self._moco.http)
+        self.recorder = betamax.Betamax(self._moco.session)
 
     def setup_moco(self):
         self._moco = moco.Moco(

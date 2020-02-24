@@ -118,12 +118,22 @@ class Moco(object):
         return "https://{}.mocoapp.com/api/v1".format(self.domain)
 
     @property
-    def http(self):
-        """access the http session of the wrappers requestor"""
+    def session(self):
+        """
+        Get the http.session object of the current requestor
+
+        :returns: requestors session object (None if the requestor does not have a session)
+        """
+        
         return self._requestor.session
 
     @property
     def objector(self):
+        """
+        Get the currently assigned objector object
+
+        :returns: the currently assigned objector
+        """
         return self._objector
     
     
