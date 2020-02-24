@@ -71,7 +71,7 @@ class TestMocoWrapper(UnitTest):
         assert isinstance(new_moco._requestor, util.requestor.DefaultRequestor)
 
     def test_wrapper_init_requestor_overwrite(self):
-        new_moco = moco.Moco(api_key="api_key", domain="domain", http=util.requestor.RawRequestor())
+        new_moco = moco.Moco(api_key="api_key", domain="domain", requestor=util.requestor.RawRequestor())
         assert new_moco.api_key == "api_key"
         assert new_moco.domain == "domain"
 

@@ -8,12 +8,12 @@ class TestMocoWrapper(IntegrationTest):
 
     def test_environ_api_key(self):
         print ("set mocotest_apikey environment variable")
-        print ("> export mocotest_apikey=\"[APIKEY]\"")
+        print ("> export mocotest_apikey=\"<TOKEN>\"")
         assert pytest.placeholders.mocotest_apikey is not None
 
     def test_environ_domain(self):
         print ("set mocotest_domain environment variable")
-        print ("> export mocotest_domain=\"[DOMAIN]\"")
+        print ("> export mocotest_domain=\"<DOMAIN>\"")
         assert pytest.placeholders.mocotest_domain is not None
 
     

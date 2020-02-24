@@ -8,15 +8,30 @@ from json import dumps
 
 """Main module."""
 class Moco(object):
-    """The Moco class provides access to moco's api
+    """
+    Main Moco class for handling authentication, object conversion, requesting ressources with the moco api
 
     .. code-block:: python
 
-    import moco_wrapper
-    moco = moco_wrapper.Moco(email='EMAIL_ADDRESS', password='PASSWORD', api_key='API_KEY', domain='DOMAIN')
-
+        import moco_wrapper
+        moco = moco_wrapper.Moco(
+            api_key="<TOKEN>",
+            domain="<DOMAIN>"
+        )
+    
+    :param api_key: user specific api key
+    :param domain: your company specific moco domain part (if your full domain is https://testabcd.mocoapp.com, provide testabcd)
+    :param objector: objector (see util.objector)
+    :param requestor: requestor (see util.requestor) 
     """
-    def __init__(self, api_key = None, domain = None, **kwargs):
+    def __init__(
+        self, 
+        api_key = None, 
+        domain = None, 
+        objector = util.objector.DefaultObjector(), 
+        requestor = util.requestor.DefaultRequestor(),
+        **kwargs):
+
         self.api_key = api_key
         self.domain = domain
 
@@ -47,14 +62,8 @@ class Moco(object):
         self.Offer = models.Offer(self)
         
 
-        self._requestor = None
-        self._objector = None
-
-        for key, value in kwargs.items():
-            if key == "http" or key == "requestor":
-                self._requestor = value
-            elif key == "objector":
-                self._objector = value
+        self._requestor = requestor
+        self._objector = objector
 
         #set default values if not already set
         if self._requestor is None:
@@ -69,7 +78,6 @@ class Moco(object):
         """Send a request to an URL with the specified params and data
         :returns an object that was returns by the objetor currently assigned to the moco warpper object
         """
-
 
         full_path = self.full_domain + path
         response = None
@@ -87,7 +95,7 @@ class Moco(object):
 
 
         #push the response to the current objector
-        return self.objector.convert(response)
+        return self._objector.convert(response)
 
 
     def get(self, path, params=None, data=None):
