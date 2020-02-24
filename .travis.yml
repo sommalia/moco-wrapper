@@ -17,4 +17,7 @@ script: tox
 #env:
 #  - mocotest_apikey="[APIKEY]" mocotest_domain="[DOMAIN]"
 
-
+# blocklist
+branches:
+  except:
+  - documentation

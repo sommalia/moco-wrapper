@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:08:04",
+      "recorded_at": "2020-02-24T17:22:54",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"description\": \"dummy activity, test_update\", \"date\": \"2019-12-31\", \"hours\": 2.3, \"task_id\": 5175630, \"project_id\": 945149353}"
+          "string": "{\"description\": \"dummy activity, test_update\", \"task_id\": 5219401, \"project_id\": 945154259, \"hours\": 2.3, \"date\": \"2019-12-31\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5ySQY+bMBCF/wp6Z7OyMQTwrf9hT70gr5mkbg1E9jhSVOW/VxBI1VbqYY9+evPm88z8hB9h+l53bavrRmC0TDCopOpLVZVaQeDbkmOCqd60wEjJRX9lv8wwGPM03Qvr2N8830XBlHjI1y1E4MOHQCPM2YZEz6f9CATDMZMA2wsMIBBpWpiGRPHmHf2hrXRzDuEl5BgO5RqX7+QYZv9E3ai6140WmO20xuyGwkWyTGNxXuJG6OfLwewp4W+yx4qWfhy5jWqbk5b/pK6eT0S7nHiZKB7x7Um2ddfV6tXgnRJ/2UeKh0BOv9291qeq79tG4Oxj4r1kbQ2BYF+KdW7JM6/17CeKQ2IbmcbB8jG/nX1TUMlKlrIqVfeuWiM7I+uvEHju8v+e9TzCfYjb5cg3+fgVAAD//y1yWLRVAgAA",
+          "base64_string": "H4sIAAAAAAAA/5ySQY+bMBCF/wp6Z7MyNpC1b/0Pe+oFOXiydWsgsscrRVX+ewWBVG2lHvbopzdvPs/MTwQPa4w2r715NQLeMcFCycbUjap1A4FvS0kZVr1oAU95TOHKYZlh4cs03So3cvgIfBMVU+ahXLcQgXOIkTzsxcVMj6c7R4LlVEiA3TssIJBoWpiGTOkjjPSHttLNJcanUFI8lGtavtPIsPsn2q7pWtUZgdlNa8xuqMZEjslXlyVthGF+P5gDZfxNdl/R8o8jt1ONaWXzT+rq+UT0WDIvE6Uj/tTLU6fbvn02eKPMX/aR4i5Q8m+30brXUmkpcAkp816ytoZAdE/FnUe/FnOYKA2ZXWLyg+NjeDv4pkBJJWupatW+NSerlO30Vwg8Fvl/z3ob8Tak7Wzki7z/CgAA//84yjenUgIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "327"
+            "325"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:08:04 GMT"
+            "Mon, 24 Feb 2020 17:22:54 GMT"
           ],
           "Etag": [
-            "W/\"d610ccd4c17c6b9145bac6f4468dc05a\""
+            "W/\"b76b3f7d295330829bbe0083fdbcccba\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a65704e1-b4d9-45e1-85bf-830aa0b5fe80"
+            "3cede3cf-87f9-4259-89ed-fc8e1e8d5834"
           ],
           "X-Runtime": [
-            "0.097142"
+            "0.069698"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,11 +95,11 @@
       }
     },
     {
-      "recorded_at": "2020-02-18T17:08:05",
+      "recorded_at": "2020-02-24T17:22:54",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"remote_url\": \"https://jira.mycompany.com\", \"billable\": true, \"description\": \"activity create description\", \"date\": \"2020-01-01\", \"hours\": 3.5, \"project_id\": 945149353, \"remote_service\": \"jira\", \"tag\": \"test_activity\", \"remote_id\": \"JIRA-123\", \"task_id\": 5175630}"
+          "string": "{\"task_id\": 5219401, \"date\": \"2020-01-01\", \"hours\": 3.5, \"billable\": true, \"tag\": \"test_activity\", \"project_id\": 945154259, \"description\": \"activity create description\", \"remote_url\": \"https://jira.mycompany.com\", \"remote_id\": \"JIRA-123\", \"remote_service\": \"jira\"}"
         },
         "headers": {
           "Accept": [
@@ -125,11 +125,11 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993877345"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993986989"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5xSwW6cMBT8FTRn78ZgWMC3HNtjlVMuyDFvE6cGI/sRaVXtv1dOYbdqpR569Lx582as+QE3Qve96tpW1Y3AaJigUclKHmR5kCUE3sIaE7Q65jklG93CLszQMJbdh+NLYSMZpuL3qcCL855G6LPxiX49zYsnaI4rCbB5hQZT4mHXgUCkKTANieKHs9nKu4vmjme7+Prl2+OhrNQdXqOHxhvzkvTDQ145ThcbpsXMl6MNEwSWGN7JMvSWuW7KuleNEpjNlA9thC3LWJxDLLI7N78Wm0FHCX8GueYk6fuu25Rtc1LyL9XM+Q9puyYOE8Vdvj3Jtu66urwdeKLEj/v/XQXWdGf3Sp2qvm8bgbOLibeVfBoC3twQY21YZ8777CaKQ2ITmcbBMPS8ei+wef9Etn5Uh7J7KlstOy3rZwisy/gvTvO8tclfhvhZNHmU158BAAD//2U30J2EAgAA",
+          "base64_string": "H4sIAAAAAAAA/5xSPW/bMBT8K8LNtEORkh1xy9iORaYsAk09J0ypD5BPAYzC/71gStlFC3ToqNO9+yDuB/wA03W6ezx0j53AYJlgoKSSO1nvZA2Bt3mNCUbvW4GBkot+YT9PMLCO/YfnS+UiWabq978CJx8CDTBnGxL9+rSnQDAcVxJg+woDpsT9pgOBSOPM1CeKH97lKO8+2jue4+Lrl29Pu1rpO7zGAIM35iWZh4d8sh8vbh4XO132bh4hsMT5nRzDlM5NW7eNajuByY7ZqBBKl6E6z7HK6fz0WpWAnhL+LHLNTdL3TbdVddfI+i/VzPkPabcmnkeKm/zxII+tbg7NzeCZEj9t73cVWNOd3Wl90FJpKXD2MXE5ydYQCPaG2JMb8jH7kWKf2EamobcMM60hCJTgn0gZh9qp5rk+GqVMq18gsC7DvzjNS5lSuPTxc2VyL68/AwAA//8Vd6B+gQIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -141,16 +141,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "357"
+            "355"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:08:05 GMT"
+            "Mon, 24 Feb 2020 17:22:54 GMT"
           ],
           "Etag": [
-            "W/\"bc25be1ad1c5e64dbf24150e25385f59\""
+            "W/\"8385764127281d3e9b2a1d465f79220b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "36dc7c1c-31eb-48f4-8dab-5f9684317b94"
+            "dcaeddbf-2ff5-4eda-8f3e-8d83d8520460"
           ],
           "X-Runtime": [
-            "0.068531"
+            "0.099888"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993877345"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993986989"
       }
     }
   ],

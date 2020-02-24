@@ -8,15 +8,32 @@ from json import dumps
 
 """Main module."""
 class Moco(object):
-    """The Moco class provides access to moco's api
+    """
+    Main Moco class for handling authentication, object conversion, requesting ressources with the moco api
 
     .. code-block:: python
 
-    import moco_wrapper
-    moco = moco_wrapper.Moco(email='EMAIL_ADDRESS', password='PASSWORD', api_key='API_KEY', domain='DOMAIN')
-
+        import moco_wrapper
+        moco = moco_wrapper.Moco(
+            api_key="<TOKEN>",
+            domain="<DOMAIN>"
+        )
+    
+    :param api_key: user specific api key
+    :param domain: your company specific moco domain part (if your full domain is https://testabcd.mocoapp.com, provide testabcd)
+    :param objector: objector (see util.objector)
+    :param requestor: requestor (see util.requestor) 
+    :param impersonate_user_id: user id the client should impersonate (default none, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
     """
-    def __init__(self, api_key = None, domain = None, **kwargs):
+    def __init__(
+        self, 
+        api_key = None, 
+        domain = None, 
+        objector = util.objector.DefaultObjector(), 
+        requestor = util.requestor.DefaultRequestor(),
+        impersonate_user_id = None,
+        **kwargs):
+
         self.api_key = api_key
         self.domain = domain
 
@@ -47,14 +64,8 @@ class Moco(object):
         self.Offer = models.Offer(self)
         
 
-        self._requestor = None
-        self._objector = None
-
-        for key, value in kwargs.items():
-            if key == "http" or key == "requestor":
-                self._requestor = value
-            elif key == "objector":
-                self._objector = value
+        self._requestor = requestor
+        self._objector = objector
 
         #set default values if not already set
         if self._requestor is None:
@@ -65,11 +76,12 @@ class Moco(object):
             #default: no conversion on reponse objects
             self._objector = util.objector.DefaultObjector()
 
+        self._impersonation_user_id = impersonate_user_id
+
     def request(self, method, path, params=None, data=None, current_try=1):
         """Send a request to an URL with the specified params and data
         :returns an object that was returns by the objetor currently assigned to the moco warpper object
         """
-
 
         full_path = self.full_domain + path
         response = None
@@ -87,7 +99,7 @@ class Moco(object):
 
 
         #push the response to the current objector
-        return self.objector.convert(response)
+        return self._objector.convert(response)
 
 
     def get(self, path, params=None, data=None):
@@ -105,12 +117,31 @@ class Moco(object):
     def patch(self, path, params=None, data=None):
         return self.request("PATCH", path, params=params, data=data)
 
+
+    def impersonate(self, user_id):
+        """
+        Impersontates the user with the supplied user id
+
+        :param user_id: user id to impersonate
+        """
+        self._impersonation_user_id = user_id
+
+    def clear_impersonation(self):
+        """
+        Clears impersonation
+        """
+        self._impersonation_user_id = None
+
     @property
     def headers(self):
         headers = {
             'Content-Type' : 'application/json',
             'Authorization': 'Token token={}'.format(self.api_key)
         }
+
+        if self._impersonation_user_id is not None:
+            headers["X-IMPERSONATE-USER-ID"] = str(self._impersonation_user_id)
+
         return headers
 
     @property
@@ -118,12 +149,22 @@ class Moco(object):
         return "https://{}.mocoapp.com/api/v1".format(self.domain)
 
     @property
-    def http(self):
-        """access the http session of the wrappers requestor"""
+    def session(self):
+        """
+        Get the http.session object of the current requestor
+
+        :returns: requestors session object (None if the requestor does not have a session)
+        """
+        
         return self._requestor.session
 
     @property
     def objector(self):
+        """
+        Get the currently assigned objector object
+
+        :returns: the currently assigned objector
+        """
         return self._objector
     
     

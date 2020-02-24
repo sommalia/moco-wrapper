@@ -10,6 +10,25 @@ class TestUserPresence(IntegrationTest):
             user = self.moco.User.getlist().items[0]
             return user
 
+    def get_unit(self):
+        with self.recorder.use_cassette("TestUserPresence.get_unit"):
+            unit = self.moco.Unit.getlist().items[0]
+            return unit
+
+    def get_other_user(self):
+        unit = self.get_unit()
+
+        with self.recorder.use_cassette("TestUserPresence.get_other_user"):
+            user_create = self.moco.User.create(
+                "test",
+                "impersonate",
+                "{}@mycompany.com".format(self.id_generator()),
+                self.id_generator(),
+                unit.id
+            )
+
+            return user_create.data
+
     def test_create(self):
         with self.recorder.use_cassette("TestUserPresence.test_create"):
             pre_date = self.create_random_date()
@@ -25,6 +44,7 @@ class TestUserPresence(IntegrationTest):
             assert pre_create.data.date is not None
             assert pre_create.data.from_time == from_time
             assert pre_create.data.to_time == to_time
+            assert pre_create.data.user.id is not None
 
     def test_get(self):
         with self.recorder.use_cassette("TestUserPresence.test_get"):
@@ -44,6 +64,7 @@ class TestUserPresence(IntegrationTest):
             assert pre_get.data.date is not None
             assert pre_get.data.from_time == from_time
             assert pre_get.data.to_time == to_time
+            assert pre_create.data.user.id is not None
 
     def test_getlist(self):
         user = self.get_user()
@@ -87,6 +108,7 @@ class TestUserPresence(IntegrationTest):
             assert pre_update.data.date is not None
             assert pre_update.data.from_time == from_time
             assert pre_update.data.to_time == to_time
+            assert pre_create.data.user.id is not None
 
 
     def test_delete(self):
@@ -115,3 +137,23 @@ class TestUserPresence(IntegrationTest):
             assert pre_touch.response.status_code == 200
             
             assert isinstance(pre_touch, EmptyResponse)
+
+    def test_create_impersonate(self):
+        other_user = self.get_other_user()
+
+        with self.recorder.use_cassette("TestUserPresence.test_create_impersonate"):
+            self.moco.impersonate(other_user.id)
+
+            pre_create = self.moco.UserPresence.create(
+                self.create_random_date(),
+                "10:30",
+                "10:45"
+            )
+
+            assert pre_create.response.status_code == 200
+
+            assert isinstance(pre_create, JsonResponse)
+            
+            assert pre_create.data.user.id == other_user.id
+
+            self.moco.clear_impersonation()

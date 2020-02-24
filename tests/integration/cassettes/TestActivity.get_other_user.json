@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-24T17:22:54",
+      "recorded_at": "2020-02-24T17:26:13",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"task_id\": 5219401, \"date\": \"2020-01-01\", \"hours\": 3.5, \"billable\": true, \"tag\": \"test_activity\", \"project_id\": 945154259, \"description\": \"activity create description\", \"remote_url\": \"https://jira.mycompany.com\", \"remote_id\": \"JIRA-123\", \"remote_service\": \"jira\"}"
+          "string": "{\"email\": \"F0JA5N@mycompany.com\", \"unit_id\": 909165432, \"firstname\": \"Test\", \"lastname\": \"Impersonation\", \"password\": \"H8UCV4\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "264"
+            "127"
           ],
           "Content-Type": [
             "application/json"
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5xSPW/bMBT8K8LNtENRkl1yy9iORaYuAk0+J0wpUSCfAhiF/3vBVI6LdijQUad790HcDwQPo3WnPx20lgLeMsFASSV3st3JFgIvac0FptsPAp6Ky2HhkGYYWMfhLfClcZksU/P7X4FTiJE8zNnGQr8+7SkSDOeVBNg+w4Cp8HjTgUCmKTGNhfJbcDXKa8j2jte4+PL56+OuVd0dXnOEwQvzUszDQz3ZTxeXpsXOl71LEwSWnF7JMczWuR/aoVeDFpjtVI02wtbFN+eUm5ouzM/NFjBQwZ9FrrVJ+X7THVSre9n+pVo5/yHt1sJponyTPx7kcej6Q/9h8ESFH2/vdxVYy52tu+7QSdVJgXPIhbeTag2BaD8Qe3K+HnOYKI+FbWbyo2WYeY1RYAv+jmzjUDvVP7VHo5QZ+m8QWBf/T06dUryM+X1lci+vPwMAAP//DO04GYECAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SPvW4qMRBGX+Xqq83Vrg1EuEqbnirNatidFU78sxqPSRDi3SNEgtKlm3M0+qRzQZjgd85tXWedM5iDVM2UGB57rgqDSA/zkhaWWjJpKBkGNGo4MbxKYwP+VJYMP1OsN0wUIjzm7o02+Tmdx5IWyuf/Y0kwSOUQIg/LseTbNAw+irz/5mNJPNA0Cdd6NyHP5X4dguhxojN8bjEa0ImUZGgSf8zYqpY0LFIWFg1c4S9Xg5aDwn93d7t+u1k7a/BIpvSvx9VgFCblaSCFh+1st+rsyq73/ZO3W9+7Vxi0Zfrj5/oVAAD//z5NnIZhAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "353"
+            "249"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 24 Feb 2020 17:22:54 GMT"
+            "Mon, 24 Feb 2020 17:26:13 GMT"
           ],
           "Etag": [
-            "W/\"01f5ca90b9c42a617cdff6195c161fe7\""
+            "W/\"4040a9b421b701a922e17d5822891e3c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4401f78f-8bb8-4321-9bc7-cb1c67509280"
+            "4e6b3872-6693-4680-b09d-9c5af3f83ff1"
           ],
           "X-Runtime": [
-            "0.073683"
+            "1.876158"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,15 +91,15 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users"
       }
     },
     {
-      "recorded_at": "2020-02-24T17:22:54",
+      "recorded_at": "2020-02-24T17:26:13",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"user_id\": 933630233}"
         },
         "headers": {
           "Accept": [
@@ -114,6 +114,9 @@
           "Connection": [
             "keep-alive"
           ],
+          "Content-Length": [
+            "22"
+          ],
           "Content-Type": [
             "application/json"
           ],
@@ -121,12 +124,12 @@
             "python-requests/2.22.0"
           ]
         },
-        "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993986990"
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945154259/contracts"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5xSPW/bMBT8K8LNtENRkl1yy9iORaYuAk0+J0wpUSCfAhiF/3vBVI6LdijQUad790HcDwQPo3WnPx20lgLeMsFASSV3st3JFgIvac0FptsPAp6Ky2HhkGYYWMfhLfClcZksU/P7X4FTiJE8zNnGQr8+7SkSDOeVBNg+w4Cp8HjTgUCmKTGNhfJbcDXKa8j2jte4+PL56+OuVd0dXnOEwQvzUszDQz3ZTxeXpsXOl71LEwSWnF7JMczWuR/aoVeDFpjtVI02wtbFN+eUm5ouzM/NFjBQwZ9FrrVJ+X7THVSre9n+pVo5/yHt1sJponyTPx7kcej6Q/9h8ESFH2/vdxVYy52tu+7QSdVJgXPIhbeTag2BaD8Qe3K+HnOYKI+FbWbyo2WYeY1RYAv+jmzjUDvVP7VHo5QZ+m8QWBf/T06dUryM+X1lci+vPwMAAP//DO04GYECAAA=",
+          "base64_string": "H4sIAAAAAAAA/4TKPU7EMBBH8bv861nkj92gnRvQb0UTTeIBLDlOZI+REOLuiCYt5fvpfSMn8HXyzt/C7U4YXdv8Z/cYp+hCjIS33LpV2RSMh3YDocgpL9uhre9VLO8VhCWXIktRsLWhBFktf561jPSuBq6jFMLHPlr5mpuYgt2TI6xNxTTNYmAEF9zFhUu4Pvwzh4l9fAVhHOmf5+c3AAD//8yx4abYAAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -138,16 +141,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "353"
+            "171"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 24 Feb 2020 17:22:54 GMT"
+            "Mon, 24 Feb 2020 17:26:13 GMT"
           ],
           "Etag": [
-            "W/\"01f5ca90b9c42a617cdff6195c161fe7\""
+            "W/\"ca3c1b9cec5b161bab76ea56995f8fa0\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -169,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "2058c202-76f5-419e-9948-a6222a0919d5"
+            "056750ac-93ee-4079-9472-67e53fb96395"
           ],
           "X-Runtime": [
-            "0.024288"
+            "0.049253"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993986990"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945154259/contracts"
       }
     }
   ],
