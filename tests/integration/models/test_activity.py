@@ -50,6 +50,7 @@ class TestActivity(IntegrationTest):
 
     def get_other_user(self):
         unit = self.get_unit()
+        project = self.get_project()
 
         with self.recorder.use_cassette("TestActivity.get_other_user"):
             user_create = self.moco.User.create(
@@ -58,6 +59,11 @@ class TestActivity(IntegrationTest):
                 "{}@mycompany.com".format(self.id_generator()),
                 self.id_generator(),
                 unit.id
+            )
+
+            project_contract_create = self.moco.ProjectContract.create(
+                project.id,
+                user_create.data.id
             )
 
             return user_create.data
@@ -362,21 +368,23 @@ class TestActivity(IntegrationTest):
         project = self.get_project()
         task = self.get_project_task()
 
-        self.moco.impersonate(other_user.id)
+        with self.recorder.use_cassette("TestActivity.test_create_impersonate"):
 
-        activity_create = self.moco.Activity.create(
-            date(2020, 1, 1),
-            project.id,
-            task.id,
-            2,
-            description="dummy description, test impersonate"
-        )
+            self.moco.impersonate(other_user.id)
 
-        assert activity_create.response.status_code == 200
-        
-        assert isinstance(activity_create, JsonResponse)
+            activity_create = self.moco.Activity.create(
+                date(2020, 1, 1),
+                project.id,
+                task.id,
+                2,
+                description="dummy description, test impersonate"
+            )
 
-        assert activity_create.user.id == other_user.id
+            assert activity_create.response.status_code == 200
+            
+            assert isinstance(activity_create, JsonResponse)
 
-        self.moco.clear_impersonation()
+            assert activity_create.data.user.id == other_user.id
+
+            self.moco.clear_impersonation()
 
