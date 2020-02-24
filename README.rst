@@ -17,8 +17,13 @@ Disclaimer (semi-serious)
 
 This project is in no way finished, or polished. I am not responsible for any commercial, financial or emotional damage that may or may not be caused by using this project.
 
-I am also not affiliated with the people behind moco. The package implements the api as described in its readme https://github.com/hundertzehn/mocoapp-api-docs
+I am also not affiliated with the people behind moco. The package implements the api as described in its readme https://github.com/hundertzehn/mocoapp-api-docs.
 
+
+API Documentation
+-----------------
+
+API Documentation can be found at here: https://moco-wrapper.readthedocs.io/en/latest/
 
 
 Running the tests
