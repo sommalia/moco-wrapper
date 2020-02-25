@@ -6,6 +6,9 @@ from moco_wrapper.const import API_PATH
 from enum import Enum
 
 class ActivityRemoteService(str, Enum):
+    """
+    Enumeration for allowed values used that can be supplied for the ``remote_service`` argument in :meth:`.Activity.create` and :meth:`.Activity.update`
+    """
     TRELLO = "trello"
     JIRA = "jira"
     ASANA = "asana"
@@ -34,18 +37,18 @@ class Activity(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1,
         ):
-        """get a list of activity objects
+        """
+        get a list of activity objects
 
-        either the from or the to parameter must be supplied
 
         :param from_date: start date
         :param to_date: end date
         :param user_id: user id
-        :param project_id: project the activity belongs to
+        :param project_id: project id the activity belongs to
         :param sort_by: field to sort results by
         :param sort_order: asc or desc
         :param page: page number (default 1)
-        :returns: list of activities
+        :returns: list of activities (in default configuration :class:`moco_wrapper.util.response.ListingResponse`)
         """
 
         params = {}
@@ -77,11 +80,11 @@ class Activity(MWRAPBase):
         self,
         id: int
         ):
-        """get a single avctivity
+        """
+        get a single activity
 
-        :param id: id of the acitivity:
-        :returns: the activity object
-
+        :param id: id of the activity:
+        :returns: list of activities (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
         """
 
         return self._moco.get(API_PATH["activity_get"].format(id=id))
@@ -99,7 +102,8 @@ class Activity(MWRAPBase):
         remote_id: int = None,
         remote_url: str = None
         ):
-        """create an activity
+        """
+        update an activity
 
         :param activity_date: date of the activity
         :parma project_id: id of the project this activity belongs to
@@ -108,7 +112,7 @@ class Activity(MWRAPBase):
         :param description: activity description text
         :param billable: true/false (if this activity is billable) (select none if billing is dependent on project configuration)
         :param tag: a tag string
-        :param remote_server: if this task was created by a remote service, its name will be here. Allowed values are "trello", "jira", "asana", "basecamp", "wunderlist", "basecamp2", "basecamp3", "toggl", "mite", "github", "youtrack"
+        :param remote_server: if this task was created by a remote service, its name will be here. Allowed values are "trello", "jira", "asana", "basecamp", "wunderlist", "basecamp2", "basecamp3", "toggl", "mite", "github", "youtrack", see :class:`ActivityRemoteService`
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
         :returns: the created activity
