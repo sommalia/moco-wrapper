@@ -5,7 +5,7 @@ from enum import Enum
 
 class CommentTargetType(str, Enum):
     """
-    Enumeration for allowed values used that can be supplied for the ``commentable_type`` argument in :meth:`.Comment.create`, :meth:`.Comment.create_bulk` and :meth:`.Comment.get_list`
+    Enumeration for allowed values used that can be supplied for the ``commentable_type`` argument in :meth:`.Comment.create`, :meth:`.Comment.create_bulk` and :meth:`.Comment.getlist`
 
     .. code-block:: python
 
