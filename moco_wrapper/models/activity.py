@@ -8,6 +8,17 @@ from enum import Enum
 class ActivityRemoteService(str, Enum):
     """
     Enumeration for allowed values used that can be supplied for the ``remote_service`` argument in :meth:`.Activity.create` and :meth:`.Activity.update`
+
+    .. code-block:: python
+    
+        from moco_wrapper.models.activity import ActivityRemoteService
+
+        m = Moco()
+        activity_create = m.Activity.create(
+            ..
+            remote_service = ActivityRemoteService.TRELLO
+        )
+
     """
     TRELLO = "trello"
     JIRA = "jira"
