@@ -10,7 +10,7 @@ class ActivityRemoteService(str, Enum):
     Enumeration for allowed values used that can be supplied for the ``remote_service`` argument in :meth:`.Activity.create` and :meth:`.Activity.update`
 
     .. code-block:: python
-    
+
         from moco_wrapper.models.activity import ActivityRemoteService
 
         m = Moco()
@@ -117,7 +117,7 @@ class Activity(MWRAPBase):
         update an activity
 
         :param activity_date: date of the activity
-        :parma project_id: id of the project this activity belongs to
+        :param project_id: id of the project this activity belongs to
         :param task_id: id of the task this activity belongs to (see project tasks)
         :param hours: hours to log to the activity (passing a 0 will start a timer if the date is today)
         :param description: activity description text
