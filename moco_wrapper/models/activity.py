@@ -88,7 +88,7 @@ class Activity(MWRAPBase):
 
     def create(
         self,
-        date: datetime.date,
+        activity_date: datetime.date,
         project_id: int,
         task_id: int,
         hours: float,
@@ -101,7 +101,7 @@ class Activity(MWRAPBase):
         ):
         """create an activity
 
-        :param date: date of the activity
+        :param activity_date: date of the activity
         :parma project_id: id of the project this activity belongs to
         :param task_id: id of the task this activity belongs to (see project tasks)
         :param hours: hours to log to the activity (passing a 0 will start a timer if the date is today)
@@ -120,10 +120,10 @@ class Activity(MWRAPBase):
             "hours": hours,
         }
     
-        if isinstance(date, datetime.date):
-            data["date"] = self.convert_date_to_iso(date)
+        if isinstance(activity_date, datetime.date):
+            data["date"] = self.convert_date_to_iso(activity_date)
         else:
-            data["date"] = date
+            data["date"] = activity_date
 
         for key, value in (
             ("description", description),
@@ -141,7 +141,7 @@ class Activity(MWRAPBase):
     def update(
         self,
         id: int,
-        date: datetime.date = None,
+        activity_date: datetime.date = None,
         project_id: int = None,
         task_id: int = None,
         hours: float = None,
@@ -155,7 +155,7 @@ class Activity(MWRAPBase):
         """create an activity
 
         :param id: id of the activity
-        :param date: date of the activity
+        :param activity_date: date of the activity
         :param project_id: id of the project this activity belongs to
         :param task_id: id of the task this activity belongs to (see project tasks)
         :param hours: hours to log to the activity (passing a 0 will start a timer if the date is today)
@@ -170,7 +170,7 @@ class Activity(MWRAPBase):
 
         data = {}
         for key, value in (
-            ("date", date),
+            ("date", activity_date),
             ("project_id", project_id),
             ("task_id", task_id),
             ("hours", hours),

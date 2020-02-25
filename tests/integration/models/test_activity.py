@@ -177,7 +177,7 @@ class TestActivity(IntegrationTest):
             #update the activity
             activity_update = self.moco.Activity.update(
                 activity_create.data.id,
-                date=activity_date,
+                activity_date=activity_date,
                 project_id=project.id,
                 task_id=task.id,
                 hours=hours,
