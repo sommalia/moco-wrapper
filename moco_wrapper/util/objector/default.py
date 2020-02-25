@@ -70,13 +70,35 @@ class DefaultObjector(BaseObjector):
                 "base": "Schedule"    
             }
         }
+        """
+        dictionary used to find the appropriate classes from url-part-path created in :meth:`get_class_name_from_request_url`
+
+        For example the path ``project=>tasks`` means ``ProjectTask`` is the responsible class. The dictionary contains the following:
+
+        .. code-block:: python
+
+            "projects": {
+                "base" => "Project",
+                "tasks" => "ProjectTask"
+            }
+
+        """
 
 
-    def convert(self, wrapper_response):
-        http_response = wrapper_response.response
+    def convert(self, requestor_response):
+        """
+        converts the data of a response object (for example json) into a python object
 
-        if isinstance(wrapper_response, JsonResponse) or isinstance(wrapper_response, ListingResponse):
-            class_name = self._get_class_name_from_request_url(http_response.request.url)
+        :param requestor_response: response object (see :ref:`response`)
+        :returns: modified response object
+
+        .. note:: only :class:`moco_wrapper.util.response.JsonResponse` and :class:`moco_wrapper.util.response.ListingResponse` are object to this conversion.
+        .. note:: if the method :meth:`get_class_name_from_request_url` that is used to find the right class for conversion, returns ``None``, no conversion of objects will take place
+        """
+        http_response = requestor_response.response
+
+        if isinstance(requestor_response, JsonResponse) or isinstance(requestor_response, ListingResponse):
+            class_name = self.get_class_name_from_request_url(http_response.request.url)
 
             if class_name is not None:
                 class_ = getattr(
@@ -85,37 +107,68 @@ class DefaultObjector(BaseObjector):
                 )
 
                 
-                if isinstance(wrapper_response, JsonResponse):
-                    obj = class_(**wrapper_response.data)
-                    wrapper_response._data = obj
-                elif isinstance(wrapper_response, ListingResponse):
+                if isinstance(requestor_response, JsonResponse):
+                    obj = class_(**requestor_response.data)
+                    requestor_response._data = obj
+                elif isinstance(requestor_response, ListingResponse):
                     new_items = []
 
-                    for item in wrapper_response.items:
+                    for item in requestor_response.items:
                         new_items.append(
                             class_(**item)
                         )
 
-                    wrapper_response._data = new_items
+                    requestor_response._data = new_items
 
-        return wrapper_response
+        return requestor_response
 
-    def _get_class_name_from_request_url(self, url):
+    def get_class_name_from_request_url(self, url):
         """
         finds the class name by analysing the request url
 
         :param url: url to analyse
 
-        the url will look something like this https://test.mocoapp.com/api/v1/projects/1234/tasks?page=1
-        we split the url on the api part and slashes ["projects", 1234, "tasks?page=1"]
-        the we remove id parts and query string parameters ["projects", "tasks"]
-        then with the class map we find the corresponding class name to return
+        This function works as follows:
 
-        "projects" : {
-            "tasks" : "ProjectTask"
-        }
+        The url will look something like this ``https://test.mocoapp.com/api/v1/projects/1234/tasks?page=1``.
+        We split the url on ``/api/v1/``.
+            
+            ``[https://test.mocoapp.com", "projects/1234/tasks?page=1"]``
 
-        "ProjectTask will get returned"
+        After that we throw away the first part and split the second part on the slash character:
+
+            ``["projects", 1234, "tasks?page=1"]``
+
+        Then we remove all query string parameters:
+        
+            ``["projects", 1234, "tasks"]``
+
+        Then we remove all parts that are ids(digits):
+        
+            ``["projects", "tasks"]``
+
+        Now that we have our path ``projects=>tasks``, we use the :attr:`class_map` to find the right classname.
+
+        The map is a dictionary that looks something like this:
+
+        .. code-block:: python
+
+            class_map = {
+                "activities" => {
+                    "base" => "Activity"
+                    "disregard" => None
+                },
+                "projects": {
+                    "base" => "Project",
+                    "tasks" => "ProjectTask"
+                },
+                "users" => { .. },
+                "companies" => { .. }
+            }
+
+        We use the path we generated and walk our class_map until we get the entry at the end of the path. In our case that would be ``ProjectTask``. As this value is a string that is our final classname.
+
+        .. note:: if the final value is a dictionary, the base case will be returned. For example if path was ``projects``, the value at the end of our path is a dictionary. If that is the case the *base* key will be used. 
         """
         
         parts = url.split("/api/v1/")[-1].split("/")
@@ -147,15 +200,3 @@ class DefaultObjector(BaseObjector):
             return current_map #current map is a specific class name
         elif isinstance(current_map, dict):
             return current_map["base"] #more cases are present but we need the base case
-
-        if isinstance(current_map, str):
-            return current_map
-        elif isinstance(current_map, dict):
-            return current_map["base"]
-        elif current_map == None:
-            return None
-
-        
-
-
-        

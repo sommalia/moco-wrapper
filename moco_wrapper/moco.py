@@ -22,7 +22,7 @@ class Moco(object):
     :param api_key: user specific api key
     :param domain: your company specific moco domain part (if your full domain is https://testabcd.mocoapp.com, provide testabcd)
     :param objector: objector (see util.objector)
-    :param requestor: requestor (see util.requestor) 
+    :param requestor: class that defines how the moco-wrapper will request the api (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
     :param impersonate_user_id: user id the client should impersonate (default none, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
     """
     def __init__(
