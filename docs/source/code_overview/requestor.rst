@@ -1,6 +1,6 @@
 .. _requestor:
 
-Requestors
+Requestor
 ==========
 
 .. _requestor_types:

@@ -4,14 +4,10 @@ The Moco Instance
 .. autoclass:: moco_wrapper.Moco
    :inherited-members:
 
-
-The moco instance talks with the api endpoints represented by the following models:
-
-
 .. _moco_instance_endpoints:
 .. toctree::
-   :maxdepth: 2
-   :caption: Endpoints
+   :maxdepth: 1
+   :caption: API Endpoints
 
    endpoints/activity
    endpoints/comment
@@ -33,3 +29,4 @@ The moco instance talks with the api endpoints represented by the following mode
    endpoints/user_employment
    endpoints/user_holiday
    endpoints/user_presence
+
