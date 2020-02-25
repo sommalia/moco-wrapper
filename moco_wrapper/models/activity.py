@@ -1,7 +1,8 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
 
-from datetime import date
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
+
 from enum import Enum
 
 class ActivityRemoteService(str, Enum):
@@ -25,20 +26,20 @@ class Activity(MWRAPBase):
 
     def getlist(
         self,
-        from_date: date,
-        to_date: date,
+        from_date: datetime.date,
+        to_date: datetime.date,
         user_id: int = None,
         project_id: int = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1,
         ):
-        """get a list of acitivty objects
+        """get a list of activity objects
 
         either the from or the to parameter must be supplied
 
-        :param from_date: start date (format YYYY-MM-DD)
-        :param to_date: end date (format YYYY-MM-DD)
+        :param from_date: start date
+        :param to_date: end date
         :param user_id: user id
         :param project_id: project the activity belongs to
         :param sort_by: field to sort results by
@@ -49,13 +50,13 @@ class Activity(MWRAPBase):
 
         params = {}
 
-        if isinstance(from_date, date):
-            params["from"] = from_date.isoformat()
+        if isinstance(from_date, datetime.date):
+            params["from"] = self.convert_date_to_iso(from_date)
         else:
             params["from"] = from_date
 
-        if isinstance(to_date, date):
-            params["to"] = to_date.isoformat()
+        if isinstance(to_date,  datetime.date):
+            params["to"] = self.convert_date_to_iso(to_date)
         else:
             params["to"] = to_date
 
@@ -87,7 +88,7 @@ class Activity(MWRAPBase):
 
     def create(
         self,
-        activity_date: date,
+        date: datetime.date,
         project_id: int,
         task_id: int,
         hours: float,
@@ -100,7 +101,7 @@ class Activity(MWRAPBase):
         ):
         """create an activity
 
-        :param date: date of the activity, use date or supply string in format YYYY-MM-DD
+        :param date: date of the activity
         :parma project_id: id of the project this activity belongs to
         :param task_id: id of the task this activity belongs to (see project tasks)
         :param hours: hours to log to the activity (passing a 0 will start a timer if the date is today)
@@ -119,10 +120,10 @@ class Activity(MWRAPBase):
             "hours": hours,
         }
     
-        if isinstance(activity_date, date):
-            data["date"] = activity_date.isoformat()
+        if isinstance(date, datetime.date):
+            data["date"] = self.convert_date_to_iso(date)
         else:
-            data["date"] = activity_date
+            data["date"] = date
 
         for key, value in (
             ("description", description),
@@ -140,7 +141,7 @@ class Activity(MWRAPBase):
     def update(
         self,
         id: int,
-        activity_date: date = None,
+        date: datetime.date = None,
         project_id: int = None,
         task_id: int = None,
         hours: float = None,
@@ -154,7 +155,7 @@ class Activity(MWRAPBase):
         """create an activity
 
         :param id: id of the activity
-        :param date: date of the activity, use date or supply string in format YYYY-MM-DD
+        :param date: date of the activity
         :param project_id: id of the project this activity belongs to
         :param task_id: id of the task this activity belongs to (see project tasks)
         :param hours: hours to log to the activity (passing a 0 will start a timer if the date is today)
@@ -169,7 +170,7 @@ class Activity(MWRAPBase):
 
         data = {}
         for key, value in (
-            ("date", activity_date),
+            ("date", date),
             ("project_id", project_id),
             ("task_id", task_id),
             ("hours", hours),
@@ -181,8 +182,8 @@ class Activity(MWRAPBase):
             ("remote_url", remote_url)
         ):
             if value is not None:
-                if key == "date" and isinstance(activity_date, date):
-                    data[key] = value.isoformat()
+                if key in ["date"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)
                 else:
                     data[key] = value
 

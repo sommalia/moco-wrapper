@@ -1,9 +1,9 @@
+import datetime
+
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
 from moco_wrapper.models.activity import ActivityRemoteService
 
 from .. import IntegrationTest
-
-from datetime import date
 
 class TestActivity(IntegrationTest):
 
@@ -29,7 +29,7 @@ class TestActivity(IntegrationTest):
             project_create = self.moco.Project.create(
                 "project created for testing activities", 
                 "EUR", 
-                date(2020, 1, 1), 
+                datetime.date(2020, 1, 1), 
                 user.id, 
                 customer.id
             )
@@ -79,7 +79,7 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_create"):
-            activity_date = date(2020, 1, 1)
+            activity_date = datetime.date(2020, 1, 1)
             hours = 3.5
             description = "activity create description"
             
@@ -110,7 +110,7 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_create_full"):
-            activity_date = date(2020, 1, 1)
+            activity_date = datetime.date(2020, 1, 1)
             hours = 3.5
             description = "activity create description"
             billable = True
@@ -156,7 +156,7 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_update"):
-            activity_date = date(2020, 1, 1)
+            activity_date = datetime.date(2020, 1, 1)
             hours = 3.5
             description = "activity create description"
             billable = True
@@ -167,7 +167,7 @@ class TestActivity(IntegrationTest):
             
             #create the activity
             activity_create = self.moco.Activity.create(
-                date(2019, 12, 31), 
+                datetime.date(2019, 12, 31), 
                 project.id, 
                 task.id, 
                 2.3, 
@@ -177,7 +177,7 @@ class TestActivity(IntegrationTest):
             #update the activity
             activity_update = self.moco.Activity.update(
                 activity_create.data.id,
-                activity_date=activity_date,
+                date=activity_date,
                 project_id=project.id,
                 task_id=task.id,
                 hours=hours,
@@ -210,8 +210,8 @@ class TestActivity(IntegrationTest):
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestActivity.test_getlist"):
-            from_date = date(1990, 1, 1)
-            to_date = date(2020, 1, 1)
+            from_date = datetime.date(1990, 1, 1)
+            to_date = datetime.date(2020, 1, 1)
             activity_getlist = self.moco.Activity.getlist(from_date, to_date)
             
             assert activity_getlist.response.status_code == 200
@@ -224,7 +224,7 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_get"):
-            activity_date = date(2020, 1, 1)
+            activity_date = datetime.date(2020, 1, 1)
             hours = 3.5
             description = "activity create description"
             billable = True
@@ -274,7 +274,7 @@ class TestActivity(IntegrationTest):
 
         with self.recorder.use_cassette("TestActivity.test_start_timer"):
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1), 
+                datetime.date(2021, 1, 1), 
                 project.id, 
                 task.id, 
                 0.5,
@@ -295,7 +295,7 @@ class TestActivity(IntegrationTest):
 
         with self.recorder.use_cassette("TestActivity.test_stop_timer"):
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1), 
+                datetime.date(2021, 1, 1), 
                 project.id, 
                 task.id, 
                 0.5,
@@ -316,7 +316,7 @@ class TestActivity(IntegrationTest):
 
         with self.recorder.use_cassette("TestActivity.test_delete"):
             activity_create = self.moco.Activity.create(
-                date(2020, 1, 1),
+                datetime.date(2020, 1, 1),
                 project.id,
                 task.id,
                 0.5,
@@ -337,7 +337,7 @@ class TestActivity(IntegrationTest):
 
         with self.recorder.use_cassette("TestActivity.test_disregard"):
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1), 
+                datetime.date(2021, 1, 1), 
                 project.id, 
                 task.id, 
                 0.5,
@@ -345,7 +345,7 @@ class TestActivity(IntegrationTest):
             )
 
             activity_create_sec = self.moco.Activity.create(
-                date(2021, 1, 1), 
+                datetime.date(2021, 1, 1), 
                 project.id, 
                 task.id, 
                 1,
@@ -373,7 +373,7 @@ class TestActivity(IntegrationTest):
             self.moco.impersonate(other_user.id)
 
             activity_create = self.moco.Activity.create(
-                date(2020, 1, 1),
+                datetime.date(2020, 1, 1),
                 project.id,
                 task.id,
                 2,
