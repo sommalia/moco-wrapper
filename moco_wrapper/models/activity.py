@@ -84,7 +84,7 @@ class Activity(MWRAPBase):
         get a single activity
 
         :param id: id of the activity:
-        :returns: list of activities (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: the activity object (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
         """
 
         return self._moco.get(API_PATH["activity_get"].format(id=id))
@@ -112,10 +112,10 @@ class Activity(MWRAPBase):
         :param description: activity description text
         :param billable: true/false (if this activity is billable) (select none if billing is dependent on project configuration)
         :param tag: a tag string
-        :param remote_server: if this task was created by a remote service, its name will be here. Allowed values are "trello", "jira", "asana", "basecamp", "wunderlist", "basecamp2", "basecamp3", "toggl", "mite", "github", "youtrack", see :class:`ActivityRemoteService`
+        :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
-        :returns: the created activity
+        :returns: the created activity (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
         """
 
         data = {
@@ -166,10 +166,10 @@ class Activity(MWRAPBase):
         :param description: activity description text
         :param billable: true/false (if this activity is billable) (select none if billing is dependent on project configuration)
         :param tag: a tag string
-        :param remote_server: if this task was created by a remote service, its name will be here. Allowed values are "trello", "jira", "asana", "basecamp", "wunderlist", "basecamp2", "basecamp3", "toggl", "mite", "github", "youtrack"
+        :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
-        :returns: the created activity
+        :returns: the updated activity (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
         """
 
         data = {}
@@ -214,7 +214,7 @@ class Activity(MWRAPBase):
         """stop a timer on the specified activity
 
         :param id: id of the activity
-        :returns: the activity the timer was stopped for
+        :returns: the activity the timer was stopped for (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
         """
 
         return self._moco.patch(API_PATH["activity_stop_timer"].format(id=id))
@@ -226,6 +226,7 @@ class Activity(MWRAPBase):
         """delete an activity
 
         :param id: id of the activity to delete
+        :returns: empty response on success (in default configuration :class:`moco_wrapper.util.response.EmptyResponse`)
         """
 
         return self._moco.delete(API_PATH["activity_delete"].format(id=id))
@@ -239,11 +240,11 @@ class Activity(MWRAPBase):
         ):
         """mark one or more activities as "already billed"
 
-        :param reason: reason text for disregarding the activities
-        :param activity_ids: array of activity ids to disregard
-        :param company_id: customer id these activities belong to
+        :param reason: reason text for disregarding these activities
+        :param activity_ids: list of activity ids to disregard
+        :param company_id: company id these activities belong to
         :param project_id: project id these activities belong to  
-        :returns: list with the acitivity id that were disregarded
+        :returns: list with the activity ids that were disregarded (in default configuration :class:`moco_wrapper.util.response.ListingResponse`)
         """
 
         data = {
