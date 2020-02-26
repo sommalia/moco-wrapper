@@ -1,0 +1,99 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-02-26T10:55:04",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"firstname\": \"dummy contact\", \"lastname\": \"test create with supplier\", \"gender\": \"F\", \"customer_id\": 760755198}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "112"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4TQzU7jMBQF4FeJztqV3GSStt6ONE/Q1SAUubHbGPwn+4YSVX13FFIghQXLe+6xZX8XGAVR1du62TGctFc6QeAfGI4mZfLSaQiowbmx6IIn2REYrPxckc5UdElL0sXZUF/kIUZrdAIDGbJTBwxP4dDGkA2Z4OfEhYOxuo198LfOOaTn9ihfF9P3rXbS2MUslUo65znpg9PLxvt81ziYRL2SI4QfrGWQL5JkaodkPxKSpwzx8MjQDZmCa2MKUScyOkNcrgxdcFH6EWKm2zR8U9fr3ZaBxjg9dfH/G9FeZ/o7233pXBmGPGHP9+yqqql4xct7+En3p/d0eCZXrSQIlLzkK16uyma/5qKuBf/zHwxDVL92jD+GCef6FgAA//8x5sp9CwIAAA==",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "304"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Wed, 26 Feb 2020 10:55:04 GMT"
+          ],
+          "Etag": [
+            "W/\"f11d01609b4c06ba63353cd50d6020f4\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "6431bce5-00d8-48d4-9303-5c22868ea776"
+          ],
+          "X-Runtime": [
+            "0.045267"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

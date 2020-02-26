@@ -6,9 +6,6 @@ from moco_wrapper.const import API_PATH
 from enum import Enum
 
 class ContactGender(str, Enum):
-
-
-
     MALE = "M"
     FEMALE = "F"
     UNDEFINED = "U"
@@ -32,8 +29,7 @@ class Contact(MWRAPBase):
         firstname: str,
         lastname: str,
         gender: ContactGender,
-        customer_id: int = None,
-        organization_id: int = None,
+        company_id: int = None,
         title: str = None,
         job_position: str = None,
         mobile_phone: str = None,
@@ -52,8 +48,7 @@ class Contact(MWRAPBase):
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
         :param gender: gender of the contact. For allowed values see :class:`.ContactGender`.
-        :param customer_id: Id of the customer (company) the contact belongs to
-        :param organization_id: Id of the organization (company) the contact belongs to
+        :param company_id: Id of the company the contact belongs to
         :param title: Job title the contact has
         :param job_position: Name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
@@ -69,10 +64,6 @@ class Contact(MWRAPBase):
         :returns: The created contact object
         """
 
-
-        if customer_id is not None and organization_id is not None:
-            raise ValueError("Please specify either organization id or customer id (not both)")
-
         data = {
             "firstname" : firstname,
             "lastname" : lastname,
@@ -80,8 +71,7 @@ class Contact(MWRAPBase):
         }
 
         for key, value in (
-            ("customer_id", customer_id),
-            ("organization_id", organization_id),
+            ("customer_id", company_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
@@ -96,7 +86,7 @@ class Contact(MWRAPBase):
             ("tags", tags)
         ):
             if value is not None:
-                if isinstance(value, date):
+                if isinstance(value, datetime.date):
                     data[key] = value.isoformat()
                 else:
                     data[key] = value
@@ -109,8 +99,7 @@ class Contact(MWRAPBase):
         firstname: str = None,
         lastname: str = None,
         gender: ContactGender = None,
-        customer_id: int = None,
-        organization_id: int = None,
+        company_id: int = None,
         title: str = None,
         job_position: str = None,
         mobile_phone: str = None,
@@ -120,7 +109,7 @@ class Contact(MWRAPBase):
         work_address: str = None,
         home_address: str = None,
         home_email: str = None,
-        birthday: date = None,
+        birthday: datetime.date = None,
         info: str = None,
         tags: list = None
         ):
@@ -130,8 +119,7 @@ class Contact(MWRAPBase):
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
         :param gender: either F, M, U
-        :param customer_id: Id of the customer (company) the contact belongs to
-        :param organization: Id of the organization (company) the contact belongs toa
+        :param company_id: Id of the company the contact belongs to
         :param title: Title the contact has
         :param job_position: name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
@@ -147,17 +135,13 @@ class Contact(MWRAPBase):
         :returns: the created contact object
         """
 
-        if customer_id is not None and organization_id is not None:
-            raise ValueError("Please specify either organization id or customer id (not both)")
-
 
         data = {}
         for key, value in (
             ("firstname", firstname),
             ("lastname", lastname),
             ("gender", gender),
-            ("customer_id", customer_id),
-            ("organization_id", organization_id),
+            ("customer_id", company_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
@@ -173,7 +157,7 @@ class Contact(MWRAPBase):
             ):
 
             if value is not None:
-                if key == "birthday" and isinstance(value, date):
+                if key == "birthday" and isinstance(value, datetime.date):
                     data[key] = value.isoformat()
                 else:
                     data[key] = value

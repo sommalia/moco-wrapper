@@ -22,7 +22,7 @@ class TestContact(UnitTest):
         info = "Information for this company"
         tags = ["Christmas Card", "Project Lead"]
 
-        response = self.moco.Contact.create(firstname, lastname, gender, customer_id=organization_id, title=title, job_position=job_position, mobile_phone=mobile_phone, work_fax=work_fax, work_phone=work_phone, work_email=work_email, work_address=work_address, home_email=home_email, home_address=home_address, birthday=birthday, info=info, tags=tags)
+        response = self.moco.Contact.create(firstname, lastname, gender, company_id=organization_id, title=title, job_position=job_position, mobile_phone=mobile_phone, work_fax=work_fax, work_phone=work_phone, work_email=work_email, work_address=work_address, home_email=home_email, home_address=home_address, birthday=birthday, info=info, tags=tags)
 
         data = response["data"]
 
@@ -64,7 +64,7 @@ class TestContact(UnitTest):
         info = "Information for this company"
         tags = ["Christmas Card", "Project Lead"]
 
-        response = self.moco.Contact.update(contact_id, firstname=firstname, lastname=lastname, job_position=job_position, gender=gender, customer_id=organization_id, title=title, mobile_phone=mobile_phone, work_fax=work_fax, work_phone=work_phone, work_email=work_email, work_address=work_address, home_email=home_email, home_address=home_address, birthday=birthday, info=info, tags=tags)
+        response = self.moco.Contact.update(contact_id, firstname=firstname, lastname=lastname, job_position=job_position, gender=gender, company_id=organization_id, title=title, mobile_phone=mobile_phone, work_fax=work_fax, work_phone=work_phone, work_email=work_email, work_address=work_address, home_email=home_email, home_address=home_address, birthday=birthday, info=info, tags=tags)
 
         data = response["data"]
 
