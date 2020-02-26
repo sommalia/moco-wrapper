@@ -51,9 +51,9 @@ class TestProjectContract(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test contract getlist",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),  
             )
 
             contract_list = self.moco.ProjectContract.getlist(project_create.data.id)
@@ -72,9 +72,9 @@ class TestProjectContract(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test contract create",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
 
             billable = False
@@ -114,9 +114,9 @@ class TestProjectContract(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test contract get",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
 
             billable = False
@@ -163,9 +163,9 @@ class TestProjectContract(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test contract update",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
 
             billable = False
@@ -215,9 +215,9 @@ class TestProjectContract(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test contract get",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
 
             billable = False

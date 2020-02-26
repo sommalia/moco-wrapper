@@ -48,9 +48,9 @@ class TestOffer(IntegrationTest):
             project_create = self.moco.Project.create(
                 "project for offer creation",
                 "EUR",
-                date(2020, 1, 1),
                 leader.id,
                 customer.id,
+                finish_date=date(2020, 1, 1),
                 )
             
             return project_create.data

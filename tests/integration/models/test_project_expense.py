@@ -27,9 +27,9 @@ class TestProjectExpense(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test expense",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
 
             return project_create.data

@@ -53,9 +53,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 name,
                 currency,
-                finish_date,
                 user.id,
-                customer.id
+                customer.id,
+                finish_date=finish_date
             )
 
             assert project_create.response.status_code == 200
@@ -86,9 +86,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 name,
                 currency,
-                finish_date,
                 user.id,
                 customer.id,
+                finish_date=finish_date,
                 billing_address=billing_address,
                 billing_variant=billing_variant,
                 hourly_rate=hourly_rate,
@@ -131,9 +131,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 name,
                 currency,
-                finish_date,
                 user.id,
                 customer.id,
+                finish_date=finish_date,
                 billing_address=billing_address,
                 billing_variant=billing_variant,
                 hourly_rate=hourly_rate,
@@ -180,9 +180,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test update",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
             
             project_update = self.moco.Project.update(
@@ -227,9 +227,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test contracts",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date=date(2020, 1, 1),
             )
 
             contract_create = self.moco.ProjectContract.create(
@@ -259,9 +259,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test tasks",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date=date(2020, 1, 1),
             )
 
             task_create = self.moco.ProjectTask.create(
@@ -317,9 +317,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test archive",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
 
             project_archive = self.moco.Project.archive(project_create.data.id)
@@ -340,9 +340,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test unarchive",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
 
             project_archive = self.moco.Project.archive(project_create.data.id)
@@ -365,9 +365,9 @@ class TestProject(IntegrationTest):
             project_create = self.moco.Project.create(
                 "dummy project, test report",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date = date(2020, 1, 1),
             )
             
             project_report = self.moco.Project.report(project_create.data.id)

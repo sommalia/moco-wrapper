@@ -20,7 +20,7 @@ class TestProject(UnitTest):
         }
         info = "more information about boards"
 
-        response = self.moco.Project.create(name, currency, finish_date, leader_id, customer_id, identifier=identifier, billing_address=billing_address, billing_variant=billing_variant, hourly_rate=hourly_rate, budget=budget, labels=labels, custom_properties=custom_properties, info=info)
+        response = self.moco.Project.create(name, currency, leader_id, customer_id,  finish_date=finish_date, identifier=identifier, billing_address=billing_address, billing_variant=billing_variant, hourly_rate=hourly_rate, budget=budget, labels=labels, custom_properties=custom_properties, info=info)
         data = response["data"]
 
         assert data["name"] == name

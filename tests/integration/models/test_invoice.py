@@ -31,9 +31,9 @@ class TestInvoice(IntegrationTest):
             project_create = self.moco.Project.create(
                 "TestInvoice",
                 "EUR",
-                date(2020, 1, 1),
                 user.id,
-                customer.id
+                customer.id,
+                finish_date=date(2020, 1, 1),
             )
 
             return project_create.data

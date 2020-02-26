@@ -22,9 +22,9 @@ class Project(MWRAPBase):
         self,
         name: str,
         currency: ProjectCurrency,
-        finish_date: date,
         leader_id: int,
         customer_id: int,
+        finish_date: date = None,
         identifier: str = None,
         billing_address: str = None,
         billing_variant: ProjectBillingVariant = None,
@@ -38,9 +38,9 @@ class Project(MWRAPBase):
 
         :param name: name of the project
         :param currency: currency of the project (EUR) (use project.ProjectCurrency)
-        :param finish_date: finish date formatted YYYY-MM-DD
         :param leader_id: user id of the project leader
         :param customer_id: company id of the customer
+        :param finish_date: finish date 
         :param identifier: project identifier is only mandatory if number ranges are manual
         :param billing_address: billing adress the invoices go to
         :param billing_variant: "project", "task" or "user" (default is project) (use project.ProjectBillingVariant)
@@ -58,14 +58,9 @@ class Project(MWRAPBase):
             "customer_id": customer_id
         }
 
-    
-        if isinstance(finish_date, date):
-            data["finish_date"] = finish_date.isoformat()
-        else:
-            data["finish_date"] = finish_date
-
 
         for key, value in (
+            ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),
             ("billing_variant", billing_variant),
@@ -76,7 +71,10 @@ class Project(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                data[key] = value
+                if key in ["finish_date"] and isinstance(value, date):
+                    data[key] = value.isoformat()
+                else:
+                    data[key] = value
                 
         return self._moco.post(API_PATH["project_create"], data=data)
 
@@ -84,9 +82,9 @@ class Project(MWRAPBase):
         self,
         id: int,
         name: str = None,
-        finish_date: date = None,
         leader_id: int = None,
         customer_id: int = None,
+        finish_date: date = None,
         identifier: str = None,
         billing_address: str = None,
         billing_variant: ProjectBillingVariant = None,
@@ -100,9 +98,9 @@ class Project(MWRAPBase):
 
         :param id: id of the project to update
         :param name: name of the project
-        :param finish_date: finish date formatted YYYY-MM-DD
         :param leader_id: user id of the project leader
         :param customer_id: company id of the customer
+        :param finish_date: finish date formatted YYYY-MM-DD
         :param identifier: only mandatory if number ranges are manual
         :param billing_address: adress the invoices go to
         :param billing_variant: project, task or user (default is project)
@@ -117,9 +115,9 @@ class Project(MWRAPBase):
         data = {}
         for key, value in (
             ("name", name),
-            ("finish_date", finish_date),
             ("leader_id", leader_id),
             ("customer_id", customer_id),
+            ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),
             ("billing_variant", billing_variant),
@@ -130,7 +128,7 @@ class Project(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                if key == "finish_date" and isinstance(value, date):
+                if key in ["finish_date"] and isinstance(value, date):
                     data[key] = value.isoformat()
                 else:
                     data[key] = value
