@@ -10,7 +10,8 @@ class CompanyType(str, Enum):
     Example Usage:
 
     .. code-block:: python
-    
+
+        from moco_wrapper import Moco
         from moco_wrapper.models.company import CompanyType
 
         m = Moco()
@@ -33,6 +34,8 @@ class Company(MWRAPBase):
     Example usage:
 
     .. code-block:: python
+    
+        from moco_wrapper import Moco
 
         m = Moco()
         new_customer = m.Company.create(

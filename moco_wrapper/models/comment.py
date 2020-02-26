@@ -8,7 +8,8 @@ class CommentTargetType(str, Enum):
     Enumeration for allowed values used that can be supplied for the ``commentable_type`` argument in :meth:`.Comment.create`, :meth:`.Comment.create_bulk` and :meth:`.Comment.getlist`
 
     .. code-block:: python
-
+    
+        from moco_wrapper import Moco
         from moco_wrapper.models.comment import CommentTargetType
 
         m = Moco()
@@ -36,7 +37,8 @@ class Comment(MWRAPBase):
     Example Usage:
 
     .. code-block:: python
-
+    
+    
         m = Moco()
         project_id = 22
         comment_create = m.Comment.create(

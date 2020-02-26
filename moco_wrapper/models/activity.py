@@ -11,6 +11,7 @@ class ActivityRemoteService(str, Enum):
 
     .. code-block:: python
 
+        from moco_wrapper import Moco
         from moco_wrapper.models.activity import ActivityRemoteService
 
         m = Moco()
@@ -42,6 +43,8 @@ class Activity(MWRAPBase):
     Example Usage:
 
     .. code-block:: python
+
+        from moco_wrapper import Moco
 
         m = Moco()
         project_id = 2
