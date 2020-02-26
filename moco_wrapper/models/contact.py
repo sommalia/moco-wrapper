@@ -1,24 +1,30 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
+
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
-from datetime import date
 
 class ContactGender(str, Enum):
+
+
+
     MALE = "M"
     FEMALE = "F"
     UNDEFINED = "U"
 
 class Contact(MWRAPBase):
-    """Class for handling contacts"""
+    """
+    Class for handling contacts
+    
+    """
 
     def __init__(self, moco):
-        """Initialize a contact instance
-
-        :param moco: An instance of :class Moco
-
         """
+        Class Constructor
 
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -37,29 +43,30 @@ class Contact(MWRAPBase):
         work_address: str = None,
         home_address: str = None,
         home_email: str = None,
-        birthday: date = None,
+        birthday: datetime.date = None,
         info: str = None,
         tags: list = None):
-        """creates a contact.
+        """
+        Creates a contact.
 
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
-        :param gender: gender of the contact (f, m or u) (user contact.ContactGender)
+        :param gender: gender of the contact. For allowed values see :class:`.ContactGender`.
         :param customer_id: Id of the customer (company) the contact belongs to
         :param organization_id: Id of the organization (company) the contact belongs to
-        :param title: Title the contact has
-        :param job_position: name of the job position this contact has
+        :param title: Job title the contact has
+        :param job_position: Name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
-        :param work_fax: Fax number for work purposes
-        :param work_phone: Phone number for work purposes
+        :param work_fax: Work fax number
+        :param work_phone: Work phone number
         :param work_email: Work email address
-        :param work_address: Work address
-        :param home_address: Home address
-        :param home_email: home email address
-        :param birthday: Birthday date (datetime.date)
+        :param work_address: Physical work address
+        :param home_address: Physical home address
+        :param home_email: Home email address
+        :param birthday: Birthday date
         :param info: More information about the contact
         :param tags: Array of additional tags
-        :returns: the created contact object
+        :returns: The created contact object
         """
 
 
