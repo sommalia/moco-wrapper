@@ -1,6 +1,6 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse
 from moco_wrapper.models.contact import ContactGender
-from moco_wrapper.models.company import CompanyType, CompanyCurrency
+from moco_wrapper.models.company import CompanyType
 
 from datetime import date
 

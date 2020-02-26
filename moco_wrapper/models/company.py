@@ -1,5 +1,5 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
@@ -8,18 +8,19 @@ class CompanyType(str, Enum):
     SUPPLIER = "supplier",
     ORGANIZATION = "organization"
 
-class CompanyCurrency(str, Enum):
-    EUR = "EUR"
 
 class Company(MWRAPBase):
-    """Class for handling companies/customers"""
+    """
+    Class for handling companies
+    
+    """
 
 
     def __init__(self, moco):
-        """Initialize a company instance
+        """
+        Class Constructor
 
-        :param moco: An instance of :class Moco
-
+        :param moco: An instance of :class:`moco_wrapper.Moco`
         """
         self._moco = moco
 
@@ -36,7 +37,7 @@ class Company(MWRAPBase):
         custom_properties: dict = None,
         labels: list = None,
         user_id: int = None,
-        currency: CompanyCurrency = None,
+        currency: str = None,
         identifier: str = None,
         billing_tax: float = None,
         default_invoice_due_days: int = None,
@@ -123,7 +124,7 @@ class Company(MWRAPBase):
         custom_properties: dict = None,
         labels: list = None,
         user_id: int = None,
-        currency: CompanyCurrency = None,
+        currency: str = None,
         identifier: str = None,
         billing_tax: float = None,
         default_invoice_due_days: int = None,

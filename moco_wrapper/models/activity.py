@@ -34,8 +34,43 @@ class ActivityRemoteService(str, Enum):
 
 
 class Activity(MWRAPBase):
+    """
+    Class for handling activities
+    
+    Activities are always created for a project task. The order of thing looks something like this
+
+    -> Project 
+    ----> Task 1
+    ---------> Activity 1 
+    ---------> Activity 2
+    ----> Task 2
+    ---------> Activity 3
+
+    Usage:
+
+    .. code-block:: python
+
+        m = Moco()
+        project_id = 2
+        task_id = 3
+
+        #log time
+        created_activity = m.Activity.create(
+            datetime.date(2020, 1, 1),
+            project_id,
+            task_id,
+            0.25
+            description="did things"
+        )
+        
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def getlist(
@@ -59,7 +94,7 @@ class Activity(MWRAPBase):
         :param sort_by: field to sort results by
         :param sort_order: asc or desc
         :param page: page number (default 1)
-        :returns: list of activities (in default configuration :class:`moco_wrapper.util.response.ListingResponse`)
+        :returns: list of activities
         """
 
         params = {}

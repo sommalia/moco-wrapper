@@ -28,9 +28,28 @@ class CommentTargetType(str, Enum):
     CONTACT = "Contact"
 
 class Comment(MWRAPBase):
-    """Class for handling comments."""
+    """
+    Class for handling comments.
+    
+    Usage:
+
+    .. code-block:: python
+
+        m = Moco()
+        project_id = 22
+        comment_create = m.Comment.create(
+            project_id, #id of the thing we comment
+            "PROJECT", #because comment can be created for a multitude of objects we need to specify its type
+            "this is my new awesome comment"
+        )
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -45,7 +64,7 @@ class Comment(MWRAPBase):
         :param commentable_id: id of the object to create the comment of (i.e the project id of the project we want to comment on)
         :param commentable_type: type of object to create the comment for. For allowed values see :class:`.CommentTargetType`.
         :param text: comment text
-        :returns: the created comment (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: the created comment
         """
         data = {
             "commentable_id": commentable_id,
@@ -67,7 +86,7 @@ class Comment(MWRAPBase):
         :param commentable_ids: ids of the objects we want to comment under ie. [123, 124, 125]
         :param commentable_type: type of object to create the comment for. For allowed values see :class:`.CommentTargetType`.
         :param text: comment text
-        :returns: list of created comments (in default configuration :class:`moco_wrapper.util.response.ListingResponse`)
+        :returns: list of created comments
         """
         data = {
             "commentable_ids" : commentable_ids,
@@ -87,7 +106,7 @@ class Comment(MWRAPBase):
 
         :param id: the id of the comment to update
         :param text: comment text
-        :returns: the created comment (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: the created comment
         """
         data = {
             "text" : text,  
@@ -103,7 +122,7 @@ class Comment(MWRAPBase):
         delete a comment
 
         :param id: id of the comment to delete
-        :returns: empty response on success (in default configuration :class:`moco_wrapper.util.response.EmptyResponse`)
+        :returns: empty response on success
         """
 
         return self._moco.delete(API_PATH["comment_delete"].format(id=id))
@@ -116,7 +135,7 @@ class Comment(MWRAPBase):
         retrieve a single comment
 
         :param id: id of the comment
-        :returns: a single comment (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: a single comment
         """
         return self._moco.get(API_PATH["comment_get"].format(id=id))
 
@@ -140,7 +159,7 @@ class Comment(MWRAPBase):
         :param sort_by: field to sort the results by
         :param sort_order: asc or desc
         :param page: page number (default 1)
-        :returns: list of comments (in default configuration :class:`moco_wrapper.util.response.ListingResponse`)
+        :returns: list of comments
         """
         params = {}
         for key, value in (
