@@ -1,10 +1,28 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
+
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
-from datetime import date
+
 
 class DealStatus(str, Enum):
+    """
+    Enumeration for the allowed values that can be supplied for the ``status`` argument of :meth:`.Deal.create`, :meth:`.Deal.update` and :meth:`.Deal.getlist`.
+
+    .. code-block:: python
+
+        from moco_wrapper.models.deal import DealStatus
+        from moco_wrapper import Moco
+
+        m = Moco()
+
+        deal_create = m.Deal.create(
+            ..
+            status = DealStatus.WON
+        )
+
+    """
     POTENTIAL = "potential"
     PENDING = "pending"
     WON = "won"
@@ -13,9 +31,14 @@ class DealStatus(str, Enum):
 
 
 class Deal(MWRAPBase):
-    """Class for handling leads"""
+    """Class for handling deals/leads"""
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -23,25 +46,26 @@ class Deal(MWRAPBase):
         name: str,
         currency: str,
         money: float,
-        reminder_date: date,
+        reminder_date: datetime.date,
         user_id: int,
         deal_category_id: int,
         company_id: int = None,
         info: str = None,
         status: str = "pending"
         ):
-        """create a new lead
+        """
+        Create a new deal.
 
-        :param name: name of the lead
-        :param currency: currency used (EUR, CHF)
-        :param money: how much money is in this lead (ie 205.0)
-        :param reminder_date: reminder date (format YYYY-MM-DD)
-        :param user_id: user id that is responsible for this lead
-        :param deal_category_id: deal category id
-        :param company_id: company id
-        :param info: addtionnal information
-        :param status: "potential", "pending", "won", "lost" or "dropped" (default: "pending")
-        :returns: the created lead object
+        :param name: Name of the deal
+        :param currency: Currency used (e.g. EUR, CHF)
+        :param money: How much money can be generated from this deal (e.g. 205.0)
+        :param reminder_date: Reminder date
+        :param user_id: Id of the user the is responsible for this lead
+        :param deal_category_id: Deal category id (see :class:`moco_wrapper.models.DealCategory`)
+        :param company_id: Company id
+        :param info: Additional information
+        :param status: Current state of the deal. For allowed values see :class:`.DealStatus`.
+        :returns: The created deal object
         """
         
         data = {
@@ -52,8 +76,8 @@ class Deal(MWRAPBase):
             "deal_category_id": deal_category_id
         }
 
-        if isinstance(reminder_date, date):
-            data["reminder_date"] = reminder_date.isoformat()
+        if isinstance(reminder_date, datetime.date):
+            data["reminder_date"] =  self.convert_date_to_iso(reminder_date)
         else:
             data["reminder_date"] = reminder_date
 
@@ -73,25 +97,27 @@ class Deal(MWRAPBase):
         name: str = None,
         currency: str = None,
         money: float = None,
-        reminder_date: date = None,
+        reminder_date: datetime.date = None,
         user_id: int = None,
         deal_category_id: int = None,
         company_id: int = None,
         info: str = None,
         status: DealStatus = None
         ):
-        """update a new lead
-        :param id: id of the lead
-        :param name: name of the lead
-        :param currency: currency used (EUR)
-        :param money: how much money is in this lead (ie 205.0)
-        :param reminder_date: reminder date (format YYYY-MM-DD)
-        :param user_id: user id that is responsible for this lead
-        :param deal_category_id: deal category id
-        :param company_id: company id
-        :param info: addtionnal information
-        :param status: "potential", "pending", "won", "lost" or "dropped" (default: "pending")
-        :returns: the created lead object
+        """
+        Update an existing deal.
+
+        :param id: Id of the deal
+        :param name: Name of the deal
+        :param currency: Currency used (e.g. EUR, CHF)
+        :param money: How much money can be generated from this deal (e.g. 205.0)
+        :param reminder_date: Reminder date
+        :param user_id: Id of the user that is responsible for this deal
+        :param deal_category_id: Deal category id (see :class:`moco_wrapper.models.DealCategory`)
+        :param company_id: Company id
+        :param info: Additional information
+        :param status: Current state of the deal. For allowed values see :class:`.DealStatus`.
+        :returns: The updated deal object
         """
 
         data = {}
@@ -108,8 +134,8 @@ class Deal(MWRAPBase):
         ):
 
             if value is not None:
-                if key in ["reminder_date"] and isinstance(value, date):
-                    data[key] = value.isoformat()
+                if key in ["reminder_date"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)  
                 else:
                     data[key] = value
 
@@ -120,10 +146,11 @@ class Deal(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a single lead
+        """
+        Retrieve a single deal.
 
-        :param id: id of the lead
-        :returns: lead object
+        :param id: Id of the deal
+        :returns: Single deal object
 
         """
         return self._moco.get(API_PATH["deal_get"].format(id=id))
@@ -136,14 +163,15 @@ class Deal(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of leads
+        """
+        Retrieve a list of deal objects
 
-        :param status: status of the leads ("potential", "pending", "won", "lost" or "dropped")
-        :param tags: array of tags
-        :param sort_by: field to order results by
+        :param status: State of deal. For allowed values see :class:`.DealStatus`.
+        :param tags: Array of tags
+        :param sort_by: Field to order results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of deal objects
+        :param page: Page number (default 1)
+        :returns: List of deal objects
         """
         params = {}
         for key, value in (
