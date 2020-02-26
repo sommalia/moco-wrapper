@@ -109,6 +109,23 @@ class InvoicePayment(MWRAPBase):
 
         .. seealso:: 
             :class:`moco_wrapper.util.generator.InvoicePaymentGenerator`
+
+        Bulk creation if invoice payments items with generator:
+
+        .. code-block:: python
+
+            from moco_wrapper.util.generator import InvoicePaymentGenerator()
+            from moco_wrapper import Moco
+
+            items = [
+                gen.generate(..),
+                gen.generate(..)
+            ]
+
+            m = Moco()
+
+            created_payments = m.InvoicePayment.create_bulk(items)
+
         """
         data = {
             "bulk_data": items
