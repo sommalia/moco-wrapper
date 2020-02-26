@@ -2,6 +2,15 @@
 History
 =======
 
+0.4.1 (2020-02-24)
+------------------
+
+* Implemented impersonation
+* Fixed makefile (make test does work now if you have the required packages installed)
+* Created documentation see (https://moco-wrapper.readthedocs.io/en/latest/)
+* Added named arguments requestor and objector to moco_instance constructor (Setting the requestor via moco.http is no longer possible, user moco.requestor)
+* Removed cli component
+
 0.4.0 (2020-02-19)
 ------------------
 

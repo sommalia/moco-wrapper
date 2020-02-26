@@ -15,7 +15,7 @@ requirements = [ "requests" ]
 
 setup_requirements = ['pytest-runner', ]
 
-test_requirements = ['pytest', 'betamax']
+test_requirements = ['pytest', 'betamax', 'betamax-serializers']
 
 setup(
     author = "sommalia",
@@ -44,6 +44,6 @@ setup(
     test_suite = 'tests',
     tests_require = test_requirements,
     url = 'https://github.com/sommalia/moco-wrapper',
-    version='0.4.0',
+    version='0.4.1',
     zip_safe = False,
 )
