@@ -2,7 +2,7 @@ Company
 =======
 
 .. autoclass:: moco_wrapper.models.Company
-    :inherited-members:
+    :members:
 
 .. autoclass:: moco_wrapper.models.company.CompanyType
    :members:

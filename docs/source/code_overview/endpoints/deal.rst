@@ -2,7 +2,7 @@ Deal
 ====
 
 .. autoclass:: moco_wrapper.models.Deal
-    :inherited-members:
+    :members:
 
 .. autoclass:: moco_wrapper.models.deal.DealStatus
    :members:

@@ -25,3 +25,4 @@ This documenation is split into the following parts:
    code_overview/requestor
    code_overview/objector
    code_overview/response
+   code_overview/generator
