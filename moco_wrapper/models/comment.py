@@ -30,8 +30,10 @@ class CommentTargetType(str, Enum):
 class Comment(MWRAPBase):
     """
     Class for handling comments.
+
+    Comments can be created for a multitude of objects. So when creating comments one must specify which type of object they mean (see :class:`.CommentTargetType`)
     
-    Usage:
+    Example Usage:
 
     .. code-block:: python
 
@@ -39,8 +41,8 @@ class Comment(MWRAPBase):
         project_id = 22
         comment_create = m.Comment.create(
             project_id, #id of the thing we comment
-            "PROJECT", #because comment can be created for a multitude of objects we need to specify its type
-            "this is my new awesome comment"
+            "PROJECT", #object type
+            "example comment text"
         )
     """
 

@@ -35,18 +35,11 @@ class ActivityRemoteService(str, Enum):
 
 class Activity(MWRAPBase):
     """
-    Class for handling activities
+    Class for handling activities.
     
-    Activities are always created for a project task. The order of thing looks something like this
+    Activities are always created for a project task. The order of things is `Project>Task>Activity`. An activity always belongs to a task and that task always belongs to a project.
 
-    -> Project 
-    ----> Task 1
-    ---------> Activity 1 
-    ---------> Activity 2
-    ----> Task 2
-    ---------> Activity 3
-
-    Usage:
+    Example Usage:
 
     .. code-block:: python
 
@@ -67,7 +60,7 @@ class Activity(MWRAPBase):
 
     def __init__(self, moco):
         """
-        Class Constructor
+        Class constructor
 
         :param moco: An instance of :class:`moco_wrapper.Moco`
         """
@@ -84,8 +77,7 @@ class Activity(MWRAPBase):
         page: int = 1,
         ):
         """
-        get a list of activity objects
-
+        Get a list of activity objects.
 
         :param from_date: start date
         :param to_date: end date
@@ -127,7 +119,7 @@ class Activity(MWRAPBase):
         id: int
         ):
         """
-        get a single activity
+        Get a single activity.
 
         :param id: id of the activity:
         :returns: the activity object (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
@@ -149,7 +141,7 @@ class Activity(MWRAPBase):
         remote_url: str = None
         ):
         """
-        update an activity
+        Update an activity.
 
         :param activity_date: date of the activity
         :param project_id: id of the project this activity belongs to
@@ -161,7 +153,7 @@ class Activity(MWRAPBase):
         :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
-        :returns: the created activity (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: the created activity
         """
 
         data = {
@@ -202,7 +194,8 @@ class Activity(MWRAPBase):
         remote_id: int = None,
         remote_url: str = None
         ):
-        """create an activity
+        """
+        Create an activity.
 
         :param id: id of the activity
         :param activity_date: date of the activity
@@ -215,7 +208,7 @@ class Activity(MWRAPBase):
         :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
-        :returns: the updated activity (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: the updated activity
         """
 
         data = {}
@@ -243,9 +236,10 @@ class Activity(MWRAPBase):
         self,
         id: int
         ):
-        """start a time on the specified activity
+        """
+        Start a timer on the specified activity.
 
-        the timer can only be started for activities on the current day
+        The timer can only be started for activities on the current day.
 
         :param id: id of the activity
         :returns: the activity the timer was started for
@@ -257,7 +251,8 @@ class Activity(MWRAPBase):
         self,
         id: int
         ):
-        """stop a timer on the specified activity
+        """
+        Stop a timer on the specified activity.
 
         :param id: id of the activity
         :returns: the activity the timer was stopped for (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
@@ -269,7 +264,8 @@ class Activity(MWRAPBase):
         self,
         id: int
         ):
-        """delete an activity
+        """
+        Delete an activity.
 
         :param id: id of the activity to delete
         :returns: empty response on success (in default configuration :class:`moco_wrapper.util.response.EmptyResponse`)
@@ -284,7 +280,8 @@ class Activity(MWRAPBase):
         company_id,
         project_id = None
         ):
-        """mark one or more activities as "already billed"
+        """
+        Disregard activities.
 
         :param reason: reason text for disregarding these activities
         :param activity_ids: list of activity ids to disregard
