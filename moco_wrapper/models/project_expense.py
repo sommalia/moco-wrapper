@@ -38,7 +38,7 @@ class ProjectExpense(MWRAPBase):
         :param project_id: Id of the project to create the expense for
         :param expense_date: Date of the expense
         :param title: Expense title
-        :param quantity: Quantity (how much of ``unit`` was bought?)  
+        :param quantity: Quantity (how much of ``unit`` was bought?) 
         :param unit: Name of the unit (What was bought for the customer/project?)
         :param unit_price: Price of the unit that will be billed to the customer/project
         :param unit_cost: Cost that we had to pay
