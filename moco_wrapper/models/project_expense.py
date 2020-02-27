@@ -7,7 +7,11 @@ class ProjectExpense(MWRAPBase):
     """
     Class for handling additional project expenses.
 
-    An example for this would be when a third part product is bought for a specific customer project and then get billed to the project to regain the cost.
+    An example for this would be when a third part product (one time cost) is bought for a specific customer project and then get billed to the project to regain the cost.
+
+    .. seealso::
+
+        :class:`moco_wrapper.models.ProjectRecurringExpense` for repeating expenses.
     """
 
     def __init__(self, moco):

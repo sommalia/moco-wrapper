@@ -33,6 +33,12 @@ class ProjectRecurringExpensePeriod(str, Enum):
 class ProjectRecurringExpense(MWRAPBase):
     """
     Class for handling recurring expenses of a project.
+
+    An example for this would be when a third part subscription (repeat cost) is bought for a specific customer project and then get billed to the project to regain the cost.
+
+    .. seealso::
+
+        :class:`moco_wrapper.models.ProjectExpense` for one time expenses.
     """
 
     def __init__(self, moco):
