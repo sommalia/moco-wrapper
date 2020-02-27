@@ -74,7 +74,10 @@ class ProjectExpenseGenerator(BaseGenerator):
             project_id = 2
 
             created_expenses = m.ProjectExpense.create_bulk(project_id,items)
+        
+        .. seealso::
 
+            :meth:`moco_wrapper.models.ProjectExpense.create_bulk`
         """ 
 
         data = {
