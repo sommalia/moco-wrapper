@@ -36,7 +36,8 @@ The moco-wrapper can be updated by using pip
 Install from source
 -------------------
 
-For installation from source we recommend you install it into a virtual environment.
+.. warning::
+      For installation from source we recommend you install it into a virtual environment.
 
 
 .. code-block:: shell
