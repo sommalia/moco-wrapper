@@ -11,3 +11,4 @@ Generator
    generators/invoice_payment
    generators/invoice_item
    generators/offer_item
+   generators/project_expense

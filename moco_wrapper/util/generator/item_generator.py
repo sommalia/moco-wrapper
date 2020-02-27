@@ -1,4 +1,6 @@
-class ItemGenerator(object):
+from .base import BaseGenerator
+
+class ItemGenerator(BaseGenerator):
 
     def generate_title(
         self,

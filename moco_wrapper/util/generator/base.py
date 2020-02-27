@@ -1,8 +1,8 @@
 import datetime
 
-class MWRAPBase(object):
+class BaseGenerator(object):
     """
-    Base class for all models in MocoWrapper.
+    Base class all other classes in moco_wrapper.util.generator inherit
     """
 
     def convert_date_to_iso(self, date_to_convert: datetime.date):

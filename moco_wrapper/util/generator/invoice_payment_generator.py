@@ -1,10 +1,12 @@
-from datetime import date
+import datetime
 
-class InvoicePaymentGenerator(object):
+from .base import BaseGenerator
+
+class InvoicePaymentGenerator(BaseGenerator):
     
     def generate(
         self,
-        payment_date: date, 
+        payment_date: datetime.date, 
         invoice_id: int,
         paid_total: float,
         currency: str
@@ -37,7 +39,8 @@ class InvoicePaymentGenerator(object):
             "currency" : currency,
         }
 
-        if isinstance(payment_date, date):
-            item["date"] = payment_date.isoformat()
+        for date_key in ["date"]:
+            if isinstance(item[date_key], datetime.date):
+                item[date_key] = self.convert_date_to_iso(item[date_key])
 
         return item

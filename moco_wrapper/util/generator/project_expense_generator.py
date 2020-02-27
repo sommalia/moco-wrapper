@@ -1,10 +1,12 @@
-from datetime import date
+import datetime
 
-class ProjectExpenseGenerator(object):
+from .base import BaseGenerator
+
+class ProjectExpenseGenerator(BaseGenerator):
 
     def generate(
         self,
-        expense_date: date,
+        expense_date: datetime.date,
         title: str,
         quantity: float,
         unit: str,
@@ -14,32 +16,65 @@ class ProjectExpenseGenerator(object):
         billable: bool = True,
         budget_relevant: bool = False
         ):
-        """create an item that can be used for creating bulk project expenses
+        """
+        Create an item that can be used for creating bulk project expenses.
 
-        :param project_id: id of the project to create the expense for
-        :param expense_date: date of the expense
-        :param title: title string of the expense
-        :param quantity: quantity 
-        :param unit: name of the unit that is sold
-        :param unit_price: price of the unit that is sold
-        :param unit_cost: const of the unit that is sold
-        :param description: descripion of the expense
-        :param billable: true/false is this expense billable, yes or no?
-        :param budget_relevant: true/false is this expense relevant for the budget of the project?
-        :param custom_properties: additional fields as dictionary
-        :returns: the created expense object
+        :param project_id: Id of the project to create the expense for
+        :param expense_date: Date of the expense
+        :param title: Exense title
+        :param quantity: Quantity (how much of ``unit`` was bought?) 
+        :param unit: Name of the unit (What was bought for the customer/project?)
+        :param unit_price: Price of the unit that will be billed to the customer/project
+        :param unit_cost: Cost that we had to pay
+        :param description: Descripion of the expens
+        :param billable: If this expense billable (default True)
+        :param budget_relevant: If this expense is budget relevant (default False)
+        :returns: The created expense object
 
-        use it like this
+        Example usage
 
-        .. code-block
+        .. code-block:: python
 
-        gen = ProjectExpenseGenerator()
-        items = [
-            gen.generate('2019-10-10', "the title", 5, "the unit", 20, 10),
-            gen.generate('2019-10-10', "different title", 5, "another unit", 20, 10,l billable=False, description="the desc", budget_relevant=True),
-        ]
-        project_id = 2
-        moco.ProjectExpense.create_bulk(project_id,items)
+            from moco_wrapper.util.generator import ProjectExpenseGenerator
+            from moco_wrapper import Moco
+            from datetime import date
+            
+            m = Moco()
+            gen = ProjectExpenseGenerator()
+
+            items = [
+                gen.generate(
+                    '2019-10-10', 
+                    "the title", 
+                    5, 
+                    "the unit", 
+                    20, 
+                    10
+                ),
+                gen.generate(
+                    '2019-10-10', 
+                    "different title", 
+                    5, 
+                    "another unit", 
+                    20, 
+                    10,
+                    billable=False, 
+                    description="the desc", 
+                    budget_relevant=True
+                ),
+                gen.generate(
+                    date(2019, 10, 10), 
+                    "another title", 
+                    2, 
+                    "the unit", 
+                    20, 
+                    10
+                ),
+            ]
+            project_id = 2
+
+            created_expenses = m.ProjectExpense.create_bulk(project_id,items)
+
         """ 
 
         data = {
@@ -51,8 +86,9 @@ class ProjectExpenseGenerator(object):
             "unit_cost": unit_cost,
         }
 
-        if isinstance(expense_date, date):
-            data["date"] = expense_date.isoformat()
+        for date_key in ["date"]:
+            if isinstance(data[date_key], datetime.date):
+                data[date_key] = self.convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("description", description),
