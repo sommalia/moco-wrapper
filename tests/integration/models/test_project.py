@@ -1,5 +1,5 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse
-from moco_wrapper.models.project import ProjectBillingVariant, ProjectCurrency
+from moco_wrapper.models.project import ProjectBillingVariant
 
 from datetime import date
 

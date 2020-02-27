@@ -184,7 +184,9 @@ class Offer(MWRAPBase):
             "title": title,
             "tax": tax,
             "currency": currency,
-            "items": items
+            "items": items,
+            "date": creation_date,
+            "due_date": due_date,
         }
 
         for date_key in ["date", "due_date"]:
