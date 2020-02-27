@@ -1,32 +1,48 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
 
-from datetime import date
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 class UserPresence(MWRAPBase):
-    """class for handling presences (in german "arbeitszeiten")."""
+    """
+    Class for handling presences.
+
+    With this model you can log the times your user start and finish the workday. For example if the users punch in to indicate they have arrived and punch out to leave, you can log the times with this model.
+
+    Also this can be used to log when you users are at work.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def getlist(
         self,
-        from_date: date = None,
-        to_date: date = None,
+        from_date: datetime.date = None,
+        to_date: datetime.date = None,
         user_id: int = None,
         sort_by: str = None,
         sort_order: str  = 'asc',
         page: int = 1
         ):
-        """retrieve all presences
+        """
+        Retrieve all user presences.
 
-        :param from_date: starting date (must be provided together with to_date) (format YYYY-MM-DD)
-        :param to_date: end date (must be provided together with from_date) (format YYYY-MM-DD)
-        :param user_id: id of the user
-        :param sort_by: field to sort results by
+        :param from_date: Start date
+        :param to_date: End date
+        :param user_id: Id of the user
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of presence objets
+        :param page: Page number (default 1)
+        :returns: List of presence objets
+
+        .. note::
+
+            ``from_date`` and ``to_date`` must be provided together.
         """
         params = {}
 
@@ -37,8 +53,8 @@ class UserPresence(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                if key in ["from", "to"] and isinstance(value, date):
-                    params[key] = value.isoformat()
+                if key in ["from", "to"] and isinstance(value, datetime.date):
+                    params[key] = self.convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -51,10 +67,11 @@ class UserPresence(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a single presence
+        """
+        Retrieve a single presence.
 
-        :param id: id of the presence
-        :returns: a single presence object
+        :param id: Id of the presence
+        :returns: Single presence object
         """
         return self._moco.get(API_PATH["presence_get"].format(id=id))
 
@@ -64,20 +81,21 @@ class UserPresence(MWRAPBase):
         from_time: str,
         to_time: str = None
         ):
-        """create a presence
+        """
+        Create a presence.
 
-        :param pres_date: date of the presence (format YYYY-MM-DD), or date object
-        :param from_time: starting time of the presence (format HH:MM)
-        :param to_time: end time of the presence (format HH:MM)
-        :returns: the created presence 
+        :param pres_date: Date of the presence
+        :param from_time: Starting time of the presence (format HH:MM)
+        :param to_time: End time of the presence (format HH:MM)
+        :returns: The created presence 
         """
         data = {
             'from': from_time,
             'to': to_time,
         }
 
-        if isinstance(pres_date, date):
-            data["date"] = pres_date.isoformat()
+        if isinstance(pres_date, datetime.date):
+            data["date"] = self.convert_date_to_iso(pres_date)
         else:
             data["date"] = pres_date
 
@@ -86,26 +104,29 @@ class UserPresence(MWRAPBase):
     def touch(
         self,
         ):
-        """creates a new presence for the user with the corresponding api key starting from the current time. Or it terminates an existing open presence at the current time. Can be used to implement a clock system (RFID)
+        """
+        Creates a new presence for the user with the corresponding api key starting from the current time. Or it terminates an existing open presence at the current time. Can be used to implement a clock system (RFID).
 
-        if a presence is started and stopped within the same minute, it will be discarded
+        If a presence is started and stopped within the same minute, it will be discarded.
+
         """ 
         return self._moco.post(API_PATH["presence_touch"])
 
     def update(
         self,
         id: int,
-        pres_date: date = None,
+        pres_date: datetime.date = None,
         from_time: str = None,
         to_time: str = None
         ):
-        """update a presence
+        """
+        Update a presence.
 
-        :param id: id of the presence
-        :param pres_date: date of the presence
-        :param from_time: starting time of the presence (format HH:MM)
-        :param to_time: end time of the presence (format HH:MM)
-        :returns: the created presence 
+        :param id: Id of the presence
+        :param pres_date: Date of the presence
+        :param from_time: Starting time of the presence (format HH:MM)
+        :param to_time: End time of the presence (format HH:MM)
+        :returns: The created presence 
         """
         data = {}
         for key, value in (
@@ -114,8 +135,8 @@ class UserPresence(MWRAPBase):
             ("to", to_time),
         ):
             if value is not None:
-                if key in ["date"] and isinstance(value, date):
-                    data[key] = value.isoformat()
+                if key in ["date"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -125,9 +146,11 @@ class UserPresence(MWRAPBase):
         self,
         id: int
         ):
-        """deletes a presence
+        """
+        Deletes a presence.
 
-        :param id: id of the presence
+        :param id: Id of the presence
+        :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["presence_delete"].format(id=id))
 

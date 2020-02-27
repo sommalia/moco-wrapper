@@ -1,21 +1,21 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
+
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
-from datetime import date
-
-class UserLanguage(str, Enum):
-    DE = "de"
-    DE_AT = "de-AT"
-    DE_CH = "de-CH"
-    EN = "en"
-    IT = "it"
-    FR = "fr"
-
 
 class User(MWRAPBase):
-    """Class for handling users"""
+    """
+    Class for handling users.    
+    """
+
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -27,37 +27,33 @@ class User(MWRAPBase):
         unit_id: int,
         active: bool = None,
         external: bool = None,
-        language: UserLanguage = None,
+        language: str = None,
         mobile_phone: str = None,
         work_phone: str = None,
         home_address: str = None,
-        birthday: date = None,
+        birthday: datetime.date = None,
         custom_properties: dict = None,
         info: str = None,
         ):
-        """Creates a new user
-
-        :param firstname: the first name of the user
-        :param lastname: the last name of the user
-        :param email: user email
-        :param password: the password to use when creating the user
-        :param unit_it: id of the unit/team the user belongs to
-        :param active: true/false if the user should be activated or not
-        :param external: true/false if the user is an employee or an external contractor
-        :param language: de, de-AT, de-CH, en, it or fr
-        :param mobile_phone: users mobile phone number
-        :param work_phone: users work phone number
-        :param home_address: users home address 
-        :param birthday: users birthday date
-        :param custom_properties: custom fields to add to the user
-        :param info: additional information abotu the user
-        :returns: the created user object
-
         """
+        Creates a new user.
 
-        #type checks required parameters
-        if not isinstance(unit_id, int):
-            raise ValueError('parameter unit_id must be of type int')
+        :param firstname: First name of the user
+        :param lastname: Last name of the user
+        :param email: Email address
+        :param password: Password to use when creating the user
+        :param unit_it: Id of the unit/team the user belongs to
+        :param active: If the user should be activated or not
+        :param external: If the user is an employee or an external employee (his user id will now show up in reports etc.)
+        :param language: de, de-AT, de-CH, en, it or fr
+        :param mobile_phone: Mobile phone number
+        :param work_phone: Work phone number
+        :param home_address: Phyical home address 
+        :param birthday: Birthday date
+        :param custom_properties: Custom fields to add to the user
+        :param info: Additional information about the user
+        :returns: The created user object
+        """
 
         
         data = {
@@ -81,8 +77,8 @@ class User(MWRAPBase):
         ):
             if value is not None:
                     
-                if key in ["bday"] and isinstance(value, date):
-                    data[key] = value.isoformat()
+                if key in ["bday"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -98,32 +94,33 @@ class User(MWRAPBase):
         unit_id: int = None,
         active: bool = None,
         external: bool = None,
-        language: UserLanguage = None,
+        language: str = None,
         mobile_phone: str = None,
         work_phone: str = None,
         home_address: str = None,
-        birthday: date = None,
+        birthday: datetime.date = None,
         custom_properties: dict = None,
         info: str = None,
         ):
-        """Updates an existing user
+        """
+        Updates an existing user.
 
-        :param id: the id of the user
-        :param firstname: the first name of the user
-        :param lastname: the last name of the user
-        :param email: user email
-        :param password: the password to use when creating the user
-        :param unit_it: id of the unit/team the user belongs to
-        :param active: true/false if the user should be activated or not
-        :param external: true/false if the user is an employee or an external contractor
+        :param id: the Id of the user
+        :param firstname: First name of the user
+        :param lastname: Last name of the user
+        :param email: Email address
+        :param password: Password to use when creating the user
+        :param unit_it: Id of the unit/team the user belongs to
+        :param active: If the user should be activated or not
+        :param external: If the user is an employee or an external employee (his user id will now show up in reports etc.)
         :param language: de, de-AT, de-CH, en, it or fr
-        :param mobile_phone: users mobile phone number
-        :param work_phone: users work phone number
-        :param home_address: users home address 
-        :param birthday: users birthday date
-        :param custom_properties: custom fields to add to the user
-        :param info: additional information abotu the user
-        :returns: the created user object
+        :param mobile_phone: Mobile phone number
+        :param work_phone: Work phone number
+        :param home_address: Physical home address 
+        :param birthday: Birthday date
+        :param custom_properties: Custom fields to add to the user
+        :param info: Additional information abotu the user
+        :returns: The updated user object
 
         """
         data = {}
@@ -144,8 +141,8 @@ class User(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                if key in ["bday"] and isinstance(value, date):
-                    data[key] = value.isoformat()
+                if key in ["bday"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -156,9 +153,11 @@ class User(MWRAPBase):
         self,
         id: int
         ):
-        """Deletes an existing user
+        """
+        Deletes an existing user.
 
-        :param id: id of the user to delete
+        :param id: Id of the user to delete
+        :returns: Empty response on success
         """
 
         return self._moco.delete(API_PATH["user_delete"].format(id=id))
@@ -167,10 +166,11 @@ class User(MWRAPBase):
         self,
         id: int
         ):
-        """Get a single user
+        """
+        Get a single user.
 
-        :param id: user id
-        :returns: user object
+        :param id: Id of the user
+        :returns: Single user object
         """
         return self._moco.get(API_PATH["user_get"].format(id=id))
 
@@ -181,13 +181,14 @@ class User(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """Get a list of users
+        """
+        Get a list of users.
 
-        :param include_archived: true/false include archived users in the list
-        :param sort_by: sort by key
+        :param include_archived: Include archived users in the list
+        :param sort_by: Sort by key
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of users
+        :param page: Page number (default 1)
+        :returns: List of users
         """
                
         params = {}

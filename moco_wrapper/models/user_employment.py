@@ -1,43 +1,54 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
 
-from datetime import date
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 class UserEmployment(MWRAPBase):
-    """class for handling employment schemes (in german "wochenmodell")."""
+    """
+    Class for handling user employment schemes. 
+    
+    Every user has an employment entry, which defines how many hours every day he should be at work.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def get(
         self,
         id: int
         ):
-        """retrieve a single employment
+        """
+        Retrieve a single employment
 
-        :param id: id of the employment
-        :returns: employment object
+        :param id: Id of the employment
+        :returns: Employment object
         """ 
         return self._moco.get(API_PATH["employment_get"].format(id=id))
 
     def getlist(
         self,
-        from_date: date = None,
-        to_date: date = None,
+        from_date: datetime.date = None,
+        to_date: datetime.date = None,
         user_id: int = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of employments
+        """
+        Retrieve a list of employments
 
-        :param from_date: starting filter date (format YYYY-MM-DD)
-        :param to_date: end filter date (format YYYY-MM-DD)
-        :param user_id: user id
-        :param sort_by: field to sort results by
+        :param from_date: Start date
+        :param to_date: End date
+        :param user_id: User id
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc
-        :param page: page number (default 1)
-        :returns: list of employment objects
+        :param page: Page number (default 1)
+        :returns: List of employment objects
         """
 
         params = {}
@@ -48,8 +59,8 @@ class UserEmployment(MWRAPBase):
             ("page", page)
         ):
             if value is not None:
-                if key in ["from", "to"] and isinstance(value, date):
-                    params[key] = value.isoformat()
+                if key in ["from", "to"] and isinstance(value, datetime.date):
+                    params[key] = self.convert_date_to_iso(value)
                 else:
                     params[key] = value
 

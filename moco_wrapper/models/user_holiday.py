@@ -1,10 +1,38 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 class UserHoliday(MWRAPBase):
-    """class for handling holidays (in german urlaubsanspruch)."""
+    """
+    Class for handling users holiday/vacation credits.
+
+    Every user that can take vacation has a number of vacation credits. These can be manged with this model.
+    
+
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco_wrapper import Moco
+
+        user_id = 22 #this user gets extra vacation in 2020
+        m.UserHoliday.create(
+            2020,
+            "extra vacation day",
+            8 #hours
+        )
+
+    .. note::
+
+        Please not that the base unit for holiday credits is hours. So if your typical workday contains 8 hours, 8 holiday credits means one day off.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def getlist(
@@ -15,14 +43,15 @@ class UserHoliday(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of holidays
+        """
+        Retrieve a list of holidays entries
 
-        :param year: show only this year (ex. 2019)
-        :param user_id: show only holidays from this user (ex. 5)
+        :param year: Show only this year (e.g. 2019)
+        :param user_id: Show only holidays from this user (e.g. 5)
         :param sort_by: field to sort results by
         :param sort_order: asc or desc
-        :param page: page number (default 1)
-        :returns: asc or desc
+        :param page: Page number (default 1)
+        :returns: List of holiday entries
         """
         params = {}
         for key, value in (
@@ -42,10 +71,11 @@ class UserHoliday(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve single holiday
+        """
+        Retrieve single holiday entry
 
-        :param id: id of the holiday
-        :returns: the holiday object
+        :param id: Id of the holiday
+        :returns: The holiday object
         """
         return self._moco.get(API_PATH["holiday_get"].format(id=id))
 
@@ -56,13 +86,14 @@ class UserHoliday(MWRAPBase):
         user_id: int,
         hours: int = 0
         ):
-        """create an users entitilement for holidays
+        """
+        Create an users entitlement for holidays/vacation
 
-        :param year: year of the holiday (ex. 2019)
-        :param title: title of the holiday
-        :param user_id: user_id this holiday belongs to
-        :param hours: hours (ex. 160) (default 0)
-        :returns: the created holiday object
+        :param year: Year of the holiday (e.g. 2019)
+        :param title: Title 
+        :param user_id: Id of the user this holiday belongs to
+        :param hours: Hours (e.g. 160) (default 0)
+        :returns: The created holiday object
         """
         data = {
             "year" : year,
@@ -81,14 +112,15 @@ class UserHoliday(MWRAPBase):
         user_id: int = None,
         hours: int = None,
         ):
-        """update a holiday
+        """
+        Update a holiday entry
 
-        :param id: id of the holiday
-        :param year: year of the holiday (ex. 2019)
-        :param title: title of the holiday
-        :param hours: hours (ex. 160)
-        :param user_id: user_id this holiday belongs to
-        :returns: the created holiday object
+        :param id: Id of the holiday entry
+        :param year: Year of the holiday entry (e.g. 2019)
+        :param title: Title
+        :param hours: Hours (e.g. 160)
+        :param user_id: User this holiday entry belongs to
+        :returns: The updated holiday object
         """
         
         data = {}
@@ -107,8 +139,10 @@ class UserHoliday(MWRAPBase):
         self,
         id: int
         ):
-        """delete a holiday
+        """
+        Delete a holiday entry
 
-        :param id: id of the holiday to delete
+        :param id: Id of the holiday entry to delete
+        :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["holiday_delete"].format(id=id))
