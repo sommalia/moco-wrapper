@@ -5,7 +5,7 @@ from moco_wrapper.const import API_PATH
 
 class InvoicePayment(MWRAPBase):
     """
-    Class for handling invoice payments
+    Class for handling invoice payments.
     """
 
     def __init__(self, moco):
