@@ -1,5 +1,4 @@
 from moco_wrapper.util.response import JsonResponse, ErrorResponse, ListingResponse, EmptyResponse
-from moco_wrapper.models.user import UserLanguage
 
 import string
 import random
@@ -53,7 +52,7 @@ class TestUser(IntegrationTest):
             
             active = False
             external = True
-            language = UserLanguage.EN
+            language = "EN"
             mobile_phone = "+49 123"
             work_phone = "#49 456"
             home_address = "gen. dumpster diver area 123"
@@ -103,7 +102,7 @@ class TestUser(IntegrationTest):
             
             active = False
             external = True
-            language = UserLanguage.EN
+            language = "EN"
             mobile_phone = "+49 123"
             work_phone = "#49 456"
             home_address = "gen. dumpster diver area 123"
@@ -157,7 +156,7 @@ class TestUser(IntegrationTest):
             
             active = False
             external = True
-            language = UserLanguage.EN
+            language = "EN"
             mobile_phone = "+49 123"
             work_phone = "#49 456"
             home_address = "gen. dumpster diver area 123"

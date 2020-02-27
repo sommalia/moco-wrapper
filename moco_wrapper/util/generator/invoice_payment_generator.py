@@ -69,6 +69,6 @@ class InvoicePaymentGenerator(BaseGenerator):
 
         for date_key in ["date"]:
             if isinstance(item[date_key], datetime.date):
-                item[date_key] = self.convert_date_to_iso(item[date_key])
+                item[date_key] = self._convert_date_to_iso(item[date_key])
 
         return item

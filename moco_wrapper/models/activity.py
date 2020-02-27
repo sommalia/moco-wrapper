@@ -95,12 +95,12 @@ class Activity(MWRAPBase):
         params = {}
 
         if isinstance(from_date, datetime.date):
-            params["from"] = self.convert_date_to_iso(from_date)
+            params["from"] = self._convert_date_to_iso(from_date)
         else:
             params["from"] = from_date
 
         if isinstance(to_date,  datetime.date):
-            params["to"] = self.convert_date_to_iso(to_date)
+            params["to"] = self._convert_date_to_iso(to_date)
         else:
             params["to"] = to_date
 
@@ -166,7 +166,7 @@ class Activity(MWRAPBase):
         }
     
         if isinstance(activity_date, datetime.date):
-            data["date"] = self.convert_date_to_iso(activity_date)
+            data["date"] = self._convert_date_to_iso(activity_date)
         else:
             data["date"] = activity_date
 
@@ -229,7 +229,7 @@ class Activity(MWRAPBase):
         ):
             if value is not None:
                 if key in ["date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 

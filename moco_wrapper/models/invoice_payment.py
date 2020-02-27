@@ -47,7 +47,7 @@ class InvoicePayment(MWRAPBase):
         ):
             if value is not None:
                 if key in ["date_from", "date_to"] and isinstance(value, date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -93,7 +93,7 @@ class InvoicePayment(MWRAPBase):
         }
 
         if isinstance(payment_date, datetime.date):
-            data["date"] = self.convert_date_to_iso(payment_date)
+            data["date"] = self._convert_date_to_iso(payment_date)
 
         return self._moco.post(API_PATH["invoice_payment_create"], data=data)
 
@@ -157,7 +157,7 @@ class InvoicePayment(MWRAPBase):
         ):
             if value is not None:
                 if key in ["date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 

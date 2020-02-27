@@ -100,7 +100,7 @@ class Project(MWRAPBase):
         ):
             if value is not None:
                 if key in ["finish_date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
                 
@@ -158,7 +158,7 @@ class Project(MWRAPBase):
         ):
             if value is not None:
                 if key in ["finish_date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -228,7 +228,7 @@ class Project(MWRAPBase):
         ):
             if value is not None:
                 if key in ["created_from", "created_to", "updated_from", "updated_to" ] and isinstance(value, datetime.date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 

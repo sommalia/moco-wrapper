@@ -106,7 +106,7 @@ class Invoice(MWRAPBase):
             
             if value is not None:
                 if key in ["date_from", "date_to"] and isinstance(value, datetime.date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 elif key in ["tags"] and isinstance(value, list):
                     params[key] = ",".join(value)
                 else:
@@ -149,7 +149,7 @@ class Invoice(MWRAPBase):
         ):          
             if value is not None:
                 if key in ["date_from", "date_to"] and isinstance(value, datetime.date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -284,7 +284,7 @@ class Invoice(MWRAPBase):
         #overwrite all date fields in data with isoformat
         for date_key in ["date", "due_date", "service_period_from", "service_period_to"]:
             if isinstance(data[date_key], datetime.date):
-                data[date_key] = self.convert_date_to_iso(data[date_key])
+                data[date_key] = self._convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("status", status),

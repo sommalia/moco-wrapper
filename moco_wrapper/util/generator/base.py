@@ -5,7 +5,7 @@ class BaseGenerator(object):
     Base class all other classes in moco_wrapper.util.generator inherit
     """
 
-    def convert_date_to_iso(self, date_to_convert: datetime.date):
+    def _convert_date_to_iso(self, date_to_convert: datetime.date):
         """
         converts a datetime object to iso format need by the api
         
