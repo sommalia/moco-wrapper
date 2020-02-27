@@ -1,10 +1,19 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 class Unit(MWRAPBase):
-    """Class for handling units/teams."""
+    """
+    Class for handling teams.
+    
+    When a user is created he always belongs to a team (e.g. development). These can be managed with this model.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
 
@@ -12,10 +21,11 @@ class Unit(MWRAPBase):
         self,
         id: int
         ):
-        """Get a single team
+        """
+        Get a single team.
 
-        :param id: id of the team
-        :returns: team object
+        :param id: Id of the team
+        :returns: Single team object
         """
 
         return self._moco.get(API_PATH["unit_get"].format(id=id))
@@ -26,12 +36,13 @@ class Unit(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """Get a list of teams
+        """
+        Retrieve a list of teams.
         
         :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
         :param page: page number (default 1)
-        :returns: list of team objects
+        :returns: List of team objects
         """
 
         params = {}
