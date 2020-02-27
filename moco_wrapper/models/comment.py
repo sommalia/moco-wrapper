@@ -1,13 +1,23 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
 class CommentTargetType(str, Enum):
     """
-    Enumeration of types that a comment can be created for.
+    Enumeration for allowed values used that can be supplied for the ``commentable_type`` argument in :meth:`.Comment.create`, :meth:`.Comment.create_bulk` and :meth:`.Comment.getlist`
 
-    If you comment on an Offer use CommentTargetType.OFFER and supply the offer id in the parameter commentable_id
+    .. code-block:: python
+    
+        from moco_wrapper import Moco
+        from moco_wrapper.models.comment import CommentTargetType
+
+        m = Moco()
+        comment_create = m.Comment.create(
+            ..
+            commentable_type = CommentTargetType.DEAL
+        )
+
     """
     USER = "User"
     DEAL = "Deal"
@@ -19,9 +29,31 @@ class CommentTargetType(str, Enum):
     CONTACT = "Contact"
 
 class Comment(MWRAPBase):
-    """Class for handling comments."""
+    """
+    Class for handling comments.
+
+    Comments can be created for a multitude of objects. So when creating comments one must specify which type of object they mean (see :class:`.CommentTargetType`)
+    
+    Example Usage:
+
+    .. code-block:: python
+    
+    
+        m = Moco()
+        project_id = 22
+        comment_create = m.Comment.create(
+            project_id, #id of the thing we comment
+            "PROJECT", #object type
+            "example comment text"
+        )
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -30,10 +62,11 @@ class Comment(MWRAPBase):
         commentable_type: CommentTargetType,
         text: str
         ):
-        """create a comment 
+        """
+        create a comment 
 
         :param commentable_id: id of the object to create the comment of (i.e the project id of the project we want to comment on)
-        :param commentable_type: type of object to create the comment of (i.e when we want to comment on a project this is "project"), available values are  "User", "Deal", "Offer", "OfferConfirmation", "Customer", "Project", "Invoice", "Contact"
+        :param commentable_type: type of object to create the comment for. For allowed values see :class:`.CommentTargetType`.
         :param text: comment text
         :returns: the created comment
         """
@@ -51,10 +84,13 @@ class Comment(MWRAPBase):
         commentable_type: CommentTargetType,
         text: str
         ):
-        """create a comment under multplie objects of the same type
+        """
+        create a comment for multiple target objects
+
         :param commentable_ids: ids of the objects we want to comment under ie. [123, 124, 125]
-        :param commentable_type: type of object to create the comment of (i.e when we want to comment on a project this is "project"), available values are  "User", "Deal", "Offer", "OfferConfirmation", "Customer", "Project", "Invoice", "Contact"
+        :param commentable_type: type of object to create the comment for. For allowed values see :class:`.CommentTargetType`.
         :param text: comment text
+        :returns: list of created comments
         """
         data = {
             "commentable_ids" : commentable_ids,
@@ -69,7 +105,8 @@ class Comment(MWRAPBase):
         id: int,
         text: str
         ):
-        """update a comment
+        """
+        update a comment
 
         :param id: the id of the comment to update
         :param text: comment text
@@ -85,9 +122,11 @@ class Comment(MWRAPBase):
         self,
         id: int,
         ):
-        """delete a comment
+        """
+        delete a comment
 
         :param id: id of the comment to delete
+        :returns: empty response on success
         """
 
         return self._moco.delete(API_PATH["comment_delete"].format(id=id))
@@ -96,10 +135,11 @@ class Comment(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a single comment
+        """
+        retrieve a single comment
 
         :param id: id of the comment
-        :returns: a single comment object
+        :returns: a single comment
         """
         return self._moco.get(API_PATH["comment_get"].format(id=id))
 
@@ -113,16 +153,17 @@ class Comment(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of comments
+        """
+        retrieve a list of comments
 
-        :param commentable_type: type of object the comment(s) belong to available values are  "User", "Deal", "Offer", "OfferConfirmation", "Customer", "Project", "Invoice", "Contact"
+        :param commentable_type: type of object the comment(s) belong to. For allowed values see :class:`.CommentTargetType`.
         :param commentable_id: id of the object the comment belongs to
         :param user_id: user id of the creator
         :param manual: true/false user-created of generated
         :param sort_by: field to sort the results by
         :param sort_order: asc or desc
         :param page: page number (default 1)
-        :returns: list of comemnt objects
+        :returns: list of comments
         """
         params = {}
         for key, value in (

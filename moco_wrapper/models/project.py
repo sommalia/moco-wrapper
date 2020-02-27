@@ -1,30 +1,53 @@
-from .base import MWRAPBase  
-from ..const import API_PATH
+import datetime
+
+from moco_wrapper.models.base import MWRAPBase  
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
-from datetime import date
 
 class ProjectBillingVariant(str, Enum):
+    """
+    Enumeration for allowed values of the ``billing_variant`` argument of :meth:`.Project.create` and :meth:`.Project.update`.
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco_wrapper.models.project import ProjectBillingVariant
+        from moco_wrapper import Moco
+
+        m = Moco()
+        new_project = m.Project.create(
+            ..
+            billing_variant = ProjectBillingVariant.USER 
+        )
+
+    """
     PROJECT = "project"
     TASK = "task"
     USER = "user"
 
-class ProjectCurrency(str, Enum):
-    EUR = "EUR"
 
 class Project(MWRAPBase):
-    """Class for handling projects."""
+    """
+    Class for handling projects.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
         self,
         name: str,
-        currency: ProjectCurrency,
+        currency: str,
         leader_id: int,
         customer_id: int,
-        finish_date: date = None,
+        finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
         billing_variant: ProjectBillingVariant = None,
@@ -34,22 +57,27 @@ class Project(MWRAPBase):
         custom_properties: dict = None,
         info: str = None
         ):
-        """create a new project
+        """
+        Create a new project.
 
-        :param name: name of the project
-        :param currency: currency of the project (EUR) (use project.ProjectCurrency)
-        :param leader_id: user id of the project leader
-        :param customer_id: company id of the customer
-        :param finish_date: finish date 
-        :param identifier: project identifier is only mandatory if number ranges are manual
-        :param billing_address: billing adress the invoices go to
-        :param billing_variant: "project", "task" or "user" (default is project) (use project.ProjectBillingVariant)
-        :param hourly_rate: hourly rate that will get billed 
-        :param budget: budget for the project
-        :param labels: array of additional labels
-        :param custom_properties: custom values used by the project
-        :param info: additional information
-        :returns: the created project object
+        :param name: Name of the project
+        :param currency: Currency used by the project (e.g. EUR)
+        :param finish_date: Finish date
+        :param leader_id: User id of the project leader
+        :param customer_id: Company id of the customer
+        :param identifier: Project Identifier
+        :param billing_address: Billing adress the invoices go to
+        :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
+        :param hourly_rate: Hourly rate that will get billed 
+        :param budget: Budget for the project
+        :param labels: Array of additional labels
+        :param custom_properties: Custom values used by the project
+        :param info: Additional information
+        :returns: The created project object
+
+        .. note::
+
+            The parameter ``identifier`` is required if number ranges are manual.
         """
         data = {
             "name": name,
@@ -71,8 +99,8 @@ class Project(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                if key in ["finish_date"] and isinstance(value, date):
-                    data[key] = value.isoformat()
+                if key in ["finish_date"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)
                 else:
                     data[key] = value
                 
@@ -84,7 +112,7 @@ class Project(MWRAPBase):
         name: str = None,
         leader_id: int = None,
         customer_id: int = None,
-        finish_date: date = None,
+        finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
         billing_variant: ProjectBillingVariant = None,
@@ -94,22 +122,23 @@ class Project(MWRAPBase):
         custom_properties: dict = None,
         info: str = None
         ):
-        """updates an existing project
+        """
+        Update an existing project.
 
-        :param id: id of the project to update
-        :param name: name of the project
-        :param leader_id: user id of the project leader
-        :param customer_id: company id of the customer
-        :param finish_date: finish date formatted YYYY-MM-DD
-        :param identifier: only mandatory if number ranges are manual
-        :param billing_address: adress the invoices go to
-        :param billing_variant: project, task or user (default is project)
-        :param hourly_rate: hourly rate that will get billed 
-        :param budget: budget for the project
-        :param labels: array of additional labels
-        :param custom_properties: custom values used by the project
-        :param info: additional information
-        :returns: the updated project object
+        :param id: Id of the project to update
+        :param name: Name of the project
+        :param finish_date: Finish date
+        :param leader_id: User id of the project leader
+        :param customer_id: Company id of the customer
+        :param identifier: Project Identifier
+        :param billing_address: Address the invoices go to
+        :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
+        :param hourly_rate: Hourly rate that will get billed 
+        :param budget: Budget for the project
+        :param labels: Array of additional labels
+        :param custom_properties: Custom values used by the project
+        :param info: Additional information
+        :returns: The updated project object
         """
 
         data = {}
@@ -128,8 +157,8 @@ class Project(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                if key in ["finish_date"] and isinstance(value, date):
-                    data[key] = value.isoformat()
+                if key in ["finish_date"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -139,10 +168,11 @@ class Project(MWRAPBase):
         self,
         id: int
         ):
-        """get a single project
+        """
+        Get a single project.
 
-        :param id: id of the project
-        :returns: project object
+        :param id: Id of the project
+        :returns: Project object
         """
 
         return self._moco.get(API_PATH["project_get"].format(id=id))
@@ -153,32 +183,33 @@ class Project(MWRAPBase):
         include_company: bool = None,
         leader_id: int = None,
         company_id: int = None,
-        created_from: date = None,
-        created_to: date = None,
-        updated_from: date = None,
-        updated_to: date = None,
+        created_from: datetime.date = None,
+        created_to: datetime.date = None,
+        updated_from: datetime.date = None,
+        updated_to: datetime.date = None,
         tags: list = None,
         identifier: str = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """Get a list of projects
+        """
+        Get a list of projects.
 
-        :param include_archived: true/false include archived projects
-        :param include_company: true/false include the whole company or just the id
-        :param leader_id: user id of the project leader
-        :param company_id: company id the projects are assigned to
-        :param created_from: created start date (format YYYY-MM-DD)
-        :param created_to: created end date (format YYYY-MM-DD)
-        :param updated_from: updated start date (format YYYY-MM-DD)
-        :param updated_to: updated end date (format YYYY-MM-DD)
-        :param tags: array of tags
-        :param identifier: project identifer
-        :param sort_by: field to sort the results by
+        :param include_archived: Include archived projects
+        :param include_company: Include the complete company object or just the company id
+        :param leader_id: User id of the project leader
+        :param company_id: Company id the projects are assigned to
+        :param created_from: Created start date 
+        :param created_to: Created end date
+        :param updated_from: Updated start date
+        :param updated_to: Updated end date
+        :param tags: Array of tags
+        :param identifier: Project identifer
+        :param sort_by: Field to sort the results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of project objects
+        :param page: Page number (default 1)
+        :returns: List of project objects
         """
 
         params = {}
@@ -196,8 +227,8 @@ class Project(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                if key in ["created_from", "created_to", "updated_from", "updated_to" ] and isinstance(value, date):
-                    params[key] = value.isoformat()
+                if key in ["created_from", "created_to", "updated_from", "updated_to" ] and isinstance(value, datetime.date):
+                    params[key] = self.convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -215,13 +246,14 @@ class Project(MWRAPBase):
         sort_order: str = 'asc', 
         page: int = 1
         ):
-        """get list of all project currently assigned to the user 
+        """
+        Get list of all project currently assigned to the user.
 
-        :param active: true/false show only active or inacitve projects
-        :param sort_by: sort by field
+        :param active: Show only active or inacitve projects
+        :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of project objects
+        :param page: Page number (default 1)
+        :returns: List of project objects
         """
 
         params = {}
@@ -241,9 +273,11 @@ class Project(MWRAPBase):
         self,
         id: int
         ):
-        """archive a project
+        """
+        Archive a project.
 
-        :param id: id of the project to archive
+        :param id: Id of the project to archive
+        :returns: The archived project
         """
         return self._moco.put(API_PATH["project_archive"].format(id=id))
 
@@ -251,9 +285,11 @@ class Project(MWRAPBase):
         self,
         id: int
         ):
-        """unarchive a project
+        """
+        Unarchive a project.
 
-        :param id: id of the project to unarchive
+        :param id: Id of the project to unarchive
+        :returns: The unarchived project
         """
         return self._moco.put(API_PATH["project_unarchive"].format(id=id))
 
@@ -261,12 +297,13 @@ class Project(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a project report
+        """
+        Retrieve a project report.
 
-        all cost are in the accounts main currency, it might differ from the budget and billable items
+        All costs are in the accounts main currency, it might differ from the budget and billable items.
 
-        :param id: id of the project
-        :returns: report with the most important project business indicators
+        :param id: Id of the project
+        :returns: Report with the most important project business indicators
         """
         return self._moco.get(API_PATH["project_report"].format(id=id))    
 

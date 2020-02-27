@@ -1,16 +1,20 @@
-# -*- coding: utf-8 -*-
-
+from moco_wrapper.const import API_PATH
 from moco_wrapper import models, util
-from .const import API_PATH
+from moco_wrapper.util import requestor, objector
 
 from requests import get, post, put, delete
-from json import dumps
 
-"""Main module."""
 class Moco(object):
     """
     Main Moco class for handling authentication, object conversion, requesting ressources with the moco api
+    
+    :param api_key: user specific api key
+    :param domain: the subdomain part of your moco-url (if your full url is ``https://testabcd.mocoapp.com``, provide ``testabcd``)
+    :param objector: objector object (see :ref:`objector`, default: :class:`moco_wrapper.util.objector.DefaultObjector`)
+    :param requestor: requestor object (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
+    :param impersonate_user_id: user id the client should impersonate (default: None, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
 
+    
     .. code-block:: python
 
         import moco_wrapper
@@ -18,20 +22,14 @@ class Moco(object):
             api_key="<TOKEN>",
             domain="<DOMAIN>"
         )
-    
-    :param api_key: user specific api key
-    :param domain: your company specific moco domain part (if your full domain is https://testabcd.mocoapp.com, provide testabcd)
-    :param objector: objector (see util.objector)
-    :param requestor: requestor (see util.requestor) 
-    :param impersonate_user_id: user id the client should impersonate (default none, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
     """
     def __init__(
         self, 
-        api_key = None, 
-        domain = None, 
-        objector = util.objector.DefaultObjector(), 
-        requestor = util.requestor.DefaultRequestor(),
-        impersonate_user_id = None,
+        api_key: str = None, 
+        domain: str = None, 
+        objector = objector.DefaultObjector(), 
+        requestor = requestor.DefaultRequestor(),
+        impersonate_user_id: int = None,
         **kwargs):
 
         self.api_key = api_key
@@ -78,9 +76,19 @@ class Moco(object):
 
         self._impersonation_user_id = impersonate_user_id
 
-    def request(self, method, path, params=None, data=None, current_try=1):
-        """Send a request to an URL with the specified params and data
-        :returns an object that was returns by the objetor currently assigned to the moco warpper object
+    def request(self, method, path, params=None, data=None):
+        """
+        request the given ressource with the assigned requestor
+
+        :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
+        :param path: path of the ressource (e.g. ``/projects``)
+        :param params: url parameters (e.g. ``page=1``, query parameters)
+        :param data: dictionary with data (http body) 
+
+        The request will be given to the currently assinged requestor (see :ref:`requestor`).
+        The response will then be given to the currently assinged objector (see :ref:`objector`)
+        
+        The *possibly* modified response will then be returned
         """
 
         full_path = self.full_domain + path
@@ -123,17 +131,30 @@ class Moco(object):
         Impersontates the user with the supplied user id
 
         :param user_id: user id to impersonate
+
+        .. seealso::
+            
+            :meth:`clear_impersonation` to end impersonation of ``user_id``
+
         """
         self._impersonation_user_id = user_id
 
     def clear_impersonation(self):
         """
-        Clears impersonation
+        Ends impersonation
+
+        .. seealso::
+
+            :meth:`impersonate`
+
         """
         self._impersonation_user_id = None
 
     @property
     def headers(self):
+        """
+        Returns all http headers to be used by the assigned requestor
+        """
         headers = {
             'Content-Type' : 'application/json',
             'Authorization': 'Token token={}'.format(self.api_key)
@@ -146,14 +167,22 @@ class Moco(object):
 
     @property
     def full_domain(self):
+        """
+        Returns the full url of the moco api
+
+        .. code-block:: python
+
+            >> m = Moco(domain="testabcd")
+            >> print(m.full_domain)
+            https://testabcd.mocoapp.com/api/v1
+
+        """
         return "https://{}.mocoapp.com/api/v1".format(self.domain)
 
     @property
     def session(self):
         """
-        Get the http.session object of the current requestor
-
-        :returns: requestors session object (None if the requestor does not have a session)
+        Get the http.session object of the current requestor (None if the requestor does not have a session)
         """
         
         return self._requestor.session
@@ -163,8 +192,22 @@ class Moco(object):
         """
         Get the currently assigned objector object
 
-        :returns: the currently assigned objector
+        .. seealso::
+
+            :ref:`objector`
         """
         return self._objector
+
+    @property
+    def requestor(self):
+        """
+        Get the currently assigned requestor object
+
+        .. seealso::
+
+            :ref:`requestor`
+        """
+        return self._requestor
+    
     
     

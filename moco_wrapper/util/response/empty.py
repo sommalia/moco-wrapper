@@ -9,12 +9,15 @@ class EmptyResponse(MWRAPResponse):
         """
         class constructor
 
-        :param response: response object
+        :param response: http response object
         """
         super(EmptyResponse, self).__init__(response)
 
     @property
     def data(self):
+        """
+        No data in an empty response, returns None
+        """
         return None
 
     def __str__(self):

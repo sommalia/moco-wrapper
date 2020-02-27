@@ -1,31 +1,40 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
 
-from datetime import date
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 class InvoicePayment(MWRAPBase):
-    """class for handling invoice payments(in german "rechnungen")."""
+    """
+    Class for handling invoice payments.
+    """
+
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def getlist(
         self,
         invoice_id: int = None,
-        date_from: date = None,
-        date_to: date = None,
-        sort_by = None,
+        date_from: datetime.date = None,
+        date_to: datetime.date = None,
+        sort_by: str = None,
         sort_order = 'asc',
         page = 1
         ):
-        """retrieve all invoice payments
+        """
+        Retrieve a list of invoice payments.
 
         :param invoice_id: Id of a corresponding invoice
-        :param date_from: starting filter date
-        :param date_to: end filter date
-        :param sort_by: field to sort results by
+        :param date_from: Start date
+        :param date_to: End date
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of invoice payments
+        :param page: Page number (default 1)
+        :returns: List of invoice payments
         """
 
 
@@ -38,7 +47,7 @@ class InvoicePayment(MWRAPBase):
         ):
             if value is not None:
                 if key in ["date_from", "date_to"] and isinstance(value, date):
-                    params[key] = value.isoformat()
+                    params[key] = self.convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -52,27 +61,29 @@ class InvoicePayment(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a single payment
+        """
+        Retrieve a single invoice payment.
 
-        :param id: payment id
-        :returns: single payment object
+        :param id: Invoice payment id
+        :returns: Single invoice payment object
         """
         return self._moco.get(API_PATH["invoice_payment_get"].format(id=id))
 
     def create(
         self,
-        payment_date,
-        invoice_id,
-        paid_total,
-        currency
+        payment_date: datetime.date,
+        invoice_id: int,
+        paid_total: float,
+        currency: str
         ):
-        """create a new payment
+        """
+        Create a new invoice payment.
 
-        :param payment_date: date of the payment (format YYYY-MM-DD)
-        :param invoice_id: id of the invoice this payment belongs to
-        :param paid_total: amount that was paid (ex. 2000)
-        :param currency: currency of the amount that was paid (ex. EUR)
-        :returns: the created payment object
+        :param payment_date: Date of the payment
+        :param invoice_id: Id of the invoice this payment belongs to
+        :param paid_total: Amount that was paid (ex. 193.50)
+        :param currency: Currency used (e.g. EUR)
+        :returns: The created invoice payment object
         """
         data = {
             "date": payment_date,
@@ -81,19 +92,40 @@ class InvoicePayment(MWRAPBase):
             "currency": currency
         }
 
-        if isinstance(payment_date, date):
-            data["date"] = payment_date.isoformat()
+        if isinstance(payment_date, datetime.date):
+            data["date"] = self.convert_date_to_iso(payment_date)
 
         return self._moco.post(API_PATH["invoice_payment_create"], data=data)
 
     def create_bulk(
         self,
-        items = []
+        items: list = []
         ):
-        """create multiple new payments
+        """
+        Create multiple new invoice payments.
 
-        :param items: payment items (field are the same as in the create method. Also see InvoicePaymentGenerator::generate()
-        :returns: the created payments
+        :param items: Payment items
+        :returns: List of created invoice payments
+
+        Bulk creation if invoice payments items with generator:
+
+        .. code-block:: python
+
+            from moco_wrapper.util.generator import InvoicePaymentGenerator()
+            from moco_wrapper import Moco
+
+            items = [
+                gen.generate(..),
+                gen.generate(..)
+            ]
+
+            m = Moco()
+
+            created_payments = m.InvoicePayment.create_bulk(items)
+
+        .. seealso:: 
+            :class:`moco_wrapper.util.generator.InvoicePaymentGenerator`
+
         """
         data = {
             "bulk_data": items
@@ -104,17 +136,18 @@ class InvoicePayment(MWRAPBase):
     def update(
         self,
         id: int,
-        payment_date: date = None,
+        payment_date: datetime.date = None,
         paid_total: float = None,
         currency: str= None
         ):
-        """updates an existing payment
+        """
+        Updates an existing invoice payment.
 
-        :param id: id of the payment to update
-        :param payment_date: date of the payment (format YYYY-MM-DD)
-        :param paid_total: amount that was paid
-        :param currency: currency of the payment (ex. EUR)
-        :returns: the updated payment object
+        :param id: Id of the payment to update
+        :param payment_date: Date of the payment
+        :param paid_total: Amount that was paid
+        :param currency: Currency (e.g. EUR)
+        :returns: The updated invoice payment object
         """
         data = {}
         for key, value in (
@@ -123,8 +156,8 @@ class InvoicePayment(MWRAPBase):
             ("currency", currency),
         ):
             if value is not None:
-                if key in ["date"] and isinstance(value, date):
-                    data[key] = value.isoformat()
+                if key in ["date"] and isinstance(value, datetime.date):
+                    data[key] = self.convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -134,8 +167,10 @@ class InvoicePayment(MWRAPBase):
         self,
         id: int
         ):
-        """deletes a payment
+        """
+        Deletes an invoice payment.
 
-        :param id: id of the payment to delete
+        :param id: Id of the payment to delete
+        :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["invoice_payment_delete"].format(id=id))

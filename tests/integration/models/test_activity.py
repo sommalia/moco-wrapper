@@ -1,9 +1,8 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
 from moco_wrapper.models.activity import ActivityRemoteService
+from datetime import date
 
 from .. import IntegrationTest
-
-from datetime import date
 
 class TestActivity(IntegrationTest):
 

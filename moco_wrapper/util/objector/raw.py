@@ -1,12 +1,14 @@
 from .base import BaseObjector
 
 class RawObjector(BaseObjector):
-    """Objector class that does no conversion (for testing purposes)"""
+    """
+    Objector class that does no conversion (for testing purposes)
+    """
     
-    def convert(self, response):
+    def convert(self, requestor_response):
         """Returns the response object that was given
 
-        :param response: response object to convert
-        :returns: response object that was the parameter
+        :param requestor_response: response object to convert
+        :returns: requestor_response as it is
         """
-        return response
+        return requestor_response

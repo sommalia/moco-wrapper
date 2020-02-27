@@ -1,10 +1,19 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 class ProjectContract(MWRAPBase):
-    """Class for handling project contracts."""
+    """
+    Class for handling project contracts.
+    
+    When a user gets assigned to a project, that is called a project contract. This can be done with this model.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -16,15 +25,16 @@ class ProjectContract(MWRAPBase):
         budget: float = None,
         hourly_rate: float = None
         ):
-        """Assign a person to a project
+        """
+        Assign a user to a project.
 
-        :param project: id of the project
-        :param user_id: user id of the person to assign
-        :param billable: true/false if the contract is billable
-        :param active: true/false if the contract is active
-        :param budget: contract budget
-        :param hourly_rate: contract hourly rate
-        :returns: create contract object
+        :param project: Id of the project
+        :param user_id: User id of the person to assign
+        :param billable: If the contract is billable
+        :param active: If the contract is active
+        :param budget: Contract budget
+        :param hourly_rate: Contract hourly rate
+        :returns: Created contract object
         """
         data = {
             "user_id": user_id
@@ -50,15 +60,16 @@ class ProjectContract(MWRAPBase):
         budget: float = None,
         hourly_rate: float = None
         ):
-        """update an existing staff assignment
+        """
+        Update an existing project contract.
 
-        :param project_id: id of the project to update the contract for
-        :param contract_id: id of the contract to update
-        :param billable: true/false if the contract is billable
-        :param active: true/false if the contract is active
-        :param budget: contract budget
-        :param hourly_rate: contract hourly rate
-        :returns: the updated project contract
+        :param project_id: Id of the project to update the contract for
+        :param contract_id: Id of the contract to update
+        :param billable: If the contract is billable
+        :param active: If the contract is active
+        :param budget: Contract budget
+        :param hourly_rate: Contract hourly rate
+        :returns: The updated project contract
         """
 
         data = {}
@@ -78,11 +89,12 @@ class ProjectContract(MWRAPBase):
         project_id: int,
         contract_id: int
         ):
-        """retrieve a single staff assignment of a project
+        """
+        Retrieve a project contract.
 
-        :param project_id: id of the project
-        :param contract_id: id of the contract
-        :returns: the contract object
+        :param project_id: Id of the project
+        :param contract_id: Id of the contract
+        :returns: The contract object
         """
 
         return self._moco.get(API_PATH["project_contract_get"].format(project_id=project_id, contract_id=contract_id))
@@ -94,13 +106,14 @@ class ProjectContract(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrive all active staff assignments for a project
+        """
+        Retrieve all active contracts for a project.
 
-        :param project_id: id of the project
-        :param sort_by: sort by field
+        :param project_id: Id of the project
+        :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: a list of contract objects
+        :param page: Page number (default 1)
+        :returns: List of contract objects
         """
 
         params = {}
@@ -121,12 +134,14 @@ class ProjectContract(MWRAPBase):
         project_id: int,
         contract_id: int,
         ):
-        """delete a staff assignment
+        """
+        Delete a project contract.
 
-        deleting a staff assignment is only possible as long as no hours are tracked from this person
+        Deleting a staff assignment is only possible as long as there no hours tracked from the assinged person for the project.
 
-        :param project_id: id of the project
-        :param contract_id: id of the contract to delete
+        :param project_id: Id of the project
+        :param contract_id: Id of the contract to delete
+        :returns: Empty response on success
         """
 
         return self._moco.delete(API_PATH["project_contract_delete"].format(project_id=project_id, contract_id=contract_id))

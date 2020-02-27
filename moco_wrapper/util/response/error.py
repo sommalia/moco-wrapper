@@ -3,7 +3,7 @@ from .base import MWRAPResponse
 
 class ErrorResponse(MWRAPResponse):
     """
-    class for handling responses by the api that are containing errors
+    class for handling error messages returned by the api
     """
 
     @property
@@ -11,7 +11,20 @@ class ErrorResponse(MWRAPResponse):
         """
         Checks the http status code of the response and returns True if the error is not a permanent error, i.e. recovering is possible by simply waiting a bit and sending the request again.
 
-        :returns: True if recovery is possible by sending the request again later, False if not
+        :returns: ``True`` if recovery is possible by sending the request again later, otherwise ``False``
+
+        .. code-block:: python
+
+            m = Moco()
+            project_id = 22
+
+            project_get = m.Project.get(project_id)
+
+            if isinstance(project_get, ErrorResponse) and project_get.is_recoverable:
+                time.sleep(5)
+                project_get = m.Project.get(project_id)
+            
+            print(project_get)
         """
 
         if self.response.status_code == 429: 

@@ -1,15 +1,36 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
-from datetime import date
 
 class DealCategory(MWRAPBase):
     """
-    Model for handling the different deal_categories used by the deal model. In German "Akquise-Stufen"
+    Model for handling the different deal_categories used by a pending deal.
+
+    A deal (see :class:`moco_wrapper.models.Deal`) that is in the state ``PENDING`` (see :class:`moco_wrapper.models.deal.DealStatus`) must be assigned to deal category. A category has a name and a probability of success (in percent). 
+
+    Typicly a deal that is in ``PENDING`` starts at 1% and moves into the state ``WON`` if the probability reaches 100%.
+    
+    .. code-block:: python
+
+        from moco_wrapper import Moco
+
+        m = Moco()
+
+        #create a category with 75% success probability
+        new_category = m.DealCategory.create(
+            "Second round of negotiation",
+            75
+        ) 
+
     """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -17,11 +38,12 @@ class DealCategory(MWRAPBase):
         name: str,
         probability: int
         ):
-        """create a new deal category
+        """
+        Create a new deal category.
 
-        :param name: name of the deal category
-        :param probability: probality in (between 0 and 100)
-        :returns: the created deal category
+        :param name: Name of the deal category (must be unique)
+        :param probability: Deal category success probability (between 1 and 100)
+        :returns: The created deal category
         """
 
         data = {
@@ -37,12 +59,13 @@ class DealCategory(MWRAPBase):
         name: str = None,
         probability: int = None
         ):
-        """updates an existing deal category
+        """
+        Updates an existing deal category.
 
-        :param id: id of the deal category to update
-        :param name: name of the deal category
-        :param probability: probality in (between 0 and 100)
-        :returns: the updated deal category
+        :param id: Id of the deal category to update
+        :param name: Name of the deal category (must be unique)
+        :param probability: Deal category success probability (between 1 and 100)
+        :returns: The updated deal category
         """
         data = {}
 
@@ -62,12 +85,13 @@ class DealCategory(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieves a list of a deal categories
+        """
+        Retrieves a list of a deal categories.
 
-        :param sort_by: field to sort by 
+        :param sort_by: Field to sort by 
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of deal cateogories
+        :param page: Page number (default 1)
+        :returns: List of deal cateogories
         """
         params = {}
         for key, value in (
@@ -85,10 +109,11 @@ class DealCategory(MWRAPBase):
         self,
         id: int
         ):
-        """retrieves a single deal category
+        """
+        Retrieves a single deal category.
 
-        :param id: id of the deal category to retrieve
-        :returns: single deal category
+        :param id: Id of the deal category to retrieve
+        :returns: Single deal category
         """
 
         return self._moco.get(API_PATH["deal_category_get"].format(id=id))
@@ -97,9 +122,11 @@ class DealCategory(MWRAPBase):
         self,
         id: int
         ):
-        """delete a deal category
+        """
+        Delete a deal category.
 
-        :param id: id of the deal category to delete
+        :param id: Id of the deal category to delete
+        :reuturns: Empty response on success
         """
 
         return self._moco.delete(API_PATH["deal_category_delete"].format(id=id))

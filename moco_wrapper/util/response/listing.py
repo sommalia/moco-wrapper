@@ -3,13 +3,26 @@ from json import dumps
 
 class ListingResponse(MWRAPResponse):
     """
-    Class for handling responses where the body can be converted into valid json AND are listings (collections of objects)
+    Class for handling http responses where the response body is a json list
     """
 
     @property 
     def items(self):
         """
-        Returns the list of objects the response contains
+        Get the list of objects the response contains
+
+        .. code-block:: python
+
+            m = Moco()
+            project_list = m.Project.getlist()
+
+            for item in project_list.items:
+                print(item)
+
+        .. seealso:: 
+
+            :attr:`data`
+
         """
         return self._data
 
@@ -35,6 +48,10 @@ class ListingResponse(MWRAPResponse):
     def data(self):
         """
         Returns the list of object the response contains
+
+        .. seealso:: 
+
+            :attr:`items`
         """
         return self._data
     
@@ -43,7 +60,7 @@ class ListingResponse(MWRAPResponse):
         """
         class constructor
 
-        :param response: response object
+        :param response: http response object
         """
         super(ListingResponse, self).__init__(response)
 

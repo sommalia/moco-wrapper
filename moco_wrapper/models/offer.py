@@ -1,10 +1,27 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
 
-from datetime import date
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
+
 from enum import Enum
 
 class OfferStatus(str, Enum):
+    """
+    Enumeration for allowed values of the ``status`` argument of :meth:`.Offer.getlist`.
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco_wrapper.models.offer import OfferStatus
+        from moco_wrapper import Moco
+
+        m = Moco()
+        sent_offers = m.Offer.getlist(
+            ..
+            status = OfferStatus.SENT
+        )
+    """
     CREATED = "created"
     SENT = "sent"
     ACCEPTED = "accepted"
@@ -12,35 +29,63 @@ class OfferStatus(str, Enum):
     ARCHIVED = "archived"
 
 class OfferChangeAddress(str, Enum):
+    """
+    Enumeration for allowed values of the ``change_address`` argument of :meth:`.Offer.create`.
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco_wrapper.models.offer import OfferChangeAddress
+        from moco_wrapper import Moco
+
+        m = Moco()
+        new_offer = m.Offer.create(
+            ..
+            change_address = OfferChangeAddress.CUSTOMER
+        )
+    """
     OFFER = "offer"
     CUSTOMER = "customer"
 
 class Offer(MWRAPBase):
-    """class for handling offers (in german "angebote")."""
+    """
+    Class for handling offers.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def getlist(
         self,
         status: OfferStatus = None,
-        from_date: date = None,
-        to_date: date = None,
+        from_date: datetime.date = None,
+        to_date: datetime.date = None,
         identifier: str = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of offers
+        """
+        Retrieve a list of offers.
 
-        :param status: offer status ("created", "sent", "accepted", "billed", "archived")
-        :param from_date: starting filter date (format YYYY-MM-DD)
-        :param to_date: ending filter date (format YYYY-MM-DD)
-        :param identifier: offer identifier string (ex: "A1903-003")
-        :param sort_by: field to sort the results by
+        :param status: State the offer is in. For allowed values see :class:`.OfferStatus`.
+        :param from_date: Start date
+        :param to_date: End date
+        :param identifier: Identifier string (e.g.: "A1903-003")
+        :param sort_by: Field to sort the results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of offer objects
+        :param page: Page number (default 1)
+        :returns: List of offer objects
+
+        
+        .. note::
+            Offers can be sorted by ``date``, ``created_at`` and ``title``.
         """
         params = {}
         for key, value in (
@@ -51,8 +96,8 @@ class Offer(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                if key in ["from", "to"] and isinstance(value, date):
-                    params[key] = value.isoformat()
+                if key in ["from", "to"] and isinstance(value, datetime.date):
+                    params[key] = self.convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -65,11 +110,11 @@ class Offer(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a sigle offer
+        """
+        Retrieve a single offer.
 
-        :param id: id of the offer
-        :returns: single offer object
-
+        :param id: Id of the offer
+        :returns: Single offer object
         """
         return self._moco.get(API_PATH["offer_get"].format(id=id))
 
@@ -78,11 +123,12 @@ class Offer(MWRAPBase):
         id: int,
         letter_paper_id: int = None
         ):
-        """retrive the offer document for a single offer
+        """
+        Retrieve the offer document for a single offer.
 
-        :param id: id of the offer
-        :param letter_paper_id: id of the letter paper (default white)
-        :returns: filestream of the document
+        :param id: Id of the offer
+        :param letter_paper_id: Id of the letter paper (default white)
+        :returns: The offers pdf document
         """
         return self._moco.get(API_PATH["offer_pdf"].format(id=id))
 
@@ -91,8 +137,8 @@ class Offer(MWRAPBase):
         deal_id: int,
         project_id: int,
         recipient_address: str,
-        creation_date: date,
-        due_date: date,
+        creation_date: datetime.date,
+        due_date: datetime.date,
         title: str,
         tax: float,
         currency: str,
@@ -104,24 +150,28 @@ class Offer(MWRAPBase):
         contact_id: int = None
         ):
         """
-        create a new offer
+        Create a new offer.
 
-        :param deal_id: deal id of the offer (either deal id or project id must be specified (or both)), set to null if none is specified
-        :param project_id: project id of the offer (either deal id or project id (or both) must be specified), set to null if none is specified
-            available types are "project" and "deal"
-        :param recipient_address: address of the recipient
-        :param creation_date: creation date of the offer
-        :param due_date: date the offer is due
-        :param title: offer title
-        :param tax: offer tax (0.0-100.0)
-        :param currency: currency used by the offer ("EUR", "CHF")
-        :param items: list of offer items, see OfferItemGenerator
-        :param change_address: change offer address propagation, see OfferChangeAdress enum (default offer)
-            available values are "offer" and "customer"
-        :param salutation: salutation text
-        :param footer: footer text
-        :param discount: discount in percent
-        :param contact_id: id of the contact for the offer
+        :param deal_id: Deal id of the offer 
+        :param project_id: project id of the offer 
+        :param recipient_address: Address of the recipient (e.g. Test Custmer\\\\nMain Street 5\\\\nExample Town)
+        :param creation_date: Creation date
+        :param due_date: Date the offer is due
+        :param title: Title of the offer
+        :param tax: Tax (0.0-100.0)
+        :param currency: Currency code used (e.g. EUR, CHF)
+        :param items: List of offer items
+        :param change_address: change offer address propagation. For allowed values see :class:`.OfferChangeAddress`.
+        :param salutation: Salutation text
+        :param footer: Footer text
+        :param discount: Discount in percent
+        :param contact_id: Id of the contact for the offer
+
+        .. note::
+            Either ``deal_id`` or ``project_id`` must be specified (or both)
+
+        .. seealso::
+            :class:`moco_wrapper.util.generator.OfferItemGenerator`   
         """
 
         if project_id is None and deal_id is None:
@@ -134,19 +184,14 @@ class Offer(MWRAPBase):
             "title": title,
             "tax": tax,
             "currency": currency,
-            "items": items
+            "items": items,
+            "date": creation_date,
+            "due_date": due_date,
         }
 
-        if isinstance(creation_date, date):
-            data["date"] = creation_date.isoformat()
-        else:
-            data["date"] = creation_date
-
-        if isinstance(due_date, date):
-            data["due_date"] = due_date.isoformat()
-        else:
-            data["due_date"] = due_date
-
+        for date_key in ["date", "due_date"]:
+            if isinstance(data[date_key], datetime.date):
+                 data[date_key] = self.convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("change_address", change_address),

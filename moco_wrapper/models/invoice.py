@@ -1,34 +1,77 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
+
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
-from datetime import date
 
 class InvoiceStatus(str, Enum):
+    """
+    Enumeration for allowed values that can be supplied for the ``status`` argument of :meth:`Invoice.getlist`, :meth:`Invoice.update_status` and :meth:`Invoice.create`.
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco_wrapper.models.invoice import InvoiceStatus
+        from moco_wrapper import Moco
+
+        m = Moco()
+        new_invoice = m.Invoice.create(
+            ..
+            status = InvoiceStatus.DRAFT
+        )
+    """
     DRAFT = "draft"
     CREATED = "created"
     SENT = "sent"
     PARTIALLY_PAID = "partially_paid"
     PAID = "paid"
     OVERDUE = "overdue"
-    IGNORED = "ignored" #cannot use this status for creating invoices
+    IGNORED = "ignored"
+    """
+    .. warning:: 
+        Do not use this status for creating invoices, only updating and filtering
+    """
 
 class InvoiceChangeAddress(str, Enum):
+    """
+    Enumeration for allowed values that can be supplied for ``change_address`` argument of :meth:`Invoice.create`.
+
+    .. code-block:: python
+
+        from moco_wrapper.models.invoice import InvoiceChangeAddress
+        from moco_wrapper import Moco
+
+        m = Moco()
+        new_invoice = m.Invoice.create(
+            ..
+            change_address = InvoiceChangeAddress.PROJECT
+            )
+            
+    """
     INVOICE = "invoice"
     PROJECT = "project"
     CUSTOMER = "customer"
 
 class Invoice(MWRAPBase):
-    """Models for handling invoices."""
+    """
+    Models for handling invoices.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def getlist(
         self,
         status: InvoiceStatus = None,
-        date_from: date = None,
-        date_to: date = None,
+        date_from: datetime.date = None,
+        date_to: datetime.date = None,
         tags: list = None,
         identifier: str = None,
         term: str = None,
@@ -36,18 +79,19 @@ class Invoice(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of invoices
+        """
+        Retrieve a list of invoices.
 
-        :param status: status the invoice has ("draft", "created", "sent", "partially_paid", "paid", "overdue", "ignored"), see InvoiceStatus
-        :param date_from: filter starting date
-        :param date_to: filter end date
-        :param tags: list of tags
-        :param identifier: identifier string (ex. R1903-003)
-        :param term: wildcard search term withing title and identifier
-        :param sort_by: field to sort results by
+        :param status: State of the invoice. For allowed values see :class:`.InvoiceStatus`
+        :param date_from: Starting date
+        :param date_to: End date
+        :param tags: List of tags
+        :param identifier: Identifier string (e.g. R1903-003)
+        :param term: Wildcard search term
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of invoice objects
+        :param page: Page number (default 1)
+        :returns: List of invoice objects
         """
         params = {}
         for key, value in (
@@ -61,8 +105,8 @@ class Invoice(MWRAPBase):
         ):
             
             if value is not None:
-                if key in ["date_from", "date_to"] and isinstance(value, date):
-                    params[key] = value.isoformat()
+                if key in ["date_from", "date_to"] and isinstance(value, datetime.date):
+                    params[key] = self.convert_date_to_iso(value)
                 elif key in ["tags"] and isinstance(value, list):
                     params[key] = ",".join(value)
                 else:
@@ -76,23 +120,24 @@ class Invoice(MWRAPBase):
     def locked(
         self,
         status: InvoiceStatus = None,
-        date_from: date = None,
-        date_to: date = None,
+        date_from: datetime.date = None,
+        date_to: datetime.date = None,
         identifier: str = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
         ):        
-        """retrieve a list of locked invoices
+        """
+        Retrieve a list of locked invoices.
 
-        :param status: status the invoice has ("draft", "created", "sent", "partially_paid", "paid", "overdue", "ignored"), see InvoiceStatus
-        :param date_from: filter starting date
-        :param date_to: filter end date
-        :param identifier: identifier string (ex. R1903-003)
-        :param sort_by: field to sort results by
+        :param status: State of the invoice. For allowed values see :class:`.InvoiceStatus`. 
+        :param date_from: Start date
+        :param date_to: End date
+        :param identifier: Identifier string (ex. R1903-003)
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of invoice objects
+        :param page: Page number (default 1)
+        :returns: List of invoice objects
         """
         params = {}
         for key, value in (
@@ -103,8 +148,8 @@ class Invoice(MWRAPBase):
             ("page", page)
         ):          
             if value is not None:
-                if key in ["date_from", "date_to"] and isinstance(value, date):
-                    params[key] = value.isoformat()
+                if key in ["date_from", "date_to"] and isinstance(value, datetime.date):
+                    params[key] = self.convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -118,10 +163,11 @@ class Invoice(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a single invoice
+        """
+        Retrieve a single invoice.
 
-        :param id: invoice id
-        :returns: single invoice
+        :param id: Invoice id
+        :returns: Single invoice object
         """
         return self._moco.get(API_PATH["invoice_get"].format(id=id))
 
@@ -129,10 +175,11 @@ class Invoice(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve the invoice document as pdf 
+        """
+        Retrieve the invoice document as pdf. 
 
-        :param id: invoice id
-        :returns: filestream of the invoice pdf file
+        :param id: Invoice id
+        :returns: Invoice pdf
         """
         return self._moco.get(API_PATH["invoice_pdf"].format(id=id))
 
@@ -140,12 +187,13 @@ class Invoice(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve the invoice timesheet document as pdf
+        """
+        Retrieve the invoice timesheet document as pdf.
 
-        invoices that have timesheets cannot be created with the api and must be created manully by billing unbilled tasks
+        Invoices that have timesheets cannot be created with the api and must be created manully by billing unbilled tasks.
 
-        :param id: invoice id
-        :return: an FileResponse when hours were found, an Error response if there are no hours
+        :param id: Invoice id
+        :return: Invoice timesheet as pdf
         """
         return self._moco.get(API_PATH["invoice_timesheet"].format(id=id))
 
@@ -154,12 +202,12 @@ class Invoice(MWRAPBase):
         id: int,
         status: InvoiceStatus
         ):
-        """updates an invoices status
+        """
+        Updates the state of an invoices.
 
-        :param id: invoice id
-        :param status: new status of the invoice, see InvoiceStatus
-        :returns an empty response on success
-
+        :param id: Invoice id
+        :param status: New state of the invoice. For allowed values see :class:`.InvoiceStatus`.
+        :return: Empty response on success
         """
         data = {
             "status": status
@@ -171,10 +219,10 @@ class Invoice(MWRAPBase):
         self,
         customer_id: int,
         recipient_address: str,
-        created_date: date,
-        due_date: date,
-        service_period_from: date,
-        service_period_to: date,
+        created_date: datetime.date,
+        due_date: datetime.date,
+        service_period_from: datetime.date,
+        service_period_to: datetime.date,
         title: str,
         tax: float,
         currency: str,
@@ -188,28 +236,37 @@ class Invoice(MWRAPBase):
         cash_discount_days: int = None,
         project_id: int = None
         ):
-        """creates a new invoice
+        """
+        Creates a new invoice.
 
-        :param customer_id: id of the customer (see company)
-        :param recipient_address: entry text for the customer (ex. "Dear my customer...")
-        :param created_date: date the invoice was cerated (format YYYY-MM-DD)
-        :param due_date: date the invoice is due (format YYYY-MM-DD)
-        :param service_period_from: service period start date (format YYYY-MM-DD, ie "2018-08-01")
-        :param service_period_to: service period end date (format YYYY-MM-DD, ie "2018-08-30")
-        :param title: invoice title
-        :param tax: tax percent (between 0.0 and 100.0)
-        :param currency: a valid currency code of the accoutn (ex. EUR)
-        :param items: invoice item (see InvoiceItemGenerator)
-        :param status: status of the invoice ("created", "draft"), default is created
-        :param change_address: address propagation ("invoice", "project", "customer"), default is "invoice", see InvoiceChangeAddress
-        :param salutation: salutation text
-        :param footer: footer text
-        :param discount: discount in percent (between 0.0 and 100.0)
-        :param cash_discount: cash discount in percent (between 0.0 and 100.0)
-        :param cash_discount_days: how many days is the cash discount valid (ex. 4)
-        :param project_id: id of the project the invoice belongs to
-            Note that if you create an invoice with a project, that project must also belong to the customer the invoice was created for
+        :param customer_id: Id of the customer/company
+        :param recipient_address: Entry text for the customer (e.g. "My Customer\\\\nMainStreet 5\\\\nExample Town")
+        :param created_date: Creation date of the invoice
+        :param due_date: Date the invoice is due
+        :param service_period_from: Service period start date
+        :param service_period_to: Service period end date
+        :param title: Title of the invoice
+        :param tax: Tax percent (between 0.0 and 100.0)
+        :param currency: Currency code (e.g. EUR)
+        :param items: Invoice items
+        :param status: State of the invoice. For allowed values see :class:`.InvoiceStatus`, default: "created".
+        :param change_address: Address propagation. For allowed values see :class:`.InvoiceChangeAddress`, default: "invoice".
+        :param salutation: Salutation text
+        :param footer: Footer text
+        :param discount: Discount in percent (between 0.0 and 100.0)
+        :param cash_discount: Cash discount in percent (between 0.0 and 100.0)
+        :param cash_discount_days: How many days is the cash discount valid (ex. 4)
+        :param project_id: Id of the project the invoice belongs to
         :returns: the created invoice
+
+
+        .. note::
+            Note that if you create an invoice with a project, that project must also belong to the customer the invoice was created for.
+
+        .. seealso::
+            
+            :class:`moco_wrapper.util.generator.InvoiceItemGenerator`
+
         """
         data = {
             "customer_id" : customer_id,
@@ -226,8 +283,8 @@ class Invoice(MWRAPBase):
 
         #overwrite all date fields in data with isoformat
         for date_key in ["date", "due_date", "service_period_from", "service_period_to"]:
-            if isinstance(data[date_key], date):
-                data[date_key] = data[date_key].isoformat()
+            if isinstance(data[date_key], datetime.date):
+                data[date_key] = self.convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("status", status),

@@ -1,24 +1,44 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+import datetime
+
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 from enum import Enum
-from datetime import date
 
 class ContactGender(str, Enum):
+    """
+    Enumeration for allowed values that can be supplired for ``gender`` argument in :class:`.Contact.create` and :class:`.Contact.update`.
+    
+    Example Usage:
+
+    .. code-block:: python
+
+        from moco_wrapper.models.contact import ContactGender
+        from moco_wrapper import Moco
+
+        m = Moco()
+        new_contact = m.Contact.create(
+            ..
+            gender = ContactGender.MALE
+        )
+    """
+
+
     MALE = "M"
     FEMALE = "F"
     UNDEFINED = "U"
 
 class Contact(MWRAPBase):
-    """Class for handling contacts"""
+    """
+    Class for handling contacts.
+    """
 
     def __init__(self, moco):
-        """Initialize a contact instance
-
-        :param moco: An instance of :class Moco
-
         """
+        Class Constructor
 
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def create(
@@ -26,8 +46,7 @@ class Contact(MWRAPBase):
         firstname: str,
         lastname: str,
         gender: ContactGender,
-        customer_id: int = None,
-        organization_id: int = None,
+        company_id: int = None,
         title: str = None,
         job_position: str = None,
         mobile_phone: str = None,
@@ -37,34 +56,30 @@ class Contact(MWRAPBase):
         work_address: str = None,
         home_address: str = None,
         home_email: str = None,
-        birthday: date = None,
+        birthday: datetime.date = None,
         info: str = None,
         tags: list = None):
-        """creates a contact.
+        """
+        Creates a contact.
 
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
-        :param gender: gender of the contact (f, m or u) (user contact.ContactGender)
-        :param customer_id: Id of the customer (company) the contact belongs to
-        :param organization_id: Id of the organization (company) the contact belongs to
-        :param title: Title the contact has
-        :param job_position: name of the job position this contact has
+        :param gender: Gender of the contact. For allowed values see :class:`.ContactGender`.
+        :param company_id: Id of the company the contact belongs to
+        :param title: Job title the contact has
+        :param job_position: Name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
-        :param work_fax: Fax number for work purposes
-        :param work_phone: Phone number for work purposes
+        :param work_fax: Work fax number
+        :param work_phone: Work phone number
         :param work_email: Work email address
-        :param work_address: Work address
-        :param home_address: Home address
-        :param home_email: home email address
-        :param birthday: Birthday date (datetime.date)
+        :param work_address: Physical work address
+        :param home_address: Physical home address
+        :param home_email: Home email address
+        :param birthday: Birthday date
         :param info: More information about the contact
         :param tags: Array of additional tags
-        :returns: the created contact object
+        :returns: The created contact object
         """
-
-
-        if customer_id is not None and organization_id is not None:
-            raise ValueError("Please specify either organization id or customer id (not both)")
 
         data = {
             "firstname" : firstname,
@@ -73,8 +88,7 @@ class Contact(MWRAPBase):
         }
 
         for key, value in (
-            ("customer_id", customer_id),
-            ("organization_id", organization_id),
+            ("customer_id", company_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
@@ -89,7 +103,7 @@ class Contact(MWRAPBase):
             ("tags", tags)
         ):
             if value is not None:
-                if isinstance(value, date):
+                if isinstance(value, datetime.date):
                     data[key] = value.isoformat()
                 else:
                     data[key] = value
@@ -102,8 +116,7 @@ class Contact(MWRAPBase):
         firstname: str = None,
         lastname: str = None,
         gender: ContactGender = None,
-        customer_id: int = None,
-        organization_id: int = None,
+        company_id: int = None,
         title: str = None,
         job_position: str = None,
         mobile_phone: str = None,
@@ -113,35 +126,31 @@ class Contact(MWRAPBase):
         work_address: str = None,
         home_address: str = None,
         home_email: str = None,
-        birthday: date = None,
+        birthday: datetime.date = None,
         info: str = None,
         tags: list = None
         ):
         """updates a contact.
 
-        :param id: id of the contact
+        :param id: Id of the contact
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
-        :param gender: either F, M, U
-        :param customer_id: Id of the customer (company) the contact belongs to
-        :param organization: Id of the organization (company) the contact belongs toa
-        :param title: Title the contact has
+        :param gender: Gender of the contact. For allowed values see :class:`.ContactGender`.
+        :param company_id: Id of the company the contact belongs to
+        :param title: Job title the contact has
         :param job_position: name of the job position this contact has
         :param mobile_phone: Mobile phone number the contact has
-        :param work_fax: Fax number for work purposes
-        :param work_phone: Phone number for work purposes
+        :param work_fax: Work fax number
+        :param work_phone: Work phone number
         :param work_email: Work email address
-        :param work_address: Work address
-        :param home_address: Home address
-        :param home_email: home email address
-        :param birthday: Birthday (format YYYY-MM-DD)
+        :param work_address: Physical work address
+        :param home_address: Physical home address
+        :param home_email: Home email address
+        :param birthday: Birthday date
         :param info: More information about the contact
         :param tags: Array of additional tags
-        :returns: the created contact object
+        :returns: The updated contact object
         """
-
-        if customer_id is not None and organization_id is not None:
-            raise ValueError("Please specify either organization id or customer id (not both)")
 
 
         data = {}
@@ -149,8 +158,7 @@ class Contact(MWRAPBase):
             ("firstname", firstname),
             ("lastname", lastname),
             ("gender", gender),
-            ("customer_id", customer_id),
-            ("organization_id", organization_id),
+            ("customer_id", company_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
@@ -166,7 +174,7 @@ class Contact(MWRAPBase):
             ):
 
             if value is not None:
-                if key == "birthday" and isinstance(value, date):
+                if key == "birthday" and isinstance(value, datetime.date):
                     data[key] = value.isoformat()
                 else:
                     data[key] = value
@@ -177,10 +185,11 @@ class Contact(MWRAPBase):
         self,
         id: int
         ):
-        """retrieve a single contact object
+        """
+        Retrieve a single contact object
 
-        :param id: id of the contact
-        :returns: the contact object
+        :param id: Id of the contact
+        :returns: The contact object
         """
         return self._moco.get(API_PATH["contact_get"].format(id=id))
 
@@ -191,13 +200,14 @@ class Contact(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of contact objects
+        """
+        Retrieve a list of contact objects
 
-        :param tags: array of tags
-        :param sort_by: field to the results by
+        :param tags: Array of tags
+        :param sort_by: Field to the results by
         :param sort_order: asc or desc
-        :param page: page number (default 1)
-        :returns: list of contact objects
+        :param page: Page number (default 1)
+        :returns: List of contact objects
         """
         params = {}
         for key, value in (

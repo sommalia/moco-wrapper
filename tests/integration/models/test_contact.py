@@ -1,6 +1,6 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse
 from moco_wrapper.models.contact import ContactGender
-from moco_wrapper.models.company import CompanyType, CompanyCurrency
+from moco_wrapper.models.company import CompanyType
 
 from datetime import date
 
@@ -21,6 +21,15 @@ class TestContact(IntegrationTest):
             company_create = self.moco.Company.create(
                 "TestContact organization",
                 company_type="organization"
+            )
+
+            return company_create.data
+
+    def get_supplier(self):
+        with self.recorder.use_cassette("TestContact.get_supplier"):
+            company_create = self.moco.Company.create(
+                "TestContact supplier",
+                company_type="supplier"
             )
 
             return company_create.data
@@ -53,7 +62,7 @@ class TestContact(IntegrationTest):
                 "dummy contact",
                 "test create with orga",
                 ContactGender.FEMALE,
-                organization_id=orga.id
+                company_id=orga.id
             )
 
             assert contact_create.response.status_code == 200
@@ -62,6 +71,24 @@ class TestContact(IntegrationTest):
 
             assert contact_create.data.company.type == "organization"
             assert contact_create.data.company.id == orga.id
+    
+    def test_create_with_supplier(self):
+        supplier = self.get_supplier()
+
+        with self.recorder.use_cassette("TestContact.test_create_with_supplier"):
+            contact_create = self.moco.Contact.create(
+                "dummy contact",
+                "test create with supplier",
+                ContactGender.FEMALE,
+                company_id=supplier.id
+            )
+
+            assert contact_create.response.status_code == 200
+
+            assert isinstance(contact_create, JsonResponse)
+
+            assert contact_create.data.company.type == "supplier"
+            assert contact_create.data.company.id == supplier.id
 
     def test_create_full(self):
         customer = self.get_customer()
@@ -89,7 +116,7 @@ class TestContact(IntegrationTest):
                 firstname,
                 lastname,
                 gender,
-                customer_id=customer.id,
+                company_id=customer.id,
                 title=title,
                 job_position=job_position,
                 mobile_phone=mobile_phone,
@@ -160,7 +187,7 @@ class TestContact(IntegrationTest):
                 firstname=firstname,
                 lastname=lastname,
                 gender=gender,
-                customer_id=customer.id,
+                company_id=customer.id,
                 title=title,
                 job_position=job_position,
                 mobile_phone=mobile_phone,

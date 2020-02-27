@@ -1,5 +1,5 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse
-from moco_wrapper.models.company import CompanyCurrency, CompanyType
+from moco_wrapper.models.company import CompanyType
 
 import string
 import random

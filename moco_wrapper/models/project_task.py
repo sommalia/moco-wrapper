@@ -1,10 +1,17 @@
-from .base import MWRAPBase
-from ..const import API_PATH
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
 
 class ProjectTask(MWRAPBase):
-    """class for handling tasks of a project (in german "leistungen")."""
+    """
+    Class for handling tasks of a project.
+    """
 
     def __init__(self, moco):
+        """
+        Class Constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
         self._moco = moco
 
     def getlist(
@@ -14,13 +21,14 @@ class ProjectTask(MWRAPBase):
         sort_order: str = 'asc',
         page: int = 1
         ):
-        """retrieve a list of task for a project
+        """
+        Retrieve a list of tasks for a project.
 
-        :param project_id: id of the project
-        :param sort_by: field to sort results by
+        :param project_id: Id of the project
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
-        :param page: page number (default 1)
-        :returns: list of project tasks
+        :param page: Page number (default 1)
+        :returns: List of project tasks
         """
         params = {}
 
@@ -41,11 +49,12 @@ class ProjectTask(MWRAPBase):
         project_id: int,
         task_id: int
         ):
-        """retrieve a single project task
+        """
+        Retrieve a single project task.
 
-        :param project_id: id of the project the task belongs to
-        :param task:id: id of the task
-        :returns: a single project task
+        :param project_id: Id of the project the task belongs to
+        :param task:id: Id of the task
+        :returns: Single project task
         """
         return self._moco.get(API_PATH["project_task_get"].format(project_id=project_id, task_id=task_id))
 
@@ -58,15 +67,16 @@ class ProjectTask(MWRAPBase):
         budget: float = None,
         hourly_rate: float = None
         ):
-        """create a task on a project
+        """
+        Create a task for a project.
 
-        :param project_id: id of the project the created task will belong to
-        :param name: name of the task
-        :param billable: true/false, if this task is billable or not (default true)
-        :param active: true/false, if this task is active or not (default true)
-        :param budget: how much budget for the task (ex: 200.75)
-        :param hourly_rate: how much is the hourly rate for the task (ex: 120.5)
-        :returns: the created project task
+        :param project_id: Id of the project the created task will belong to
+        :param name: Name of the task
+        :param billable: If this expense billable (default True)
+        :param active: If this expense active (default True)
+        :param budget: Budget for the task (e.g. 200.75)
+        :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5)
+        :returns: The created project task
         """
         data = {
             "name": name
@@ -93,16 +103,17 @@ class ProjectTask(MWRAPBase):
         budget: float = None,
         hourly_rate: float = None
         ):
-        """update a task on a project
+        """
+        Update a task for a project.
 
-        :param project_id: id of the project the task belongs to
-        :param task_id: id of the task to update
-        :param name: name of the task
-        :param billable: true/false, if this task is billable or not
-        :param active: true/false, if this task is active or not
-        :param budget: how much budget for the task (ex: 200)
-        :param hourly_rate: how much is the hourly rate for the task (ex: 120)
-        :returns: the created project task
+        :param project_id: Id of the project the task belongs to
+        :param task_id: Id of the task to update
+        :param name: Name of the task
+        :param billable: If this expense billable (default True)
+        :param active: If this expense active (default True)
+        :param budget: Budget for the task (e.g. 200.75)
+        :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5)
+        :returns: The updated project task
         """
         data = {}
         for key, value in (
@@ -122,9 +133,16 @@ class ProjectTask(MWRAPBase):
         project_id: int,
         task_id: int
         ):
-        """deletes a task on a projects
+        """
+        Delete project task
 
-        only possible as long as no hours were tracked on the task yet
+        :param project_id: Id of the project the task belongs to
+        :param task_id: Id of the task to delete
+        :returns: Empty response on success
+
+        .. note::
+
+            Deletion of a task is only possible as long as no hours were tracked for the task
         """
 
         return self._moco.delete(API_PATH["project_task_delete"].format(project_id=project_id, task_id=task_id))
