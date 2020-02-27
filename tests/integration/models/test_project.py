@@ -39,7 +39,6 @@ class TestProject(IntegrationTest):
 
             return customer_create.data
 
-    
 
     def test_create(self):
         user = self.get_user()
@@ -377,6 +376,31 @@ class TestProject(IntegrationTest):
 
             assert isinstance(project_create, JsonResponse)
             assert isinstance(project_report, JsonResponse)
+
+    def test_create_without_finish_date(self):
+        user = self.get_user()
+        customer = self.get_customer()
+
+        with self.recorder.use_cassette("TestProject.test_create_without_finish_date"):
+            name = "test project create"
+            currency = "EUR"
+            
+            project_create = self.moco.Project.create(
+                name,
+                currency,
+                user.id,
+                customer.id,
+            )
+
+            assert project_create.response.status_code == 200
+
+            assert isinstance(project_create, JsonResponse)
+
+            assert project_create.data.name == name
+            assert project_create.data.currency == currency
+            assert project_create.data.finish_date == None
+            assert project_create.data.leader.id == user.id
+            assert project_create.data.customer.id == customer.id
 
 
 
