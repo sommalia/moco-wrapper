@@ -240,7 +240,7 @@ class Invoice(MWRAPBase):
         Creates a new invoice.
 
         :param customer_id: Id of the customer/company
-        :param recipient_address: Entry text for the customer (e.g. "My Customer\\nMainStreet 5\\nExample Town")
+        :param recipient_address: Entry text for the customer (e.g. "My Customer\\\\nMainStreet 5\\\\nExample Town")
         :param created_date: Creation date of the invoice
         :param due_date: Date the invoice is due
         :param service_period_from: Service period start date
@@ -257,12 +257,15 @@ class Invoice(MWRAPBase):
         :param cash_discount: Cash discount in percent (between 0.0 and 100.0)
         :param cash_discount_days: How many days is the cash discount valid (ex. 4)
         :param project_id: Id of the project the invoice belongs to
+        :returns: the created invoice
+
 
         .. note::
             Note that if you create an invoice with a project, that project must also belong to the customer the invoice was created for.
 
-        :returns: the created invoice
-        
+        .. seealso::
+            
+            :class:`moco_wrapper.util.generator.InvoiceItemGenerator`
 
         """
         data = {

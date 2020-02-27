@@ -9,4 +9,5 @@ Generator
    :caption: Generator Types
 
    generators/invoice_payment
- 
+   generators/invoice_item
+   generators/offer_item
