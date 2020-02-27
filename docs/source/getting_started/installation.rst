@@ -18,9 +18,9 @@ Installation in a virtual environment
 .. code-block:: shell
 
       $ apt-get install python3-venv
-      $ python3 -m venv .env
-      $ source .env/bin/activate
-      $ (.env) pip install moco-wrapper
+      $ python3 -m venv venv
+      $ source venv/bin/activate
+      $ (venv) pip install moco-wrapper
 
 
 Upgrading moco-wrapper
@@ -31,3 +31,19 @@ The moco-wrapper can be updated by using pip
 .. code-block:: shell
 
       $ pip install --upgrade moco-wrapper
+
+
+Install from source
+-------------------
+
+For installation from source we recommend you install it into a virtual environment.
+
+
+.. code-block:: shell
+      
+      $ sudo apt-get install python3 python3-venv git make
+      $ python3 -m venv venv
+      $ source venv/bin/activate
+      $ (venv) git clone https://github.com/sommalia/moco-wrapper moco_wrapper
+      $ (venv) cd moco_wrapper
+      $ (venv) make install
