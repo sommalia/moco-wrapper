@@ -60,7 +60,7 @@ class UserEmployment(MWRAPBase):
         ):
             if value is not None:
                 if key in ["from", "to"] and isinstance(value, datetime.date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 

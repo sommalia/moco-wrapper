@@ -54,7 +54,7 @@ class UserPresence(MWRAPBase):
         ):
             if value is not None:
                 if key in ["from", "to"] and isinstance(value, datetime.date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -95,7 +95,7 @@ class UserPresence(MWRAPBase):
         }
 
         if isinstance(pres_date, datetime.date):
-            data["date"] = self.convert_date_to_iso(pres_date)
+            data["date"] = self._convert_date_to_iso(pres_date)
         else:
             data["date"] = pres_date
 
@@ -136,7 +136,7 @@ class UserPresence(MWRAPBase):
         ):
             if value is not None:
                 if key in ["date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 

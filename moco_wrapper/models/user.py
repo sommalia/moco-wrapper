@@ -78,7 +78,7 @@ class User(MWRAPBase):
             if value is not None:
                     
                 if key in ["bday"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -142,7 +142,7 @@ class User(MWRAPBase):
         ):
             if value is not None:
                 if key in ["bday"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 

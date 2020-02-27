@@ -138,7 +138,7 @@ class ProjectRecurringExpense(MWRAPBase):
 
         for date_key in ["start_date"]:
             if isinstance(data[date_key], datetime.date):
-                data[date_key] = self.convert_date_to_iso(data[date_key])
+                data[date_key] = self._convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("finish_date", finish_date),
@@ -149,7 +149,7 @@ class ProjectRecurringExpense(MWRAPBase):
         ):
             if value is not None:
                 if key in ["finish_date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -201,7 +201,7 @@ class ProjectRecurringExpense(MWRAPBase):
         ):
             if value is not None:
                 if key in ["finish_date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 

@@ -91,7 +91,7 @@ class ProjectExpenseGenerator(BaseGenerator):
 
         for date_key in ["date"]:
             if isinstance(data[date_key], datetime.date):
-                data[date_key] = self.convert_date_to_iso(data[date_key])
+                data[date_key] = self._convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("description", description),

@@ -6,10 +6,11 @@ class ItemGenerator(BaseGenerator):
         self,
         title
         ):
-        """generate an invoice item of type "title"
+        """
+        Generate an item of type ``title``
         
-        :param title: title the item should have
-        :returns: the item
+        :param title: Title the item should have
+        :returns: The generated item
 
         """
         return {
@@ -21,10 +22,11 @@ class ItemGenerator(BaseGenerator):
         self,
         description
         ):
-        """generate an invoice item of type "description"
+        """
+        Generate an item of type ``description``
 
-        :param description: description the item should have
-        :returns: the item
+        :param description: Description the item should have
+        :returns: The generated item
         """
         return {
             "type" : "description",
@@ -32,11 +34,21 @@ class ItemGenerator(BaseGenerator):
         }
 
     def generate_pagebreak(self):
+        """
+        Generate an item of type ``page-break``
+
+        :returns: The generated item
+        """
         return {
             "type": "page-break"
         }
 
     def generate_subtotal(self, title):
+        """
+        Generate an item of type ``subtotal``
+
+        :returns: The generated item
+        """
         return {
             "title": title,
             "type": "subtotal"    
@@ -45,9 +57,10 @@ class ItemGenerator(BaseGenerator):
     def generate_separator(
         self,
         ):
-        """generate an invoice item of type "separator"
+        """
+        Generate an item of type ``separator``
 
-        :returns: the item
+        :returns: The generated item
         """
         return {
             "type": "separator"
@@ -65,15 +78,22 @@ class OfferItemGenerator(ItemGenerator):
         net_total: float = None,
         optional = False
         ):
-        """generate an invoice if tyoe "item"
+        """
+        Generate an offer item
 
-        :param title: title of the item
-        :param quantity: quantity of the supplied item
-        :param unit: unit name of the supplied item
-        :param unit_price: unit price of the supplied item
-        :param net_total: net total sum (either this is supplied or unit, unit_price, and quantity)
-        :param optional: wehter the item is an optional item or not (default False)
-        :returns: the item
+        :param title: Title of the item
+        :param quantity: Quantity of the supplied item
+        :param unit: Unit name of the supplied item
+        :param unit_price: Unit price of the supplied item
+        :param net_total: Net total sum (either this is supplied or unit, unit_price, and quantity)
+        :param optional: Wether the item is an optional item or not (default False)
+        :returns: The generated item
+
+        This is the base function for generating positions in an offer. There are two types of positions. Postions that can be itemized (see  :meth:`.generate_detail_postion`) and positions that do not have to be itemized ( :meth:`.generate_lump_position`).
+
+        .. seealso::
+        
+            :meth:`.generate_detail_postion` and :meth:`.generate_lump_position`
         """
         data = {
             "type": "item",
@@ -101,13 +121,17 @@ class OfferItemGenerator(ItemGenerator):
         optional: bool = False
     ):
         """
-        generates a detailed position item to be used in an offer items list (for example hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity))
+        Generates a detailed position item to be used in an offer items list (for example work hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity))
 
-        :param title: title of the position item
-        :param quantity: how many of the things (i.e. how many hours)
-        :param unit: what is the thing (i.e. hours)
-        :param unit_price: price of a single thing (i.e. price of a single hour)
-        :param optional: if the position is optional or not (default False)
+        :param title: Title of the position item
+        :param quantity: How many of the things (i.e. how many hours)
+        :param unit: What is the thing (i.e. hours)
+        :param unit_price: Price of a single thing (i.e. price of a single hour)
+        :param optional: If the position is optional or not (default False)
+
+        .. seealso::
+
+            :meth:`.generate_item`
         """
         return self.generate_item(title, quantity=quantity, unit=unit, unit_price=unit_price, optional=optional)
 
@@ -118,11 +142,15 @@ class OfferItemGenerator(ItemGenerator):
         optional: bool = False
     ):
         """
-        generates a general position item to be used in a offer list (use this if the postion cannot (or do not want) to split the position into units)
+        Generates a general position item to be used in a offer list (use this if the postion cannot (or do not want) to split the position into units)
 
-        :param title: title of the position
-        :param net_total: total price of the postion
-        :param optional: if the position is optional or not (default False)
+        :param title: Title of the position
+        :param net_total: Total price of the postion
+        :param optional: If the position is optional or not (default False)
+
+        .. seealso::
+
+            :meth:`.generate_item`
         """
 
         return self.generate_item(title, net_total=net_total, optional=optional)
@@ -137,14 +165,22 @@ class InvoiceItemGenerator(ItemGenerator):
         unit_price: float = None,
         net_total: float = None
         ):
-        """generate an invoice if tyoe "item"
+        """
+        Generate an invoice item.
 
-        :param title: title of the item
-        :param quantity: quantity of the supplied item
-        :param unit: unit name of the supplied item
-        :param unit_price: unit price of the supplied item
-        :param net_total: net total sum (either this is supplied or unit, unit_price, and quantity)
-        :returns: the item
+        :param title: Title of the item
+        :param quantity: Quantity of the supplied item
+        :param unit: Unit name of the supplied item
+        :param unit_price: Unit price of the supplied item
+        :param net_total: Net total sum (either this is supplied or unit, unit_price, and quantity)
+        :returns: The generated item
+
+        This is the base function for generating positions in an invoice. There are two types of positions. Postions that can be itemized (see  :meth:`.generate_detail_postion`) and positions that do not have to be itemized ( :meth:`.generate_lump_position`).
+
+        .. seealso::
+
+            :meth:`.generate_detail_postion` and :meth:`.generate_lump_position`
+
         """
         data = {
             "type": "item",
@@ -170,13 +206,17 @@ class InvoiceItemGenerator(ItemGenerator):
         unit_price: float
     ):
         """
-        generates a detailed position item to be used in an offer items list (for example hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity))
+        Generates a detailed position item to be used in an offer items list (for example hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity)).
 
-        :param title: title of the position item
-        :param quantity: how many of the things (i.e. how many hours)
-        :param unit: what is the thing (i.e. hours)
-        :param unit_price: price of a single thing (i.e. price of a single hour)
-        :param optional: if the position is optional or not (default False)
+        :param title: Title of the position item
+        :param quantity: How many of the things (i.e. how many hours)
+        :param unit: What is the thing (i.e. hours)
+        :param unit_price: Price of a single thing (i.e. price of a single hour)
+        :returns: The generated item
+
+        .. seealso::
+
+            :meth:`.generate_item`
         """
         return self.generate_item(title, quantity=quantity, unit=unit, unit_price=unit_price)
 
@@ -186,11 +226,16 @@ class InvoiceItemGenerator(ItemGenerator):
         net_total: float
     ):
         """
-        generates a general position item to be used in a offer list (use this if the postion cannot (or do not want) to split the position into units)
+        Generates a general position item to be used in a offer list (use this if the postion cannot (or do not want) to split the position into units).
 
-        :param title: title of the position
-        :param net_total: total price of the postion
-        :param optional: if the position is optional or not (default False)
+        :param title: Title of the position
+        :param net_total: Total price of the postion
+        :param optional: If the position is optional or not (default False)
+        :returns: The generated item
+        
+        .. seealso::
+
+            :meth:`.generate_item`
         """
 
         return self.generate_item(title, net_total=net_total)

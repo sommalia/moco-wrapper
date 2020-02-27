@@ -109,7 +109,7 @@ class Schedule(MWRAPBase):
         ):
             if value is not None:
                 if key in ["from", "to"] and isinstance(value, datetime.date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 
@@ -172,7 +172,7 @@ class Schedule(MWRAPBase):
 
         for date_key in ["date"]:
             if isinstance(data[date_key], datetime.date):
-                data[date_key] = self.convert_date_to_iso(data[date_key])
+                data[date_key] = self._convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("project_id", project_id),

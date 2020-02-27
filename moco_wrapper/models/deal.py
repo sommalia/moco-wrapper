@@ -77,7 +77,7 @@ class Deal(MWRAPBase):
         }
 
         if isinstance(reminder_date, datetime.date):
-            data["reminder_date"] =  self.convert_date_to_iso(reminder_date)
+            data["reminder_date"] =  self._convert_date_to_iso(reminder_date)
         else:
             data["reminder_date"] = reminder_date
 
@@ -135,7 +135,7 @@ class Deal(MWRAPBase):
 
             if value is not None:
                 if key in ["reminder_date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)  
+                    data[key] = self._convert_date_to_iso(value)  
                 else:
                     data[key] = value
 

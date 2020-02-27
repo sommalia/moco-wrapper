@@ -63,7 +63,7 @@ class ProjectExpense(MWRAPBase):
         }
 
         if isinstance(expense_date, datetime.date):
-            data["date"] = self.convert_date_to_iso(expense_date)
+            data["date"] = self._convert_date_to_iso(expense_date)
 
         for key, value in (
             ("description", description),
@@ -148,7 +148,7 @@ class ProjectExpense(MWRAPBase):
         ):
             if value is not None:
                 if key in ["date"] and isinstance(value, datetime.date):
-                    data[key] = self.convert_date_to_iso(value)
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 
@@ -236,7 +236,7 @@ class ProjectExpense(MWRAPBase):
         ):
             if value is not None:
                 if key in ["from_date", "to_date"] and isinstance(value, datetime.date):
-                    params[key] = self.convert_date_to_iso(value)
+                    params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 

@@ -5,7 +5,7 @@ class MWRAPBase(object):
     Base class for all models in MocoWrapper.
     """
 
-    def convert_date_to_iso(self, date_to_convert: datetime.date):
+    def _convert_date_to_iso(self, date_to_convert: datetime.date):
         """
         converts a datetime object to iso format need by the api
         
