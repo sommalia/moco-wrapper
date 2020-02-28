@@ -6,9 +6,10 @@ class RawObjector(BaseObjector):
     """
     
     def convert(self, requestor_response):
-        """Returns the response object that was given
+        """
+        Returns the response object that was given to it.
 
-        :param requestor_response: response object to convert
-        :returns: requestor_response as it is
+        :param requestor_response: Response object to convert
+        :returns: ``requestor_response`` as it is
         """
         return requestor_response

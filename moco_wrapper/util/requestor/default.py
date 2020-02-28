@@ -2,32 +2,73 @@ import requests
 import time
 import collections
 
-from .base import BaseRequestor
-
-from ..response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
+from moco_wrapper.util.requestor.base import BaseRequestor
+from moco_wrapper.util.response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
 
 class DefaultRequestor(BaseRequestor):
+    """
+    Default Requestor class that is used by the :class:`moco_wrapper.Moco` instance.
 
-    def __init__(self):
+    When the default requests requests a ressources and it sees the error code 429 (too many requests), it waits a bit and then tries the request again.
+    If you do not want that behaviour, use :class:`moco_wrapper.util.requestor.NoRetryRequestor`.
+
+    .. seealso:: 
+
+        :class:`moco_wrapper.util.requestor.NoRetryRequestor`
+    """
+
+    def __init__(
+        self, 
+        delay_ms = 1000.0
+        ):
+        """
+        Class constructor
+
+        :param delay_ms: How long the requestor should wait before retrying the ressource again (default 1000).
+
+        Overwrite delay:
+
+        .. code-block:: python
+
+            from moco_wrapper.util.requestor import DefaultRequestor
+            from moco_wrapper import Moco
+
+            #wait 5 seconds on an error
+            lazy_requestor = DefaultRequestor(
+                delay_ms = 5000
+            )
+
+            m = Moco(
+                requestor = lazy_requestor
+            )
+        """
         self._session = requests.Session()
 
-        self.requests_timestamps = []
-        self.error_status_codes = [400, 401, 403, 404, 422, 429]
-        self.success_status_codes = [200, 201, 204]
-
-        self.file_response_content_types = ["application/pdf"]
+        self.delay_milliseconds_on_error = delay_ms 
 
     @property
     def session(self):
+        """
+        Http Session this requestor uses
+        """
         return self._session
 
-    def request(self, path, method, params = None, data = None, delay = 0, **kwargs):
+    def request(self, method, path, params = None, data = None, delay_ms = 0, **kwargs):
+        """
+        Request the given ressource
+
+        :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
+        :param path: Path of the ressource (e.g. ``/projects``)
+        :param params: Url parameters (e.g. ``page=1``, query parameters)
+        :param data: Dictionary with data (http body)
+        :param delay_ms: Delay in milliseconds the requestor should wait before sending the request (used for retrying, default 0)
+        :param kwargs: Additional http arguments.
+        :returns: Response object
+        """
         #if the request is beeing retried wait for a bit to not trigger 429 error responses
-        if delay > 0:
-            time.sleep(delay)
+        if delay_ms > 0:
+            time.sleep(delay_ms / 1000.0)
 
-
-        #format data submitted to requests as json
         response = None
         if method == "GET":
             response =  self.session.get(path, params=params, json=data, **kwargs)
@@ -42,8 +83,7 @@ class DefaultRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
-
-            if response.status_code in self.success_status_codes:
+            if response.status_code in self.SUCCESS_STATUS_CODES:
                 #filter by content type what type of response this is 
                 if response.status_code == 204:
                     #no content but success
@@ -52,10 +92,9 @@ class DefaultRequestor(BaseRequestor):
                     #touch endpoint returns 200 with no content
                     return EmptyResponse(response)
                 else:
-                    if response.headers["Content-Type"] in self.file_response_content_types:
+                    if response.headers["Content-Type"] == "application/pdf":
                         return FileResponse(response)
                     else:
-                        #print(response.content)
                         #json response is the default
                         response_content = response.json()
                         if isinstance(response_content, list):
@@ -63,23 +102,18 @@ class DefaultRequestor(BaseRequestor):
                         else:
                             return JsonResponse(response)
 
-            elif response.status_code in self.error_status_codes:
+            elif response.status_code in self.ERROR_STATUS_CODES:
                 error_response = ErrorResponse(response)
 
                 if error_response.is_recoverable:
-                    new_delay = delay + 1
-                    return self.request(path, method, params=params, data=data, delay=new_delay, **kwargs)
+                    return self.request(method, path, params=params, data=data, delay=self.delay_milliseconds_on_error, **kwargs)
                 else:
                     return error_response
 
-
         except ValueError as ex:
-
-            print("ValueError in response conversion:" + str(ex))
             response_obj = ErrorResponse(response)
             if response_obj.is_recoverable:
                 #error is recoverable, try the ressource again
-                new_delay = delay + 1
-                return self.request(path, method, params=params, data=data, delay=new_delay, **kwargs)
+                return self.request(method, path,  params=params, data=data, delay=delay_milliseconds_on_error, **kwargs)
             else:
                 return response_obj
