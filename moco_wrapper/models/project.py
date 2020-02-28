@@ -62,9 +62,9 @@ class Project(MWRAPBase):
 
         :param name: Name of the project
         :param currency: Currency used by the project (e.g. EUR)
-        :param finish_date: Finish date
         :param leader_id: User id of the project leader
         :param customer_id: Company id of the customer
+        :param finish_date: Finish date
         :param identifier: Project Identifier
         :param billing_address: Billing adress the invoices go to
         :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
@@ -127,9 +127,9 @@ class Project(MWRAPBase):
 
         :param id: Id of the project to update
         :param name: Name of the project
-        :param finish_date: Finish date
         :param leader_id: User id of the project leader
         :param customer_id: Company id of the customer
+        :param finish_date: Finish date
         :param identifier: Project Identifier
         :param billing_address: Address the invoices go to
         :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
