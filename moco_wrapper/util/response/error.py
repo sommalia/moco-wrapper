@@ -1,5 +1,5 @@
 from moco_wrapper.util.response.base import MWRAPResponse
-from moco_wrapper.exceptions import ForbiddenException
+from moco_wrapper import exceptions
 
 class ErrorResponse(MWRAPResponse):
     """
@@ -53,17 +53,17 @@ class ErrorResponse(MWRAPResponse):
             :ref:`exception`
         """
         if self.response.status_code == 401:
-            return UnauthorizedException(self.response, self.data)        
+            return exceptions.UnauthorizedException(self.response, self.data)        
         elif self.response.status_code == 403:
-            return ForbiddenException(self.response, self.data)
+            return exceptions.ForbiddenException(self.response, self.data)
         elif self.response.status_code == 404:
-            return NotFoundException(self.response, self.data)
+            return exceptions.NotFoundException(self.response, self.data)
         elif self.response.status_code == 422:
-            return UnprocessableException(self.response, self.data)
+            return exceptions.UnprocessableException(self.response, self.data)
         elif self.response.status_code == 429:
-            return RateLimitException(self.response, self.data)
+            return exceptions.RateLimitException(self.response, self.data)
         elif self.response.status_code == 500:
-            return ServerErrorException(self.response, self.data)
+            return exceptions.ServerErrorException(self.response, self.data)
         
         raise ValueError("Could not convert this ErrorResponse into an exception")
     
