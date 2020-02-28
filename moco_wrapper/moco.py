@@ -107,7 +107,12 @@ class Moco(object):
 
 
         #push the response to the current objector
-        return self._objector.convert(response)
+        result = self._objector.convert(response)
+
+        if isinstance(result, BaseException):
+            raise result
+        else:
+            return result
 
 
     def get(self, path, params=None, data=None):

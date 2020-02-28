@@ -3,5 +3,9 @@ class UnauthorizedException(BaseException):
         self.http_response = http_response
         self.data = data
 
+    @property
+    def response(self):
+        return self.http_response
+
     def __str__(self):
-        return "<UnauthorizedException, Status Code: {}, Msg: {}>".format(self.http_response.status_code, self.data)
+        return "<UnauthorizedException, Status Code: {}, Data: {}>".format(self.http_response.status_code, self.data)

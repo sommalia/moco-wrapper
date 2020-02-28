@@ -3,10 +3,12 @@ from .. import IntegrationTest
 from datetime import date
 
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse, FileResponse, ErrorResponse
+from moco_wrapper.util.generator import InvoiceItemGenerator
 from moco_wrapper.models.invoice import InvoiceStatus, InvoiceChangeAddress
 from moco_wrapper.models.company import CompanyType
+from moco_wrapper import exceptions
 
-from moco_wrapper.util.generator import InvoiceItemGenerator
+
 
 class TestInvoice(IntegrationTest):
     def get_customer(self):
@@ -183,7 +185,7 @@ class TestInvoice(IntegrationTest):
             assert inv_time.response.status_code == 404
 
             assert isinstance(inv_create, JsonResponse)
-            assert isinstance(inv_time, ErrorResponse)
+            assert isinstance(inv_time, exceptions.NotFoundException)
 
     def test_update_status(self):
         customer = self.get_customer()
