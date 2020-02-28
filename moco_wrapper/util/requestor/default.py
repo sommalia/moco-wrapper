@@ -106,7 +106,7 @@ class DefaultRequestor(BaseRequestor):
                 error_response = ErrorResponse(response)
 
                 if error_response.is_recoverable:
-                    return self.request(method, path, params=params, data=data, delay=self.delay_milliseconds_on_error, **kwargs)
+                    return self.request(method, path, params=params, data=data, delay_ms=self.delay_milliseconds_on_error, **kwargs)
                 else:
                     return error_response
 
@@ -114,6 +114,6 @@ class DefaultRequestor(BaseRequestor):
             response_obj = ErrorResponse(response)
             if response_obj.is_recoverable:
                 #error is recoverable, try the ressource again
-                return self.request(method, path,  params=params, data=data, delay=delay_milliseconds_on_error, **kwargs)
+                return self.request(method, path,  params=params, data=data, delay_ms=delay_milliseconds_on_error, **kwargs)
             else:
                 return response_obj
