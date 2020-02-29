@@ -5,6 +5,17 @@ from moco_wrapper.util.response import EmptyResponse, JsonResponse, ListingRespo
 from importlib import import_module
 
 class DefaultObjector(BaseObjector):
+    """
+    This is the default class for handling the modification ob response objects that the requestor classes generated and were pushed to the objector.
+
+    Successfull responses will have their data converted into actual python objects, while error responses will be converted into exceptions and raised at a later stage.
+
+    .. note::
+
+        If you do not want exceptions to be raised see :class:`moco_wrapper.util.objector.NoErrorObjector`
+
+    """
+
     def __init__(self):
         self.module_path = "moco_wrapper.models.objector_models"
     

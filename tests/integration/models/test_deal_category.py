@@ -1,5 +1,4 @@
 from moco_wrapper.util.response import JsonResponse, ListingResponse, ErrorResponse, EmptyResponse
-from moco_wrapper import exceptions
 
 import string
 import random
@@ -33,7 +32,7 @@ class TestDealCategory(IntegrationTest):
             
             assert cat_create.response.status_code != 200
 
-            assert isinstance(cat_create, exceptions.UnprocessableException)
+            assert isinstance(cat_create, ErrorResponse)
 
     def test_update(self):
         with self.recorder.use_cassette("TestDealCategory.test_update"):

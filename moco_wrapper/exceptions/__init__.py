@@ -1,3 +1,4 @@
+from .base import MocoException
 from .forbidden import ForbiddenException
 from .not_found import NotFoundException
 from .unauthorized import UnauthorizedException

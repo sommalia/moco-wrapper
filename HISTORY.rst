@@ -11,6 +11,7 @@ History
 * Added named arguments requestor and objector to moco_instance constructor (Setting the requestor via moco.http is no longer possible, user moco.requestor)
 * Removed cli component
 
+
 0.4.0 (2020-02-19)
 ------------------
 

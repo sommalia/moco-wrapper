@@ -1,5 +1,5 @@
 from moco_wrapper.const import API_PATH
-from moco_wrapper import models, util
+from moco_wrapper import models, util, exceptions
 from moco_wrapper.util import requestor, objector
 
 from requests import get, post, put, delete
@@ -109,7 +109,8 @@ class Moco(object):
         #push the response to the current objector
         result = self._objector.convert(response)
 
-        if isinstance(result, BaseException):
+        #if the result is an exception we raise it, otherwise return it
+        if isinstance(result, exceptions.MocoException):
             raise result
         else:
             return result
