@@ -100,9 +100,16 @@ class Moco(object):
 
         self._impersonation_user_id = impersonate_user_id
 
-        #these will be set on the first request
+        #these will be (re)set on the first request
         self.api_key = None
-        self.domain = self.auth["domain"]
+        self.domain = None
+
+        if "api_key" in self.auth.keys():
+            self.api_key = self.auth["api_key"]
+
+        if "domain" in self.auth.keys():
+            self.domain = self.auth["domain"]
+        
 
     def request(self, method, path, params=None, data=None, bypass_auth=False):
         """

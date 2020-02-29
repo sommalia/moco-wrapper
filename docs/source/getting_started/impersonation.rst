@@ -1,7 +1,9 @@
+.. _impersonation:
+
 Impersonation
 =============
 
-Things like :class:`moco_wrapper.models.Activity` and :class:`moco_wrapper.models.Presence` are always mapped to the user of the api key that was used. 
+Things like :class:`moco_wrapper.models.Activity` and :class:`moco_wrapper.models.UserPresence` are always mapped to the user of the api key that was used. 
 
 If you want to change that (for example when logging activities on behalf of someone else), you can impersontate them.
 
@@ -27,6 +29,10 @@ You can start off the moco instance already impersonating a user:
 
     ## reset impersonation
     m.clear_impersonation()
+
+.. note::
+
+    If you are authenticating yourself with email and password, that the first request (for authenticating you) will still take place as yourself, impersonation will only occur after you are already authenticated.
 
 
 Or you can use the impersonte method by itself.

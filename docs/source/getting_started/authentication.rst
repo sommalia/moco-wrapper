@@ -24,7 +24,7 @@ You can find your own api key under your user profile when you log into your acc
 
 .. note::
 
-    The api key is always associated with the user it belongs to. Things like activities and presecense always work in context of the current user.
+    The api key is always associated with the user it belongs to. Things like activities and presences always work in context of the current user. If you want to be someone else see :ref:`impersonation`.
 
 .. note::
 
@@ -51,5 +51,5 @@ The second way you can authencate is via your own user information (username and
 
 .. note::
 
-    Note that you authenticate in this way an extra request will be sent, before you try to request any actual ressources of the api, for obtaining authentication.
+    If you authenticate in this way an extra request will be sent, before you try to request any actual ressources of the api, for obtaining valid authentication.
 

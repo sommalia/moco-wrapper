@@ -18,14 +18,14 @@ Then we all the information we need to create the moco instance:
 
 .. code-block:: python3
 
-    >> import moco_wrapper as moco
-    >> moco_instance = moco.Moco(domain="testabcd", api_key="[YOUR API KEYS]")
+    >> from moco_wrapper import Moco
+    >> wrapper = Moco(auth={"domain": "testabcd", "api_key": "your api key"})
 
 After that we make a test call to the api.
 
 .. code-block:: python3
 
-    >> projects = moco_instance.Project.getlist()
+    >> projects = wrapper.Project.getlist()
     >> print(projects)
     <ListingResponse, Status Code: 200, Data: [<moco_wrapper.models.objector_models.project.Project at ..]>
 
