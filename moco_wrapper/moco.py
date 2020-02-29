@@ -8,8 +8,7 @@ class Moco(object):
     """
     Main Moco class for handling authentication, object conversion, requesting ressources with the moco api
     
-    :param api_key: user specific api key
-    :param domain: the subdomain part of your moco-url (if your full url is ``https://testabcd.mocoapp.com``, provide ``testabcd``)
+    :param auth: Dictionary containing authentication information, see :ref:`authentication`
     :param objector: objector object (see :ref:`objector`, default: :class:`moco_wrapper.util.objector.DefaultObjector`)
     :param requestor: requestor object (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
     :param impersonate_user_id: user id the client should impersonate (default: None, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
@@ -19,8 +18,10 @@ class Moco(object):
 
         import moco_wrapper
         moco = moco_wrapper.Moco(
-            api_key="<TOKEN>",
-            domain="<DOMAIN>"
+            auth = {
+                "api_key": "<TOKEN>",
+                "domain": "<DOMAIN>"
+            }
         )
     """
     def __init__(
@@ -42,7 +43,8 @@ class Moco(object):
             from moco_wrapper import Moco
 
             m = Moco(
-                auth={"api_key": "here is my key", "domain": "testdomain"})
+                auth={"api_key": "here is my key", "domain": "testdomain"}
+            )
 
         Or it contains domain, email and password
 
@@ -50,7 +52,9 @@ class Moco(object):
 
             from moco_wrapper import Moco
 
-            m = Moco(auth={"domain": "testdomain", "email": "testemail@mycompany.com", "password": "test"})
+            m = Moco(
+                auth={"domain": "testdomain", "email": "testemail@mycompany.com", "password": "test"}
+            )
         
         """
 
@@ -98,7 +102,7 @@ class Moco(object):
 
         #these will be set on the first request
         self.api_key = None
-        self.domain = None
+        self.domain = self.auth["domain"]
 
     def request(self, method, path, params=None, data=None, bypass_auth=False):
         """
@@ -205,7 +209,7 @@ class Moco(object):
 
         .. code-block:: python
 
-            >> m = Moco(domain="testabcd")
+            >> m = Moco(auth={"domain": "testabcd", ..})
             >> print(m.full_domain)
             https://testabcd.mocoapp.com/api/v1
 

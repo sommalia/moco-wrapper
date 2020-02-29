@@ -15,6 +15,7 @@ This documenation is split into the following parts:
    getting_started/quick_start
    getting_started/installation
    getting_started/authentication
+   getting_started/impersonation
 
 .. _code_overview:
 .. toctree::
