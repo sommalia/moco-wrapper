@@ -32,4 +32,6 @@ from .project_expense import ProjectExpense
 from .project_task import ProjectTask
 from .project_recurring_expense import ProjectRecurringExpense
 
+from .session import Session
+
 from . import objector_models

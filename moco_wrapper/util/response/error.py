@@ -47,11 +47,8 @@ class ErrorResponse(MWRAPResponse):
     def to_exception(self):
         """
         Convert the response object into an exception that can be raised.
-
-        .. seealso::
-
-            :ref:`exception`
         """
+        
         if self.response.status_code == 401:
             return exceptions.UnauthorizedException(self.response, self.data)        
         elif self.response.status_code == 403:

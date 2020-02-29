@@ -25,8 +25,10 @@ class IntegrationTest(object):
 
     def setup_moco(self):
         self._moco = moco.Moco(
-            pytest.placeholders.mocotest_apikey,
-            pytest.placeholders.mocotest_domain,
+            auth = {
+                "api_key" : pytest.placeholders.mocotest_apikey,
+                "domain" : pytest.placeholders.mocotest_domain
+            },
             requestor=NoRetryRequestor(),
             objector=NoErrorObjector(),
         )

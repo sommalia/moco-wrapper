@@ -22,5 +22,3 @@ class TestMocoWrapper(IntegrationTest):
     def test_setup_moco_wrapper(self):
         assert isinstance(self.moco.requestor, NoRetryRequestor)
         assert isinstance(self.moco.objector, NoErrorObjector)
-
-    

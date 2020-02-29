@@ -79,6 +79,9 @@ class DefaultObjector(BaseObjector):
             },
             "schedules": {
                 "base": "Schedule"    
+            },
+            "session": {
+                "base" : "Session"
             }
         }
         """

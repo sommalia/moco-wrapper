@@ -104,5 +104,6 @@ API_PATH = {
     "deal_category_get":              "/deal_categories/{id}",
     "deal_category_create":           "/deal_categories",
     "deal_category_update":           "/deal_categories/{id}",
-    "deal_category_delete":           "/deal_categories/{id}"
+    "deal_category_delete":           "/deal_categories/{id}",
+    "session_auth":                   "/session",
 }
