@@ -2,6 +2,13 @@
 History
 =======
 
+0.5.0 (2020-02-29)
+
+* Implement authentication via email and password (note that the class constructor also changed, if you do not want that continue to ues the previus version (0.4.1))
+* Create readthedocs documentation (see https://moco-wrapper.readthedocs.io)
+* Error Responses are now converted into actual Exceptions that are raised
+* Code Cleanup
+
 0.4.1 (2020-02-24)
 ------------------
 
