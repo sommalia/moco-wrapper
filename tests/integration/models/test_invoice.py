@@ -3,10 +3,11 @@ from .. import IntegrationTest
 from datetime import date
 
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse, FileResponse, ErrorResponse
+from moco_wrapper.util.generator import InvoiceItemGenerator
 from moco_wrapper.models.invoice import InvoiceStatus, InvoiceChangeAddress
 from moco_wrapper.models.company import CompanyType
 
-from moco_wrapper.util.generator import InvoiceItemGenerator
+
 
 class TestInvoice(IntegrationTest):
     def get_customer(self):

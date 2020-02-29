@@ -1,5 +1,5 @@
-from .base import MWRAPResponse
-
+from moco_wrapper.util.response.base import MWRAPResponse
+from moco_wrapper import exceptions
 
 class ErrorResponse(MWRAPResponse):
     """
@@ -43,6 +43,26 @@ class ErrorResponse(MWRAPResponse):
 
     def __str__(self):
         return "<ErrorResponse, Status Code: {}, Data: {}>".format(self.response.status_code, self.data)
+
+    def to_exception(self):
+        """
+        Convert the response object into an exception that can be raised.
+        """
+        
+        if self.response.status_code == 401:
+            return exceptions.UnauthorizedException(self.response, self.data)        
+        elif self.response.status_code == 403:
+            return exceptions.ForbiddenException(self.response, self.data)
+        elif self.response.status_code == 404:
+            return exceptions.NotFoundException(self.response, self.data)
+        elif self.response.status_code == 422:
+            return exceptions.UnprocessableException(self.response, self.data)
+        elif self.response.status_code == 429:
+            return exceptions.RateLimitException(self.response, self.data)
+        elif self.response.status_code == 500:
+            return exceptions.ServerErrorException(self.response, self.data)
+        
+        raise ValueError("Could not convert this ErrorResponse into an exception")
     
     def __init__(self, response):
         """

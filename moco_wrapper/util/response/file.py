@@ -13,7 +13,7 @@ class FileResponse(MWRAPResponse):
         
         .. seealso::
 
-            :attr:`data`
+            :attr:`file`
 
         """
         return self._data

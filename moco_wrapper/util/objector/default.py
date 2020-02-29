@@ -1,10 +1,21 @@
 from .base import BaseObjector
 
-from moco_wrapper.util.response import EmptyResponse, JsonResponse, ListingResponse
+from moco_wrapper.util.response import EmptyResponse, JsonResponse, ListingResponse, ErrorResponse
 
 from importlib import import_module
 
 class DefaultObjector(BaseObjector):
+    """
+    This is the default class for handling the modification ob response objects that the requestor classes generated and were pushed to the objector.
+
+    Successfull responses will have their data converted into actual python objects, while error responses will be converted into exceptions and raised at a later stage.
+
+    .. note::
+
+        If you do not want exceptions to be raised see :class:`moco_wrapper.util.objector.NoErrorObjector`
+
+    """
+
     def __init__(self):
         self.module_path = "moco_wrapper.models.objector_models"
     
@@ -68,6 +79,9 @@ class DefaultObjector(BaseObjector):
             },
             "schedules": {
                 "base": "Schedule"    
+            },
+            "session": {
+                "base" : "Session"
             }
         }
         """
@@ -93,6 +107,9 @@ class DefaultObjector(BaseObjector):
         :returns: modified response object
 
         .. note:: only :class:`moco_wrapper.util.response.JsonResponse` and :class:`moco_wrapper.util.response.ListingResponse` are object to this conversion.
+
+        .. note:: Error responses will be converted into actual exceptions.
+
         .. note:: if the method :meth:`get_class_name_from_request_url` that is used to find the right class for conversion, returns ``None``, no conversion of objects will take place
         """
         http_response = requestor_response.response
@@ -119,6 +136,10 @@ class DefaultObjector(BaseObjector):
                         )
 
                     requestor_response._data = new_items
+
+        elif isinstance(requestor_response, ErrorResponse):
+            return requestor_response.to_exception()
+        
 
         return requestor_response
 

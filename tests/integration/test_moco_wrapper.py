@@ -1,6 +1,9 @@
 from . import IntegrationTest
 import pytest
 
+from moco_wrapper.util.requestor import NoRetryRequestor
+from moco_wrapper.util.objector import NoErrorObjector
+
 class TestMocoWrapper(IntegrationTest):
     
     def test_placeholder(self):
@@ -16,4 +19,6 @@ class TestMocoWrapper(IntegrationTest):
         print ("> export mocotest_domain=\"<DOMAIN>\"")
         assert pytest.placeholders.mocotest_domain is not None
 
-    
+    def test_setup_moco_wrapper(self):
+        assert isinstance(self.moco.requestor, NoRetryRequestor)
+        assert isinstance(self.moco.objector, NoErrorObjector)

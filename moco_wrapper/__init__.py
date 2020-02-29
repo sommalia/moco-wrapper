@@ -8,5 +8,6 @@ __version__ = '0.1.0'
 
 from . import models
 from . import util
+from . import exceptions
 
 from .moco import Moco

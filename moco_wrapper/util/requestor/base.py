@@ -3,7 +3,7 @@ class BaseRequestor(object):
     Base class all other Requestor classes inherit from
     """
     
-    ERROR_STATUS_CODES = [400, 401, 403, 404, 422, 429]
+    ERROR_STATUS_CODES = [400, 401, 403, 404, 422, 429, 500]
     SUCCESS_STATUS_CODES =  [200, 201, 204]
 
     @property

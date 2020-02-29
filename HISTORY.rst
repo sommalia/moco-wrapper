@@ -2,6 +2,13 @@
 History
 =======
 
+0.5.0 (2020-02-29)
+
+* Implement authentication via email and password (note that the class constructor also changed, if you do not want that continue to ues the previus version (0.4.1))
+* Create readthedocs documentation (see https://moco-wrapper.readthedocs.io)
+* Error Responses are now converted into actual Exceptions that are raised
+* Code Cleanup
+
 0.4.1 (2020-02-24)
 ------------------
 
@@ -10,6 +17,7 @@ History
 * Created documentation see (https://moco-wrapper.readthedocs.io/en/latest/)
 * Added named arguments requestor and objector to moco_instance constructor (Setting the requestor via moco.http is no longer possible, user moco.requestor)
 * Removed cli component
+
 
 0.4.0 (2020-02-19)
 ------------------

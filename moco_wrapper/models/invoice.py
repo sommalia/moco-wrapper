@@ -47,7 +47,7 @@ class InvoiceChangeAddress(str, Enum):
         new_invoice = m.Invoice.create(
             ..
             change_address = InvoiceChangeAddress.PROJECT
-            )
+        )
             
     """
     INVOICE = "invoice"

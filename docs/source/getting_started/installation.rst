@@ -37,6 +37,7 @@ Install from source
 -------------------
 
 .. warning::
+      
       For installation from source we recommend you install it into a virtual environment.
 
 

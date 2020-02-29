@@ -63,15 +63,34 @@ class TestMocoWrapper(UnitTest):
     def test_project_recurring_expense_set(self):
         assert isinstance(self.moco.ProjectRecurringExpense, models.ProjectRecurringExpense)
 
+    def test_session_set(self):
+        assert isinstance(self.moco.Session, models.Session)
+
     def test_wrapper_init(self):
-        new_moco = moco.Moco(api_key="api_key", domain="domain")
+        new_moco = moco.Moco(
+            auth={
+                "api_key" : "api_key",
+                "domain" : "domain"
+            }
+        )
+        new_moco.authenticate()
+
         assert new_moco.api_key == "api_key"
         assert new_moco.domain == "domain"
 
         assert isinstance(new_moco._requestor, util.requestor.DefaultRequestor)
 
     def test_wrapper_init_requestor_overwrite(self):
-        new_moco = moco.Moco(api_key="api_key", domain="domain", requestor=util.requestor.RawRequestor())
+        new_moco = moco.Moco(
+            auth={
+                "api_key" : "api_key",
+                "domain" : "domain"
+            },
+            requestor=util.requestor.RawRequestor()
+        )
+
+        new_moco.authenticate()
+        
         assert new_moco.api_key == "api_key"
         assert new_moco.domain == "domain"
 

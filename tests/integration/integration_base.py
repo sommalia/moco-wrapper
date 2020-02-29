@@ -7,6 +7,7 @@ import random
 from datetime import date
 from moco_wrapper import moco
 from moco_wrapper.util.requestor import NoRetryRequestor
+from moco_wrapper.util.objector import NoErrorObjector
 
 class IntegrationTest(object):
     """Base class for integration tests.
@@ -24,9 +25,13 @@ class IntegrationTest(object):
 
     def setup_moco(self):
         self._moco = moco.Moco(
-            pytest.placeholders.mocotest_apikey,
-            pytest.placeholders.mocotest_domain,
-            http=NoRetryRequestor())
+            auth = {
+                "api_key" : pytest.placeholders.mocotest_apikey,
+                "domain" : pytest.placeholders.mocotest_domain
+            },
+            requestor=NoRetryRequestor(),
+            objector=NoErrorObjector(),
+        )
 
     def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
         """

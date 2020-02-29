@@ -1,5 +1,5 @@
 from moco_wrapper.const import API_PATH
-from moco_wrapper import models, util
+from moco_wrapper import models, util, exceptions
 from moco_wrapper.util import requestor, objector
 
 from requests import get, post, put, delete
@@ -8,8 +8,7 @@ class Moco(object):
     """
     Main Moco class for handling authentication, object conversion, requesting ressources with the moco api
     
-    :param api_key: user specific api key
-    :param domain: the subdomain part of your moco-url (if your full url is ``https://testabcd.mocoapp.com``, provide ``testabcd``)
+    :param auth: Dictionary containing authentication information, see :ref:`authentication`
     :param objector: objector object (see :ref:`objector`, default: :class:`moco_wrapper.util.objector.DefaultObjector`)
     :param requestor: requestor object (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
     :param impersonate_user_id: user id the client should impersonate (default: None, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
@@ -19,21 +18,45 @@ class Moco(object):
 
         import moco_wrapper
         moco = moco_wrapper.Moco(
-            api_key="<TOKEN>",
-            domain="<DOMAIN>"
+            auth = {
+                "api_key": "<TOKEN>",
+                "domain": "<DOMAIN>"
+            }
         )
     """
     def __init__(
         self, 
-        api_key: str = None, 
-        domain: str = None, 
+        auth = {},
         objector = objector.DefaultObjector(), 
         requestor = requestor.DefaultRequestor(),
         impersonate_user_id: int = None,
         **kwargs):
 
-        self.api_key = api_key
-        self.domain = domain
+        self.auth = auth
+        """
+        Authentication information
+        
+        It either contains an api key and and domain 
+
+        .. code-block:: python
+
+            from moco_wrapper import Moco
+
+            m = Moco(
+                auth={"api_key": "here is my key", "domain": "testdomain"}
+            )
+
+        Or it contains domain, email and password
+
+        .. code-block:: python
+
+            from moco_wrapper import Moco
+
+            m = Moco(
+                auth={"domain": "testdomain", "email": "testemail@mycompany.com", "password": "test"}
+            )
+        
+        """
 
         self.Activity = models.Activity(self)
         self.Contact = models.Contact(self)
@@ -61,6 +84,7 @@ class Moco(object):
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
         
+        self.Session = models.Session(self)
 
         self._requestor = requestor
         self._objector = objector
@@ -76,7 +100,18 @@ class Moco(object):
 
         self._impersonation_user_id = impersonate_user_id
 
-    def request(self, method, path, params=None, data=None):
+        #these will be (re)set on the first request
+        self.api_key = None
+        self.domain = None
+
+        if "api_key" in self.auth.keys():
+            self.api_key = self.auth["api_key"]
+
+        if "domain" in self.auth.keys():
+            self.domain = self.auth["domain"]
+        
+
+    def request(self, method, path, params=None, data=None, bypass_auth=False):
         """
         request the given ressource with the assigned requestor
 
@@ -84,15 +119,19 @@ class Moco(object):
         :param path: path of the ressource (e.g. ``/projects``)
         :param params: url parameters (e.g. ``page=1``, query parameters)
         :param data: dictionary with data (http body) 
+        :param bypass_auth: If authentication checks should be skipped (default False)
 
         The request will be given to the currently assinged requestor (see :ref:`requestor`).
         The response will then be given to the currently assinged objector (see :ref:`objector`)
         
         The *possibly* modified response will then be returned
         """
-
+        
         full_path = self.full_domain + path
         response = None
+
+        if not bypass_auth:
+            self.authenticate()
 
         if method == "GET":
             response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
@@ -105,25 +144,30 @@ class Moco(object):
         elif method == "PATCH":
             response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
 
-
         #push the response to the current objector
-        return self._objector.convert(response)
+        result = self._objector.convert(response)
+
+        #if the result is an exception we raise it, otherwise return it
+        if isinstance(result, exceptions.MocoException):
+            raise result
+        else:
+            return result
 
 
-    def get(self, path, params=None, data=None):
-        return self.request("GET", path, params=params, data=data)
+    def get(self, path, params=None, data=None, **kwargs):
+        return self.request("GET", path, params=params, data=data, **kwargs)
         
-    def post(self, path, params=None, data=None):
-        return self.request("POST", path, params=params, data=data)
+    def post(self, path, params=None, data=None, **kwargs):
+        return self.request("POST", path, params=params, data=data, **kwargs)
 
-    def put(self, path, params=None, data=None):
-        return self.request("PUT", path, params=params, data=data)
+    def put(self, path, params=None, data=None, **kwargs):
+        return self.request("PUT", path, params=params, data=data, **kwargs)
 
-    def delete(self, path, params=None, data=None):
-        return self.request("DELETE", path, params=params, data=data)
+    def delete(self, path, params=None, data=None, **kwargs):
+        return self.request("DELETE", path, params=params, data=data, **kwargs)
 
-    def patch(self, path, params=None, data=None):
-        return self.request("PATCH", path, params=params, data=data)
+    def patch(self, path, params=None, data=None, **kwargs):
+        return self.request("PATCH", path, params=params, data=data, **kwargs)
 
 
     def impersonate(self, user_id):
@@ -172,7 +216,7 @@ class Moco(object):
 
         .. code-block:: python
 
-            >> m = Moco(domain="testabcd")
+            >> m = Moco(auth={"domain": "testabcd", ..})
             >> print(m.full_domain)
             https://testabcd.mocoapp.com/api/v1
 
@@ -209,5 +253,32 @@ class Moco(object):
         """
         return self._requestor
     
-    
+    def authenticate(self):
+        """
+        Performs any action neccessary to be authenticated against the moco api.
+
+        This method gets invoked automaticly, on the very first request you send against the api.
+        """
+        if self.api_key is not None and self.domain is not None:
+            return; # already authenticated
+
+        if all(x in self.auth.keys() for x in ['api_key', 'domain']):
+            #authentication with api key
+            self.api_key = self.auth["api_key"]
+            self.domain = self.auth["domain"]
+            del self.auth
+        elif all(x in self.auth.keys() for x in ['domain', 'email', 'password']):
+            #authentication with username/password
+            self.domain = self.auth["domain"]
+
+            email, password = self.auth["email"], self.auth["password"]
+            session = self.Session.authenticate(email, password).data
+
+            self.api_key = session.api_key
+            del self.auth
+        else:
+            raise ValueError("Invalid authentication information given")
+
+
+            
     
