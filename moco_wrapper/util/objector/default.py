@@ -125,7 +125,7 @@ class DefaultObjector(BaseObjector):
         """
         http_response = requestor_response.response
 
-        if isinstance(requestor_response, JsonResponse) or isinstance(requestor_response, ListingResponse):
+        if isinstance(requestor_response, (JsonResponse, ListingResponse) ):
             class_name = self.get_class_name_from_request_url(http_response.request.url)
 
             if class_name is not None:

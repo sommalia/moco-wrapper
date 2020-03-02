@@ -34,7 +34,7 @@ class NoErrorObjector(DefaultObjector):
 
         .. note:: if the method :meth:`get_class_name_from_request_url` that is used to find the right class for conversion, returns ``None``, no conversion of objects will take place
         """
-        if isinstance(requestor_response, JsonResponse) or isinstance(requestor_response, ListingResponse):
+        if isinstance(requestor_response, (JsonResponse, ListingResponse) ):
             return super(NoErrorObjector, self).convert(requestor_response)
         else:
             return requestor_response
