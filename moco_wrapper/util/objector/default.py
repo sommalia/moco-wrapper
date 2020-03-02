@@ -98,6 +98,17 @@ class DefaultObjector(BaseObjector):
 
         """
 
+        self.error_module_path = "moco_wrapper.exceptions"
+
+        self.error_class_map = {
+            401 : "UnauthorizedException",
+            403 : "ForbiddenException",
+            404 : "NotFoundException",
+            422 : "UnprocessableException",
+            429 : "RateLimitException",
+            500 : "ServerErrorException"
+        }
+
 
     def convert(self, requestor_response):
         """
@@ -138,10 +149,27 @@ class DefaultObjector(BaseObjector):
                     requestor_response._data = new_items
 
         elif isinstance(requestor_response, ErrorResponse):
-            return requestor_response.to_exception()
-        
+            #convert the data for the error response into an actual exception
+            class_name = self.get_error_class_name_from_response_status_code(http_response.status_code)
+
+            if class_name is not None:
+                class_ = getattr(
+                    import_module(self.error_module_path),
+                    class_name
+                )
+
+                #overwrite data of the error response with the actual exception
+                obj = class_(http_response, requestor_response.data)
+                requestor_response._data = obj
 
         return requestor_response
+
+    def get_error_class_name_from_response_status_code(self, status_code):
+        if status_code in self.error_class_map.keys():
+            return self.error_class_map[status_code]
+        else:
+            raise ValueError("Objector could not find an error type, but it should, status_code: {}".format(status_code))
+        
 
     def get_class_name_from_request_url(self, url):
         """

@@ -1,6 +1,6 @@
 from moco_wrapper.const import API_PATH
 from moco_wrapper import models, util, exceptions
-from moco_wrapper.util import requestor, objector
+from moco_wrapper.util import requestor, objector, response
 
 from requests import get, post, put, delete
 
@@ -128,30 +128,30 @@ class Moco(object):
         """
         
         full_path = self.full_domain + path
-        response = None
+        requestor_response = None
 
         if not bypass_auth:
             self.authenticate()
 
         if method == "GET":
-            response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
         elif method == "PUT":
-            response = self._requestor.put(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.put(full_path, params=params, data=data, headers=self.headers)
         elif method == "POST":
-            response = self._requestor.post(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.post(full_path, params=params, data=data, headers=self.headers)
         elif method == "DELETE":
-            response = self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
         elif method == "PATCH":
-            response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
 
         #push the response to the current objector
-        result = self._objector.convert(response)
+        objector_result = self._objector.convert(requestor_response)
 
         #if the result is an exception we raise it, otherwise return it
-        if isinstance(result, exceptions.MocoException):
-            raise result
+        if isinstance(objector_result, response.ErrorResponse) and isinstance(objector_result.data, exceptions.MocoException):
+            raise objector_result.data
         else:
-            return result
+            return objector_result
 
 
     def get(self, path, params=None, data=None, **kwargs):

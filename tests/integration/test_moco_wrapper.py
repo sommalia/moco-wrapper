@@ -2,7 +2,7 @@ from . import IntegrationTest
 import pytest
 
 from moco_wrapper.util.requestor import NoRetryRequestor
-from moco_wrapper.util.objector import NoErrorObjector
+from moco_wrapper.util.objector import NoErrorObjector, DefaultObjector
 
 class TestMocoWrapper(IntegrationTest):
     
@@ -21,4 +21,4 @@ class TestMocoWrapper(IntegrationTest):
 
     def test_setup_moco_wrapper(self):
         assert isinstance(self.moco.requestor, NoRetryRequestor)
-        assert isinstance(self.moco.objector, NoErrorObjector)
+        assert isinstance(self.moco.objector, DefaultObjector)

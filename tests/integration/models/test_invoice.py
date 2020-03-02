@@ -145,47 +145,6 @@ class TestInvoice(IntegrationTest):
             assert isinstance(inv_create, JsonResponse)
             assert isinstance(inv_pdf, FileResponse)
 
-    def test_timesheet_no_hours(self):
-        customer = self.get_customer()
-        
-        with self.recorder.use_cassette("TestInvoice.test_timesheet_no_hours"):
-            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
-            creation_date = date(2018, 9, 17)
-            due_date = date(2018, 10, 16)
-            title = "invoice"
-            tax = 8.0
-            currency = "EUR"
-            service_from_date = date(2019, 12, 1)
-            service_to_date = date(2019, 12, 31)
-
-            item_generator = InvoiceItemGenerator()
-            items = [
-                item_generator.generate_title("Hours"),
-                item_generator.generate_description("Listing of all hours"),
-                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
-            ]
-
-            inv_create = self.moco.Invoice.create(
-                customer.id,
-                recipient_address, 
-                creation_date, 
-                due_date, 
-                service_from_date, 
-                service_to_date, 
-                title, 
-                tax, 
-                currency,
-                items
-            )
-
-            inv_time = self.moco.Invoice.timesheet(inv_create.data.id)
-            
-            assert inv_create.response.status_code == 200
-            assert inv_time.response.status_code == 404
-
-            assert isinstance(inv_create, JsonResponse)
-            assert isinstance(inv_time, ErrorResponse)
-
     def test_update_status(self):
         customer = self.get_customer()
 

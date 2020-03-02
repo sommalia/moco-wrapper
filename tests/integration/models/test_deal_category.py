@@ -23,16 +23,6 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.data.name is not None
             assert cat_create.data.probability == probability
             
-    def test_create_with_prob_over_100(self):
-        with self.recorder.use_cassette("TestDealCategory.test_create_with_prob_over_100"):
-            cat_create = self.moco.DealCategory.create(
-                self.id_generator(),
-                120
-            )
-            
-            assert cat_create.response.status_code != 200
-
-            assert isinstance(cat_create, ErrorResponse)
 
     def test_update(self):
         with self.recorder.use_cassette("TestDealCategory.test_update"):
