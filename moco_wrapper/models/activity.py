@@ -75,6 +75,7 @@ class Activity(MWRAPBase):
         to_date: datetime.date,
         user_id: int = None,
         project_id: int = None,
+        task_id: int = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1,
@@ -82,15 +83,19 @@ class Activity(MWRAPBase):
         """
         Get a list of activity objects.
 
-        :param from_date: start date
-        :param to_date: end date
-        :param user_id: user id
-        :param project_id: project id the activity belongs to
-        :param sort_by: field to sort results by
+        :param from_date: Start date
+        :param to_date: End date
+        :param user_id: User id of the creator
+        :param project_id: Id of the project the activity belongs to
+        :param task_id: Id of the task the activity belongs to
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc
-        :param page: page number (default 1)
-        :returns: list of activities
+        :param page: Page number (default 1)
+        :returns: List of activities
         """
+
+        if task_id is not None and project_id is None:
+            raise ValueError("If task_id is set, project id must also be set")
 
         params = {}
 
@@ -104,9 +109,11 @@ class Activity(MWRAPBase):
         else:
             params["to"] = to_date
 
+
         for key, value in (
             ("user_id", user_id),
             ("project_id", project_id),
+            ("task_id", task_id),
             ("page", page)
         ):
             if value is not None:
