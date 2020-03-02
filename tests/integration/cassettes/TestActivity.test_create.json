@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-03-02T12:07:42",
+      "recorded_at": "2020-03-02T18:22:53",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-01\", \"description\": \"activity create description\", \"project_id\": 945160092, \"task_id\": 5269714, \"hours\": 3.5}"
+          "string": "{\"hours\": 3.5, \"date\": \"2020-01-01\", \"project_id\": 945160879, \"task_id\": 5277184, \"description\": \"activity create description\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5ySzW7rIBCFX8U6axJh8E/M7r5DVndjEXuSyy22IxhHiqq8e+UUN027qNQlh8OZb4Z5hethmqbIldZ1LdBbJhgoqeRG5huZQ+DfNIcIo7elQE+xC+7MbhphYDt2F8fXrAtkmbLPtwIH5z31MEfrI70f7cETDIeZBNieYACBQMPE1EYKF9fRk7bQjbP3H8Ic/Kqcw/SfOoZJTRRlXknZKIHRDktMMiS4PjtOIWOK7MZTlsgdRXwluy1o8WXNLVXV1HnxLXXx/CK6myNPA4U1vq5kXe6q3aPAniL/SYPFTWCOD3ejdaWllkrg6ELk9GQpDQFvn5WlEzdQaCPbwNS3ltfhJfC7kn5bb6Ta58rI2hTqLwTmc/+jZ9kNf23DfW3kVt7eAgAA//9EJPaLUgIAAA==",
+          "base64_string": "H4sIAAAAAAAA/5ySzW7rIBCFX8WaNYmwsWOb3X2HrO7GImaS0mI7GoZIUZV3r0hx059FpS45nDnzMcwrOAu67+tSdXVdCrCGETRUspIbWW5kCQKelkgBtNo2AiyGkdyZ3TKDBjOyuzi+FiOhYSw+3wo4OO/Rgj4aH/D9aA4eQTNFFMDmBBpAAOG0MA4B6eJG/KIlujl6/yFE8qtypuUZRwadH1E35U52bS9gNlOKyYYMZ4vjQgVjYDefikzuMMB3sltCCy9rblO1bdnVP1KT5w/RYwy8TEhrfLuTbdP19aPBHgP/y4OFm4AYHu5eqZ2STVcJODoKnEv43subh5BgUjG7CWkIbIjRDobX4WXwu5J/W21ktS87XVW6Uf9BQDzbXz1pN/x1oPvayK28vQUAAP//29X4LFICAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "313"
+            "314"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 02 Mar 2020 12:07:42 GMT"
+            "Mon, 02 Mar 2020 18:22:53 GMT"
           ],
           "Etag": [
-            "W/\"7d4d5f40ad45143b63bb59787cc53340\""
+            "W/\"93522d617ad599f915d24e247c0758f8\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4d02f588-1384-4bee-8504-20b67bc5e367"
+            "bbbbee46-3ed1-4e0d-bbb7-87b5581e7079"
           ],
           "X-Runtime": [
-            "0.068721"
+            "0.075740"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

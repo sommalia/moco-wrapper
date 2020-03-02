@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-03-02T12:07:47",
+      "recorded_at": "2020-03-02T18:22:58",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-01\", \"remote_service\": \"jira\", \"tag\": \"test_activity\", \"task_id\": 5269714, \"description\": \"activity create description\", \"remote_id\": \"JIRA-123\", \"billable\": true, \"remote_url\": \"https://jira.mycompany.com\", \"project_id\": 945160092, \"hours\": 3.5}"
+          "string": "{\"date\": \"2020-01-01\", \"remote_url\": \"https://jira.mycompany.com\", \"project_id\": 945160879, \"task_id\": 5277184, \"tag\": \"test_activity\", \"hours\": 3.5, \"remote_service\": \"jira\", \"billable\": true, \"remote_id\": \"JIRA-123\", \"description\": \"activity create description\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5xSO2/bMBj8K8LNtMOHLVncMrZjkamLwFCfE6aUKJCfAhiF/3vBVIb7GAp01Om+exD3HWGE7fuD0saclMDomGChpZY7qXZSQeA1rbnAmv1RYKTic1g4pBkWznN4D3xpfCbH1Pz6V+A5xEgj7NnFQj8/3XMkWM4rCbB7gQVT4eGmA4FMU2IaCuX34GuUt5DdHa9x8fnTl8ed0uYOrznC4pV5KfbhoZ7sp4tP0+Lmy96nCQJLTm/kGXbrfDiqVspeC8xuqkYbYesyNueUm5ouzC/NFjBQwZ9FrrVJ+XbTPeq279ThL9XK+Q9pvxZOE+WbfNfK7nhqT3eDJyr8eHu/q8Ba7uzemNZII7XAOeTC20m1hkB0vyO1SZgoD4VdZhoHx7DzGqPAFvwD2cZhdlI/KW1lZw/dVwisy/hPTp1SvAz5Y2VyL68/AgAA///pzgdWgQIAAA==",
+          "base64_string": "H4sIAAAAAAAA/5ySQY+bMBCF/wp6ZydrDATwbY/tsdpTL8hrJrveGozsIVJU5b9XTomo2kOlPfJ48+Z71vyEG6H7vi6rrq5PAqNhgoaSSh5keZAlBN7DGhN0dWwERko2uoVdmKFhLLuL42thIxmm4s+/Aq/Oexqhz8Yn+v1pXj1Bc1xJgM0bNJgSD48cCESaAtOQKF6czSgfLppdz7j4+uXb86FU1S6v0UPjnXlJ+ukpjxynqw3TYubr0YYJAksMH2QZeutcN+VJdm0vMJspL9oMW5exOIdYZDo3vxUboKOEv4vccpP045HbqLYtu/qf1Oz5RLRdE4eJ4iO+Pcm26fp6X/BCiZ8f73cTWNPu7qvqVMmmUwJnFxNvI3zf5c0uZJg8zG6iOCQ2kWkcDEPPq/cCG/hd2Y6jOkj1UnZaKd103yGwLuN/PfmU/HWI9yuTR3n7FQAA//+thuXlgQIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "349"
+            "352"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 02 Mar 2020 12:07:47 GMT"
+            "Mon, 02 Mar 2020 18:22:58 GMT"
           ],
           "Etag": [
-            "W/\"1007a6a0c5da5990a12153e3df8bbbc1\""
+            "W/\"676366224e5b7d5b72581a159afbec13\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "221ae3b6-37ae-4636-a1ce-d5c9c66ad375"
+            "098e0537-dfee-4585-920d-d8fbdf189efc"
           ],
           "X-Runtime": [
-            "0.115307"
+            "0.063488"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

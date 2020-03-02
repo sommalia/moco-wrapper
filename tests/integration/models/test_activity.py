@@ -218,11 +218,10 @@ class TestActivity(IntegrationTest):
             assert isinstance(activity_getlist, ListingResponse)
 
     def test_getlist_with_task(self):
+        project = self.get_project()
+        task = self.get_project_task()
+
         with self.recorder.use_cassette("TestActivity.test_getlist_with_task"):
-            project = self.get_project()
-            task = self.get_project_task()
-
-
             from_date = date(1990, 1, 1)
             to_date = date(2020, 1, 1)
             activity_getlist = self.moco.Activity.getlist(from_date, to_date, task_id=task.id, project_id=project.id)
