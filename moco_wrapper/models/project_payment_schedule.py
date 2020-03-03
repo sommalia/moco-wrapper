@@ -41,7 +41,7 @@ class ProjectPaymentSchedule(MWRAPBase):
 
         :param moco: An instance of :class:`moco_wrapper.Moco`
         """
-        self.moco = moco
+        self._moco = moco
 
     def create(
         self,
@@ -52,7 +52,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         checked: bool = False,
         ):
         """
-        Creates a new project payment schedule
+        Creates a new project payment schedule.
 
         :oaran project_id: The id of the project the entry belongs to
         :param net_total: How much should be billed on this schedule
@@ -78,4 +78,104 @@ class ProjectPaymentSchedule(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self.moco.post(API_PATH["project_payment_schedule_create"].format(project_id=project_id), data=data)
+        return self._moco.post(API_PATH["project_payment_schedule_create"].format(project_id=project_id), data=data)
+
+    def update(
+        self,
+        project_id: int,
+        schedule_id: int,
+        net_total: float = None,
+        schedule_date: datetime.date = None,
+        title: str = None,
+        checked: bool = None
+        ):
+        """
+        Updates an existing project payment schedule.
+
+        :param project_id: Project id the schedule item belongs to
+        :param schedule_id: Id of the schedule item to update
+        :param net_total: Total amount to be billed
+        :param schedule_date: Date the billing will take place
+        :param title: Title of the item
+        :param checked: Mark entry as checked
+        :returns: The updated schedule item
+        """
+        data = {}
+
+        for key, value in (
+            ("net_total", net_total),
+            ("date", schedule_date),
+            ("title", title),
+            ("checked", checked),
+        ):
+            if value is not None:
+                if key in ["date"] and isinstance(value, datetime.date):
+                    data[key] = self._convert_date_to_iso(value)
+                else:
+                    data[key] = value
+
+        return self._moco.put(API_PATH["project_payment_schedule_update"].format(project_id=project_id, schedule_id=schedule_id), data=data)
+
+    def get(
+        self,
+        project_id,
+        schedule_id,
+        ):
+        """
+        Retrieves project payment schedule.
+
+        :param project_id: Id of the project to schedule item belongs to
+        :param schedule_id: Id of the schedule to retrieve
+        :returns: The schedule item
+        """
+
+        return self._moco.get(API_PATH["project_payment_schedule_get"].format(project_id=project_id, schedule_id=schedule_id))
+
+    def getlist(
+        self,
+        project_id,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1
+        ):
+        """
+        Retrieve a list of project payment schedules
+
+        :param project_id: Project id of the schedule items
+        :param sort_by: Field to sort the results by
+        :param sort_order: asc or desc
+        :param page: Page number (default 1)
+        """
+
+        params = {}
+
+        for key, value in (
+            ("page", page),
+        ):
+            if value is not None:
+                params[key] = value
+
+        if sort_by is not None:
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
+
+        return self._moco.get(API_PATH["project_payment_schedule_getlist"].format(project_id=project_id), params=params)
+
+    def delete(
+        self,
+        project_id,
+        schedule_id
+        ):
+        """
+        Delete a project payment schedule item
+
+        :param project_id: Project the payment schedule belongs to
+        :param schedule_id: Id of the schedule item to delete
+        :returns: Empty response on success
+        """
+
+        return self._moco.delete(API_PATH["project_payment_schedule_delete"].format(project_id=project_id, schedule_id=schedule_id))
+    
+
+
+
+    
