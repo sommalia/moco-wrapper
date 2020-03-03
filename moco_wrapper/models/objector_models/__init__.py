@@ -2,6 +2,7 @@ from .activity import Activity
 
 from .project import Project
 from .project_recurring_expense import ProjectRecurringExpense
+from .project_payment_schedule import ProjectPaymentSchedule
 from .project_expense import ProjectExpense
 from .project_contract import ProjectContract
 from .project_task import ProjectTask

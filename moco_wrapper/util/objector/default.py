@@ -33,6 +33,7 @@ class DefaultObjector(BaseObjector):
                     "bulk": "ProjectExpense"
                 },
                 "recurring_expenses": "ProjectRecurringExpense",
+                "payment_schedules": "ProjectPaymentSchedule",
             },
             "activities": {
                 "base" : "Activity",
