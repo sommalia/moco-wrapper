@@ -76,6 +76,7 @@ class Moco(object):
         self.ProjectExpense = models.ProjectExpense(self)
         self.ProjectTask = models.ProjectTask(self)
         self.ProjectRecurringExpense = models.ProjectRecurringExpense(self)
+        self.ProjectPaymentSchedule = models.ProjectPaymentSchedule(self)
 
         self.Deal = models.Deal(self)
         self.DealCategory = models.DealCategory(self)
