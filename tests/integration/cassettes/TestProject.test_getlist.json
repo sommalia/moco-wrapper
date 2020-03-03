@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-27T12:35:49",
+      "recorded_at": "2020-03-03T10:32:32",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects?updated_from=2019-01-01&include_company=True&created_to=2021-12-31&include_archived=True&company_id=760755816&leader_id=933630302&page=1&created_from=2019-01-01&updated_to=2021-12-31"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects?include_company=True&created_from=2019-01-01&leader_id=933630583&include_archived=True&created_to=2021-12-31&page=1&updated_to=2021-12-31&updated_from=2019-01-01&company_id=760759201"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+yYTW/iPBSF/wq667SyndgJ2VfvtnrV2bSqIjcx1INxkO30QxX/fWRIUsLHwHRoylTssLlcHx/7PLK4ewNZQDqMKKZxSIcByEJoJ0dSGEjhmiCEEghA86mAFIpqOn0dzEz5U+QuGDhh3SAvtTM8dxYC4LmTTwJSZyoRwINUij+odjySL6LIZkbmAtIRV3Yxp6V9zArufH+CCLpA+AJhCCCvjBE6f4UUrn78D8t+Uo+zJ24k1w5SqJWsfMeLwghrIQU/WRVj4SDVlVLNKBMvM6GtsJCiSxTAY1kZ9ZqZhYDFjNSjcvl7x8cW0rv7ABR/EKr+nFfWldNsZsqZME76Tm/zAJTghTetdjQMWYhCRPwWjXW1gd4x8O26M/Om63uDmKGY0gSz1vwbYd11veG5F2cnXtGynJKIxTFqixeFE6eEdJUew+ZhrB1Vx6mOJxihSzQPVpfB7TJX2j3LfKKOvwZp1/jP8JGc/H17f3TtXW18ixhGhLEwCqCywmR/fnbH2najhG4qiaOukmUMfdWmHqnHnUh+WFxjmRHciSLjrs0nuSDxDSZpSNMwuYUAqlmxp6bZZA0ahreBZvh70Cwv/BkyXwyZhPQCmST8fMgk0dEh02lP1+6zd7O+zPWlGjxL97iYP0ZUd9It/jq67UVIFO5HiK9ZQwil2xASvSOkY/NSwnHggc/w+DA8aNILPPxD9rPhwVC/LxR0whnG0f4M+5r1DLNtGab/UobHQgvD1cA6I4QbELIS6oV5B6Uak0vaxrpp6Ydmyp0s9XvSQZXPA6nzcuqd8AMj7QRWAbC75HS5wHAvXGCkBy6E/XIBnzIXhgdwYbjJhXgbF9gOLniNZyh8RyhE/UCB9gAF1i8UyAlDgRzwWCBbHgvJNijEO6CwbH/mwrfkQtwPF5IeuDDslwvhCXMhRAf8l4huYX7/KwAA//9KPFMxthgAAA==",
+          "base64_string": "H4sIAAAAAAAA/+yYW0/jPBCG/0o11wHZTpM0vkefvju0Ym8Wocgk0+Kt61S2w0Go/33l5kCPW7SUqKDeYTOMX8/4fWJ8+wqyAJ4OIxrTKB4GIAvUTo4lGuBwzQhhIQSgxQyBQ1HNZi+DuSl/Y+6CgUPrBnmpnRG5sxCAyJ18RODOVBjAvVRK3KtuPJbPWGRzI3MEPhbKLue0tA9ZIZzPzwgjF4ReEAoB5JUxqPMX4HD18wfU+aSeZI/CSKEdcGiUrPxOFIVBa4GDn6yKCTrgulKqHWX4PEdt0QInlySAh7Iy6iUzSwHLGanHZf33Tkws8Nu7AJS4R9X8nFfWlbNsbso5Gid9ptdFAApF4YvWVDQM45BEo9Bv0VjXFPAGrVerRDfz/2yOxpZaOFlqWLTp3zIlMUmilBHadcEnuW52vvAq7dRLq8MjNmLhKO6Cl4FTp1C6Sk9guysbPVsr2VpxKCGXZBGsLpN0y1xp9yTzqTr+GqNujf+MGMvpx9P7HnaHtq3bMKZkyEgcBVBZNNkHmnis/beS4i1JMYvWJdXG9FHrwrxDpZ6smfSfxbW1MygcFplwnWPDCxLeUMJDxhn9BQFU8+JATLvJFj3xLvQM/46e+uSfsXMy2El7wU5KPh87KT06dtbSs42D7avZnOrmdA2epHtYzh/Ds3t5l54A7w5DJX4HVOItqETpDqjQ9A0qa/WuJRwHJ/SMk4/jJCG94CShn4+ThPV6ixkmp+9qyqPkkKvrmM2rAtl1VSBfydUT1GiEGlhnEN2AsRWbL4v3Lp9Tdhl1Rm9T+qGZtS1svA+qfBpInZczXwk/MNJOYRUJ+0O+AimG/ZAi6oEUca+kiE7h/52D33/CDn//fcwmKeguUtA9pPAaz5j41pgY9YOJtIdnEdIvJrbfIE4REwcvFHXMJibYLkywPZio059J8a1JMaL9PKCyHkgR9kuKL/GgQMPDpPAxi7s/AQAA//9gSXeiIhkAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "724"
+            "742"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 27 Feb 2020 12:35:49 GMT"
+            "Tue, 03 Mar 2020 10:32:32 GMT"
           ],
           "Etag": [
-            "W/\"95cde7132757d1a2a8a816212f99ed6d\""
+            "W/\"85b71b0f41b0480f5b2ea77fd4885590\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "fa58eeca-28c1-4e08-a3cb-07bd27da5a31"
+            "15c831b8-9d4f-4fe3-8482-11de2d2430a6"
           ],
           "X-Runtime": [
-            "0.075520"
+            "0.091144"
           ],
           "X-Total": [
             "6"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects?updated_from=2019-01-01&include_company=True&created_to=2021-12-31&include_archived=True&company_id=760755816&leader_id=933630302&page=1&created_from=2019-01-01&updated_to=2021-12-31"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects?include_company=True&created_from=2019-01-01&leader_id=933630583&include_archived=True&created_to=2021-12-31&page=1&updated_to=2021-12-31&updated_from=2019-01-01&company_id=760759201"
       }
     }
   ],

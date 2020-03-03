@@ -55,7 +55,8 @@ class Project(MWRAPBase):
         budget: float = None,
         labels: list = None,
         custom_properties: dict = None,
-        info: str = None
+        info: str = None,
+        fixed_price: bool = False,
         ):
         """
         Create a new project.
@@ -73,11 +74,16 @@ class Project(MWRAPBase):
         :param labels: Array of additional labels
         :param custom_properties: Custom values used by the project
         :param info: Additional information
+        :param fixed_price: If the project is a fixed price projects (default False)
         :returns: The created project object
 
         .. note::
 
             The parameter ``identifier`` is required if number ranges are manual.
+
+        .. note::
+
+            If you create a fixed_price project budget must also be set.
         """
         data = {
             "name": name,
@@ -85,6 +91,9 @@ class Project(MWRAPBase):
             "leader_id": leader_id,
             "customer_id": customer_id
         }
+
+        if fixed_price == True and budget is None:
+            raise ValueError("When you create a fixed price project, the project budget must be set")
 
 
         for key, value in (
@@ -96,7 +105,8 @@ class Project(MWRAPBase):
             ("budget", budget),
             ("labels", labels),
             ("custom_properties", custom_properties),
-            ("info", info)
+            ("info", info),
+            ("fixed_price", fixed_price)
         ):
             if value is not None:
                 if key in ["finish_date"] and isinstance(value, datetime.date):

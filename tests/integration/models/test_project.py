@@ -402,6 +402,37 @@ class TestProject(IntegrationTest):
             assert project_create.data.leader.id == user.id
             assert project_create.data.customer.id == customer.id
 
+    def test_create_fixed_price(self):
+        user = self.get_user()
+        customer = self.get_customer()
+
+        with self.recorder.use_cassette("TestProject.test_create_fixed_price"):
+            name = "test project create"
+            currency = "EUR"
+            budget = 200
+            fixed_price = True
+            
+            project_create = self.moco.Project.create(
+                name,
+                currency,
+                user.id,
+                customer.id,
+                fixed_price=fixed_price,
+                budget=200
+            )
+
+            assert project_create.response.status_code == 200
+
+            assert isinstance(project_create, JsonResponse)
+
+            assert project_create.data.name == name
+            assert project_create.data.currency == currency
+            assert project_create.data.finish_date == None
+            assert project_create.data.leader.id == user.id
+            assert project_create.data.customer.id == customer.id
+            assert project_create.data.budget == budget
+            assert project_create.data.fixed_price == fixed_price
+
 
 
     
