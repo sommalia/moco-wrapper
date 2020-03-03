@@ -170,7 +170,7 @@ class ProjectPaymentSchedule(MWRAPBase):
 
         :param project_id: Project the payment schedule belongs to
         :param schedule_id: Id of the schedule item to delete
-        :returns: Empty response on success
+        :returns: The deleted response on success
         """
 
         return self._moco.delete(API_PATH["project_payment_schedule_delete"].format(project_id=project_id, schedule_id=schedule_id))

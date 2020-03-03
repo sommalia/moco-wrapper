@@ -35,10 +35,49 @@ class TestProjectPaymentSchedule(IntegrationTest):
             return project_create.data
     
     def test_getlist(self):
-        pass
+        project = self.get_project()
+        
+        with self.recorder.use_cassette("TestProjectPaymentSchedule.test_getlist"):
+            sched_list = self.moco.ProjectPaymentSchedule.getlist(project.id, sort_by="net_total")
+
+            assert sched_list.response.status_code == 200
+
+            assert isinstance(sched_list, ListingResponse)
 
     def test_get(self):
-        pass
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestProjectPaymentSchedule.test_get"):
+            net_total = 100
+            sched_date = date(2020, 1, 1)
+            title = "dummy project expense, test get"
+            checked = True
+
+            sched_create = self.moco.ProjectPaymentSchedule.create(
+                project.id,
+                net_total,
+                sched_date,
+                title=title,
+                checked=checked
+            )
+
+            sched_get = self.moco.ProjectPaymentSchedule.get(
+                project.id,
+                sched_create.data.id
+            )
+
+            assert sched_create.response.status_code == 200
+            assert sched_get.response.status_code == 200
+
+            assert isinstance(sched_create, JsonResponse)
+            assert isinstance(sched_get, JsonResponse)
+
+            assert sched_get.data.date == sched_date.isoformat()
+            assert sched_get.data.net_total == net_total
+            assert sched_get.data.project.id == project.id
+            assert sched_get.data.title == title
+            assert sched_get.data.checked == checked
+
 
     def test_create(self):
         project = self.get_project()
@@ -47,25 +86,101 @@ class TestProjectPaymentSchedule(IntegrationTest):
             net_total = 100
             sched_date = date(2020, 1, 1)
 
-            schedule_create = self.moco.ProjectPaymentSchedule.create(
+            sched_create = self.moco.ProjectPaymentSchedule.create(
                 project.id,
                 net_total,
                 sched_date
             )
 
-            assert schedule_create.response.status_code == 200
+            assert sched_create.response.status_code == 200
             
-            assert isinstance(schedule_create, JsonResponse)
+            assert isinstance(sched_create, JsonResponse)
 
-            assert schedule_create.data.date == sched_date.isoformat()
-            assert schedule_create.data.net_total == net_total
-            assert schedule_create.data.project.id == project.id
+            assert sched_create.data.date == sched_date.isoformat()
+            assert sched_create.data.net_total == net_total
+            assert sched_create.data.project.id == project.id
 
     def test_create_full(self):
-        pass
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestProjectPaymentSchedule.test_create_full"):
+            net_total = 100
+            sched_date = date(2020, 1, 1)
+            title = "dummy project expense, test create full"
+            checked = True
+
+            sched_create = self.moco.ProjectPaymentSchedule.create(
+                project.id,
+                net_total,
+                sched_date,
+                title=title,
+                checked=checked
+            )
+
+            assert sched_create.response.status_code == 200
+            
+            assert isinstance(sched_create, JsonResponse)
+
+            assert sched_create.data.date == sched_date.isoformat()
+            assert sched_create.data.net_total == net_total
+            assert sched_create.data.project.id == project.id
+            assert sched_create.data.title == title
+            assert sched_create.data.checked == checked
 
     def test_update(self):
-        pass
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestProjectPaymentSchedule.test_update"):
+            net_total = 100
+            sched_date = date(2020, 3, 1)
+            title = "dummy project expense, test update"
+            checked = True
+
+            sched_create = self.moco.ProjectPaymentSchedule.create(
+                project.id,
+                1,
+                date(2020, 12, 1)
+            )
+
+            sched_update = self.moco.ProjectPaymentSchedule.update(
+                project.id,
+                sched_create.data.id,
+                net_total=net_total,
+                schedule_date=sched_date,
+                title=title,
+                checked=checked
+            )
+
+            assert sched_create.response.status_code == 200
+            assert sched_update.response.status_code == 200
+
+            assert isinstance(sched_create, JsonResponse)
+            assert isinstance(sched_update, JsonResponse)
+
+            assert sched_update.data.date == sched_date.isoformat()
+            assert sched_update.data.net_total == net_total
+            assert sched_update.data.project.id == project.id
+            assert sched_update.data.title == title
+            assert sched_update.data.checked == checked
+
 
     def test_delete(self):
-        pass
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestProjectPaymentSchedule.test_delete"):
+            sched_create = self.moco.ProjectPaymentSchedule.create(
+                project.id,
+                1,
+                date(2020, 12, 1)
+            )
+
+            sched_delete = self.moco.ProjectPaymentSchedule.delete(
+                project.id, 
+                sched_create.data.id
+            )
+
+            assert sched_create.response.status_code == 200
+            assert sched_delete.response.status_code == 200
+
+            assert isinstance(sched_create, JsonResponse)
+            assert isinstance(sched_delete, JsonResponse)
