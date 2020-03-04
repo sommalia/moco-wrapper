@@ -14,6 +14,7 @@ class ProjectPaymentSchedule(MWRAPBase):
     .. code-block:: python
 
         from moco_wrapper import Moco
+        from datetime import date
 
         m = Moco()
         leader_id = 1
@@ -33,6 +34,10 @@ class ProjectPaymentSchedule(MWRAPBase):
         second_payment = ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 6, 1))
         third_payment = ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 9, 1))
         fourth_payment = ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 12, 1))
+
+    .. seealso::
+
+        :meth:`moco_wrapper.models.Project.create`
     """
 
     def __init__(self, moco):
