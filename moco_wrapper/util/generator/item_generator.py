@@ -10,6 +10,9 @@ class ItemGenerator(BaseGenerator):
         Generate an item of type ``title``
         
         :param title: Title the item should have
+
+        :type title: str
+
         :returns: The generated item
 
         """
@@ -26,6 +29,9 @@ class ItemGenerator(BaseGenerator):
         Generate an item of type ``description``
 
         :param description: Description the item should have
+
+        :type description: str
+
         :returns: The generated item
         """
         return {
@@ -49,6 +55,10 @@ class ItemGenerator(BaseGenerator):
         ) -> dict:
         """
         Generate an item of type ``subtotal``
+
+        :param title: The title of the subtotal
+
+        :type title: str
 
         :returns: The generated item
         """
@@ -90,6 +100,14 @@ class OfferItemGenerator(ItemGenerator):
         :param unit_price: Unit price of the supplied item
         :param net_total: Net total sum (either this is supplied or unit, unit_price, and quantity)
         :param optional: Wether the item is an optional item or not (default False)
+
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+        :type net_total: float
+        :type optinal: bool
+
         :returns: The generated item
 
         This is the base function for generating positions in an offer. There are two types of positions. Postions that can be itemized (see  :meth:`.generate_detail_postion`) and positions that do not have to be itemized ( :meth:`.generate_lump_position`).
@@ -131,6 +149,13 @@ class OfferItemGenerator(ItemGenerator):
         :param unit: What is the thing (i.e. hours)
         :param unit_price: Price of a single thing (i.e. price of a single hour)
         :param optional: If the position is optional or not (default False)
+
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+        :type optional: bool
+
         :returns: The generated item
 
         .. seealso::
@@ -151,6 +176,11 @@ class OfferItemGenerator(ItemGenerator):
         :param title: Title of the position
         :param net_total: Total price of the postion
         :param optional: If the position is optional or not (default False)
+
+        :type title: str
+        :type net_total: float
+        :type optional: bool
+
         :returns: The generated item
 
         .. seealso::
@@ -178,6 +208,13 @@ class InvoiceItemGenerator(ItemGenerator):
         :param unit: Unit name of the supplied item
         :param unit_price: Unit price of the supplied item
         :param net_total: Net total sum (either this is supplied or unit, unit_price, and quantity)
+        
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+        :type net_total: float
+        
         :returns: The generated item
 
         This is the base function for generating positions in an invoice. There are two types of positions. Postions that can be itemized (see  :meth:`.generate_detail_postion`) and positions that do not have to be itemized ( :meth:`.generate_lump_position`).
@@ -217,6 +254,12 @@ class InvoiceItemGenerator(ItemGenerator):
         :param quantity: How many of the things (i.e. how many hours)
         :param unit: What is the thing (i.e. hours)
         :param unit_price: Price of a single thing (i.e. price of a single hour)
+
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+
         :returns: The generated item
 
         .. seealso::
@@ -236,6 +279,11 @@ class InvoiceItemGenerator(ItemGenerator):
         :param title: Title of the position
         :param net_total: Total price of the postion
         :param optional: If the position is optional or not (default False)
+
+        :type title: str
+        :type net_total: float
+        :type optional: bool
+
         :returns: The generated item
         
         .. seealso::
