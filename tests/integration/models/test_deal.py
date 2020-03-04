@@ -144,6 +144,12 @@ class TestDeal(IntegrationTest):
 
             assert isinstance(deal_getlist, ListingResponse)
 
+            assert deal_getlist.current_page == 1
+            assert deal_getlist.is_last is not None
+            assert deal_getlist.next_page is not None
+            assert deal_getlist.total is not None
+            assert deal_getlist.page_size is not None
+
     def test_update(self):
         user = self.get_user()
         category = self.get_deal_category()

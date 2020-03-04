@@ -28,21 +28,24 @@ class ListingResponse(MWRAPResponse):
 
     
     @property
-    def x_page(self):
-        pass
+    def current_page(self):
+        return self._current_page
 
     @property 
-    def x_per_page(self):
-        pass
+    def page_size(self):
+        return self._page_size
 
     @property
-    def x_total(self):
-        pass
+    def total(self):
+        return self._total
 
     @property
     def is_last(self):
-        pass
+        return self._is_last
 
+    @property
+    def next_page(self):
+        return self._current_page + 1
 
     @property
     def data(self):
@@ -71,6 +74,36 @@ class ListingResponse(MWRAPResponse):
             items.append(json_item)
 
         self._data = items
+
+        if "x-page" in response.headers.keys():
+            self._current_page = int(response.headers["x-page"])
+        else:
+            self._current_page = 1
+
+        if "x-total" in response.headers.keys():
+            self._total = int(response.headers["x-total"])
+        else:
+            self._total = len(items)
+        
+        if  "x-per-page" in response.headers.keys():
+            self._page_size = int(response.headers["x-per-page"])
+        else:
+            self._page_size = self._total
+
+        #print(response.headers)
+
+        if "Link" in response.headers.keys():
+            link_parts =response.headers["Link"].split(",")
+            rel = []
+            #extract rels
+            for link in link_parts:
+                _rel = link.split("; rel=")[-1].strip().replace("\"", "")
+                rel.append(_rel)
+
+            self._is_last = "last" not in rel
+        else:
+            self._is_last = True
+
 
     def __str__(self):
          return "<ListingResponse, Status Code: {}, Data: {}>".format(self.response.status_code, str(self._data))

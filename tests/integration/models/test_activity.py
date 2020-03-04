@@ -236,6 +236,12 @@ class TestActivity(IntegrationTest):
 
             assert isinstance(activity_getlist, ListingResponse)
 
+            assert activity_getlist.current_page == 1
+            assert activity_getlist.is_last is not None
+            assert activity_getlist.next_page is not None
+            assert activity_getlist.total is not None
+            assert activity_getlist.page_size is not None
+
     def test_getlist_with_task(self):
         project = self.get_project()
         task = self.get_project_task()
@@ -248,6 +254,12 @@ class TestActivity(IntegrationTest):
             assert activity_getlist.response.status_code == 200
 
             assert isinstance(activity_getlist, ListingResponse)
+            
+            assert activity_getlist.current_page == 1
+            assert activity_getlist.is_last is not None
+            assert activity_getlist.next_page is not None
+            assert activity_getlist.total is not None
+            assert activity_getlist.page_size is not None
 
     def test_get(self):
         customer = self.get_customer()
@@ -413,8 +425,6 @@ class TestActivity(IntegrationTest):
                 disregard_ids, 
                 project.customer.id 
             )
-
-            
 
             assert activity_create.response.status_code == 200
             assert activity_create_sec.response.status_code == 200

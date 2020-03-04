@@ -300,6 +300,12 @@ class TestProject(IntegrationTest):
             
             assert isinstance(project_list, ListingResponse)
 
+            assert project_list.current_page == 1
+            assert project_list.is_last is not None
+            assert project_list.next_page is not None
+            assert project_list.total is not None
+            assert project_list.page_size is not None
+
     def test_assigned(self):
         with self.recorder.use_cassette("TestProject.test_assigned"):
             project_ass = self.moco.Project.assigned()
@@ -307,6 +313,12 @@ class TestProject(IntegrationTest):
             assert project_ass.response.status_code == 200
 
             assert isinstance(project_ass, ListingResponse)
+
+            assert project_ass.current_page == 1
+            assert project_ass.is_last is not None
+            assert project_ass.next_page is not None
+            assert project_ass.total is not None
+            assert project_ass.page_size is not None
 
     def test_archive(self):
         user = self.get_user()

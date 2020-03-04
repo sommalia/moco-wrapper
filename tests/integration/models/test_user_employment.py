@@ -26,6 +26,12 @@ class TestUserEmployment(IntegrationTest):
 
             assert isinstance(emp_list, ListingResponse)
 
+            assert emp_list.current_page == 1
+            assert emp_list.is_last is not None
+            assert emp_list.next_page is not None
+            assert emp_list.total is not None
+            assert emp_list.page_size is not None
+
     def test_get(self):
         with self.recorder.use_cassette("TestUserEmployment.test_get"):
             emp_id = self.moco.UserEmployment.getlist().items[0].id

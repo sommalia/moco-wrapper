@@ -52,6 +52,12 @@ class TestComment(IntegrationTest):
             
             assert isinstance(comment_list, ListingResponse)
 
+            assert comment_list.current_page == 1
+            assert comment_list.is_last is not None
+            assert comment_list.next_page is not None
+            assert comment_list.total is not None
+            assert comment_list.page_size is not None
+
     def test_get(self):
         project = self.get_project()
         

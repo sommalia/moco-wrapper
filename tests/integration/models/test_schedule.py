@@ -51,6 +51,12 @@ class TestSchedule(IntegrationTest):
 
             assert isinstance(sched_list, ListingResponse)
 
+            assert sched_list.current_page == 1
+            assert sched_list.is_last is not None
+            assert sched_list.next_page is not None
+            assert sched_list.total is not None
+            assert sched_list.page_size is not None
+
     def test_create_with_project(self):
         user = self.get_user()
         project = self.get_project()
