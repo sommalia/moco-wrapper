@@ -18,6 +18,12 @@ class InvoicePaymentGenerator(BaseGenerator):
         :param invoice_id: id of the invoice the payment belongs to
         :param paid_total: amount that was paid (ex 200)
         :param currency: currency of the amout that was paid (ex. EUR)
+
+        :type payment_date: datetime.date, str
+        :type invoice_id: int
+        :type paid_total: float
+        :type currency: str
+
         :returns: an invoice payment item
 
         Example usage:

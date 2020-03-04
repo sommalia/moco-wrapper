@@ -29,6 +29,18 @@ class ProjectExpenseGenerator(BaseGenerator):
         :param description: Descripion of the expens
         :param billable: If this expense billable (default True)
         :param budget_relevant: If this expense is budget relevant (default False)
+
+        :type project_id: int
+        :type expense_date: datetime.date, str
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+        :type unit_cost: float
+        :type description: str
+        :type billable: bool
+        :type budget_relevant: bool
+
         :returns: The created expense object
 
         Example usage:
