@@ -26,6 +26,10 @@ class Session(MWRAPBase):
 
         :param email: Email address
         :param password: Password
+
+        :type email: str
+        :type password: str
+
         :returns: Authentication information
         """
 

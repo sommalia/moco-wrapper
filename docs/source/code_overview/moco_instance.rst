@@ -30,4 +30,5 @@ The Moco Instance
    endpoints/user_employment
    endpoints/user_holiday
    endpoints/user_presence
+   endpoints/session
 
