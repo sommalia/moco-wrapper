@@ -64,6 +64,13 @@ class ProjectPaymentSchedule(MWRAPBase):
         :param schedule_date: Date of the entry
         :param title: Title string
         :param checked: Mark entry as checked (the entry will be crossed out in the UI)
+
+        :type project_id: int
+        :type net_total: float
+        :type schedule_date: datetime.date, str
+        :type title: str
+        :type checkecd: bool
+
         :returns: The created schedule item
         """
 
@@ -103,6 +110,14 @@ class ProjectPaymentSchedule(MWRAPBase):
         :param schedule_date: Date the billing will take place
         :param title: Title of the item
         :param checked: Mark entry as checked (the entry will be crossed out in the UI)
+
+        :type project_id: int
+        :type schedule_id: int
+        :type net_total: float
+        :type schedule_date: datetime.date, str
+        :type title: str
+        :type checked: bool
+
         :returns: The updated schedule item
         """
         data = {}
@@ -131,6 +146,10 @@ class ProjectPaymentSchedule(MWRAPBase):
 
         :param project_id: Id of the project to schedule item belongs to
         :param schedule_id: Id of the schedule to retrieve
+
+        :type project_id: int
+        :type schedule_id: int
+
         :returns: The schedule item
         """
 
@@ -150,6 +169,13 @@ class ProjectPaymentSchedule(MWRAPBase):
         :param sort_by: Field to sort the results by
         :param sort_order: asc or desc
         :param page: Page number (default 1)
+
+        :type project_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
+        :returns: List of schedules payments
         """
 
         params = {}
@@ -175,6 +201,10 @@ class ProjectPaymentSchedule(MWRAPBase):
 
         :param project_id: Project the payment schedule belongs to
         :param schedule_id: Id of the schedule item to delete
+
+        :type project_id: int
+        :type schedule_id: int
+
         :returns: The deleted response on success
         """
 
