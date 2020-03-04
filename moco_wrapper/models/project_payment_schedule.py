@@ -59,11 +59,11 @@ class ProjectPaymentSchedule(MWRAPBase):
         """
         Creates a new project payment schedule.
 
-        :oaran project_id: The id of the project the entry belongs to
+        :param project_id: The id of the project the entry belongs to
         :param net_total: How much should be billed on this schedule
         :param schedule_date: Date of the entry
         :param title: Title string
-        :param checked: Mark entry as checked
+        :param checked: Mark entry as checked (the entry will be crossed out in the UI)
         :returns: The created schedule item
         """
 
@@ -102,7 +102,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :param net_total: Total amount to be billed
         :param schedule_date: Date the billing will take place
         :param title: Title of the item
-        :param checked: Mark entry as checked
+        :param checked: Mark entry as checked (the entry will be crossed out in the UI)
         :returns: The updated schedule item
         """
         data = {}

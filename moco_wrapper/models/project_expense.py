@@ -85,7 +85,8 @@ class ProjectExpense(MWRAPBase):
         Create an multiple expenses for a project.
 
         :param project_id: Id of the project to created the expenses for
-        :param items: Items to create bulk expense entries to create
+        :type project_id: int
+        :param items: Items to create bulk
         :returns: The created entries
 
         .. seealso::

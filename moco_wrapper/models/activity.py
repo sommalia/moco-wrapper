@@ -87,10 +87,20 @@ class Activity(MWRAPBase):
         :param to_date: End date
         :param user_id: User id of the creator
         :param project_id: Id of the project the activity belongs to
-        :param task_id: Id of the task the activity belongs to
+        :param task_id: Id of the task the activity belongs t
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc
         :param page: Page number (default 1)
+
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type user_id: int
+        :type project_id: int
+        :type task_id: int
+        :type sort_by: string
+        :type sort_order: string
+        :type page: int
+
         :returns: List of activities
         """
 
@@ -132,6 +142,9 @@ class Activity(MWRAPBase):
         Get a single activity.
 
         :param id: id of the activity:
+
+        :type id: int
+
         :returns: the activity object (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
         """
 
@@ -151,7 +164,7 @@ class Activity(MWRAPBase):
         remote_url: str = None
         ):
         """
-        Update an activity.
+        Create an activity.
 
         :param activity_date: date of the activity
         :param project_id: id of the project this activity belongs to
@@ -160,9 +173,21 @@ class Activity(MWRAPBase):
         :param description: activity description text
         :param billable: true/false (if this activity is billable) (select none if billing is dependent on project configuration)
         :param tag: a tag string
-        :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
+        :param remote_service: if this task was created by a remote service, its name will be here.
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
+
+        :type activity_date: datetime.date, str
+        :type project_id: int
+        :type task_id: int
+        :type hours: float
+        :type description: string
+        :type billable: bool
+        :type tag: string
+        :type remote_service: :class:`.ActivityRemoteService`, str
+        :type remote_id: string
+        :type remote_url: string
+
         :returns: the created activity
         """
 
@@ -215,9 +240,22 @@ class Activity(MWRAPBase):
         :param description: activity description text
         :param billable: true/false (if this activity is billable) (select none if billing is dependent on project configuration)
         :param tag: a tag string
-        :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
+        :param remote_service: if this task was created by a remote service, its name will be here
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
+
+        :type id: int
+        :type activity_date: datetime.date, str
+        :type project_id: int
+        :type task_id: int
+        :type hours: float
+        :type description: string
+        :type billable: bool
+        :type tag: string
+        :type remote_service: :class:`.ActivityRemoteService`, str
+        :type remote_id: string
+        :type remote_url: string
+
         :returns: the updated activity
         """
 
@@ -252,6 +290,9 @@ class Activity(MWRAPBase):
         The timer can only be started for activities on the current day.
 
         :param id: id of the activity
+
+        :type id: int
+
         :returns: the activity the timer was started for
         """
 
@@ -264,7 +305,10 @@ class Activity(MWRAPBase):
         """
         Stop a timer on the specified activity.
 
-        :param id: id of the activity
+        :param id: Id of the activity
+
+        :type id: int
+
         :returns: the activity the timer was stopped for (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
         """
 
@@ -277,7 +321,10 @@ class Activity(MWRAPBase):
         """
         Delete an activity.
 
-        :param id: id of the activity to delete
+        :param id: Id of the activity to delete
+
+        :type id: int
+
         :returns: empty response on success (in default configuration :class:`moco_wrapper.util.response.EmptyResponse`)
         """
 
@@ -293,11 +340,17 @@ class Activity(MWRAPBase):
         """
         Disregard activities.
 
-        :param reason: reason text for disregarding these activities
-        :param activity_ids: list of activity ids to disregard
-        :param company_id: company id these activities belong to
-        :param project_id: project id these activities belong to  
-        :returns: list with the activity ids that were disregarded (in default configuration :class:`moco_wrapper.util.response.ListingResponse`)
+        :param reason: Reason text for disregarding these activities
+        :param activity_ids: List of activity ids to disregard
+        :param company_id: Company id these activities belong to
+        :param project_id: Project id these activities belong to  
+
+        :type reason: string
+        :type activity_ids: list
+        :type company_id: int
+        :type project_id: int
+
+        :returns: List with the activity ids that were disregarded
         """
 
         data = {
