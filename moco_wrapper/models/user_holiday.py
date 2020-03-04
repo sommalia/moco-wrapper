@@ -51,6 +51,13 @@ class UserHoliday(MWRAPBase):
         :param sort_by: field to sort results by
         :param sort_order: asc or desc
         :param page: Page number (default 1)
+
+        :type year: int
+        :type user_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of holiday entries
         """
         params = {}
@@ -75,6 +82,9 @@ class UserHoliday(MWRAPBase):
         Retrieve single holiday entry
 
         :param id: Id of the holiday
+
+        :type id: int
+
         :returns: The holiday object
         """
         return self._moco.get(API_PATH["holiday_get"].format(id=id))
@@ -84,7 +94,7 @@ class UserHoliday(MWRAPBase):
         year: int, 
         title: str,
         user_id: int,
-        hours: int = 0
+        hours: float = 0
         ):
         """
         Create an users entitlement for holidays/vacation
@@ -93,6 +103,12 @@ class UserHoliday(MWRAPBase):
         :param title: Title 
         :param user_id: Id of the user this holiday belongs to
         :param hours: Hours (e.g. 160) (default 0)
+
+        :type year: int
+        :type title: str
+        :type user_id: int
+        :type hours: float
+
         :returns: The created holiday object
         """
         data = {
@@ -110,7 +126,7 @@ class UserHoliday(MWRAPBase):
         year: int = None,
         title: str = None,
         user_id: int = None,
-        hours: int = None,
+        hours: float = None,
         ):
         """
         Update a holiday entry
@@ -120,6 +136,13 @@ class UserHoliday(MWRAPBase):
         :param title: Title
         :param hours: Hours (e.g. 160)
         :param user_id: User this holiday entry belongs to
+
+        :type id: int
+        :type year: int
+        :type title: str
+        :type hours: float
+        :type user_id: int
+
         :returns: The updated holiday object
         """
         
@@ -143,6 +166,9 @@ class UserHoliday(MWRAPBase):
         Delete a holiday entry
 
         :param id: Id of the holiday entry to delete
+
+        :type id: int
+
         :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["holiday_delete"].format(id=id))

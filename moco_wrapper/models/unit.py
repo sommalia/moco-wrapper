@@ -25,6 +25,9 @@ class Unit(MWRAPBase):
         Get a single team.
 
         :param id: Id of the team
+
+        :type id: int
+
         :returns: Single team object
         """
 
@@ -42,6 +45,11 @@ class Unit(MWRAPBase):
         :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
         :param page: page number (default 1)
+
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+        
         :returns: List of team objects
         """
 
