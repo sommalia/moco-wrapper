@@ -28,6 +28,12 @@ class ProjectTask(MWRAPBase):
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type project_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of project tasks
         """
         params = {}
@@ -53,7 +59,11 @@ class ProjectTask(MWRAPBase):
         Retrieve a single project task.
 
         :param project_id: Id of the project the task belongs to
-        :param task:id: Id of the task
+        :param task_id: Id of the task
+
+        :type project_id: int
+        :type task_id: int
+
         :returns: Single project task
         """
         return self._moco.get(API_PATH["project_task_get"].format(project_id=project_id, task_id=task_id))
@@ -76,6 +86,14 @@ class ProjectTask(MWRAPBase):
         :param active: If this expense active (default True)
         :param budget: Budget for the task (e.g. 200.75)
         :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5)
+
+        :type project_id: int
+        :type name: str
+        :type billable: bool
+        :type active: bool
+        :type budget: float
+        :type hourly_rate: float
+
         :returns: The created project task
         """
         data = {
@@ -113,6 +131,15 @@ class ProjectTask(MWRAPBase):
         :param active: If this expense active (default True)
         :param budget: Budget for the task (e.g. 200.75)
         :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5)
+
+        :type project_id: int
+        :type task_id: int
+        :type name: str
+        :type billable: bool
+        :type active: bool
+        :type budget: float
+        :type hourly_rate: float
+
         :returns: The updated project task
         """
         data = {}
@@ -138,6 +165,10 @@ class ProjectTask(MWRAPBase):
 
         :param project_id: Id of the project the task belongs to
         :param task_id: Id of the task to delete
+
+        :type project_id: int
+        :type task_id: int
+
         :returns: Empty response on success
 
         .. note::
