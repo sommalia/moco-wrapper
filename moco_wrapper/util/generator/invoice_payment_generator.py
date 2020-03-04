@@ -10,7 +10,7 @@ class InvoicePaymentGenerator(BaseGenerator):
         invoice_id: int,
         paid_total: float,
         currency: str
-        ):
+        ) -> dict:
         """
         Generates an invoice payment item that can be supplied to a bulk created
 
@@ -20,7 +20,7 @@ class InvoicePaymentGenerator(BaseGenerator):
         :param currency: currency of the amout that was paid (ex. EUR)
         :returns: an invoice payment item
 
-        Example usage
+        Example usage:
 
         .. code-block:: python
 

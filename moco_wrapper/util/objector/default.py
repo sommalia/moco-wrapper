@@ -86,7 +86,7 @@ class DefaultObjector(BaseObjector):
             }
         }
         """
-        dictionary used to find the appropriate classes from url-part-path created in :meth:`get_class_name_from_request_url`
+        Dictionary used to find the appropriate classes from url-part-path created in :meth:`get_class_name_from_request_url`
 
         For example the path ``project=>tasks`` means ``ProjectTask`` is the responsible class. The dictionary contains the following:
 
@@ -96,7 +96,6 @@ class DefaultObjector(BaseObjector):
                 "base" => "Project",
                 "tasks" => "ProjectTask"
             }
-
         """
 
         self.error_module_path = "moco_wrapper.exceptions"
@@ -110,7 +109,7 @@ class DefaultObjector(BaseObjector):
             500 : "ServerErrorException"
         }
         """
-        dictionary used to convert http status codes into the appropriate expcetions
+        Dictionary used to convert http status codes into the appropriate exceptions
         
         .. code-block:: python
 
@@ -173,14 +172,25 @@ class DefaultObjector(BaseObjector):
 
         return requestor_response
 
-    def get_error_class_name_from_response_status_code(self, status_code):
+    def get_error_class_name_from_response_status_code(self, status_code) -> str:
+        """
+        Get the class name of the exception class based on the given http status code
+
+        :param status_code: Http status code of the response
+        :returns: class name of the exception
+
+        .. warning::
+
+            The ``status_code`` parameter must be a key in :attr:`.error_class_map`
+
+        """
         if status_code in self.error_class_map.keys():
             return self.error_class_map[status_code]
         else:
             raise ValueError("Objector could not find an error type, but it should, status_code: {}".format(status_code))
         
 
-    def get_class_name_from_request_url(self, url):
+    def get_class_name_from_request_url(self, url) -> str:
         """
         Finds the class name by analysing the request url.
 

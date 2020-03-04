@@ -4,8 +4,8 @@ class ItemGenerator(BaseGenerator):
 
     def generate_title(
         self,
-        title
-        ):
+        title: str
+        ) -> dict:
         """
         Generate an item of type ``title``
         
@@ -20,8 +20,8 @@ class ItemGenerator(BaseGenerator):
 
     def generate_description(
         self,
-        description
-        ):
+        description: str
+        ) -> dict:
         """
         Generate an item of type ``description``
 
@@ -33,7 +33,7 @@ class ItemGenerator(BaseGenerator):
             "description": description
         }
 
-    def generate_pagebreak(self):
+    def generate_pagebreak(self) -> dict:
         """
         Generate an item of type ``page-break``
 
@@ -43,7 +43,10 @@ class ItemGenerator(BaseGenerator):
             "type": "page-break"
         }
 
-    def generate_subtotal(self, title):
+    def generate_subtotal(
+        self, 
+        title: str
+        ) -> dict:
         """
         Generate an item of type ``subtotal``
 
@@ -56,7 +59,7 @@ class ItemGenerator(BaseGenerator):
 
     def generate_separator(
         self,
-        ):
+        ) -> dict:
         """
         Generate an item of type ``separator``
 
@@ -77,7 +80,7 @@ class OfferItemGenerator(ItemGenerator):
         unit_price: float= None,
         net_total: float = None,
         optional = False
-        ):
+        ) -> dict:
         """
         Generate an offer item
 
@@ -119,7 +122,7 @@ class OfferItemGenerator(ItemGenerator):
         unit: str,
         unit_price: float,
         optional: bool = False
-    ):
+        ) -> dict:
         """
         Generates a detailed position item to be used in an offer items list (for example work hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity))
 
@@ -128,6 +131,7 @@ class OfferItemGenerator(ItemGenerator):
         :param unit: What is the thing (i.e. hours)
         :param unit_price: Price of a single thing (i.e. price of a single hour)
         :param optional: If the position is optional or not (default False)
+        :returns: The generated item
 
         .. seealso::
 
@@ -140,13 +144,14 @@ class OfferItemGenerator(ItemGenerator):
         title: str,
         net_total: float,
         optional: bool = False
-    ):
+        ) -> dict: 
         """
         Generates a general position item to be used in a offer list (use this if the postion cannot (or do not want) to split the position into units)
 
         :param title: Title of the position
         :param net_total: Total price of the postion
         :param optional: If the position is optional or not (default False)
+        :returns: The generated item
 
         .. seealso::
 
@@ -164,7 +169,7 @@ class InvoiceItemGenerator(ItemGenerator):
         unit: str = None,
         unit_price: float = None,
         net_total: float = None
-        ):
+        ) -> dict:
         """
         Generate an invoice item.
 
@@ -204,7 +209,7 @@ class InvoiceItemGenerator(ItemGenerator):
         quantity: float,
         unit: str,
         unit_price: float
-    ):
+        ) -> dict:
         """
         Generates a detailed position item to be used in an offer items list (for example hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity)).
 
@@ -224,7 +229,7 @@ class InvoiceItemGenerator(ItemGenerator):
         self,
         title: str,
         net_total: float
-    ):
+        ) -> dict:
         """
         Generates a general position item to be used in a offer list (use this if the postion cannot (or do not want) to split the position into units).
 

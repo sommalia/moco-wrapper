@@ -15,7 +15,7 @@ class ProjectExpenseGenerator(BaseGenerator):
         description: str = None,
         billable: bool = True,
         budget_relevant: bool = False
-        ):
+        ) -> dict:
         """
         Create an item that can be used for creating bulk project expenses.
 
@@ -31,7 +31,7 @@ class ProjectExpenseGenerator(BaseGenerator):
         :param budget_relevant: If this expense is budget relevant (default False)
         :returns: The created expense object
 
-        Example usage
+        Example usage:
 
         .. code-block:: python
 

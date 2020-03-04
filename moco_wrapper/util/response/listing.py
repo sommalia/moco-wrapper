@@ -90,11 +90,11 @@ class ListingResponse(MWRAPResponse):
         return self._total
 
     @property
-    def is_last(self) -> int:
+    def is_last(self) -> bool:
         """
         Returns wether the current page is the last page
 
-        :type: int  
+        :type: bool  
         """
         return self._is_last
 
@@ -112,11 +112,11 @@ class ListingResponse(MWRAPResponse):
         return self._current_page + 1
 
     @property
-    def last_page(self) -> bool:
+    def last_page(self) -> int:
         """
         Returns the last page number
 
-        :type: bool  
+        :type: int  
         """
         last_page = int(self.total / self.page_size)
         if self.total % self.page_size == 0:

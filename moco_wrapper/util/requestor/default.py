@@ -19,7 +19,7 @@ class DefaultRequestor(BaseRequestor):
 
     def __init__(
         self, 
-        delay_ms = 1000.0
+        delay_ms: float = 1000.0
         ):
         """
         Class constructor
