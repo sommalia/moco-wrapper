@@ -63,12 +63,17 @@ class Comment(MWRAPBase):
         text: str
         ):
         """
-        create a comment 
+        Create a single comment. 
 
-        :param commentable_id: id of the object to create the comment of (i.e the project id of the project we want to comment on)
-        :param commentable_type: type of object to create the comment for. For allowed values see :class:`.CommentTargetType`.
-        :param text: comment text
-        :returns: the created comment
+        :param commentable_id: Id of the object to create the comment of (i.e the project id of the project we want to comment on)
+        :param commentable_type: Type of object to create the comment for.
+        :param text: Comment text
+
+        :type commentable_id: int
+        :type commentable_type: :class:`.CommentTargetType`, str
+        :type text: str
+
+        :returns: The created comment
         """
         data = {
             "commentable_id": commentable_id,
@@ -85,12 +90,17 @@ class Comment(MWRAPBase):
         text: str
         ):
         """
-        create a comment for multiple target objects
+        Create a comment for multiple target objects.
 
         :param commentable_ids: ids of the objects we want to comment under ie. [123, 124, 125]
         :param commentable_type: type of object to create the comment for. For allowed values see :class:`.CommentTargetType`.
         :param text: comment text
-        :returns: list of created comments
+
+        :type commentable_ids: list
+        :type commentable_type: :class:`.CommentTargetType`, str
+        :type text: str
+
+        :returns: List of created comments.
         """
         data = {
             "commentable_ids" : commentable_ids,
@@ -106,11 +116,15 @@ class Comment(MWRAPBase):
         text: str
         ):
         """
-        update a comment
+        Update a comment.
 
-        :param id: the id of the comment to update
-        :param text: comment text
-        :returns: the created comment
+        :param id: The id of the comment to update
+        :param text: Comment text
+
+        :type id: int
+        :type text: str
+
+        :returns: The created comment
         """
         data = {
             "text" : text,  
@@ -123,10 +137,13 @@ class Comment(MWRAPBase):
         id: int,
         ):
         """
-        delete a comment
+        Delete a comment.
 
-        :param id: id of the comment to delete
-        :returns: empty response on success
+        :param id: Id of the comment to delete
+
+        :type id: int
+
+        :returns: Empty response on success
         """
 
         return self._moco.delete(API_PATH["comment_delete"].format(id=id))
@@ -136,10 +153,13 @@ class Comment(MWRAPBase):
         id: int
         ):
         """
-        retrieve a single comment
+        Retrieve a single comment.
 
-        :param id: id of the comment
-        :returns: a single comment
+        :param id: Id of the comment
+
+        :type id: int
+
+        :returns: Single comment
         """
         return self._moco.get(API_PATH["comment_get"].format(id=id))
 
@@ -154,15 +174,24 @@ class Comment(MWRAPBase):
         page: int = 1
         ):
         """
-        retrieve a list of comments
+        Retrieve a list of comments.
 
-        :param commentable_type: type of object the comment(s) belong to. For allowed values see :class:`.CommentTargetType`.
-        :param commentable_id: id of the object the comment belongs to
-        :param user_id: user id of the creator
-        :param manual: true/false user-created of generated
-        :param sort_by: field to sort the results by
+        :param commentable_type: Type of object the comment(s) belong to
+        :param commentable_id: Id of the object the comment belongs to
+        :param user_id: User id of the creator
+        :param manual: If the comment was user-created of generated
+        :param sort_by: Field to sort the results by
         :param sort_order: asc or desc
-        :param page: page number (default 1)
+        :param page: Page number (default 1)
+
+        :type commentable_type: :class:`.CommentTargetType`, str
+        :type commentable_id: int
+        :type user_id: int
+        :type manual: bool
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: list of comments
         """
         params = {}

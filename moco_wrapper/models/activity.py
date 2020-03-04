@@ -97,8 +97,8 @@ class Activity(MWRAPBase):
         :type user_id: int
         :type project_id: int
         :type task_id: int
-        :type sort_by: string
-        :type sort_order: string
+        :type sort_by: str
+        :type sort_order: str
         :type page: int
 
         :returns: List of activities
@@ -141,11 +141,11 @@ class Activity(MWRAPBase):
         """
         Get a single activity.
 
-        :param id: id of the activity:
+        :param id: Id of the activity:
 
         :type id: int
 
-        :returns: the activity object (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: The activity object
         """
 
         return self._moco.get(API_PATH["activity_get"].format(id=id))
@@ -181,12 +181,12 @@ class Activity(MWRAPBase):
         :type project_id: int
         :type task_id: int
         :type hours: float
-        :type description: string
+        :type description: str
         :type billable: bool
-        :type tag: string
+        :type tag: str
         :type remote_service: :class:`.ActivityRemoteService`, str
-        :type remote_id: string
-        :type remote_url: string
+        :type remote_id: str
+        :type remote_url: str
 
         :returns: the created activity
         """
@@ -249,12 +249,12 @@ class Activity(MWRAPBase):
         :type project_id: int
         :type task_id: int
         :type hours: float
-        :type description: string
+        :type description: str
         :type billable: bool
-        :type tag: string
+        :type tag: str
         :type remote_service: :class:`.ActivityRemoteService`, str
-        :type remote_id: string
-        :type remote_url: string
+        :type remote_id: str
+        :type remote_url: str
 
         :returns: the updated activity
         """
@@ -309,7 +309,7 @@ class Activity(MWRAPBase):
 
         :type id: int
 
-        :returns: the activity the timer was stopped for (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :returns: the activity the timer was stopped for
         """
 
         return self._moco.patch(API_PATH["activity_stop_timer"].format(id=id))
@@ -325,7 +325,7 @@ class Activity(MWRAPBase):
 
         :type id: int
 
-        :returns: empty response on success (in default configuration :class:`moco_wrapper.util.response.EmptyResponse`)
+        :returns: empty response on success
         """
 
         return self._moco.delete(API_PATH["activity_delete"].format(id=id))
@@ -345,7 +345,7 @@ class Activity(MWRAPBase):
         :param company_id: Company id these activities belong to
         :param project_id: Project id these activities belong to  
 
-        :type reason: string
+        :type reason: str
         :type activity_ids: list
         :type company_id: int
         :type project_id: int
