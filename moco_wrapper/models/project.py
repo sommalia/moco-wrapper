@@ -68,13 +68,29 @@ class Project(MWRAPBase):
         :param finish_date: Finish date
         :param identifier: Project Identifier
         :param billing_address: Billing adress the invoices go to
-        :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
+        :param billing_variant: Billing variant used
         :param hourly_rate: Hourly rate that will get billed 
         :param budget: Budget for the project
         :param labels: Array of additional labels
         :param custom_properties: Custom values used by the project
         :param info: Additional information
         :param fixed_price: If the project is a fixed price projects (default False)
+        
+        :type name: str
+        :type currency: str
+        :type leader_id: int
+        :type customer_id: int
+        :type finish_date: datetime.date, str
+        :type identifier: str
+        :type billing_address: str
+        :type billing_variant: :class:`.ProjectBillingVariant`, str
+        :type hourly_rate: float
+        :type budget: float
+        :type labels: list
+        :type custom_properties: dict
+        :type info: str
+        :type fixed_price: bool
+
         :returns: The created project object
 
         .. note::
@@ -142,12 +158,27 @@ class Project(MWRAPBase):
         :param finish_date: Finish date
         :param identifier: Project Identifier
         :param billing_address: Address the invoices go to
-        :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
+        :param billing_variant: Billing variant used
         :param hourly_rate: Hourly rate that will get billed 
         :param budget: Budget for the project
         :param labels: Array of additional labels
         :param custom_properties: Custom values used by the project
         :param info: Additional information
+
+        :type id: int
+        :type name: str
+        :type leader_id: int
+        :type customer_id: int
+        :type finish_date: datetime.date, str
+        :type identifier: str
+        :type billing_address: str
+        :type billing_variant: :class:`.ProjectBillingVariant`, str
+        :type hourly_rate: float
+        :type budget: float
+        :type labels: list
+        :type custom_properties: dict
+        :type info: str
+
         :returns: The updated project object
         """
 
@@ -182,6 +213,9 @@ class Project(MWRAPBase):
         Get a single project.
 
         :param id: Id of the project
+
+        :type id: int
+
         :returns: Project object
         """
 
@@ -219,6 +253,20 @@ class Project(MWRAPBase):
         :param sort_by: Field to sort the results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type include_archived: bool
+        :type include_company: bool
+        :type leader_id: int
+        :type company_id: int
+        :type created_from: datetime.date, str
+        :type created_to: datetime.date, str
+        :type updated_from: datetime.date, str
+        :type updated_to: datetime.date, str
+        :type tags: list
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int 
+
         :returns: List of project objects
         """
 
@@ -263,6 +311,12 @@ class Project(MWRAPBase):
         :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type active: bool
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of project objects
         """
 
@@ -287,6 +341,9 @@ class Project(MWRAPBase):
         Archive a project.
 
         :param id: Id of the project to archive
+
+        :type id: int
+
         :returns: The archived project
         """
         return self._moco.put(API_PATH["project_archive"].format(id=id))
@@ -299,6 +356,9 @@ class Project(MWRAPBase):
         Unarchive a project.
 
         :param id: Id of the project to unarchive
+
+        :type id: int
+
         :returns: The unarchived project
         """
         return self._moco.put(API_PATH["project_unarchive"].format(id=id))
@@ -313,6 +373,9 @@ class Project(MWRAPBase):
         All costs are in the accounts main currency, it might differ from the budget and billable items.
 
         :param id: Id of the project
+
+        :type id: int
+
         :returns: Report with the most important project business indicators
         """
         return self._moco.get(API_PATH["project_report"].format(id=id))    
