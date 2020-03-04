@@ -109,18 +109,26 @@ class DefaultObjector(BaseObjector):
             429 : "RateLimitException",
             500 : "ServerErrorException"
         }
+        """
+        dictionary used to convert http status codes into the appropriate expcetions
+        
+        .. code-block:: python
+
+            self.error_class_map = {
+                404: "NotFoundException",
+                ..
+            }
+        """
 
 
     def convert(self, requestor_response):
         """
-        converts the data of a response object (for example json) into a python object
+        Converts the data of a response object (for example json) into a python object.
 
         :param requestor_response: response object (see :ref:`response`)
         :returns: modified response object
 
-        .. note:: only :class:`moco_wrapper.util.response.JsonResponse` and :class:`moco_wrapper.util.response.ListingResponse` are object to this conversion.
-
-        .. note:: Error responses will be converted into actual exceptions.
+        .. note:: The data of an error resposne response (:class:`moco_wrapper.util.response.ErrorResponse`) will be converted into an actual exception that later can be raised
 
         .. note:: if the method :meth:`get_class_name_from_request_url` that is used to find the right class for conversion, returns ``None``, no conversion of objects will take place
         """
@@ -174,7 +182,7 @@ class DefaultObjector(BaseObjector):
 
     def get_class_name_from_request_url(self, url):
         """
-        finds the class name by analysing the request url
+        Finds the class name by analysing the request url.
 
         :param url: url to analyse
 
