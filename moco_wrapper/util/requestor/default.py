@@ -63,6 +63,13 @@ class DefaultRequestor(BaseRequestor):
         :param data: Dictionary with data (http body)
         :param delay_ms: Delay in milliseconds the requestor should wait before sending the request (used for retrying, default 0)
         :param kwargs: Additional http arguments.
+
+        :type method: str
+        :type path: str
+        :type params: dict
+        :type data: dict
+        :type delay_ms: float
+
         :returns: Response object
         """
         #if the request is beeing retried wait for a bit to not trigger 429 error responses

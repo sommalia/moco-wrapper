@@ -177,6 +177,9 @@ class DefaultObjector(BaseObjector):
         Get the class name of the exception class based on the given http status code
 
         :param status_code: Http status code of the response
+
+        :type status_code: int
+
         :returns: class name of the exception
 
         .. warning::
@@ -195,6 +198,9 @@ class DefaultObjector(BaseObjector):
         Finds the class name by analysing the request url.
 
         :param url: url to analyse
+
+        :type url: str
+        
 
         This function works as follows:
 
