@@ -63,7 +63,7 @@ class Deal(MWRAPBase):
         :param money: How much money can be generated from this deal (e.g. 205.0)
         :param reminder_date: Reminder date
         :param user_id: Id of the user the is responsible for this lead
-        :param deal_category_id: Deal category id (see :class:`moco_wrapper.models.DealCategory`)
+        :param deal_category_id: Deal category id
         :param company_id: Company id
         :param info: Additional information
         :param status: Current state of the deal
@@ -79,10 +79,6 @@ class Deal(MWRAPBase):
         :type status: :class:`.DealStatus`, str
         
         :returns: The created deal object
-
-        .. seealso::
-
-            :class:`moco_wrapper.models.DealCategory`
         """
         
         data = {
@@ -130,7 +126,7 @@ class Deal(MWRAPBase):
         :param money: How much money can be generated from this deal (e.g. 205.0)
         :param reminder_date: Reminder date
         :param user_id: Id of the user that is responsible for this deal
-        :param deal_category_id: Deal category id (see :class:`moco_wrapper.models.DealCategory`)
+        :param deal_category_id: Deal category id
         :param company_id: Company id
         :param info: Additional information
         :param status: Current state of the deal
@@ -147,10 +143,6 @@ class Deal(MWRAPBase):
         :type status: :class:`.DealStatus`, str
         
         :returns: The updated deal object
-
-        .. seealso::
-
-            :class:`moco_wrapper.models.DealCategory`
         """
 
         data = {}
