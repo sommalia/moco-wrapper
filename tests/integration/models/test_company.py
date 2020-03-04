@@ -249,7 +249,7 @@ class TestCompany(IntegrationTest):
                 CompanyType.SUPPLIER,
                 iban=iban
             )
-            print(company_create)
+            
             assert company_create.response.status_code == 200
             
 

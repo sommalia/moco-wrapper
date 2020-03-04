@@ -81,7 +81,6 @@ class DefaultRequestor(BaseRequestor):
         elif method == "PATCH":
             response = self.session.patch(path, params=params, json=data, **kwargs)
 
-        print(response)
 
         #convert the reponse into an MWRAPResponse object
         try:

@@ -217,8 +217,6 @@ class TestSchedule(IntegrationTest):
 
             sched_delete = self.moco.Schedule.delete(sched_create.data.id)
 
-            print(vars(sched_delete.data))
-
             assert sched_create.response.status_code == 200
             assert sched_delete.response.status_code == 200
 
