@@ -5,7 +5,7 @@ from moco_wrapper.const import API_PATH
 
 class ProjectPaymentSchedule(MWRAPBase):
     """
-    Class for handling billing schedules for fixed price projects
+    Class for handling billing schedules for fixed price projects.
     
     Fixed Price projects can have a target date they should be billed on (in the future). With this class you can create this target entry (and how much should be billed).
 
@@ -123,8 +123,8 @@ class ProjectPaymentSchedule(MWRAPBase):
 
     def get(
         self,
-        project_id,
-        schedule_id,
+        project_id: int,
+        schedule_id: int,
         ):
         """
         Retrieves project payment schedule.
@@ -138,7 +138,7 @@ class ProjectPaymentSchedule(MWRAPBase):
 
     def getlist(
         self,
-        project_id,
+        project_id: int,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
@@ -167,8 +167,8 @@ class ProjectPaymentSchedule(MWRAPBase):
 
     def delete(
         self,
-        project_id,
-        schedule_id
+        project_id: int,
+        schedule_id: int
         ):
         """
         Delete a project payment schedule item
