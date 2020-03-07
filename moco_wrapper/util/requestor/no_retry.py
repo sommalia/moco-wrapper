@@ -49,6 +49,12 @@ class NoRetryRequestor(BaseRequestor):
         :param params: Url parameters (e.g. ``page=1``, query parameters)
         :param data: Dictionary with data (http body)
         :param kwargs: Additional http arguments.
+
+        :type method: str
+        :type path: str
+        :type params: dict
+        :type data: dict
+
         :returns: Response object
         """
 

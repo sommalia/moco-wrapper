@@ -7,7 +7,7 @@ class JsonResponse(MWRAPResponse):
     
 
     @property 
-    def data(self):
+    def data(self) -> object:
         """
         Returns the json data of the response as a dictionary
 

@@ -43,6 +43,10 @@ class DealCategory(MWRAPBase):
 
         :param name: Name of the deal category (must be unique)
         :param probability: Deal category success probability (between 1 and 100)
+
+        :type name: str
+        :type probability: int
+        
         :returns: The created deal category
         """
 
@@ -65,6 +69,11 @@ class DealCategory(MWRAPBase):
         :param id: Id of the deal category to update
         :param name: Name of the deal category (must be unique)
         :param probability: Deal category success probability (between 1 and 100)
+
+        :type id: int
+        :type name: str
+        :type probability: int
+
         :returns: The updated deal category
         """
         data = {}
@@ -91,7 +100,12 @@ class DealCategory(MWRAPBase):
         :param sort_by: Field to sort by 
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
-        :returns: List of deal cateogories
+
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
+        :returns: List of deal categories
         """
         params = {}
         for key, value in (
@@ -113,6 +127,9 @@ class DealCategory(MWRAPBase):
         Retrieves a single deal category.
 
         :param id: Id of the deal category to retrieve
+
+        :type id: int
+
         :returns: Single deal category
         """
 
@@ -126,6 +143,9 @@ class DealCategory(MWRAPBase):
         Delete a deal category.
 
         :param id: Id of the deal category to delete
+
+        :type id: int
+
         :reuturns: Empty response on success
         """
 

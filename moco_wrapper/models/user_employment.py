@@ -26,6 +26,9 @@ class UserEmployment(MWRAPBase):
         Retrieve a single employment
 
         :param id: Id of the employment
+
+        :type id: int
+
         :returns: Employment object
         """ 
         return self._moco.get(API_PATH["employment_get"].format(id=id))
@@ -40,7 +43,7 @@ class UserEmployment(MWRAPBase):
         page: int = 1
         ):
         """
-        Retrieve a list of employments
+        Retrieve a list of employments.
 
         :param from_date: Start date
         :param to_date: End date
@@ -48,6 +51,14 @@ class UserEmployment(MWRAPBase):
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc
         :param page: Page number (default 1)
+
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type user_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of employment objects
         """
 

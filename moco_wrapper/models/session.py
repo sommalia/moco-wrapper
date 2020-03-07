@@ -18,14 +18,18 @@ class Session(MWRAPBase):
 
     def authenticate(
         self,
-        email, 
-        password
+        email: str, 
+        password: str
         ):
         """
         Authenticates the client with email and password
 
         :param email: Email address
         :param password: Password
+
+        :type email: str
+        :type password: str
+
         :returns: Authentication information
         """
 

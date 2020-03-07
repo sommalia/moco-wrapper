@@ -30,7 +30,7 @@ class NoErrorObjector(DefaultObjector):
         :param requestor_response: response object (see :ref:`response`)
         :returns: modified response object
 
-        .. note:: only :class:`moco_wrapper.util.response.JsonResponse` and :class:`moco_wrapper.util.response.ListingResponse` are object to this conversion.
+        .. note:: only :class:`moco_wrapper.util.response.JsonResponse` and :class:`moco_wrapper.util.response.ListingResponse` are object to this conversion. Error responses will not be touched by this objector.
 
         .. note:: if the method :meth:`get_class_name_from_request_url` that is used to find the right class for conversion, returns ``None``, no conversion of objects will take place
         """

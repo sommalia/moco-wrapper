@@ -50,6 +50,19 @@ class ProjectExpense(MWRAPBase):
         :param billable: If this expense billable (default True)
         :param budget_relevant: If this expense is budget relevant (default False)
         :param custom_properties: Additional fields as dictionary
+
+        :type project_id: int
+        :type expense_date: datetime.date, str
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+        :type unit_cost: float
+        :type description: str
+        :type billable: bool
+        :type budget_relevant: bool
+        :type custom_properties: dict
+        
         :returns: The created expense object
         """ 
 
@@ -85,7 +98,11 @@ class ProjectExpense(MWRAPBase):
         Create an multiple expenses for a project.
 
         :param project_id: Id of the project to created the expenses for
-        :param items: Items to create bulk expense entries to create
+        :param items: Items to create bulk
+
+        :type project_id: int
+        :type items: list
+
         :returns: The created entries
 
         .. seealso::
@@ -130,6 +147,20 @@ class ProjectExpense(MWRAPBase):
         :param billable: If this expense billable (default True)
         :param budget_relevant: If this expense is budget relevant (default False)
         :param custom_properties: Additional fields as dictionary
+
+        :type project_id: int
+        :type expense_id: int
+        :type expense_date: datetime.date, str
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+        :type unit_cost: float
+        :type description: str
+        :type billable: bool
+        :type budget_relevant: bool
+        :type custom_properties: dict
+
         :returns: The updated expense object
         """
 
@@ -164,6 +195,10 @@ class ProjectExpense(MWRAPBase):
 
         :param project_id: Id of the project the expense belongs to
         :param expense_id: Id of the expense to delete
+
+        :type project_id: int
+        :type expense_id: int
+
         :returns: Empty response on success
         """
 
@@ -181,6 +216,11 @@ class ProjectExpense(MWRAPBase):
         :param project_id: Id of the project
         :param expense_ids: Array of expense ids to disregard
         :param reason: Reason for disregarding the expenses
+
+        :type project_id: int
+        :type expense_ids: list
+        :type reason: str
+
         :returns: Empty response on success
 
         Example usage:
@@ -225,6 +265,13 @@ class ProjectExpense(MWRAPBase):
         :param sort_by: Sort results by field
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of expense objects
         """
 
@@ -255,6 +302,10 @@ class ProjectExpense(MWRAPBase):
 
         :param project_id: Id of the project
         :param expense_id: If of the expense to retrieve
+
+        :type project_id: int
+        :type expense_id: int
+
         :returns: Single expense object
         """
 
@@ -274,6 +325,12 @@ class ProjectExpense(MWRAPBase):
         :param sort_by: Sort results by field
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type project_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of expense objects
         """
 

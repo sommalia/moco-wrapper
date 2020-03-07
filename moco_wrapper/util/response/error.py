@@ -7,10 +7,11 @@ class ErrorResponse(MWRAPResponse):
     """
 
     @property
-    def is_recoverable(self):
+    def is_recoverable(self) -> bool:
         """
         Checks the http status code of the response and returns True if the error is not a permanent error, i.e. recovering is possible by simply waiting a bit and sending the request again.
 
+        :type: bool
         :returns: ``True`` if recovery is possible by sending the request again later, otherwise ``False``
 
         .. code-block:: python

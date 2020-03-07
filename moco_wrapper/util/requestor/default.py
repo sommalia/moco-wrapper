@@ -19,7 +19,7 @@ class DefaultRequestor(BaseRequestor):
 
     def __init__(
         self, 
-        delay_ms = 1000.0
+        delay_ms: float = 1000.0
         ):
         """
         Class constructor
@@ -63,6 +63,13 @@ class DefaultRequestor(BaseRequestor):
         :param data: Dictionary with data (http body)
         :param delay_ms: Delay in milliseconds the requestor should wait before sending the request (used for retrying, default 0)
         :param kwargs: Additional http arguments.
+
+        :type method: str
+        :type path: str
+        :type params: dict
+        :type data: dict
+        :type delay_ms: float
+
         :returns: Response object
         """
         #if the request is beeing retried wait for a bit to not trigger 429 error responses
@@ -81,7 +88,6 @@ class DefaultRequestor(BaseRequestor):
         elif method == "PATCH":
             response = self.session.patch(path, params=params, json=data, **kwargs)
 
-        print(response)
 
         #convert the reponse into an MWRAPResponse object
         try:

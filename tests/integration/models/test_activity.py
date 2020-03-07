@@ -62,7 +62,8 @@ class TestActivity(IntegrationTest):
 
             project_contract_create = self.moco.ProjectContract.create(
                 project.id,
-                user_create.data.id
+                user_create.data.id,
+                active=True
             )
 
             return user_create.data
@@ -81,7 +82,10 @@ class TestActivity(IntegrationTest):
             activity_date = date(2020, 1, 1)
             hours = 3.5
             description = "activity create description"
-            
+
+            #impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
+          
             #create the activity
             activity_create = self.moco.Activity.create(
                 activity_date,
@@ -90,6 +94,9 @@ class TestActivity(IntegrationTest):
                 hours,
                 description=description,
             )
+
+            #clear impersonation
+            self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
 
@@ -117,6 +124,9 @@ class TestActivity(IntegrationTest):
             remote_service = ActivityRemoteService.JIRA
             remote_id = "JIRA-123"
             remote_url = "https://jira.mycompany.com"
+
+            #impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
             
             #create the activity
             activity_create = self.moco.Activity.create(
@@ -131,6 +141,9 @@ class TestActivity(IntegrationTest):
                 remote_id=remote_id,
                 remote_url=remote_url,
             )
+
+            #clear impersonation
+            self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
 
@@ -163,6 +176,9 @@ class TestActivity(IntegrationTest):
             remote_service = ActivityRemoteService.JIRA
             remote_id = "JIRA-123"
             remote_url = "https://jira.mycompany.com"
+
+            #impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
             
             #create the activity
             activity_create = self.moco.Activity.create(
@@ -187,6 +203,9 @@ class TestActivity(IntegrationTest):
                 remote_id=remote_id,
                 remote_url=remote_url,
             )
+
+            #clear impersonation
+            self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
             assert activity_update.response.status_code == 200
@@ -217,6 +236,12 @@ class TestActivity(IntegrationTest):
 
             assert isinstance(activity_getlist, ListingResponse)
 
+            assert activity_getlist.current_page == 1
+            assert activity_getlist.is_last is not None
+            assert activity_getlist.next_page is not None
+            assert activity_getlist.total is not None
+            assert activity_getlist.page_size is not None
+
     def test_getlist_with_task(self):
         project = self.get_project()
         task = self.get_project_task()
@@ -229,6 +254,12 @@ class TestActivity(IntegrationTest):
             assert activity_getlist.response.status_code == 200
 
             assert isinstance(activity_getlist, ListingResponse)
+            
+            assert activity_getlist.current_page == 1
+            assert activity_getlist.is_last is not None
+            assert activity_getlist.next_page is not None
+            assert activity_getlist.total is not None
+            assert activity_getlist.page_size is not None
 
     def test_get(self):
         customer = self.get_customer()
@@ -245,6 +276,9 @@ class TestActivity(IntegrationTest):
             remote_id = "JIRA-123"
             remote_url = "https://jira.mycompany.com"
     
+            #impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
+
             #create the activity
             activity_create = self.moco.Activity.create(
                 activity_date,
@@ -260,6 +294,9 @@ class TestActivity(IntegrationTest):
             )
 
             activity_get = self.moco.Activity.get(activity_create.data.id)
+
+            #clear impersonation
+            self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
             assert activity_get.response.status_code == 200
@@ -285,6 +322,8 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_start_timer"):
+            self.moco.impersonate(project.leader.id)
+
             activity_create = self.moco.Activity.create(
                 date(2021, 1, 1), 
                 project.id, 
@@ -294,6 +333,8 @@ class TestActivity(IntegrationTest):
             )
 
             timer_start = self.moco.Activity.start_timer(activity_create.data.id)
+
+            self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
             assert timer_start.response.status_code == 200
@@ -306,6 +347,8 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_stop_timer"):
+            self.moco.impersonate(project.leader.id)
+            
             activity_create = self.moco.Activity.create(
                 date(2021, 1, 1), 
                 project.id, 
@@ -315,6 +358,8 @@ class TestActivity(IntegrationTest):
 
             timer_start = self.moco.Activity.start_timer(activity_create.data.id)
             timer_stop = self.moco.Activity.stop_timer(activity_create.data.id)
+
+            self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
             assert timer_start.response.status_code == 200
@@ -327,6 +372,9 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_delete"):
+            #impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
+
             activity_create = self.moco.Activity.create(
                 date(2020, 1, 1),
                 project.id,
@@ -336,6 +384,8 @@ class TestActivity(IntegrationTest):
             )
 
             activity_delete = self.moco.Activity.delete(activity_create.data.id)
+
+            self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
             assert activity_delete.response.status_code == 204
@@ -348,6 +398,9 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_disregard"):
+            #impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
+
             activity_create = self.moco.Activity.create(
                 date(2021, 1, 1), 
                 project.id, 
@@ -363,6 +416,8 @@ class TestActivity(IntegrationTest):
                 1,
                 description="dummy activity, disregard (2)"
             )
+
+            self.moco.clear_impersonation()
             
             disregard_ids = [activity_create.data.id, activity_create_sec.data.id]
             activity_disregard = self.moco.Activity.disregard(

@@ -9,5 +9,6 @@ Objector
    :caption: Objector Types
 
    objectors/default
+   objectors/no_error
    objectors/raw
  

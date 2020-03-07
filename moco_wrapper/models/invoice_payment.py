@@ -34,6 +34,14 @@ class InvoicePayment(MWRAPBase):
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type invoice_id: int
+        :type date_from: datetime.date, str
+        :type date_to: datetime.date, str
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of invoice payments
         """
 
@@ -65,6 +73,9 @@ class InvoicePayment(MWRAPBase):
         Retrieve a single invoice payment.
 
         :param id: Invoice payment id
+
+        :type id: int
+
         :returns: Single invoice payment object
         """
         return self._moco.get(API_PATH["invoice_payment_get"].format(id=id))
@@ -83,6 +94,12 @@ class InvoicePayment(MWRAPBase):
         :param invoice_id: Id of the invoice this payment belongs to
         :param paid_total: Amount that was paid (ex. 193.50)
         :param currency: Currency used (e.g. EUR)
+
+        :type payment_date: datetime.date, str
+        :type invoice_id: int
+        :type paid_total: float
+        :type currency: str
+
         :returns: The created invoice payment object
         """
         data = {
@@ -105,6 +122,9 @@ class InvoicePayment(MWRAPBase):
         Create multiple new invoice payments.
 
         :param items: Payment items
+
+        :type items: list
+
         :returns: List of created invoice payments
 
         Bulk creation if invoice payments items with generator:
@@ -147,6 +167,12 @@ class InvoicePayment(MWRAPBase):
         :param payment_date: Date of the payment
         :param paid_total: Amount that was paid
         :param currency: Currency (e.g. EUR)
+
+        :type id: int
+        :type payment_date: datetime.date, str
+        :type paid_total: float
+        :type currency: str
+
         :returns: The updated invoice payment object
         """
         data = {}
@@ -171,6 +197,9 @@ class InvoicePayment(MWRAPBase):
         Deletes an invoice payment.
 
         :param id: Id of the payment to delete
+
+        :type id: int
+
         :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["invoice_payment_delete"].format(id=id))

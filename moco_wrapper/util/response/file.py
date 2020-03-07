@@ -63,8 +63,6 @@ class FileResponse(MWRAPResponse):
         with open(file_path, 'w+b') as bf:
             bf.write(self._data)
 
-    
-
     def __init__(
         self, 
         response

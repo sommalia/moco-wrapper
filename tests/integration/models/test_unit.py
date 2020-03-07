@@ -21,6 +21,12 @@ class TestUnit(IntegrationTest):
 
             assert isinstance(unit_getlist, ListingResponse)
 
+            assert unit_getlist.current_page == 1
+            assert unit_getlist.is_last is not None
+            assert unit_getlist.next_page is not None
+            assert unit_getlist.total is not None
+            assert unit_getlist.page_size is not None
+
     def test_get(self):
         unit = self.get_unit()
 

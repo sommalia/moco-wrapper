@@ -44,6 +44,12 @@ class TestProjectRecurringExpense(IntegrationTest):
             
             assert isinstance(recexp_list, ListingResponse)
 
+            assert recexp_list.current_page == 1
+            assert recexp_list.is_last is not None
+            assert recexp_list.next_page is not None
+            assert recexp_list.total is not None
+            assert recexp_list.page_size is not None
+
     def test_create(self):
         project = self.get_project()
 

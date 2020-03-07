@@ -79,6 +79,12 @@ class TestProjectTask(IntegrationTest):
 
             assert isinstance(task_list, ListingResponse)
 
+            assert task_list.current_page == 1
+            assert task_list.is_last is not None
+            assert task_list.next_page is not None
+            assert task_list.total is not None
+            assert task_list.page_size is not None
+
     def test_create(self):
         project = self.get_project()
 

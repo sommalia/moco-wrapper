@@ -38,6 +38,14 @@ class UserPresence(MWRAPBase):
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type user_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of presence objets
 
         .. note::
@@ -71,6 +79,9 @@ class UserPresence(MWRAPBase):
         Retrieve a single presence.
 
         :param id: Id of the presence
+
+        :type id: int
+
         :returns: Single presence object
         """
         return self._moco.get(API_PATH["presence_get"].format(id=id))
@@ -87,6 +98,11 @@ class UserPresence(MWRAPBase):
         :param pres_date: Date of the presence
         :param from_time: Starting time of the presence (format HH:MM)
         :param to_time: End time of the presence (format HH:MM)
+
+        :type pres_date: datetime.date, str
+        :type from_time: str
+        :type to_time: str
+
         :returns: The created presence 
         """
         data = {
@@ -108,7 +124,6 @@ class UserPresence(MWRAPBase):
         Creates a new presence for the user with the corresponding api key starting from the current time. Or it terminates an existing open presence at the current time. Can be used to implement a clock system (RFID).
 
         If a presence is started and stopped within the same minute, it will be discarded.
-
         """ 
         return self._moco.post(API_PATH["presence_touch"])
 
@@ -126,6 +141,12 @@ class UserPresence(MWRAPBase):
         :param pres_date: Date of the presence
         :param from_time: Starting time of the presence (format HH:MM)
         :param to_time: End time of the presence (format HH:MM)
+
+        :type id: int
+        :type pres_date: datetime.date, str
+        :type from_time: str
+        :type to_time: str
+
         :returns: The created presence 
         """
         data = {}
@@ -150,6 +171,9 @@ class UserPresence(MWRAPBase):
         Deletes a presence.
 
         :param id: Id of the presence
+
+        :type id: int
+
         :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["presence_delete"].format(id=id))

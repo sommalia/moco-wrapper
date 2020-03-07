@@ -74,13 +74,22 @@ class Offer(MWRAPBase):
         """
         Retrieve a list of offers.
 
-        :param status: State the offer is in. For allowed values see :class:`.OfferStatus`.
+        :param status: State the offer is in
         :param from_date: Start date
         :param to_date: End date
         :param identifier: Identifier string (e.g.: "A1903-003")
         :param sort_by: Field to sort the results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type status: :class:`.OfferStatus`, str
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type identifier: str
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of offer objects
 
         
@@ -114,6 +123,9 @@ class Offer(MWRAPBase):
         Retrieve a single offer.
 
         :param id: Id of the offer
+
+        :type id: int
+
         :returns: Single offer object
         """
         return self._moco.get(API_PATH["offer_get"].format(id=id))
@@ -128,6 +140,10 @@ class Offer(MWRAPBase):
 
         :param id: Id of the offer
         :param letter_paper_id: Id of the letter paper (default white)
+
+        :type id: int
+        :type letter_paper_id: int
+
         :returns: The offers pdf document
         """
         return self._moco.get(API_PATH["offer_pdf"].format(id=id))
@@ -161,11 +177,28 @@ class Offer(MWRAPBase):
         :param tax: Tax (0.0-100.0)
         :param currency: Currency code used (e.g. EUR, CHF)
         :param items: List of offer items
-        :param change_address: change offer address propagation. For allowed values see :class:`.OfferChangeAddress`.
+        :param change_address: change offer address propagation
         :param salutation: Salutation text
         :param footer: Footer text
         :param discount: Discount in percent
         :param contact_id: Id of the contact for the offer
+
+        :type deal_id: int
+        :type project_id: int
+        :type recipient_address: str
+        :type creation_date: datetime.date, str
+        :type due_date: datetime.date, str
+        :type title: str
+        :type tax: float
+        :type currency: str
+        :type items: list
+        :type change_address: :class:`.OfferChangeAddress`, str
+        :type salutation: str
+        :type footer: str
+        :type discount: float
+        :type contact_id: int
+
+        :returns: The created offer
 
         .. note::
             Either ``deal_id`` or ``project_id`` must be specified (or both)

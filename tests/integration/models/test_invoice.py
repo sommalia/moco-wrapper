@@ -47,6 +47,12 @@ class TestInvoice(IntegrationTest):
 
             assert isinstance(inv_getlist, ListingResponse)
 
+            assert inv_getlist.current_page == 1
+            assert inv_getlist.is_last is not None
+            assert inv_getlist.next_page is not None
+            assert inv_getlist.total is not None
+            assert inv_getlist.page_size is not None
+
     def test_locked(self):
         with self.recorder.use_cassette("TestInvoice.test_locked"):
             inv_locked = self.moco.Invoice.locked()
@@ -54,6 +60,12 @@ class TestInvoice(IntegrationTest):
             assert inv_locked.response.status_code == 200
             
             assert isinstance(inv_locked, ListingResponse)
+                        
+            assert inv_locked.current_page == 1
+            assert inv_locked.is_last is not None
+            assert inv_locked.next_page is not None
+            assert inv_locked.total is not None
+            assert inv_locked.page_size is not None
 
     def test_get(self):
         customer = self.get_customer()

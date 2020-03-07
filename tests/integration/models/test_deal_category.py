@@ -76,6 +76,12 @@ class TestDealCategory(IntegrationTest):
 
             assert isinstance(cat_getlist, ListingResponse) 
 
+            assert cat_getlist.current_page == 1
+            assert cat_getlist.is_last is not None
+            assert cat_getlist.next_page is not None
+            assert cat_getlist.total is not None
+            assert cat_getlist.page_size is not None
+
     def test_delete(self):
         with self.recorder.use_cassette("TestDealCategory.test_delete"):
             cat_create = self.moco.DealCategory.create(

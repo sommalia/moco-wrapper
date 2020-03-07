@@ -13,7 +13,9 @@ class Moco(object):
     :param requestor: requestor object (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
     :param impersonate_user_id: user id the client should impersonate (default: None, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
 
-    
+    :type auth: dict
+    :type impersonate_user_id: int
+
     .. code-block:: python
 
         import moco_wrapper
@@ -76,6 +78,7 @@ class Moco(object):
         self.ProjectExpense = models.ProjectExpense(self)
         self.ProjectTask = models.ProjectTask(self)
         self.ProjectRecurringExpense = models.ProjectRecurringExpense(self)
+        self.ProjectPaymentSchedule = models.ProjectPaymentSchedule(self)
 
         self.Deal = models.Deal(self)
         self.DealCategory = models.DealCategory(self)
@@ -91,11 +94,9 @@ class Moco(object):
 
         #set default values if not already set
         if self._requestor is None:
-            #default requestor is one that will fire 1 request every second
             self._requestor = util.requestor.DefaultRequestor()
 
         if self._objector is None:
-            #default: no conversion on reponse objects
             self._objector = util.objector.DefaultObjector()
 
         self._impersonation_user_id = impersonate_user_id
@@ -170,7 +171,10 @@ class Moco(object):
         return self.request("PATCH", path, params=params, data=data, **kwargs)
 
 
-    def impersonate(self, user_id):
+    def impersonate(
+        self, 
+        user_id: int
+        ):
         """
         Impersontates the user with the supplied user id
 
@@ -210,7 +214,7 @@ class Moco(object):
         return headers
 
     @property
-    def full_domain(self):
+    def full_domain(self) -> str:
         """
         Returns the full url of the moco api
 

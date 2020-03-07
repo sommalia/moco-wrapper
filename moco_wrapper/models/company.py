@@ -79,7 +79,7 @@ class Company(MWRAPBase):
         Create a company.
 
         :param name: Name of the company
-        :param company_type: Either customer, supplier or organization. For allowed values see :class:`.CompanyType`.
+        :param company_type: Either customer, supplier or organization
         :param website: Url of the companies website
         :param fax: Fax number of the company
         :param phone: Phone number of the company
@@ -89,12 +89,32 @@ class Company(MWRAPBase):
         :param labels: Array of labels
         :param user_id: User Id of the responsible person
         :param currency: Currency the company uses (mandatory when company_type == customer)
-        :param identifer: Identifier of the company (only mandatory when not automatily assigned)
+        :param identifier: Identifier of the company (only mandatory when not automatily assigned)
         :param billing_tax: Billing tax value (from 0 to 100)
         :param default_invoice_due_days: Payment target days for the company when creating invoices
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
         :param vat_identifier: Vat identifier for eu companies (only supplier and customer)
         :param iban: Iban number (only supplier)
+
+        :type name: str
+        :type company_type: :class:`.CompanyType`, str
+        :type website: str
+        :type fax: str
+        :type phone: str
+        :type email: str
+        :type info: str
+        :type custom_properties: dict
+        :type labels: list
+        :type user_id: int
+        :type currency: str
+        :type identifier: str
+        :type billing_tax: float
+        :type default_invoice_due_days: int
+        :type country_code: str
+        :type vat_identifier: str
+        :type iban: str
+
+        :returns: The created company
         """
 
         data = {
@@ -167,7 +187,7 @@ class Company(MWRAPBase):
         Update a company.
 
         :param id: Id of the company
-        :param company_type: Type of the company to modify. For allowed values see :class:`.CompanyType`.
+        :param company_type: Type of the company to modify
         :param name: Name of the company
         :param website: Url of the companies website
         :param fax: Fax number of the company
@@ -178,12 +198,33 @@ class Company(MWRAPBase):
         :param labels: Array of labels
         :param user_id: Id of the responsible person
         :param currency: Currency the company uses (only mandatory when company_type == customer)
-        :param identifer: Identifier of the company (only mandatory when not automatily assigned)
+        :param identifier: Identifier of the company (only mandatory when not automatily assigned)
         :param billing_tax: Billing tax value 
         :param default_invoice_due_days: payment target days for the company when creating invoices
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
         :param vat_identifier: vat identifier for eu companies (only supplier and customer)
         :param iban: iban number (only supplier)
+
+        :type id: int
+        :type name: str
+        :type company_type: :class:`.CompanyType`, str
+        :type website: str
+        :type fax: str
+        :type phone: str
+        :type email: str
+        :type info: str
+        :type custom_properties: dict
+        :type labels: list
+        :type user_id: int
+        :type currency: str
+        :type identifier: str
+        :type billing_tax: float
+        :type default_invoice_due_days: int
+        :type country_code: str
+        :type vat_identifier: str
+        :type iban: str
+
+        :returns: The updated company
         """
         data = {
   
@@ -223,7 +264,10 @@ class Company(MWRAPBase):
         Get a single company.
 
         :param id: Id of the company
-        :returns: single company object
+
+        :type id: int
+
+        :returns: Single company object
         """
         return self._moco.get(API_PATH["company_get"].format(id=id))
 
@@ -239,12 +283,20 @@ class Company(MWRAPBase):
         """
         Get a list of company objects.
         
-        :param company_type: Type of company to filter for. For allowed values see :class:`.CompanyType`.
+        :param company_type: Type of company to filter for
         :param tags: List of tags
-        :param identifier: Company identifer
+        :param identifier: Company identifier
         :param sort_by: Field to sort by
         :param sort_order: asc or desc
         :param page: page number (default 1)
+
+        :type company_type: :class:`.CompanyType`, str
+        :type tags: list
+        :type identifier: str
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: list of companies
         """
 

@@ -10,10 +10,10 @@ from moco_wrapper.util.requestor import NoRetryRequestor
 from moco_wrapper.util.objector import NoErrorObjector, DefaultObjector
 
 class IntegrationTest(object):
-    """Base class for integration tests.
+    """
+    Base class for integration tests.
     
     The Integration tests check if the requests that are created will be sent out correctly and can be parsed back into a real object
-    
     """
 
     def setup(self):
@@ -35,13 +35,13 @@ class IntegrationTest(object):
 
     def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
         """
-        create a radom string
+        create a random string
         """
         return ''.join(random.choice(chars) for _ in range(size))
 
     def create_random_date(self):
         """
-        presences can overlap so we are going to create a random date every time
+        create a random date between 2010 and 2020
         """
         return date(
             random.choice(range(2010, 2020, 1)),

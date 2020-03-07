@@ -235,6 +235,12 @@ class TestCompany(IntegrationTest):
 
             assert isinstance(company_getlist, ListingResponse)
 
+            assert company_getlist.current_page == 1
+            assert company_getlist.is_last is not None
+            assert company_getlist.next_page is not None
+            assert company_getlist.total is not None
+            assert company_getlist.page_size is not None
+
     def test_create_supplier_with_iban(self):
         with self.recorder.use_cassette("TestCompany.test_create_supplier_with_iban"):
             iban = "FI0342541877156574" # random iban
@@ -243,7 +249,7 @@ class TestCompany(IntegrationTest):
                 CompanyType.SUPPLIER,
                 iban=iban
             )
-            print(company_create)
+            
             assert company_create.response.status_code == 200
             
 

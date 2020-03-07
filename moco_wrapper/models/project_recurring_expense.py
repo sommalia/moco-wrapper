@@ -63,6 +63,12 @@ class ProjectRecurringExpense(MWRAPBase):
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type project_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of recurring expenses
         """
         params = {}
@@ -88,6 +94,10 @@ class ProjectRecurringExpense(MWRAPBase):
 
         :param project_id: Id of the project the expesen belongs to
         :param recurring_expense_id: iI of the recurring expense
+
+        :type project_id: int
+        :type recurring_expense_id: int
+
         :returns: Single recurring expense object
         """
         return self._moco.get(API_PATH["project_recurring_expense_get"].format(project_id=project_id, recurring_expense_id=recurring_expense_id))
@@ -113,7 +123,7 @@ class ProjectRecurringExpense(MWRAPBase):
 
         :param project_id: Id of the project to create the expense for
         :param start_date: Starting date of the expense
-        :param period: period of the expense. For allowed values see :class:`.ProjectRecurringExpensePeriod`.
+        :param period: period of the expense
         :param title: Title of the expense
         :param quantity: Quantity (how much of ``unit`` was bought?) 
         :param unit: Name of the unit (What was bought for the customer/project?)
@@ -124,6 +134,21 @@ class ProjectRecurringExpense(MWRAPBase):
         :param billable: If this expense billable (default True)
         :param budget_relevant: If this expense is budget relevant (default False)
         :param custom_properties: Additional fields as dictionary
+
+        :type project_id: int
+        :type start_date: datetime.date, str
+        :type period: :class:`.ProjectRecurringExpensePeriod`, str
+        :type title: str
+        :type quantity: float
+        :type unit: str
+        :type unit_price: float
+        :type unit_cost: float
+        :type finish_date: datetime.date, str
+        :type description: str
+        :type billable: bool
+        :type budget_relevant: bool
+        :type custom_properties: dict
+
         :returns: The created recurring expense object
         """
         data = {
@@ -184,6 +209,19 @@ class ProjectRecurringExpense(MWRAPBase):
         :param description: Descripion of the expense
         :param billable: If this expense billable
         :param custom_properties: Additional fields as dictionary
+
+        :type project_id: int
+        :type recurring_expense_id: int
+        :type title: str
+        :type quantity: int
+        :type unit: str
+        :type unit_price: float
+        :type unit_cost: float
+        :type finish_date: datetime.date, str
+        :type description: str
+        :type billable: bool
+        :type custom_properties: dict
+
         :returns: The updated recurring expense object
         """
         data = {}
@@ -217,6 +255,10 @@ class ProjectRecurringExpense(MWRAPBase):
 
         :param project_id: Project id the expense belongs to
         :param recurring_expense_id: Id of the expense to delete
+
+        :type project_id: int
+        :type recurring_expense_id: int
+
         :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["project_recurring_expense_delete"].format(project_id=project_id, recurring_expense_id=recurring_expense_id))
