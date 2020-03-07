@@ -23,16 +23,6 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.data.name is not None
             assert cat_create.data.probability == probability
             
-    def test_create_with_prob_over_100(self):
-        with self.recorder.use_cassette("TestDealCategory.test_create_with_prob_over_100"):
-            cat_create = self.moco.DealCategory.create(
-                self.id_generator(),
-                120
-            )
-            
-            assert cat_create.response.status_code != 200
-
-            assert isinstance(cat_create, ErrorResponse)
 
     def test_update(self):
         with self.recorder.use_cassette("TestDealCategory.test_update"):
@@ -85,6 +75,12 @@ class TestDealCategory(IntegrationTest):
             assert cat_getlist.response.status_code == 200
 
             assert isinstance(cat_getlist, ListingResponse) 
+
+            assert cat_getlist.current_page == 1
+            assert cat_getlist.is_last is not None
+            assert cat_getlist.next_page is not None
+            assert cat_getlist.total is not None
+            assert cat_getlist.page_size is not None
 
     def test_delete(self):
         with self.recorder.use_cassette("TestDealCategory.test_delete"):

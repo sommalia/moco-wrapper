@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:27:56",
+      "recorded_at": "2020-03-03T14:53:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"service_period_to\": \"2019-12-31\", \"due_date\": \"2018-10-16\", \"service_period_from\": \"2019-12-01\", \"title\": \"invoice\", \"status\": \"created\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"title\": \"Service\", \"net_total\": 130, \"quantity\": 2, \"type\": \"item\", \"unit_price\": 65, \"unit\": \"hours\"}], \"tax\": 8.0, \"change_address\": \"invoice\", \"customer_id\": 760748876, \"currency\": \"EUR\", \"date\": \"2018-09-17\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\"}"
+          "string": "{\"date\": \"2020-01-01\", \"checked\": true, \"net_total\": 100, \"title\": \"dummy project expense, test get\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "534"
+            "101"
           ],
           "Content-Type": [
             "application/json"
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K6s5O8V2dzdZ35EqAZcCl9Iqcu3Z1pDYwR5XrFD/GTf+GHKyHykrlQs3Z97zzMub55/gLKhms1xvGgYmJwo9xrYU6zWvl01TrxkMMXxFQ2PZ565j4Cx6cluHERRcS865XAEDqwlBgeSiqfimEnWpZWzndcErsQYGCeOTM9gOGF2woEDIN5KLzRnUbmPop9ubSsiKi3MKhRnhciSQppxAgYmoCS0wiPiEMekO1FZ3CRmQo67ocv4pOIMjxbjBoadWWxsxlQYf0PnFu+wt3vornQdKFHVKuBC3vuGcL25+/4rOPEIxMEb0ZgcK3n6+BgYeqaVAZaa45BecAekfoJpyeoghpSO65BdLBtYlE7InUCPZ6PTYvlZrrd6lPWDx3lHrc39ftjLtyUS0Z8UumG9oTy7ohwTqyx07WNVqGt2UvOKyEs0nUStZq9XqBhjkwb7GWRfOoU/wLziz2+dI0l0mTW5EgME2BBrTBQwcYV8kTmldymZV82Llbijbm7Z42uZVyDGV4GEy0Q1Ty+nPv2ftydFu71j2jg5QObdDLDGYwNnq+AV/ZvPh4jh8PuQoYer4Yj68d4mcf1iE7UJ33eJxL/J/KZJHRcWsmRsfp4fyLz/kaToctM0FrFd/KRjj/HzHYNC7Hj3tIxSxd95iHD+f/wQAAP//6BOXj18EAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SPwU7rMBREfyWa9c3Tddy0D38FC1ZsKmNPqcFJo+RGokL9dxRRsWHBckZHczSfKBnh0Ln9f0GORgR02mmrrlUHgRWrW5nXYbg203x5Y7KGHxPHhdIYF2teaRCMtKNdLFYEp/pPBXca4dvysOvdvnO+F5TM0cqpcEbAY6fqdVuIwy/VXTHF68DRmiWdmddK3ATpzPTOjGDzSsFLqXVLp1gXCtLMaMzHaD+XfKv+ye1C74MeniFYp/wHc/sKAAD//3q7TPshAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "527"
+            "210"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:27:56 GMT"
+            "Tue, 03 Mar 2020 14:53:07 GMT"
           ],
           "Etag": [
-            "W/\"15276e38ab75ef0319373c60310775ea\""
+            "W/\"853ac62874808c9153734279f4381a14\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "20e12b3f-2166-471c-9ad1-83a916685aca"
+            "e833cfe4-a649-47e6-8041-58adc6bb0cab"
           ],
           "X-Runtime": [
-            "1.251698"
+            "0.025902"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,11 +91,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules"
       }
     },
     {
-      "recorded_at": "2020-02-18T17:27:56",
+      "recorded_at": "2020-03-03T14:53:07",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,31 +122,39 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/894698/timesheet.pdf"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules/72168"
       },
       "response": {
         "body": {
-          "encoding": null,
+          "base64_string": "H4sIAAAAAAAA/4SPwU7rMBREfyWa9c3Tddy0D38FC1ZsKmNPqcFJo+RGokL9dxRRsWHBckZHczSfKBnh0Ln9f0GORgR02mmrrlUHgRWrW5nXYbg203x5Y7KGHxPHhdIYF2teaRCMtKNdLFYEp/pPBXca4dvysOvdvnO+F5TM0cqpcEbAY6fqdVuIwy/VXTHF68DRmiWdmddK3ATpzPTOjGDzSsFLqXVLp1gXCtLMaMzHaD+XfKv+ye1C74MeniFYp/wHc/sKAAD//3q7TPshAQAA",
+          "encoding": "utf-8",
           "string": ""
         },
         "headers": {
           "Cache-Control": [
-            "no-cache"
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
           ],
           "Content-Length": [
-            "0"
+            "210"
           ],
           "Content-Type": [
-            "application/pdf"
+            "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:27:56 GMT"
+            "Tue, 03 Mar 2020 14:53:07 GMT"
+          ],
+          "Etag": [
+            "W/\"853ac62874808c9153734279f4381a14\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin"
+            "Origin",
+            "Accept-Encoding"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -161,20 +169,20 @@
             "none"
           ],
           "X-Request-Id": [
-            "7e958c72-bc36-4a7f-94c3-fceedbf346fc"
+            "7b1927bb-8dc7-4b28-9312-b54092949da3"
           ],
           "X-Runtime": [
-            "0.049771"
+            "0.024633"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
           ]
         },
         "status": {
-          "code": 404,
-          "message": "Not Found"
+          "code": 200,
+          "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/894698/timesheet.pdf"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules/72168"
       }
     }
   ],

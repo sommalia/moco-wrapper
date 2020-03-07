@@ -31,7 +31,9 @@ class DealStatus(str, Enum):
 
 
 class Deal(MWRAPBase):
-    """Class for handling deals/leads"""
+    """
+    Class for handling deals/leads.
+    """
 
     def __init__(self, moco):
         """
@@ -61,10 +63,21 @@ class Deal(MWRAPBase):
         :param money: How much money can be generated from this deal (e.g. 205.0)
         :param reminder_date: Reminder date
         :param user_id: Id of the user the is responsible for this lead
-        :param deal_category_id: Deal category id (see :class:`moco_wrapper.models.DealCategory`)
+        :param deal_category_id: Deal category id
         :param company_id: Company id
         :param info: Additional information
-        :param status: Current state of the deal. For allowed values see :class:`.DealStatus`.
+        :param status: Current state of the deal
+        
+        :type name: str
+        :type currency: str
+        :type money: float
+        :type reminder_date: datetime.date, str
+        :type user_id: int
+        :type deal_category_id: int
+        :type company_id: int
+        :type info: str
+        :type status: :class:`.DealStatus`, str
+        
         :returns: The created deal object
         """
         
@@ -93,7 +106,7 @@ class Deal(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        deal_id: int,
         name: str = None,
         currency: str = None,
         money: float = None,
@@ -107,16 +120,28 @@ class Deal(MWRAPBase):
         """
         Update an existing deal.
 
-        :param id: Id of the deal
+        :param deal_id: Id of the deal
         :param name: Name of the deal
         :param currency: Currency used (e.g. EUR, CHF)
         :param money: How much money can be generated from this deal (e.g. 205.0)
         :param reminder_date: Reminder date
         :param user_id: Id of the user that is responsible for this deal
-        :param deal_category_id: Deal category id (see :class:`moco_wrapper.models.DealCategory`)
+        :param deal_category_id: Deal category id
         :param company_id: Company id
         :param info: Additional information
-        :param status: Current state of the deal. For allowed values see :class:`.DealStatus`.
+        :param status: Current state of the deal
+        
+        :type deal_id: int
+        :type name: str
+        :type currency: str
+        :type money: float
+        :type reminder_date: datetime.date, str
+        :type user_id: int
+        :type deal_category_id: int
+        :type company_id: int
+        :type info: str
+        :type status: :class:`.DealStatus`, str
+        
         :returns: The updated deal object
         """
 
@@ -139,21 +164,24 @@ class Deal(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["deal_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["deal_update"].format(id=deal_id), data=data)
 
 
     def get(
         self,
-        id: int
+        deal_id: int
         ):
         """
         Retrieve a single deal.
 
-        :param id: Id of the deal
+        :param deal_id: Id of the deal
+
+        :type deal_id: int
+
         :returns: Single deal object
 
         """
-        return self._moco.get(API_PATH["deal_get"].format(id=id))
+        return self._moco.get(API_PATH["deal_get"].format(id=deal_id))
 
     def getlist(
         self,
@@ -164,13 +192,20 @@ class Deal(MWRAPBase):
         page: int = 1
         ):
         """
-        Retrieve a list of deal objects
+        Retrieve a list of deal objects.
 
-        :param status: State of deal. For allowed values see :class:`.DealStatus`.
+        :param status: State of deal
         :param tags: Array of tags
         :param sort_by: Field to order results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type status: :class:`.DealStatus`, str
+        :type tags: list
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of deal objects
         """
         params = {}
@@ -186,5 +221,3 @@ class Deal(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
         
         return self._moco.get(API_PATH["deal_getlist"], params=params)
-
-    

@@ -80,6 +80,12 @@ class TestUserPresence(IntegrationTest):
 
             assert isinstance(pre_list, ListingResponse)
 
+            assert pre_list.current_page == 1
+            assert pre_list.is_last is not None
+            assert pre_list.next_page is not None
+            assert pre_list.total is not None
+            assert pre_list.page_size is not None
+
     def test_update(self):
         with self.recorder.use_cassette("TestUserPresence.test_update"):
             pre_create = self.moco.UserPresence.create(
@@ -157,3 +163,4 @@ class TestUserPresence(IntegrationTest):
             assert pre_create.data.user.id == other_user.id
 
             self.moco.clear_impersonation()
+            

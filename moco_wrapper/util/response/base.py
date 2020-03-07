@@ -2,7 +2,9 @@ import json
 from collections import namedtuple
 
 class MWRAPResponse(object):
-    """base class for all responses, created by an requestor"""
+    """
+    Base class for all responses created by a requestor
+    """
 
     def __init__(self, response):
         self._response = response
@@ -18,3 +20,4 @@ class MWRAPResponse(object):
         http response object
         """
         return self._response
+        

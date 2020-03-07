@@ -94,3 +94,4 @@ class TestOffer(UnitTest):
         assert data["footer"] == footer
         assert data["discount"] == discount
         assert data["contact_id"] == contact_id
+        

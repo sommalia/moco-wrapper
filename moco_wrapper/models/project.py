@@ -55,7 +55,8 @@ class Project(MWRAPBase):
         budget: float = None,
         labels: list = None,
         custom_properties: dict = None,
-        info: str = None
+        info: str = None,
+        fixed_price: bool = False,
         ):
         """
         Create a new project.
@@ -67,17 +68,38 @@ class Project(MWRAPBase):
         :param finish_date: Finish date
         :param identifier: Project Identifier
         :param billing_address: Billing adress the invoices go to
-        :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
+        :param billing_variant: Billing variant used
         :param hourly_rate: Hourly rate that will get billed 
         :param budget: Budget for the project
         :param labels: Array of additional labels
         :param custom_properties: Custom values used by the project
         :param info: Additional information
+        :param fixed_price: If the project is a fixed price projects (default False)
+        
+        :type name: str
+        :type currency: str
+        :type leader_id: int
+        :type customer_id: int
+        :type finish_date: datetime.date, str
+        :type identifier: str
+        :type billing_address: str
+        :type billing_variant: :class:`.ProjectBillingVariant`, str
+        :type hourly_rate: float
+        :type budget: float
+        :type labels: list
+        :type custom_properties: dict
+        :type info: str
+        :type fixed_price: bool
+
         :returns: The created project object
 
         .. note::
 
             The parameter ``identifier`` is required if number ranges are manual.
+
+        .. note::
+
+            If you create a fixed_price project budget must also be set.
         """
         data = {
             "name": name,
@@ -85,6 +107,9 @@ class Project(MWRAPBase):
             "leader_id": leader_id,
             "customer_id": customer_id
         }
+
+        if fixed_price and budget is None:
+            raise ValueError("When you create a fixed price project, the project budget must be set")
 
 
         for key, value in (
@@ -96,7 +121,8 @@ class Project(MWRAPBase):
             ("budget", budget),
             ("labels", labels),
             ("custom_properties", custom_properties),
-            ("info", info)
+            ("info", info),
+            ("fixed_price", fixed_price)
         ):
             if value is not None:
                 if key in ["finish_date"] and isinstance(value, datetime.date):
@@ -108,7 +134,7 @@ class Project(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        project_id: int,
         name: str = None,
         leader_id: int = None,
         customer_id: int = None,
@@ -125,19 +151,34 @@ class Project(MWRAPBase):
         """
         Update an existing project.
 
-        :param id: Id of the project to update
+        :param project_id: Id of the project to update
         :param name: Name of the project
         :param leader_id: User id of the project leader
         :param customer_id: Company id of the customer
         :param finish_date: Finish date
         :param identifier: Project Identifier
         :param billing_address: Address the invoices go to
-        :param billing_variant: Billing variant used. For allowed values see :class:`.ProjectBillingVariant`.
+        :param billing_variant: Billing variant used
         :param hourly_rate: Hourly rate that will get billed 
         :param budget: Budget for the project
         :param labels: Array of additional labels
         :param custom_properties: Custom values used by the project
         :param info: Additional information
+
+        :type project_id: int
+        :type name: str
+        :type leader_id: int
+        :type customer_id: int
+        :type finish_date: datetime.date, str
+        :type identifier: str
+        :type billing_address: str
+        :type billing_variant: :class:`.ProjectBillingVariant`, str
+        :type hourly_rate: float
+        :type budget: float
+        :type labels: list
+        :type custom_properties: dict
+        :type info: str
+
         :returns: The updated project object
         """
 
@@ -162,20 +203,23 @@ class Project(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["project_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["project_update"].format(id=project_id), data=data)
 
     def get(
         self,
-        id: int
+        project_id: int
         ):
         """
         Get a single project.
 
-        :param id: Id of the project
+        :param project_id: Id of the project
+
+        :type project_id: int
+
         :returns: Project object
         """
 
-        return self._moco.get(API_PATH["project_get"].format(id=id))
+        return self._moco.get(API_PATH["project_get"].format(id=project_id))
 
     def getlist(
         self,
@@ -209,6 +253,20 @@ class Project(MWRAPBase):
         :param sort_by: Field to sort the results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type include_archived: bool
+        :type include_company: bool
+        :type leader_id: int
+        :type company_id: int
+        :type created_from: datetime.date, str
+        :type created_to: datetime.date, str
+        :type updated_from: datetime.date, str
+        :type updated_to: datetime.date, str
+        :type tags: list
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int 
+
         :returns: List of project objects
         """
 
@@ -253,6 +311,12 @@ class Project(MWRAPBase):
         :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type active: bool
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of project objects
         """
 
@@ -271,41 +335,48 @@ class Project(MWRAPBase):
 
     def archive(
         self,
-        id: int
+        project_id: int
         ):
         """
         Archive a project.
 
-        :param id: Id of the project to archive
+        :param project_id: Id of the project to archive
+
+        :type project_id: int
+
         :returns: The archived project
         """
-        return self._moco.put(API_PATH["project_archive"].format(id=id))
+        return self._moco.put(API_PATH["project_archive"].format(id=project_id))
 
     def unarchive(
         self,
-        id: int
+        project_id: int
         ):
         """
         Unarchive a project.
 
-        :param id: Id of the project to unarchive
+        :param project_id: Id of the project to unarchive
+
+        :type project_id: int
+
         :returns: The unarchived project
         """
-        return self._moco.put(API_PATH["project_unarchive"].format(id=id))
+        return self._moco.put(API_PATH["project_unarchive"].format(id=project_id))
 
     def report(
         self,
-        id: int
+        project_id: int
         ):
         """
         Retrieve a project report.
 
         All costs are in the accounts main currency, it might differ from the budget and billable items.
 
-        :param id: Id of the project
+        :param project_id: Id of the project
+
+        :type project_id: int
+
         :returns: Report with the most important project business indicators
         """
-        return self._moco.get(API_PATH["project_report"].format(id=id))    
-
-    
-    
+        return self._moco.get(API_PATH["project_report"].format(id=project_id))
+        

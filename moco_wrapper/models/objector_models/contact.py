@@ -12,3 +12,4 @@ class Contact(object):
 
 
         self.__dict__.update(nk)
+        

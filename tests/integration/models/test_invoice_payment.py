@@ -49,6 +49,12 @@ class TestInvoicePayment(IntegrationTest):
 
             assert isinstance(payment_list, ListingResponse)
 
+            assert payment_list.current_page == 1
+            assert payment_list.is_last is not None
+            assert payment_list.next_page is not None
+            assert payment_list.total is not None
+            assert payment_list.page_size is not None
+
     def test_create(self):
         invoice = self.get_invoice()
 
@@ -88,6 +94,13 @@ class TestInvoicePayment(IntegrationTest):
             assert payment_create.response.status_code == 200
             
             assert isinstance(payment_create, ListingResponse )
+
+            assert payment_create.current_page == 1
+            assert payment_create.is_last is not None
+            assert payment_create.next_page is not None
+            assert payment_create.total is not None
+            assert payment_create.page_size is not None
+
 
     def test_get(self):
         invoice = self.get_invoice()
@@ -168,6 +181,4 @@ class TestInvoicePayment(IntegrationTest):
 
             assert isinstance(payment_create, JsonResponse)
             assert isinstance(payment_delete, EmptyResponse)
-
-
-    
+            

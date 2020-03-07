@@ -19,7 +19,7 @@ class DefaultRequestor(BaseRequestor):
 
     def __init__(
         self, 
-        delay_ms = 1000.0
+        delay_ms: float = 1000.0
         ):
         """
         Class constructor
@@ -63,6 +63,13 @@ class DefaultRequestor(BaseRequestor):
         :param data: Dictionary with data (http body)
         :param delay_ms: Delay in milliseconds the requestor should wait before sending the request (used for retrying, default 0)
         :param kwargs: Additional http arguments.
+
+        :type method: str
+        :type path: str
+        :type params: dict
+        :type data: dict
+        :type delay_ms: float
+
         :returns: Response object
         """
         #if the request is beeing retried wait for a bit to not trigger 429 error responses
@@ -81,41 +88,48 @@ class DefaultRequestor(BaseRequestor):
         elif method == "PATCH":
             response = self.session.patch(path, params=params, json=data, **kwargs)
 
-        print(response)
 
         #convert the reponse into an MWRAPResponse object
         try:
+            #check if the response has a success status code
             if response.status_code in self.SUCCESS_STATUS_CODES:
-                #filter by content type what type of response this is 
                 if response.status_code == 204:
                     #no content but success
                     return EmptyResponse(response)
-                elif response.status_code == 200 and response.text.strip() == "":
+                
+                if response.status_code == 200 and response.text.strip() == "":
                     #touch endpoint returns 200 with no content
                     return EmptyResponse(response)
-                else:
-                    if response.headers["Content-Type"] == "application/pdf":
-                        return FileResponse(response)
-                    else:
-                        #json response is the default
-                        response_content = response.json()
-                        if isinstance(response_content, list):
-                            return ListingResponse(response)
-                        else:
-                            return JsonResponse(response)
+                
+                if response.headers["Content-Type"] == "application/pdf":
+                    return FileResponse(response)
+            
 
-            elif response.status_code in self.ERROR_STATUS_CODES:
-                error_response = ErrorResponse(response)
+                #json response handling is the default
+                response_content = response.json()
 
-                if error_response.is_recoverable:
+                #if the response can be converted into a list return it 
+                if isinstance(response_content, list): 
+                    return ListingResponse(response)
+
+                #return json response as default
+                return JsonResponse(response)
+
+            #check if the response has an error status code
+            if response.status_code in self.ERROR_STATUS_CODES:
+                response_obj = ErrorResponse(response)
+
+                if response_obj.is_recoverable:
                     return self.request(method, path, params=params, data=data, delay_ms=self.delay_milliseconds_on_error, **kwargs)
-                else:
-                    return error_response
+                
+                #error is not recoverable
+                return response_obj
 
         except ValueError as ex:
             response_obj = ErrorResponse(response)
             if response_obj.is_recoverable:
                 #error is recoverable, try the ressource again
                 return self.request(method, path,  params=params, data=data, delay_ms=delay_milliseconds_on_error, **kwargs)
-            else:
-                return response_obj
+
+            #error is not recoverable
+            return response_obj

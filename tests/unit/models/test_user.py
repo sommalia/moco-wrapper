@@ -8,7 +8,7 @@ class TestUser(UnitTest):
         firstname = "firstname"
         lastname = "lastname"
         email = "email@email.com"
-        password = "this is a very strong password"
+        password = self.id_generator()
         unit_id = 214
         active = True
         external = False
@@ -47,7 +47,7 @@ class TestUser(UnitTest):
         firstname = "firstname"
         lastname = "lastname"
         email = "email@email.com"
-        password = "this is a very strong password"
+        password = self.id_generator()
         unit_id = 214
         active = True
         external = False
@@ -129,3 +129,4 @@ class TestUser(UnitTest):
         response = self.moco.User.delete(user_id)
 
         assert response["method"] == "DELETE"
+        

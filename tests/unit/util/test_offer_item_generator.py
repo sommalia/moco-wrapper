@@ -75,3 +75,4 @@ class TestOfferItemGenerator(object):
         item = self.generator.generate_pagebreak()
 
         assert item["type"] == "page-break"
+        

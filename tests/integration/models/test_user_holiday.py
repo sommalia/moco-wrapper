@@ -109,3 +109,10 @@ class TestUserHoliday(IntegrationTest):
             assert hol_list.response.status_code == 200
             
             assert isinstance(hol_list, ListingResponse)
+
+            assert hol_list.current_page == 1
+            assert hol_list.is_last is not None
+            assert hol_list.next_page is not None
+            assert hol_list.total is not None
+            assert hol_list.page_size is not None
+            

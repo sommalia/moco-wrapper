@@ -22,14 +22,16 @@ class TestActivity(UnitTest):
         to_date = "2020-01-01"
         user_id = 21
         project_id = 22
+        task_id = 23
 
-        response = self.moco.Activity.getlist(from_date, to_date, user_id=user_id, project_id=project_id)
+        response = self.moco.Activity.getlist(from_date, to_date, user_id=user_id, project_id=project_id, task_id=task_id)
 
         response_params = response["params"]
         assert response_params["from"] == from_date
         assert response_params["to"] == to_date
         assert response_params["user_id"] == user_id
         assert response_params["project_id"] == project_id
+        assert response_params["task_id"] == task_id
 
         assert response["method"] == "GET"
 
@@ -76,8 +78,8 @@ class TestActivity(UnitTest):
         activity_id = 21
         response = self.moco.Activity.get(activity_id)
 
-        assert response["params"] == None
-        assert response["data"] == None
+        assert response["params"] is None
+        assert response["data"] is None
         assert response["method"] == "GET"
 
     def test_update(self):
@@ -131,3 +133,12 @@ class TestActivity(UnitTest):
         assert response_data["company_id"] == company_id   
 
         assert response["method"] == "POST"     
+
+    def test_getlist_task_without_project_throws(self):
+        from_date = "2019-01-01"
+        to_date = "2020-01-01"
+        task_id = 22
+
+        with pytest.raises(ValueError) as e:
+            response = self.moco.Activity.getlist(from_date, to_date, task_id=task_id)
+            

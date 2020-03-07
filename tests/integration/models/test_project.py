@@ -300,6 +300,12 @@ class TestProject(IntegrationTest):
             
             assert isinstance(project_list, ListingResponse)
 
+            assert project_list.current_page == 1
+            assert project_list.is_last is not None
+            assert project_list.next_page is not None
+            assert project_list.total is not None
+            assert project_list.page_size is not None
+
     def test_assigned(self):
         with self.recorder.use_cassette("TestProject.test_assigned"):
             project_ass = self.moco.Project.assigned()
@@ -307,6 +313,12 @@ class TestProject(IntegrationTest):
             assert project_ass.response.status_code == 200
 
             assert isinstance(project_ass, ListingResponse)
+
+            assert project_ass.current_page == 1
+            assert project_ass.is_last is not None
+            assert project_ass.next_page is not None
+            assert project_ass.total is not None
+            assert project_ass.page_size is not None
 
     def test_archive(self):
         user = self.get_user()
@@ -329,7 +341,7 @@ class TestProject(IntegrationTest):
             assert isinstance(project_create, JsonResponse)
             assert isinstance(project_archive, JsonResponse)
 
-            assert project_archive.data.active == False
+            assert not project_archive.data.active
 
     def test_unarchive(self):
         user = self.get_user()
@@ -353,8 +365,8 @@ class TestProject(IntegrationTest):
             assert isinstance(project_create, JsonResponse)
             assert isinstance(project_archive, JsonResponse)
 
-            assert project_archive.data.active == False
-            assert project_unarchive.data.active == True
+            assert not project_archive.data.active
+            assert project_unarchive.data.active
 
     def test_report(self):
         user = self.get_user()
@@ -398,10 +410,38 @@ class TestProject(IntegrationTest):
 
             assert project_create.data.name == name
             assert project_create.data.currency == currency
-            assert project_create.data.finish_date == None
+            assert project_create.data.finish_date is None
             assert project_create.data.leader.id == user.id
             assert project_create.data.customer.id == customer.id
 
+    def test_create_fixed_price(self):
+        user = self.get_user()
+        customer = self.get_customer()
 
+        with self.recorder.use_cassette("TestProject.test_create_fixed_price"):
+            name = "test project create"
+            currency = "EUR"
+            budget = 200
+            fixed_price = True
+            
+            project_create = self.moco.Project.create(
+                name,
+                currency,
+                user.id,
+                customer.id,
+                fixed_price=fixed_price,
+                budget=200
+            )
 
-    
+            assert project_create.response.status_code == 200
+
+            assert isinstance(project_create, JsonResponse)
+
+            assert project_create.data.name == name
+            assert project_create.data.currency == currency
+            assert project_create.data.finish_date is None
+            assert project_create.data.leader.id == user.id
+            assert project_create.data.customer.id == customer.id
+            assert project_create.data.budget == budget
+            assert project_create.data.fixed_price == fixed_price
+            

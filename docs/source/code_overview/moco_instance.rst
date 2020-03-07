@@ -22,6 +22,7 @@ The Moco Instance
    endpoints/project_contract
    endpoints/project_expense
    endpoints/project_recurring_expense
+   endpoints/project_payment_schedule
    endpoints/project_task
    endpoints/schedule
    endpoints/unit
@@ -29,4 +30,5 @@ The Moco Instance
    endpoints/user_employment
    endpoints/user_holiday
    endpoints/user_presence
+   endpoints/session
 

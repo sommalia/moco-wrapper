@@ -70,6 +70,12 @@ class TestOffer(IntegrationTest):
             
             assert isinstance(off_getlist, ListingResponse)
 
+            assert off_getlist.current_page == 1
+            assert off_getlist.is_last is not None
+            assert off_getlist.next_page is not None
+            assert off_getlist.total is not None
+            assert off_getlist.page_size is not None
+
     def test_getlist_full(self):
         with self.recorder.use_cassette("TestOffer.test_getlist_full"):
             off_getlist = self.moco.Offer.getlist(status=OfferStatus.ACCEPTED, from_date=date(2020, 1, 1), to_date=date(2020, 1, 31), identifier="TEST-IDENT") 
@@ -77,6 +83,12 @@ class TestOffer(IntegrationTest):
             assert off_getlist.response.status_code == 200
 
             assert isinstance(off_getlist, ListingResponse)
+
+            assert off_getlist.current_page == 1
+            assert off_getlist.is_last is not None
+            assert off_getlist.next_page is not None
+            assert off_getlist.total is not None
+            assert off_getlist.page_size is not None
 
     def test_get(self):
         deal = self.get_deal()
@@ -313,3 +325,4 @@ class TestOffer(IntegrationTest):
             assert offer_pdf.response.status_code == 200
 
             assert isinstance(offer_pdf, FileResponse)
+            

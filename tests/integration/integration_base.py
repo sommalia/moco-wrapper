@@ -7,18 +7,21 @@ import random
 from datetime import date
 from moco_wrapper import moco
 from moco_wrapper.util.requestor import NoRetryRequestor
-from moco_wrapper.util.objector import NoErrorObjector
+from moco_wrapper.util.objector import NoErrorObjector, DefaultObjector
 
 class IntegrationTest(object):
-    """Base class for integration tests.
+    """
+    Base class for integration tests.
     
     The Integration tests check if the requests that are created will be sent out correctly and can be parsed back into a real object
-    
     """
 
     def setup(self):
         self.setup_moco()
         self.setup_betamax()
+        
+        # export mocotest_delay=1 to enable delay between tests
+        self.delay_tests_enabled = pytest.placeholders.mocotest_delay == "1"
 
     def setup_betamax(self):
         self.recorder = betamax.Betamax(self._moco.session)
@@ -30,18 +33,19 @@ class IntegrationTest(object):
                 "domain" : pytest.placeholders.mocotest_domain
             },
             requestor=NoRetryRequestor(),
-            objector=NoErrorObjector(),
+            objector=DefaultObjector(),
         )
+       
 
     def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
         """
-        create a radom string
+        create a random string
         """
         return ''.join(random.choice(chars) for _ in range(size))
 
     def create_random_date(self):
         """
-        presences can overlap so we are going to create a random date every time
+        create a random date between 2010 and 2020
         """
         return date(
             random.choice(range(2010, 2020, 1)),
@@ -55,7 +59,8 @@ class IntegrationTest(object):
 
     def teardown_method(self, method):
         """
-        uncomment this if you need to generate everything, adds a delay between each test call
+        Enable this if you want to wait between each method call (default is 5 seconds)
         """
-        #time.sleep(5)
-        pass
+
+        if self.delay_tests_enabled:
+            time.sleep(5)

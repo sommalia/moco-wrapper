@@ -19,16 +19,19 @@ class Unit(MWRAPBase):
 
     def get(
         self,
-        id: int
+        unit_id: int
         ):
         """
         Get a single team.
 
-        :param id: Id of the team
+        :param unit_id: Id of the team
+
+        :type unit_id: int
+
         :returns: Single team object
         """
 
-        return self._moco.get(API_PATH["unit_get"].format(id=id))
+        return self._moco.get(API_PATH["unit_get"].format(id=unit_id))
 
     def getlist(
         self,
@@ -42,6 +45,11 @@ class Unit(MWRAPBase):
         :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
         :param page: page number (default 1)
+
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+        
         :returns: List of team objects
         """
 
@@ -57,7 +65,3 @@ class Unit(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["unit_getlist"], params=params)
-
-
-
-    

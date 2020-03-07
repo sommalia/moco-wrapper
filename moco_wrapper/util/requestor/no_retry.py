@@ -49,6 +49,12 @@ class NoRetryRequestor(BaseRequestor):
         :param params: Url parameters (e.g. ``page=1``, query parameters)
         :param data: Dictionary with data (http body)
         :param kwargs: Additional http arguments.
+
+        :type method: str
+        :type path: str
+        :type params: dict
+        :type data: dict
+
         :returns: Response object
         """
 
@@ -67,27 +73,31 @@ class NoRetryRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
-
+            #check if the reponse has a success status code
             if response.status_code in self.SUCCESS_STATUS_CODES:
                 #filter by content type what type of response this is 
                 if response.status_code == 204:
                     #no content but success
                     return EmptyResponse(response)
-                elif response.status_code == 200 and response.text.strip() == "":
+                
+                if response.status_code == 200 and response.text.strip() == "":
                     #touch endpoint returns 200 with no content
                     return EmptyResponse(response)
-                else:
-                    if response.headers["Content-Type"] == "application/pdf":
-                        return FileResponse(response)
-                    else:
-                        #print(response.content)
-                        #json response is the default
-                        response_content = response.json()
-                        if isinstance(response_content, list):
-                            return ListingResponse(response)
-                        else:
-                            return JsonResponse(response)
-            elif response.status_code in self.ERROR_STATUS_CODES:
+                
+                if response.headers["Content-Type"] == "application/pdf":
+                    return FileResponse(response)
+                
+                #json response handling is the default
+                response_content = response.json()
+                #if response is a list, return listing response
+                if isinstance(response_content, list):
+                    return ListingResponse(response)
+                
+                #return single json response
+                return JsonResponse(response)
+
+            #check if the response has an error status code 
+            if response.status_code in self.ERROR_STATUS_CODES:
                 error_response = ErrorResponse(response)
                 return error_response
 
@@ -95,3 +105,4 @@ class NoRetryRequestor(BaseRequestor):
             print("ValueError in response conversion:" + str(ex))
             response_obj = ErrorResponse(response)
             return response_obj
+            

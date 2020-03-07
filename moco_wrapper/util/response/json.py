@@ -7,7 +7,7 @@ class JsonResponse(MWRAPResponse):
     
 
     @property 
-    def data(self):
+    def data(self) -> object:
         """
         Returns the json data of the response as a dictionary
 
@@ -34,3 +34,4 @@ class JsonResponse(MWRAPResponse):
 
     def __str__(self):
         return "<JsonResponse, Status Code: {}, Data: {}>".format(self.response.status_code, str(self._data))
+        

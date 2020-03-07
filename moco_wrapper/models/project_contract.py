@@ -28,12 +28,20 @@ class ProjectContract(MWRAPBase):
         """
         Assign a user to a project.
 
-        :param project: Id of the project
+        :param project_id: Id of the project
         :param user_id: User id of the person to assign
         :param billable: If the contract is billable
         :param active: If the contract is active
         :param budget: Contract budget
         :param hourly_rate: Contract hourly rate
+
+        :type project_id: int
+        :type user_id: int
+        :type billable: bool
+        :type active: bool
+        :type budget: float
+        :type hourly_rate: float
+
         :returns: Created contract object
         """
         data = {
@@ -69,6 +77,14 @@ class ProjectContract(MWRAPBase):
         :param active: If the contract is active
         :param budget: Contract budget
         :param hourly_rate: Contract hourly rate
+
+        :type project_id: int
+        :type contact_id: int
+        :type billable: bool
+        :type active: bool
+        :type budget: float
+        :type hourly_rate: float
+
         :returns: The updated project contract
         """
 
@@ -94,6 +110,10 @@ class ProjectContract(MWRAPBase):
 
         :param project_id: Id of the project
         :param contract_id: Id of the contract
+
+        :type project_id: int
+        :type contract_id: int
+
         :returns: The contract object
         """
 
@@ -113,6 +133,12 @@ class ProjectContract(MWRAPBase):
         :param sort_by: Sort by field
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type project_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of contract objects
         """
 
@@ -141,11 +167,11 @@ class ProjectContract(MWRAPBase):
 
         :param project_id: Id of the project
         :param contract_id: Id of the contract to delete
+
+        :type project_id: int
+        :type contract_id: int
+
         :returns: Empty response on success
         """
 
         return self._moco.delete(API_PATH["project_contract_delete"].format(project_id=project_id, contract_id=contract_id))
-
-
-
-

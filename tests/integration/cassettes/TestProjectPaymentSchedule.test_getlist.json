@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:22:12",
+      "recorded_at": "2020-03-03T14:55:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"33GQU0\", \"probability\": 120}"
+          "string": ""
         },
         "headers": {
           "Accept": [
@@ -20,9 +20,6 @@
           "Connection": [
             "keep-alive"
           ],
-          "Content-Length": [
-            "38"
-          ],
           "Content-Type": [
             "application/json"
           ],
@@ -30,30 +27,33 @@
             "python-requests/2.22.0"
           ]
         },
-        "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
+        "method": "GET",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules?page=1&sort_by=net_total+asc"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6pWKijKT0pMyszJLKlUsopWyi0tLlbIzknNzEstUshPSS1SSM9JzUzOUDA0MFAoTs3MU4qtBQQAAP//CxjJSzUAAAA=",
+          "base64_string": "H4sIAAAAAAAA/+TVUWviQBAH8K8S5nk9dnazRudT3MM93XFImh1r2k0MyQQqxe9eJKGNFVzbl2r7qPwzGX4M//x7htIDZQadU+BzYSAw2uiZxplGUCClhMOfoKBmWclW8gCEWv/SCpp2+8CFAA1jlqnDuUHrFJSeaynXJbdA8NtobfVhQl4dZvm+qnbJ+LBKhDtJmnxXcS1JV2zY94Fhr6DYcPHIHmidh44V3JUhTH4WLefCfpXL69J2pu0fTCk1hO4vKOgbH8ns1ZtB9q0MUnKLmMGQmRjM5+cNjvZO+KnhuuNx/2GZZN2H8KVU0vYfknJIbhmRGjNTqcXnpe5ZbkvIks5iQkNmIpTpH3hLKRmMSQ2Z6S29b197udTwottCQrKxahoz03pOT5HsuXq+8n7GC/oZT/rZHCOgOfuNumoBp8mY2BkMmf3/lwAAAP//ioZC6KsIAAA=",
           "encoding": "utf-8",
           "string": ""
         },
         "headers": {
           "Cache-Control": [
-            "no-cache"
+            "max-age=0, private, must-revalidate"
           ],
           "Content-Encoding": [
             "gzip"
           ],
           "Content-Length": [
-            "77"
+            "344"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:22:12 GMT"
+            "Tue, 03 Mar 2020 14:55:07 GMT"
+          ],
+          "Etag": [
+            "W/\"fe1e571c7ae2b64c8affa0f4b486c2e8\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -75,20 +75,20 @@
             "none"
           ],
           "X-Request-Id": [
-            "f159a3bc-c25c-411e-933c-f6a84918cb3d"
+            "b2cefe4a-9250-47d2-a8f5-88a1b7a6f275"
           ],
           "X-Runtime": [
-            "0.036310"
+            "0.042850"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
           ]
         },
         "status": {
-          "code": 422,
-          "message": "Unprocessable Entity"
+          "code": 200,
+          "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules?page=1&sort_by=net_total+asc"
       }
     }
   ],

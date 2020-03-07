@@ -13,3 +13,4 @@ class Offer(object):
             nk["deal"] = d
 
         self.__dict__.update(nk)
+        

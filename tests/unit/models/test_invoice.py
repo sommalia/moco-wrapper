@@ -133,7 +133,7 @@ class TestInvoice(UnitTest):
         assert response["method"] == "GET"
 
     def test_locked(self):
-        status = "created",
+        status = "created"
         date_from = '2019-10-10'
         date_to = '2020-10-10'
         identifier = "INVOICE-001"
@@ -177,7 +177,7 @@ class TestInvoice(UnitTest):
         assert response["params"]["page"] == page_overwrite
 
     def test_getlist(self):
-        status = "created",
+        status = "created"
         date_from = '2019-10-10'
         date_to = '2020-10-10'
         tags = ["these", "are", "the", "tags"]
@@ -221,3 +221,4 @@ class TestInvoice(UnitTest):
 
         response = self.moco.Invoice.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
+        

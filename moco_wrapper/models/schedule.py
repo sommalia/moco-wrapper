@@ -91,10 +91,20 @@ class Schedule(MWRAPBase):
         :param to_date: End date
         :param user_id: user id the planned entries are belonging to
         :param project_id: project id
-        :param absence_code: Type of absence. For allowed values see :class:`.ScheduleAbsenceCode`
+        :param absence_code: Type of absence
         :param sort_by: Field to sort the results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type user_id: int
+        :type project_id: int
+        :type absence_code: :class:`.ScheduleAbsenceCode`, int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of schedule objects
         """
 
@@ -120,15 +130,18 @@ class Schedule(MWRAPBase):
 
     def get(
         self,
-        id: int
+        schedule_id: int
         ):
         """
         Retrieve a single schedule object.
 
-        :param id: Id of the entry
+        :param schedule_id: Id of the entry
+
+        :type schedule_id: int
+
         :returns: Single schedule object 
         """
-        return self._moco.get(API_PATH["schedule_get"].format(id=id))
+        return self._moco.get(API_PATH["schedule_get"].format(id=schedule_id))
 
     def create(
         self,
@@ -147,13 +160,24 @@ class Schedule(MWRAPBase):
 
         :param schedule_date: date of the entry
         :param project_id: Project id
-        :param absence_code: Type of absence. For allowed values see :class:`.ScheduleAbsenceCode` 
+        :param absence_code: Type of absence
         :param user_id: User id
         :param am: Morning yes/no
         :param pm: Afternoon yes/no
         :param comment: Comment text
-        :param symbol: Symbol to use for the schedule item. For allowed values see :class:`.ScheduleSymbol`
+        :param symbol: Symbol to use for the schedule item
         :param overwrite: yes/no overwrite existing entry
+
+        :type schedule_date: datetime.date, str
+        :type project_id: int
+        :type absence_code: :class:`.ScheduleAbsenceCode`, int
+        :type user_id: int
+        :type am: bool
+        :type pm: bool
+        :type comment: str
+        :type symbol: :class:`.ScheduleSymbol`, int
+        :type overwrite: bool
+
         :returns: The created planning entry
 
         .. note::
@@ -163,7 +187,8 @@ class Schedule(MWRAPBase):
 
         if absence_code is not None and project_id is not None:
             raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-        elif absence_code is None and project_id is None:
+        
+        if absence_code is None and project_id is None:
             raise ValueError("Either abscence_code or project_id must be specified")
 
         data = {
@@ -191,7 +216,7 @@ class Schedule(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        schedule_id: int,
         project_id: int = None,
         absence_code: ScheduleAbsenceCode = None,
         am: bool = None,
@@ -203,14 +228,24 @@ class Schedule(MWRAPBase):
         """
         Update a schedule entry.
 
-        :param id: Id of the entry to update
+        :param schedule_id: Id of the entry to update
         :param project_id: Project id
-        :param absence_code: Type of absence. For allowed values see :class:`.ScheduleAbsenceCode` 
+        :param absence_code: Type of absence
         :param am: Morning yes/no
         :param pm: Afternoon yes/no
         :param comment: Comment text
-        :param symbol: Symbol to use for the schedule item. For allowed values see :class:`.ScheduleSymbol`
+        :param symbol: Symbol to use for the schedule item
         :param overwrite: yes/no overwrite existing entry
+
+        :type schedule_id: int
+        :type project_id: int
+        :type absence_code: :class:`.ScheduleAbsenceCode`, int
+        :type am: bool
+        :type pm: bool
+        :type comment: str
+        :type symbol: :class:`.ScheduleSymbol`, str
+        :type overwrite: bool
+
         :returns: The updated schedule entry
 
         .. note::
@@ -220,7 +255,8 @@ class Schedule(MWRAPBase):
         
         if absence_code is not None and project_id is not None:
             raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-        elif absence_code is None and project_id is None:
+        
+        if absence_code is None and project_id is None:
             raise ValueError("either abscence_code or project_id must be specified")
 
         data = {}
@@ -237,17 +273,20 @@ class Schedule(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["schedule_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["schedule_update"].format(id=schedule_id), data=data)
 
     def delete(
         self,
-        id: int
+        schedule_id: int
         ):
         """
         Delete a schedule entry.
 
-        :param id: Id of the entry to delete
+        :param schedule_id: Id of the entry to delete
+
+        :type schedule_id: int
+
         :returns: Empty response on success
         """
 
-        return self._moco.delete(API_PATH["schedule_delete"].format(id=id))
+        return self._moco.delete(API_PATH["schedule_delete"].format(id=schedule_id))

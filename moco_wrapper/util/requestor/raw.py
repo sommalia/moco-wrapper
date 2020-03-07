@@ -9,7 +9,7 @@ class RawRequestor(BaseRequestor):
         Use this requestor only for testing.
 
     """
-    def request(self, method, path, params = None, data = None, **kwargs):
+    def request(self, method, path, params = None, data = None, **kwargs) -> dict:
         """
         Request the given ressource
 

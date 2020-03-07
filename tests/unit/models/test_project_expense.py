@@ -230,26 +230,5 @@ class TestProjectExpense(UnitTest):
         page_overwrite = 22
 
         response = self.moco.ProjectExpense.getlist(project_id, page=page_overwrite)
-        assert response["params"]["page"] == page_overwrite      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        assert response["params"]["page"] == page_overwrite
+        

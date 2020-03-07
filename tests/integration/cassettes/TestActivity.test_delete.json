@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-24T17:22:55",
+      "recorded_at": "2020-03-03T09:55:50",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"description\": \"dummy activity, test delete\", \"task_id\": 5219401, \"project_id\": 945154259, \"hours\": 0.5, \"date\": \"2020-01-01\"}"
+          "string": "{\"hours\": 0.5, \"task_id\": 5281350, \"description\": \"dummy activity, test delete\", \"project_id\": 945161414, \"date\": \"2020-01-01\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,10 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
+          ],
+          "X-IMPERSONATE-USER-ID": [
+            "933630617"
           ]
         },
         "method": "POST",
@@ -35,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5ySQY/bIBCF/4r1ziTC2DiFW/9DTr1YxExSWmxHMESKqvz3yqmdancPK+2RpzdvPmbmD4KHNaYx3zpjWgHvmGChpJI7We9kDYGfc0kZVu61gKc8pHDlME+w8GUc75UbONwC30XFlLnyFIkJAqcQI3nYs4uZ/j3dKRIsp0IC7C6wgECicWbqM6VbGOiNttBNJcaXUFLclGuaf9HAsOsnWl3rVmkjMLlxiVkN1ZDIMfnqPKcnYZguG3OgjPdkjwUt/95ytapNK+sPqYvnC9FDyTyPlLb4QycPumm79tXgSJm/ryPFQ6Dk/27TNF0jVSMFziFlXkuW1hCI7qW40+CXYg4jpT6zS0y+d7wNbwV/Kuu21U61x/pglbJa/4BAufpPPcttxHufnmcj9/LxNwAA//83gGeLUgIAAA==",
+          "base64_string": "H4sIAAAAAAAA/5yRvW7jMBCEX0WYmj6Qkihb7K683tU1Bi2ufbxQPyCXBozA7x7IkZy/IkBKDoaz3+w+wzuYtq1V3ZbNTsBZJhiUspQbqTZSQeDfmGOCkb+0gKPURT+xHwcYuNz318J27C+er6JgSlw4CsQEgaMPgRzMyYZEr097DATDMZMA2zMMIBCpH5kOieLFd/RBm+mGHMJDyDGsyhTH/9QxzFKi1qpRtaoFBtvPMYuh6CJZJlecxngn9MN5ZfaU8JnsNqOlpzVXlztVafkldfb8ILrLicee4hq/beRWt6puHgP2lPj3slLcBHJ6c7dV1VSyUVuBk4+J332BQLAP5U8/UUzjYO+Xmiv5nuIhsY1M7mB53eLS4K4sZ682strL1mhttPwLgTy5bzy3lwAAAP//cgA06UkCAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +50,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "322"
+            "317"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 24 Feb 2020 17:22:55 GMT"
+            "Tue, 03 Mar 2020 09:55:50 GMT"
           ],
           "Etag": [
-            "W/\"36b756e2f9e5055bfef9f162b50a02a8\""
+            "W/\"547d1cbb24ff8e7f1fc392d1bbf0a379\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b0f82390-f17f-4f63-9c41-80d9a9a9015c"
+            "ddf03ad7-b0ca-42d1-a531-5ac04fea2ab9"
           ],
           "X-Runtime": [
-            "0.070394"
+            "0.052014"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +98,7 @@
       }
     },
     {
-      "recorded_at": "2020-02-24T17:22:55",
+      "recorded_at": "2020-03-03T09:55:50",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -121,11 +124,14 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
+          ],
+          "X-IMPERSONATE-USER-ID": [
+            "933630617"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993986994"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/994149268"
       },
       "response": {
         "body": {
@@ -141,7 +147,7 @@
             "gzip"
           ],
           "Date": [
-            "Mon, 24 Feb 2020 17:22:55 GMT"
+            "Tue, 03 Mar 2020 09:55:50 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -163,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "88cad004-2fd8-4760-a327-f84bafc37815"
+            "461d3373-def1-43d5-89a8-431bf818c1fc"
           ],
           "X-Runtime": [
-            "0.041514"
+            "0.028150"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -176,7 +182,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/993986994"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/994149268"
       }
     }
   ],

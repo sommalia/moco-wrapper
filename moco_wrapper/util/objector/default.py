@@ -33,6 +33,7 @@ class DefaultObjector(BaseObjector):
                     "bulk": "ProjectExpense"
                 },
                 "recurring_expenses": "ProjectRecurringExpense",
+                "payment_schedules": "ProjectPaymentSchedule",
             },
             "activities": {
                 "base" : "Activity",
@@ -85,7 +86,7 @@ class DefaultObjector(BaseObjector):
             }
         }
         """
-        dictionary used to find the appropriate classes from url-part-path created in :meth:`get_class_name_from_request_url`
+        Dictionary used to find the appropriate classes from url-part-path created in :meth:`get_class_name_from_request_url`
 
         For example the path ``project=>tasks`` means ``ProjectTask`` is the responsible class. The dictionary contains the following:
 
@@ -95,26 +96,44 @@ class DefaultObjector(BaseObjector):
                 "base" => "Project",
                 "tasks" => "ProjectTask"
             }
+        """
 
+        self.error_module_path = "moco_wrapper.exceptions"
+
+        self.error_class_map = {
+            401 : "UnauthorizedException",
+            403 : "ForbiddenException",
+            404 : "NotFoundException",
+            422 : "UnprocessableException",
+            429 : "RateLimitException",
+            500 : "ServerErrorException"
+        }
+        """
+        Dictionary used to convert http status codes into the appropriate exceptions
+        
+        .. code-block:: python
+
+            self.error_class_map = {
+                404: "NotFoundException",
+                ..
+            }
         """
 
 
     def convert(self, requestor_response):
         """
-        converts the data of a response object (for example json) into a python object
+        Converts the data of a response object (for example json) into a python object.
 
         :param requestor_response: response object (see :ref:`response`)
         :returns: modified response object
 
-        .. note:: only :class:`moco_wrapper.util.response.JsonResponse` and :class:`moco_wrapper.util.response.ListingResponse` are object to this conversion.
-
-        .. note:: Error responses will be converted into actual exceptions.
+        .. note:: The data of an error resposne response (:class:`moco_wrapper.util.response.ErrorResponse`) will be converted into an actual exception that later can be raised
 
         .. note:: if the method :meth:`get_class_name_from_request_url` that is used to find the right class for conversion, returns ``None``, no conversion of objects will take place
         """
         http_response = requestor_response.response
 
-        if isinstance(requestor_response, JsonResponse) or isinstance(requestor_response, ListingResponse):
+        if isinstance(requestor_response, (JsonResponse, ListingResponse) ):
             class_name = self.get_class_name_from_request_url(http_response.request.url)
 
             if class_name is not None:
@@ -138,16 +157,51 @@ class DefaultObjector(BaseObjector):
                     requestor_response._data = new_items
 
         elif isinstance(requestor_response, ErrorResponse):
-            return requestor_response.to_exception()
-        
+            #convert the data for the error response into an actual exception
+            class_name = self.get_error_class_name_from_response_status_code(http_response.status_code)
+
+            if class_name is not None:
+                class_ = getattr(
+                    import_module(self.error_module_path),
+                    class_name
+                )
+
+                #overwrite data of the error response with the actual exception
+                obj = class_(http_response, requestor_response.data)
+                requestor_response._data = obj
 
         return requestor_response
 
-    def get_class_name_from_request_url(self, url):
+    def get_error_class_name_from_response_status_code(self, status_code) -> str:
         """
-        finds the class name by analysing the request url
+        Get the class name of the exception class based on the given http status code
+
+        :param status_code: Http status code of the response
+
+        :type status_code: int
+
+        :returns: class name of the exception
+
+        .. warning::
+
+            The ``status_code`` parameter must be a key in :attr:`.error_class_map`
+
+        """
+        if status_code in self.error_class_map.keys():
+            return self.error_class_map[status_code]
+
+        #raise error if status code was not found
+        raise ValueError("Objector could not find an error type, but it should, status_code: {}".format(status_code))
+        
+
+    def get_class_name_from_request_url(self, url) -> str:
+        """
+        Finds the class name by analysing the request url.
 
         :param url: url to analyse
+
+        :type url: str
+        
 
         This function works as follows:
 
@@ -214,10 +268,12 @@ class DefaultObjector(BaseObjector):
             else:
                 raise ValueError("Objector could not find a type, but it should, path: {}".format(">".join(parts)))
 
-        #check value at the end of walking the class map
-        if current_map == None:
+
+        if current_map is None:
             return None #no type conversion
-        elif isinstance(current_map, str):
+        
+        if isinstance(current_map, str):
             return current_map #current map is a specific class name
-        elif isinstance(current_map, dict):
+        
+        if isinstance(current_map, dict):
             return current_map["base"] #more cases are present but we need the base case

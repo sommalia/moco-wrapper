@@ -44,6 +44,12 @@ class TestProjectRecurringExpense(IntegrationTest):
             
             assert isinstance(recexp_list, ListingResponse)
 
+            assert recexp_list.current_page == 1
+            assert recexp_list.is_last is not None
+            assert recexp_list.next_page is not None
+            assert recexp_list.total is not None
+            assert recexp_list.page_size is not None
+
     def test_create(self):
         project = self.get_project()
 
@@ -214,7 +220,7 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert isinstance(recexp_update_delete_finish, JsonResponse)
 
             assert recexp_create_with_finish.data.finish_date == finish_date.isoformat()
-            assert recexp_update_delete_finish.data.finish_date == None
+            assert recexp_update_delete_finish.data.finish_date is None
     
     def test_get(self):
         project = self.get_project()
@@ -294,3 +300,4 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert recexp_delete.response.status_code == 204
 
             assert isinstance(recexp_delete, EmptyResponse)
+            

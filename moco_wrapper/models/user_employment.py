@@ -20,15 +20,18 @@ class UserEmployment(MWRAPBase):
 
     def get(
         self,
-        id: int
+        employment_id: int
         ):
         """
         Retrieve a single employment
 
-        :param id: Id of the employment
+        :param employment_id: Id of the employment
+
+        :type employment_id: int
+
         :returns: Employment object
         """ 
-        return self._moco.get(API_PATH["employment_get"].format(id=id))
+        return self._moco.get(API_PATH["employment_get"].format(id=employment_id))
 
     def getlist(
         self,
@@ -40,7 +43,7 @@ class UserEmployment(MWRAPBase):
         page: int = 1
         ):
         """
-        Retrieve a list of employments
+        Retrieve a list of employments.
 
         :param from_date: Start date
         :param to_date: End date
@@ -48,6 +51,14 @@ class UserEmployment(MWRAPBase):
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc
         :param page: Page number (default 1)
+
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type user_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of employment objects
         """
 
@@ -68,3 +79,4 @@ class UserEmployment(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["employment_getlist"], params=params)
+        

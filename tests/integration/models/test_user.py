@@ -235,3 +235,8 @@ class TestUser(IntegrationTest):
 
             assert isinstance(user_getlist, ListingResponse)
 
+            assert user_getlist.current_page == 1
+            assert user_getlist.is_last is not None
+            assert user_getlist.next_page is not None
+            assert user_getlist.total is not None
+            assert user_getlist.page_size is not None

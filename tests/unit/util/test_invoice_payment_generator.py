@@ -17,3 +17,4 @@ class TestInvoicePaymentGenerator(object):
         assert data["invoice_id"] == invoice_id
         assert data["paid_total"] == paid_total
         assert data["currency"] == currency
+        

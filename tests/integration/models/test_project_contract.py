@@ -63,6 +63,12 @@ class TestProjectContract(IntegrationTest):
             
             assert isinstance(contract_list, ListingResponse)
 
+            assert contract_list.current_page == 1
+            assert contract_list.is_last is not None
+            assert contract_list.next_page is not None
+            assert contract_list.total is not None
+            assert contract_list.page_size is not None
+
     def test_create(self):
         user = self.get_user()
         customer = self.get_customer()
@@ -246,3 +252,4 @@ class TestProjectContract(IntegrationTest):
             assert isinstance(project_create, JsonResponse)
             assert isinstance(contract_create, JsonResponse)
             assert isinstance(contract_delete, EmptyResponse)
+            

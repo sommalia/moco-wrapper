@@ -7,7 +7,7 @@ from enum import Enum
 
 class ContactGender(str, Enum):
     """
-    Enumeration for allowed values that can be supplired for ``gender`` argument in :class:`.Contact.create` and :class:`.Contact.update`.
+    Enumeration for allowed values that can be supplied for the ``gender`` argument in :class:`.Contact.create` and :class:`.Contact.update`.
     
     Example Usage:
 
@@ -64,7 +64,7 @@ class Contact(MWRAPBase):
 
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
-        :param gender: Gender of the contact. For allowed values see :class:`.ContactGender`.
+        :param gender: Gender of the contact
         :param company_id: Id of the company the contact belongs to
         :param title: Job title the contact has
         :param job_position: Name of the job position this contact has
@@ -78,6 +78,24 @@ class Contact(MWRAPBase):
         :param birthday: Birthday date
         :param info: More information about the contact
         :param tags: Array of additional tags
+
+        :type firstname: str
+        :type lastname: str
+        :type gender: :class:`.ContactGender`, str
+        :type company_id: int
+        :type title: str
+        :type job_position: str
+        :type mobile_phone: str
+        :type work_fax: str
+        :type work_phone: str
+        :type work_email: str
+        :type work_address: str
+        :type home_address: str
+        :type home_email: str
+        :type birthday: datetime.date, str
+        :type info: str
+        :type tags: list
+
         :returns: The created contact object
         """
 
@@ -108,11 +126,11 @@ class Contact(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH['contact_create'], data=data);
+        return self._moco.post(API_PATH['contact_create'], data=data)
 
     def update(
         self,
-        id: int,
+        contact_id: int,
         firstname: str = None,
         lastname: str = None,
         gender: ContactGender = None,
@@ -130,9 +148,10 @@ class Contact(MWRAPBase):
         info: str = None,
         tags: list = None
         ):
-        """updates a contact.
+        """
+        Updates a contact.
 
-        :param id: Id of the contact
+        :param contact_id: Id of the contact
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
         :param gender: Gender of the contact. For allowed values see :class:`.ContactGender`.
@@ -149,6 +168,25 @@ class Contact(MWRAPBase):
         :param birthday: Birthday date
         :param info: More information about the contact
         :param tags: Array of additional tags
+
+        :type contact_id: int
+        :type firstname: str
+        :type lastname: str
+        :type gender: :class:`.ContactGender`, str
+        :type company_id: int
+        :type title: str
+        :type job_position: str
+        :type mobile_phone: str
+        :type work_fax: str
+        :type work_phone: str
+        :type work_email: str
+        :type work_address: str
+        :type home_address: str
+        :type home_email: str
+        :type birthday: datetime.date, str
+        :type info: str
+        :type tags: list
+
         :returns: The updated contact object
         """
 
@@ -179,19 +217,22 @@ class Contact(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["contact_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["contact_update"].format(id=contact_id), data=data)
 
     def get(
         self,
-        id: int
+        contact_id: int
         ):
         """
         Retrieve a single contact object
 
-        :param id: Id of the contact
+        :param contact_id: Id of the contact
+
+        :type contact_id: int
+
         :returns: The contact object
         """
-        return self._moco.get(API_PATH["contact_get"].format(id=id))
+        return self._moco.get(API_PATH["contact_get"].format(id=contact_id))
 
     def getlist(
         self,
@@ -207,6 +248,12 @@ class Contact(MWRAPBase):
         :param sort_by: Field to the results by
         :param sort_order: asc or desc
         :param page: Page number (default 1)
+
+        :type tags: list
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of contact objects
         """
         params = {}
@@ -221,4 +268,3 @@ class Contact(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["contact_getlist"], params=params)
-

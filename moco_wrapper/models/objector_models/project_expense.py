@@ -16,3 +16,4 @@ class ProjectExpense(object):
             nk["company"] = c
 
         self.__dict__.update(nk)
+        

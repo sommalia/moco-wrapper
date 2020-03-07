@@ -19,3 +19,4 @@ class User(object):
             del nk["bday"]
 
         self.__dict__.update(nk)
+        

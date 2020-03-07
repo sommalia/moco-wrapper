@@ -23,3 +23,4 @@ class ScheduleAssignment(object):
         **kwargs
     ):
         self.__dict__.update(kwargs)
+        

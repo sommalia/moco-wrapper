@@ -4,3 +4,4 @@ class ProjectRecurringExpense(object):
         **kwargs
     ):
         self.__dict__.update(kwargs)
+        

@@ -82,7 +82,7 @@ class Invoice(MWRAPBase):
         """
         Retrieve a list of invoices.
 
-        :param status: State of the invoice. For allowed values see :class:`.InvoiceStatus`
+        :param status: State of the invoice
         :param date_from: Starting date
         :param date_to: End date
         :param tags: List of tags
@@ -91,6 +91,17 @@ class Invoice(MWRAPBase):
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type status: :class:`.InvoiceStatus`, str
+        :type date_from: datetime.date, str
+        :type date_to: datetime.date, str
+        :type tags: list
+        :type identifier: str
+        :type term: str
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of invoice objects
         """
         params = {}
@@ -130,13 +141,22 @@ class Invoice(MWRAPBase):
         """
         Retrieve a list of locked invoices.
 
-        :param status: State of the invoice. For allowed values see :class:`.InvoiceStatus`. 
+        :param status: State of the invoice
         :param date_from: Start date
         :param date_to: End date
         :param identifier: Identifier string (ex. R1903-003)
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type status: :class:`.InvoiceStatus`, str
+        :type date_from: datetime.date, str
+        :type date_to: datetime.date, str
+        :type identifier: str
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of invoice objects
         """
         params = {}
@@ -161,59 +181,72 @@ class Invoice(MWRAPBase):
 
     def get(
         self,
-        id: int
+        invoice_id: int
         ):
         """
         Retrieve a single invoice.
 
-        :param id: Invoice id
+        :param invoice_id: Invoice id
+
+        :type invoice_id: int
+
         :returns: Single invoice object
         """
-        return self._moco.get(API_PATH["invoice_get"].format(id=id))
+        return self._moco.get(API_PATH["invoice_get"].format(id=invoice_id))
 
     def pdf(
         self,
-        id: int
+        invoice_id: int
         ):
         """
         Retrieve the invoice document as pdf. 
 
-        :param id: Invoice id
+        :param invoice_id: Invoice id
+
+        :type invoice_id: int
+
         :returns: Invoice pdf
         """
-        return self._moco.get(API_PATH["invoice_pdf"].format(id=id))
+        return self._moco.get(API_PATH["invoice_pdf"].format(id=invoice_id))
 
     def timesheet(
         self,
-        id: int
+        invoice_id: int
         ):
         """
         Retrieve the invoice timesheet document as pdf.
 
         Invoices that have timesheets cannot be created with the api and must be created manully by billing unbilled tasks.
 
-        :param id: Invoice id
+        :param invoice_id: Invoice id
+
+        :type invoice_id: int
+
         :return: Invoice timesheet as pdf
         """
-        return self._moco.get(API_PATH["invoice_timesheet"].format(id=id))
+        return self._moco.get(API_PATH["invoice_timesheet"].format(id=invoice_id))
 
     def update_status(
         self,
-        id: int,
+        invoice_id: int,
         status: InvoiceStatus
         ):
         """
         Updates the state of an invoices.
 
-        :param id: Invoice id
-        :param status: New state of the invoice. For allowed values see :class:`.InvoiceStatus`.
+        :param invoice_id: Invoice id
+        :param status: New state of the invoice
+
+        :type invoice_id: int
+        :type status: :class:`.InvoiceStatus`, str
+
         :return: Empty response on success
         """
         data = {
             "status": status
         }
 
-        return self._moco.put(API_PATH["invoice_update_status"].format(id=id), data=data)
+        return self._moco.put(API_PATH["invoice_update_status"].format(id=invoice_id), data=data)
 
     def create(
         self,
@@ -249,15 +282,35 @@ class Invoice(MWRAPBase):
         :param tax: Tax percent (between 0.0 and 100.0)
         :param currency: Currency code (e.g. EUR)
         :param items: Invoice items
-        :param status: State of the invoice. For allowed values see :class:`.InvoiceStatus`, default: "created".
-        :param change_address: Address propagation. For allowed values see :class:`.InvoiceChangeAddress`, default: "invoice".
+        :param status: State of the invoice (default: "created")
+        :param change_address: Address propagation (default: "invoice")
         :param salutation: Salutation text
         :param footer: Footer text
         :param discount: Discount in percent (between 0.0 and 100.0)
         :param cash_discount: Cash discount in percent (between 0.0 and 100.0)
         :param cash_discount_days: How many days is the cash discount valid (ex. 4)
         :param project_id: Id of the project the invoice belongs to
-        :returns: the created invoice
+
+        :type customer_id: int
+        :type recipient_address: str
+        :type created_date: datetime.date, str
+        :type due_date: datetime.date, str
+        :type service_period_from: datetime.date, str
+        :type service_period_to: datetime.date, str
+        :type title: str
+        :type tax: float
+        :type currency: str
+        :type items: list
+        :type status: :class:`.InvoiceStatus`, str
+        :type change_address: :class:`.InvoiceChangeAddress`, str
+        :type salutation: str
+        :type footer: str
+        :type discount: float
+        :type cash_discount: float
+        :type cash_discount_days: float
+        :type project_id: int
+
+        :returns: The created invoice
 
 
         .. note::
@@ -300,10 +353,3 @@ class Invoice(MWRAPBase):
                 data[key] = value
 
         return self._moco.post(API_PATH["invoice_create"], data=data)
-
-
-
-
-
-    
-

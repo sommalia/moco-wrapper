@@ -7,7 +7,7 @@ class EmptyResponse(MWRAPResponse):
 
     def __init__(self, response):
         """
-        class constructor
+        Class constructor
 
         :param response: http response object
         """
@@ -17,8 +17,11 @@ class EmptyResponse(MWRAPResponse):
     def data(self):
         """
         No data in an empty response, returns None
+
+        :returns: ``None``
         """
         return None
 
     def __str__(self):
         return "<EmptyResponse, Status Code: {}>".format(self.response.status_code)
+        

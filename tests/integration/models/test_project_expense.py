@@ -242,6 +242,12 @@ class TestProjectExpense(IntegrationTest):
             
             assert isinstance(ex_list, ListingResponse)
 
+            assert ex_list.current_page == 1
+            assert ex_list.is_last is not None
+            assert ex_list.next_page is not None
+            assert ex_list.total is not None
+            assert ex_list.page_size is not None
+
     def test_getall(self):
         with self.recorder.use_cassette("TestProjectExpense.test_getall"):
             ex_list = self.moco.ProjectExpense.getall(
@@ -252,6 +258,12 @@ class TestProjectExpense(IntegrationTest):
             assert ex_list.response.status_code == 200
             
             assert isinstance(ex_list, ListingResponse)
+
+            assert ex_list.current_page == 1
+            assert ex_list.is_last is not None
+            assert ex_list.next_page is not None
+            assert ex_list.total is not None
+            assert ex_list.page_size is not None
 
     def test_create_bulk(self):
         project = self.get_project()
@@ -283,6 +295,12 @@ class TestProjectExpense(IntegrationTest):
             assert ex_bulk.response.status_code == 200
 
             assert isinstance(ex_bulk, ListingResponse)
+
+            assert ex_bulk.current_page == 1
+            assert ex_bulk.is_last is not None
+            assert ex_bulk.next_page is not None
+            assert ex_bulk.total is not None
+            assert ex_bulk.page_size is not None
 
     def test_disregard_items(self):
         project = self.get_project()
@@ -327,4 +345,9 @@ class TestProjectExpense(IntegrationTest):
             assert isinstance(ex_bulk, ListingResponse)
             assert isinstance(ex_disregard, EmptyResponse)
 
-
+            assert ex_bulk.current_page == 1
+            assert ex_bulk.is_last is not None
+            assert ex_bulk.next_page is not None
+            assert ex_bulk.total is not None
+            assert ex_bulk.page_size is not None
+            

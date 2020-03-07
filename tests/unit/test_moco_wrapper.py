@@ -66,6 +66,9 @@ class TestMocoWrapper(UnitTest):
     def test_session_set(self):
         assert isinstance(self.moco.Session, models.Session)
 
+    def test_project_payment_schedule_set(self):
+        assert isinstance(self.moco.ProjectPaymentSchedule, models.ProjectPaymentSchedule)
+
     def test_wrapper_init(self):
         new_moco = moco.Moco(
             auth={
@@ -119,3 +122,4 @@ class TestMocoWrapper(UnitTest):
         new_moco.clear_impersonation()
         
         assert new_moco._impersonation_user_id is None
+        

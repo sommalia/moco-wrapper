@@ -63,8 +63,6 @@ class FileResponse(MWRAPResponse):
         with open(file_path, 'w+b') as bf:
             bf.write(self._data)
 
-    
-
     def __init__(
         self, 
         response
@@ -81,3 +79,4 @@ class FileResponse(MWRAPResponse):
 
     def __str__(self):
         return "<FileResponse, Status Code: {}, Data: binary_content>".format(self.response.status_code)
+        

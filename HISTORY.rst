@@ -2,6 +2,13 @@
 History
 =======
 
+0.6.0 (2020-03-07)
+
+* Implemented Paging of Listing Models
+* Implemented the creation of fixed price projects
+* Implement Project Payment Schedules for fixed price projects
+* More Documentation and even more code cleanup
+
 0.5.0 (2020-02-29)
 
 * Implement authentication via email and password (note that the class constructor also changed, if you do not want that continue to ues the previus version (0.4.1))

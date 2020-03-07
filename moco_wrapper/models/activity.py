@@ -75,6 +75,7 @@ class Activity(MWRAPBase):
         to_date: datetime.date,
         user_id: int = None,
         project_id: int = None,
+        task_id: int = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1,
@@ -82,15 +83,29 @@ class Activity(MWRAPBase):
         """
         Get a list of activity objects.
 
-        :param from_date: start date
-        :param to_date: end date
-        :param user_id: user id
-        :param project_id: project id the activity belongs to
-        :param sort_by: field to sort results by
+        :param from_date: Start date
+        :param to_date: End date
+        :param user_id: User id of the creator
+        :param project_id: Id of the project the activity belongs to
+        :param task_id: Id of the task the activity belongs t
+        :param sort_by: Field to sort results by
         :param sort_order: asc or desc
-        :param page: page number (default 1)
-        :returns: list of activities
+        :param page: Page number (default 1)
+
+        :type from_date: datetime.date, str
+        :type to_date: datetime.date, str
+        :type user_id: int
+        :type project_id: int
+        :type task_id: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
+        :returns: List of activities
         """
+
+        if task_id is not None and project_id is None:
+            raise ValueError("If task_id is set, project id must also be set")
 
         params = {}
 
@@ -104,9 +119,11 @@ class Activity(MWRAPBase):
         else:
             params["to"] = to_date
 
+
         for key, value in (
             ("user_id", user_id),
             ("project_id", project_id),
+            ("task_id", task_id),
             ("page", page)
         ):
             if value is not None:
@@ -119,16 +136,19 @@ class Activity(MWRAPBase):
 
     def get(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Get a single activity.
 
-        :param id: id of the activity:
-        :returns: the activity object (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :param activity_id: Id of the activity:
+
+        :type activity_id: int
+
+        :returns: The activity object
         """
 
-        return self._moco.get(API_PATH["activity_get"].format(id=id))
+        return self._moco.get(API_PATH["activity_get"].format(id=activity_id))
 
     def create(
         self,
@@ -144,7 +164,7 @@ class Activity(MWRAPBase):
         remote_url: str = None
         ):
         """
-        Update an activity.
+        Create an activity.
 
         :param activity_date: date of the activity
         :param project_id: id of the project this activity belongs to
@@ -153,9 +173,21 @@ class Activity(MWRAPBase):
         :param description: activity description text
         :param billable: true/false (if this activity is billable) (select none if billing is dependent on project configuration)
         :param tag: a tag string
-        :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
+        :param remote_service: if this task was created by a remote service, its name will be here.
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
+
+        :type activity_date: datetime.date, str
+        :type project_id: int
+        :type task_id: int
+        :type hours: float
+        :type description: str
+        :type billable: bool
+        :type tag: str
+        :type remote_service: :class:`.ActivityRemoteService`, str
+        :type remote_id: str
+        :type remote_url: str
+
         :returns: the created activity
         """
 
@@ -185,7 +217,7 @@ class Activity(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        activity_id: int,
         activity_date: datetime.date = None,
         project_id: int = None,
         task_id: int = None,
@@ -200,7 +232,7 @@ class Activity(MWRAPBase):
         """
         Create an activity.
 
-        :param id: id of the activity
+        :param activity_id: id of the activity
         :param activity_date: date of the activity
         :param project_id: id of the project this activity belongs to
         :param task_id: id of the task this activity belongs to (see project tasks)
@@ -208,9 +240,22 @@ class Activity(MWRAPBase):
         :param description: activity description text
         :param billable: true/false (if this activity is billable) (select none if billing is dependent on project configuration)
         :param tag: a tag string
-        :param remote_service: if this task was created by a remote service, its name will be here. For allowed values see :class:`.ActivityRemoteService`
+        :param remote_service: if this task was created by a remote service, its name will be here
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
+
+        :type activity_id: int
+        :type activity_date: datetime.date, str
+        :type project_id: int
+        :type task_id: int
+        :type hours: float
+        :type description: str
+        :type billable: bool
+        :type tag: str
+        :type remote_service: :class:`.ActivityRemoteService`, str
+        :type remote_id: str
+        :type remote_url: str
+
         :returns: the updated activity
         """
 
@@ -233,48 +278,57 @@ class Activity(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["activity_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["activity_update"].format(id=activity_id), data=data)
 
     def start_timer(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Start a timer on the specified activity.
 
         The timer can only be started for activities on the current day.
 
-        :param id: id of the activity
+        :param activity_id: id of the activity
+
+        :type activity_id: int
+
         :returns: the activity the timer was started for
         """
 
-        return self._moco.patch(API_PATH["activity_start_timer"].format(id=id))
+        return self._moco.patch(API_PATH["activity_start_timer"].format(id=activity_id))
 
     def stop_timer(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Stop a timer on the specified activity.
 
-        :param id: id of the activity
-        :returns: the activity the timer was stopped for (in default configuration :class:`moco_wrapper.util.response.JsonResponse`)
+        :param activity_id: Id of the activity
+
+        :type activity_id: int
+
+        :returns: the activity the timer was stopped for
         """
 
-        return self._moco.patch(API_PATH["activity_stop_timer"].format(id=id))
+        return self._moco.patch(API_PATH["activity_stop_timer"].format(id=activity_id))
 
     def delete(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Delete an activity.
 
-        :param id: id of the activity to delete
-        :returns: empty response on success (in default configuration :class:`moco_wrapper.util.response.EmptyResponse`)
+        :param activity_id: Id of the activity to delete
+
+        :type activity_id: int
+
+        :returns: empty response on success
         """
 
-        return self._moco.delete(API_PATH["activity_delete"].format(id=id))
+        return self._moco.delete(API_PATH["activity_delete"].format(id=activity_id))
 
     def disregard(
         self,
@@ -286,11 +340,17 @@ class Activity(MWRAPBase):
         """
         Disregard activities.
 
-        :param reason: reason text for disregarding these activities
-        :param activity_ids: list of activity ids to disregard
-        :param company_id: company id these activities belong to
-        :param project_id: project id these activities belong to  
-        :returns: list with the activity ids that were disregarded (in default configuration :class:`moco_wrapper.util.response.ListingResponse`)
+        :param reason: Reason text for disregarding these activities
+        :param activity_ids: List of activity ids to disregard
+        :param company_id: Company id these activities belong to
+        :param project_id: Project id these activities belong to  
+
+        :type reason: str
+        :type activity_ids: list
+        :type company_id: int
+        :type project_id: int
+
+        :returns: List with the activity ids that were disregarded
         """
 
         data = {

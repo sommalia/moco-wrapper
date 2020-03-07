@@ -42,7 +42,7 @@ class User(MWRAPBase):
         :param lastname: Last name of the user
         :param email: Email address
         :param password: Password to use when creating the user
-        :param unit_it: Id of the unit/team the user belongs to
+        :param unit_id: Id of the unit/team the user belongs to
         :param active: If the user should be activated or not
         :param external: If the user is an employee or an external employee (his user id will now show up in reports etc.)
         :param language: de, de-AT, de-CH, en, it or fr
@@ -52,6 +52,22 @@ class User(MWRAPBase):
         :param birthday: Birthday date
         :param custom_properties: Custom fields to add to the user
         :param info: Additional information about the user
+
+        :type firstname: str
+        :type lastname: str
+        :type email: str
+        :type password: str
+        :type unit_id: int
+        :type active: bool
+        :type external: bool
+        :type language: str
+        :type mobile_phone: str
+        :type work_phone: str
+        :type home_address: str
+        :type birthday: datetime.date, str
+        :type custom_properties: dict
+        :type info: str
+
         :returns: The created user object
         """
 
@@ -86,7 +102,7 @@ class User(MWRAPBase):
 
     def update(
         self,
-        id,
+        user_id,
         firstname: str = None,
         lastname: str = None,
         email: str = None,
@@ -105,12 +121,12 @@ class User(MWRAPBase):
         """
         Updates an existing user.
 
-        :param id: the Id of the user
+        :param user_id: the Id of the user
         :param firstname: First name of the user
         :param lastname: Last name of the user
         :param email: Email address
         :param password: Password to use when creating the user
-        :param unit_it: Id of the unit/team the user belongs to
+        :param unit_id: Id of the unit/team the user belongs to
         :param active: If the user should be activated or not
         :param external: If the user is an employee or an external employee (his user id will now show up in reports etc.)
         :param language: de, de-AT, de-CH, en, it or fr
@@ -120,6 +136,23 @@ class User(MWRAPBase):
         :param birthday: Birthday date
         :param custom_properties: Custom fields to add to the user
         :param info: Additional information abotu the user
+
+        :type user_id: int
+        :type firstname: str
+        :type lastname: str
+        :type email: str
+        :type password: str
+        :type unit_id: int
+        :type active: bool
+        :type external: bool
+        :type language: str
+        :type mobile_phone: str
+        :type work_phone: str
+        :type home_address: str
+        :type birthday: datetime.date, str
+        :type custom_properties: dict
+        :type info: str
+
         :returns: The updated user object
 
         """
@@ -147,32 +180,38 @@ class User(MWRAPBase):
                     data[key] = value
 
         #check if length > 0 TODO
-        return self._moco.put(API_PATH["user_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["user_update"].format(id=user_id), data=data)
 
     def delete(
         self,
-        id: int
+        user_id: int
         ):
         """
         Deletes an existing user.
 
-        :param id: Id of the user to delete
+        :param user_id: Id of the user to delete
+
+        :type user_id: int
+
         :returns: Empty response on success
         """
 
-        return self._moco.delete(API_PATH["user_delete"].format(id=id))
+        return self._moco.delete(API_PATH["user_delete"].format(id=user_id))
 
     def get(
         self,
-        id: int
+        user_id: int
         ):
         """
         Get a single user.
 
-        :param id: Id of the user
+        :param user_id: Id of the user
+
+        :type user_id: int
+
         :returns: Single user object
         """
-        return self._moco.get(API_PATH["user_get"].format(id=id))
+        return self._moco.get(API_PATH["user_get"].format(id=user_id))
 
     def getlist(
         self,
@@ -188,6 +227,12 @@ class User(MWRAPBase):
         :param sort_by: Sort by key
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
+
+        :type include_archived: bool
+        :type sort_by: str
+        :type sort_order: str
+        :type page: int
+
         :returns: List of users
         """
                
@@ -203,3 +248,4 @@ class User(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["user_getlist"], params=params)
+        

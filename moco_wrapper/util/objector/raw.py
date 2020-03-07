@@ -13,3 +13,4 @@ class RawObjector(BaseObjector):
         :returns: ``requestor_response`` as it is
         """
         return requestor_response
+        

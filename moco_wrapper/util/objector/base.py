@@ -7,3 +7,4 @@ class BaseObjector(object):
 
     def convert(self, requestor_response):
         pass
+    

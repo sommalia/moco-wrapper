@@ -4,3 +4,4 @@ class Session(object):
         **kwargs 
     ):
         self.__dict__.update(kwargs)
+        

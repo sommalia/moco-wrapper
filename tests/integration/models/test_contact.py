@@ -255,3 +255,10 @@ class TestContact(IntegrationTest):
             assert contact_getlist.response.status_code == 200
 
             assert isinstance(contact_getlist, ListingResponse)
+
+            assert contact_getlist.current_page == 1
+            assert contact_getlist.is_last is not None
+            assert contact_getlist.next_page is not None
+            assert contact_getlist.total is not None
+            assert contact_getlist.page_size is not None
+            

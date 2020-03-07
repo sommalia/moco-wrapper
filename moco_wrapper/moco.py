@@ -1,6 +1,6 @@
 from moco_wrapper.const import API_PATH
 from moco_wrapper import models, util, exceptions
-from moco_wrapper.util import requestor, objector
+from moco_wrapper.util import requestor, objector, response
 
 from requests import get, post, put, delete
 
@@ -13,7 +13,9 @@ class Moco(object):
     :param requestor: requestor object (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
     :param impersonate_user_id: user id the client should impersonate (default: None, see https://github.com/hundertzehn/mocoapp-api-docs#impersonation)
 
-    
+    :type auth: dict
+    :type impersonate_user_id: int
+
     .. code-block:: python
 
         import moco_wrapper
@@ -76,6 +78,7 @@ class Moco(object):
         self.ProjectExpense = models.ProjectExpense(self)
         self.ProjectTask = models.ProjectTask(self)
         self.ProjectRecurringExpense = models.ProjectRecurringExpense(self)
+        self.ProjectPaymentSchedule = models.ProjectPaymentSchedule(self)
 
         self.Deal = models.Deal(self)
         self.DealCategory = models.DealCategory(self)
@@ -91,11 +94,9 @@ class Moco(object):
 
         #set default values if not already set
         if self._requestor is None:
-            #default requestor is one that will fire 1 request every second
             self._requestor = util.requestor.DefaultRequestor()
 
         if self._objector is None:
-            #default: no conversion on reponse objects
             self._objector = util.objector.DefaultObjector()
 
         self._impersonation_user_id = impersonate_user_id
@@ -128,30 +129,31 @@ class Moco(object):
         """
         
         full_path = self.full_domain + path
-        response = None
+        requestor_response = None
 
         if not bypass_auth:
             self.authenticate()
 
         if method == "GET":
-            response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
         elif method == "PUT":
-            response = self._requestor.put(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.put(full_path, params=params, data=data, headers=self.headers)
         elif method == "POST":
-            response = self._requestor.post(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.post(full_path, params=params, data=data, headers=self.headers)
         elif method == "DELETE":
-            response = self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
         elif method == "PATCH":
-            response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
 
         #push the response to the current objector
-        result = self._objector.convert(response)
+        objector_result = self._objector.convert(requestor_response)
 
         #if the result is an exception we raise it, otherwise return it
-        if isinstance(result, exceptions.MocoException):
-            raise result
-        else:
-            return result
+        if isinstance(objector_result, response.ErrorResponse) and isinstance(objector_result.data, exceptions.MocoException):
+            raise objector_result.data
+        
+        #return the objector result by default
+        return objector_result
 
 
     def get(self, path, params=None, data=None, **kwargs):
@@ -170,7 +172,10 @@ class Moco(object):
         return self.request("PATCH", path, params=params, data=data, **kwargs)
 
 
-    def impersonate(self, user_id):
+    def impersonate(
+        self, 
+        user_id: int
+        ):
         """
         Impersontates the user with the supplied user id
 
@@ -210,7 +215,7 @@ class Moco(object):
         return headers
 
     @property
-    def full_domain(self):
+    def full_domain(self) -> str:
         """
         Returns the full url of the moco api
 
@@ -260,7 +265,7 @@ class Moco(object):
         This method gets invoked automaticly, on the very first request you send against the api.
         """
         if self.api_key is not None and self.domain is not None:
-            return; # already authenticated
+            return # already authenticated
 
         if all(x in self.auth.keys() for x in ['api_key', 'domain']):
             #authentication with api key
@@ -277,8 +282,5 @@ class Moco(object):
             self.api_key = session.api_key
             del self.auth
         else:
+            #raise error authentication information is very likely invlid
             raise ValueError("Invalid authentication information given")
-
-
-            
-    

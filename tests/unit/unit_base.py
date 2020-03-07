@@ -1,4 +1,6 @@
 import pytest
+import string
+import random
 
 from moco_wrapper import moco
 from moco_wrapper.util.requestor import RawRequestor
@@ -26,3 +28,9 @@ class UnitTest(object):
     @property
     def requestor(self):
         return self._moco._requestor
+
+    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
+        """
+        create a random string
+        """
+        return ''.join(random.choice(chars) for _ in range(size))
