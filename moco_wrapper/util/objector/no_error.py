@@ -36,5 +36,7 @@ class NoErrorObjector(DefaultObjector):
         """
         if isinstance(requestor_response, (JsonResponse, ListingResponse) ):
             return super(NoErrorObjector, self).convert(requestor_response)
-        else:
-            return requestor_response
+        
+
+        return requestor_response
+        

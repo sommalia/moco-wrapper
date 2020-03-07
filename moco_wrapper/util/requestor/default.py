@@ -105,12 +105,15 @@ class DefaultRequestor(BaseRequestor):
                     return FileResponse(response)
             
 
-                #json response is the default
+                #json response handling is the default
                 response_content = response.json()
-                if isinstance(response_content, list):
+
+                #if the response can be converted into a list return it 
+                if isinstance(response_content, list): 
                     return ListingResponse(response)
-                else:
-                    return JsonResponse(response)
+
+                #return json response as default
+                return JsonResponse(response)
 
             elif response.status_code in self.ERROR_STATUS_CODES:
                 error_response = ErrorResponse(response)
@@ -129,4 +132,3 @@ class DefaultRequestor(BaseRequestor):
 
             #error is not recoverable
             return response_obj
-            

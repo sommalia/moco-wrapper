@@ -27,12 +27,8 @@ class ErrorResponse(MWRAPResponse):
             
             print(project_get)
         """
-
-        if self.response.status_code == 429: 
-            #429 is the status code for too many requests, any other error status code means the request (or the user) is at fault
-            return True
-        else:
-            return False
+        #429 is the status code for too many requests, any other error status code means the request (or the user) is at fault
+        return self.response.status_code == 429 
 
     @property
     def data(self):

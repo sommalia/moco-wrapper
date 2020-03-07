@@ -268,10 +268,13 @@ class DefaultObjector(BaseObjector):
             else:
                 raise ValueError("Objector could not find a type, but it should, path: {}".format(">".join(parts)))
 
+
+        if current_map is None:
+            return None #no type conversion
         
         if isinstance(current_map, str):
             return current_map #current map is a specific class name
-        elif isinstance(current_map, dict):
+        
+        if isinstance(current_map, dict):
             return current_map["base"] #more cases are present but we need the base case
-        else:
-            return None #no type conversion
+

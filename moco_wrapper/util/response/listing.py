@@ -119,10 +119,12 @@ class ListingResponse(MWRAPResponse):
         :type: int  
         """
         last_page = int(self.total / self.page_size)
-        if self.total % self.page_size == 0:
+        if self.total % self.page_size == 0: 
+            #division is even, already on last page
             return last_page
-        else:
-            return last_page + 1
+
+        #result has rest, so there is another page
+        return last_page + 1
 
     @property
     def data(self) -> list:

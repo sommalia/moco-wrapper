@@ -79,20 +79,23 @@ class NoRetryRequestor(BaseRequestor):
                 if response.status_code == 204:
                     #no content but success
                     return EmptyResponse(response)
-                elif response.status_code == 200 and response.text.strip() == "":
+                
+                if response.status_code == 200 and response.text.strip() == "":
                     #touch endpoint returns 200 with no content
                     return EmptyResponse(response)
-                else:
-                    if response.headers["Content-Type"] == "application/pdf":
-                        return FileResponse(response)
-                    else:
-                        #print(response.content)
-                        #json response is the default
-                        response_content = response.json()
-                        if isinstance(response_content, list):
-                            return ListingResponse(response)
-                        else:
-                            return JsonResponse(response)
+                
+                if response.headers["Content-Type"] == "application/pdf":
+                    return FileResponse(response)
+                
+                #json response handling is the default
+                response_content = response.json()
+                #if response is a list, return listing response
+                if isinstance(response_content, list):
+                    return ListingResponse(response)
+                
+                #return single json response
+                return JsonResponse(response)
+                
             elif response.status_code in self.ERROR_STATUS_CODES:
                 error_response = ErrorResponse(response)
                 return error_response
