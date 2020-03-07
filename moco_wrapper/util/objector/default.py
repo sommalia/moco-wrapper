@@ -243,7 +243,7 @@ class DefaultObjector(BaseObjector):
                 raise ValueError("Objector could not find a type, but it should, path: {}".format(">".join(parts)))
 
         #check value at the end of walking the class map
-        if current_map == None:
+        if current_map is None:
             return None #no type conversion
         elif isinstance(current_map, str):
             return current_map #current map is a specific class name

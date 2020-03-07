@@ -214,7 +214,7 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert isinstance(recexp_update_delete_finish, JsonResponse)
 
             assert recexp_create_with_finish.data.finish_date == finish_date.isoformat()
-            assert recexp_update_delete_finish.data.finish_date == None
+            assert recexp_update_delete_finish.data.finish_date is None
     
     def test_get(self):
         project = self.get_project()

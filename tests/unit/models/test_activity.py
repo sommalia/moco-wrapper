@@ -78,8 +78,8 @@ class TestActivity(UnitTest):
         activity_id = 21
         response = self.moco.Activity.get(activity_id)
 
-        assert response["params"] == None
-        assert response["data"] == None
+        assert response["params"] is None
+        assert response["data"] is None
         assert response["method"] == "GET"
 
     def test_update(self):
