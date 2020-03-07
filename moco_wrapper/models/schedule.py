@@ -187,7 +187,8 @@ class Schedule(MWRAPBase):
 
         if absence_code is not None and project_id is not None:
             raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-        elif absence_code is None and project_id is None:
+        
+        if absence_code is None and project_id is None:
             raise ValueError("Either abscence_code or project_id must be specified")
 
         data = {
@@ -254,7 +255,8 @@ class Schedule(MWRAPBase):
         
         if absence_code is not None and project_id is not None:
             raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-        elif absence_code is None and project_id is None:
+        
+        if absence_code is None and project_id is None:
             raise ValueError("either abscence_code or project_id must be specified")
 
         data = {}

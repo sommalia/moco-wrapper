@@ -91,8 +91,8 @@ class DefaultRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
+            #check if the response has a success status code
             if response.status_code in self.SUCCESS_STATUS_CODES:
-
                 if response.status_code == 204:
                     #no content but success
                     return EmptyResponse(response)
@@ -115,10 +115,11 @@ class DefaultRequestor(BaseRequestor):
                 #return json response as default
                 return JsonResponse(response)
 
-            elif response.status_code in self.ERROR_STATUS_CODES:
-                error_response = ErrorResponse(response)
+            #check if the response has an error status code
+            if response.status_code in self.ERROR_STATUS_CODES:
+                response_obj = ErrorResponse(response)
 
-                if error_response.is_recoverable:
+                if response_obj.is_recoverable:
                     return self.request(method, path, params=params, data=data, delay_ms=self.delay_milliseconds_on_error, **kwargs)
                 
                 #error is not recoverable

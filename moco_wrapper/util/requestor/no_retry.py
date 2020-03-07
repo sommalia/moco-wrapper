@@ -73,7 +73,7 @@ class NoRetryRequestor(BaseRequestor):
 
         #convert the reponse into an MWRAPResponse object
         try:
-
+            #check if the reponse has a success status code
             if response.status_code in self.SUCCESS_STATUS_CODES:
                 #filter by content type what type of response this is 
                 if response.status_code == 204:
@@ -95,8 +95,9 @@ class NoRetryRequestor(BaseRequestor):
                 
                 #return single json response
                 return JsonResponse(response)
-                
-            elif response.status_code in self.ERROR_STATUS_CODES:
+
+            #check if the response has an error status code 
+            if response.status_code in self.ERROR_STATUS_CODES:
                 error_response = ErrorResponse(response)
                 return error_response
 
