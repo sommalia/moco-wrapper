@@ -189,8 +189,9 @@ class DefaultObjector(BaseObjector):
         """
         if status_code in self.error_class_map.keys():
             return self.error_class_map[status_code]
-        else:
-            raise ValueError("Objector could not find an error type, but it should, status_code: {}".format(status_code))
+
+        #raise error if status code was not found
+        raise ValueError("Objector could not find an error type, but it should, status_code: {}".format(status_code))
         
 
     def get_class_name_from_request_url(self, url) -> str:
@@ -267,10 +268,10 @@ class DefaultObjector(BaseObjector):
             else:
                 raise ValueError("Objector could not find a type, but it should, path: {}".format(">".join(parts)))
 
-        #check value at the end of walking the class map
-        if current_map is None:
-            return None #no type conversion
-        elif isinstance(current_map, str):
+        
+        if isinstance(current_map, str):
             return current_map #current map is a specific class name
         elif isinstance(current_map, dict):
             return current_map["base"] #more cases are present but we need the base case
+        else:
+            return None #no type conversion

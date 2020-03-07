@@ -126,7 +126,7 @@ class Contact(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH['contact_create'], data=data);
+        return self._moco.post(API_PATH['contact_create'], data=data)
 
     def update(
         self,

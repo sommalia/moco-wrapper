@@ -92,36 +92,41 @@ class DefaultRequestor(BaseRequestor):
         #convert the reponse into an MWRAPResponse object
         try:
             if response.status_code in self.SUCCESS_STATUS_CODES:
-                #filter by content type what type of response this is 
+
                 if response.status_code == 204:
                     #no content but success
                     return EmptyResponse(response)
-                elif response.status_code == 200 and response.text.strip() == "":
+                
+                if response.status_code == 200 and response.text.strip() == "":
                     #touch endpoint returns 200 with no content
                     return EmptyResponse(response)
+                
+                if response.headers["Content-Type"] == "application/pdf":
+                    return FileResponse(response)
+            
+
+                #json response is the default
+                response_content = response.json()
+                if isinstance(response_content, list):
+                    return ListingResponse(response)
                 else:
-                    if response.headers["Content-Type"] == "application/pdf":
-                        return FileResponse(response)
-                    else:
-                        #json response is the default
-                        response_content = response.json()
-                        if isinstance(response_content, list):
-                            return ListingResponse(response)
-                        else:
-                            return JsonResponse(response)
+                    return JsonResponse(response)
 
             elif response.status_code in self.ERROR_STATUS_CODES:
                 error_response = ErrorResponse(response)
 
                 if error_response.is_recoverable:
                     return self.request(method, path, params=params, data=data, delay_ms=self.delay_milliseconds_on_error, **kwargs)
-                else:
-                    return error_response
+                
+                #error is not recoverable
+                return response_obj
 
         except ValueError as ex:
             response_obj = ErrorResponse(response)
             if response_obj.is_recoverable:
                 #error is recoverable, try the ressource again
                 return self.request(method, path,  params=params, data=data, delay_ms=delay_milliseconds_on_error, **kwargs)
-            else:
-                return response_obj
+
+            #error is not recoverable
+            return response_obj
+            

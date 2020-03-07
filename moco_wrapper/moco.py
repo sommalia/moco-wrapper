@@ -264,7 +264,7 @@ class Moco(object):
         This method gets invoked automaticly, on the very first request you send against the api.
         """
         if self.api_key is not None and self.domain is not None:
-            return; # already authenticated
+            return # already authenticated
 
         if all(x in self.auth.keys() for x in ['api_key', 'domain']):
             #authentication with api key

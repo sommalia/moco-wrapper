@@ -210,7 +210,3 @@ class ProjectPaymentSchedule(MWRAPBase):
 
         return self._moco.delete(API_PATH["project_payment_schedule_delete"].format(project_id=project_id, schedule_id=schedule_id))
     
-
-
-
-    
