@@ -136,19 +136,19 @@ class Activity(MWRAPBase):
 
     def get(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Get a single activity.
 
-        :param id: Id of the activity:
+        :param activity_id: Id of the activity:
 
-        :type id: int
+        :type activity_id: int
 
         :returns: The activity object
         """
 
-        return self._moco.get(API_PATH["activity_get"].format(id=id))
+        return self._moco.get(API_PATH["activity_get"].format(id=activity_id))
 
     def create(
         self,
@@ -217,7 +217,7 @@ class Activity(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        activity_id: int,
         activity_date: datetime.date = None,
         project_id: int = None,
         task_id: int = None,
@@ -232,7 +232,7 @@ class Activity(MWRAPBase):
         """
         Create an activity.
 
-        :param id: id of the activity
+        :param activity_id: id of the activity
         :param activity_date: date of the activity
         :param project_id: id of the project this activity belongs to
         :param task_id: id of the task this activity belongs to (see project tasks)
@@ -244,7 +244,7 @@ class Activity(MWRAPBase):
         :param remote_id: id of the activity in the remote_service
         :param remote_url: address of the remote service
 
-        :type id: int
+        :type activity_id: int
         :type activity_date: datetime.date, str
         :type project_id: int
         :type task_id: int
@@ -278,57 +278,57 @@ class Activity(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["activity_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["activity_update"].format(id=activity_id), data=data)
 
     def start_timer(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Start a timer on the specified activity.
 
         The timer can only be started for activities on the current day.
 
-        :param id: id of the activity
+        :param activity_id: id of the activity
 
-        :type id: int
+        :type activity_id: int
 
         :returns: the activity the timer was started for
         """
 
-        return self._moco.patch(API_PATH["activity_start_timer"].format(id=id))
+        return self._moco.patch(API_PATH["activity_start_timer"].format(id=activity_id))
 
     def stop_timer(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Stop a timer on the specified activity.
 
-        :param id: Id of the activity
+        :param activity_id: Id of the activity
 
-        :type id: int
+        :type activity_id: int
 
         :returns: the activity the timer was stopped for
         """
 
-        return self._moco.patch(API_PATH["activity_stop_timer"].format(id=id))
+        return self._moco.patch(API_PATH["activity_stop_timer"].format(id=activity_id))
 
     def delete(
         self,
-        id: int
+        activity_id: int
         ):
         """
         Delete an activity.
 
-        :param id: Id of the activity to delete
+        :param activity_id: Id of the activity to delete
 
-        :type id: int
+        :type activity_id: int
 
         :returns: empty response on success
         """
 
-        return self._moco.delete(API_PATH["activity_delete"].format(id=id))
+        return self._moco.delete(API_PATH["activity_delete"].format(id=activity_id))
 
     def disregard(
         self,

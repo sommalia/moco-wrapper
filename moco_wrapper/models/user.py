@@ -102,7 +102,7 @@ class User(MWRAPBase):
 
     def update(
         self,
-        id,
+        user_id,
         firstname: str = None,
         lastname: str = None,
         email: str = None,
@@ -121,7 +121,7 @@ class User(MWRAPBase):
         """
         Updates an existing user.
 
-        :param id: the Id of the user
+        :param user_id: the Id of the user
         :param firstname: First name of the user
         :param lastname: Last name of the user
         :param email: Email address
@@ -137,7 +137,7 @@ class User(MWRAPBase):
         :param custom_properties: Custom fields to add to the user
         :param info: Additional information abotu the user
 
-        :type id: int
+        :type user_id: int
         :type firstname: str
         :type lastname: str
         :type email: str
@@ -180,38 +180,38 @@ class User(MWRAPBase):
                     data[key] = value
 
         #check if length > 0 TODO
-        return self._moco.put(API_PATH["user_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["user_update"].format(id=user_id), data=data)
 
     def delete(
         self,
-        id: int
+        user_id: int
         ):
         """
         Deletes an existing user.
 
-        :param id: Id of the user to delete
+        :param user_id: Id of the user to delete
 
-        :type id: int
+        :type user_id: int
 
         :returns: Empty response on success
         """
 
-        return self._moco.delete(API_PATH["user_delete"].format(id=id))
+        return self._moco.delete(API_PATH["user_delete"].format(id=user_id))
 
     def get(
         self,
-        id: int
+        user_id: int
         ):
         """
         Get a single user.
 
-        :param id: Id of the user
+        :param user_id: Id of the user
 
-        :type id: int
+        :type user_id: int
 
         :returns: Single user object
         """
-        return self._moco.get(API_PATH["user_get"].format(id=id))
+        return self._moco.get(API_PATH["user_get"].format(id=user_id))
 
     def getlist(
         self,

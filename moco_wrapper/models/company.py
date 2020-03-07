@@ -163,7 +163,7 @@ class Company(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        comany_id: int,
         company_type: CompanyType = None,
         name: str = None,
         website: str = None,
@@ -186,7 +186,7 @@ class Company(MWRAPBase):
         """
         Update a company.
 
-        :param id: Id of the company
+        :param comany_id: Id of the company
         :param company_type: Type of the company to modify
         :param name: Name of the company
         :param website: Url of the companies website
@@ -205,7 +205,7 @@ class Company(MWRAPBase):
         :param vat_identifier: vat identifier for eu companies (only supplier and customer)
         :param iban: iban number (only supplier)
 
-        :type id: int
+        :type comany_id: int
         :type name: str
         :type company_type: :class:`.CompanyType`, str
         :type website: str
@@ -254,22 +254,22 @@ class Company(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["company_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["company_update"].format(id=comany_id), data=data)
 
     def get(
         self, 
-        id: int
+        comany_id: int
         ):
         """
         Get a single company.
 
-        :param id: Id of the company
+        :param comany_id: Id of the company
 
-        :type id: int
+        :type comany_id: int
 
         :returns: Single company object
         """
-        return self._moco.get(API_PATH["company_get"].format(id=id))
+        return self._moco.get(API_PATH["company_get"].format(id=comany_id))
 
     def getlist(
         self,

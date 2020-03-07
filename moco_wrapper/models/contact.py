@@ -130,7 +130,7 @@ class Contact(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        contact_id: int,
         firstname: str = None,
         lastname: str = None,
         gender: ContactGender = None,
@@ -151,7 +151,7 @@ class Contact(MWRAPBase):
         """
         Updates a contact.
 
-        :param id: Id of the contact
+        :param contact_id: Id of the contact
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
         :param gender: Gender of the contact. For allowed values see :class:`.ContactGender`.
@@ -169,7 +169,7 @@ class Contact(MWRAPBase):
         :param info: More information about the contact
         :param tags: Array of additional tags
 
-        :type id: int
+        :type contact_id: int
         :type firstname: str
         :type lastname: str
         :type gender: :class:`.ContactGender`, str
@@ -217,22 +217,22 @@ class Contact(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["contact_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["contact_update"].format(id=contact_id), data=data)
 
     def get(
         self,
-        id: int
+        contact_id: int
         ):
         """
         Retrieve a single contact object
 
-        :param id: Id of the contact
+        :param contact_id: Id of the contact
 
-        :type id: int
+        :type contact_id: int
 
         :returns: The contact object
         """
-        return self._moco.get(API_PATH["contact_get"].format(id=id))
+        return self._moco.get(API_PATH["contact_get"].format(id=contact_id))
 
     def getlist(
         self,

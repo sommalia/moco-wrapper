@@ -112,16 +112,16 @@ class Comment(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        comment_id: int,
         text: str
         ):
         """
         Update a comment.
 
-        :param id: The id of the comment to update
+        :param comment_id: The id of the comment to update
         :param text: Comment text
 
-        :type id: int
+        :type comment_id: int
         :type text: str
 
         :returns: The created comment
@@ -130,38 +130,38 @@ class Comment(MWRAPBase):
             "text" : text,  
         }
 
-        return self._moco.put(API_PATH["comment_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["comment_update"].format(id=comment_id), data=data)
 
     def delete(
         self,
-        id: int,
+        comment_id: int,
         ):
         """
         Delete a comment.
 
-        :param id: Id of the comment to delete
+        :param comment_id: Id of the comment to delete
 
-        :type id: int
+        :type comment_id: int
 
         :returns: Empty response on success
         """
 
-        return self._moco.delete(API_PATH["comment_delete"].format(id=id))
+        return self._moco.delete(API_PATH["comment_delete"].format(id=comment_id))
 
     def get(
         self,
-        id: int
+        comment_id: int
         ):
         """
         Retrieve a single comment.
 
-        :param id: Id of the comment
+        :param comment_id: Id of the comment
 
-        :type id: int
+        :type comment_id: int
 
         :returns: Single comment
         """
-        return self._moco.get(API_PATH["comment_get"].format(id=id))
+        return self._moco.get(API_PATH["comment_get"].format(id=comment_id))
 
     def getlist(
         self,

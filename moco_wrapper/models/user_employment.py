@@ -20,18 +20,18 @@ class UserEmployment(MWRAPBase):
 
     def get(
         self,
-        id: int
+        employment_id: int
         ):
         """
         Retrieve a single employment
 
-        :param id: Id of the employment
+        :param employment_id: Id of the employment
 
-        :type id: int
+        :type employment_id: int
 
         :returns: Employment object
         """ 
-        return self._moco.get(API_PATH["employment_get"].format(id=id))
+        return self._moco.get(API_PATH["employment_get"].format(id=employment_id))
 
     def getlist(
         self,

@@ -67,18 +67,18 @@ class InvoicePayment(MWRAPBase):
 
     def get(
         self,
-        id: int
+        payment_id: int
         ):
         """
         Retrieve a single invoice payment.
 
-        :param id: Invoice payment id
+        :param payment_id: Invoice payment id
 
-        :type id: int
+        :type payment_id: int
 
         :returns: Single invoice payment object
         """
-        return self._moco.get(API_PATH["invoice_payment_get"].format(id=id))
+        return self._moco.get(API_PATH["invoice_payment_get"].format(id=payment_id))
 
     def create(
         self,
@@ -155,7 +155,7 @@ class InvoicePayment(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        payment_id: int,
         payment_date: datetime.date = None,
         paid_total: float = None,
         currency: str= None
@@ -163,12 +163,12 @@ class InvoicePayment(MWRAPBase):
         """
         Updates an existing invoice payment.
 
-        :param id: Id of the payment to update
+        :param payment_id: Id of the payment to update
         :param payment_date: Date of the payment
         :param paid_total: Amount that was paid
         :param currency: Currency (e.g. EUR)
 
-        :type id: int
+        :type payment_id: int
         :type payment_date: datetime.date, str
         :type paid_total: float
         :type currency: str
@@ -187,19 +187,19 @@ class InvoicePayment(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["invoice_payment_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["invoice_payment_update"].format(id=payment_id), data=data)
 
     def delete(
         self,
-        id: int
+        payment_id: int
         ):
         """
         Deletes an invoice payment.
 
-        :param id: Id of the payment to delete
+        :param payment_id: Id of the payment to delete
 
-        :type id: int
+        :type payment_id: int
 
         :returns: Empty response on success
         """
-        return self._moco.delete(API_PATH["invoice_payment_delete"].format(id=id))
+        return self._moco.delete(API_PATH["invoice_payment_delete"].format(id=payment_id))

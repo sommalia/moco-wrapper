@@ -73,18 +73,18 @@ class UserPresence(MWRAPBase):
 
     def get(
         self,
-        id: int
+        pres_id: int
         ):
         """
         Retrieve a single presence.
 
-        :param id: Id of the presence
+        :param pres_id: Id of the presence
 
-        :type id: int
+        :type pres_id: int
 
         :returns: Single presence object
         """
-        return self._moco.get(API_PATH["presence_get"].format(id=id))
+        return self._moco.get(API_PATH["presence_get"].format(id=pres_id))
 
     def create(
         self,
@@ -129,7 +129,7 @@ class UserPresence(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        pres_id: int,
         pres_date: datetime.date = None,
         from_time: str = None,
         to_time: str = None
@@ -137,12 +137,12 @@ class UserPresence(MWRAPBase):
         """
         Update a presence.
 
-        :param id: Id of the presence
+        :param pres_id: Id of the presence
         :param pres_date: Date of the presence
         :param from_time: Starting time of the presence (format HH:MM)
         :param to_time: End time of the presence (format HH:MM)
 
-        :type id: int
+        :type pres_id: int
         :type pres_date: datetime.date, str
         :type from_time: str
         :type to_time: str
@@ -161,21 +161,20 @@ class UserPresence(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["presence_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["presence_update"].format(id=pres_id), data=data)
         
     def delete(
         self,
-        id: int
+        pres_id: int
         ):
         """
         Deletes a presence.
 
-        :param id: Id of the presence
+        :param pres_id: Id of the presence
 
-        :type id: int
+        :type pres_id: int
 
         :returns: Empty response on success
         """
-        return self._moco.delete(API_PATH["presence_delete"].format(id=id))
-
-
+        return self._moco.delete(API_PATH["presence_delete"].format(id=pres_id))
+        

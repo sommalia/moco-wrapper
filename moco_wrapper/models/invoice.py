@@ -181,63 +181,63 @@ class Invoice(MWRAPBase):
 
     def get(
         self,
-        id: int
+        invoice_id: int
         ):
         """
         Retrieve a single invoice.
 
-        :param id: Invoice id
+        :param invoice_id: Invoice id
 
-        :type id: int
+        :type invoice_id: int
 
         :returns: Single invoice object
         """
-        return self._moco.get(API_PATH["invoice_get"].format(id=id))
+        return self._moco.get(API_PATH["invoice_get"].format(id=invoice_id))
 
     def pdf(
         self,
-        id: int
+        invoice_id: int
         ):
         """
         Retrieve the invoice document as pdf. 
 
-        :param id: Invoice id
+        :param invoice_id: Invoice id
 
-        :type id: int
+        :type invoice_id: int
 
         :returns: Invoice pdf
         """
-        return self._moco.get(API_PATH["invoice_pdf"].format(id=id))
+        return self._moco.get(API_PATH["invoice_pdf"].format(id=invoice_id))
 
     def timesheet(
         self,
-        id: int
+        invoice_id: int
         ):
         """
         Retrieve the invoice timesheet document as pdf.
 
         Invoices that have timesheets cannot be created with the api and must be created manully by billing unbilled tasks.
 
-        :param id: Invoice id
+        :param invoice_id: Invoice id
 
-        :type id: int
+        :type invoice_id: int
 
         :return: Invoice timesheet as pdf
         """
-        return self._moco.get(API_PATH["invoice_timesheet"].format(id=id))
+        return self._moco.get(API_PATH["invoice_timesheet"].format(id=invoice_id))
 
     def update_status(
         self,
-        id: int,
+        invoice_id: int,
         status: InvoiceStatus
         ):
         """
         Updates the state of an invoices.
 
-        :param id: Invoice id
+        :param invoice_id: Invoice id
         :param status: New state of the invoice
 
-        :type id: int
+        :type invoice_id: int
         :type status: :class:`.InvoiceStatus`, str
 
         :return: Empty response on success
@@ -246,7 +246,7 @@ class Invoice(MWRAPBase):
             "status": status
         }
 
-        return self._moco.put(API_PATH["invoice_update_status"].format(id=id), data=data)
+        return self._moco.put(API_PATH["invoice_update_status"].format(id=invoice_id), data=data)
 
     def create(
         self,

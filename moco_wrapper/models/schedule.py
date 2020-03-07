@@ -130,18 +130,18 @@ class Schedule(MWRAPBase):
 
     def get(
         self,
-        id: int
+        schedule_id: int
         ):
         """
         Retrieve a single schedule object.
 
-        :param id: Id of the entry
+        :param schedule_id: Id of the entry
 
-        :type id: int
+        :type schedule_id: int
 
         :returns: Single schedule object 
         """
-        return self._moco.get(API_PATH["schedule_get"].format(id=id))
+        return self._moco.get(API_PATH["schedule_get"].format(id=schedule_id))
 
     def create(
         self,
@@ -215,7 +215,7 @@ class Schedule(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        schedule_id: int,
         project_id: int = None,
         absence_code: ScheduleAbsenceCode = None,
         am: bool = None,
@@ -227,7 +227,7 @@ class Schedule(MWRAPBase):
         """
         Update a schedule entry.
 
-        :param id: Id of the entry to update
+        :param schedule_id: Id of the entry to update
         :param project_id: Project id
         :param absence_code: Type of absence
         :param am: Morning yes/no
@@ -236,7 +236,7 @@ class Schedule(MWRAPBase):
         :param symbol: Symbol to use for the schedule item
         :param overwrite: yes/no overwrite existing entry
 
-        :type id: int
+        :type schedule_id: int
         :type project_id: int
         :type absence_code: :class:`.ScheduleAbsenceCode`, int
         :type am: bool
@@ -271,20 +271,20 @@ class Schedule(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["schedule_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["schedule_update"].format(id=schedule_id), data=data)
 
     def delete(
         self,
-        id: int
+        schedule_id: int
         ):
         """
         Delete a schedule entry.
 
-        :param id: Id of the entry to delete
+        :param schedule_id: Id of the entry to delete
 
-        :type id: int
+        :type schedule_id: int
 
         :returns: Empty response on success
         """
 
-        return self._moco.delete(API_PATH["schedule_delete"].format(id=id))
+        return self._moco.delete(API_PATH["schedule_delete"].format(id=schedule_id))

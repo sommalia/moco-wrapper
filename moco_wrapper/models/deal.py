@@ -106,7 +106,7 @@ class Deal(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        deal_id: int,
         name: str = None,
         currency: str = None,
         money: float = None,
@@ -120,7 +120,7 @@ class Deal(MWRAPBase):
         """
         Update an existing deal.
 
-        :param id: Id of the deal
+        :param deal_id: Id of the deal
         :param name: Name of the deal
         :param currency: Currency used (e.g. EUR, CHF)
         :param money: How much money can be generated from this deal (e.g. 205.0)
@@ -131,7 +131,7 @@ class Deal(MWRAPBase):
         :param info: Additional information
         :param status: Current state of the deal
         
-        :type id: int
+        :type deal_id: int
         :type name: str
         :type currency: str
         :type money: float
@@ -164,24 +164,24 @@ class Deal(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["deal_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["deal_update"].format(id=deal_id), data=data)
 
 
     def get(
         self,
-        id: int
+        deal_id: int
         ):
         """
         Retrieve a single deal.
 
-        :param id: Id of the deal
+        :param deal_id: Id of the deal
 
-        :type id: int
+        :type deal_id: int
 
         :returns: Single deal object
 
         """
-        return self._moco.get(API_PATH["deal_get"].format(id=id))
+        return self._moco.get(API_PATH["deal_get"].format(id=deal_id))
 
     def getlist(
         self,

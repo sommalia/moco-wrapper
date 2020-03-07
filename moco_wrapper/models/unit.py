@@ -19,19 +19,19 @@ class Unit(MWRAPBase):
 
     def get(
         self,
-        id: int
+        unit_id: int
         ):
         """
         Get a single team.
 
-        :param id: Id of the team
+        :param unit_id: Id of the team
 
-        :type id: int
+        :type unit_id: int
 
         :returns: Single team object
         """
 
-        return self._moco.get(API_PATH["unit_get"].format(id=id))
+        return self._moco.get(API_PATH["unit_get"].format(id=unit_id))
 
     def getlist(
         self,

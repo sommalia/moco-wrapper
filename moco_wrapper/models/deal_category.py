@@ -59,18 +59,18 @@ class DealCategory(MWRAPBase):
 
     def update(
         self,
-        id: int,
+        category_id: int,
         name: str = None,
         probability: int = None
         ):
         """
         Updates an existing deal category.
 
-        :param id: Id of the deal category to update
+        :param category_id: Id of the deal category to update
         :param name: Name of the deal category (must be unique)
         :param probability: Deal category success probability (between 1 and 100)
 
-        :type id: int
+        :type category_id: int
         :type name: str
         :type probability: int
 
@@ -85,7 +85,7 @@ class DealCategory(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["deal_category_update"].format(id=id), data=data)
+        return self._moco.put(API_PATH["deal_category_update"].format(id=category_id), data=data)
 
 
     def getlist(
@@ -121,33 +121,33 @@ class DealCategory(MWRAPBase):
 
     def get(
         self,
-        id: int
+        category_id: int
         ):
         """
         Retrieves a single deal category.
 
-        :param id: Id of the deal category to retrieve
+        :param category_id: Id of the deal category to retrieve
 
-        :type id: int
+        :type category_id: int
 
         :returns: Single deal category
         """
 
-        return self._moco.get(API_PATH["deal_category_get"].format(id=id))
+        return self._moco.get(API_PATH["deal_category_get"].format(id=category_id))
 
     def delete(
         self,
-        id: int
+        category_id: int
         ):
         """
         Delete a deal category.
 
-        :param id: Id of the deal category to delete
+        :param category_id: Id of the deal category to delete
 
-        :type id: int
+        :type category_id: int
 
         :reuturns: Empty response on success
         """
 
-        return self._moco.delete(API_PATH["deal_category_delete"].format(id=id))
+        return self._moco.delete(API_PATH["deal_category_delete"].format(id=category_id))
 

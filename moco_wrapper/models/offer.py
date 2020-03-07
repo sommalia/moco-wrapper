@@ -117,36 +117,36 @@ class Offer(MWRAPBase):
 
     def get(
         self,
-        id: int
+        offer_id: int
         ):
         """
         Retrieve a single offer.
 
-        :param id: Id of the offer
+        :param offer_id: Id of the offer
 
-        :type id: int
+        :type offer_id: int
 
         :returns: Single offer object
         """
-        return self._moco.get(API_PATH["offer_get"].format(id=id))
+        return self._moco.get(API_PATH["offer_get"].format(id=offer_id))
 
     def pdf(
         self,
-        id: int,
+        offer_id: int,
         letter_paper_id: int = None
         ):
         """
         Retrieve the offer document for a single offer.
 
-        :param id: Id of the offer
+        :param offer_id: Id of the offer
         :param letter_paper_id: Id of the letter paper (default white)
 
-        :type id: int
+        :type offer_id: int
         :type letter_paper_id: int
 
         :returns: The offers pdf document
         """
-        return self._moco.get(API_PATH["offer_pdf"].format(id=id))
+        return self._moco.get(API_PATH["offer_pdf"].format(id=offer_id))
 
     def create(
         self,
