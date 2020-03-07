@@ -45,3 +45,4 @@ class TestUserEmployment(IntegrationTest):
             assert emp_get.data.user.id is not None
             assert emp_get.data.pattern is not None
             assert emp_get.data.from_date is not None
+            

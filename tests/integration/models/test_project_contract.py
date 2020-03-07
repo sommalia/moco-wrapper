@@ -252,3 +252,4 @@ class TestProjectContract(IntegrationTest):
             assert isinstance(project_create, JsonResponse)
             assert isinstance(contract_create, JsonResponse)
             assert isinstance(contract_delete, EmptyResponse)
+            

@@ -181,6 +181,4 @@ class TestInvoicePayment(IntegrationTest):
 
             assert isinstance(payment_create, JsonResponse)
             assert isinstance(payment_delete, EmptyResponse)
-
-
-    
+            

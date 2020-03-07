@@ -163,3 +163,4 @@ class TestUserPresence(IntegrationTest):
             assert pre_create.data.user.id == other_user.id
 
             self.moco.clear_impersonation()
+            

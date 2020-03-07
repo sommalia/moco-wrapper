@@ -115,3 +115,4 @@ class TestUserHoliday(IntegrationTest):
             assert hol_list.next_page is not None
             assert hol_list.total is not None
             assert hol_list.page_size is not None
+            

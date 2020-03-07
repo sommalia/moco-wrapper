@@ -200,3 +200,4 @@ class TestDeal(IntegrationTest):
             assert deal_update.data.company.id == company.id
             assert deal_update.data.info == info
             assert deal_update.data.status == status
+            

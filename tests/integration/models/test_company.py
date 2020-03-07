@@ -315,7 +315,4 @@ class TestCompany(IntegrationTest):
             assert isinstance(company_update, JsonResponse)
 
             assert company_update.data.vat_identifier == vat
-
-
-
-
+            

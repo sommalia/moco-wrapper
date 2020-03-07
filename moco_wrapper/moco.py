@@ -151,8 +151,9 @@ class Moco(object):
         #if the result is an exception we raise it, otherwise return it
         if isinstance(objector_result, response.ErrorResponse) and isinstance(objector_result.data, exceptions.MocoException):
             raise objector_result.data
-        else:
-            return objector_result
+        
+        #return the objector result by default
+        return objector_result
 
 
     def get(self, path, params=None, data=None, **kwargs):
@@ -283,4 +284,3 @@ class Moco(object):
         else:
             #raise error authentication information is very likely invlid
             raise ValueError("Invalid authentication information given")
-        

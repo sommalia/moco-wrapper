@@ -350,5 +350,4 @@ class TestProjectExpense(IntegrationTest):
             assert ex_bulk.next_page is not None
             assert ex_bulk.total is not None
             assert ex_bulk.page_size is not None
-
-
+            

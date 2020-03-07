@@ -240,4 +240,3 @@ class TestUser(IntegrationTest):
             assert user_getlist.next_page is not None
             assert user_getlist.total is not None
             assert user_getlist.page_size is not None
-

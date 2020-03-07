@@ -261,3 +261,4 @@ class TestContact(IntegrationTest):
             assert contact_getlist.next_page is not None
             assert contact_getlist.total is not None
             assert contact_getlist.page_size is not None
+            

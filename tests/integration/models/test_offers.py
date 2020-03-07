@@ -325,3 +325,4 @@ class TestOffer(IntegrationTest):
             assert offer_pdf.response.status_code == 200
 
             assert isinstance(offer_pdf, FileResponse)
+            

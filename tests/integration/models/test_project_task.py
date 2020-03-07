@@ -187,7 +187,4 @@ class TestProjectTask(IntegrationTest):
             assert task_update.data.active == active
             assert task_update.data.budget == budget
             assert task_update.data.hourly_rate == hourly_rate
-
-
-            
             

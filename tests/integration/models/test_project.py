@@ -439,12 +439,9 @@ class TestProject(IntegrationTest):
 
             assert project_create.data.name == name
             assert project_create.data.currency == currency
-            assert project_create.data.finish_date == None
+            assert project_create.data.finish_date is None
             assert project_create.data.leader.id == user.id
             assert project_create.data.customer.id == customer.id
             assert project_create.data.budget == budget
             assert project_create.data.fixed_price == fixed_price
-
-
-
-    
+            

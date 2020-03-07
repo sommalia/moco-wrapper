@@ -300,3 +300,4 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert recexp_delete.response.status_code == 204
 
             assert isinstance(recexp_delete, EmptyResponse)
+            

@@ -454,4 +454,4 @@ class TestActivity(IntegrationTest):
             assert activity_create.data.user.id == other_user.id
 
             self.moco.clear_impersonation()
-
+            
