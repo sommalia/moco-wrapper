@@ -20,8 +20,8 @@ class CompanyType(str, Enum):
             company_type = CompanyType.ORGANIZATION
         )
     """
-    CUSTOMER = "customer",
-    SUPPLIER = "supplier",
+    CUSTOMER = "customer"
+    SUPPLIER = "supplier"
     ORGANIZATION = "organization"
 
 

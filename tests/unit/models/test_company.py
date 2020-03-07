@@ -97,9 +97,9 @@ class TestCompany(UnitTest):
         assert response["method"] == "GET"
 
     def test_getlist(self):
-        company_type = "supplier",
-        tags = ["test", "this", "list"],
-        identifier = "COMP-3",
+        company_type = "supplier"
+        tags = ["test", "this", "list"]
+        identifier = "COMP-3"
 
         response = self.moco.Company.getlist(company_type=company_type, tags=tags, identifier=identifier)
         params = response["params"]
