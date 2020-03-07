@@ -141,3 +141,4 @@ class TestActivity(UnitTest):
 
         with pytest.raises(ValueError) as e:
             response = self.moco.Activity.getlist(from_date, to_date, task_id=task_id)
+            

@@ -93,3 +93,4 @@ class TestProjectTask(UnitTest):
         response = self.moco.ProjectTask.delete(project_id, task_id)
 
         assert response["method"] == "DELETE"
+        

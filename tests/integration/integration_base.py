@@ -19,6 +19,9 @@ class IntegrationTest(object):
     def setup(self):
         self.setup_moco()
         self.setup_betamax()
+        
+        # export mocotest_delay=1 to enable delay between tests
+        self.delay_tests_enabled = pytest.placeholders.mocotest_delay == "1"
 
     def setup_betamax(self):
         self.recorder = betamax.Betamax(self._moco.session)
@@ -32,6 +35,7 @@ class IntegrationTest(object):
             requestor=NoRetryRequestor(),
             objector=DefaultObjector(),
         )
+       
 
     def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
         """
@@ -55,7 +59,8 @@ class IntegrationTest(object):
 
     def teardown_method(self, method):
         """
-        uncomment this if you need to generate everything, adds a delay between each test call
+        Enable this if you want to wait between each method call (default is 5 seconds)
         """
-        #time.sleep(5)
-        pass
+
+        if self.delay_tests_enabled:
+            time.sleep(5)

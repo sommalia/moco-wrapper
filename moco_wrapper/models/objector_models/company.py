@@ -11,3 +11,4 @@ class Company(object):
             nk["user"] = u
 
         self.__dict__.update(nk)
+        

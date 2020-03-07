@@ -79,3 +79,4 @@ class FileResponse(MWRAPResponse):
 
     def __str__(self):
         return "<FileResponse, Status Code: {}, Data: binary_content>".format(self.response.status_code)
+        

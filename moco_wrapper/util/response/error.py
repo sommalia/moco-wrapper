@@ -51,3 +51,4 @@ class ErrorResponse(MWRAPResponse):
 
         #set data to the error message
         self._data = self.response.text
+        

@@ -28,3 +28,4 @@ class Project(object):
             nk["tasks"] = items
 
         self.__dict__.update(nk)
+        

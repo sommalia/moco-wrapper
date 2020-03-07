@@ -78,3 +78,4 @@ class InvoicePaymentGenerator(BaseGenerator):
                 item[date_key] = self._convert_date_to_iso(item[date_key])
 
         return item
+        

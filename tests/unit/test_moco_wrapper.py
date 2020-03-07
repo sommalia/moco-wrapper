@@ -122,3 +122,4 @@ class TestMocoWrapper(UnitTest):
         new_moco.clear_impersonation()
         
         assert new_moco._impersonation_user_id is None
+        

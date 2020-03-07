@@ -292,6 +292,4 @@ class InvoiceItemGenerator(ItemGenerator):
         """
 
         return self.generate_item(title, net_total=net_total)
-
-
-
+        

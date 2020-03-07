@@ -150,4 +150,3 @@ class DealCategory(MWRAPBase):
         """
 
         return self._moco.delete(API_PATH["deal_category_delete"].format(id=category_id))
-

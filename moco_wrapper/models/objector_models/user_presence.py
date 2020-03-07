@@ -21,3 +21,4 @@ class UserPresence(object):
 
 
         self.__dict__.update(nk)
+        

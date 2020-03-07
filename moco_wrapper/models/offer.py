@@ -237,4 +237,4 @@ class Offer(MWRAPBase):
                 data[key] = value
 
         return self._moco.post(API_PATH["offer_create"].format(id=id), data=data)
-
+        

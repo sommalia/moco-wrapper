@@ -4,3 +4,4 @@ class ProjectContract(object):
         **kwargs
     ):
         self.__dict__.update(kwargs)
+        

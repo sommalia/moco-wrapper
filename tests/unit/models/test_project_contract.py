@@ -97,3 +97,4 @@ class TestProjectContract(UnitTest):
         response = self.moco.ProjectContract.delete(project_id, contract_id)
 
         assert response["method"] == "DELETE"
+        

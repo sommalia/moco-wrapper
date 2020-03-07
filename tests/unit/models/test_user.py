@@ -129,3 +129,4 @@ class TestUser(UnitTest):
         response = self.moco.User.delete(user_id)
 
         assert response["method"] == "DELETE"
+        

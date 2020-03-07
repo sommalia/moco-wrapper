@@ -108,7 +108,7 @@ class Project(MWRAPBase):
             "customer_id": customer_id
         }
 
-        if fixed_price == True and budget is None:
+        if fixed_price and budget is None:
             raise ValueError("When you create a fixed price project, the project budget must be set")
 
 
@@ -378,7 +378,5 @@ class Project(MWRAPBase):
 
         :returns: Report with the most important project business indicators
         """
-        return self._moco.get(API_PATH["project_report"].format(id=project_id))    
-
-    
-    
+        return self._moco.get(API_PATH["project_report"].format(id=project_id))
+        

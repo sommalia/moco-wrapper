@@ -209,6 +209,3 @@ class Comment(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["comment_getlist"], params=params)
-
-
-        

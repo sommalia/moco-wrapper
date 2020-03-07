@@ -277,4 +277,3 @@ class DefaultObjector(BaseObjector):
         
         if isinstance(current_map, dict):
             return current_map["base"] #more cases are present but we need the base case
-

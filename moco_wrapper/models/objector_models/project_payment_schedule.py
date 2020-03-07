@@ -13,3 +13,4 @@ class ProjectPaymentSchedule(object):
 
 
         self.__dict__.update(nk)
+        

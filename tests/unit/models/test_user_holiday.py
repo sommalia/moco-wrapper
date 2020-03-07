@@ -88,3 +88,4 @@ class TestUserHoliday(UnitTest):
         response = self.moco.UserHoliday.delete(holiday_id)
 
         assert response["method"] == "DELETE"
+        

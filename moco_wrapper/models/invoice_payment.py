@@ -203,3 +203,4 @@ class InvoicePayment(MWRAPBase):
         :returns: Empty response on success
         """
         return self._moco.delete(API_PATH["invoice_payment_delete"].format(id=payment_id))
+        

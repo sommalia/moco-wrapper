@@ -248,3 +248,4 @@ class User(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["user_getlist"], params=params)
+        

@@ -24,3 +24,4 @@ class EmptyResponse(MWRAPResponse):
 
     def __str__(self):
         return "<EmptyResponse, Status Code: {}>".format(self.response.status_code)
+        

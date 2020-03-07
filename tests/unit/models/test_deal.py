@@ -119,4 +119,3 @@ class TestDeal(UnitTest):
 
         response = self.moco.Deal.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
-

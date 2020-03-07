@@ -13,3 +13,4 @@ class InvoicePayment(object):
             nk["invoice"] = i
 
         self.__dict__.update(nk)
+        

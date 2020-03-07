@@ -144,3 +144,4 @@ class TestSchedule(UnitTest):
         response = self.moco.Schedule.delete(schedule_id)
 
         assert response["method"] == "DELETE"
+        

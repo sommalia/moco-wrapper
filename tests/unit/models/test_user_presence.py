@@ -93,3 +93,4 @@ class TestUserPresence(UnitTest):
         response = self.moco.UserPresence.delete(presence_id)
 
         assert response["method"] == "DELETE"
+        

@@ -13,3 +13,4 @@ class UserHoliday(object):
             nk["user"] = u
 
         self.__dict__.update(nk)
+        

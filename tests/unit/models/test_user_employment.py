@@ -50,3 +50,4 @@ class TestUserEmployment(UnitTest):
         response = self.moco.UserEmployment.get(employement_id)
 
         assert response["method"] == "GET"
+        

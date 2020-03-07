@@ -20,3 +20,4 @@ class MWRAPResponse(object):
         http response object
         """
         return self._response
+        

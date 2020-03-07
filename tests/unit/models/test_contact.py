@@ -129,5 +129,3 @@ class TestContact(UnitTest):
 
         response = self.moco.Contact.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
-
-        

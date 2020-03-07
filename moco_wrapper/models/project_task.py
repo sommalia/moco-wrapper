@@ -177,4 +177,4 @@ class ProjectTask(MWRAPBase):
         """
 
         return self._moco.delete(API_PATH["project_task_delete"].format(project_id=project_id, task_id=task_id))
-
+        

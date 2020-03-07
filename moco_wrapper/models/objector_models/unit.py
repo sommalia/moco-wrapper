@@ -15,3 +15,4 @@ class Unit(object):
             nk["users"] = items
 
         self.__dict__.update(nk)
+        

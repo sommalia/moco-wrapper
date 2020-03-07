@@ -19,3 +19,4 @@ class Deal(object):
             nk["company"] = com 
 
         self.__dict__.update(nk)
+        

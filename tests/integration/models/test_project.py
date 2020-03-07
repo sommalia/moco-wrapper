@@ -341,7 +341,7 @@ class TestProject(IntegrationTest):
             assert isinstance(project_create, JsonResponse)
             assert isinstance(project_archive, JsonResponse)
 
-            assert project_archive.data.active == False
+            assert not project_archive.data.active
 
     def test_unarchive(self):
         user = self.get_user()
@@ -365,8 +365,8 @@ class TestProject(IntegrationTest):
             assert isinstance(project_create, JsonResponse)
             assert isinstance(project_archive, JsonResponse)
 
-            assert project_archive.data.active == False
-            assert project_unarchive.data.active == True
+            assert not project_archive.data.active
+            assert project_unarchive.data.active
 
     def test_report(self):
         user = self.get_user()

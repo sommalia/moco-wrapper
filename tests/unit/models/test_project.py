@@ -188,5 +188,3 @@ class TestProject(UnitTest):
         response = self.moco.Project.report(project_id)
 
         assert response["method"] == "GET"
-
-    

@@ -281,8 +281,6 @@ class Moco(object):
             self.api_key = session.api_key
             del self.auth
         else:
+            #raise error authentication information is very likely invlid
             raise ValueError("Invalid authentication information given")
-
-
-            
-    
+        

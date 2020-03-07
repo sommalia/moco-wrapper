@@ -91,4 +91,3 @@ class TestInvoicePayment(UnitTest):
         response = self.moco.InvoicePayment.delete(payment_id)
 
         assert response["method"] == "DELETE"
-

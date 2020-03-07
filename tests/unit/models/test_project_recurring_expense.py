@@ -161,3 +161,4 @@ class TestProjectRecurringExpense(UnitTest):
         response = self.moco.ProjectRecurringExpense.delete(project_id, expense_id)
 
         assert response["method"] == "DELETE"
+        

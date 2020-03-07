@@ -175,7 +175,3 @@ class ProjectContract(MWRAPBase):
         """
 
         return self._moco.delete(API_PATH["project_contract_delete"].format(project_id=project_id, contract_id=contract_id))
-
-
-
-
