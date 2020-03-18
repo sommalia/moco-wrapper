@@ -69,6 +69,9 @@ class TestMocoWrapper(UnitTest):
     def test_project_payment_schedule_set(self):
         assert isinstance(self.moco.ProjectPaymentSchedule, models.ProjectPaymentSchedule)
 
+    def test_purchase_category_set(self):
+        assert isinstance(self.moco.PurchaseCategory, models.PurchaseCategory)
+
     def test_wrapper_init(self):
         new_moco = moco.Moco(
             auth={

@@ -24,3 +24,5 @@ from .company import Company
 from .comment import Comment
 from .schedule import Schedule
 from .session import Session
+
+from .purchase_category import PurchaseCategory
