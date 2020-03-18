@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-19T11:55:22",
+      "recorded_at": "2020-03-18T09:23:06",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"year\": 2020, \"user_id\": 933630037, \"title\": \"dummy holiday, test delete\", \"hours\": 0}"
+          "string": "{\"title\": \"dummy holiday, test delete\", \"user_id\": 933631069, \"hours\": 0, \"year\": 2020}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOzUrGMBCF4VspZz2V/LSVznW4ciOhGW0wbTWZLIr03qW4Fb7t4fDw/iBF8DAOdiKcEgrYGWcImjQLGLFt29mtR04xnNSpVO2iZFEBYT1aqWDzZAitSgH/ebP3kzfGPxPeU6m6h+22lo+U9vZdPiMIOfy3X4SlSFCJb0HBuGN643o7v1jL48jOvYLQvuKDz/UbAAD//5oJhsXaAAAA",
+          "base64_string": "H4sIAAAAAAAA/4TOwUrEQBAE0F8Jde6VTkaD6e/w5EXa7ZYdmLgy03MYZP9dguh1b0VRPOob2SCP6xPPhOFaIQsvTIgcxSGwvu9julxLNh00hbeYzIuHg2A6GoQfmHC59vqXe/MK+aW3lNY087oRPnJt8an7wR4OCEX/G30/G26Ec3UNtzcNCI4vJ06n+fmFN1mS8PoKQv+yO5vbTwAAAP//JjRyBtkAAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "168"
+            "170"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 11:55:22 GMT"
+            "Wed, 18 Mar 2020 09:23:06 GMT"
           ],
           "Etag": [
-            "W/\"16f959c74ffec74e22a71b021084dc05\""
+            "W/\"1bded095decd5d56e9b6dad2f4d386bc\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b8897ef1-a1d4-43e6-9425-c59dbb1684d6"
+            "7605a44d-af36-4fd7-af46-1d33643d57c0"
           ],
           "X-Runtime": [
-            "0.055372"
+            "0.047031"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-02-19T11:55:22",
+      "recorded_at": "2020-03-18T09:23:06",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -121,11 +121,11 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/45416"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/46501"
       },
       "response": {
         "body": {
@@ -141,7 +141,7 @@
             "gzip"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 11:55:22 GMT"
+            "Wed, 18 Mar 2020 09:23:06 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -163,10 +163,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "91016b1b-d98c-49e1-9759-1b1af181fe19"
+            "08076e0c-818f-40f4-ae47-f6295dad160c"
           ],
           "X-Runtime": [
-            "0.139924"
+            "0.025644"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -176,7 +176,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/45416"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/46501"
       }
     }
   ],
