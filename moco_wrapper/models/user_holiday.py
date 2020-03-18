@@ -98,17 +98,19 @@ class UserHoliday(MWRAPBase):
         days: float = None,
         ):
         """
-        Create an users entitlement for holidays/vacation
+        Create an users entitlement for holidays/vacation (either by hours or days)
 
-        :param year: Year of the holiday (e.g. 2019)
+        :param year: Year the holiday credits are for
         :param title: Title 
-        :param user_id: Id of the user this holiday belongs to
-        :param hours: Hours (e.g. 160) (default 0)
+        :param user_id: Id of the user these holiday credits belongs to
+        :param hours: Hours (specify either hours or days)
+        :param days: Days (specify either hours or days)
 
         :type year: int
         :type title: str
         :type user_id: int
         :type hours: float
+        :type days: float
 
         :returns: The created holiday object
         """
@@ -133,6 +135,8 @@ class UserHoliday(MWRAPBase):
             if value is not None:
                 data[key] = value
 
+        print(data)
+
         return self._moco.post(API_PATH["holiday_create"], data=data)
 
     def update(
@@ -142,30 +146,41 @@ class UserHoliday(MWRAPBase):
         title: str = None,
         user_id: int = None,
         hours: float = None,
+        days: float = None,
         ):
         """
         Update a holiday entry
 
         :param holyday_id: Id of the holiday entry
-        :param year: Year of the holiday entry (e.g. 2019)
+        :param year:  Year the holiday credits are for
         :param title: Title
-        :param hours: Hours (e.g. 160)
         :param user_id: User this holiday entry belongs to
+        :param hours: Hours (specify either hours or days)
+        :param days: Days (specify either hours or days)
 
         :type holyday_id: int
         :type year: int
         :type title: str
-        :type hours: float
         :type user_id: int
-
+        :type hours: float
+        :type days: float
+        
         :returns: The updated holiday object
         """
+  
+        if days is None and hours is None:
+            raise ValueError("Either the hours or days parameter must be specified")
+
+        if days is not None and hours is not None:
+            raise ValueError("Specify either hours or the days parameter (not both)")
+
         
         data = {}
         for key, value in (
             ("year", year),
             ("title", title),
             ("hours", hours),
+            ("days", days),
             ("user_id", user_id)
         ):
             if value is not None:

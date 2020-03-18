@@ -61,7 +61,12 @@ class TestUserHoliday(IntegrationTest):
         user = self.get_user()
 
         with self.recorder.use_cassette("TestUserHoliday.test_update"):
-            holi_create = self.moco.UserHoliday.create(2019, "dummy holiday, test update", user.id, hours=0)
+            holi_create = self.moco.UserHoliday.create(
+                2019, 
+                "dummy holiday, test update", 
+                user.id, 
+                hours=0
+            )
 
             year = 2020
             title = "this year holiday"
@@ -84,6 +89,41 @@ class TestUserHoliday(IntegrationTest):
             assert holi_update.data.year == year
             assert holi_update.data.title == title
             assert holi_update.data.hours == hours
+            assert holi_update.data.user.id == user.id
+
+    def test_update_with_days(self):
+        user = self.get_user()
+
+        with self.recorder.use_cassette("TestUserHoliday.test_update_with_days"):
+            holi_create = self.moco.UserHoliday.create(
+                2019, 
+                "dummy holiday, test update (with days)", 
+                user.id, 
+                days=1)
+
+            year = 2020
+            title = "this year holiday"
+            days = 3
+
+            holi_update = self.moco.UserHoliday.update(
+                holi_create.data.id,
+                year=year, 
+                title=title, 
+                user_id=user.id, 
+                days=days
+            )
+
+            assert holi_create.response.status_code == 200
+            assert holi_update.response.status_code == 200
+            
+            assert isinstance(holi_create, JsonResponse)
+            assert isinstance(holi_update, JsonResponse)
+
+            print(vars(holi_update.data))
+
+            assert holi_update.data.year == year
+            assert holi_update.data.title == title
+            assert holi_update.data.days == days
             assert holi_update.data.user.id == user.id
 
     def test_delete(self):
