@@ -94,7 +94,8 @@ class UserHoliday(MWRAPBase):
         year: int, 
         title: str,
         user_id: int,
-        hours: float = 0
+        hours: float = None,
+        days: float = None,
         ):
         """
         Create an users entitlement for holidays/vacation
@@ -111,12 +112,26 @@ class UserHoliday(MWRAPBase):
 
         :returns: The created holiday object
         """
+
+        if days is None and hours is None:
+            raise ValueError("Either the hours or days parameter must be specified")
+
+        if days is not None and hours is not None:
+            raise ValueError("Specify either hours or the days parameter (not both)")
+
+
         data = {
             "year" : year,
             "title": title,
-            "hours": hours,
             "user_id": user_id,
         }
+
+        for key, value in (
+            ("days", days),
+            ("hours", hours)
+        ):
+            if value is not None:
+                data[key] = value
 
         return self._moco.post(API_PATH["holiday_create"], data=data)
 

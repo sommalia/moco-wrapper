@@ -88,4 +88,28 @@ class TestUserHoliday(UnitTest):
         response = self.moco.UserHoliday.delete(holiday_id)
 
         assert response["method"] == "DELETE"
-        
+
+
+    def test_create_with_days(self):
+        year = 2019
+        title = "my vacation time"
+        days = 3
+        user_id = 2
+
+        response = self.moco.UserHoliday.create(year, title, days=days, user_id=user_id)
+        data = response["data"]
+
+        assert data["year"] == year
+        assert data["title"] == title
+        assert data["days"] == days
+        assert data["user_id"] == user_id
+
+        assert response["method"] == "POST"
+
+    def test_create_throws_if_hours_none_days_none(self):
+        with pytest.raises(ValueError):
+            self.moco.UserHoliday.create(2019, "test title", hours=None, days=None, user_id=1)
+
+    def test_create_throws_if_hours_set_days_set(self):
+        with pytest.raises(ValueError):
+            self.moco.UserHoliday.create(2019, "test title", hours=1, days=1, user_id=1)
