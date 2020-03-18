@@ -5,7 +5,7 @@ History
 0.6.1 (2020-03-18)
 
 * Implement support for days parameter in User holidays
-* Implment Purchase Categories
+* Implement Purchase Categories
 
 0.6.0 (2020-03-07)
 
