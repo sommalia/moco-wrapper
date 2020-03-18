@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-03-18T09:22:45",
+      "recorded_at": "2020-03-13T13:05:37",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/purchases/categories?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3SPzU7DMBCEXwXN2UVOAinxiYfoqQhFm3irWvgnsteFquq7o6oBceG282l2pO/tAmdhhq7ru0b3g8LB5SKRAsNAuAgUPP0SmmYLBZrFnRhGcmUF/hLOEeZAvtxiIOfX71v/dTqn8GgZCiFNzvO4HFO8rUHhM+WPv/mYAo9kbeZS7sTFQ7pfk8tytHSGidV7BTqRUB5r9j9krkVSGJecFs7iuMBcrgo1OoFZVfXQ9M9b/aKwOu2YwkODq8KcmYTtSAKDVrd6o7tNs9212ujeNO0eCnWx/3YG89TscX3/DgAA///dVww5VgEAAA==",
+          "base64_string": "H4sIAAAAAAAA/6zOMarCQBAG4Lv89QYmCRNe5hyvUiQMuwNZiKvEWRvJ3QWFtGnsv+I7v5AT5I/GIaDo1SCYdVYExNVS9kljvNXikFKXJUCj56dBfK32MeqWJnUIOuqoob5p+38ahVmITwio93RgtrAveF88flBohYejwtdsl3cAAAD//6D4Co4KAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "244"
+            "141"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 18 Mar 2020 09:22:44 GMT"
+            "Fri, 13 Mar 2020 13:05:37 GMT"
           ],
           "Etag": [
-            "W/\"54e3ec24f06f29cfb60bbd511aff1e8e\""
+            "W/\"79c26ccf38d1406868af9887455e6963\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -71,23 +71,14 @@
           "X-Frame-Options": [
             "SAMEORIGIN"
           ],
-          "X-Page": [
-            "1"
-          ],
-          "X-Per-Page": [
-            "100"
-          ],
           "X-Permitted-Cross-Domain-Policies": [
             "none"
           ],
           "X-Request-Id": [
-            "2ff187b9-0757-495a-af22-a423a872a96c"
+            "28cdf345-c5b7-4efe-984d-2a4395fa8b37"
           ],
           "X-Runtime": [
-            "0.046373"
-          ],
-          "X-Total": [
-            "1"
+            "0.021214"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/purchases/categories?page=1"
       }
     }
   ],

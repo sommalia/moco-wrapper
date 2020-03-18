@@ -33,6 +33,10 @@ from .project_task import ProjectTask
 from .project_recurring_expense import ProjectRecurringExpense
 from .project_payment_schedule import ProjectPaymentSchedule
 
+from .purchase_category import PurchaseCategory
+
 from .session import Session
 
 from . import objector_models
+
+
