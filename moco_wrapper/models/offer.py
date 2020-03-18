@@ -27,6 +27,7 @@ class OfferStatus(str, Enum):
     ACCEPTED = "accepted"
     BILLED = "billed"
     ARCHIVED = "archived"
+    PARTIALLY_BILLED = "partially_billed"
 
 class OfferChangeAddress(str, Enum):
     """

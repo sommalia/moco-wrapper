@@ -2,6 +2,11 @@
 History
 =======
 
+0.6.1 (2020-03-18)
+
+* Implement support for days parameter in User holidays
+* Implement Purchase Categories
+
 0.6.0 (2020-03-07)
 
 * Implemented Paging of Listing Models

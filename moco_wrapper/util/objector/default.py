@@ -83,6 +83,10 @@ class DefaultObjector(BaseObjector):
             },
             "session": {
                 "base" : "Session"
+            },
+            "purchases": {
+                "base" : "Purchase",
+                "categories": "PurchaseCategory"
             }
         }
         """
