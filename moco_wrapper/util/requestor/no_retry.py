@@ -5,6 +5,7 @@ import collections
 from moco_wrapper.util.requestor.base import BaseRequestor
 from moco_wrapper.util.response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
 
+
 class NoRetryRequestor(BaseRequestor):
     """
     This requestor works along the same lines as the :class:`moco_wrapper.util.requestor.DefaultRequestor`, but when this requestor comes along the http code 429 for too many requests it just returns an error response.
@@ -23,10 +24,11 @@ class NoRetryRequestor(BaseRequestor):
             requestor = no_retry
         )
 
-    .. seealso:: 
+    .. seealso::
 
         :class:`moco_wrapper.util.requestor.DefaultRequestor`
     """
+
     def __init__(self):
         """
         Class constructor
@@ -40,7 +42,7 @@ class NoRetryRequestor(BaseRequestor):
         """
         return self._session
 
-    def request(self, method, path, params = None, data = None, **kwargs):
+    def request(self, method, path, params=None, data=None, **kwargs):
         """
         Request the given ressource
 
@@ -58,10 +60,13 @@ class NoRetryRequestor(BaseRequestor):
         :returns: Response object
         """
 
-        #format data submitted to requests as json
+        if params is not None:
+            params = self._format_params(params)
+
+        # format data submitted to requests as json
         response = None
         if method == "GET":
-            response =  self.session.get(path, params=params, json=data, **kwargs)
+            response = self.session.get(path, params=params, json=data, **kwargs)
         elif method == "POST":
             response = self.session.post(path, params=params, json=data, **kwargs)
         elif method == "DELETE":
@@ -71,32 +76,32 @@ class NoRetryRequestor(BaseRequestor):
         elif method == "PATCH":
             response = self.session.patch(path, params=params, json=data, **kwargs)
 
-        #convert the reponse into an MWRAPResponse object
+        # convert the reponse into an MWRAPResponse object
         try:
-            #check if the reponse has a success status code
+            # check if the reponse has a success status code
             if response.status_code in self.SUCCESS_STATUS_CODES:
-                #filter by content type what type of response this is 
+                # filter by content type what type of response this is
                 if response.status_code == 204:
-                    #no content but success
+                    # no content but success
                     return EmptyResponse(response)
-                
+
                 if response.status_code == 200 and response.text.strip() == "":
-                    #touch endpoint returns 200 with no content
+                    # touch endpoint returns 200 with no content
                     return EmptyResponse(response)
-                
+
                 if response.headers["Content-Type"] == "application/pdf":
                     return FileResponse(response)
-                
-                #json response handling is the default
+
+                # json response handling is the default
                 response_content = response.json()
-                #if response is a list, return listing response
+                # if response is a list, return listing response
                 if isinstance(response_content, list):
                     return ListingResponse(response)
-                
-                #return single json response
+
+                # return single json response
                 return JsonResponse(response)
 
-            #check if the response has an error status code 
+            # check if the response has an error status code
             if response.status_code in self.ERROR_STATUS_CODES:
                 error_response = ErrorResponse(response)
                 return error_response
@@ -105,4 +110,3 @@ class NoRetryRequestor(BaseRequestor):
             print("ValueError in response conversion:" + str(ex))
             response_obj = ErrorResponse(response)
             return response_obj
-            

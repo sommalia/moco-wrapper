@@ -1,9 +1,10 @@
 import datetime
 
-from moco_wrapper.models.base import MWRAPBase  
+from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
 from enum import Enum
+
 
 class ProjectBillingVariant(str, Enum):
     """
@@ -19,7 +20,7 @@ class ProjectBillingVariant(str, Enum):
         m = Moco()
         new_project = m.Project.create(
             ..
-            billing_variant = ProjectBillingVariant.USER 
+            billing_variant = ProjectBillingVariant.USER
         )
 
     """
@@ -57,7 +58,7 @@ class Project(MWRAPBase):
         custom_properties: dict = None,
         info: str = None,
         fixed_price: bool = False,
-        ):
+    ):
         """
         Create a new project.
 
@@ -69,13 +70,13 @@ class Project(MWRAPBase):
         :param identifier: Project Identifier
         :param billing_address: Billing adress the invoices go to
         :param billing_variant: Billing variant used
-        :param hourly_rate: Hourly rate that will get billed 
+        :param hourly_rate: Hourly rate that will get billed
         :param budget: Budget for the project
         :param labels: Array of additional labels
         :param custom_properties: Custom values used by the project
         :param info: Additional information
         :param fixed_price: If the project is a fixed price projects (default False)
-        
+
         :type name: str
         :type currency: str
         :type leader_id: int
@@ -103,14 +104,13 @@ class Project(MWRAPBase):
         """
         data = {
             "name": name,
-            "currency" : currency,
+            "currency": currency,
             "leader_id": leader_id,
             "customer_id": customer_id
         }
 
         if fixed_price and budget is None:
             raise ValueError("When you create a fixed price project, the project budget must be set")
-
 
         for key, value in (
             ("finish_date", finish_date),
@@ -129,7 +129,7 @@ class Project(MWRAPBase):
                     data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
-                
+
         return self._moco.post(API_PATH["project_create"], data=data)
 
     def update(
@@ -147,7 +147,7 @@ class Project(MWRAPBase):
         labels: list = None,
         custom_properties: dict = None,
         info: str = None
-        ):
+    ):
         """
         Update an existing project.
 
@@ -159,7 +159,7 @@ class Project(MWRAPBase):
         :param identifier: Project Identifier
         :param billing_address: Address the invoices go to
         :param billing_variant: Billing variant used
-        :param hourly_rate: Hourly rate that will get billed 
+        :param hourly_rate: Hourly rate that will get billed
         :param budget: Budget for the project
         :param labels: Array of additional labels
         :param custom_properties: Custom values used by the project
@@ -208,7 +208,7 @@ class Project(MWRAPBase):
     def get(
         self,
         project_id: int
-        ):
+    ):
         """
         Get a single project.
 
@@ -236,7 +236,7 @@ class Project(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Get a list of projects.
 
@@ -244,7 +244,7 @@ class Project(MWRAPBase):
         :param include_company: Include the complete company object or just the company id
         :param leader_id: User id of the project leader
         :param company_id: Company id the projects are assigned to
-        :param created_from: Created start date 
+        :param created_from: Created start date
         :param created_to: Created end date
         :param updated_from: Updated start date
         :param updated_to: Updated end date
@@ -265,7 +265,7 @@ class Project(MWRAPBase):
         :type tags: list
         :type sort_by: str
         :type sort_order: str
-        :type page: int 
+        :type page: int
 
         :returns: List of project objects
         """
@@ -285,15 +285,15 @@ class Project(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                if key in ["created_from", "created_to", "updated_from", "updated_to" ] and isinstance(value, datetime.date):
+                if key in ["created_from", "created_to", "updated_from", "updated_to"] and isinstance(value,
+                                                                                                      datetime.date):
                     params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
 
-        #add sort order if set
+        # add sort order if set
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
-
 
         return self._moco.get(API_PATH["project_getlist"], params=params)
 
@@ -301,9 +301,9 @@ class Project(MWRAPBase):
         self,
         active: bool = None,
         sort_by: str = None,
-        sort_order: str = 'asc', 
+        sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Get list of all project currently assigned to the user.
 
@@ -336,7 +336,7 @@ class Project(MWRAPBase):
     def archive(
         self,
         project_id: int
-        ):
+    ):
         """
         Archive a project.
 
@@ -351,7 +351,7 @@ class Project(MWRAPBase):
     def unarchive(
         self,
         project_id: int
-        ):
+    ):
         """
         Unarchive a project.
 
@@ -366,7 +366,7 @@ class Project(MWRAPBase):
     def report(
         self,
         project_id: int
-        ):
+    ):
         """
         Retrieve a project report.
 
@@ -379,4 +379,3 @@ class Project(MWRAPBase):
         :returns: Report with the most important project business indicators
         """
         return self._moco.get(API_PATH["project_report"].format(id=project_id))
-        
