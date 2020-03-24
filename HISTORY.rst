@@ -2,6 +2,10 @@
 History
 =======
 
+0.6.2 (2020-03-24)
+
+* Query strings conversion into lower case
+
 0.6.1 (2020-03-18)
 
 * Implement support for days parameter in User holidays
@@ -42,7 +46,7 @@ History
 * Changed author email
 
 
-0.3.0 (2020-02-17) 
+0.3.0 (2020-02-17)
 ------------------
 
 * Create github workflow to automaticly deploy to PyPI
