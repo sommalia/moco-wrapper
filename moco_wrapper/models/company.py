@@ -3,6 +3,7 @@ from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
+
 class CompanyType(str, Enum):
     """
     Enumeration of the type of companies that exist. Can be used to supply the ``company_type`` argument of :meth:`.Company.create`, :meth:`.Company.update` and :meth:`.Company.getlist`
@@ -30,11 +31,11 @@ class Company(MWRAPBase):
     Class for handling companies.
 
     Companies come in three different flavours (see :class:`.CompanyType`), customers are companies you do stuff for and send invoices to. suppliers are companies that supply stuff to you as a customer. Finally organizations are companies that do not fit the laben customer or supplier. For the most part you will interact with companies of type customer.
-    
+
     Example usage:
 
     .. code-block:: python
-    
+
         from moco_wrapper import Moco
 
         m = Moco()
@@ -44,7 +45,6 @@ class Company(MWRAPBase):
         )
 
     """
-
 
     def __init__(self, moco):
         """
@@ -74,7 +74,7 @@ class Company(MWRAPBase):
         country_code: str = None,
         vat_identifier: str = None,
         iban: str = None,
-        ):
+    ):
         """
         Create a company.
 
@@ -84,6 +84,7 @@ class Company(MWRAPBase):
         :param fax: Fax number of the company
         :param phone: Phone number of the company
         :param email: Email address of the company
+        :param address: Company address
         :param info: Additional information about the company
         :param custom_properties: Custom properties dictionary
         :param labels: Array of labels
@@ -102,6 +103,7 @@ class Company(MWRAPBase):
         :type fax: str
         :type phone: str
         :type email: str
+        :type address: str
         :type info: str
         :type custom_properties: dict
         :type labels: list
@@ -122,7 +124,6 @@ class Company(MWRAPBase):
             "type": company_type,
         }
 
-
         for key, value in (
             ("website", website),
             ("fax", fax),
@@ -141,8 +142,8 @@ class Company(MWRAPBase):
         ):
             if value is not None:
                 data[key] = value
-                
-        #set company specific parameters
+
+        # set company specific parameters
         if company_type == CompanyType.SUPPLIER:
             for key, value in (
                 ("iban", iban),
@@ -158,12 +159,11 @@ class Company(MWRAPBase):
                 if value is not None:
                     data[key] = value
 
-
         return self._moco.post(API_PATH["company_create"], data=data)
 
     def update(
         self,
-        comany_id: int,
+        company_id: int,
         company_type: CompanyType = None,
         name: str = None,
         website: str = None,
@@ -182,36 +182,38 @@ class Company(MWRAPBase):
         country_code: str = None,
         vat_identifier: str = None,
         iban: str = None,
-        ):
+    ):
         """
         Update a company.
 
-        :param comany_id: Id of the company
+        :param company_id: Id of the company
         :param company_type: Type of the company to modify
         :param name: Name of the company
         :param website: Url of the companies website
         :param fax: Fax number of the company
         :param phone: Phone number of the company
         :param email: Email address of the company
+        :param address: Company address
         :param info: Additional information about the company
         :param custom_properties: Custom properties dictionary
         :param labels: Array of labels
         :param user_id: Id of the responsible person
         :param currency: Currency the company uses (only mandatory when company_type == customer)
         :param identifier: Identifier of the company (only mandatory when not automatily assigned)
-        :param billing_tax: Billing tax value 
+        :param billing_tax: Billing tax value
         :param default_invoice_due_days: payment target days for the company when creating invoices
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
         :param vat_identifier: vat identifier for eu companies (only supplier and customer)
         :param iban: iban number (only supplier)
 
-        :type comany_id: int
+        :type company_id: int
         :type name: str
         :type company_type: :class:`.CompanyType`, str
         :type website: str
         :type fax: str
         :type phone: str
         :type email: str
+        :type address: str
         :type info: str
         :type custom_properties: dict
         :type labels: list
@@ -227,9 +229,8 @@ class Company(MWRAPBase):
         :returns: The updated company
         """
         data = {
-  
-        }
 
+        }
 
         for key, value in (
             ("type", company_type),
@@ -254,22 +255,22 @@ class Company(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["company_update"].format(id=comany_id), data=data)
+        return self._moco.put(API_PATH["company_update"].format(id=company_id), data=data)
 
     def get(
-        self, 
-        comany_id: int
-        ):
+        self,
+        company_id: int
+    ):
         """
         Get a single company.
 
-        :param comany_id: Id of the company
+        :param company_id: Id of the company
 
-        :type comany_id: int
+        :type company_id: int
 
         :returns: Single company object
         """
-        return self._moco.get(API_PATH["company_get"].format(id=comany_id))
+        return self._moco.get(API_PATH["company_get"].format(id=company_id))
 
     def getlist(
         self,
@@ -279,10 +280,10 @@ class Company(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Get a list of company objects.
-        
+
         :param company_type: Type of company to filter for
         :param tags: List of tags
         :param identifier: Company identifier
@@ -314,4 +315,3 @@ class Company(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["company_getlist"], params=params)
-        
