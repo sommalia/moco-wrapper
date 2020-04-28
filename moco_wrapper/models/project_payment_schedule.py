@@ -30,10 +30,10 @@ class ProjectPaymentSchedule(MWRAPBase):
             budget=4000
         ).data
 
-        first_payment = ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 3, 1))
-        second_payment = ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 6, 1))
-        third_payment = ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 9, 1))
-        fourth_payment = ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 12, 1))
+        first_payment = m.ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 3, 1))
+        second_payment = m.ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 6, 1))
+        third_payment = m.ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 9, 1))
+        fourth_payment = m.ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 12, 1))
 
     .. seealso::
 
