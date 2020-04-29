@@ -2,16 +2,27 @@
 History
 =======
 
+0.6.3 (2020-04-29)
+------------------
+
+* Cleanup
+* Fixed example code in documentation
+* Fixed various typos
+* Implemented contact lookup by phone number and term
+
 0.6.2 (2020-03-24)
+------------------
 
 * Query strings conversion into lower case
 
 0.6.1 (2020-03-18)
+------------------
 
 * Implement support for days parameter in User holidays
 * Implement Purchase Categories
 
 0.6.0 (2020-03-07)
+------------------
 
 * Implemented Paging of Listing Models
 * Implemented the creation of fixed price projects
@@ -19,6 +30,7 @@ History
 * More Documentation and even more code cleanup
 
 0.5.0 (2020-02-29)
+------------------
 
 * Implement authentication via email and password (note that the class constructor also changed, if you do not want that continue to ues the previus version (0.4.1))
 * Create readthedocs documentation (see https://moco-wrapper.readthedocs.io)

@@ -107,7 +107,7 @@ class TestContact(UnitTest):
         sort_by = "testfield to sort by"
 
         response = self.moco.Contact.getlist(sort_by=sort_by)
-        
+
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
     def test_getlist_sort_overwrite(self):
@@ -115,7 +115,7 @@ class TestContact(UnitTest):
         sort_order = "desc"
 
         response = self.moco.Contact.getlist(sort_by=sort_by, sort_order=sort_order)
-        
+
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
     def test_getlist_page_default(self):
@@ -129,3 +129,21 @@ class TestContact(UnitTest):
 
         response = self.moco.Contact.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
+
+    def test_getlist_phone(self):
+        phone = "test phone number"
+
+        response = self.moco.Contact.getlist(phone=phone)
+        params = response["params"]
+
+        assert params["phone"] == phone
+        assert response["method"] == "GET"
+
+    def test_getlist_term(self):
+        term = "test term"
+
+        response = self.moco.Contact.getlist(term=term)
+        params = response["params"]
+
+        assert params["term"] == term
+        assert response["method"] == "GET"

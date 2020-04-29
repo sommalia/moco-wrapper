@@ -8,7 +8,7 @@ from enum import Enum
 class ContactGender(str, Enum):
     """
     Enumeration for allowed values that can be supplied for the ``gender`` argument in :class:`.Contact.create` and :class:`.Contact.update`.
-    
+
     Example Usage:
 
     .. code-block:: python
@@ -237,6 +237,8 @@ class Contact(MWRAPBase):
     def getlist(
         self,
         tags: list = None,
+        term: str = None,
+        phone: str = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
@@ -245,11 +247,15 @@ class Contact(MWRAPBase):
         Retrieve a list of contact objects
 
         :param tags: Array of tags
+        :param term: Full text search (fields that are searched are name, firstname, work_email and company)
+        :param phone: Reverse lookup for work_phone or mobile_phone
         :param sort_by: Field to the results by
         :param sort_order: asc or desc
         :param page: Page number (default 1)
 
         :type tags: list
+        :type term: str
+        :type phone: str
         :type sort_by: str
         :type sort_order: str
         :type page: int
@@ -259,6 +265,8 @@ class Contact(MWRAPBase):
         params = {}
         for key, value in (
             ("tags", tags),
+            ("term", term),
+            ("phone", phone),
             ("page", page)
         ):
             if value is not None:

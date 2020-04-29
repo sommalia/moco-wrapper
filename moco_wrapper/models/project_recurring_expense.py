@@ -59,7 +59,7 @@ class ProjectRecurringExpense(MWRAPBase):
         """
         Retrieve a list of recurring expenses for a project
 
-        :param project_id: Id of the project the expesen belongs to
+        :param project_id: Id of the project the expenses belong to
         :param sort_by: Field to sort results by
         :param sort_order: asc or desc (default asc)
         :param page: Page number (default 1)
