@@ -10,7 +10,7 @@ class TestContact(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestContact.get_customer"):
             company_create = self.moco.Company.create(
-                "TestContact customer", 
+                "TestContact customer",
                 company_type="customer"
             )
 
@@ -42,14 +42,14 @@ class TestContact(IntegrationTest):
 
             contact_create = self.moco.Contact.create(
                 firstname,
-                lastname, 
+                lastname,
                 ContactGender.UNDEFINED
             )
-            
+
             assert contact_create.response.status_code == 200
 
             assert isinstance(contact_create, JsonResponse)
-            
+
             assert contact_create.data.firstname == firstname
             assert contact_create.data.lastname == lastname
             assert contact_create.data.gender == ContactGender.UNDEFINED
@@ -71,7 +71,7 @@ class TestContact(IntegrationTest):
 
             assert contact_create.data.company.type == "organization"
             assert contact_create.data.company.id == orga.id
-    
+
     def test_create_with_supplier(self):
         supplier = self.get_supplier()
 
@@ -100,7 +100,7 @@ class TestContact(IntegrationTest):
             title = "dr. med."
             job_position = "intern"
             mobile_phone = "45678"
-            
+
             work_fax = "67890"
             work_phone = "12345"
             work_email = "peter.smith@mycompany.com"
@@ -170,7 +170,7 @@ class TestContact(IntegrationTest):
             title = "dr. med."
             job_position = "intern"
             mobile_phone = "45678"
-            
+
             work_fax = "67890"
             work_phone = "12345"
             work_email = "peter.smith@mycompany.com"
@@ -231,10 +231,10 @@ class TestContact(IntegrationTest):
             firstname = "test contact"
             lastname = "to get"
             gender = ContactGender.UNDEFINED
-            
+
             contact_create = self.moco.Contact.create(
-                firstname, 
-                lastname, 
+                firstname,
+                lastname,
                 gender,
             )
             contact_get = self.moco.Contact.get(contact_create.data.id)
@@ -261,4 +261,42 @@ class TestContact(IntegrationTest):
             assert contact_getlist.next_page is not None
             assert contact_getlist.total is not None
             assert contact_getlist.page_size is not None
-            
+
+    def test_getlist_phone(self):
+        with self.recorder.use_cassette("TestContact.test_getlist_phone"):
+            phone = '+49 123 12345'
+            contact_create = self.moco.Contact.create(
+                "firstname",
+                "lastname",
+                ContactGender.MALE,
+                work_phone=phone)
+
+            contact_getlist = self.moco.Contact.getlist(phone=phone)
+
+            assert contact_create.response.status_code == 200
+            assert contact_getlist.response.status_code == 200
+
+            assert isinstance(contact_create, JsonResponse)
+            assert isinstance(contact_getlist, ListingResponse)
+
+            assert contact_create.data.id in [x.id for x in contact_getlist.items]
+
+    def test_getlist_term(self):
+        with self.recorder.use_cassette("TestContact.test_getlist_term"):
+            term = "dummy contact to search by term"
+
+            contact_create = self.moco.Contact.create(
+                term,
+                "dummy lastname",
+                ContactGender.FEMALE
+            )
+
+            contact_getlist = self.moco.Contact.getlist(term=term)
+
+            assert contact_create.response.status_code == 200
+            assert contact_getlist.response.status_code == 200
+
+            assert isinstance(contact_create, JsonResponse)
+            assert isinstance(contact_getlist, ListingResponse)
+
+            assert contact_create.data.id in [x.id for x in contact_getlist.items]

@@ -1,0 +1,199 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-04-29T09:04:40",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"work_phone\": \"+49 123 12345\", \"gender\": \"M\", \"lastname\": \"lastname\", \"firstname\": \"firstname\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "96"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.23.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SQTWsCMRCG/0qZayPEbFQ2/6G3nlpKGM2oafNFMtsPxP9eVqvsnnoIzDzz8ELeE3gHptustdoIOFByVMHAEwjY+9o4YSQwk1lAwDu+jwLYcxgRCHjPW1ty8+xzupKYtz6QLcec/pyvXD/sHr8n2+36qPuHperGp1e3I0X0YSKjc5Vau5JjjjQ1LvvM2PrKR4c/YNIQggD8RMZqhxpuhPHQwLy+CdgNjXO0peZClT01MKezgF2OBdM9YWhjUdf6+q5bd2q5XM1LY2o87+tCxqxKyOQsMhhQUsmF1AvVP8veSG20fAEBQ3H/Oj7t8/jB828AAAD//3ESG/HHAQAA",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "264"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Wed, 29 Apr 2020 09:04:40 GMT"
+          ],
+          "Etag": [
+            "W/\"2ea7d372e626cd5d34d7329f3ec85e33\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "d9dc3c22-8634-410e-8894-e28e9e3fa55a"
+          ],
+          "X-Runtime": [
+            "0.116022"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people"
+      }
+    },
+    {
+      "recorded_at": "2020-04-29T09:04:40",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.23.0"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people?phone=%2B49+123+12345&page=1"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SQy24CMQxFf6XytkEKmQCa/EN3XRWhyBADafNS4ulDiH+vBgoaVl1Yso+P7uKuT+AdmG611Gol4EDJUQUDLyBg72vjhJHATHYBAe/4vgpgz2FEIOA9b23JzbPP6Upi3vpAthxz+nO+cv2we/yeXLfvs+6f5qobRy9uT4row0RG5yq1diXHHGlqXO4HY+srHx3+gElDCALwExmrHWq4EcZDA7PeCNgNjXO0peZClT01MKezgF2OBdM9YWhjUdf6+q5bdmo+XzyWxtT4sa8LGbMqIZOzyGBASSVnUs9U/yp7I7XR8g0EDMX945w3vwEAAP//R3FUFL8BAAA=",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "260"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Wed, 29 Apr 2020 09:04:40 GMT"
+          ],
+          "Etag": [
+            "W/\"6197df351730055535958ebae44be03d\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Page": [
+            "1"
+          ],
+          "X-Per-Page": [
+            "100"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "fc32b895-8358-4373-acfd-003d41a17903"
+          ],
+          "X-Runtime": [
+            "0.052271"
+          ],
+          "X-Total": [
+            "1"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/contacts/people?phone=%2B49+123+12345&page=1"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}
