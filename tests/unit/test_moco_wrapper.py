@@ -72,6 +72,9 @@ class TestMocoWrapper(UnitTest):
     def test_purchase_category_set(self):
         assert isinstance(self.moco.PurchaseCategory, models.PurchaseCategory)
 
+    def test_planning_entry_set(self):
+        assert isinstance(self.moco.PlanningEntry, models.PlanningEntry)
+
     def test_wrapper_init(self):
         new_moco = moco.Moco(
             auth={
@@ -96,7 +99,7 @@ class TestMocoWrapper(UnitTest):
         )
 
         new_moco.authenticate()
-        
+
         assert new_moco.api_key == "api_key"
         assert new_moco.domain == "domain"
 
@@ -123,6 +126,5 @@ class TestMocoWrapper(UnitTest):
         assert new_moco._impersonation_user_id == impersonate_user_id
 
         new_moco.clear_impersonation()
-        
+
         assert new_moco._impersonation_user_id is None
-        

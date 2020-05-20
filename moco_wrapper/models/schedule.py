@@ -5,6 +5,7 @@ from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
+
 class ScheduleAbsenceCode(int, Enum):
     """
     Enumeration for allowed values of argument ``absence_code`` of :meth:`.Schedule.getlist`, :meth:`.Schedule.create` and :meth:`.Schedule.update`
@@ -25,6 +26,7 @@ class ScheduleAbsenceCode(int, Enum):
     SICK_DAY = 3
     HOLIDAY = 4
     ABSENCE = 5
+
 
 class ScheduleSymbol(int, Enum):
     """
@@ -52,6 +54,7 @@ class ScheduleSymbol(int, Enum):
     MOON = 9
     INFO_CIRCLE = 10
 
+
 class ScheduleAssignmentType(object):
     """
     Enumeration for types of schedules that can exist.
@@ -60,9 +63,14 @@ class ScheduleAssignmentType(object):
     PROJECT = "Project"
     ABSENCE = "Absence"
 
+
 class Schedule(MWRAPBase):
     """
-    Class for handling user schedules.
+    Class for handling user schedules (Old Planning and Absences).
+
+    .. note::
+
+        For handling planning the new way, use the :class:`moco_wrapper.models.PlanningEntry`
     """
 
     def __init__(self, moco):
@@ -79,11 +87,11 @@ class Schedule(MWRAPBase):
         to_date: datetime.date = None,
         user_id: int = None,
         project_id: int = None,
-        absence_code: ScheduleAbsenceCode  = None,
+        absence_code: ScheduleAbsenceCode = None,
         sort_by: str = None,
         sort_order: str = 'asc',
-        page = 1
-        ):
+        page=1
+    ):
         """
         Retrieve all planned schedule items.
 
@@ -131,7 +139,7 @@ class Schedule(MWRAPBase):
     def get(
         self,
         schedule_id: int
-        ):
+    ):
         """
         Retrieve a single schedule object.
 
@@ -139,7 +147,7 @@ class Schedule(MWRAPBase):
 
         :type schedule_id: int
 
-        :returns: Single schedule object 
+        :returns: Single schedule object
         """
         return self._moco.get(API_PATH["schedule_get"].format(id=schedule_id))
 
@@ -154,7 +162,7 @@ class Schedule(MWRAPBase):
         comment: str = None,
         symbol: ScheduleSymbol = None,
         overwrite: bool = None,
-        ):
+    ):
         """
         Create a new schedule entry.
 
@@ -187,7 +195,7 @@ class Schedule(MWRAPBase):
 
         if absence_code is not None and project_id is not None:
             raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-        
+
         if absence_code is None and project_id is None:
             raise ValueError("Either abscence_code or project_id must be specified")
 
@@ -224,7 +232,7 @@ class Schedule(MWRAPBase):
         comment: str = None,
         symbol: ScheduleSymbol = None,
         overwrite: bool = None,
-        ):
+    ):
         """
         Update a schedule entry.
 
@@ -252,15 +260,15 @@ class Schedule(MWRAPBase):
 
             Define either ``project_id`` OR ``absence_code``, specify one, not both.
         """
-        
+
         if absence_code is not None and project_id is not None:
             raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-        
+
         if absence_code is None and project_id is None:
             raise ValueError("either abscence_code or project_id must be specified")
 
         data = {}
-        
+
         for key, value in (
             ("project_id", project_id),
             ("absence_code", absence_code),
@@ -278,7 +286,7 @@ class Schedule(MWRAPBase):
     def delete(
         self,
         schedule_id: int
-        ):
+    ):
         """
         Delete a schedule entry.
 

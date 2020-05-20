@@ -7,7 +7,7 @@ from requests import get, post, put, delete
 class Moco(object):
     """
     Main Moco class for handling authentication, object conversion, requesting ressources with the moco api
-    
+
     :param auth: Dictionary containing authentication information, see :ref:`authentication`
     :param objector: objector object (see :ref:`objector`, default: :class:`moco_wrapper.util.objector.DefaultObjector`)
     :param requestor: requestor object (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
@@ -27,9 +27,9 @@ class Moco(object):
         )
     """
     def __init__(
-        self, 
+        self,
         auth = {},
-        objector = objector.DefaultObjector(), 
+        objector = objector.DefaultObjector(),
         requestor = requestor.DefaultRequestor(),
         impersonate_user_id: int = None,
         **kwargs):
@@ -37,8 +37,8 @@ class Moco(object):
         self.auth = auth
         """
         Authentication information
-        
-        It either contains an api key and and domain 
+
+        It either contains an api key and and domain
 
         .. code-block:: python
 
@@ -57,7 +57,7 @@ class Moco(object):
             m = Moco(
                 auth={"domain": "testdomain", "email": "testemail@mycompany.com", "password": "test"}
             )
-        
+
         """
 
         self.Activity = models.Activity(self)
@@ -70,8 +70,9 @@ class Moco(object):
         self.UserPresence = models.UserPresence(self)
         self.UserHoliday = models.UserHoliday(self)
         self.UserEmployment = models.UserEmployment(self)
-        
-        self.Schedule = models.Schedule(self)
+
+        self.Schedule = models.Schedule(self) # old way for handling planning + absenses
+        self.PlanningEntry = models.PlanningEntry(self) # new way for handling planning
 
         self.Project = models.Project(self)
         self.ProjectContract = models.ProjectContract(self)
@@ -86,7 +87,7 @@ class Moco(object):
         self.Invoice = models.Invoice(self)
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
-        
+
         self.Session = models.Session(self)
 
         self.PurchaseCategory = models.PurchaseCategory(self)
@@ -112,7 +113,7 @@ class Moco(object):
 
         if "domain" in self.auth.keys():
             self.domain = self.auth["domain"]
-        
+
 
     def request(self, method, path, params=None, data=None, bypass_auth=False):
         """
@@ -121,15 +122,15 @@ class Moco(object):
         :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
         :param path: path of the ressource (e.g. ``/projects``)
         :param params: url parameters (e.g. ``page=1``, query parameters)
-        :param data: dictionary with data (http body) 
+        :param data: dictionary with data (http body)
         :param bypass_auth: If authentication checks should be skipped (default False)
 
         The request will be given to the currently assinged requestor (see :ref:`requestor`).
         The response will then be given to the currently assinged objector (see :ref:`objector`)
-        
+
         The *possibly* modified response will then be returned
         """
-        
+
         full_path = self.full_domain + path
         requestor_response = None
 
@@ -153,14 +154,14 @@ class Moco(object):
         #if the result is an exception we raise it, otherwise return it
         if isinstance(objector_result, response.ErrorResponse) and isinstance(objector_result.data, exceptions.MocoException):
             raise objector_result.data
-        
+
         #return the objector result by default
         return objector_result
 
 
     def get(self, path, params=None, data=None, **kwargs):
         return self.request("GET", path, params=params, data=data, **kwargs)
-        
+
     def post(self, path, params=None, data=None, **kwargs):
         return self.request("POST", path, params=params, data=data, **kwargs)
 
@@ -175,7 +176,7 @@ class Moco(object):
 
 
     def impersonate(
-        self, 
+        self,
         user_id: int
         ):
         """
@@ -184,7 +185,7 @@ class Moco(object):
         :param user_id: user id to impersonate
 
         .. seealso::
-            
+
             :meth:`clear_impersonation` to end impersonation of ``user_id``
 
         """
@@ -235,7 +236,7 @@ class Moco(object):
         """
         Get the http.session object of the current requestor (None if the requestor does not have a session)
         """
-        
+
         return self._requestor.session
 
     @property
@@ -259,7 +260,7 @@ class Moco(object):
             :ref:`requestor`
         """
         return self._requestor
-    
+
     def authenticate(self):
         """
         Performs any action neccessary to be authenticated against the moco api.
