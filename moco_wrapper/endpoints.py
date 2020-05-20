@@ -112,5 +112,6 @@ API_PATH = {
     "project_payment_schedule_update":  "/projects/{project_id}/payment_schedules/{schedule_id}",
     "project_payment_schedule_delete":  "/projects/{project_id}/payment_schedules/{schedule_id}",
     "purchase_category_get":            "/purchases/categories/{id}",
-    "purchase_category_getlist":        "/purchases/categories"
+    "purchase_category_getlist":        "/purchases/categories",
+    "planning_entry_getlist":           "/planning_entries",
 }

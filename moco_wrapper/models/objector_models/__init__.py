@@ -26,3 +26,4 @@ from .schedule import Schedule
 from .session import Session
 
 from .purchase_category import PurchaseCategory
+from .planning_entry import PlanningEntry

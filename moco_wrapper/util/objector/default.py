@@ -18,7 +18,7 @@ class DefaultObjector(BaseObjector):
 
     def __init__(self):
         self.module_path = "moco_wrapper.models.objector_models"
-    
+
         self.class_map = {
             "projects": {
                 "base": "Project",
@@ -79,7 +79,7 @@ class DefaultObjector(BaseObjector):
                 "bulk": "Comment",
             },
             "schedules": {
-                "base": "Schedule"    
+                "base": "Schedule"
             },
             "session": {
                 "base" : "Session"
@@ -87,6 +87,9 @@ class DefaultObjector(BaseObjector):
             "purchases": {
                 "base" : "Purchase",
                 "categories": "PurchaseCategory"
+            },
+            "planning_entries": {
+                "base": "PlanningEntry"
             }
         }
         """
@@ -114,7 +117,7 @@ class DefaultObjector(BaseObjector):
         }
         """
         Dictionary used to convert http status codes into the appropriate exceptions
-        
+
         .. code-block:: python
 
             self.error_class_map = {
@@ -146,7 +149,7 @@ class DefaultObjector(BaseObjector):
                     class_name
                 )
 
-                
+
                 if isinstance(requestor_response, JsonResponse):
                     obj = class_(**requestor_response.data)
                     requestor_response._data = obj
@@ -196,7 +199,7 @@ class DefaultObjector(BaseObjector):
 
         #raise error if status code was not found
         raise ValueError("Objector could not find an error type, but it should, status_code: {}".format(status_code))
-        
+
 
     def get_class_name_from_request_url(self, url) -> str:
         """
@@ -205,13 +208,13 @@ class DefaultObjector(BaseObjector):
         :param url: url to analyse
 
         :type url: str
-        
+
 
         This function works as follows:
 
         The url will look something like this ``https://test.mocoapp.com/api/v1/projects/1234/tasks?page=1``.
         We split the url on ``/api/v1/``.
-            
+
             ``[https://test.mocoapp.com", "projects/1234/tasks?page=1"]``
 
         After that we throw away the first part and split the second part on the slash character:
@@ -219,11 +222,11 @@ class DefaultObjector(BaseObjector):
             ``["projects", 1234, "tasks?page=1"]``
 
         Then we remove all query string parameters:
-        
+
             ``["projects", 1234, "tasks"]``
 
         Then we remove all parts that are ids(digits):
-        
+
             ``["projects", "tasks"]``
 
         Now that we have our path ``projects=>tasks``, we use the :attr:`class_map` to find the right classname.
@@ -247,11 +250,11 @@ class DefaultObjector(BaseObjector):
 
         We use the path we generated and walk our class_map until we get the entry at the end of the path. In our case that would be ``ProjectTask``. As this value is a string that is our final classname.
 
-        .. note:: if the final value is a dictionary, the base case will be returned. For example if path was ``projects``, the value at the end of our path is a dictionary. If that is the case the *base* key will be used. 
+        .. note:: if the final value is a dictionary, the base case will be returned. For example if path was ``projects``, the value at the end of our path is a dictionary. If that is the case the *base* key will be used.
         """
-        
+
         parts = url.split("/api/v1/")[-1].split("/")
-        
+
         #remove ids and query string parameters
         parts = [x for x in parts if not x.isdigit()]
         if "?" in parts[-1]:
@@ -275,9 +278,9 @@ class DefaultObjector(BaseObjector):
 
         if current_map is None:
             return None #no type conversion
-        
+
         if isinstance(current_map, str):
             return current_map #current map is a specific class name
-        
+
         if isinstance(current_map, dict):
             return current_map["base"] #more cases are present but we need the base case
