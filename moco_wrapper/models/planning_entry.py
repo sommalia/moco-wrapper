@@ -47,6 +47,8 @@ class PlanningEntry(MWRAPBase):
         :type sort_by: str
         :type sort_order: str
         :type page: int
+
+        :returns: List of planning entries
         """
 
         if start_date is not None and end_date is None:
@@ -85,3 +87,20 @@ class PlanningEntry(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["planning_entry_getlist"], params=params)
+
+    def get(
+        self,
+        planning_entry_id: int
+    ):
+        """
+        Retrieve a single planning entry
+
+        :param planning_entry_id: Id the of the entry
+
+        :type planning_entry_id: int
+
+        :returns: Single planning entry
+        """
+
+        return self._moco.get(API_PATH["planning_entry_get"].format(id=planning_entry_id))
+

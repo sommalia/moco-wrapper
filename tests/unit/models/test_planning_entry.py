@@ -1,6 +1,7 @@
 from .. import UnitTest
 import pytest
 
+
 class TestPlanningEntry(UnitTest):
     def test_getlist(self):
         start_date = '2019-10-10'
@@ -49,7 +50,6 @@ class TestPlanningEntry(UnitTest):
         response = self.moco.PlanningEntry.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
 
-
     def test_getlist_throws_only_start_date(self):
         with pytest.raises(ValueError):
             response = self.moco.PlanningEntry.getlist(start_date='2020-02-10', end_date=None)
@@ -58,4 +58,9 @@ class TestPlanningEntry(UnitTest):
         with pytest.raises(ValueError):
             response = self.moco.PlanningEntry.getlist(start_date=None, end_date='2020-10-10')
 
+    def test_get(self):
+        entry_id = 12345
 
+        response = self.moco.PlanningEntry.get(entry_id)
+
+        assert response["method"] == "GET"

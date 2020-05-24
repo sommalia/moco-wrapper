@@ -114,4 +114,5 @@ API_PATH = {
     "purchase_category_get":            "/purchases/categories/{id}",
     "purchase_category_getlist":        "/purchases/categories",
     "planning_entry_getlist":           "/planning_entries",
+    "planning_entry_get":               "/planning_entries/{id}",
 }
