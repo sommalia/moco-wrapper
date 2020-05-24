@@ -30,7 +30,7 @@ class ScheduleAbsenceCode(int, Enum):
 
 class ScheduleSymbol(int, Enum):
     """
-    Enumeration for allowed values of arguemnt ``symbol`` of :meth:`.Schedule.create` and :meth:`.Schedule.update`
+    Enumeration for allowed values of argument ``symbol`` of :meth:`.Schedule.create` and :meth:`.Schedule.update`
 
     .. code-block:: python
 

@@ -1,7 +1,36 @@
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
+from enum import Enum
 
 import datetime
+
+
+class PlanningEntrySymbol(int, Enum):
+    """
+    Enumeration for allowed values for argument ``symbol`` for :meth:`.PlanningEntry.create`.
+
+    .. code-block:: python
+
+        from moco_wrapper.models.planning_entry import PlanningEntrySymbol
+        from moco_wrapper import Moco
+
+        m = Moco()
+
+        new_planning_entry = m.create(
+            ..
+            symbol = PlanningEntrySymbol.HOME
+        )
+    """
+    HOME = 1
+    BUILDING = 2
+    CAR = 3
+    GRADUATION_CAP = 4
+    COCKTAIL = 5
+    BELLS = 6
+    BABY_CARRIAGE = 7
+    USERS = 8
+    MOON = 9
+    INFO_CIRCLE = 10
 
 
 class PlanningEntry(MWRAPBase):
@@ -103,4 +132,16 @@ class PlanningEntry(MWRAPBase):
         """
 
         return self._moco.get(API_PATH["planning_entry_get"].format(id=planning_entry_id))
+
+    def create(
+        self,
+        project_id: int,
+        start_date: datetime.date,
+        end_date: datetime.date,
+        hours_per_day: float,
+        user_id: int = None,
+        comment: str = None,
+        symbol: str = None
+    ):
+        pass
 
