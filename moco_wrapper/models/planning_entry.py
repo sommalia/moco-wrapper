@@ -61,13 +61,13 @@ class PlanningEntry(MWRAPBase):
         """
         Retrieve a list of planning entries
 
-        :param start_date: Start date (if `start_date` is supplied, `end_date` must also be supplied) (default `None`)
-        :param end_date: End date (if `end_date` is supplied, `start_date` must also be supplied) (default `None`)
-        :param user_id: User id (default `None`)
-        :param project_id: Project id (default `None`)
-        :param sort_by: Field to sort by (default `None`)
-        :param sort_order: asc or desc (default `'asc'`)
-        :param page: Page number (default `1`)
+        :param start_date: Start date (if ``start_date`` is supplied, `end_date` must also be supplied) (default ``None``)
+        :param end_date: End date (if `end_date` is supplied, ``start_date`` must also be supplied) (default ``None``)
+        :param user_id: User id (default ``None``)
+        :param project_id: Project id (default ``None``)
+        :param sort_by: Field to sort by (default ``None``)
+        :param sort_order: asc or desc (default ``'asc'``)
+        :param page: Page number (default ``1``)
 
         :type start_date: datetime.date, str
         :type end_date: datetime.date, str
@@ -136,12 +136,63 @@ class PlanningEntry(MWRAPBase):
     def create(
         self,
         project_id: int,
-        start_date: datetime.date,
-        end_date: datetime.date,
+        starts_on: datetime.date,
+        ends_on: datetime.date,
         hours_per_day: float,
         user_id: int = None,
         comment: str = None,
-        symbol: str = None
+        symbol: PlanningEntrySymbol = None
     ):
-        pass
+        """
+        Create a new planning entry
+
+
+        :param project_id: Project id to create the planning entry for
+        :param starts_on: Start date
+        :param ends_on: End date
+        :param hours_per_day: Hours per day the planning entry will consume
+        :param user_id: User id the planning entry will be created for (default ``None``)
+        :param comment: A comments (default ``None``)
+        :param symbol: Symbol icon to use (default ``None``)
+
+        :type project_id: int
+        :type starts_on: datetime.date, str
+        :type ends_on: datetime.date, str
+        :type hours_per_day: float
+        :type user_id: int
+        :type comment: str
+        :type symbol: :class:`.PlanningEntrySymbol`, int
+
+        :returns: The created planning entry
+
+        .. note::
+            If no ``user_id`` is supplied the entry will be created with the user_id of the executing request
+            (the user_id the api key belongs to)
+
+
+        """
+
+        data = {
+            "project_id" : project_id,
+            "hours_per_day": hours_per_day,
+            "starts_on": starts_on,
+            "ends_on": ends_on,
+            "comment": ""
+        }
+
+        for date_key in ["starts_on", "ends_on"]:
+            if isinstance(data[date_key], datetime.date):
+                data[date_key] = self._convert_date_to_iso(data[date_key])
+
+        for key, value in (
+            ("user_id", user_id),
+            ("comment", comment),
+            ("symbol", symbol)
+        ):
+            if value is not None:
+                data[key] = value
+
+        return self._moco.post(API_PATH["planning_entry_create"], data=data)
+
+
 

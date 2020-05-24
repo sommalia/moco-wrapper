@@ -1,0 +1,99 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-05-24T11:37:10",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"lastname\": \"user\", \"firstname\": \"dummy\", \"unit_id\": 909166409, \"email\": \"dummy.user@mycompany.com\", \"password\": \"NE1CEU\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "123"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.23.0"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4SPzWrrMBCFX+Vy1kqQ7dwEa9WHyKobM7EmWFQ/ZiSlNcHvXkyS0l13cz7mHPjucBam77pj1/b6pHB1kkukwDCwNYQFCp5+UM0sUKCxuBvDFKmswF+FJcJcyectBnL+Vd9vjbewjCnMFJf9mAIUQro4z8M8pbitQuEzycfvPKXAA1krnPODuHhNj+vipEyWFphYvVegGxWSoYp/kbHmksIwS5pZiuMMc18VanQF5ums++Z4POhe4el2Zgr/GqwKozAVtgMVGLS61Tv9f9cezk1jupNp9DsU6mz/+Fm/AwAA///UrsmDXQEAAA==",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "244"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Sun, 24 May 2020 11:37:10 GMT"
+          ],
+          "Etag": [
+            "W/\"61da83198ba33864eaf2c4b363caa829\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "388d9d41-b0d7-4062-bc4a-cb2d46d92e23"
+          ],
+          "X-Runtime": [
+            "1.538822"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

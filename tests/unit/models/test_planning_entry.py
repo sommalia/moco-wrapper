@@ -64,3 +64,35 @@ class TestPlanningEntry(UnitTest):
         response = self.moco.PlanningEntry.get(entry_id)
 
         assert response["method"] == "GET"
+
+    def test_create(self):
+        project_id = 1234
+        starts_on = "2020-02-12"
+        ends_on = "2020-10-10"
+        hours_per_day = 3.5
+        user_id = 1
+        comment = "This is the comment"
+        symbol = 2
+
+        response = self.moco.PlanningEntry.create(
+            project_id,
+            starts_on,
+            ends_on,
+            hours_per_day,
+            user_id=user_id,
+            comment=comment,
+            symbol=symbol
+        )
+        data = response["data"]
+
+        assert data["project_id"] == project_id
+        assert data["starts_on"] == starts_on
+        assert data["ends_on"] == ends_on
+        assert data["hours_per_day"] == hours_per_day
+        assert data["user_id"] == user_id
+        assert data["comment"] == comment
+        assert data["symbol"] == symbol
+
+        assert response["method"] == "POST"
+
+
