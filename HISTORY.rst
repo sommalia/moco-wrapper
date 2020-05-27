@@ -2,6 +2,14 @@
 History
 =======
 
+0.7.0 (2020-05-27)
+------------------
+
+* Implemented Planning Entries
+* Add credit/debit number to Company
+* Add footer to Company
+* Add deal property to Project objector model
+
 0.6.3 (2020-04-29)
 ------------------
 
