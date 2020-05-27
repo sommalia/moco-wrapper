@@ -95,4 +95,34 @@ class TestPlanningEntry(UnitTest):
 
         assert response["method"] == "POST"
 
+    def test_update(self):
+        entry_id = 3554
+        project_id = 1234
+        starts_on = "2020-02-12"
+        ends_on = "2020-10-10"
+        hours_per_day = 3.5
+        user_id = 1
+        comment = "This is the comment"
+        symbol = 2
 
+        response = self.moco.PlanningEntry.update(
+            entry_id,
+            project_id=project_id,
+            starts_on=starts_on,
+            ends_on=ends_on,
+            hours_per_day=hours_per_day,
+            user_id=user_id,
+            comment=comment,
+            symbol=symbol
+        )
+        data = response["data"]
+
+        assert data["project_id"] == project_id
+        assert data["starts_on"] == starts_on
+        assert data["ends_on"] == ends_on
+        assert data["hours_per_day"] == hours_per_day
+        assert data["user_id"] == user_id
+        assert data["comment"] == comment
+        assert data["symbol"] == symbol
+
+        assert response["method"] == "PUT"

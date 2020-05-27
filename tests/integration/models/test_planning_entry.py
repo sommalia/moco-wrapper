@@ -94,7 +94,7 @@ class TestPlanningEntry(IntegrationTest):
             assert plan_create.data.ends_on == end_date.isoformat()
             assert plan_create.data.hours_per_day == hours_per_day
 
-    def test_create_full(self):
+    def test_get(self):
         user = self.get_other_user()
         project = self.get_project()
 
@@ -171,3 +171,51 @@ class TestPlanningEntry(IntegrationTest):
             assert plan_create.data.user.id == user.id
             assert plan_create.data.comment == comment
             assert plan_create.data.symbol == symbol
+
+    def test_update(self):
+        user = self.get_other_user()
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestPlanningEntry.test_update"):
+            start_date = date(2020, 1, 1)
+            end_date = date(2020, 1, 2)
+            hours_per_day = 2.5
+            comment = "dummy entry, test update 2"
+            symbol = PlanningEntrySymbol.GRADUATION_CAP
+
+            plan_create = self.moco.PlanningEntry.create(
+                project.id,
+                date(2020, 2, 1),
+                date(2020, 2, 2),
+                3,
+                user_id=user.id,
+                comment="dummy comment, test update",
+                symbol=PlanningEntrySymbol.HOME
+            )
+
+            plan_update = self.moco.PlanningEntry.update(
+                plan_create.data.id,
+                project_id=project.id,
+                starts_on=start_date,
+                ends_on=end_date,
+                hours_per_day=hours_per_day,
+                comment=comment,
+                symbol=symbol
+            )
+
+            assert plan_create.response.status_code == 200
+            assert plan_update.response.status_code == 200
+
+            assert isinstance(plan_create, JsonResponse)
+            assert isinstance(plan_update, JsonResponse)
+
+            assert plan_update.data.project is not None
+            assert plan_update.data.user is not None
+
+            assert plan_update.data.project.id == project.id
+            assert plan_update.data.starts_on == start_date.isoformat()
+            assert plan_update.data.ends_on == end_date.isoformat()
+            assert plan_update.data.hours_per_day == hours_per_day
+            assert plan_update.data.user.id == user.id
+            assert plan_update.data.comment == comment
+            assert plan_update.data.symbol == symbol

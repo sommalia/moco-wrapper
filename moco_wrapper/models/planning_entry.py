@@ -147,12 +147,12 @@ class PlanningEntry(MWRAPBase):
         Create a new planning entry
 
 
-        :param project_id: Project id to create the planning entry for
+        :param project_id: Project id
         :param starts_on: Start date
         :param ends_on: End date
         :param hours_per_day: Hours per day the planning entry will consume
-        :param user_id: User id the planning entry will be created for (default ``None``)
-        :param comment: A comments (default ``None``)
+        :param user_id: User id the planning entry belongs to (default ``None``)
+        :param comment: A comment (default ``None``)
         :param symbol: Symbol icon to use (default ``None``)
 
         :type project_id: int
@@ -168,7 +168,6 @@ class PlanningEntry(MWRAPBase):
         .. note::
             If no ``user_id`` is supplied the entry will be created with the user_id of the executing request
             (the user_id the api key belongs to)
-
 
         """
 
@@ -194,5 +193,56 @@ class PlanningEntry(MWRAPBase):
 
         return self._moco.post(API_PATH["planning_entry_create"], data=data)
 
+    def update(
+        self,
+        planning_entry_id: int,
+        project_id: int = None,
+        starts_on: datetime.date = None,
+        ends_on: datetime.date = None,
+        hours_per_day: float = None,
+        user_id: int = None,
+        comment: str = None,
+        symbol: PlanningEntrySymbol = None,
+    ):
+        """
+        Updates a planning entry
 
+        :param planning_entry_id: Id of the entry to update
+        :param project_id: Project id (default ``None``)
+        :param starts_on: Start date (default ``None``)
+        :param ends_on: End date (default ``None``)
+        :param hours_per_day: Hours per day the planning entry will consume (default ``None``)
+        :param user_id: User id the planning entry belongs to (default ``None``)
+        :param comment: A comment (default ``None``)
+        :param symbol: Symbol icon to use (default ``None``)
 
+        :type planning_entry_id: int
+        :type project_id: int
+        :type starts_on: datetime.date, str
+        :type ends_on: datetime.date, str
+        :type hours_per_day: float
+        :type user_id: int
+        :type comment: str
+        :type symbol: :class:`.PlanningEntrySymbol`, int
+
+        :returns: The updated planning entry
+        """
+
+        data = {}
+
+        for key, value in (
+            ("project_id", project_id),
+            ("starts_on", starts_on),
+            ("ends_on", ends_on),
+            ("hours_per_day", hours_per_day),
+            ("user_id", user_id),
+            ("comment", comment),
+            ("symbol", symbol)
+        ):
+            if value is not None:
+                if key in ["starts_on", "ends_on"] and isinstance(value, datetime.date):
+                    data[key] = self._convert_date_to_iso(value)
+                else:
+                    data[key] = value
+
+        return self._moco.put(API_PATH["planning_entry_update"].format(id=planning_entry_id), data=data)
