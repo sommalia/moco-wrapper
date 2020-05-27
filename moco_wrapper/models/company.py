@@ -74,6 +74,9 @@ class Company(MWRAPBase):
         country_code: str = None,
         vat_identifier: str = None,
         iban: str = None,
+        debit_number: int = None,
+        credit_number: int = None,
+        footer: str = None
     ):
         """
         Create a company.
@@ -89,13 +92,16 @@ class Company(MWRAPBase):
         :param custom_properties: Custom properties dictionary
         :param labels: Array of labels
         :param user_id: User Id of the responsible person
-        :param currency: Currency the company uses (mandatory when company_type == customer)
-        :param identifier: Identifier of the company (only mandatory when not automatily assigned)
+        :param currency: Currency the company uses (only customer)
+        :param identifier: Identifier of the company (only mandatory when not automaticly assigned)
         :param billing_tax: Billing tax value (from 0 to 100)
-        :param default_invoice_due_days: Payment target days for the company when creating invoices
+        :param default_invoice_due_days: Payment target days for the company when creating invoices (only customer)
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
-        :param vat_identifier: Vat identifier for eu companies (only supplier and customer)
+        :param vat_identifier: Vat identifier for eu companies
         :param iban: Iban number (only supplier)
+        :param debit_number: Debit number (if bookkeeping is enabled) (only customer) (default ``None``)
+        :param credit_number: Credit number (if bookkeeping is enabled) (only supplier) (default ``None``)
+        :param footer: Some html (appears at the end of invoices)
 
         :type name: str
         :type company_type: :class:`.CompanyType`, str
@@ -115,8 +121,16 @@ class Company(MWRAPBase):
         :type country_code: str
         :type vat_identifier: str
         :type iban: str
+        :type debit_number: int
+        :type credit_number: int
+        :type footer: str
 
         :returns: The created company
+
+        .. note::
+
+            When supplying a vat_identifier, make sure it is valid
+
         """
 
         data = {
@@ -134,11 +148,9 @@ class Company(MWRAPBase):
             ("custom_properties", custom_properties),
             ("labels", labels),
             ("user_id", user_id),
-            ("currency", currency),
-            ("identifier", identifier),
-            ("billing_tax", billing_tax),
-            ("invoice_due_days", default_invoice_due_days),
-            ("country_code", country_code)
+            ("country_code", country_code),
+            ("vat_identifier", vat_identifier),
+            ("footer", footer)
         ):
             if value is not None:
                 data[key] = value
@@ -147,14 +159,18 @@ class Company(MWRAPBase):
         if company_type == CompanyType.SUPPLIER:
             for key, value in (
                 ("iban", iban),
-                ("vat_identifier", vat_identifier)
+                ("credit_number", credit_number)
             ):
                 if value is not None:
                     data[key] = value
 
         if company_type == CompanyType.CUSTOMER:
             for key, value in (
-                ("vat_identifier", vat_identifier),
+                ("currency", currency),
+                ("identifier", identifier),
+                ("billing_tax", billing_tax),
+                ("invoice_due_days", default_invoice_due_days),
+                ("debit_number", debit_number)
             ):
                 if value is not None:
                     data[key] = value
@@ -182,6 +198,9 @@ class Company(MWRAPBase):
         country_code: str = None,
         vat_identifier: str = None,
         iban: str = None,
+        debit_number: int = None,
+        credit_number: int = None,
+        footer: str = None,
     ):
         """
         Update a company.
@@ -198,13 +217,15 @@ class Company(MWRAPBase):
         :param custom_properties: Custom properties dictionary
         :param labels: Array of labels
         :param user_id: Id of the responsible person
-        :param currency: Currency the company uses (only mandatory when company_type == customer)
-        :param identifier: Identifier of the company (only mandatory when not automatily assigned)
-        :param billing_tax: Billing tax value
-        :param default_invoice_due_days: payment target days for the company when creating invoices
+        :param currency: Currency the company uses (only customer)
+        :param identifier: Identifier of the company (only mandatory when not automatily assigned) (only customer) (default ``None``)
+        :param billing_tax: Billing tax value (only customer) (default ``None``)
+        :param default_invoice_due_days: payment target days for the company when creating invoices (only customer) (default ``None``)
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
-        :param vat_identifier: vat identifier for eu companies (only supplier and customer)
+        :param vat_identifier: vat identifier for eu companies
         :param iban: iban number (only supplier)
+        :param debit_number: Debit number (if bookkeeping is enabled) (only customer) (default ``None``)
+        :param credit_number: Credit number (if bookkeeping is enabled) (ony supplier) (default ``None``)
 
         :type company_id: int
         :type name: str
@@ -225,6 +246,9 @@ class Company(MWRAPBase):
         :type country_code: str
         :type vat_identifier: str
         :type iban: str
+        :type debit_number: int
+        :type credit_number: int
+        :type footer: str
 
         :returns: The updated company
         """
@@ -250,7 +274,10 @@ class Company(MWRAPBase):
             ("invoice_due_days", default_invoice_due_days),
             ("country_code", country_code),
             ("vat_identifier", vat_identifier),
-            ("iban", iban)
+            ("iban", iban),
+            ("debit_number", debit_number),
+            ("credit_number", credit_number),
+            ("footer", footer)
         ):
             if value is not None:
                 data[key] = value
