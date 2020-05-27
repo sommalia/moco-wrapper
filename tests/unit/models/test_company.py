@@ -23,8 +23,13 @@ class TestCompany(UnitTest):
         identifier = "COMP-1"
         billing_tax = 21
         default_invoice_due_days = 22
+        vat = "123412321"
 
-        response = self.moco.Company.create(name, company_type, website=website, fax=fax, phone=phone, email=email, address=address, info=info, custom_properties=custom_properties, labels=labels, user_id=user_id, currency=currency, identifier=identifier, billing_tax=billing_tax, default_invoice_due_days=default_invoice_due_days)
+        response = self.moco.Company.create(
+            name, company_type, website=website, fax=fax, phone=phone, email=email,
+            address=address, info=info, custom_properties=custom_properties, labels=labels,
+            user_id=user_id, currency=currency, identifier=identifier, billing_tax=billing_tax,
+            default_invoice_due_days=default_invoice_due_days, vat_identifier=vat)
 
         data = response["data"]
 
@@ -43,9 +48,10 @@ class TestCompany(UnitTest):
         assert data["identifier"] == identifier
         assert data["billing_tax"] == billing_tax
         assert data["invoice_due_days"] == default_invoice_due_days
+        assert data["vat_identifier"] == vat
 
-        assert response["method"] == "POST"#
-    
+        assert response["method"] == "POST"
+
     def test_update(self):
         company_id = 1234
         company_type = "customer"
@@ -115,7 +121,7 @@ class TestCompany(UnitTest):
 
         response = self.moco.Company.getlist(sort_by=sort_by)
 
-        assert response["params"]["sort_by"] == "{} asc".format(sort_by) 
+        assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
     def test_getlist_sort_overwrite(self):
         sort_by = "test sort field"
@@ -123,7 +129,7 @@ class TestCompany(UnitTest):
 
         response = self.moco.Company.getlist(sort_by=sort_by, sort_order=sort_order)
 
-        assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order) 
+        assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
     def test_getlist_page_default(self):
         page_default = 1
@@ -137,43 +143,11 @@ class TestCompany(UnitTest):
         response = self.moco.Company.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
 
-    def test_create_supplier_with_iban(self):
-        iban = "CH1234"
-
-        response = self.moco.Company.create("test company", company_type="supplier", iban=iban)
-
-        assert response["data"]["iban"] == iban
 
 
-    def test_create_supplier_with_vat(self):
-        vat = "12345"
 
-        response = self.moco.Company.create("test company", company_type="supplier", vat_identifier=vat)
 
-        assert response["data"]["vat_identifier"] == vat
 
-    def test_create_customer_with_vat(self):
-        vat = "12345"
-
-        response = self.moco.Company.create("test company", company_type="supplier", vat_identifier=vat)
-
-        assert response["data"]["vat_identifier"] == vat
-
-    def test_create_vat_omitted_in_orga(self):
-        vat = "12345"
-
-        response = self.moco.Company.create("test company", company_type="organization", vat_identifier=vat)
-
-        assert "vat_identifier" not in response["data"].keys()
-
-    def test_create_iban_omitted_in_customer(self):
-        iban = "CHF1234"
-
-        response = self.moco.Company.create("test company", company_type="customer", iban=iban)
-
-        assert "iban" not in response["data"].keys()
-
-    
     def test_create_iban_omitted_in_orga(self):
         iban = "CHF1234"
 
@@ -193,5 +167,4 @@ class TestCompany(UnitTest):
 
         response = self.moco.Company.update(1, vat_identifier=vat)
 
-        assert response["data"]["vat_identifier"] == vat 
-        
+        assert response["data"]["vat_identifier"] == vat

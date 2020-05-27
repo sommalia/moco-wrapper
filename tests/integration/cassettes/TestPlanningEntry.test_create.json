@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-05-27T05:20:59",
+      "recorded_at": "2020-05-24T11:29:04",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"type\": \"supplier\", \"name\": \"company create supplier\"}"
+          "string": "{\"starts_on\": \"2020-01-01\", \"ends_on\": \"2020-01-02\", \"comment\": \"\", \"project_id\": 945219069, \"hours_per_day\": 2.5}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "55"
+            "114"
           ],
           "Content-Type": [
             "application/json"
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPzUrEMBRGX2X41hkInf+s9Q1cKVJum1sNpElIbtRhmHeX2CLu3CWHj8O5NzgLczrqs9a62yvINTEMSk3JO85QCDQ3MsY5UbhuxswkvPkz+OShOGkbKPBMzsOE6r1Ceo9h5RN9LQ+yNnMpy2eMNUi+9mO0bffwCIUPkt5ZDuKm5l9VQm8F5uVVoZZGl/DLbnfcdef9RWFyucjaKlwECp5+CQ2jxb2hgf0qcmGKa1yM0qQ/SbVInPuUY+IsjgvM7a6wnG17Ehh0utNbfdh2pyd9MJ02h/MzFGqy/27cQGG56f4dAAD//3WOCSV8AQAA",
+          "base64_string": "H4sIAAAAAAAA/4SQsU7DMBCGX6X65yty3KRqPPMAHZhYIje+QpB9juzLEKG+OyqFSsDAeP993+nXvWMKcO2+6Q6Eqr5oHbLAwRprtqbZmgYElvA7tiC85qXUYeYyBL/C2YeOMOaUWBQOINQ1nXKEkyXG6yrm8j0U9mHIEle4s4+VCUvlAncr1O92+509tD3hPJWq4hPDQbkqCNHfE38aAy6EueQ3HvXut51terPvCVNg0ek8XY/jaI35rP6lPy4prZvjTabNHL3IJC8bFi0rCONSNScuww9+zGn2sv7hL4SxsFcOg9f7s7qtbZ+axtnemfYZhGUO/zCXjwAAAP//rt8DHZcBAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "249"
+            "263"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 27 May 2020 05:20:58 GMT"
+            "Sun, 24 May 2020 11:29:04 GMT"
           ],
           "Etag": [
-            "W/\"4147c80f9ab68f27afa42fe3681fa1eb\""
+            "W/\"b178d0ae35fea1385215a2dd63542861\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "27271ea5-0a9b-45ed-8da2-91c9c3e1da95"
+            "3b4f3623-49a7-4487-ae6c-4beaa1f37914"
           ],
           "X-Runtime": [
-            "0.055944"
+            "0.056917"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries"
       }
     }
   ],

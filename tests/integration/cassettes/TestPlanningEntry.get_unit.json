@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-05-27T05:20:59",
+      "recorded_at": "2020-05-24T11:37:09",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"type\": \"supplier\", \"name\": \"company create supplier\"}"
+          "string": ""
         },
         "headers": {
           "Accept": [
@@ -20,9 +20,6 @@
           "Connection": [
             "keep-alive"
           ],
-          "Content-Length": [
-            "55"
-          ],
           "Content-Type": [
             "application/json"
           ],
@@ -30,12 +27,12 @@
             "python-requests/2.23.0"
           ]
         },
-        "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+        "method": "GET",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/units?page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPzUrEMBRGX2X41hkInf+s9Q1cKVJum1sNpElIbtRhmHeX2CLu3CWHj8O5NzgLczrqs9a62yvINTEMSk3JO85QCDQ3MsY5UbhuxswkvPkz+OShOGkbKPBMzsOE6r1Ceo9h5RN9LQ+yNnMpy2eMNUi+9mO0bffwCIUPkt5ZDuKm5l9VQm8F5uVVoZZGl/DLbnfcdef9RWFyucjaKlwECp5+CQ2jxb2hgf0qcmGKa1yM0qQ/SbVInPuUY+IsjgvM7a6wnG17Ehh0utNbfdh2pyd9MJ02h/MzFGqy/27cQGG56f4dAAD//3WOCSV8AQAA",
+          "base64_string": "H4sIAAAAAAAA/4SMwcqDMBAGX+XnO68QE5U/+xyeWkRSswWhVsmuJ/Hde2l77XWYmeuBOYOji3XXNS4SnmkRMHpJy18NwrSrrcu4lXWTYrMo+DgJu0pR8KcPoQv+v4mE+1zU3hMTNRAe6UvSbco4B8JUJJnkMRkY3nlXubbyrq8Dt4GDv4Cwb/mHcw6vAAAA//9vc9tDwQAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "249"
+            "154"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 27 May 2020 05:20:58 GMT"
+            "Sun, 24 May 2020 11:37:09 GMT"
           ],
           "Etag": [
-            "W/\"4147c80f9ab68f27afa42fe3681fa1eb\""
+            "W/\"6c6fb8ecc2f5ac07d4102bd3ff2ba918\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -74,14 +71,23 @@
           "X-Frame-Options": [
             "SAMEORIGIN"
           ],
+          "X-Page": [
+            "1"
+          ],
+          "X-Per-Page": [
+            "100"
+          ],
           "X-Permitted-Cross-Domain-Policies": [
             "none"
           ],
           "X-Request-Id": [
-            "27271ea5-0a9b-45ed-8da2-91c9c3e1da95"
+            "9b22011e-ac09-4631-addf-91f285ff95be"
           ],
           "X-Runtime": [
-            "0.055944"
+            "0.035390"
+          ],
+          "X-Total": [
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/units?page=1"
       }
     }
   ],

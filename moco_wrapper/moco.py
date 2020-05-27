@@ -4,10 +4,11 @@ from moco_wrapper.util import requestor, objector, response
 
 from requests import get, post, put, delete
 
+
 class Moco(object):
     """
     Main Moco class for handling authentication, object conversion, requesting ressources with the moco api
-    
+
     :param auth: Dictionary containing authentication information, see :ref:`authentication`
     :param objector: objector object (see :ref:`objector`, default: :class:`moco_wrapper.util.objector.DefaultObjector`)
     :param requestor: requestor object (see :ref:`requestor`, default: :class:`moco_wrapper.util.requestor.DefaultRequestor`)
@@ -26,19 +27,20 @@ class Moco(object):
             }
         )
     """
+
     def __init__(
-        self, 
-        auth = {},
-        objector = objector.DefaultObjector(), 
-        requestor = requestor.DefaultRequestor(),
+        self,
+        auth={},
+        objector=objector.DefaultObjector(),
+        requestor=requestor.DefaultRequestor(),
         impersonate_user_id: int = None,
         **kwargs):
 
         self.auth = auth
         """
         Authentication information
-        
-        It either contains an api key and and domain 
+
+        It either contains an api key and and domain
 
         .. code-block:: python
 
@@ -57,7 +59,7 @@ class Moco(object):
             m = Moco(
                 auth={"domain": "testdomain", "email": "testemail@mycompany.com", "password": "test"}
             )
-        
+
         """
 
         self.Activity = models.Activity(self)
@@ -70,8 +72,9 @@ class Moco(object):
         self.UserPresence = models.UserPresence(self)
         self.UserHoliday = models.UserHoliday(self)
         self.UserEmployment = models.UserEmployment(self)
-        
-        self.Schedule = models.Schedule(self)
+
+        self.Schedule = models.Schedule(self)  # old way for handling planning + absenses
+        self.PlanningEntry = models.PlanningEntry(self)  # new way for handling planning
 
         self.Project = models.Project(self)
         self.ProjectContract = models.ProjectContract(self)
@@ -86,7 +89,7 @@ class Moco(object):
         self.Invoice = models.Invoice(self)
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
-        
+
         self.Session = models.Session(self)
 
         self.PurchaseCategory = models.PurchaseCategory(self)
@@ -94,7 +97,7 @@ class Moco(object):
         self._requestor = requestor
         self._objector = objector
 
-        #set default values if not already set
+        # set default values if not already set
         if self._requestor is None:
             self._requestor = util.requestor.DefaultRequestor()
 
@@ -103,7 +106,7 @@ class Moco(object):
 
         self._impersonation_user_id = impersonate_user_id
 
-        #these will be (re)set on the first request
+        # these will be (re)set on the first request
         self.api_key = None
         self.domain = None
 
@@ -112,7 +115,6 @@ class Moco(object):
 
         if "domain" in self.auth.keys():
             self.domain = self.auth["domain"]
-        
 
     def request(self, method, path, params=None, data=None, bypass_auth=False):
         """
@@ -121,15 +123,15 @@ class Moco(object):
         :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
         :param path: path of the ressource (e.g. ``/projects``)
         :param params: url parameters (e.g. ``page=1``, query parameters)
-        :param data: dictionary with data (http body) 
+        :param data: dictionary with data (http body)
         :param bypass_auth: If authentication checks should be skipped (default False)
 
         The request will be given to the currently assinged requestor (see :ref:`requestor`).
         The response will then be given to the currently assinged objector (see :ref:`objector`)
-        
+
         The *possibly* modified response will then be returned
         """
-        
+
         full_path = self.full_domain + path
         requestor_response = None
 
@@ -147,20 +149,20 @@ class Moco(object):
         elif method == "PATCH":
             requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
 
-        #push the response to the current objector
+        # push the response to the current objector
         objector_result = self._objector.convert(requestor_response)
 
-        #if the result is an exception we raise it, otherwise return it
-        if isinstance(objector_result, response.ErrorResponse) and isinstance(objector_result.data, exceptions.MocoException):
+        # if the result is an exception we raise it, otherwise return it
+        if isinstance(objector_result, response.ErrorResponse) and isinstance(objector_result.data,
+                                                                              exceptions.MocoException):
             raise objector_result.data
-        
-        #return the objector result by default
-        return objector_result
 
+        # return the objector result by default
+        return objector_result
 
     def get(self, path, params=None, data=None, **kwargs):
         return self.request("GET", path, params=params, data=data, **kwargs)
-        
+
     def post(self, path, params=None, data=None, **kwargs):
         return self.request("POST", path, params=params, data=data, **kwargs)
 
@@ -173,18 +175,17 @@ class Moco(object):
     def patch(self, path, params=None, data=None, **kwargs):
         return self.request("PATCH", path, params=params, data=data, **kwargs)
 
-
     def impersonate(
-        self, 
+        self,
         user_id: int
-        ):
+    ):
         """
         Impersontates the user with the supplied user id
 
         :param user_id: user id to impersonate
 
         .. seealso::
-            
+
             :meth:`clear_impersonation` to end impersonation of ``user_id``
 
         """
@@ -207,7 +208,7 @@ class Moco(object):
         Returns all http headers to be used by the assigned requestor
         """
         headers = {
-            'Content-Type' : 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': 'Token token={}'.format(self.api_key)
         }
 
@@ -235,7 +236,7 @@ class Moco(object):
         """
         Get the http.session object of the current requestor (None if the requestor does not have a session)
         """
-        
+
         return self._requestor.session
 
     @property
@@ -259,7 +260,7 @@ class Moco(object):
             :ref:`requestor`
         """
         return self._requestor
-    
+
     def authenticate(self):
         """
         Performs any action neccessary to be authenticated against the moco api.
@@ -267,15 +268,15 @@ class Moco(object):
         This method gets invoked automaticly, on the very first request you send against the api.
         """
         if self.api_key is not None and self.domain is not None:
-            return # already authenticated
+            return  # already authenticated
 
         if all(x in self.auth.keys() for x in ['api_key', 'domain']):
-            #authentication with api key
+            # authentication with api key
             self.api_key = self.auth["api_key"]
             self.domain = self.auth["domain"]
             del self.auth
         elif all(x in self.auth.keys() for x in ['domain', 'email', 'password']):
-            #authentication with username/password
+            # authentication with username/password
             self.domain = self.auth["domain"]
 
             email, password = self.auth["email"], self.auth["password"]
@@ -284,5 +285,5 @@ class Moco(object):
             self.api_key = session.api_key
             del self.auth
         else:
-            #raise error authentication information is very likely invlid
+            # raise error authentication information is very likely invlid
             raise ValueError("Invalid authentication information given")

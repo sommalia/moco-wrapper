@@ -27,5 +27,8 @@ class Project(object):
                 items.append(obj.ProjectTask(**t))
             nk["tasks"] = items
 
+        if "deal" in kwargs.keys() and kwargs["deal"] is not None:
+            d = obj.Deal(**kwargs["deal"])
+            nk["deal"] = d
+
         self.__dict__.update(nk)
-        

@@ -22,7 +22,7 @@ class TestCompany(IntegrationTest):
             )
 
             assert company_create.response.status_code == 200
-            
+
             assert isinstance(company_create, JsonResponse)
 
             assert company_create.data.name == name
@@ -32,7 +32,7 @@ class TestCompany(IntegrationTest):
         with self.recorder.use_cassette("TestCompany.test_create_supplier"):
             name = "company create supplier"
             company_create = self.moco.Company.create(
-                name, 
+                name,
                 CompanyType.SUPPLIER
             )
 
@@ -47,7 +47,7 @@ class TestCompany(IntegrationTest):
         with self.recorder.use_cassette("TestCompany.test_create_orga"):
             name = "company create organization"
             company_create = self.moco.Company.create(
-                name, 
+                name,
                 CompanyType.ORGANIZATION
             )
 
@@ -61,7 +61,7 @@ class TestCompany(IntegrationTest):
     def test_create_full(self):
         user = self.get_user()
 
-        with self.recorder.use_cassette("TestCompany.test_create_full"):    
+        with self.recorder.use_cassette("TestCompany.test_create_full"):
             name = "company every prop set"
             company_type = "customer"
             website = "https://mocoapp.com"
@@ -77,24 +77,28 @@ class TestCompany(IntegrationTest):
             billing_tax = 25.5
             default_invoice_due_days = 15
             country_code = "CH"
+            footer="this is the footer"
+            vat="CHE123456789"
 
             company_create = self.moco.Company.create(
-                name, 
-                company_type, 
-                website=website, 
-                fax=fax, 
-                phone=phone, 
-                email=email, 
-                address=address, 
-                info=info, 
-                custom_properties=custom_properties, 
-                labels=labels, 
-                user_id=user.id, 
-                currency=currency, 
-                identifier=identifier, 
-                billing_tax=billing_tax, 
-                default_invoice_due_days=default_invoice_due_days, 
-                country_code=country_code
+                name,
+                company_type,
+                website=website,
+                fax=fax,
+                phone=phone,
+                email=email,
+                address=address,
+                info=info,
+                custom_properties=custom_properties,
+                labels=labels,
+                user_id=user.id,
+                currency=currency,
+                identifier=identifier,
+                billing_tax=billing_tax,
+                country_code=country_code,
+                footer=footer,
+                vat_identifier=vat,
+                default_invoice_due_days=default_invoice_due_days
             )
 
             assert company_create.response.status_code == 200
@@ -116,18 +120,20 @@ class TestCompany(IntegrationTest):
             assert company_create.data.billing_tax == billing_tax
             assert company_create.data.default_invoice_due_days == default_invoice_due_days
             assert company_create.data.country_code == country_code
+            assert company_create.data.footer == footer
+            assert company_create.data.vat_identifier == vat
 
     def test_update(self):
         with self.recorder.use_cassette("TestCompany.test_update"):
             company_create = self.moco.Company.create(
-                "dummy company, test update", 
+                "dummy company, test update",
                 CompanyType.CUSTOMER
             )
-            
+
             name = "test company updated name"
             website = "https://myownwebsite.com"
             labels = ["these", "are", "the", "labels"]
-            
+
             company_update = self.moco.Company.update(
                 company_create.data.id,
                 name=name,
@@ -149,7 +155,7 @@ class TestCompany(IntegrationTest):
 
         with self.recorder.use_cassette("TestCompany.test_update_full"):
             company_create = self.moco.Company.create(
-                "dummy company, test update full", 
+                "dummy company, test update full",
                 CompanyType.CUSTOMER
             )
 
@@ -168,25 +174,29 @@ class TestCompany(IntegrationTest):
             billing_tax = 25.5
             default_invoice_due_days = 15
             country_code = "CH"
+            footer = "this is the updated footer"
+            vat = "CHE987654321"
 
             company_update = self.moco.Company.update(
                 company_create.data.id,
-                company_type=company_type, 
-                name=name, 
-                website=website, 
-                fax=fax, 
-                phone=phone, 
-                email=email, 
-                address=address, 
-                info=info, 
-                custom_properties=custom_properties, 
-                labels=labels, 
-                user_id=user.id, 
-                currency=currency, 
-                identifier=identifier, 
-                billing_tax=billing_tax, 
-                default_invoice_due_days=default_invoice_due_days, 
-                country_code=country_code
+                company_type=company_type,
+                name=name,
+                website=website,
+                fax=fax,
+                phone=phone,
+                email=email,
+                address=address,
+                info=info,
+                custom_properties=custom_properties,
+                labels=labels,
+                user_id=user.id,
+                currency=currency,
+                identifier=identifier,
+                billing_tax=billing_tax,
+                default_invoice_due_days=default_invoice_due_days,
+                country_code=country_code,
+                footer=footer,
+                vat_identifier=vat
             )
 
             assert company_create.response.status_code == 200
@@ -209,12 +219,14 @@ class TestCompany(IntegrationTest):
             assert company_update.data.billing_tax == billing_tax
             assert company_update.data.default_invoice_due_days == default_invoice_due_days
             assert company_update.data.country_code == country_code
+            assert company_update.data.footer == footer
+            assert company_update.data.vat_identifier == vat
 
     def test_get(self):
         with self.recorder.use_cassette("TestCompany.test_get"):
             name = "company to get"
             company_create = self.moco.Company.create(
-                name, 
+                name,
                 CompanyType.CUSTOMER
             )
             company_get = self.moco.Company.get(company_create.data.id)
@@ -249,9 +261,9 @@ class TestCompany(IntegrationTest):
                 CompanyType.SUPPLIER,
                 iban=iban
             )
-            
+
             assert company_create.response.status_code == 200
-            
+
 
             assert isinstance(company_create, JsonResponse)
 
@@ -259,7 +271,7 @@ class TestCompany(IntegrationTest):
 
     def test_create_customer_with_vat(self):
         with self.recorder.use_cassette("TestCompany.test_create_customer_with_vat"):
-            vat = "VAT-1234"
+            vat = "DE123456789"
             company_create = self.moco.Company.create(
                 "customer with vat",
                 CompanyType.CUSTOMER,
@@ -267,7 +279,7 @@ class TestCompany(IntegrationTest):
             )
 
             assert company_create.response.status_code == 200
-            
+
             assert isinstance(company_create, JsonResponse)
 
             assert company_create.data.vat_identifier == vat
@@ -280,10 +292,10 @@ class TestCompany(IntegrationTest):
                 "dummy company, update iban",
                 CompanyType.SUPPLIER,
             )
-            
+
             company_update = self.moco.Company.update(
                 company_create.data.id,
-                iban=iban 
+                iban=iban
             )
 
             assert company_create.response.status_code == 200
@@ -294,25 +306,3 @@ class TestCompany(IntegrationTest):
 
             assert company_update.data.iban == iban
 
-    def test_update_vat(self):
-        with self.recorder.use_cassette("TestCompany.test_update_vat"):
-            vat = "VAT-12345"
-
-            company_create = self.moco.Company.create(
-                "dummy company, update vat",
-                CompanyType.SUPPLIER,
-            )
-
-            company_update = self.moco.Company.update(
-                company_create.data.id,
-                vat_identifier=vat
-            )
-
-            assert company_create.response.status_code == 200
-            assert company_update.response.status_code == 200
-
-            assert isinstance(company_create, JsonResponse)
-            assert isinstance(company_update, JsonResponse)
-
-            assert company_update.data.vat_identifier == vat
-            

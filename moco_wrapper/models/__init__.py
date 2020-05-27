@@ -11,7 +11,9 @@ from .contact import Contact
 from .company import Company
 from .comment import Comment
 from .unit import Unit
+
 from .schedule import Schedule
+from .planning_entry import PlanningEntry
 
 from .deal import Deal
 from .deal_category import DealCategory

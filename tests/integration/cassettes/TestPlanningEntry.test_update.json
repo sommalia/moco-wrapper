@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:13:51",
+      "recorded_at": "2020-05-27T04:08:57",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"type\": \"supplier\", \"name\": \"dummy company, update vat\"}"
+          "string": "{\"user_id\": 933632907, \"starts_on\": \"2020-02-01\", \"comment\": \"dummy comment, test update\", \"ends_on\": \"2020-02-02\", \"project_id\": 945219069, \"hours_per_day\": 3, \"symbol\": 1}"
         },
         "headers": {
           "Accept": [
@@ -21,21 +21,21 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "57"
+            "173"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yQQWrDMBBFrxL+WgHbaexE6/YGXbUUM7HGrcCWhDRKa0LuXhSbLruTHp8/b+YGa6C7tuqeTqe2VZAlMDRSDmGyHKHgaC7E5HledoOfA7lF7XIwJLy7kkDhmy/JSklBgWeyE7TL06QQvrzb+Eg/64OMiZzS+hl8dhKXfvCm5J5foHAl6a1hJ3YsCluV0GeCfv9QyKnQVf18OLTN+dwdFUYbk2y2wqmITfRHaHiMwr3QC09bl3Wj3/y8l9L7sMpJ/NyH6ANHsZygb3eFITIJm54EGk3VVPuq2den17rT9UEf6zcorIf5P2Mv5Na17r8BAAD//xozNKGBAQAA",
+          "base64_string": "H4sIAAAAAAAA/3yQvW7jMBCEX0WYen1YU7Z1Yn0P4OKqNAIjrhMF/BHIVSEEfvfAPzGQBEjJxXwzw3nH5GF3HXNLqOqK1iEnWBg2vGGz4S0Ikvz3swHhNS+lDrOUwbsVtv3DhDHHKElh4ZcY1+b+pkalarPM3qmAUNf4nAPs9kKEXGDTEgKhiPNDTmGFPblQhbBUKbC3nn3bHlrTc0c4TaVqclE+k0AI7nG6UmfCXPKbjPow2O3NtudDT5i8JJ1O08UdR8N8/dId/3ftfrzB1MzBpTSll0aSlkvSuFTNUcrwRT/mOLu0/tCfCWMRp+IHp48R9xvT/eed5b923z2BcBvnN835IwAA//9ulUj8rwEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "261"
+            "274"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:13:51 GMT"
+            "Wed, 27 May 2020 04:08:57 GMT"
           ],
           "Etag": [
-            "W/\"34b21df68173b473aa2b549a15fda322\""
+            "W/\"c91eb519bcda2d2b258ead34288d819a\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "96684f5b-39ae-4cf4-bbf0-2419e73b8a03"
+            "8e5635cf-adc6-401e-b2ec-1147d16c7858"
           ],
           "X-Runtime": [
-            "0.113228"
+            "0.064873"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,15 +91,15 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries"
       }
     },
     {
-      "recorded_at": "2020-02-18T17:13:51",
+      "recorded_at": "2020-05-27T04:08:57",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"vat_identifier\": \"VAT-12345\"}"
+          "string": "{\"starts_on\": \"2020-01-01\", \"comment\": \"dummy entry, test update 2\", \"ends_on\": \"2020-01-02\", \"project_id\": 945219069, \"hours_per_day\": 2.5, \"symbol\": 4}"
         },
         "headers": {
           "Accept": [
@@ -115,21 +115,21 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "31"
+            "153"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies/760748866"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries/47003"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yQTWrDMBCFrxLeWgH/JHaiXaG9QeiipZiJJbcCWxLSKK0JvntRbLrsTvr00Hzz7jAKsm2K9nA6NY0Az15DIibvR6MDBCxNmag0TfOud5MnO4td8opY727EEPjW12g4pyCgJzIjpE3jKOC/nN34QD/rgZQKOsb10rtkOcxd71TOPb9A4EbcGaUtmyErSLw+XfZlVR+OEGD6jJDvHwIp5sd1g3NdN9X53B4FBhMib9KsY/Yb6Y9Q/5iIJdOrHre/jB3cpukcP4ZmuRTZTZ0PzuvARkfI+yLQB02sVUcMiaqoin1R7cvTpWxlWctj+QaBtZ//M+ZKdi1q+Q0AAP//SopO1IgBAAA=",
+          "base64_string": "H4sIAAAAAAAA/3yQz07zMBDEXyWa8/aT6yTNF595gB44cYlMvIUg/4nszSFCfXfUBiIBEtfV/GZn5h2Tg2k6pWpCEZulDCnCQCutDup4UEcQOLqfZw3Ca1pyGWbOg7MrjP7XEsYUAkeBgVtCWCuOkleqhItUy+yscHVDyxqek4dpboRPGSYu3hMyWzek6FeYi/WFCUvhDLPl7Ov6VOtedYTLlItEG/jrEwje7qc7dSXMOb3xKLtB0+pjr049YXIcZbpMN3ectVL3Sp/4wz37eYOpmr2NcYovWxsQxqVICpyHb/oxhdnG9Zf+ShgzW2E3WNlHbA+6e1SNUf9N2z2BsM3zl+b6EQAA//8DLek2rwEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -141,16 +141,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "272"
+            "274"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:13:51 GMT"
+            "Wed, 27 May 2020 04:08:57 GMT"
           ],
           "Etag": [
-            "W/\"d4d02c229c16191a6f77aae8f0b23fbd\""
+            "W/\"32e33fe9b898d4704d454857a21bf92c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b5ddf435-4d17-4f73-bce1-4f7ce5943e13"
+            "7a10de0e-4642-4c25-8fd4-48a6d6d5f52c"
           ],
           "X-Runtime": [
-            "0.125401"
+            "0.075843"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies/760748866"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries/47003"
       }
     }
   ],

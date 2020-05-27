@@ -24,6 +24,7 @@ The Moco Instance
    endpoints/project_recurring_expense
    endpoints/project_payment_schedule
    endpoints/project_task
+   endpoints/planning_entry
    endpoints/schedule
    endpoints/unit
    endpoints/user
