@@ -126,3 +126,8 @@ class TestPlanningEntry(UnitTest):
         assert data["symbol"] == symbol
 
         assert response["method"] == "PUT"
+
+    def test_delete(self):
+        response = self.moco.PlanningEntry.delete(123)
+
+        assert response["method"] == "DELETE"

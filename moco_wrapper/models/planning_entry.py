@@ -246,3 +246,18 @@ class PlanningEntry(MWRAPBase):
                     data[key] = value
 
         return self._moco.put(API_PATH["planning_entry_update"].format(id=planning_entry_id), data=data)
+
+    def delete(
+        self,
+        planning_entry_id: int
+    ):
+        """
+        Delete a planning entry
+
+        :param planning_entry_id: Id of the entry to delete
+
+        :type planning_entry_id: int
+
+        :returns: The deleted planning entry
+        """
+        return self._moco.delete(API_PATH["planning_entry_delete"].format(id=planning_entry_id))

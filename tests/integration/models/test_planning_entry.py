@@ -1,5 +1,5 @@
 from .. import IntegrationTest
-from moco_wrapper.util.response import ListingResponse, JsonResponse
+from moco_wrapper.util.response import ListingResponse, JsonResponse, EmptyResponse
 from moco_wrapper.models.company import CompanyType
 from moco_wrapper.models.planning_entry import PlanningEntrySymbol
 from datetime import date
@@ -219,3 +219,23 @@ class TestPlanningEntry(IntegrationTest):
             assert plan_update.data.user.id == user.id
             assert plan_update.data.comment == comment
             assert plan_update.data.symbol == symbol
+
+    def test_delete(self):
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestPlanningEntry.test_delete"):
+            plan_create = self.moco.PlanningEntry.create(
+                project.id,
+                date(2020, 1, 1),
+                date(2020, 1, 1),
+                2
+            )
+
+            plan_delete = self.moco.PlanningEntry.delete(plan_create.data.id)
+
+            assert plan_create.response.status_code == 200
+            assert plan_delete.response.status_code == 200
+
+            assert isinstance(plan_create, JsonResponse)
+            assert isinstance(plan_delete, JsonResponse)
+

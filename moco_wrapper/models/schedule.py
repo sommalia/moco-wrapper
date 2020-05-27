@@ -294,7 +294,7 @@ class Schedule(MWRAPBase):
 
         :type schedule_id: int
 
-        :returns: Empty response on success
+        :returns: The deleted schedule object
         """
 
         return self._moco.delete(API_PATH["schedule_delete"].format(id=schedule_id))
