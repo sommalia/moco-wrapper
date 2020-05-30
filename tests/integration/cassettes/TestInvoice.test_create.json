@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:28:11",
+      "recorded_at": "2020-05-30T09:54:13",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"service_period_to\": \"2019-12-31\", \"due_date\": \"2018-10-16\", \"service_period_from\": \"2019-12-01\", \"title\": \"invoice\", \"status\": \"created\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"title\": \"Service\", \"net_total\": 130, \"quantity\": 2, \"type\": \"item\", \"unit_price\": 65, \"unit\": \"hours\"}], \"tax\": 8.0, \"change_address\": \"invoice\", \"customer_id\": 760748876, \"currency\": \"EUR\", \"date\": \"2018-09-17\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\"}"
+          "string": "{\"date\": \"2018-09-17\", \"service_period_from\": \"2019-12-01\", \"customer_id\": 760802152, \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"quantity\": 2, \"unit_price\": 65, \"unit\": \"hours\", \"title\": \"Service\", \"net_total\": 130, \"type\": \"item\"}], \"service_period_to\": \"2019-12-31\", \"tags\": [], \"status\": \"created\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"tax\": 8.0, \"due_date\": \"2018-10-16\", \"title\": \"invoice\", \"change_address\": \"invoice\", \"currency\": \"EUR\"}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "534"
+            "546"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K9GcnWKn203Wd6RKwKXApbSKXHu2a0jsYI9XrND+M278MeRkP1JWKhduzrznmZc3zz/BGpDNalFzzkCnSL7H0OZiveT1omnqJYMh+K+oaSy71HUMrEFHdm0xgIS7inNe1cDAKEKQUHHRlHxVirGWsJ3XBS/FEhhEDFursR0wWG9AgqjeVFysLqB2HXw/3V6Voiq5uKSQnxGuRwIpShEk6ICK0ACDgFsMUXUg16qLyIAsdVmXdVtvNY4UbQeLjlplTMCYG3xA64p3yRl8cLcqDRQpqBixEA+u4ZwX979/Bas3kA0MAZ3egYS3n++AgUNqyVOeKa75FWdA6gfIJp+eg4/xhC741YKBsVH75AjkSNYqbtrXaq1Ru3gADD5Zal3qn/JWpj3pgOai2Hn9Dc3ZBfUcQX55ZEerWkWjmxUveVWK5pOoZdVIwe+BQRrMaxyROcc+3r3gzG5fIlF1iRTZEQEGa+9pTBcwsIR9ljildVE1NzVfMqDdkLc3bfG8zVufQszBw6iDHaaW059/T8qRpd3BseQsHaF8boeQYzCBs9XxK75n8+H1afh8yEnC1PHFfHhvI1n3XPh1obqu2BxE/i9FzUlRNmvmxsfpofzLj+o8HY7a5gKWN38pGOO8f2QwqF2Pjg4RCthbZzCMn/s/AQAA///2G9XzXwQAAA==",
+          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K6s5O2Wc/WjWd6RKwKXApbSKXHu2NWTtYI8rVqj/jBt/DDnZj5SVyoWbM+955uXN809wFpTEGucNCjA5cdhSbEv1coUN1nJZC+hj+EqGh7LPXSfAWfLsNo4iKLiuEVFKEGA1EyioUTYVrit5WWqZ2mldYiVXICBRfHKG2p6iCxYUyPpNjXJ9BrWbGLbj7XUl6wrlOYXDhDAfCKw5J1BgImkmCwIiPVFMugO10V0iAey4K7qcfwrO0EAxrnfkudXWRkqlwQdyfvYue0u3/krnnhNHnRLN5K1vEHF28/tXdOYRioExkjc7UPD28zUI8MQtBy4z5RwvUADrH6CacnqIIaUjusCLhQDrkgnZM6iBbHR6bF+rtVbv0h6wdO+49Xl7X7Yy7slEsmfFLphvZE8u6IcE6sudOFjVah7crLHCZTXHT7hWy4WS9Q0IyL19jTMvnEOf4F9wJrfPkaS7zJrdgICATQg8pAsEOKZtkTjGddGsG6xXAnjXl+2NWzxt8yrkmErwKJno+rHl+Offs/bseLd3LHvHB6ic2z6WGIzgZHV4gc9iOvzyOHw65Chh7PhiPrx3iZ1/mIXNTHfd7HEv8n8pao6KilkTNz6OD+VfftSn6XDQNhWwWv6lYIjz852AXu+25HkfoUhb5y3F4fP5TwAAAP//mzzHkmAEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "526"
+            "527"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:28:11 GMT"
+            "Sat, 30 May 2020 09:54:13 GMT"
           ],
           "Etag": [
-            "W/\"876d43ce1deac496dafcc43d77f8377a\""
+            "W/\"554126136c26a36045354a07e0256c43\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "38c59004-4c2b-4c51-ba8a-699ad8330e68"
+            "1a5c08c4-3a82-4174-8532-3152fd133e6b"
           ],
           "X-Runtime": [
-            "1.217065"
+            "1.344938"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:28:18",
+      "recorded_at": "2020-05-30T09:54:20",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"service_period_to\": \"2019-12-31\", \"project_id\": 945149378, \"due_date\": \"2018-10-16\", \"service_period_from\": \"2019-12-01\", \"title\": \"invoice\", \"status\": \"created\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"title\": \"Service\", \"net_total\": 130, \"quantity\": 2, \"type\": \"item\", \"unit_price\": 65, \"unit\": \"hours\"}], \"tax\": 8.0, \"change_address\": \"invoice\", \"customer_id\": 760748876, \"currency\": \"EUR\", \"date\": \"2018-09-17\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\"}"
+          "string": "{\"date\": \"2018-09-17\", \"service_period_from\": \"2019-12-01\", \"customer_id\": 760802152, \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"quantity\": 2, \"unit_price\": 65, \"unit\": \"hours\", \"title\": \"Service\", \"net_total\": 130, \"type\": \"item\"}], \"service_period_to\": \"2019-12-31\", \"tags\": [], \"status\": \"created\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"tax\": 8.0, \"project_id\": 945224168, \"due_date\": \"2018-10-16\", \"title\": \"invoice\", \"change_address\": \"invoice\", \"currency\": \"EUR\"}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "559"
+            "571"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTwW7UMBD9ldWcnWKn6cbxHakScClwKa0i155tDVk72OOKFeqfcePHkJPdbcpK5cLNmfc88/zm5Sc4C0p2TcsFA5MThS3GvhTbNW8bKds1gzGGr2hoKnfNhWi681YycBY9uY3DCAquas55LYGB1YSgoOZCVryrRFtqGftlXfBKrIFBwvjoDPYjRhcsKBD1m5qL7gTqNzFs59tdJeqKi1MKhQXhfCKQppxAgYmoCS0wiPiIMekB1EYPCRmQo6Hocv4xOIMTxbjRoadeWxsxlQYf0PnVu+wt3vhLnUdKFHVKuBI3XnLOV9e/f0VnHqC4GCN6swMFbz9fAQOP1FOgMlOc8zPOgPQPULKc7mNI6Yg2/KxhYF0yIXsCNZGNTg/9a7Xe6l3aAxbvHPU+b+/KVnweBlYeb0+KQzDf0D67oO8TqC+37GBVr2lys+YVryshP4lW1VKJ9hoY5NG+xpGFc+gT/AvO4vYpkvSQSZObEGCwCYGmdAEDR7gtEufINrW8aHnHgHZj2d68xedtXoYcUwkeJhPdOLecX/49a0+OdnvHsnd0gMq5H2OJwQwuVsfP+BNbDBf8OHw55Chh7vhiPrx3iZy/X4XNSg/D6mEv8n8pEkdFxayFGx/nH+VfftTP0+GgbSlgffGXginOT7cMRr3boqd9hCJunbcYp8+nPwEAAP//DRTCUGQEAAA=",
+          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K6s5O2Xs/WiSO1Il4FLgUlpFbjzbGhI72OOKFeo/48YfQ072I2WlcuHmzHueeX7z8hOsgVqiwmUpBbQpsu8pNLl6ucESlVwrAUPwX6nlsVyt1kqt5KYUYA05tltLAWq4VogoFQgwmglqUCjLAqtCXuZaomZel1jIDQiIFJ5sS81AwXoDNUj1RqGszqBmG3w/3a4KqQqU5xT2M8JyJLDmFKGGNpBmMiAg0BOFqDuot7qLJIAtd1mXdU/etjRSWjtYctxoYwLF3OADWbd4l5yhW3el08CRg46RFvLWlYi4uPn9K9j2EbKLIZBrd1DD28/XIMARN+w5z5RLvEABrH9AXebTQ/AxHtEVXqwEGBtbnxxDPZJbHR+b12qN0bu4BwzdW25c6u/zVlzqOpEfb86KnW+/kTm5oB8i1F/uxMGqRvPopsIC18USP2FVr1e1rG5AQBrMKxyFmXPo490Lzuz2ORJ1l1izHREQsPWex3SBAMvUZ4lTZldlVaKqBPBuyNubtnja5pVPIebgUWyDHaaW08u/J+3Y8m7vWHKWD1A+N0PIMZjA2erwAp/FbPgSj8PnQ44Spo4v5sN7G9m6h4XfLnTXLR73Iv+XInlUlM2aufFx+lH+5Yc6TYeDtrmAzfovBWOcn+8EDHrXk+N9hAL11hkK4+fznwAAAP//E2z8N2UEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:28:18 GMT"
+            "Sat, 30 May 2020 09:54:20 GMT"
           ],
           "Etag": [
-            "W/\"354a79a4063d1adb441186db43557a09\""
+            "W/\"bf46aa3aa8358034723134bcaf6dbca8\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "9fefda7e-1a20-4785-bfb5-26e7e1cdc40b"
+            "18b698ce-71dd-4d24-8d06-e4d69295c12e"
           ],
           "X-Runtime": [
-            "1.146768"
+            "1.377993"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

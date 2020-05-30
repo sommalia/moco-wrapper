@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:26:45",
+      "recorded_at": "2020-05-30T09:54:34",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,11 +24,11 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?invoice_id=894695&page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?invoice_id=1020383&page=1"
       },
       "response": {
         "body": {
@@ -50,7 +50,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:26:45 GMT"
+            "Sat, 30 May 2020 09:54:34 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4a2f620e-c3a0-49a6-9eed-d65a76bf2082"
+            "d7633c49-b6fc-4e7d-bc47-350a103231a7"
           ],
           "X-Runtime": [
-            "0.030301"
+            "0.041755"
           ],
           "X-Total": [
             "0"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?invoice_id=894695&page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?invoice_id=1020383&page=1"
       }
     }
   ],

@@ -5,6 +5,7 @@ from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
+
 class InvoiceStatus(str, Enum):
     """
     Enumeration for allowed values that can be supplied for the ``status`` argument of :meth:`Invoice.getlist`, :meth:`Invoice.update_status` and :meth:`Invoice.create`.
@@ -30,9 +31,10 @@ class InvoiceStatus(str, Enum):
     OVERDUE = "overdue"
     IGNORED = "ignored"
     """
-    .. warning:: 
+    .. warning::
         Do not use this status for creating invoices, only updating and filtering
     """
+
 
 class InvoiceChangeAddress(str, Enum):
     """
@@ -48,11 +50,12 @@ class InvoiceChangeAddress(str, Enum):
             ..
             change_address = InvoiceChangeAddress.PROJECT
         )
-            
+
     """
     INVOICE = "invoice"
     PROJECT = "project"
     CUSTOMER = "customer"
+
 
 class Invoice(MWRAPBase):
     """
@@ -78,7 +81,7 @@ class Invoice(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve a list of invoices.
 
@@ -114,7 +117,7 @@ class Invoice(MWRAPBase):
             ("term", term),
             ("page", page),
         ):
-            
+
             if value is not None:
                 if key in ["date_from", "date_to"] and isinstance(value, datetime.date):
                     params[key] = self._convert_date_to_iso(value)
@@ -127,7 +130,7 @@ class Invoice(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["invoice_getlist"], params=params)
- 
+
     def locked(
         self,
         status: InvoiceStatus = None,
@@ -137,7 +140,7 @@ class Invoice(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):        
+    ):
         """
         Retrieve a list of locked invoices.
 
@@ -166,7 +169,7 @@ class Invoice(MWRAPBase):
             ("date_to", date_to),
             ("identifier", identifier),
             ("page", page)
-        ):          
+        ):
             if value is not None:
                 if key in ["date_from", "date_to"] and isinstance(value, datetime.date):
                     params[key] = self._convert_date_to_iso(value)
@@ -178,11 +181,10 @@ class Invoice(MWRAPBase):
 
         return self._moco.get(API_PATH["invoice_locked"], params=params)
 
-
     def get(
         self,
         invoice_id: int
-        ):
+    ):
         """
         Retrieve a single invoice.
 
@@ -197,9 +199,9 @@ class Invoice(MWRAPBase):
     def pdf(
         self,
         invoice_id: int
-        ):
+    ):
         """
-        Retrieve the invoice document as pdf. 
+        Retrieve the invoice document as pdf.
 
         :param invoice_id: Invoice id
 
@@ -212,7 +214,7 @@ class Invoice(MWRAPBase):
     def timesheet(
         self,
         invoice_id: int
-        ):
+    ):
         """
         Retrieve the invoice timesheet document as pdf.
 
@@ -230,7 +232,7 @@ class Invoice(MWRAPBase):
         self,
         invoice_id: int,
         status: InvoiceStatus
-        ):
+    ):
         """
         Updates the state of an invoices.
 
@@ -263,12 +265,13 @@ class Invoice(MWRAPBase):
         status: InvoiceStatus = InvoiceStatus.CREATED,
         change_address: InvoiceChangeAddress = InvoiceChangeAddress.INVOICE,
         salutation: str = None,
-        footer: str= None,
+        footer: str = None,
         discount: float = None,
         cash_discount: float = None,
         cash_discount_days: int = None,
-        project_id: int = None
-        ):
+        project_id: int = None,
+        tags: list = []
+    ):
         """
         Creates a new invoice.
 
@@ -290,6 +293,7 @@ class Invoice(MWRAPBase):
         :param cash_discount: Cash discount in percent (between 0.0 and 100.0)
         :param cash_discount_days: How many days is the cash discount valid (ex. 4)
         :param project_id: Id of the project the invoice belongs to
+        :param tags: List of tags
 
         :type customer_id: int
         :type recipient_address: str
@@ -309,6 +313,7 @@ class Invoice(MWRAPBase):
         :type cash_discount: float
         :type cash_discount_days: float
         :type project_id: int
+        :type tags: list
 
         :returns: The created invoice
 
@@ -317,12 +322,12 @@ class Invoice(MWRAPBase):
             Note that if you create an invoice with a project, that project must also belong to the customer the invoice was created for.
 
         .. seealso::
-            
+
             :class:`moco_wrapper.util.generator.InvoiceItemGenerator`
 
         """
         data = {
-            "customer_id" : customer_id,
+            "customer_id": customer_id,
             "recipient_address": recipient_address,
             "date": created_date,
             "due_date": due_date,
@@ -334,7 +339,7 @@ class Invoice(MWRAPBase):
             "items": items,
         }
 
-        #overwrite all date fields in data with isoformat
+        # overwrite all date fields in data with isoformat
         for date_key in ["date", "due_date", "service_period_from", "service_period_to"]:
             if isinstance(data[date_key], datetime.date):
                 data[date_key] = self._convert_date_to_iso(data[date_key])
@@ -347,7 +352,8 @@ class Invoice(MWRAPBase):
             ("discount", discount),
             ("cash_discount", cash_discount),
             ("cash_discount_days", cash_discount_days),
-            ("project_id", project_id)
+            ("project_id", project_id),
+            ("tags", tags)
         ):
             if value is not None:
                 data[key] = value

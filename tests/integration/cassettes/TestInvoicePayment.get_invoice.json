@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:26:45",
+      "recorded_at": "2020-05-30T09:54:34",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"due_date\": \"2021-01-01\", \"status\": \"created\", \"customer_id\": 760748872, \"date\": \"2020-01-01\", \"currency\": \"EUR\", \"service_period_to\": \"2020-03-01\", \"title\": \"dummy invoice\", \"items\": [{\"type\": \"title\", \"title\": \"dummy invoice item title\"}, {\"type\": \"description\", \"description\": \"dummy invoice item description\"}, {\"type\": \"item\", \"title\": \"server hardware\", \"net_total\": 2000}], \"tax\": 19, \"recipient_address\": \"dummy invoice\", \"change_address\": \"invoice\", \"service_period_from\": \"2020-01-01\"}"
+          "string": "{\"date\": \"2020-01-01\", \"service_period_from\": \"2020-01-01\", \"customer_id\": 760802153, \"items\": [{\"title\": \"dummy invoice item title\", \"type\": \"title\"}, {\"description\": \"dummy invoice item description\", \"type\": \"description\"}, {\"title\": \"server hardware\", \"net_total\": 2000, \"type\": \"item\"}], \"service_period_to\": \"2020-03-01\", \"tags\": [], \"status\": \"created\", \"recipient_address\": \"dummy invoice\", \"tax\": 19, \"due_date\": \"2021-01-01\", \"title\": \"dummy invoice\", \"change_address\": \"invoice\", \"currency\": \"EUR\"}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "496"
+            "508"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTS27bMBC9ijBr2qDkn8x9LxC0mxYBwZDjhK1EquTQrVAY6B16w56koGQrcpxmlZ1m3hvO83vjX2ANiHq/3u43DHSK5FsMMjd3W75b1/WuYtAF/xU1DW2XmoaBNejIHiwGEHBXcc6rChgYRQgCKl7xBS8XvMy9hPK5X079iOFoNcoOg/UGBPByyctlni3+/v5T5HI1lDdkeQi+fbnnBYX8RFidCaQoRRCgAypCAwwCHjFE1YA4qCYiA7LUZKUmtW1fWHf0VuNA1Laz6EgqYwLG+ApHpxDQ6R4EfPh0BwwckiRP+fns0JIzIPUTRLnPn4/Bxzjhq3rAjY3aJ0cghlKr+CTf6kmj+ngGDD5Yki61DzmVMScd0Nw0G6+/oXn+zeoxgvhyzy7GSEWTd9WirD+WO1FtxXr9GRikzrzF2WTO5R3vrjiz6VskqiaRIjsgwODgPQ3XBQwsYZsljte6rurNdl8yoL7LWY2Z/Se7Is8WF4rBqIPtxi2jGd+TcmSpP5uYnKULlL9lF3K6IzgLlC/5ic31VJOe+ZJJ1fji1f7XhF7Pvpe21aQtL5lZlf8zGIonFcwPFd7XofHkT/cMOtW36Oh8ZAFb6wyGoTz9CwAA//95/v3NgQQAAA==",
+          "base64_string": "H4sIAAAAAAAA/6xTQW7bMBD8irBn2qAkO7F57weC9tIiEBhynbCVSHW5dCsUBvqH/rAvKSjZih2nOeWm3ZnljmfWv8BZUKWsZL2pBZgUOXRITe7e3siNrMp1LaCn8BUNj22f2laAs+jZ7RwSKLirpJTlCgRYzQgKKlnJhSwXssy9hM1zv5z7EWnvDDY9kgsWFMhyKctlni3+/v5T5LIeyytys6PQvdzzgsJhJtRHAmtOERQYQs1oQQDhHinqFtROtxEFsOM2K7Wp64bC+X1wBkeicb1Dz422ljDGVzgmEaE3Ayj48OkOBHjkhgPn57NDSymA9U9Q5TZ/PlKIccbrzYhbF01InkGNpdHxqXmr11g9xCNg8cFx41P3kFOZcjKE9qrZBvMN7fNv1o8R1Jd7cTKm0Tx7t17U8qPcqvVK1dVnEJB6+xanzpzTO8FfcM6mr5Go28Sa3YiAgF0IPF4XCHCMXZY4netqs93Iei2Ahz5nNWX2n+yKPFucKBajIddPWyYzvift2fFwNDF5xycofzc95XQn8CxQuZQHca7nZtZzvmRWNb14sf81oZez76XtdtaWl5xZlf8zSMWTJvtD0/s6NJ384V5Ar4cOPR+PjLBz3iKN5eFfAAAA//9Wh087ggQAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:26:45 GMT"
+            "Sat, 30 May 2020 09:54:34 GMT"
           ],
           "Etag": [
-            "W/\"ba791435ee567cd6ea3f8fa0174b73d9\""
+            "W/\"afa090ab8189d823d10c00619169ce12\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "11e43aa7-c3af-4a84-8859-357eade53cfb"
+            "15cc72f5-7b6b-47e1-9169-329c6cb5ce49"
           ],
           "X-Runtime": [
-            "1.209749"
+            "1.202025"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

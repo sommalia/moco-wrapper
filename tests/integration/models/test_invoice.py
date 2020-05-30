@@ -8,7 +8,6 @@ from moco_wrapper.models.invoice import InvoiceStatus, InvoiceChangeAddress
 from moco_wrapper.models.company import CompanyType
 
 
-
 class TestInvoice(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestInvoice.get_customer"):
@@ -58,9 +57,9 @@ class TestInvoice(IntegrationTest):
             inv_locked = self.moco.Invoice.locked()
 
             assert inv_locked.response.status_code == 200
-            
+
             assert isinstance(inv_locked, ListingResponse)
-                        
+
             assert inv_locked.current_page == 1
             assert inv_locked.is_last is not None
             assert inv_locked.next_page is not None
@@ -88,20 +87,19 @@ class TestInvoice(IntegrationTest):
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id, 
-                recipient_address, 
-                creation_date, 
-                due_date, 
-                service_from_date, 
-                service_to_date, 
-                title, 
-                tax, 
-                currency, 
+                customer.id,
+                recipient_address,
+                creation_date,
+                due_date,
+                service_from_date,
+                service_to_date,
+                title,
+                tax,
+                currency,
                 items
             )
 
             inv_get = self.moco.Invoice.get(inv_create.data.id)
-
 
             assert inv_create.response.status_code == 200
             assert inv_get.response.status_code == 200
@@ -137,15 +135,15 @@ class TestInvoice(IntegrationTest):
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id, 
-                recipient_address, 
-                creation_date, 
-                due_date, 
-                service_from_date, 
-                service_to_date, 
-                title, 
-                tax, 
-                currency, 
+                customer.id,
+                recipient_address,
+                creation_date,
+                due_date,
+                service_from_date,
+                service_to_date,
+                title,
+                tax,
+                currency,
                 items
             )
 
@@ -178,20 +176,20 @@ class TestInvoice(IntegrationTest):
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id, 
-                recipient_address, 
-                creation_date, 
-                due_date, 
-                service_from_date, 
-                service_to_date, 
-                title, 
-                tax, 
-                currency, 
+                customer.id,
+                recipient_address,
+                creation_date,
+                due_date,
+                service_from_date,
+                service_to_date,
+                title,
+                tax,
+                currency,
                 items
             )
-            
+
             inv_update = self.moco.Invoice.update_status(
-                inv_create.data.id, 
+                inv_create.data.id,
                 InvoiceStatus.IGNORED
             )
 
@@ -207,7 +205,6 @@ class TestInvoice(IntegrationTest):
 
             assert inv_create.data.status == InvoiceStatus.CREATED
             assert inv_get.data.status == InvoiceStatus.IGNORED
-            
 
     def test_create(self):
         customer = self.get_customer()
@@ -230,18 +227,18 @@ class TestInvoice(IntegrationTest):
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id, 
-                recipient_address, 
-                creation_date, 
-                due_date, 
-                service_from_date, 
-                service_to_date, 
-                title, 
-                tax, 
-                currency, 
+                customer.id,
+                recipient_address,
+                creation_date,
+                due_date,
+                service_from_date,
+                service_to_date,
+                title,
+                tax,
+                currency,
                 items
             )
-            
+
             assert inv_create.response.status_code == 200
 
             assert isinstance(inv_create, JsonResponse)
@@ -278,15 +275,15 @@ class TestInvoice(IntegrationTest):
 
             inv_create = self.moco.Invoice.create(
                 project.customer.id,
-                recipient_address, 
-                creation_date, 
-                due_date, 
-                service_from_date, 
-                service_to_date, 
-                title, 
-                tax, 
-                currency, 
-                items, 
+                recipient_address,
+                creation_date,
+                due_date,
+                service_from_date,
+                service_to_date,
+                title,
+                tax,
+                currency,
+                items,
                 project_id=project.id
             )
 
@@ -295,7 +292,6 @@ class TestInvoice(IntegrationTest):
             assert isinstance(inv_create, JsonResponse)
 
             assert inv_create.data.project_id == project.id
-
 
     def test_create_full(self):
         project = self.get_project()
@@ -310,6 +306,7 @@ class TestInvoice(IntegrationTest):
             currency = "EUR"
             service_from_date = date(2019, 12, 1)
             service_to_date = date(2019, 12, 31)
+            tags = ["Hosting", "Europe"]
 
             item_generator = InvoiceItemGenerator()
             items = [
@@ -325,27 +322,28 @@ class TestInvoice(IntegrationTest):
             cash_discount = 10.2
 
             inv_create = self.moco.Invoice.create(
-                customer.id, 
-                recipient_address, 
-                creation_date, 
-                due_date, 
-                service_from_date, 
-                service_to_date, 
-                title, 
-                tax, 
-                currency, 
-                items, 
-                status=InvoiceStatus.SENT, 
-                change_address=InvoiceChangeAddress.CUSTOMER, 
-                salutation=salutation, 
-                footer=footer, 
-                cash_discount_days=cash_discount_days, 
-                cash_discount=cash_discount, 
-                project_id=project.id
+                customer.id,
+                recipient_address,
+                creation_date,
+                due_date,
+                service_from_date,
+                service_to_date,
+                title,
+                tax,
+                currency,
+                items,
+                status=InvoiceStatus.SENT,
+                change_address=change_add,
+                salutation=salutation,
+                footer=footer,
+                cash_discount_days=cash_discount_days,
+                cash_discount=cash_discount,
+                project_id=project.id,
+                tags=tags
             )
-                    
+
             assert inv_create.response.status_code == 200
-            
+
             assert isinstance(inv_create, JsonResponse)
 
             assert inv_create.data.title == "invoice"
@@ -357,8 +355,8 @@ class TestInvoice(IntegrationTest):
             assert inv_create.data.due_date == due_date.isoformat()
             assert inv_create.data.recipient_address == recipient_address
             assert inv_create.data.tax == tax
-            assert inv_create.data.project_id == project.id    
+            assert inv_create.data.project_id == project.id
             assert inv_create.data.footer == footer
             assert inv_create.data.cash_discount == cash_discount
             assert inv_create.data.cash_discount_days == cash_discount_days
-            
+            assert sorted(inv_create.data.tags) == sorted(tags)

@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:27:39",
+      "recorded_at": "2020-05-30T09:53:48",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestInvoice\", \"type\": \"customer\"}"
+          "string": "{\"type\": \"customer\", \"name\": \"TestInvoice\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SRQY/bIBCF/8s7k4rYbRxzbg5Vb1V6aVUhAuOUioAF47RWlP9eYXtXe9sbfBo9vsc84B1Ud5Ddx+OxOwjwPBIU7FQ43ShDIJpbJWcq/CXek7cEgb90KZ4rhwDdjA9QcQpBYPyd4sYH8289GOcylbJebJoi51nb5Orc5xME7oa1dxTZD57ySxSba4H6+UtgKpWusn3bHpq+7z4JDD4X3vyYCkMgmFdi7PIUnpVeKGxZPg5p80uJa+5itRTWY04jZfZUoB5PAZvJMDltGAqNbORONrv98bzvVNOptv8BgWl07868LYevUnZ9hZEpR6jBhEICFx+Cj1fN9dv2/QdZrXKmaGconL5/g4CjwUyBtV83od1E2pm5QLVSYMzpD1leij7/BwAA//83ImOW2wEAAA==",
+          "base64_string": "H4sIAAAAAAAA/4SRwW7jIBiE32XOZEXMxptw3hxWe1tlL60qRMzvlIqABb/TWlHevSJ2pfbUG3wajb6BK7yD/tXKrWzWm0aAp4Gg0Y2F05kyBKI9V3Kgwn/iJfmOIPBKx+K5cgjQ2foAHccQBIbnFBfe27f5YJ3LVMp86dIYOU+mS67mfu8hcLFsvKPIvveUP6rYngr045PAWCqdZXdKtUqtVSvQ+1x48WMqDIFgv5JbRUcKS5GPfVrkUuJaele6rzVDTgNl9lSgrzeBLpNlcsYyNBrZyJXcrJQ8yJ3eKP1z+wCBcXDfZj4vw18pZVthZMoRurehkMDRh+DjyXB9s/Xuh6xWOVPsJmjs//+DgKPejoGNn7/BuJGMs1OBVlJgyOmFOr4Pvb0HAAD//2Raty3YAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "313"
+            "309"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:27:39 GMT"
+            "Sat, 30 May 2020 09:53:48 GMT"
           ],
           "Etag": [
-            "W/\"1aa9bdb128d7ddf819f4c75d9ac35ab8\""
+            "W/\"619a298ad0e7c82dac9834c36a9edd2c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "049917dd-98d7-4ab0-bf7e-2bddfafaf515"
+            "fda4a2d9-f245-4823-9069-c9acec76e7c0"
           ],
           "X-Runtime": [
-            "0.079858"
+            "0.092236"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
