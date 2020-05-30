@@ -5,6 +5,7 @@ from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
+
 class ContactGender(str, Enum):
     """
     Enumeration for allowed values that can be supplied for the ``gender`` argument in :class:`.Contact.create` and :class:`.Contact.update`.
@@ -23,10 +24,10 @@ class ContactGender(str, Enum):
         )
     """
 
-
     MALE = "M"
     FEMALE = "F"
     UNDEFINED = "U"
+
 
 class Contact(MWRAPBase):
     """
@@ -100,9 +101,9 @@ class Contact(MWRAPBase):
         """
 
         data = {
-            "firstname" : firstname,
-            "lastname" : lastname,
-            "gender" : gender
+            "firstname": firstname,
+            "lastname": lastname,
+            "gender": gender
         }
 
         for key, value in (
@@ -147,7 +148,7 @@ class Contact(MWRAPBase):
         birthday: datetime.date = None,
         info: str = None,
         tags: list = None
-        ):
+    ):
         """
         Updates a contact.
 
@@ -190,7 +191,6 @@ class Contact(MWRAPBase):
         :returns: The updated contact object
         """
 
-
         data = {}
         for key, value in (
             ("firstname", firstname),
@@ -209,7 +209,7 @@ class Contact(MWRAPBase):
             ("birthday", birthday),
             ("info", info),
             ("tags", tags)
-            ):
+        ):
 
             if value is not None:
                 if key == "birthday" and isinstance(value, datetime.date):
@@ -222,7 +222,7 @@ class Contact(MWRAPBase):
     def get(
         self,
         contact_id: int
-        ):
+    ):
         """
         Retrieve a single contact object
 
@@ -242,7 +242,7 @@ class Contact(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve a list of contact objects
 

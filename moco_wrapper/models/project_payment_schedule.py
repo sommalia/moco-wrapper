@@ -3,10 +3,11 @@ import datetime
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
+
 class ProjectPaymentSchedule(MWRAPBase):
     """
     Class for handling billing schedules for fixed price projects.
-    
+
     Fixed Price projects can have a target date they should be billed on (in the future). With this class you can create this target entry (and how much should be billed).
 
     For Example you can create a project that will be billed in four (4) steps over the year.
@@ -55,7 +56,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         schedule_date: datetime.date,
         title: str = None,
         checked: bool = False,
-        ):
+    ):
         """
         Creates a new project payment schedule.
 
@@ -100,7 +101,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         schedule_date: datetime.date = None,
         title: str = None,
         checked: bool = None
-        ):
+    ):
         """
         Updates an existing project payment schedule.
 
@@ -134,13 +135,15 @@ class ProjectPaymentSchedule(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["project_payment_schedule_update"].format(project_id=project_id, schedule_id=schedule_id), data=data)
+        return self._moco.put(
+            API_PATH["project_payment_schedule_update"].format(project_id=project_id, schedule_id=schedule_id),
+            data=data)
 
     def get(
         self,
         project_id: int,
         schedule_id: int,
-        ):
+    ):
         """
         Retrieves project payment schedule.
 
@@ -153,7 +156,8 @@ class ProjectPaymentSchedule(MWRAPBase):
         :returns: The schedule item
         """
 
-        return self._moco.get(API_PATH["project_payment_schedule_get"].format(project_id=project_id, schedule_id=schedule_id))
+        return self._moco.get(
+            API_PATH["project_payment_schedule_get"].format(project_id=project_id, schedule_id=schedule_id))
 
     def getlist(
         self,
@@ -161,7 +165,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve a list of project payment schedules
 
@@ -195,7 +199,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         self,
         project_id: int,
         schedule_id: int
-        ):
+    ):
         """
         Delete a project payment schedule item
 
@@ -208,5 +212,5 @@ class ProjectPaymentSchedule(MWRAPBase):
         :returns: The deleted response on success
         """
 
-        return self._moco.delete(API_PATH["project_payment_schedule_delete"].format(project_id=project_id, schedule_id=schedule_id))
-    
+        return self._moco.delete(
+            API_PATH["project_payment_schedule_delete"].format(project_id=project_id, schedule_id=schedule_id))
