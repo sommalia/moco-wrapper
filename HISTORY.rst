@@ -2,6 +2,12 @@
 History
 =======
 
+0.7.1 (2020-05-30)
+------------------
+
+* Created new Releases with bumpversion
+* Implemented tags parameter in invoice creation
+
 0.7.0 (2020-05-27)
 ------------------
 
