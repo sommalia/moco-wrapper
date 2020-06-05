@@ -3,8 +3,9 @@ from .. import IntegrationTest
 from datetime import date
 
 from moco_wrapper.models.offer import OfferStatus
-from moco_wrapper.util.response import ListingResponse, JsonResponse, FileResponse
+from moco_wrapper.util.response import ListingResponse, JsonResponse, FileResponse, EmptyResponse
 from moco_wrapper.util.generator import OfferItemGenerator
+
 
 class TestOffer(IntegrationTest):
 
@@ -26,11 +27,11 @@ class TestOffer(IntegrationTest):
         with self.recorder.use_cassette("TestOffer.get_deal"):
             deal = self.moco.Deal.create(
                 "TestOffer Deal",
-                "EUR", 
-                1000, 
-                date(2020, 1, 1), 
+                "EUR",
+                1000,
+                date(2020, 1, 1),
                 user.id,
-                deal_cat.id 
+                deal_cat.id
             )
 
             return deal.data
@@ -51,23 +52,21 @@ class TestOffer(IntegrationTest):
                 leader.id,
                 customer.id,
                 finish_date=date(2020, 1, 1),
-                )
-            
-            return project_create.data
+            )
 
+            return project_create.data
 
     def get_contact(self):
         with self.recorder.use_cassette("TestOffer.get_contact"):
             contact_create = self.moco.Contact.create("Offer", "Contact", "u")
             return contact_create.data
 
-
     def test_getlist(self):
         with self.recorder.use_cassette("TestOffer.test_getlist"):
             off_getlist = self.moco.Offer.getlist()
 
             assert off_getlist.response.status_code == 200
-            
+
             assert isinstance(off_getlist, ListingResponse)
 
             assert off_getlist.current_page == 1
@@ -78,8 +77,9 @@ class TestOffer(IntegrationTest):
 
     def test_getlist_full(self):
         with self.recorder.use_cassette("TestOffer.test_getlist_full"):
-            off_getlist = self.moco.Offer.getlist(status=OfferStatus.ACCEPTED, from_date=date(2020, 1, 1), to_date=date(2020, 1, 31), identifier="TEST-IDENT") 
-            
+            off_getlist = self.moco.Offer.getlist(status=OfferStatus.ACCEPTED, from_date=date(2020, 1, 1),
+                                                  to_date=date(2020, 1, 31), identifier="TEST-IDENT")
+
             assert off_getlist.response.status_code == 200
 
             assert isinstance(off_getlist, ListingResponse)
@@ -92,7 +92,7 @@ class TestOffer(IntegrationTest):
 
     def test_get(self):
         deal = self.get_deal()
-        user = self.get_user()        
+        user = self.get_user()
 
         with self.recorder.use_cassette("TestOffer.test_get"):
             rec_address = "this is the recpipient address"
@@ -111,14 +111,14 @@ class TestOffer(IntegrationTest):
             ]
 
             offer_create = self.moco.Offer.create(
-                deal.id, 
-                None, 
-                rec_address, 
-                creation_date, 
-                due_date, 
-                title, 
-                tax, 
-                currency, 
+                deal.id,
+                None,
+                rec_address,
+                creation_date,
+                due_date,
+                title,
+                tax,
+                currency,
                 items
             )
 
@@ -137,10 +137,8 @@ class TestOffer(IntegrationTest):
             assert offer_get.data.tax == tax
             assert offer_get.data.currency == currency
 
-    
     def test_create_from_deal(self):
         deal = self.get_deal()
-        user = self.get_user()
 
         with self.recorder.use_cassette("TestOffer.test_create_from_deal"):
             rec_address = "this is the recpipient address"
@@ -159,14 +157,14 @@ class TestOffer(IntegrationTest):
             ]
 
             offer_create = self.moco.Offer.create(
-                deal.id, 
-                None, 
-                rec_address, 
-                creation_date, 
-                due_date, 
-                title, 
-                tax, 
-                currency, 
+                deal.id,
+                None,
+                rec_address,
+                creation_date,
+                due_date,
+                title,
+                tax,
+                currency,
                 items
             )
 
@@ -209,18 +207,16 @@ class TestOffer(IntegrationTest):
                 items
             )
 
-
             assert offer_create.response.status_code == 201
 
             assert isinstance(offer_create, JsonResponse)
 
-            assert len(offer_create.data.items) == 7 
+            assert len(offer_create.data.items) == 7
 
     def test_create_with_project(self):
         project = self.get_project()
 
         with self.recorder.use_cassette("TestOffer.test_create_with_project"):
-
             rec_address = "this is the recpipient address"
             creation_date = date(2020, 1, 2)
             due_date = date(2021, 1, 1)
@@ -233,14 +229,14 @@ class TestOffer(IntegrationTest):
                 gen.generate_title("offer from project title"),
                 gen.generate_lump_position("misc", 2000)
             ]
-    
+
             offer_create = self.moco.Offer.create(
                 None,
                 project.id,
                 rec_address,
                 creation_date,
                 due_date,
-                title, 
+                title,
                 tax,
                 currency,
                 items
@@ -272,7 +268,6 @@ class TestOffer(IntegrationTest):
             footer = "footer"
             discount = 20
 
-
             gen = OfferItemGenerator()
             items = [
                 gen.generate_title("offer from project title"),
@@ -285,7 +280,7 @@ class TestOffer(IntegrationTest):
                 rec_address,
                 creation_date,
                 due_date,
-                title, 
+                title,
                 tax,
                 currency,
                 items,
@@ -310,7 +305,7 @@ class TestOffer(IntegrationTest):
 
     def test_pdf(self):
         project = self.get_project()
-        
+
         with self.recorder.use_cassette("TestOffer.test_pdf"):
             gen = OfferItemGenerator()
             items = [
@@ -318,11 +313,41 @@ class TestOffer(IntegrationTest):
                 gen.generate_lump_position("pos 1", 200)
             ]
 
-            offer_create = self.moco.Offer.create(None, project.id, "rec address", date(2020, 1, 1), date(2021, 1, 1), "title", 21, "EUR", items)
+            offer_create = self.moco.Offer.create(None, project.id, "rec address", date(2020, 1, 1), date(2021, 1, 1),
+                                                  "title", 21, "EUR", items)
             offer_pdf = self.moco.Offer.pdf(offer_create.data.id)
 
-            assert offer_create.response.status_code == 201 
+            assert offer_create.response.status_code == 201
             assert offer_pdf.response.status_code == 200
 
             assert isinstance(offer_pdf, FileResponse)
-            
+
+    def test_update_status(self):
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestOffer.test_update_status"):
+            offer_status = OfferStatus.ACCEPTED
+
+            gen = OfferItemGenerator()
+            items = [
+                gen.generate_title("title"),
+                gen.generate_lump_position("pos 1", 200)
+            ]
+
+            offer_create = self.moco.Offer.create(None, project.id, "rec adress", date(2020, 1, 1), date(2021, 1, 1),
+                                                  "title", 21, "EUR", items)
+
+            offer_update_status = self.moco.Offer.update_status(offer_create.data.id, offer_status)
+
+            offer_get = self.moco.Offer.get(offer_create.data.id)
+
+            assert offer_create.response.status_code == 201
+            assert offer_update_status.response.status_code == 204
+            assert offer_get.response.status_code == 200
+
+            assert isinstance(offer_create, JsonResponse)
+            assert isinstance(offer_update_status, EmptyResponse)
+            assert isinstance(offer_get, JsonResponse)
+
+            assert offer_create.data.status == OfferStatus.CREATED
+            assert offer_get.data.status == offer_status

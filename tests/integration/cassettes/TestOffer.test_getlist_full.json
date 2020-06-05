@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:38:34",
+      "recorded_at": "2020-06-05T11:11:39",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,11 +24,11 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/offers?page=1&identifier=TEST-IDENT&status=accepted&from=2020-01-01&to=2020-01-31"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&from=2020-01-01&status=accepted&page=1&to=2020-01-31"
       },
       "response": {
         "body": {
@@ -50,7 +50,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:38:33 GMT"
+            "Fri, 05 Jun 2020 11:11:39 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "227dbea8-f5a3-4098-91ce-fb5c01998b6a"
+            "642abeae-d0a6-4376-bdf8-19f34a2e5312"
           ],
           "X-Runtime": [
-            "0.036139"
+            "0.033740"
           ],
           "X-Total": [
             "0"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/offers?page=1&identifier=TEST-IDENT&status=accepted&from=2020-01-01&to=2020-01-31"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&from=2020-01-01&status=accepted&page=1&to=2020-01-31"
       }
     }
   ],

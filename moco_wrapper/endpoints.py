@@ -41,6 +41,7 @@ API_PATH = {
     "offer_get":                        "/offers/{id}",
     "offer_pdf":                        "/offers/{id}.pdf",
     "offer_create":                     "/offers",
+    "offer_update_status":              "/offers/{id}/update_status",
     "presence_getlist":                 "/users/presences",
     "presence_get":                     "/users/presences/{id}",
     "presence_create":                  "/users/presences",

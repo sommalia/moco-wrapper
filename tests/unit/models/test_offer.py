@@ -94,4 +94,14 @@ class TestOffer(UnitTest):
         assert data["footer"] == footer
         assert data["discount"] == discount
         assert data["contact_id"] == contact_id
-        
+
+    def test_update_status(self):
+        offer_id = 123
+        new_status = "ACCEPTED"
+
+        response = self.moco.Offer.update_status(offer_id, new_status)
+        data = response["data"]
+
+        assert response["method"] == "PUT"
+
+        assert data["status"] == new_status

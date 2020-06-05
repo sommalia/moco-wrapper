@@ -5,6 +5,7 @@ from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
+
 class OfferStatus(str, Enum):
     """
     Enumeration for allowed values of the ``status`` argument of :meth:`.Offer.getlist`.
@@ -29,6 +30,7 @@ class OfferStatus(str, Enum):
     ARCHIVED = "archived"
     PARTIALLY_BILLED = "partially_billed"
 
+
 class OfferChangeAddress(str, Enum):
     """
     Enumeration for allowed values of the ``change_address`` argument of :meth:`.Offer.create`.
@@ -48,6 +50,7 @@ class OfferChangeAddress(str, Enum):
     """
     OFFER = "offer"
     CUSTOMER = "customer"
+
 
 class Offer(MWRAPBase):
     """
@@ -71,7 +74,7 @@ class Offer(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve a list of offers.
 
@@ -93,7 +96,7 @@ class Offer(MWRAPBase):
 
         :returns: List of offer objects
 
-        
+
         .. note::
             Offers can be sorted by ``date``, ``created_at`` and ``title``.
         """
@@ -119,7 +122,7 @@ class Offer(MWRAPBase):
     def get(
         self,
         offer_id: int
-        ):
+    ):
         """
         Retrieve a single offer.
 
@@ -135,7 +138,7 @@ class Offer(MWRAPBase):
         self,
         offer_id: int,
         letter_paper_id: int = None
-        ):
+    ):
         """
         Retrieve the offer document for a single offer.
 
@@ -165,12 +168,12 @@ class Offer(MWRAPBase):
         footer: str = None,
         discount: float = None,
         contact_id: int = None
-        ):
+    ):
         """
         Create a new offer.
 
-        :param deal_id: Deal id of the offer 
-        :param project_id: project id of the offer 
+        :param deal_id: Deal id of the offer
+        :param project_id: project id of the offer
         :param recipient_address: Address of the recipient (e.g. Test Custmer\\\\nMain Street 5\\\\nExample Town)
         :param creation_date: Creation date
         :param due_date: Date the offer is due
@@ -205,7 +208,7 @@ class Offer(MWRAPBase):
             Either ``deal_id`` or ``project_id`` must be specified (or both)
 
         .. seealso::
-            :class:`moco_wrapper.util.generator.OfferItemGenerator`   
+            :class:`moco_wrapper.util.generator.OfferItemGenerator`
         """
 
         if project_id is None and deal_id is None:
@@ -225,7 +228,7 @@ class Offer(MWRAPBase):
 
         for date_key in ["date", "due_date"]:
             if isinstance(data[date_key], datetime.date):
-                 data[date_key] = self._convert_date_to_iso(data[date_key])
+                data[date_key] = self._convert_date_to_iso(data[date_key])
 
         for key, value in (
             ("change_address", change_address),
@@ -238,4 +241,25 @@ class Offer(MWRAPBase):
                 data[key] = value
 
         return self._moco.post(API_PATH["offer_create"].format(id=id), data=data)
-        
+
+    def update_status(
+        self,
+        offer_id,
+        status,
+    ):
+        """
+        Updates the state of an offer
+
+        :param offer_id: Id of the offer
+        :param status: The new state for the offer
+
+        :type offer_id: int
+        :type status: :class:`.OfferStatus`, str
+
+        :returns: Empty response on success
+        """
+        data = {
+            "status": status
+        }
+
+        return self._moco.put(API_PATH["offer_update_status"].format(id=offer_id), data=data)
