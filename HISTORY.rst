@@ -2,6 +2,11 @@
 History
 =======
 
+0.7.2 (2020-06-05)
+------------------
+
+* Implement update_status endpoint of offer model
+
 0.7.1 (2020-05-30)
 ------------------
 
