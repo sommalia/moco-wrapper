@@ -2,6 +2,7 @@ import datetime
 
 from .base import BaseGenerator
 
+
 class ProjectExpenseGenerator(BaseGenerator):
 
     def generate(
@@ -15,14 +16,14 @@ class ProjectExpenseGenerator(BaseGenerator):
         description: str = None,
         billable: bool = True,
         budget_relevant: bool = False
-        ) -> dict:
+    ) -> dict:
         """
         Create an item that can be used for creating bulk project expenses.
 
         :param project_id: Id of the project to create the expense for
         :param expense_date: Date of the expense
         :param title: Exense title
-        :param quantity: Quantity (how much of ``unit`` was bought?) 
+        :param quantity: Quantity (how much of ``unit`` was bought?)
         :param unit: Name of the unit (What was bought for the customer/project?)
         :param unit_price: Price of the unit that will be billed to the customer/project
         :param unit_cost: Cost that we had to pay
@@ -50,47 +51,47 @@ class ProjectExpenseGenerator(BaseGenerator):
             from moco_wrapper.util.generator import ProjectExpenseGenerator
             from moco_wrapper import Moco
             from datetime import date
-            
+
             m = Moco()
             gen = ProjectExpenseGenerator()
 
             items = [
                 gen.generate(
-                    '2019-10-10', 
-                    "the title", 
-                    5, 
-                    "the unit", 
-                    20, 
+                    '2019-10-10',
+                    "the title",
+                    5,
+                    "the unit",
+                    20,
                     10
                 ),
                 gen.generate(
-                    '2019-10-10', 
-                    "different title", 
-                    5, 
-                    "another unit", 
-                    20, 
+                    '2019-10-10',
+                    "different title",
+                    5,
+                    "another unit",
+                    20,
                     10,
-                    billable=False, 
-                    description="the desc", 
+                    billable=False,
+                    description="the desc",
                     budget_relevant=True
                 ),
                 gen.generate(
-                    date(2019, 10, 10), 
-                    "another title", 
-                    2, 
-                    "the unit", 
-                    20, 
+                    date(2019, 10, 10),
+                    "another title",
+                    2,
+                    "the unit",
+                    20,
                     10
                 ),
             ]
             project_id = 2
 
             created_expenses = m.ProjectExpense.create_bulk(project_id,items)
-        
+
         .. seealso::
 
             :meth:`moco_wrapper.models.ProjectExpense.create_bulk`
-        """ 
+        """
 
         data = {
             "date": expense_date,
@@ -114,4 +115,3 @@ class ProjectExpenseGenerator(BaseGenerator):
                 data[key] = value
 
         return data
-        

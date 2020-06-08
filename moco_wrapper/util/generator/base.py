@@ -1,5 +1,6 @@
 import datetime
 
+
 class BaseGenerator(object):
     """
     Base class all other classes in moco_wrapper.util.generator inherit
@@ -8,7 +9,7 @@ class BaseGenerator(object):
     def _convert_date_to_iso(self, date_to_convert: datetime.date):
         """
         converts a datetime object to iso format need by the api
-        
+
         :param date_to_convert: date object to convert
         :returns: date in iso format (YYYY-MM-DD)
         """
@@ -17,4 +18,3 @@ class BaseGenerator(object):
             date_to_convert.month,
             date_to_convert.day
         ).isoformat()
-        

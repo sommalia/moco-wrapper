@@ -41,7 +41,7 @@ class TestOfferItemGenerator(object):
         unit_price = 25
         quantity = 3
 
-        item = self.generator.generate_detail_postion(title, quantity, unit, unit_price)
+        item = self.generator.generate_detail_position(title, quantity, unit, unit_price)
 
         assert item["type"] == "item"
         assert item["title"] == title
@@ -75,4 +75,3 @@ class TestOfferItemGenerator(object):
         item = self.generator.generate_pagebreak()
 
         assert item["type"] == "page-break"
-        

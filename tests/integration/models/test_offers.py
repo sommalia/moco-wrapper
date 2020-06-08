@@ -188,10 +188,10 @@ class TestOffer(IntegrationTest):
             items = [
                 gen.generate_title("this is the title"),
                 gen.generate_description("This is the first description"),
-                gen.generate_detail_postion("support", 1, "h", 65),
+                gen.generate_detail_position("support", 1, "h", 65),
                 gen.generate_lump_position("server hardware", 200),
                 gen.generate_subtotal("subtotal position"),
-                gen.generate_detail_postion("special support", 3, "h", 90),
+                gen.generate_detail_position("special support", 3, "h", 90),
                 gen.generate_pagebreak()
             ]
 
