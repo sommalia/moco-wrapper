@@ -1,12 +1,13 @@
 from .. import IntegrationTest
 from moco_wrapper.util.response import ListingResponse
 
+
 class TestPurchaseCategory(IntegrationTest):
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestPurchaseCategory.test_getlist"):
             category_list = self.moco.PurchaseCategory.getlist()
-        
+
             assert category_list.response.status_code == 200
 
             assert isinstance(category_list, ListingResponse)

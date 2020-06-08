@@ -1,6 +1,7 @@
 import pytest
 from .. import UnitTest
 
+
 class TestPurchaseCategory(UnitTest):
     def test_get(self):
         response = self.moco.PurchaseCategory.get(1)
