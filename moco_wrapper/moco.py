@@ -93,6 +93,7 @@ class Moco(object):
         self.Session = models.Session(self)
 
         self.PurchaseCategory = models.PurchaseCategory(self)
+        self.Purchase = models.Purchase(self)
 
         self._requestor = requestor
         self._objector = objector

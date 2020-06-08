@@ -5,9 +5,10 @@ from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
+
 class User(MWRAPBase):
     """
-    Class for handling users.    
+    Class for handling users.
     """
 
     def __init__(self, moco):
@@ -34,7 +35,7 @@ class User(MWRAPBase):
         birthday: datetime.date = None,
         custom_properties: dict = None,
         info: str = None,
-        ):
+    ):
         """
         Creates a new user.
 
@@ -48,7 +49,7 @@ class User(MWRAPBase):
         :param language: de, de-AT, de-CH, en, it or fr
         :param mobile_phone: Mobile phone number
         :param work_phone: Work phone number
-        :param home_address: Phyical home address 
+        :param home_address: Phyical home address
         :param birthday: Birthday date
         :param custom_properties: Custom fields to add to the user
         :param info: Additional information about the user
@@ -71,11 +72,10 @@ class User(MWRAPBase):
         :returns: The created user object
         """
 
-        
         data = {
-            "firstname" : firstname,
+            "firstname": firstname,
             "lastname": lastname,
-            "email" : email,
+            "email": email,
             "password": password,
             "unit_id": unit_id
         }
@@ -92,7 +92,7 @@ class User(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                    
+
                 if key in ["bday"] and isinstance(value, datetime.date):
                     data[key] = self._convert_date_to_iso(value)
                 else:
@@ -117,7 +117,7 @@ class User(MWRAPBase):
         birthday: datetime.date = None,
         custom_properties: dict = None,
         info: str = None,
-        ):
+    ):
         """
         Updates an existing user.
 
@@ -132,7 +132,7 @@ class User(MWRAPBase):
         :param language: de, de-AT, de-CH, en, it or fr
         :param mobile_phone: Mobile phone number
         :param work_phone: Work phone number
-        :param home_address: Physical home address 
+        :param home_address: Physical home address
         :param birthday: Birthday date
         :param custom_properties: Custom fields to add to the user
         :param info: Additional information abotu the user
@@ -179,13 +179,13 @@ class User(MWRAPBase):
                 else:
                     data[key] = value
 
-        #check if length > 0 TODO
+        # check if length > 0 TODO
         return self._moco.put(API_PATH["user_update"].format(id=user_id), data=data)
 
     def delete(
         self,
         user_id: int
-        ):
+    ):
         """
         Deletes an existing user.
 
@@ -201,7 +201,7 @@ class User(MWRAPBase):
     def get(
         self,
         user_id: int
-        ):
+    ):
         """
         Get a single user.
 
@@ -219,7 +219,7 @@ class User(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Get a list of users.
 
@@ -235,7 +235,7 @@ class User(MWRAPBase):
 
         :returns: List of users
         """
-               
+
         params = {}
         for key, value in (
             ("include_archived", include_archived),
@@ -248,4 +248,3 @@ class User(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["user_getlist"], params=params)
-        

@@ -36,6 +36,7 @@ from .project_recurring_expense import ProjectRecurringExpense
 from .project_payment_schedule import ProjectPaymentSchedule
 
 from .purchase_category import PurchaseCategory
+from .purchase import Purchase
 
 from .session import Session
 

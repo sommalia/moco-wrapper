@@ -1,6 +1,6 @@
 import datetime
 
-from moco_wrapper.models.base import MWRAPBase  
+from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
 
@@ -20,7 +20,7 @@ class PurchaseCategory(MWRAPBase):
     def get(
         self,
         category_id: int
-        ):
+    ):
         """
         Retrieve a single category
 
@@ -37,15 +37,15 @@ class PurchaseCategory(MWRAPBase):
         self,
         sort_by: str = None,
         sort_order: str = 'asc',
-        page = 1
-        ):
+        page=1
+    ):
         """
         Retrieve a list of catogories
 
         :param sort_by: Sort by field
         :param sort_order: asc or desc
         :param page: Page number
-        
+
         :type sort_by: str
         :type sort_order: str
         :type page: int
@@ -54,9 +54,9 @@ class PurchaseCategory(MWRAPBase):
         """
 
         params = {
-            "page" : page
+            "page": page
         }
-        
+
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 

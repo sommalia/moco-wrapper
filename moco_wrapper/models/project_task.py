@@ -1,6 +1,7 @@
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
+
 class ProjectTask(MWRAPBase):
     """
     Class for handling tasks of a project.
@@ -20,7 +21,7 @@ class ProjectTask(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve a list of tasks for a project.
 
@@ -47,14 +48,13 @@ class ProjectTask(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-
         return self._moco.get(API_PATH["project_task_getlist"].format(project_id=project_id), params=params)
 
     def get(
         self,
         project_id: int,
         task_id: int
-        ):
+    ):
         """
         Retrieve a single project task.
 
@@ -76,7 +76,7 @@ class ProjectTask(MWRAPBase):
         active: bool = True,
         budget: float = None,
         hourly_rate: float = None
-        ):
+    ):
         """
         Create a task for a project.
 
@@ -120,7 +120,7 @@ class ProjectTask(MWRAPBase):
         active: bool = None,
         budget: float = None,
         hourly_rate: float = None
-        ):
+    ):
         """
         Update a task for a project.
 
@@ -149,7 +149,7 @@ class ProjectTask(MWRAPBase):
             ("active", active),
             ("budget", budget),
             ("hourly_rate", hourly_rate)
-        ):  
+        ):
             if value is not None:
                 data[key] = value
 
@@ -159,7 +159,7 @@ class ProjectTask(MWRAPBase):
         self,
         project_id: int,
         task_id: int
-        ):
+    ):
         """
         Delete project task
 
@@ -177,4 +177,3 @@ class ProjectTask(MWRAPBase):
         """
 
         return self._moco.delete(API_PATH["project_task_delete"].format(project_id=project_id, task_id=task_id))
-        
