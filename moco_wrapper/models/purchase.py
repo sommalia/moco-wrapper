@@ -10,6 +10,20 @@ class PurchaseStatus(str, Enum):
     APPROVED = "approved"
 
 
+class PurchasePaymentMethod(str, Enum):
+    BANK_TRANSFER = "bank_transfer"
+    DIRECT_DEBIT = "direct_debit"
+    CREDIT_CARD = "credit_card"
+    PAYPAL = "paypal"
+    CASH = "cash"
+
+
+class PurchaseFile(object):
+    def __init__(self, filename, base64_content):
+        self.filename = filename
+        self.base64_content = base64_content
+
+
 class Purchase(MWRAPBase):
 
     def __init__(self, moco):
@@ -105,3 +119,96 @@ class Purchase(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["purchase_getlist"], params=params)
+
+    def create(
+        self,
+        purchase_date: datetime.date,
+        currency: str,
+        payment_method: PurchasePaymentMethod,
+        items: list,
+        due_date: datetime.date = None,
+        service_period_from: datetime.date = None,
+        service_period_to: datetime.date = None,
+        company_id: int = None,
+        receipt_identifier: str = None,
+        info: str = None,
+        iban: str = None,
+        reference: str = None,
+        custom_property_values: dict = None,
+        file: PurchaseFile = None,
+        tags: list = None
+    ):
+        """
+        Create a new purchase
+
+        :param purchase_date: Date of the purchase
+        :param currency: Currency
+        :param payment_method: Method of payment that was used
+        :param items: List of items that were purchased (minimum 1 item required)
+        :param due_date: Date the purchase is due (default ``None``)
+        :param service_period_from: Service period start date (default ``None``)
+        :param service_period_to: Service period end date (default ``None``)
+        :param company_id: Id of the supplier company (default ``None``)
+        :param receipt_identifier: Receipt string (default ``None``)
+        :param info: Info text (default ``None``)
+        :param iban: Iban  (default ``None``)
+        :param reference: Reference text (default ``None``)
+        :param custom_property_values: Custom Properties (default ``None``)
+        :param file: File attached to the purchase (default ``None``)
+        :param tags: List of tags  (default ``None``)
+
+        :type purchase_date: datetime.date, str
+        :type currency: str
+        :type payment_method: :class:`.PurchasePaymentMethod`, str
+        :type items: List
+        :type due_date: datetime.date, str
+        :type service_period_from: datetime.date, str
+        :type service_period_to: datetime.date, str
+        :type company_id: int
+        :type receipt_identifier: str
+        :type info: str
+        :type iban: str
+        :type reference: str
+        :type custom_property_values: dict
+        :type file: :class:`.PurchaseFile`
+        :type tags: list
+
+        :returns: The created purchase
+        """
+
+        data = {
+            "date": purchase_date,
+            "currency": currency,
+            "payment_method": payment_method,
+            "items": items
+        }
+
+        if isinstance(data["date"], datetime.date):
+            data["date"] = self._convert_date_to_iso(data["date"])
+
+        for key, value in (
+            ("due_date", due_date),
+            ("service_period_from", service_period_from),
+            ("service_period_to", service_period_to),
+            ("company_id", company_id),
+            ("receipt_identifier", receipt_identifier),
+            ("info", info),
+            ("iban", iban),
+            ("reference", reference),
+            ("custom_property_values", custom_property_values),
+            ("file", file),
+            ("tags", tags)
+        ):
+            if value is not None:
+                # check if value is a date
+                if isinstance(value, datetime.date) and key in ["due_date", "service_period_from", "service_period_to"]:
+                    data[key] = self._convert_date_to_iso(value)
+                elif isinstance(value, PurchaseFile):  # check if value is a file
+                    data[key] = {
+                        "filename": value.filename,
+                        "base64": value.base64_content
+                    }
+                else:
+                    data[key] = value
+
+        return self._moco.post(API_PATH["purchase_create"], data=data)
