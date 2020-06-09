@@ -180,7 +180,7 @@ class Purchase(MWRAPBase):
             "date": purchase_date,
             "currency": currency,
             "payment_method": payment_method,
-            "items": items
+            "items": items,
         }
 
         if isinstance(data["date"], datetime.date):
@@ -197,7 +197,8 @@ class Purchase(MWRAPBase):
             ("reference", reference),
             ("custom_property_values", custom_property_values),
             ("file", file),
-            ("tags", tags)
+            ("tags", tags),
+
         ):
             if value is not None:
                 # check if value is a date
@@ -209,6 +210,6 @@ class Purchase(MWRAPBase):
                         "base64": value.base64_content
                     }
                 else:
-                    data[key] = value
+                    data[key] = str(value)
 
         return self._moco.post(API_PATH["purchase_create"], data=data)
