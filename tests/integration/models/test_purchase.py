@@ -6,7 +6,7 @@ from moco_wrapper.util.generator import PurchaseItemGenerator
 from moco_wrapper.util.response import JsonResponse, ListingResponse
 
 class TestPurchase(IntegrationTest):
-    
+    pass
     # def test_create(self):
     #     generator = PurchaseItemGenerator()
         

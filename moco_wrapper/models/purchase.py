@@ -210,6 +210,6 @@ class Purchase(MWRAPBase):
                         "base64": value.base64_content
                     }
                 else:
-                    data[key] = str(value)
+                    data[key] = value
 
         return self._moco.post(API_PATH["purchase_create"], data=data)
