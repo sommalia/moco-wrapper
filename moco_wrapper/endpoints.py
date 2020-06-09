@@ -120,4 +120,5 @@ API_PATH = {
     "planning_entry_update":            "/planning_entries/{id}",
     "planning_entry_delete":            "/planning_entries/{id}",
     "purchase_getlist":                 "/purchases",
+    "purchase_create":                  "/purchases",
 }

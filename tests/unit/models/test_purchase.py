@@ -1,5 +1,8 @@
 import pytest
+import datetime
 from .. import UnitTest
+from moco_wrapper.util.generator import PurchaseItemGenerator
+
 
 
 class TestPurchase(UnitTest):
@@ -72,3 +75,66 @@ class TestPurchase(UnitTest):
         assert sorted(params["tags"]) == sorted(tags)
         assert params["date"] == "{}:{}".format(start_date, end_date)
         assert params["unpaid"] == unpaid
+
+    def test_create(self):
+        generator = PurchaseItemGenerator()
+
+        purchase_date = "2020-04-01"
+        currency = "EUR"
+        payment_method = "PAYPAL"
+        items = [
+            generator.generate_item("title", 100, 7.4)
+        ]
+
+        due_date = "2020-04-30"
+        service_from = datetime.date(2020, 5, 1)
+        service_to = datetime.date(2020, 5, 31)
+        company_id = 34
+        receipt_identifier = "REC-1"
+        info = "infotext"
+        iban = "DE1234"
+        reference = "REF-2"
+        custom_property_vals = {
+            "this": "custom"
+        }
+        file = {
+            "filename" : "this is the filename",
+            "base64": "base64 encoded values"
+        }
+        tags = ["these", "are", "tags"]
+
+        response = self.moco.Purchase.create(
+            purchase_date,
+            currency,
+            payment_method,
+            items,
+            due_date=due_date,
+            service_period_from=service_from,
+            service_period_to=service_to,
+            company_id=company_id,
+            receipt_identifier=receipt_identifier,
+            info=info,
+            iban=iban,
+            reference=reference,
+            custom_property_values=custom_property_vals,
+            file=file,
+            tags=tags
+        )
+        data = response["data"]
+
+        assert response["method"] == "POST"
+
+        assert data["date"] == purchase_date
+        assert data["currency"] == currency
+        assert data["payment_method"] == payment_method
+        assert data["items"] == items
+        assert data["due_date"] == due_date
+        assert data["service_period_from"] == service_from.isoformat()
+        assert data["service_period_to"] == service_to.isoformat()
+        assert data["company_id"] == company_id
+        assert data["info"] == info
+        assert data["iban"] == iban
+        assert data["reference"] == reference
+        assert data["custom_property_values"] == custom_property_vals
+        assert data["file"] == file
+        assert data["tags"] == tags
