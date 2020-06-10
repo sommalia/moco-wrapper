@@ -94,7 +94,7 @@ class TestPurchase(UnitTest):
         info = "infotext"
         iban = "DE1234"
         reference = "REF-2"
-        custom_property_vals = {
+        custom_properties = {
             "this": "custom"
         }
         file = {
@@ -116,7 +116,7 @@ class TestPurchase(UnitTest):
             info=info,
             iban=iban,
             reference=reference,
-            custom_property_values=custom_property_vals,
+            custom_properties=custom_properties,
             file=file,
             tags=tags
         )
@@ -135,6 +135,6 @@ class TestPurchase(UnitTest):
         assert data["info"] == info
         assert data["iban"] == iban
         assert data["reference"] == reference
-        assert data["custom_property_values"] == custom_property_vals
+        assert data["custom_properties"] == custom_properties
         assert data["file"] == file
         assert data["tags"] == tags

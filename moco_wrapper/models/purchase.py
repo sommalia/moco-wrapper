@@ -134,7 +134,7 @@ class Purchase(MWRAPBase):
         info: str = None,
         iban: str = None,
         reference: str = None,
-        custom_property_values: dict = None,
+        custom_properties: dict = None,
         file: PurchaseFile = None,
         tags: list = None
     ):
@@ -153,7 +153,7 @@ class Purchase(MWRAPBase):
         :param info: Info text (default ``None``)
         :param iban: Iban  (default ``None``)
         :param reference: Reference text (default ``None``)
-        :param custom_property_values: Custom Properties (default ``None``)
+        :param custom_properties: Custom Properties (default ``None``)
         :param file: File attached to the purchase (default ``None``)
         :param tags: List of tags  (default ``None``)
 
@@ -169,7 +169,7 @@ class Purchase(MWRAPBase):
         :type info: str
         :type iban: str
         :type reference: str
-        :type custom_property_values: dict
+        :type custom_properties: dict
         :type file: :class:`.PurchaseFile`
         :type tags: list
 
@@ -195,7 +195,7 @@ class Purchase(MWRAPBase):
             ("info", info),
             ("iban", iban),
             ("reference", reference),
-            ("custom_property_values", custom_property_values),
+            ("custom_properties", custom_properties),
             ("file", file),
             ("tags", tags),
         ):
