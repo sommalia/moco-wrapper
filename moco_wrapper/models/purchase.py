@@ -198,7 +198,6 @@ class Purchase(MWRAPBase):
             ("custom_property_values", custom_property_values),
             ("file", file),
             ("tags", tags),
-
         ):
             if value is not None:
                 # check if value is a date
