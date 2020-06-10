@@ -5,6 +5,7 @@ import string
 import random
 
 from datetime import date
+from os import path
 from moco_wrapper import moco
 from moco_wrapper.util.requestor import NoRetryRequestor
 from moco_wrapper.util.objector import NoErrorObjector, DefaultObjector

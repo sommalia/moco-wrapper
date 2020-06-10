@@ -1,10 +1,11 @@
 import datetime
 
 from .. import IntegrationTest
-from moco_wrapper.models.purchase import PurchasePaymentMethod
+from moco_wrapper.models.purchase import PurchasePaymentMethod, PurchaseFile
 from moco_wrapper.util.generator import PurchaseItemGenerator
 from moco_wrapper.util.response import JsonResponse, ListingResponse
 from moco_wrapper.models.company import CompanyType
+from os import path
 
 class TestPurchase(IntegrationTest):
     def get_company(self):
@@ -106,5 +107,37 @@ class TestPurchase(IntegrationTest):
             assert sorted(purchase_create.data.tags) == sorted(tags)
             assert purchase_create.data.user.id is not None
 
+    def test_create_with_file(self):
+        pdf_path = path.join(path.dirname(path.dirname(__file__)), "files", "test_purchase_create_with_file.pdf")
+        purchase_file = PurchaseFile.load(pdf_path)
+
+        generator = PurchaseItemGenerator()
+
+        with self.recorder.use_cassette("TestPurchase.test_create_with_file"):
+            payment_method = PurchasePaymentMethod.CASH
+            purchase_date = datetime.date(2020, 1, 1)
+            currency = "EUR"
+            items = [
+                generator.generate_item("dummy items, test create with file", 100.2, 5)
+            ]
+
+            purchase_create = self.moco.Purchase.create(
+                purchase_date,
+                currency,
+                payment_method,
+                items,
+                file=purchase_file
+            )
+
+            assert purchase_create.response.status_code == 200
+            
+            assert isinstance(purchase_create, JsonResponse)
+
+            assert purchase_create.data.date == purchase_date.isoformat()
+            assert purchase_create.data.currency == currency
+            assert purchase_create.data.payment_method == payment_method
+            assert len(purchase_create.data.items) == 1
+
+            assert purchase_create.data.file_url is not None
 
         

@@ -3,6 +3,7 @@ import datetime
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 from enum import Enum
+from base64 import b64encode
 
 
 class PurchaseStatus(str, Enum):
@@ -22,6 +23,14 @@ class PurchaseFile(object):
     def __init__(self, filename, base64_content):
         self.filename = filename
         self.base64_content = base64_content
+
+    @classmethod
+    def load(cls, path):
+        with open(path, "rb") as f:
+            return cls(f.name, b64encode(f.read()).decode('utf-8'))
+
+
+
 
 
 class Purchase(MWRAPBase):
