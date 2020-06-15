@@ -138,3 +138,10 @@ class TestPurchase(UnitTest):
         assert data["custom_properties"] == custom_properties
         assert data["file"] == file
         assert data["tags"] == tags
+
+    def test_get(self):
+        purchase_id = 212
+
+        response = self.moco.Purchase.get(purchase_id)
+
+        assert response["method"] == "GET"

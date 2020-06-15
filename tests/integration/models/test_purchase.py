@@ -7,24 +7,24 @@ from moco_wrapper.util.response import JsonResponse, ListingResponse
 from moco_wrapper.models.company import CompanyType
 from os import path
 
+
 class TestPurchase(IntegrationTest):
     def get_company(self):
         with self.recorder.use_cassette("TestPurchase.get_company"):
             company_create = self.moco.Company.create(
                 "dummy supplier, test purchase",
                 CompanyType.SUPPLIER
-            )   
+            )
             return company_create.data
 
-
     def test_create(self):
-        with self.recorder.use_cassette("TestPurchase.test_create"):        
+        with self.recorder.use_cassette("TestPurchase.test_create"):
             generator = PurchaseItemGenerator()
-            
+
             currency = "EUR"
             payment_method = PurchasePaymentMethod.PAYPAL
             purchase_date = datetime.date(2020, 4, 1)
-            
+
             item_title = "dummy purchase item title"
 
             items = [
@@ -41,7 +41,7 @@ class TestPurchase(IntegrationTest):
             assert purchase_create.response.status_code == 200
 
             assert isinstance(purchase_create, JsonResponse)
-            
+
             assert purchase_create.data.payment_method == payment_method
             assert purchase_create.data.currency == currency
             assert len(purchase_create.data.items) == 1
@@ -51,7 +51,6 @@ class TestPurchase(IntegrationTest):
         supplier = self.get_company()
 
         with self.recorder.use_cassette("TestPurchase.test_create_full"):
-
             generator = PurchaseItemGenerator()
 
             purchase_date = datetime.date(2020, 1, 1)
@@ -70,7 +69,7 @@ class TestPurchase(IntegrationTest):
             info = "dummy info text"
             reference = "reference text"
             custom_properties = {
-                "test" : "vars"
+                "test": "vars"
             }
 
             tags = ["dummy file"]
@@ -130,7 +129,7 @@ class TestPurchase(IntegrationTest):
             )
 
             assert purchase_create.response.status_code == 200
-            
+
             assert isinstance(purchase_create, JsonResponse)
 
             assert purchase_create.data.date == purchase_date.isoformat()
@@ -140,4 +139,36 @@ class TestPurchase(IntegrationTest):
 
             assert purchase_create.data.file_url is not None
 
-        
+    def test_get(self):
+        generator = PurchaseItemGenerator()
+
+        with self.recorder.use_cassette("TestPurchase.test_get"):
+            purchase_date = datetime.date(2020, 1, 1)
+            currency = "EUR"
+            payment_method = PurchasePaymentMethod.DIRECT_DEBIT
+            items = [
+                generator.generate_item("dummy purchase, test get", 200, 10.5)
+            ]
+
+            purchase_create = self.moco.Purchase.create(
+                purchase_date,
+                currency,
+                payment_method,
+                items
+            )
+
+            purchase_get = self.moco.Purchase.get(
+                purchase_create.data.id
+            )
+
+            assert purchase_create.response.status_code == 200
+            assert purchase_get.response.status_code == 200
+
+            assert isinstance(purchase_create, JsonResponse)
+            assert isinstance(purchase_get, JsonResponse)
+
+            assert purchase_get.data.date == purchase_date.isoformat()
+            assert purchase_get.data.currency == currency
+            assert purchase_get.data.payment_method == payment_method
+            assert len(purchase_get.data.items) == 1
+

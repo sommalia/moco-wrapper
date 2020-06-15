@@ -30,9 +30,6 @@ class PurchaseFile(object):
             return cls(f.name, b64encode(f.read()).decode('utf-8'))
 
 
-
-
-
 class Purchase(MWRAPBase):
 
     def __init__(self, moco):
@@ -128,6 +125,21 @@ class Purchase(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["purchase_getlist"], params=params)
+
+    def get(
+        self,
+        purchase_id: int
+    ):
+        """
+        Retrieve a single purchase
+
+        :param purchase_id: The id of the purchase
+
+        :type purchase_id: int
+
+        :returns: A single purchase
+        """
+        return self._moco.get(API_PATH["purchase_get"].format(id=purchase_id))
 
     def create(
         self,
