@@ -117,18 +117,25 @@ class Moco(object):
         if "domain" in self.auth.keys():
             self.domain = self.auth["domain"]
 
-    def request(self, method, path, params=None, data=None, bypass_auth=False):
+    def request(
+        self,
+        method: str,
+        path: str,
+        params: dict = None,
+        data: dict = None,
+        bypass_auth: bool = False
+    ):
         """
-        request the given ressource with the assigned requestor
+        Requests the given resource with the assigned requestor
 
         :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
-        :param path: path of the ressource (e.g. ``/projects``)
+        :param path: path of the resource (e.g. ``/projects``)
         :param params: url parameters (e.g. ``page=1``, query parameters)
         :param data: dictionary with data (http body)
         :param bypass_auth: If authentication checks should be skipped (default False)
 
-        The request will be given to the currently assinged requestor (see :ref:`requestor`).
-        The response will then be given to the currently assinged objector (see :ref:`objector`)
+        The request will be given to the currently assigned requestor (see :ref:`requestor`).
+        The response will then be given to the currently assigned objector (see :ref:`objector`)
 
         The *possibly* modified response will then be returned
         """
@@ -139,6 +146,7 @@ class Moco(object):
         if not bypass_auth:
             self.authenticate()
 
+        # pass request making to the requestor object
         if method == "GET":
             requestor_response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
         elif method == "PUT":
@@ -162,18 +170,33 @@ class Moco(object):
         return objector_result
 
     def get(self, path, params=None, data=None, **kwargs):
+        """
+        Helper function for GET requests
+        """
         return self.request("GET", path, params=params, data=data, **kwargs)
 
     def post(self, path, params=None, data=None, **kwargs):
+        """
+        Helper function for POST requests
+        """
         return self.request("POST", path, params=params, data=data, **kwargs)
 
     def put(self, path, params=None, data=None, **kwargs):
+        """
+        Helper function for PUT requests
+        """
         return self.request("PUT", path, params=params, data=data, **kwargs)
 
     def delete(self, path, params=None, data=None, **kwargs):
+        """
+        Helper function for DELETE requests
+        """
         return self.request("DELETE", path, params=params, data=data, **kwargs)
 
     def patch(self, path, params=None, data=None, **kwargs):
+        """
+        Helper function for PATCH requests
+        """
         return self.request("PATCH", path, params=params, data=data, **kwargs)
 
     def impersonate(
@@ -181,7 +204,7 @@ class Moco(object):
         user_id: int
     ):
         """
-        Impersontates the user with the supplied user id
+        Impersonates the user with the supplied user id
 
         :param user_id: user id to impersonate
 
@@ -237,7 +260,6 @@ class Moco(object):
         """
         Get the http.session object of the current requestor (None if the requestor does not have a session)
         """
-
         return self._requestor.session
 
     @property
@@ -264,9 +286,9 @@ class Moco(object):
 
     def authenticate(self):
         """
-        Performs any action neccessary to be authenticated against the moco api.
+        Performs any action necessary to be authenticated against the moco api.
 
-        This method gets invoked automaticly, on the very first request you send against the api.
+        This method gets invoked automatically, on the very first request you send against the api.
         """
         if self.api_key is not None and self.domain is not None:
             return  # already authenticated
@@ -286,5 +308,5 @@ class Moco(object):
             self.api_key = session.api_key
             del self.auth
         else:
-            # raise error authentication information is very likely invlid
+            # raise error authentication information is very likely invalid
             raise ValueError("Invalid authentication information given")
