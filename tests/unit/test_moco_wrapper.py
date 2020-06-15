@@ -4,6 +4,7 @@ from . import UnitTest
 
 from moco_wrapper import moco, util, models
 
+
 class TestMocoWrapper(UnitTest):
 
     def test_activity_set(self):
@@ -81,8 +82,8 @@ class TestMocoWrapper(UnitTest):
     def test_wrapper_init(self):
         new_moco = moco.Moco(
             auth={
-                "api_key" : "api_key",
-                "domain" : "domain"
+                "api_key": "api_key",
+                "domain": "domain"
             }
         )
         new_moco.authenticate()
@@ -95,8 +96,8 @@ class TestMocoWrapper(UnitTest):
     def test_wrapper_init_requestor_overwrite(self):
         new_moco = moco.Moco(
             auth={
-                "api_key" : "api_key",
-                "domain" : "domain"
+                "api_key": "api_key",
+                "domain": "domain"
             },
             requestor=util.requestor.RawRequestor()
         )
@@ -131,3 +132,34 @@ class TestMocoWrapper(UnitTest):
         new_moco.clear_impersonation()
 
         assert new_moco._impersonation_user_id is None
+
+    def test_header_overwrite(self):
+        my_content_type = "my content type"
+        new_headers = {
+            "Content-Type": my_content_type
+        }
+
+        new_moco = moco.Moco(objector=util.objector.RawObjector(), requestor=util.requestor.RawRequestor())
+        response = new_moco.request("GET", "path", bypass_auth=True, headers=new_headers)
+
+        requestor_args = response["args"]
+        for key, value in requestor_args:
+            if key == "headers":
+                headers = value
+                assert headers["Content-Type"] == my_content_type
+
+    def test_header_append(self):
+        additional_header = "this header is new"
+        additional_header_key = "Not-needed-header"
+
+        new_moco = moco.Moco(objector=util.objector.RawObjector(), requestor=util.requestor.RawRequestor())
+        response = new_moco.request("GET", "path", bypass_auth=True, headers={additional_header_key: additional_header})
+
+        requestor_args = response["args"]
+        for key, value in requestor_args:
+            if key == "headers":
+                headers = value
+                assert additional_header_key in headers.keys()
+                assert headers[additional_header_key] == additional_header
+
+

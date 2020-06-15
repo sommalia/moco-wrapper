@@ -1,5 +1,6 @@
 from .base import BaseRequestor
 
+
 class RawRequestor(BaseRequestor):
     """
     The Raw Requestor is a test requestor that saves all arguments into and object and returns it.
@@ -9,22 +10,23 @@ class RawRequestor(BaseRequestor):
         Use this requestor only for testing.
 
     """
-    def request(self, method, path, params = None, data = None, **kwargs) -> dict:
+
+    def request(self, method, path, params=None, data=None, **kwargs) -> dict:
         """
-        Request the given ressource
+        Request the given resource
 
         :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
-        :param path: Path of the ressource (e.g. ``/projects``)
+        :param path: Path of the resource (e.g. ``/projects``)
         :param params: Url parameters (e.g. ``page=1``, query parameters)
         :param data: Dictionary with data (http body)
         :param kwargs: Additional http arguments.
         :returns: Request objects
         """
-        
+
         return {
             "path": path,
-            "data" : data,
+            "data": data,
             "method": method,
-            "params" : params,
+            "params": params,
             "args": kwargs.items()
         }

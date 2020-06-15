@@ -123,7 +123,8 @@ class Moco(object):
         path: str,
         params: dict = None,
         data: dict = None,
-        bypass_auth: bool = False
+        bypass_auth: bool = False,
+        **kwargs
     ):
         """
         Requests the given resource with the assigned requestor
@@ -146,17 +147,24 @@ class Moco(object):
         if not bypass_auth:
             self.authenticate()
 
+        # merge headers if set in model
+        headers = self.headers
+        if "headers" in kwargs.keys():
+            print(kwargs["headers"])
+            for key, value in kwargs["headers"].items():
+                headers[key] = value
+
         # pass request making to the requestor object
         if method == "GET":
-            requestor_response = self._requestor.get(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.get(full_path, params=params, data=data, headers=headers)
         elif method == "PUT":
-            requestor_response = self._requestor.put(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.put(full_path, params=params, data=data, headers=headers)
         elif method == "POST":
-            requestor_response = self._requestor.post(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.post(full_path, params=params, data=data, headers=headers)
         elif method == "DELETE":
-            requestor_response = self._requestor.delete(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.delete(full_path, params=params, data=data, headers=headers)
         elif method == "PATCH":
-            requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=self.headers)
+            requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=headers)
 
         # push the response to the current objector
         objector_result = self._objector.convert(requestor_response)
