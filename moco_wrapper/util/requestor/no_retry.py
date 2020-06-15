@@ -10,13 +10,13 @@ class NoRetryRequestor(BaseRequestor):
     """
     This requestor works along the same lines as the :class:`moco_wrapper.util.requestor.DefaultRequestor`, but when this requestor comes along the http code 429 for too many requests it just returns an error response.
 
-    Use this requestor if you write integration tests or dont have time for retrying the ressource.
+    Use this requestor if you write integration tests or dont have time for retrying the resource.
 
     Example usage:
 
     .. code-block:: python
 
-        from moco_wrapper.util.requestr import NoRetryRequestor
+        from moco_wrapper.util.requestor import NoRetryRequestor
         from moco_wrapper import Moco
 
         no_retry = NoRetryRequestor()
@@ -44,10 +44,10 @@ class NoRetryRequestor(BaseRequestor):
 
     def request(self, method, path, params=None, data=None, **kwargs):
         """
-        Request the given ressource
+        Request the given resource
 
         :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
-        :param path: Path of the ressource (e.g. ``/projects``)
+        :param path: Path of the resource (e.g. ``/projects``)
         :param params: Url parameters (e.g. ``page=1``, query parameters)
         :param data: Dictionary with data (http body)
         :param kwargs: Additional http arguments.
@@ -76,9 +76,9 @@ class NoRetryRequestor(BaseRequestor):
         elif method == "PATCH":
             response = self.session.patch(path, params=params, json=data, **kwargs)
 
-        # convert the reponse into an MWRAPResponse object
+        # convert the response into an MWRAPResponse object
         try:
-            # check if the reponse has a success status code
+            # check if the response has a success status code
             if response.status_code in self.SUCCESS_STATUS_CODES:
                 # filter by content type what type of response this is
                 if response.status_code == 204:

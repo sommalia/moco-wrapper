@@ -10,7 +10,7 @@ class DefaultRequestor(BaseRequestor):
     """
     Default Requestor class that is used by the :class:`moco_wrapper.Moco` instance.
 
-    When the default requests requests a ressources and it sees the error code 429 (too many requests), it waits a bit and then tries the request again.
+    When the default requests requests a resources and it sees the error code 429 (too many requests), it waits a bit and then tries the request again.
     If you do not want that behaviour, use :class:`moco_wrapper.util.requestor.NoRetryRequestor`.
 
     .. seealso::
@@ -25,7 +25,7 @@ class DefaultRequestor(BaseRequestor):
         """
         Class constructor
 
-        :param delay_ms: How long the requestor should wait before retrying the ressource again (default 1000).
+        :param delay_ms: How long the requestor should wait before retrying the resource again (default 1000).
 
         Overwrite delay:
 
@@ -56,10 +56,10 @@ class DefaultRequestor(BaseRequestor):
 
     def request(self, method, path, params=None, data=None, delay_ms=0, **kwargs):
         """
-        Request the given ressource
+        Request the given resource
 
         :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
-        :param path: Path of the ressource (e.g. ``/projects``)
+        :param path: Path of the resource (e.g. ``/projects``)
         :param params: Url parameters (e.g. ``page=1``, query parameters)
         :param data: Dictionary with data (http body)
         :param delay_ms: Delay in milliseconds the requestor should wait before sending the request (used for retrying, default 0)
@@ -92,7 +92,7 @@ class DefaultRequestor(BaseRequestor):
         elif method == "PATCH":
             response = self.session.patch(path, params=params, json=data, **kwargs)
 
-        # convert the reponse into an MWRAPResponse object
+        # convert the response into an MWRAPResponse object
         try:
             # check if the response has a success status code
             if response.status_code in self.SUCCESS_STATUS_CODES:
@@ -131,8 +131,8 @@ class DefaultRequestor(BaseRequestor):
         except ValueError as ex:
             response_obj = ErrorResponse(response)
             if response_obj.is_recoverable:
-                # error is recoverable, try the ressource again
-                return self.request(method, path, params=params, data=data, delay_ms=delay_milliseconds_on_error,
+                # error is recoverable, try the resource again
+                return self.request(method, path, params=params, data=data, delay_ms=self.delay_milliseconds_on_error,
                                     **kwargs)
 
             # error is not recoverable
