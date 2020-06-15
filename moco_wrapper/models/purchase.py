@@ -233,3 +233,22 @@ class Purchase(MWRAPBase):
                     data[key] = value
 
         return self._moco.post(API_PATH["purchase_create"], data=data)
+
+    def delete(
+        self,
+        purchase_id: int
+    ):
+        """
+        Deletes a purchase
+
+        :param purchase_id: Id of the purchase to delete
+
+        :type purchase_id: int
+
+        :returns: Empty response on success
+
+        .. warning::
+            Deletion of a purchase is only possible if the state of the purchase is ``PENDING`` and no payments
+            have been registered to the purchase yet
+        """
+        return self._moco.delete(API_PATH["purchase_delete"].format(id=purchase_id))

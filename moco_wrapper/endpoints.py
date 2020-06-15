@@ -122,4 +122,5 @@ API_PATH = {
     "purchase_getlist":                 "/purchases",
     "purchase_get":                     "/purchases/{id}",
     "purchase_create":                  "/purchases",
+    "purchase_delete":                  "/purchases/{id}"
 }

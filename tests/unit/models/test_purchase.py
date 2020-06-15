@@ -145,3 +145,10 @@ class TestPurchase(UnitTest):
         response = self.moco.Purchase.get(purchase_id)
 
         assert response["method"] == "GET"
+
+    def test_delete(self):
+        purchase_id = 212
+
+        response = self.moco.Purchase.delete(purchase_id)
+
+        assert response["method"] == "DELETE"

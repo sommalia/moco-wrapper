@@ -3,7 +3,7 @@ import datetime
 from .. import IntegrationTest
 from moco_wrapper.models.purchase import PurchasePaymentMethod, PurchaseFile
 from moco_wrapper.util.generator import PurchaseItemGenerator
-from moco_wrapper.util.response import JsonResponse, ListingResponse
+from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
 from moco_wrapper.models.company import CompanyType
 from os import path
 
@@ -171,4 +171,27 @@ class TestPurchase(IntegrationTest):
             assert purchase_get.data.currency == currency
             assert purchase_get.data.payment_method == payment_method
             assert len(purchase_get.data.items) == 1
+
+    def test_delete(self):
+        generator = PurchaseItemGenerator()
+
+        with self.recorder.use_cassette("TestPurchase.test_delete"):
+            purchase_create = self.moco.Purchase.create(
+                datetime.date(2020, 1, 2),
+                "EUR",
+                PurchasePaymentMethod.CASH,
+                [
+                    generator.generate_item("dummy item, test delete", 20, 1)
+                ]
+            )
+
+            purchase_delete = self.moco.Purchase.delete(purchase_create.data.id)
+
+            assert purchase_create.response.status_code == 200
+            assert purchase_delete.response.status_code == 200
+
+            assert isinstance(purchase_create, JsonResponse)
+            assert isinstance(purchase_delete, EmptyResponse)
+
+
 
