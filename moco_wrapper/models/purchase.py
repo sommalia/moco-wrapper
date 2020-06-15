@@ -252,3 +252,25 @@ class Purchase(MWRAPBase):
             have been registered to the purchase yet
         """
         return self._moco.delete(API_PATH["purchase_delete"].format(id=purchase_id))
+
+    def update_status(
+        self,
+        purchase_id: int,
+        status: PurchaseStatus,
+    ):
+        """
+        Updates the state of a purchase
+
+        :param purchase_id: Id of the purchase to update
+        :param status: New status
+
+        :type purchase_id: int
+        :type status: :class:`.PurchaseStatus`, str
+
+        :returns: Empty response on success
+        """
+        data = {
+            "status": status
+        }
+
+        return self._moco.patch(API_PATH["purchase_update_status"].format(id=purchase_id), data=data)

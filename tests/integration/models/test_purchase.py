@@ -1,7 +1,7 @@
 import datetime
 
 from .. import IntegrationTest
-from moco_wrapper.models.purchase import PurchasePaymentMethod, PurchaseFile
+from moco_wrapper.models.purchase import PurchasePaymentMethod, PurchaseFile, PurchaseStatus
 from moco_wrapper.util.generator import PurchaseItemGenerator
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
 from moco_wrapper.models.company import CompanyType
@@ -192,6 +192,39 @@ class TestPurchase(IntegrationTest):
 
             assert isinstance(purchase_create, JsonResponse)
             assert isinstance(purchase_delete, EmptyResponse)
+
+    def test_update_status(self):
+        generator = PurchaseItemGenerator()
+
+        with self.recorder.use_cassette("TestPurchase.test_update_status"):
+            purchase_create = self.moco.Purchase.create(
+                datetime.date(2020, 2, 4),
+                "EUR",
+                PurchasePaymentMethod.PAYPAL,
+                [
+                    generator.generate_item("dummy purchase, test update status", 100, 2)
+                ]
+            )
+
+            purchase_update_status = self.moco.Purchase.update_status(
+                purchase_create.data.id,
+                PurchaseStatus.APPROVED
+            )
+
+            purchase_get = self.moco.Purchase.get(
+                purchase_create.data.id
+            )
+
+            assert purchase_create.response.status_code == 200
+            assert purchase_update_status.response.status_code == 200
+            assert purchase_get.response.status_code == 200
+
+            assert isinstance(purchase_create, JsonResponse)
+            assert isinstance(purchase_update_status, EmptyResponse)
+            assert isinstance(purchase_get, JsonResponse)
+
+            assert purchase_create.data.status == PurchaseStatus.PENDING
+            assert purchase_get.data.status == PurchaseStatus.APPROVED
 
 
 

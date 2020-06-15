@@ -152,3 +152,16 @@ class TestPurchase(UnitTest):
         response = self.moco.Purchase.delete(purchase_id)
 
         assert response["method"] == "DELETE"
+
+    def test_update_status(self):
+        purchase_id = 234
+        status = "approved"
+
+        response = self.moco.Purchase.update_status(purchase_id, status)
+        data = response["data"]
+
+        assert response["method"] == "PATCH"
+
+        assert data["status"] == status
+
+
