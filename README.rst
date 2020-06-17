@@ -16,7 +16,7 @@ Installation
 From pypi
 #########
 
-The moco-wrapper package is available via `pip <https://pypi.org/project/moco-wrapper/>`.
+The moco-wrapper package is available via `pip <https://pypi.org/project/moco-wrapper/>`_.
 
 .. code-block:: shell
 
@@ -38,7 +38,7 @@ If dont want to use pip you can clone this repository and install it from the so
 Quickstart
 ----------
 
-If you already have credentials or the api key aquired your can instantiate of moco, the wrapper object like so:
+If you already have credentials or an api key you can instantiate your moco-wrapper object like so:
 
 .. code-block:: python
 
@@ -57,7 +57,6 @@ With the moco wrapper object you can now interact with moco.
 
     # load the second page of our list of users (requests with lists are paginated (default limit is 100 items per request)
     user = moco.Users.getlist(page=2).items
-
 
     # create a project
     leader = moco.Users.getlist().items[0]
@@ -86,13 +85,13 @@ With the moco wrapper object you can now interact with moco.
     )
 
 For an overview about all the things that can and cannot be done see
-`<https://moco-wrapper.readthedocs.io/en/latest/code_overview/moco_instance.html>`.
+`The Moco Instance <https://moco-wrapper.readthedocs.io/en/latest/code_overview/moco_instance.html>`_.
 
 Tests
 -----
 
 There are two types of tests in this repo. *unit*-tests with no side effects
-and *integration*-tests that require an actual moco instance (if you want to recreate them).
+and *integration*-tests that require an actual moco instance (if you want to recreate the cached responses).
 
 Unit
 ####
@@ -110,8 +109,7 @@ Integration
 ###########
 
 The second group of tests are the *integration* tests.
-These tests use the betamax package, send actual request to an moco API and save the result locally.
-The results of these requests are saved under `/tests/integration/cassettes`.
+These tests use the betamax package, send actual requests to a moco instance and save the response locally (see tests/integration/cassettes/).
 These tests can also be run via pytest:
 
 .. code-block:: shell
@@ -123,9 +121,9 @@ Recreating the tests results
 
 If you want to recreate these tests make sure you have the following setup:
 
-* A working, clean moco instance
+* A working, clean moco instance (eg. example.mocoapp.com)
 * An api key
-* Time
+* Time to spare
 
 After that you have to export the following variables
 
@@ -133,21 +131,26 @@ After that you have to export the following variables
 
     $ export mocotest_apikey=[MY API KEY]
     $ export mocotest_domain=example
-    $ export mocotest_delay=1 # wait 5 seconds after each test
+    $ export mocotest_delay=1 # enable delay between tests
 
 The *mocotest_delay* variable will make sure that the api, does not rate limit our test-run
 by waiting 5 seconds between the execution of each single test.
 
-.. warning::
+**Caution:** Make sure you run the integration tests (if you recreate the results) on a clean moco instance, 
+as some requests (delete. create and update requests) have side effects, that cannot be reversed easily.
 
-    Make sure you run the integration tests (if you recreate the results) on a clean moco instance,
-    as some requests (delete. create and update requests) have side effects, that cannot be reversed easily.
+Now that everything is set up we delete the saved responses and re-run the tests.
+
+.. code-block:: shell
+
+    $ rm tests/integration/cassettes/*.json
+    $ python3 -m pytest tests/integration
 
 
 Documentation
 -------------
 
-The full documentation for the moco-wrapper is located at `<https://moco-wrapper.readthedocs.io/>`.
+The full documentation for the moco-wrapper is located at `<https://moco-wrapper.readthedocs.io/>`_.
 
 
 License
