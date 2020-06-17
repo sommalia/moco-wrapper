@@ -2,56 +2,152 @@
 moco-wrapper
 ============
 
-
 .. image:: https://img.shields.io/pypi/v/moco_wrapper.svg
         :target: https://pypi.python.org/pypi/moco_wrapper
 
 .. image:: https://img.shields.io/travis/sommalia/moco-wrapper.svg
         :target: https://travis-ci.org/sommalia/moco-wrapper
 
+This is a client implementation of the moco api written in python3.
 
+Installation
+------------
 
-The "moco-wrapper" is a python package that allows for simple access to Mocos API. 
+From pypi
+#########
 
-
-Disclaimer (semi-serious)
--------------------------
-
-This project is in no way finished, or polished. I am not responsible for any commercial, financial or emotional damage that may or may not be caused by using this project.
-
-I am also not affiliated with the people behind moco. The package implements the api as described in its readme https://github.com/hundertzehn/mocoapp-api-docs.
-
-
-API Documentation
------------------
-
-API Documentation can be found at here: https://moco-wrapper.readthedocs.io/en/latest/
-
-
-Running the tests
------------------
-
-Tests can be run by executing the **tox** commend inside the root directory of the project.
+The moco-wrapper package is available via `pip <https://pypi.org/project/moco-wrapper/>`.
 
 .. code-block:: shell
 
-        $ tox
+    $ pip3 install moco-wrapper
 
-This command will run all the tests.
+From Source
+###########
 
-
-
-Setting up integration tests
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For the integration tests 2 environment variables are needed *mocotest_apikey* and *mocotest_domain*. Set them like this
+If dont want to use pip you can clone this repository and install it from the source.
 
 .. code-block:: shell
-        
-        $ export mocotest_apikey="this is the api key"
-        $ export mocotest_domain="testdomain"
+
+    $ git clone https://github.com/sommalia/moco-wrapper moco-wrapper
+    $ cd ./moco-wrapper
+    $ pip3 install -r requirements_dev.txt
+    $ make install
 
 
+Quickstart
+----------
+
+If you already have credentials or the api key aquired your can instantiate of moco, the wrapper object like so:
+
+.. code-block:: python
+
+    import moco_wrapper
+    moco = moco_wrapper.Moco(auth={
+        "api_key": "[MY API KEY]",
+        "domain": "example" # domain of the moco webapp is example.mocoapp.com
+    }
+
+With the moco wrapper object you can now interact with moco.
+
+.. code-block:: python
+
+    # load a list of users
+    users = moco.Users.getlist().items
+
+    # load the second page of our list of users (requests with lists are paginated (default limit is 100 items per request)
+    user = moco.Users.getlist(page=2).items
+
+
+    # create a project
+    leader = moco.Users.getlist().items[0]
+    customer = moco.Company.getlist(type="customer").getlist().items[0]
+    project = moco.Project.create(
+        "my new project",
+        "EUR",
+        leader.id,
+        customer.id,
+        date(2020, 1, 1)
+    )
+
+    # update a contact
+    moco.Contact.update(55123, lastname="doe")
+
+    # add a task to a project
+    task = moco.Task.create(
+        project.id,
+        "My new task"
+    )
+
+    # create a new customer
+    new_customer = moco.Company.create(
+        "my new customer company",
+        moco_wrapper.models.company.CompanyType.CUSTOMER
+    )
+
+For an overview about all the things that can and cannot be done see
+`<https://moco-wrapper.readthedocs.io/en/latest/code_overview/moco_instance.html>`.
+
+Tests
+-----
+
+There are two types of tests in this repo. *unit*-tests with no side effects
+and *integration*-tests that require an actual moco instance (if you want to recreate them).
+
+Unit
+####
+
+These tests check whether all methods can be called correctly, use the
+right HTTP method, have the right headers and format everything correctly for the API.
+These tests have no side effects and can be run via pytest:
+
+.. code-block:: shell
+
+    $ python3 -m pytest tests/unit
+
+
+Integration
+###########
+
+The second group of tests are the *integration* tests.
+These tests use the betamax package, send actual request to an moco API and save the result locally.
+The results of these requests are saved under `/tests/integration/cassettes`.
+These tests can also be run via pytest:
+
+.. code-block:: shell
+
+    $ python3 -m pytest tests/integration
+
+Recreating the tests results
+****************************
+
+If you want to recreate these tests make sure you have the following setup:
+
+* A working, clean moco instance
+* An api key
+* Time
+
+After that you have to export the following variables
+
+.. code-block:: shell
+
+    $ export mocotest_apikey=[MY API KEY]
+    $ export mocotest_domain=example
+    $ export mocotest_delay=1 # wait 5 seconds after each test
+
+The *mocotest_delay* variable will make sure that the api, does not rate limit our test-run
+by waiting 5 seconds between the execution of each single test.
+
+.. warning::
+
+    Make sure you run the integration tests (if you recreate the results) on a clean moco instance,
+    as some requests (delete. create and update requests) have side effects, that cannot be reversed easily.
+
+
+Documentation
+-------------
+
+The full documentation for the moco-wrapper is located at `<https://moco-wrapper.readthedocs.io/>`.
 
 
 License
@@ -63,14 +159,14 @@ This project is licensed under the GNU Public License - see the `LICENSE`_  file
 Credits
 -------
 
-
 This package was created with `Cookiecutter`_ and the `audreyr/cookiecutter-pypackage`_ project template.
 This package tries to imitate the way that the `praw-package`_, for wrapping arount the reddit api, was structured
-
-
 
 .. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 .. _`praw-package`: https://github.com/praw-dev/praw
 .. _`LICENSE`: https://github.com/sommalia/moco-wrapper/blob/master/LICENSE
 .. _`moco-api-readme`: https://github.com/hundertzehn/mocoapp-api-docs
+
+
+
