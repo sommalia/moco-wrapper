@@ -7,6 +7,22 @@ from base64 import b64encode
 
 
 class PurchaseStatus(str, Enum):
+    """
+    Enumeration for the allowed values for ``status`` of :meth:`.Purchase.update_status`
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco.models.purchase import PurchaseStatus
+        from moco import Moco
+
+        m = Moco()
+        m.Purchase.update_status(
+            ..
+            status = PurchaseStatus.APPROVED
+        )
+    """
     PENDING = "pending"
     APPROVED = "approved"
 
