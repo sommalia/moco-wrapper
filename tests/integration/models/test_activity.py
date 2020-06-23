@@ -4,6 +4,7 @@ from datetime import date
 
 from .. import IntegrationTest
 
+
 class TestActivity(IntegrationTest):
 
     def get_customer(self):
@@ -26,11 +27,11 @@ class TestActivity(IntegrationTest):
 
         with self.recorder.use_cassette("TestActivity.get_project"):
             project_create = self.moco.Project.create(
-                "project created for testing activities", 
-                "EUR", 
-                user.id, 
+                "project created for testing activities",
+                "EUR",
+                user.id,
                 customer.id,
-                finish_date = date(2020, 1, 1), 
+                finish_date=date(2020, 1, 1),
             )
 
             return project_create.data
@@ -42,10 +43,9 @@ class TestActivity(IntegrationTest):
             project_task_create = self.moco.ProjectTask.create(
                 project.id,
                 "project task created for testing activities"
-                )
-            
-            return project_task_create.data
+            )
 
+            return project_task_create.data
 
     def get_other_user(self):
         unit = self.get_unit()
@@ -83,10 +83,10 @@ class TestActivity(IntegrationTest):
             hours = 3.5
             description = "activity create description"
 
-            #impersonate the user that created the project
+            # impersonate the user that created the project
             self.moco.impersonate(project.leader.id)
-          
-            #create the activity
+
+            # create the activity
             activity_create = self.moco.Activity.create(
                 activity_date,
                 project.id,
@@ -95,7 +95,7 @@ class TestActivity(IntegrationTest):
                 description=description,
             )
 
-            #clear impersonation
+            # clear impersonation
             self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
@@ -109,7 +109,7 @@ class TestActivity(IntegrationTest):
             assert activity_create.data.hours == hours
             assert activity_create.data.customer.id == customer.id
             assert activity_create.data.user.id is not None
-    
+
     def test_create_full(self):
         customer = self.get_customer()
         project = self.get_project()
@@ -125,10 +125,10 @@ class TestActivity(IntegrationTest):
             remote_id = "JIRA-123"
             remote_url = "https://jira.mycompany.com"
 
-            #impersonate the user that created the project
+            # impersonate the user that created the project
             self.moco.impersonate(project.leader.id)
-            
-            #create the activity
+
+            # create the activity
             activity_create = self.moco.Activity.create(
                 activity_date,
                 project.id,
@@ -142,7 +142,7 @@ class TestActivity(IntegrationTest):
                 remote_url=remote_url,
             )
 
-            #clear impersonation
+            # clear impersonation
             self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
@@ -177,19 +177,19 @@ class TestActivity(IntegrationTest):
             remote_id = "JIRA-123"
             remote_url = "https://jira.mycompany.com"
 
-            #impersonate the user that created the project
+            # impersonate the user that created the project
             self.moco.impersonate(project.leader.id)
-            
-            #create the activity
+
+            # create the activity
             activity_create = self.moco.Activity.create(
-                date(2019, 12, 31), 
-                project.id, 
-                task.id, 
-                2.3, 
+                date(2019, 12, 31),
+                project.id,
+                task.id,
+                2.3,
                 description="dummy activity, test_update"
             )
-            
-            #update the activity
+
+            # update the activity
             activity_update = self.moco.Activity.update(
                 activity_create.data.id,
                 activity_date=activity_date,
@@ -204,7 +204,7 @@ class TestActivity(IntegrationTest):
                 remote_url=remote_url,
             )
 
-            #clear impersonation
+            # clear impersonation
             self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
@@ -231,7 +231,7 @@ class TestActivity(IntegrationTest):
             from_date = date(1990, 1, 1)
             to_date = date(2020, 1, 1)
             activity_getlist = self.moco.Activity.getlist(from_date, to_date)
-            
+
             assert activity_getlist.response.status_code == 200
 
             assert isinstance(activity_getlist, ListingResponse)
@@ -254,7 +254,7 @@ class TestActivity(IntegrationTest):
             assert activity_getlist.response.status_code == 200
 
             assert isinstance(activity_getlist, ListingResponse)
-            
+
             assert activity_getlist.current_page == 1
             assert activity_getlist.is_last is not None
             assert activity_getlist.next_page is not None
@@ -275,11 +275,11 @@ class TestActivity(IntegrationTest):
             remote_service = ActivityRemoteService.JIRA
             remote_id = "JIRA-123"
             remote_url = "https://jira.mycompany.com"
-    
-            #impersonate the user that created the project
+
+            # impersonate the user that created the project
             self.moco.impersonate(project.leader.id)
 
-            #create the activity
+            # create the activity
             activity_create = self.moco.Activity.create(
                 activity_date,
                 project.id,
@@ -295,7 +295,7 @@ class TestActivity(IntegrationTest):
 
             activity_get = self.moco.Activity.get(activity_create.data.id)
 
-            #clear impersonation
+            # clear impersonation
             self.moco.clear_impersonation()
 
             assert activity_create.response.status_code == 200
@@ -325,9 +325,9 @@ class TestActivity(IntegrationTest):
             self.moco.impersonate(project.leader.id)
 
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1), 
-                project.id, 
-                task.id, 
+                date(2021, 1, 1),
+                project.id,
+                task.id,
                 0.5,
                 description="dummy activity, test_start_timer"
             )
@@ -341,18 +341,17 @@ class TestActivity(IntegrationTest):
 
             assert isinstance(timer_start, JsonResponse)
 
-
     def test_stop_timer(self):
         project = self.get_project()
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_stop_timer"):
             self.moco.impersonate(project.leader.id)
-            
+
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1), 
-                project.id, 
-                task.id, 
+                date(2021, 1, 1),
+                project.id,
+                task.id,
                 0.5,
                 description="dummy activity, stop timer")
 
@@ -372,7 +371,7 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_delete"):
-            #impersonate the user that created the project
+            # impersonate the user that created the project
             self.moco.impersonate(project.leader.id)
 
             activity_create = self.moco.Activity.create(
@@ -390,40 +389,40 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert activity_delete.response.status_code == 204
 
-            assert isinstance(activity_delete, EmptyResponse)            
+            assert isinstance(activity_delete, EmptyResponse)
 
     def test_disregard(self):
         customer = self.get_customer()
-        project = self.get_project()    
+        project = self.get_project()
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_disregard"):
-            #impersonate the user that created the project
+            # impersonate the user that created the project
             self.moco.impersonate(project.leader.id)
 
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1), 
-                project.id, 
-                task.id, 
+                date(2021, 1, 1),
+                project.id,
+                task.id,
                 0.5,
                 description="dummy activity, disregard (1)"
             )
 
             activity_create_sec = self.moco.Activity.create(
-                date(2021, 1, 1), 
-                project.id, 
-                task.id, 
+                date(2021, 1, 1),
+                project.id,
+                task.id,
                 1,
                 description="dummy activity, disregard (2)"
             )
 
             self.moco.clear_impersonation()
-            
+
             disregard_ids = [activity_create.data.id, activity_create_sec.data.id]
             activity_disregard = self.moco.Activity.disregard(
-                "tested disregard", 
-                disregard_ids, 
-                project.customer.id 
+                "tested disregard",
+                disregard_ids,
+                project.customer.id
             )
 
             assert activity_create.response.status_code == 200
@@ -436,7 +435,6 @@ class TestActivity(IntegrationTest):
         task = self.get_project_task()
 
         with self.recorder.use_cassette("TestActivity.test_create_impersonate"):
-
             self.moco.impersonate(other_user.id)
 
             activity_create = self.moco.Activity.create(
@@ -448,10 +446,9 @@ class TestActivity(IntegrationTest):
             )
 
             assert activity_create.response.status_code == 200
-            
+
             assert isinstance(activity_create, JsonResponse)
 
             assert activity_create.data.user.id == other_user.id
 
             self.moco.clear_impersonation()
-            

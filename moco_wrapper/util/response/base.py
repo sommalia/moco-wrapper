@@ -1,5 +1,3 @@
-import json
-from collections import namedtuple
 
 class MWRAPResponse(object):
     """
@@ -9,8 +7,7 @@ class MWRAPResponse(object):
     def __init__(self, response):
         self._response = response
 
-
-    @property 
+    @property
     def data(self):
         return self.response
 
@@ -20,4 +17,3 @@ class MWRAPResponse(object):
         http response object
         """
         return self._response
-        

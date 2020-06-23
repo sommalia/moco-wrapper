@@ -14,8 +14,8 @@ class PurchaseStatus(str, Enum):
 
     .. code-block:: python
 
-        from moco.models.purchase import PurchaseStatus
-        from moco import Moco
+        from moco_wrapper.models.purchase import PurchaseStatus
+        from moco_wrapper import Moco
 
         m = Moco()
         m.Purchase.update_status(
@@ -35,8 +35,8 @@ class PurchasePaymentMethod(str, Enum):
 
     .. code-block:: python
 
-        from moco.models.purchase import PurchasePaymentMethod
-        from moco import Moco
+        from moco_wrapper.models.purchase import PurchasePaymentMethod
+        from moco_wrapper import Moco
 
         m = Moco()
         new_purchase = m.Purchase.create(
