@@ -8,7 +8,7 @@ from base64 import b64encode
 
 class PurchaseStatus(str, Enum):
     """
-    Enumeration for the allowed values for ``status`` of :meth:`.Purchase.update_status`
+    Enumeration for the allowed values for the ``status`` argument of :meth:`.Purchase.update_status`
 
     Example usage:
 
@@ -28,6 +28,22 @@ class PurchaseStatus(str, Enum):
 
 
 class PurchasePaymentMethod(str, Enum):
+    """
+    Enumeration for the allowed values of the ``payment_method`` argument for :meth:`.Purchase.create`
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco.models.purchase import PurchasePaymentMethod
+        from moco import Moco
+
+        m = Moco()
+        new_purchase = m.Purchase.create(
+            ..
+            payment_method = PurchasePaymentMethod.CASH
+        )
+    """
     BANK_TRANSFER = "bank_transfer"
     DIRECT_DEBIT = "direct_debit"
     CREDIT_CARD = "credit_card"
