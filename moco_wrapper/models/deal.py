@@ -54,7 +54,7 @@ class Deal(MWRAPBase):
         company_id: int = None,
         info: str = None,
         status: str = "pending"
-        ):
+    ):
         """
         Create a new deal.
 
@@ -67,7 +67,7 @@ class Deal(MWRAPBase):
         :param company_id: Company id
         :param info: Additional information
         :param status: Current state of the deal
-        
+
         :type name: str
         :type currency: str
         :type money: float
@@ -77,20 +77,21 @@ class Deal(MWRAPBase):
         :type company_id: int
         :type info: str
         :type status: :class:`.DealStatus`, str
-        
+
         :returns: The created deal object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
-        
+
         data = {
             "name": name,
-            "currency" : currency,
+            "currency": currency,
             "money": money,
-            "user_id" : user_id,
+            "user_id": user_id,
             "deal_category_id": deal_category_id
         }
 
         if isinstance(reminder_date, datetime.date):
-            data["reminder_date"] =  self._convert_date_to_iso(reminder_date)
+            data["reminder_date"] = self._convert_date_to_iso(reminder_date)
         else:
             data["reminder_date"] = reminder_date
 
@@ -116,7 +117,7 @@ class Deal(MWRAPBase):
         company_id: int = None,
         info: str = None,
         status: DealStatus = None
-        ):
+    ):
         """
         Update an existing deal.
 
@@ -130,7 +131,7 @@ class Deal(MWRAPBase):
         :param company_id: Company id
         :param info: Additional information
         :param status: Current state of the deal
-        
+
         :type deal_id: int
         :type name: str
         :type currency: str
@@ -141,8 +142,9 @@ class Deal(MWRAPBase):
         :type company_id: int
         :type info: str
         :type status: :class:`.DealStatus`, str
-        
+
         :returns: The updated deal object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {}
@@ -160,17 +162,16 @@ class Deal(MWRAPBase):
 
             if value is not None:
                 if key in ["reminder_date"] and isinstance(value, datetime.date):
-                    data[key] = self._convert_date_to_iso(value)  
+                    data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
 
         return self._moco.put(API_PATH["deal_update"].format(id=deal_id), data=data)
 
-
     def get(
         self,
         deal_id: int
-        ):
+    ):
         """
         Retrieve a single deal.
 
@@ -179,7 +180,7 @@ class Deal(MWRAPBase):
         :type deal_id: int
 
         :returns: Single deal object
-
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["deal_get"].format(id=deal_id))
 
@@ -190,7 +191,7 @@ class Deal(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve a list of deal objects.
 
@@ -207,6 +208,7 @@ class Deal(MWRAPBase):
         :type page: int
 
         :returns: List of deal objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
         for key, value in (
@@ -219,5 +221,5 @@ class Deal(MWRAPBase):
 
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
-        
+
         return self._moco.get(API_PATH["deal_getlist"], params=params)
