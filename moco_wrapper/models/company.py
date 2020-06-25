@@ -126,6 +126,7 @@ class Company(MWRAPBase):
         :type footer: str
 
         :returns: The created company
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
 
         .. note::
 
@@ -218,7 +219,7 @@ class Company(MWRAPBase):
         :param labels: Array of labels
         :param user_id: Id of the responsible person
         :param currency: Currency the company uses (only customer)
-        :param identifier: Identifier of the company (only mandatory when not automatily assigned) (only customer) (default ``None``)
+        :param identifier: Identifier of the company (only mandatory when not automatically assigned) (only customer) (default ``None``)
         :param billing_tax: Billing tax value (only customer) (default ``None``)
         :param default_invoice_due_days: payment target days for the company when creating invoices (only customer) (default ``None``)
         :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
@@ -251,6 +252,7 @@ class Company(MWRAPBase):
         :type footer: str
 
         :returns: The updated company
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {
 
@@ -296,6 +298,7 @@ class Company(MWRAPBase):
         :type company_id: int
 
         :returns: Single company object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["company_get"].format(id=company_id))
 
@@ -326,6 +329,7 @@ class Company(MWRAPBase):
         :type page: int
 
         :returns: list of companies
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
