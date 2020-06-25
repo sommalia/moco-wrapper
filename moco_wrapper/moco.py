@@ -154,17 +154,20 @@ class Moco(object):
             for key, value in kwargs["headers"].items():
                 headers[key] = value
 
+            del kwargs["headers"]
+
         # pass request making to the requestor object
         if method == "GET":
-            requestor_response = self._requestor.get(full_path, params=params, data=data, headers=headers)
+            requestor_response = self._requestor.get(full_path,
+                                                     params=params, data=data, headers=headers, **kwargs)
         elif method == "PUT":
-            requestor_response = self._requestor.put(full_path, params=params, data=data, headers=headers)
+            requestor_response = self._requestor.put(full_path, params=params, data=data, headers=headers, **kwargs)
         elif method == "POST":
-            requestor_response = self._requestor.post(full_path, params=params, data=data, headers=headers)
+            requestor_response = self._requestor.post(full_path, params=params, data=data, headers=headers, **kwargs)
         elif method == "DELETE":
-            requestor_response = self._requestor.delete(full_path, params=params, data=data, headers=headers)
+            requestor_response = self._requestor.delete(full_path, params=params, data=data, headers=headers, **kwargs)
         elif method == "PATCH":
-            requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=headers)
+            requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=headers, **kwargs)
 
         # push the response to the current objector
         objector_result = self._objector.convert(requestor_response)

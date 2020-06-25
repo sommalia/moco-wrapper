@@ -226,5 +226,35 @@ class TestPurchase(IntegrationTest):
             assert purchase_create.data.status == PurchaseStatus.PENDING
             assert purchase_get.data.status == PurchaseStatus.APPROVED
 
+    def test_store_document(self):
+        pdf_path = path.join(path.dirname(path.dirname(__file__)), "files", "test_purchase_store_document.pdf")
+        purchase_file = PurchaseFile.load(pdf_path)
 
+        generator = PurchaseItemGenerator()
 
+        with self.recorder.use_cassette("TestPurchase.test_store_document"):
+            purchase_create = self.moco.Purchase.create(
+                datetime.date(2020, 2, 4),
+                "EUR",
+                PurchasePaymentMethod.PAYPAL,
+                [
+                    generator.generate_item("dummy purchase, test update status", 100, 2)
+                ]
+            )
+
+            purchase_store_doc = self.moco.Purchase.store_document(purchase_create.data.id, purchase_file)
+
+            purchase_get = self.moco.Purchase.get(
+                purchase_create.data.id
+            )
+
+            assert purchase_create.response.status_code == 200
+            assert purchase_store_doc.response.status_code == 200
+            assert purchase_get.response.status_code == 200
+
+            assert isinstance(purchase_create, JsonResponse)
+            assert isinstance(purchase_store_doc, EmptyResponse)
+            assert isinstance(purchase_get, JsonResponse)
+
+            assert purchase_create.data.file_url is None
+            assert purchase_get.data.file_url is not None

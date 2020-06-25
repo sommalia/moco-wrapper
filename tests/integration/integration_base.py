@@ -13,14 +13,14 @@ from moco_wrapper.util.objector import NoErrorObjector, DefaultObjector
 class IntegrationTest(object):
     """
     Base class for integration tests.
-    
+
     The Integration tests check if the requests that are created will be sent out correctly and can be parsed back into a real object
     """
 
     def setup(self):
         self.setup_moco()
         self.setup_betamax()
-        
+
         # export mocotest_delay=1 to enable delay between tests
         self.delay_tests_enabled = pytest.placeholders.mocotest_delay == "1"
 
@@ -36,7 +36,14 @@ class IntegrationTest(object):
             requestor=NoRetryRequestor(),
             objector=DefaultObjector(),
         )
-       
+
+    def enable_proxy(self):
+        self._moco.requestor.session.proxies = {
+            "https": "127.0.0.1:8080"
+        }
+        # ignore ssl errors
+        self._moco.requestor.session.verify = False
+
 
     def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
         """

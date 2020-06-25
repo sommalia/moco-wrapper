@@ -2,9 +2,10 @@ import datetime
 
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
+
 from enum import Enum
 from base64 import b64encode
-
+from os.path import basename
 
 class PurchaseStatus(str, Enum):
     """
@@ -52,14 +53,22 @@ class PurchasePaymentMethod(str, Enum):
 
 
 class PurchaseFile(object):
-    def __init__(self, filename, base64_content):
-        self.filename = filename
-        self.base64_content = base64_content
+    def __init__(self, file_path, file_name=None):
+        self.path = file_path
+        self.name = file_name
+
+        # if no name was set for the file, use the basename
+        if file_name is None:
+            with open(self.path, "r") as f:
+                self.name = basename(f.name)
+
+    def to_base64(self):
+        with open(self.path, "rb") as f:
+            return b64encode(f.read()).decode("utf-8")
 
     @classmethod
     def load(cls, path):
-        with open(path, "rb") as f:
-            return cls(f.name, b64encode(f.read()).decode('utf-8'))
+        return cls(path)
 
 
 class Purchase(MWRAPBase):
@@ -258,8 +267,8 @@ class Purchase(MWRAPBase):
                     data[key] = self._convert_date_to_iso(value)
                 elif isinstance(value, PurchaseFile):  # check if value is a file
                     data[key] = {
-                        "filename": value.filename,
-                        "base64": value.base64_content
+                        "filename": value.name,
+                        "base64": value.to_base64()
                     }
                 else:
                     data[key] = value
@@ -306,3 +315,25 @@ class Purchase(MWRAPBase):
         }
 
         return self._moco.patch(API_PATH["purchase_update_status"].format(id=purchase_id), data=data)
+
+    def store_document(
+        self,
+        purchase_id,
+        file,
+    ):
+
+        # overwrite content-type with None so content-type can be set by the requests module
+        # the content-type will be multipart/form-data. For multipart/form-data a boundary parameter also has to be set
+        # we cannot set this parameter at this stage, so we clear the content-type and let the content-type be
+        # automatically be determined by the requests module
+        # for more info see https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html
+        headers = {
+            "Content-Type": None
+        }
+
+        files = {
+            "file": (file.name, open(file.path, "rb"), )
+        }
+
+        return self._moco.patch(API_PATH["purchase_store_document"].format(id=purchase_id),
+                                headers=headers, data=None, files=files)
