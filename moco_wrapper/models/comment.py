@@ -76,6 +76,7 @@ class Comment(MWRAPBase):
         :type text: str
 
         :returns: The created comment
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {
             "commentable_id": commentable_id,
@@ -94,15 +95,16 @@ class Comment(MWRAPBase):
         """
         Create a comment for multiple target objects.
 
-        :param commentable_ids: ids of the objects we want to comment under ie. [123, 124, 125]
-        :param commentable_type: type of object to create the comment for. For allowed values see :class:`.CommentTargetType`.
-        :param text: comment text
+        :param commentable_ids: Ids of the objects we want to comment under ie. [123, 124, 125]
+        :param commentable_type: Type of object to create the comment for.
+        :param text: Comment text
 
         :type commentable_ids: list
         :type commentable_type: :class:`.CommentTargetType`, str
         :type text: str
 
         :returns: List of created comments.
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         data = {
             "commentable_ids": commentable_ids,
@@ -127,6 +129,7 @@ class Comment(MWRAPBase):
         :type text: str
 
         :returns: The created comment
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {
             "text": text,
@@ -146,6 +149,7 @@ class Comment(MWRAPBase):
         :type comment_id: int
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
 
         return self._moco.delete(API_PATH["comment_delete"].format(id=comment_id))
@@ -162,6 +166,7 @@ class Comment(MWRAPBase):
         :type comment_id: int
 
         :returns: Single comment
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["comment_get"].format(id=comment_id))
 
@@ -195,6 +200,7 @@ class Comment(MWRAPBase):
         :type page: int
 
         :returns: list of comments
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
         for key, value in (
