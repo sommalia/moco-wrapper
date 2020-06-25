@@ -59,7 +59,8 @@ class Contact(MWRAPBase):
         home_email: str = None,
         birthday: datetime.date = None,
         info: str = None,
-        tags: list = None):
+        tags: list = None
+    ):
         """
         Creates a contact.
 
@@ -98,6 +99,7 @@ class Contact(MWRAPBase):
         :type tags: list
 
         :returns: The created contact object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {
@@ -189,6 +191,7 @@ class Contact(MWRAPBase):
         :type tags: list
 
         :returns: The updated contact object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {}
@@ -231,6 +234,7 @@ class Contact(MWRAPBase):
         :type contact_id: int
 
         :returns: The contact object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["contact_get"].format(id=contact_id))
 
@@ -261,6 +265,7 @@ class Contact(MWRAPBase):
         :type page: int
 
         :returns: List of contact objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
         for key, value in (
