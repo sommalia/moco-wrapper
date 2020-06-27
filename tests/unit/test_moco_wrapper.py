@@ -146,11 +146,11 @@ class TestMocoWrapper(UnitTest):
         for key, value in requestor_args:
             if key == "headers":
                 headers = value
-                assert headers["Content-Type"] == my_content_type
+                assert headers["content-type"] == my_content_type
 
     def test_header_append(self):
         additional_header = "this header is new"
-        additional_header_key = "Not-needed-header"
+        additional_header_key = "not-needed-header"
 
         new_moco = moco.Moco(objector=util.objector.RawObjector(), requestor=util.requestor.RawRequestor())
         response = new_moco.request("GET", "path", bypass_auth=True, headers={additional_header_key: additional_header})
