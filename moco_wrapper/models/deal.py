@@ -8,7 +8,8 @@ from enum import Enum
 
 class DealStatus(str, Enum):
     """
-    Enumeration for the allowed values that can be supplied for the ``status`` argument of :meth:`.Deal.create`, :meth:`.Deal.update` and :meth:`.Deal.getlist`.
+    Enumeration for the allowed values that can be supplied for the ``status`` argument of :meth:`.Deal.create`,
+    :meth:`.Deal.update` and :meth:`.Deal.getlist`.
 
     .. code-block:: python
 
@@ -53,7 +54,7 @@ class Deal(MWRAPBase):
         deal_category_id: int,
         company_id: int = None,
         info: str = None,
-        status: str = "pending"
+        status: DealStatus = DealStatus.PENDING
     ):
         """
         Create a new deal.
@@ -64,9 +65,9 @@ class Deal(MWRAPBase):
         :param reminder_date: Reminder date
         :param user_id: Id of the user the is responsible for this lead
         :param deal_category_id: Deal category id
-        :param company_id: Company id
-        :param info: Additional information
-        :param status: Current state of the deal
+        :param company_id: Company id (default ``None``)
+        :param info: Additional information (default ``None``)
+        :param status: Current state of the deal (default :attr:`.DealStatus.PENDING`)
 
         :type name: str
         :type currency: str
@@ -122,15 +123,15 @@ class Deal(MWRAPBase):
         Update an existing deal.
 
         :param deal_id: Id of the deal
-        :param name: Name of the deal
-        :param currency: Currency used (e.g. EUR, CHF)
-        :param money: How much money can be generated from this deal (e.g. 205.0)
-        :param reminder_date: Reminder date
-        :param user_id: Id of the user that is responsible for this deal
-        :param deal_category_id: Deal category id
-        :param company_id: Company id
-        :param info: Additional information
-        :param status: Current state of the deal
+        :param name: Name of the deal (default ``None``)
+        :param currency: Currency used (e.g. EUR, CHF) (default ``None``)
+        :param money: How much money can be generated from this deal (e.g. 205.0) (default ``None``)
+        :param reminder_date: Reminder date (default ``None``)
+        :param user_id: Id of the user that is responsible for this deal (default ``None``)
+        :param deal_category_id: Deal category id (default ``None``)
+        :param company_id: Company id (default ``None``)
+        :param info: Additional information (default ``None``)
+        :param status: Current state of the deal (default ``None``)
 
         :type deal_id: int
         :type name: str
@@ -195,11 +196,11 @@ class Deal(MWRAPBase):
         """
         Retrieve a list of deal objects.
 
-        :param status: State of deal
-        :param tags: Array of tags
-        :param sort_by: Field to order results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param status: State of deal (default ``None``)
+        :param tags: Array of tags (default ``None``)
+        :param sort_by: Field to order results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type status: :class:`.DealStatus`, str
         :type tags: list

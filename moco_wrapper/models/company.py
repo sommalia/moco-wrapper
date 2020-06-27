@@ -338,7 +338,7 @@ class Company(MWRAPBase):
         :type sort_order: str
         :type page: int
 
-        :returns: list of companies
+        :returns: List of companies
         :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 

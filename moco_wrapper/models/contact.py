@@ -8,7 +8,8 @@ from enum import Enum
 
 class ContactGender(str, Enum):
     """
-    Enumeration for allowed values that can be supplied for the ``gender`` argument in :class:`.Contact.create` and :class:`.Contact.update`.
+    Enumeration for allowed values that can be supplied for the ``gender`` argument in :class:`.Contact.create`
+    and :class:`.Contact.update`.
 
     Example Usage:
 
@@ -67,19 +68,19 @@ class Contact(MWRAPBase):
         :param firstname: The first name of the contact
         :param lastname: The last name of the contact
         :param gender: Gender of the contact
-        :param company_id: Id of the company the contact belongs to
-        :param title: Job title the contact has
-        :param job_position: Name of the job position this contact has
-        :param mobile_phone: Mobile phone number the contact has
-        :param work_fax: Work fax number
-        :param work_phone: Work phone number
-        :param work_email: Work email address
-        :param work_address: Physical work address
-        :param home_address: Physical home address
-        :param home_email: Home email address
-        :param birthday: Birthday date
-        :param info: More information about the contact
-        :param tags: Array of additional tags
+        :param company_id: Id of the company the contact belongs to (default ``None``)
+        :param title: Job title the contact has (default ``None``)
+        :param job_position: Name of the job position this contact has (default ``None``)
+        :param mobile_phone: Mobile phone number the contact has (default ``None``)
+        :param work_fax: Work fax number (default ``None``)
+        :param work_phone: Work phone number (default ``None``)
+        :param work_email: Work email address (default ``None``)
+        :param work_address: Physical work address (default ``None``)
+        :param home_address: Physical home address (default ``None``)
+        :param home_email: Home email address (default ``None``)
+        :param birthday: Birthday date (default ``None``)
+        :param info: More information about the contact (default ``None``)
+        :param tags: Array of additional tags (default ``None``)
 
         :type firstname: str
         :type lastname: str
@@ -155,22 +156,22 @@ class Contact(MWRAPBase):
         Updates a contact.
 
         :param contact_id: Id of the contact
-        :param firstname: The first name of the contact
-        :param lastname: The last name of the contact
-        :param gender: Gender of the contact. For allowed values see :class:`.ContactGender`.
-        :param company_id: Id of the company the contact belongs to
-        :param title: Job title the contact has
-        :param job_position: name of the job position this contact has
-        :param mobile_phone: Mobile phone number the contact has
-        :param work_fax: Work fax number
-        :param work_phone: Work phone number
-        :param work_email: Work email address
-        :param work_address: Physical work address
-        :param home_address: Physical home address
-        :param home_email: Home email address
-        :param birthday: Birthday date
-        :param info: More information about the contact
-        :param tags: Array of additional tags
+        :param firstname: The first name of the contact (default ``None``)
+        :param lastname: The last name of the contact (default ``None``)
+        :param gender: Gender of the contact (default ``None``)
+        :param company_id: Id of the company the contact belongs to  (default ``None``)
+        :param title: Job title the contact has (default ``None``)
+        :param job_position: name of the job position this contact has (default ``None``)
+        :param mobile_phone: Mobile phone number the contact has (default ``None``)
+        :param work_fax: Work fax number (default ``None``)
+        :param work_phone: Work phone number (default ``None``)
+        :param work_email: Work email address (default ``None``)
+        :param work_address: Physical work address (default ``None``)
+        :param home_address: Physical home address (default ``None``)
+        :param home_email: Home email address (default ``None``)
+        :param birthday: Birthday date (default ``None``)
+        :param info: More information about the contact (default ``None``)
+        :param tags: Array of additional tags (default ``None``)
 
         :type contact_id: int
         :type firstname: str
@@ -250,12 +251,13 @@ class Contact(MWRAPBase):
         """
         Retrieve a list of contact objects
 
-        :param tags: Array of tags
-        :param term: Full text search (fields that are searched are name, firstname, work_email and company)
-        :param phone: Reverse lookup for work_phone or mobile_phone
-        :param sort_by: Field to the results by
-        :param sort_order: asc or desc
-        :param page: Page number (default 1)
+        :param tags: Array of tags (default ``None``)
+        :param term: Full text search
+            (fields that are searched are name, firstname, work_email and company) (default ``None``)
+        :param phone: Reverse lookup for work_phone or mobile_phone (default ``None``)
+        :param sort_by: Field to the results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type tags: list
         :type term: str
