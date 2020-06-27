@@ -8,7 +8,8 @@ from enum import Enum
 
 class ProjectBillingVariant(str, Enum):
     """
-    Enumeration for allowed values of the ``billing_variant`` argument of :meth:`.Project.create` and :meth:`.Project.update`.
+    Enumeration for allowed values of the ``billing_variant`` argument of :meth:`.Project.create`
+    and :meth:`.Project.update`.
 
     Example usage:
 
@@ -66,16 +67,16 @@ class Project(MWRAPBase):
         :param currency: Currency used by the project (e.g. EUR)
         :param leader_id: User id of the project leader
         :param customer_id: Company id of the customer
-        :param finish_date: Finish date
-        :param identifier: Project Identifier
-        :param billing_address: Billing adress the invoices go to
-        :param billing_variant: Billing variant used
-        :param hourly_rate: Hourly rate that will get billed
-        :param budget: Budget for the project
-        :param labels: Array of additional labels
-        :param custom_properties: Custom values used by the project
-        :param info: Additional information
-        :param fixed_price: If the project is a fixed price projects (default False)
+        :param finish_date: Finish date (default ``None``)
+        :param identifier: Project Identifier (default ``None``)
+        :param billing_address: Billing address the invoices go to (default ``None``)
+        :param billing_variant: Billing variant used (default ``None``)
+        :param hourly_rate: Hourly rate that will get billed (default ``None``)
+        :param budget: Budget for the project (default ``None``)
+        :param labels: Array of additional labels (default ``None``)
+        :param custom_properties: Custom values used by the project (default ``None``)
+        :param info: Additional information (default ``None``)
+        :param fixed_price: If the project is a fixed price projects (default ``False``)
 
         :type name: str
         :type currency: str
@@ -93,14 +94,13 @@ class Project(MWRAPBase):
         :type fixed_price: bool
 
         :returns: The created project object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
 
         .. note::
-
             The parameter ``identifier`` is required if number ranges are manual.
 
         .. note::
-
-            If you create a fixed_price project budget must also be set.
+            If you create a project with ``fixed_price = True``, ``budget`` also has to be specified
         """
         data = {
             "name": name,
@@ -152,18 +152,18 @@ class Project(MWRAPBase):
         Update an existing project.
 
         :param project_id: Id of the project to update
-        :param name: Name of the project
-        :param leader_id: User id of the project leader
-        :param customer_id: Company id of the customer
-        :param finish_date: Finish date
-        :param identifier: Project Identifier
-        :param billing_address: Address the invoices go to
-        :param billing_variant: Billing variant used
-        :param hourly_rate: Hourly rate that will get billed
-        :param budget: Budget for the project
-        :param labels: Array of additional labels
-        :param custom_properties: Custom values used by the project
-        :param info: Additional information
+        :param name: Name of the project (default ``None``)
+        :param leader_id: User id of the project leader (default ``None``)
+        :param customer_id: Company id of the customer (default ``None``)
+        :param finish_date: Finish date (default ``None``)
+        :param identifier: Project Identifier (default ``None``)
+        :param billing_address: Address the invoices go to (default ``None``)
+        :param billing_variant: Billing variant used (default ``None``)
+        :param hourly_rate: Hourly rate that will get billed (default ``None``)
+        :param budget: Budget for the project (default ``None``)
+        :param labels: Array of additional labels (default ``None``)
+        :param custom_properties: Custom values used by the project (default ``None``)
+        :param info: Additional information (default ``None``)
 
         :type project_id: int
         :type name: str
@@ -180,6 +180,7 @@ class Project(MWRAPBase):
         :type info: str
 
         :returns: The updated project object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {}
@@ -217,6 +218,7 @@ class Project(MWRAPBase):
         :type project_id: int
 
         :returns: Project object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         return self._moco.get(API_PATH["project_get"].format(id=project_id))
@@ -240,19 +242,19 @@ class Project(MWRAPBase):
         """
         Get a list of projects.
 
-        :param include_archived: Include archived projects
-        :param include_company: Include the complete company object or just the company id
-        :param leader_id: User id of the project leader
-        :param company_id: Company id the projects are assigned to
-        :param created_from: Created start date
-        :param created_to: Created end date
-        :param updated_from: Updated start date
-        :param updated_to: Updated end date
-        :param tags: Array of tags
-        :param identifier: Project identifer
-        :param sort_by: Field to sort the results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param include_archived: Include archived projects (default ``None``)
+        :param include_company: Include the complete company object or just the company id (default ``None``)
+        :param leader_id: User id of the project leader (default ``None``)
+        :param company_id: Company id the projects are assigned to (default ``None``)
+        :param created_from: Created start date (default ``None``)
+        :param created_to: Created end date (default ``None``)
+        :param updated_from: Updated start date (default ``None``)
+        :param updated_to: Updated end date (default ``None``)
+        :param tags: Array of tags (default ``None``)
+        :param identifier: Project identifier (default ``None``)
+        :param sort_by: Field to sort the results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type include_archived: bool
         :type include_company: bool
@@ -268,9 +270,18 @@ class Project(MWRAPBase):
         :type page: int
 
         :returns: List of project objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
-
         params = {}
+
+        # all parameters that could be datetime.date objects we need to convert
+        date_param_keys = [
+            "created_from",
+            "created_to",
+            "updated_from",
+            "updated_to"
+        ]
+
         for key, value in (
             ("include_archived", include_archived),
             ("include_company", include_company),
@@ -285,8 +296,7 @@ class Project(MWRAPBase):
             ("page", page),
         ):
             if value is not None:
-                if key in ["created_from", "created_to", "updated_from", "updated_to"] and isinstance(value,
-                                                                                                      datetime.date):
+                if key in date_param_keys and isinstance(value, datetime.date):
                     params[key] = self._convert_date_to_iso(value)
                 else:
                     params[key] = value
@@ -307,10 +317,10 @@ class Project(MWRAPBase):
         """
         Get list of all project currently assigned to the user.
 
-        :param active: Show only active or inacitve projects
-        :param sort_by: Sort by field
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param active: Show only active or inactive projects (default ``None``)
+        :param sort_by: Sort by field (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type active: bool
         :type sort_by: str
@@ -318,6 +328,7 @@ class Project(MWRAPBase):
         :type page: int
 
         :returns: List of project objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
@@ -345,6 +356,7 @@ class Project(MWRAPBase):
         :type project_id: int
 
         :returns: The archived project
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.put(API_PATH["project_archive"].format(id=project_id))
 
@@ -360,6 +372,7 @@ class Project(MWRAPBase):
         :type project_id: int
 
         :returns: The unarchived project
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.put(API_PATH["project_unarchive"].format(id=project_id))
 
@@ -370,12 +383,15 @@ class Project(MWRAPBase):
         """
         Retrieve a project report.
 
-        All costs are in the accounts main currency, it might differ from the budget and billable items.
-
         :param project_id: Id of the project
 
         :type project_id: int
 
         :returns: Report with the most important project business indicators
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+
+        .. note::
+            All costs are in the accounts main currency, it might differ from the budget and billable items.
+
         """
         return self._moco.get(API_PATH["project_report"].format(id=project_id))
