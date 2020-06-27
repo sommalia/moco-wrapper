@@ -3,7 +3,6 @@ from .. import UnitTest
 import pytest
 
 
-
 class TestInvoicePayment(UnitTest):
     def test_getlist(self):
         response = self.moco.InvoicePayment.getlist()
@@ -59,16 +58,15 @@ class TestInvoicePayment(UnitTest):
         assert data["currency"] == currency
 
         assert response["method"] == "POST"
-    
+
     def test_create_bulk(self):
         generator = InvoicePaymentGenerator()
 
-        items = [generator.generate('2019-10-10', 1, 200, "EUR"), generator.generate('2020-05-05', 2, 420, "CHF")]  
+        items = [generator.generate('2019-10-10', 1, 200, "EUR"), generator.generate('2020-05-05', 2, 420, "CHF")]
         response = self.moco.InvoicePayment.create_bulk(items)
 
         assert response["data"]["bulk_data"] == items
         assert response["method"] == "POST"
-
 
     def test_update(self):
         payment_id = 54
@@ -76,7 +74,8 @@ class TestInvoicePayment(UnitTest):
         paid_total = 200
         currency = "EUR"
 
-        response = self.moco.InvoicePayment.update(payment_id, payment_date=date, paid_total=paid_total, currency=currency)
+        response = self.moco.InvoicePayment.update(payment_id, payment_date=date, paid_total=paid_total,
+                                                   currency=currency)
         data = response["data"]
 
         assert data["date"] == date
