@@ -8,7 +8,8 @@ from enum import Enum
 
 class InvoiceStatus(str, Enum):
     """
-    Enumeration for allowed values that can be supplied for the ``status`` argument of :meth:`Invoice.getlist`, :meth:`Invoice.update_status` and :meth:`Invoice.create`.
+    Enumeration for allowed values that can be supplied for the ``status`` argument of :meth:`.Invoice.getlist`,
+    :meth:`.Invoice.update_status` and :meth:`.Invoice.create`.
 
     Example usage:
 
@@ -32,13 +33,13 @@ class InvoiceStatus(str, Enum):
     IGNORED = "ignored"
     """
     .. warning::
-        Do not use this status for creating invoices, only updating and filtering
+        Do not use ``IGNORED`` for creating invoices, only updating and filtering.
     """
 
 
 class InvoiceChangeAddress(str, Enum):
     """
-    Enumeration for allowed values that can be supplied for ``change_address`` argument of :meth:`Invoice.create`.
+    Enumeration for allowed values that can be supplied for ``change_address`` argument of :meth:`.Invoice.create`.
 
     .. code-block:: python
 
@@ -106,6 +107,7 @@ class Invoice(MWRAPBase):
         :type page: int
 
         :returns: List of invoice objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
         for key, value in (
@@ -161,6 +163,7 @@ class Invoice(MWRAPBase):
         :type page: int
 
         :returns: List of invoice objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
         for key, value in (
@@ -193,6 +196,7 @@ class Invoice(MWRAPBase):
         :type invoice_id: int
 
         :returns: Single invoice object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["invoice_get"].format(id=invoice_id))
 
@@ -208,6 +212,7 @@ class Invoice(MWRAPBase):
         :type invoice_id: int
 
         :returns: Invoice pdf
+        :rtype: :class:`moco_wrapper.util.response.FileResponse`
         """
         return self._moco.get(API_PATH["invoice_pdf"].format(id=invoice_id))
 
@@ -218,13 +223,16 @@ class Invoice(MWRAPBase):
         """
         Retrieve the invoice timesheet document as pdf.
 
-        Invoices that have timesheets cannot be created with the api and must be created manully by billing unbilled tasks.
+        .. note::
+            Invoices that have timesheets cannot be created over the api and must be created manually
+            by billing unbilled tasks.
 
         :param invoice_id: Invoice id
 
         :type invoice_id: int
 
         :return: Invoice timesheet as pdf
+        :rtype: :class:`moco_wrapper.util.response.FileResponse`
         """
         return self._moco.get(API_PATH["invoice_timesheet"].format(id=invoice_id))
 
@@ -243,6 +251,7 @@ class Invoice(MWRAPBase):
         :type status: :class:`.InvoiceStatus`, str
 
         :return: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
         data = {
             "status": status
@@ -276,7 +285,7 @@ class Invoice(MWRAPBase):
         Creates a new invoice.
 
         :param customer_id: Id of the customer/company
-        :param recipient_address: Entry text for the customer (e.g. "My Customer\\\\nMainStreet 5\\\\nExample Town")
+        :param recipient_address: Customers address
         :param created_date: Creation date of the invoice
         :param due_date: Date the invoice is due
         :param service_period_from: Service period start date
@@ -316,10 +325,11 @@ class Invoice(MWRAPBase):
         :type tags: list
 
         :returns: The created invoice
-
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
 
         .. note::
-            Note that if you create an invoice with a project, that project must also belong to the customer the invoice was created for.
+            Note that if you create an invoice with a project, that project must also belong to the customer the invoice
+            was created for.
 
         .. seealso::
 
