@@ -1,8 +1,9 @@
+import datetime
+
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
-from enum import Enum
 
-import datetime
+from enum import Enum
 
 
 class PlanningEntrySymbol(int, Enum):
@@ -59,14 +60,16 @@ class PlanningEntry(MWRAPBase):
         page: int = 1
     ):
         """
-        Retrieve a list of planning entries
+        Retrieve a list of planning entries.
 
-        :param start_date: Start date (if ``start_date`` is supplied, `end_date` must also be supplied) (default ``None``)
-        :param end_date: End date (if `end_date` is supplied, ``start_date`` must also be supplied) (default ``None``)
+        :param start_date: Start date
+            (if ``start_date`` is supplied, `end_date` must also be supplied) (default ``None``)
+        :param end_date: End date
+            (if `end_date` is supplied, ``start_date`` must also be supplied) (default ``None``)
         :param user_id: User id (default ``None``)
         :param project_id: Project id (default ``None``)
         :param sort_by: Field to sort by (default ``None``)
-        :param sort_order: asc or desc (default ``'asc'``)
+        :param sort_order: asc or desc (default ``"asc"``)
         :param page: Page number (default ``1``)
 
         :type start_date: datetime.date, str
@@ -78,6 +81,7 @@ class PlanningEntry(MWRAPBase):
         :type page: int
 
         :returns: List of planning entries
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         if start_date is not None and end_date is None:
@@ -122,13 +126,14 @@ class PlanningEntry(MWRAPBase):
         planning_entry_id: int
     ):
         """
-        Retrieve a single planning entry
+        Retrieve a single planning entry.
 
         :param planning_entry_id: Id the of the entry
 
         :type planning_entry_id: int
 
         :returns: Single planning entry
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         return self._moco.get(API_PATH["planning_entry_get"].format(id=planning_entry_id))
@@ -144,8 +149,7 @@ class PlanningEntry(MWRAPBase):
         symbol: PlanningEntrySymbol = None
     ):
         """
-        Create a new planning entry
-
+        Create a new planning entry.
 
         :param project_id: Project id
         :param starts_on: Start date
@@ -164,6 +168,7 @@ class PlanningEntry(MWRAPBase):
         :type symbol: :class:`.PlanningEntrySymbol`, int
 
         :returns: The created planning entry
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
 
         .. note::
             If no ``user_id`` is supplied the entry will be created with the user_id of the executing request
@@ -205,7 +210,7 @@ class PlanningEntry(MWRAPBase):
         symbol: PlanningEntrySymbol = None,
     ):
         """
-        Updates a planning entry
+        Updates a planning entry.
 
         :param planning_entry_id: Id of the entry to update
         :param project_id: Project id (default ``None``)
@@ -226,6 +231,7 @@ class PlanningEntry(MWRAPBase):
         :type symbol: :class:`.PlanningEntrySymbol`, int
 
         :returns: The updated planning entry
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {}
@@ -252,12 +258,13 @@ class PlanningEntry(MWRAPBase):
         planning_entry_id: int
     ):
         """
-        Delete a planning entry
+        Delete a planning entry.
 
         :param planning_entry_id: Id of the entry to delete
 
         :type planning_entry_id: int
 
         :returns: The deleted planning entry
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.delete(API_PATH["planning_entry_delete"].format(id=planning_entry_id))
