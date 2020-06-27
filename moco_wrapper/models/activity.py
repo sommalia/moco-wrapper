@@ -8,7 +8,8 @@ from enum import Enum
 
 class ActivityRemoteService(str, Enum):
     """
-    Enumeration for allowed values used that can be supplied for the ``remote_service`` argument in :meth:`.Activity.create` and :meth:`.Activity.update`
+    Enumeration for allowed values used that can be supplied for the ``remote_service`` argument in
+    :meth:`.Activity.create` and :meth:`.Activity.update`
 
     .. code-block:: python
 
@@ -39,7 +40,8 @@ class Activity(MWRAPBase):
     """
     Class for handling activities.
 
-    Activities are always created for a project task. The order of things is `Project>Task>Activity`. An activity always belongs to a task and that task always belongs to a project.
+    Activities are always created for a project task. The order of things is `Project>Task>Activity`. An activity always
+    belongs to a task and that task always belongs to a project.
 
     Example Usage:
 
@@ -174,7 +176,8 @@ class Activity(MWRAPBase):
         :param task_id: Id of the task this activity belongs to
         :param hours: Hours to log to the activity (pass 0 to start a timer, if the date is today)
         :param description: Activity description text (default ``None``)
-        :param billable: If this activity is billable (pass ``None`` if billing is dependent on project configuration) (default ``None``)
+        :param billable: If this activity is billable (pass ``None`` if billing is dependent on project configuration)
+        (default ``None``)
         :param tag: Tag string (default ``None``)
         :param remote_service: Name of the remote service referenced by the activity (default ``None``)
         :param remote_id: Id of the activity in the remote_service (default ``None``)
@@ -242,7 +245,8 @@ class Activity(MWRAPBase):
         :param task_id: Id of the task this activity belongs to
         :param hours: hours to log to the activity (pass 0 to start a timer, if the date is today)
         :param description: Description text (default ``None``)
-        :param billable: If this activity is billable (pass ``None``) if billing is dependent on project configuration) (default ``None``)
+        :param billable: If this activity is billable (pass ``None``) if billing is dependent on project configuration)
+        (default ``None``)
         :param tag: Tag string (default ``None``)
         :param remote_service: Name of the remote service referenced by the activity (default ``None``)
         :param remote_id: Id of the activity in the remote_service (default ``None``)
@@ -340,10 +344,10 @@ class Activity(MWRAPBase):
 
     def disregard(
         self,
-        reason,
-        activity_ids,
-        company_id,
-        project_id=None
+        reason: str,
+        activity_ids: list,
+        company_id: int,
+        project_id: int = None
     ):
         """
         Disregard activities.

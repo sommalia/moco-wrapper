@@ -6,7 +6,8 @@ from enum import Enum
 
 class CommentTargetType(str, Enum):
     """
-    Enumeration for allowed values used that can be supplied for the ``commentable_type`` argument in :meth:`.Comment.create`, :meth:`.Comment.create_bulk` and :meth:`.Comment.getlist`
+    Enumeration for allowed values used that can be supplied for the ``commentable_type`` argument in
+    :meth:`.Comment.create`, :meth:`.Comment.create_bulk` and :meth:`.Comment.getlist`
 
     .. code-block:: python
 
@@ -34,7 +35,8 @@ class Comment(MWRAPBase):
     """
     Class for handling comments.
 
-    Comments can be created for a multitude of objects. So when creating comments one must specify which type of object they mean (see :class:`.CommentTargetType`)
+    Comments can be created for a multitude of objects. So when creating comments one must specify which type of object
+    they target (see :class:`.CommentTargetType`)
 
     Example Usage:
 
@@ -67,7 +69,8 @@ class Comment(MWRAPBase):
         """
         Create a single comment.
 
-        :param commentable_id: Id of the object to create the comment of (i.e the project id of the project we want to comment on)
+        :param commentable_id: Id of the object to create the comment of (i.e the project id of the project we want to
+        comment on)
         :param commentable_type: Type of object to create the comment for.
         :param text: Comment text
 
@@ -183,13 +186,13 @@ class Comment(MWRAPBase):
         """
         Retrieve a list of comments.
 
-        :param commentable_type: Type of object the comment(s) belong to
-        :param commentable_id: Id of the object the comment belongs to
-        :param user_id: User id of the creator
-        :param manual: If the comment was user-created of generated
-        :param sort_by: Field to sort the results by
-        :param sort_order: asc or desc
-        :param page: Page number (default 1)
+        :param commentable_type: Type of object the comment(s) belong to (default ``None``)
+        :param commentable_id: Id of the object the comment belongs to (default ``None``)
+        :param user_id: User id of the creator (default ``None``)
+        :param manual: If the comment was user-created of generated (default ``None``)
+        :param sort_by: Field to sort the results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type commentable_type: :class:`.CommentTargetType`, str
         :type commentable_id: int
