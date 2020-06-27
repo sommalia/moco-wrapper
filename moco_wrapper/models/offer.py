@@ -78,13 +78,13 @@ class Offer(MWRAPBase):
         """
         Retrieve a list of offers.
 
-        :param status: State the offer is in
-        :param from_date: Start date
-        :param to_date: End date
-        :param identifier: Identifier string (e.g.: "A1903-003")
-        :param sort_by: Field to sort the results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param status: State the offer is in (default ``None``)
+        :param from_date: Start date (default ``None``)
+        :param to_date: End date (default ``None``)
+        :param identifier: Identifier string (e.g.: "A1903-003") (default ``None``)
+        :param sort_by: Field to sort the results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type status: :class:`.OfferStatus`, str
         :type from_date: datetime.date, str
@@ -95,10 +95,7 @@ class Offer(MWRAPBase):
         :type page: int
 
         :returns: List of offer objects
-
-
-        .. note::
-            Offers can be sorted by ``date``, ``created_at`` and ``title``.
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
         for key, value in (
@@ -131,28 +128,27 @@ class Offer(MWRAPBase):
         :type offer_id: int
 
         :returns: Single offer object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["offer_get"].format(id=offer_id))
 
     def pdf(
         self,
         offer_id: int,
-        letter_paper_id: int = None
     ):
         """
         Retrieve the offer document for a single offer.
 
         :param offer_id: Id of the offer
-        :param letter_paper_id: Id of the letter paper (default white)
 
         :type offer_id: int
-        :type letter_paper_id: int
 
         :returns: The offers pdf document
+        :rtype: :class:`moco_wrapper.util.response.FileResponse`
         """
         return self._moco.get(API_PATH["offer_pdf"].format(id=offer_id))
 
-    def create(
+    def create  (
         self,
         deal_id: int,
         project_id: int,
@@ -174,18 +170,18 @@ class Offer(MWRAPBase):
 
         :param deal_id: Deal id of the offer
         :param project_id: project id of the offer
-        :param recipient_address: Address of the recipient (e.g. Test Custmer\\\\nMain Street 5\\\\nExample Town)
+        :param recipient_address: Address of the recipient
         :param creation_date: Creation date
         :param due_date: Date the offer is due
         :param title: Title of the offer
         :param tax: Tax (0.0-100.0)
         :param currency: Currency code used (e.g. EUR, CHF)
         :param items: List of offer items
-        :param change_address: change offer address propagation
-        :param salutation: Salutation text
-        :param footer: Footer text
-        :param discount: Discount in percent
-        :param contact_id: Id of the contact for the offer
+        :param change_address: change offer address propagation (default :attr:`.OfferChangeAddress.OFFER`)
+        :param salutation: Salutation text (default ``None``)
+        :param footer: Footer text (default ``None``)
+        :param discount: Discount in percent (default ``None``)
+        :param contact_id: Id of the contact for the offer (default ``None``)
 
         :type deal_id: int
         :type project_id: int
@@ -203,6 +199,7 @@ class Offer(MWRAPBase):
         :type contact_id: int
 
         :returns: The created offer
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
 
         .. note::
             Either ``deal_id`` or ``project_id`` must be specified (or both)
@@ -244,8 +241,8 @@ class Offer(MWRAPBase):
 
     def update_status(
         self,
-        offer_id,
-        status,
+        offer_id: int,
+        status: OfferStatus,
     ):
         """
         Updates the state of an offer
@@ -257,6 +254,7 @@ class Offer(MWRAPBase):
         :type status: :class:`.OfferStatus`, str
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
         data = {
             "status": status
