@@ -176,8 +176,8 @@ class Activity(MWRAPBase):
         :param task_id: Id of the task this activity belongs to
         :param hours: Hours to log to the activity (pass 0 to start a timer, if the date is today)
         :param description: Activity description text (default ``None``)
-        :param billable: If this activity is billable (pass ``None`` if billing is dependent on project configuration)
-        (default ``None``)
+        :param billable: If this activity is billable
+            (pass ``None`` if billing is dependent on project configuration) (default ``None``)
         :param tag: Tag string (default ``None``)
         :param remote_service: Name of the remote service referenced by the activity (default ``None``)
         :param remote_id: Id of the activity in the remote_service (default ``None``)
@@ -245,8 +245,8 @@ class Activity(MWRAPBase):
         :param task_id: Id of the task this activity belongs to
         :param hours: hours to log to the activity (pass 0 to start a timer, if the date is today)
         :param description: Description text (default ``None``)
-        :param billable: If this activity is billable (pass ``None``) if billing is dependent on project configuration)
-        (default ``None``)
+        :param billable: If this activity is billable
+            (pass ``None``) if billing is dependent on project configuration) (default ``None``)
         :param tag: Tag string (default ``None``)
         :param remote_service: Name of the remote service referenced by the activity (default ``None``)
         :param remote_id: Id of the activity in the remote_service (default ``None``)

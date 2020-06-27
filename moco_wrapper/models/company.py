@@ -6,7 +6,8 @@ from enum import Enum
 
 class CompanyType(str, Enum):
     """
-    Enumeration of the type of companies that exist. Can be used to supply the ``company_type`` argument of :meth:`.Company.create`, :meth:`.Company.update` and :meth:`.Company.getlist`
+    Enumeration of the type of companies that exist. Can be used to supply the ``company_type`` argument of
+    :meth:`.Company.create`, :meth:`.Company.update` and :meth:`.Company.getlist`
 
     Example Usage:
 
@@ -30,7 +31,10 @@ class Company(MWRAPBase):
     """
     Class for handling companies.
 
-    Companies come in three different flavours (see :class:`.CompanyType`), customers are companies you do stuff for and send invoices to. suppliers are companies that supply stuff to you as a customer. Finally organizations are companies that do not fit the laben customer or supplier. For the most part you will interact with companies of type customer.
+    Companies come in three different flavours (see :class:`.CompanyType`), customers are companies you do stuff for
+    and send invoices to. suppliers are companies that supply stuff to you as a customer. Finally organizations are
+    companies that do not fit the laben customer or supplier. For the most part you will interact with companies of
+    type customer.
 
     Example usage:
 
@@ -83,25 +87,28 @@ class Company(MWRAPBase):
 
         :param name: Name of the company
         :param company_type: Either customer, supplier or organization
-        :param website: Url of the companies website
-        :param fax: Fax number of the company
-        :param phone: Phone number of the company
-        :param email: Email address of the company
-        :param address: Company address
-        :param info: Additional information about the company
-        :param custom_properties: Custom properties dictionary
-        :param labels: Array of labels
-        :param user_id: User Id of the responsible person
-        :param currency: Currency the company uses (only customer)
-        :param identifier: Identifier of the company (only mandatory when not automaticly assigned)
-        :param billing_tax: Billing tax value (from 0 to 100)
-        :param default_invoice_due_days: Payment target days for the company when creating invoices (only customer)
-        :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
-        :param vat_identifier: Vat identifier for eu companies
-        :param iban: Iban number (only supplier)
+        :param website: Url of the companies website (default ``None``)
+        :param fax: Fax number of the company (default ``None``)
+        :param phone: Phone number of the company (default ``None``)
+        :param email: Email address of the company (default ``None``)
+        :param address: Company address (default ``None``)
+        :param info: Additional information about the company (default ``None``)
+        :param custom_properties: Custom properties dictionary (default ``None``)
+        :param labels: Array of labels (default ``None``)
+        :param user_id: User Id of the responsible person (default ``None``)
+        :param currency: Currency the company uses (only customer) (default ``None``)
+        :param identifier: Identifier of the company
+            (only mandatory when not automatically assigned) (default ``None``)
+        :param billing_tax: Billing tax value (from 0 to 100) (default ``None``)
+        :param default_invoice_due_days: Payment target days for the company when creating invoices
+            (only customer) (default ``None``)
+        :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case -
+            default is account country (default ``None``)
+        :param vat_identifier: Vat identifier for eu companies (default ``None``)
+        :param iban: Iban number (only supplier) (default ``None``)
         :param debit_number: Debit number (if bookkeeping is enabled) (only customer) (default ``None``)
         :param credit_number: Credit number (if bookkeeping is enabled) (only supplier) (default ``None``)
-        :param footer: Some html (appears at the end of invoices)
+        :param footer: Some html (appears at the end of invoices) (default ``None``)
 
         :type name: str
         :type company_type: :class:`.CompanyType`, str
@@ -207,24 +214,27 @@ class Company(MWRAPBase):
         Update a company.
 
         :param company_id: Id of the company
-        :param company_type: Type of the company to modify
-        :param name: Name of the company
-        :param website: Url of the companies website
-        :param fax: Fax number of the company
-        :param phone: Phone number of the company
-        :param email: Email address of the company
-        :param address: Company address
-        :param info: Additional information about the company
-        :param custom_properties: Custom properties dictionary
-        :param labels: Array of labels
-        :param user_id: Id of the responsible person
-        :param currency: Currency the company uses (only customer)
-        :param identifier: Identifier of the company (only mandatory when not automatically assigned) (only customer) (default ``None``)
+        :param company_type: Type of the company to modify (default ``None``)
+        :param name: Name of the company (default ``None``)
+        :param website: Url of the companies website (default ``None``)
+        :param fax: Fax number of the company (default ``None``)
+        :param phone: Phone number of the company (default ``None``)
+        :param email: Email address of the company (default ``None``)
+        :param address: Company address (default ``None``)
+        :param info: Additional information about the company (default ``None``)
+        :param custom_properties: Custom properties dictionary (default ``None``)
+        :param labels: Array of labels (default ``None``)
+        :param user_id: Id of the responsible person (default ``None``)
+        :param currency: Currency the company uses (only customer) (default ``None``)
+        :param identifier: Identifier of the company (only mandatory when not automatically assigned)
+            (only customer) (default ``None``)
         :param billing_tax: Billing tax value (only customer) (default ``None``)
-        :param default_invoice_due_days: payment target days for the company when creating invoices (only customer) (default ``None``)
-        :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case - default is account country
-        :param vat_identifier: vat identifier for eu companies
-        :param iban: iban number (only supplier)
+        :param default_invoice_due_days: payment target days for the company when creating invoices
+            (only customer) (default ``None``)
+        :param country_code: ISO Alpha-2 Country Code like "DE" / "CH" / "AT" in upper case -
+            default is account country (default ``None``)
+        :param vat_identifier: vat identifier for eu companies (default ``None``)
+        :param iban: iban number (only supplier) (default ``None``)
         :param debit_number: Debit number (if bookkeeping is enabled) (only customer) (default ``None``)
         :param credit_number: Credit number (if bookkeeping is enabled) (ony supplier) (default ``None``)
 
@@ -314,12 +324,12 @@ class Company(MWRAPBase):
         """
         Get a list of company objects.
 
-        :param company_type: Type of company to filter for
-        :param tags: List of tags
-        :param identifier: Company identifier
-        :param sort_by: Field to sort by
-        :param sort_order: asc or desc
-        :param page: page number (default 1)
+        :param company_type: Type of company to filter for (default ``None``)
+        :param tags: List of tags (default ``None``)
+        :param identifier: Company identifier (default ``None``)
+        :param sort_by: Field to sort by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: page number (default ``1``)
 
         :type company_type: :class:`.CompanyType`, str
         :type tags: list
