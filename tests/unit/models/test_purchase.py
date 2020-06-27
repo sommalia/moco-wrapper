@@ -2,6 +2,7 @@ import pytest
 import datetime
 from .. import UnitTest
 from moco_wrapper.util.generator import PurchaseItemGenerator
+from moco_wrapper.models.purchase import PurchaseFile
 
 
 
@@ -163,5 +164,6 @@ class TestPurchase(UnitTest):
         assert response["method"] == "PATCH"
 
         assert data["status"] == status
+
 
 

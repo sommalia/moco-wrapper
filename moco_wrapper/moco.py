@@ -158,8 +158,7 @@ class Moco(object):
 
         # pass request making to the requestor object
         if method == "GET":
-            requestor_response = self._requestor.get(full_path,
-                                                     params=params, data=data, headers=headers, **kwargs)
+            requestor_response = self._requestor.get(full_path, params=params, data=data, headers=headers, **kwargs)
         elif method == "PUT":
             requestor_response = self._requestor.put(full_path, params=params, data=data, headers=headers, **kwargs)
         elif method == "POST":

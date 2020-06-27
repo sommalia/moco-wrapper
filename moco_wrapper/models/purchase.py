@@ -124,6 +124,9 @@ class Purchase(MWRAPBase):
         :type sort_by: str
         :type sort_order: str
         :type page: int
+
+        :returns: List of purchases
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         if start_date is not None and end_date is None:
@@ -179,6 +182,7 @@ class Purchase(MWRAPBase):
         :type purchase_id: int
 
         :returns: A single purchase
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["purchase_get"].format(id=purchase_id))
 
@@ -236,6 +240,7 @@ class Purchase(MWRAPBase):
         :type tags: list
 
         :returns: The created purchase
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {
@@ -287,10 +292,12 @@ class Purchase(MWRAPBase):
         :type purchase_id: int
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
 
         .. warning::
             Deletion of a purchase is only possible if the state of the purchase is ``PENDING`` and no payments
             have been registered to the purchase yet
+
         """
         return self._moco.delete(API_PATH["purchase_delete"].format(id=purchase_id))
 
@@ -309,6 +316,7 @@ class Purchase(MWRAPBase):
         :type status: :class:`.PurchaseStatus`, str
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
         data = {
             "status": status
@@ -321,6 +329,18 @@ class Purchase(MWRAPBase):
         purchase_id,
         file,
     ):
+        """
+        Stores the document for a purchase
+
+        :param purchase_id: Id of the purchase
+        :param file: Purchase file
+
+        :type purchase_id: int
+        :type file: :class:`.PurchaseFile`
+
+        :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
+        """
 
         # overwrite content-type with None so content-type can be set by the requests module
         # the content-type will be multipart/form-data. For multipart/form-data a boundary parameter also has to be set
@@ -332,7 +352,7 @@ class Purchase(MWRAPBase):
         }
 
         files = {
-            "file": (file.name, open(file.path, "rb"), )
+            "file": (file.name, open(file.path, "rb"))
         }
 
         return self._moco.patch(API_PATH["purchase_store_document"].format(id=purchase_id),

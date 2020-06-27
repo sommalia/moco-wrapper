@@ -258,3 +258,12 @@ class TestPurchase(IntegrationTest):
 
             assert purchase_create.data.file_url is None
             assert purchase_get.data.file_url is not None
+
+    def test_getlist_full(self):
+        with self.recorder.use_cassette("TestPurchase.test_getlist"):
+            purchase_list = self.moco.Purchase.getlist()
+
+            assert purchase_list.response.status_code == 200
+
+            assert isinstance(purchase_list, ListingResponse)
+
