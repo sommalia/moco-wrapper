@@ -86,15 +86,15 @@ class Invoice(MWRAPBase):
         """
         Retrieve a list of invoices.
 
-        :param status: State of the invoice
-        :param date_from: Starting date
-        :param date_to: End date
-        :param tags: List of tags
-        :param identifier: Identifier string (e.g. R1903-003)
-        :param term: Wildcard search term
-        :param sort_by: Field to sort results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param status: State of the invoice (default ``None``)
+        :param date_from: Starting date (default ``None``)
+        :param date_to: End date (default ``None``)
+        :param tags: List of tags (default ``None``)
+        :param identifier: Identifier string (e.g. R1903-003) (default ``None``)
+        :param term: Wildcard search term (default ``None``)
+        :param sort_by: Field to sort results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type status: :class:`.InvoiceStatus`, str
         :type date_from: datetime.date, str
@@ -146,13 +146,13 @@ class Invoice(MWRAPBase):
         """
         Retrieve a list of locked invoices.
 
-        :param status: State of the invoice
-        :param date_from: Start date
-        :param date_to: End date
-        :param identifier: Identifier string (ex. R1903-003)
-        :param sort_by: Field to sort results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param status: State of the invoice (default ``None``)
+        :param date_from: Start date (default ``None``)
+        :param date_to: End date (default ``None``)
+        :param identifier: Identifier string (ex. R1903-003) (default ``None``)
+        :param sort_by: Field to sort results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type status: :class:`.InvoiceStatus`, str
         :type date_from: datetime.date, str
@@ -294,15 +294,15 @@ class Invoice(MWRAPBase):
         :param tax: Tax percent (between 0.0 and 100.0)
         :param currency: Currency code (e.g. EUR)
         :param items: Invoice items
-        :param status: State of the invoice (default: "created")
-        :param change_address: Address propagation (default: "invoice")
-        :param salutation: Salutation text
-        :param footer: Footer text
-        :param discount: Discount in percent (between 0.0 and 100.0)
-        :param cash_discount: Cash discount in percent (between 0.0 and 100.0)
-        :param cash_discount_days: How many days is the cash discount valid (ex. 4)
-        :param project_id: Id of the project the invoice belongs to
-        :param tags: List of tags
+        :param status: State of the invoice (default :attr:`.InvoiceStatus.CREATED`)
+        :param change_address: Address propagation (default :attr:`.InvoiceChangeAddress.INVOICE`)
+        :param salutation: Salutation text (default ``None``)
+        :param footer: Footer text (default ``None``)
+        :param discount: Discount in percent (between 0.0 and 100.0) (default ``None``)
+        :param cash_discount: Cash discount in percent (between 0.0 and 100.0) (default ``None``)
+        :param cash_discount_days: How many days is the cash discount valid (ex. 4) (default ``None``)
+        :param project_id: Id of the project the invoice belongs to (default ``None``)
+        :param tags: List of tags (default ``[]``)
 
         :type customer_id: int
         :type recipient_address: str

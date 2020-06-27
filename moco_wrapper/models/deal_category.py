@@ -6,9 +6,12 @@ class DealCategory(MWRAPBase):
     """
     Model for handling the different deal_categories used by a pending deal.
 
-    A deal (see :class:`moco_wrapper.models.Deal`) that is in the state ``PENDING`` (see :class:`moco_wrapper.models.deal.DealStatus`) must be assigned to deal category. A category has a name and a probability of success (in percent).
+    A deal (see :class:`moco_wrapper.models.Deal`) that is in the state ``PENDING``
+    (see :class:`moco_wrapper.models.deal.DealStatus`) must be assigned to deal category.
+    A category has a name and a probability of success (in percent).
 
-    Typicly a deal that is in ``PENDING`` starts at 1% and moves into the state ``WON`` if the probability reaches 100%.
+    Typically a deal that is in ``PENDING`` starts at 1% and moves into the state ``WON`` if
+    the probability reaches 100%.
 
     .. code-block:: python
 
@@ -67,8 +70,8 @@ class DealCategory(MWRAPBase):
         Updates an existing deal category.
 
         :param category_id: Id of the deal category to update
-        :param name: Name of the deal category (must be unique)
-        :param probability: Deal category success probability (between 1 and 100)
+        :param name: Name of the deal category (must be unique) (default ``None``)
+        :param probability: Deal category success probability (between 1 and 100) (default ``None``)
 
         :type category_id: int
         :type name: str
@@ -97,9 +100,9 @@ class DealCategory(MWRAPBase):
         """
         Retrieves a list of a deal categories.
 
-        :param sort_by: Field to sort by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param sort_by: Field to sort by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type sort_by: str
         :type sort_order: str
