@@ -70,7 +70,7 @@ class Comment(MWRAPBase):
         Create a single comment.
 
         :param commentable_id: Id of the object to create the comment of (i.e the project id of the project we want to
-        comment on)
+            comment on)
         :param commentable_type: Type of object to create the comment for.
         :param text: Comment text
 

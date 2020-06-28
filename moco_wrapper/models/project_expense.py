@@ -3,11 +3,13 @@ import datetime
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
+
 class ProjectExpense(MWRAPBase):
     """
     Class for handling additional project expenses.
 
-    An example for this would be when a third part product (one time cost) is bought for a specific customer project and then get billed to the project to regain the cost.
+    An example for this would be when a third part product (one time cost) is bought for a specific customer project
+    and then get billed to the project to regain the cost.
 
     .. seealso::
 
@@ -35,21 +37,21 @@ class ProjectExpense(MWRAPBase):
         billable: bool = True,
         budget_relevant: bool = False,
         custom_properties: dict = None
-        ):
+    ):
         """
         Create a project expense.
 
         :param project_id: Id of the project to create the expense for
         :param expense_date: Date of the expense
         :param title: Expense title
-        :param quantity: Quantity (how much of ``unit`` was bought?) 
+        :param quantity: Quantity (how much of ``unit`` was bought?)
         :param unit: Name of the unit (What was bought for the customer/project?)
         :param unit_price: Price of the unit that will be billed to the customer/project
         :param unit_cost: Cost that we had to pay
-        :param description: Descripion of the expense
-        :param billable: If this expense billable (default True)
-        :param budget_relevant: If this expense is budget relevant (default False)
-        :param custom_properties: Additional fields as dictionary
+        :param description: Description of the expense (default ``None``)
+        :param billable: If this expense billable (default ``True``)
+        :param budget_relevant: If this expense is budget relevant (default ``False``)
+        :param custom_properties: Additional fields as dictionary (default ``None``)
 
         :type project_id: int
         :type expense_date: datetime.date, str
@@ -62,17 +64,18 @@ class ProjectExpense(MWRAPBase):
         :type billable: bool
         :type budget_relevant: bool
         :type custom_properties: dict
-        
+
         :returns: The created expense object
-        """ 
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        """
 
         data = {
             "date": expense_date,
-            "title" : title,
+            "title": title,
             "quantity": quantity,
-            "unit" : unit,
+            "unit": unit,
             "unit_price": unit_price,
-            "unit_cost" : unit_cost,
+            "unit_cost": unit_cost,
         }
 
         if isinstance(expense_date, datetime.date):
@@ -93,9 +96,9 @@ class ProjectExpense(MWRAPBase):
         self,
         project_id: int,
         items: list,
-        ):
+    ):
         """
-        Create an multiple expenses for a project.
+        Create multiple expenses for a project.
 
         :param project_id: Id of the project to created the expenses for
         :param items: Items to create bulk
@@ -104,16 +107,15 @@ class ProjectExpense(MWRAPBase):
         :type items: list
 
         :returns: The created entries
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
 
         .. seealso::
-
             :class:`moco_wrapper.util.generator.ProjectExpenseGenerator`
         """
-        
+
         data = {
-            "bulk_data" : items
+            "bulk_data": items
         }
-        
 
         return self._moco.post(API_PATH["project_expense_create_bulk"].format(project_id=project_id), data=data)
 
@@ -131,22 +133,22 @@ class ProjectExpense(MWRAPBase):
         billable: bool = None,
         budget_relevant: bool = None,
         custom_properties: dict = None
-        ):
+    ):
         """
         Update an existing project expense.
 
         :param project_id: Id of the project
         :param expense_id: id of the expense we want to update
-        :param expense_date: Date of the expense
-        :param title: Expense title
-        :param quantity: Quantity (how much of ``unit`` was bought?) 
-        :param unit: Name of the unit (What was bought for the customer/project?)
-        :param unit_price: Price of the unit that will be billed to the customer/project
-        :param unit_cost: Cost that we had to pay
-        :param description: Descripion of the expense
-        :param billable: If this expense billable (default True)
-        :param budget_relevant: If this expense is budget relevant (default False)
-        :param custom_properties: Additional fields as dictionary
+        :param expense_date: Date of the expense (default ``None``)
+        :param title: Expense title (default ``None``)
+        :param quantity: Quantity (how much of ``unit`` was bought?) (default ``None``)
+        :param unit: Name of the unit (What was bought for the customer/project?) (default ``None``)
+        :param unit_price: Price of the unit that will be billed to the customer/project (default ``None``)
+        :param unit_cost: Cost that we had to pay (default ``None``)
+        :param description: Description of the expense (default ``None``)
+        :param billable: If this expense billable (default ``None``)
+        :param budget_relevant: If this expense is budget relevant (default ``None``)
+        :param custom_properties: Additional fields as dictionary (default ``None``)
 
         :type project_id: int
         :type expense_id: int
@@ -162,6 +164,7 @@ class ProjectExpense(MWRAPBase):
         :type custom_properties: dict
 
         :returns: The updated expense object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {}
@@ -183,13 +186,14 @@ class ProjectExpense(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["project_expense_update"].format(project_id=project_id, expense_id=expense_id), data=data)
+        return self._moco.put(API_PATH["project_expense_update"].format(project_id=project_id, expense_id=expense_id),
+                              data=data)
 
     def delete(
         self,
         project_id: int,
         expense_id: int
-        ):
+    ):
         """
         Deletes an expense.
 
@@ -200,16 +204,18 @@ class ProjectExpense(MWRAPBase):
         :type expense_id: int
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
 
-        return self._moco.delete(API_PATH["project_expense_delete"].format(project_id=project_id, expense_id=expense_id))
+        return self._moco.delete(
+            API_PATH["project_expense_delete"].format(project_id=project_id, expense_id=expense_id))
 
     def disregard(
         self,
         project_id: int,
         expense_ids: list,
         reason: str
-        ):
+    ):
         """
         Disregard expenses
 
@@ -222,6 +228,7 @@ class ProjectExpense(MWRAPBase):
         :type reason: str
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
 
         Example usage:
 
@@ -230,20 +237,16 @@ class ProjectExpense(MWRAPBase):
             from moco_wrapper import Moco
 
             m = Moco()
-            project_id = 22
-            expense_ids_to_disregard = [444, 522, 893]
 
-            
             m.ProjectExpense.disregard(
-                project_id, 
-                expense_ids_to_disregard, 
-                "Expenses already billed"
+                project_id=22,
+                expense_ids=[444, 522, 893],
+                reason="Expenses already billed"
             )
         """
 
-
         data = {
-            "expense_ids" : expense_ids,
+            "expense_ids": expense_ids,
             "reason": reason
         }
 
@@ -256,15 +259,15 @@ class ProjectExpense(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Get a list of all expenses.
 
-        :param from_date: Start date
-        :param to_date: End date
-        :param sort_by: Sort results by field
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param from_date: Start date (default ``None``)
+        :param to_date: End date (default ``None``)
+        :param sort_by: Sort results by field (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type from_date: datetime.date, str
         :type to_date: datetime.date, str
@@ -273,6 +276,7 @@ class ProjectExpense(MWRAPBase):
         :type page: int
 
         :returns: List of expense objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
@@ -296,7 +300,7 @@ class ProjectExpense(MWRAPBase):
         self,
         project_id: int,
         expense_id: int
-        ):
+    ):
         """
         Retrieve a single expense object.
 
@@ -307,6 +311,7 @@ class ProjectExpense(MWRAPBase):
         :type expense_id: int
 
         :returns: Single expense object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         return self._moco.get(API_PATH["project_expense_get"].format(project_id=project_id, expense_id=expense_id))
@@ -317,14 +322,14 @@ class ProjectExpense(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve all expenses of a project.
 
         :param project_id: Id of the project
-        :param sort_by: Sort results by field
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param sort_by: Sort results by field (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type project_id: int
         :type sort_by: str
@@ -332,6 +337,7 @@ class ProjectExpense(MWRAPBase):
         :type page: int
 
         :returns: List of expense objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
@@ -346,4 +352,3 @@ class ProjectExpense(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["project_expense_getlist"].format(project_id=project_id), params=params)
-        
