@@ -62,26 +62,29 @@ With the moco wrapper object you can now interact with moco.
     leader = moco.Users.getlist().items[0]
     customer = moco.Company.getlist(type="customer").getlist().items[0]
     project = moco.Project.create(
-        "my new project",
-        "EUR",
-        leader.id,
-        customer.id,
-        date(2020, 1, 1)
+        name = "my new project",
+        currency = "EUR",
+        leader_id = leader.id,
+        customer_id = customer.id,
+        finish_date = date(2020, 1, 1)
     )
 
     # update a contact
-    moco.Contact.update(55123, lastname="doe")
+    moco.Contact.update(
+        contact_id = 55123,
+        lastname = "doe"
+    )
 
     # add a task to a project
     task = moco.Task.create(
-        project.id,
-        "My new task"
+        project_id = project.id,
+        name = "My new task"
     )
 
     # create a new customer
     new_customer = moco.Company.create(
-        "my new customer company",
-        moco_wrapper.models.company.CompanyType.CUSTOMER
+        name = "my new customer company",
+        company_type = moco_wrapper.models.company.CompanyType.CUSTOMER
     )
 
 For an overview about all the things that can and cannot be done see
@@ -136,7 +139,7 @@ After that you have to export the following variables
 The *mocotest_delay* variable will make sure that the api, does not rate limit our test-run
 by waiting 5 seconds between the execution of each single test.
 
-**Caution:** Make sure you run the integration tests (if you recreate the results) on a clean moco instance, 
+**Caution:** Make sure you run the integration tests (if you recreate the results) on a clean moco instance,
 as some requests (delete. create and update requests) have side effects, that cannot be reversed easily.
 
 Now that everything is set up we delete the saved responses and re-run the tests.
@@ -163,7 +166,7 @@ Credits
 -------
 
 This package was created with `Cookiecutter`_ and the `audreyr/cookiecutter-pypackage`_ project template.
-This package tries to imitate the way that the `praw-package`_, for wrapping arount the reddit api, was structured
+This package tries to imitate the way that the `praw-package`_, for wrapping around the reddit api, was structured
 
 .. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
