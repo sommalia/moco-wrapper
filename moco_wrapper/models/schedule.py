@@ -8,7 +8,8 @@ from enum import Enum
 
 class ScheduleAbsenceCode(int, Enum):
     """
-    Enumeration for allowed values of argument ``absence_code`` of :meth:`.Schedule.getlist`, :meth:`.Schedule.create` and :meth:`.Schedule.update`
+    Enumeration for allowed values of argument ``absence_code`` of :meth:`.Schedule.getlist`, :meth:`.Schedule.create`
+    and :meth:`.Schedule.update`.
 
     .. code-block:: python
 
@@ -30,7 +31,7 @@ class ScheduleAbsenceCode(int, Enum):
 
 class ScheduleSymbol(int, Enum):
     """
-    Enumeration for allowed values of argument ``symbol`` of :meth:`.Schedule.create` and :meth:`.Schedule.update`
+    Enumeration for allowed values of argument ``symbol`` of :meth:`.Schedule.create` and :meth:`.Schedule.update`.
 
     .. code-block:: python
 
@@ -90,19 +91,19 @@ class Schedule(MWRAPBase):
         absence_code: ScheduleAbsenceCode = None,
         sort_by: str = None,
         sort_order: str = 'asc',
-        page=1
+        page: int = 1
     ):
         """
         Retrieve all planned schedule items.
 
-        :param from_date: Start date
-        :param to_date: End date
-        :param user_id: user id the planned entries are belonging to
-        :param project_id: project id
-        :param absence_code: Type of absence
-        :param sort_by: Field to sort the results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param from_date: Start date (default ``None``)
+        :param to_date: End date (default ``None``)
+        :param user_id: user id the planned entries are belonging to (default ``None``)
+        :param project_id: project id (default ``None``)
+        :param absence_code: Type of absence (default ``None``)
+        :param sort_by: Field to sort the results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type from_date: datetime.date, str
         :type to_date: datetime.date, str
@@ -114,6 +115,7 @@ class Schedule(MWRAPBase):
         :type page: int
 
         :returns: List of schedule objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
@@ -148,6 +150,7 @@ class Schedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: Single schedule object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["schedule_get"].format(id=schedule_id))
 
@@ -167,14 +170,14 @@ class Schedule(MWRAPBase):
         Create a new schedule entry.
 
         :param schedule_date: date of the entry
-        :param project_id: Project id
-        :param absence_code: Type of absence
-        :param user_id: User id
-        :param am: Morning yes/no
-        :param pm: Afternoon yes/no
-        :param comment: Comment text
-        :param symbol: Symbol to use for the schedule item
-        :param overwrite: yes/no overwrite existing entry
+        :param project_id: Project id (default ``None``)
+        :param absence_code: Type of absence (default ``None``)
+        :param user_id: User id (default ``None``)
+        :param am: Morning yes/no (default ``None``)
+        :param pm: Afternoon yes/no (default ``None``)
+        :param comment: Comment text (default ``None``)
+        :param symbol: Symbol to use for the schedule item (default ``None``)
+        :param overwrite: yes/no overwrite existing entry (default ``None``)
 
         :type schedule_date: datetime.date, str
         :type project_id: int
@@ -187,9 +190,9 @@ class Schedule(MWRAPBase):
         :type overwrite: bool
 
         :returns: The created planning entry
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
 
         .. note::
-
             Define either ``project_id`` OR ``absence_code``, specify one, not both.
         """
 
@@ -237,13 +240,13 @@ class Schedule(MWRAPBase):
         Update a schedule entry.
 
         :param schedule_id: Id of the entry to update
-        :param project_id: Project id
-        :param absence_code: Type of absence
-        :param am: Morning yes/no
-        :param pm: Afternoon yes/no
-        :param comment: Comment text
-        :param symbol: Symbol to use for the schedule item
-        :param overwrite: yes/no overwrite existing entry
+        :param project_id: Project id (default ``None``)
+        :param absence_code: Type of absence (default ``None``)
+        :param am: Morning yes/no (default ``None``)
+        :param pm: Afternoon yes/no (default ``None``)
+        :param comment: Comment text (default ``None``)
+        :param symbol: Symbol to use for the schedule item (default ``None``)
+        :param overwrite: yes/no overwrite existing entry (default ``None``)
 
         :type schedule_id: int
         :type project_id: int
@@ -255,9 +258,9 @@ class Schedule(MWRAPBase):
         :type overwrite: bool
 
         :returns: The updated schedule entry
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
 
         .. note::
-
             Define either ``project_id`` OR ``absence_code``, specify one, not both.
         """
 
@@ -265,7 +268,7 @@ class Schedule(MWRAPBase):
             raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
 
         if absence_code is None and project_id is None:
-            raise ValueError("either abscence_code or project_id must be specified")
+            raise ValueError("either absence_code or project_id must be specified")
 
         data = {}
 
@@ -295,6 +298,7 @@ class Schedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: The deleted schedule object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         return self._moco.delete(API_PATH["schedule_delete"].format(id=schedule_id))
