@@ -3,10 +3,11 @@ import datetime
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
+
 class UserEmployment(MWRAPBase):
     """
-    Class for handling user employment schemes. 
-    
+    Class for handling user employment schemes.
+
     Every user has an employment entry, which defines how many hours every day he should be at work.
     """
 
@@ -21,16 +22,17 @@ class UserEmployment(MWRAPBase):
     def get(
         self,
         employment_id: int
-        ):
+    ):
         """
-        Retrieve a single employment
+        Retrieve a single employment:
 
         :param employment_id: Id of the employment
 
         :type employment_id: int
 
         :returns: Employment object
-        """ 
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        """
         return self._moco.get(API_PATH["employment_get"].format(id=employment_id))
 
     def getlist(
@@ -41,16 +43,16 @@ class UserEmployment(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
         Retrieve a list of employments.
 
-        :param from_date: Start date
-        :param to_date: End date
-        :param user_id: User id
-        :param sort_by: Field to sort results by
-        :param sort_order: asc or desc
-        :param page: Page number (default 1)
+        :param from_date: Start date (default ``None``)
+        :param to_date: End date (default ``None``)
+        :param user_id: User id (default ``None``)
+        :param sort_by: Field to sort results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type from_date: datetime.date, str
         :type to_date: datetime.date, str
@@ -60,6 +62,7 @@ class UserEmployment(MWRAPBase):
         :type page: int
 
         :returns: List of employment objects
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
@@ -79,4 +82,3 @@ class UserEmployment(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["employment_getlist"], params=params)
-        
