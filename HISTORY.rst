@@ -2,6 +2,16 @@
 History
 =======
 
+0.8.0 (2020-06-28)
+------------------
+
+* New Readme
+* Add return types to documentation (for default configuration of moco instance only)
+* Implement Purchase model
+* Allow overwrite of http headers from model classes
+* Fix some typos in method names (offer item generator) and parameter (user holidays)
+
+
 0.7.2 (2020-06-05)
 ------------------
 
