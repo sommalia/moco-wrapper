@@ -146,7 +146,7 @@ class TestMocoWrapper(UnitTest):
         for key, value in requestor_args:
             if key == "headers":
                 headers = value
-                assert headers["content-type"] == my_content_type
+                assert headers["Content-Type"] == my_content_type
 
     def test_header_append(self):
         additional_header = "this header is new"

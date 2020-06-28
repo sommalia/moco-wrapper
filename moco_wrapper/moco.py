@@ -152,7 +152,7 @@ class Moco(object):
         if "headers" in kwargs.keys():
             print(kwargs["headers"])
             for key, value in kwargs["headers"].items():
-                headers[key.lower()] = value
+                headers[key] = value
 
             print(headers)
             del kwargs["headers"]
@@ -243,8 +243,8 @@ class Moco(object):
         Returns all http headers to be used by the assigned requestor
         """
         headers = {
-            'content-type': 'application/json',
-            'authorization': 'Token token={}'.format(self.api_key)
+            'Content-Type': 'application/json',
+            'Authorization': 'Token token={}'.format(self.api_key)
         }
 
         if self._impersonation_user_id is not None:
