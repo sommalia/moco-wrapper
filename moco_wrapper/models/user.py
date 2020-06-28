@@ -3,8 +3,6 @@ import datetime
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
-from enum import Enum
-
 
 class User(MWRAPBase):
     """
@@ -44,15 +42,16 @@ class User(MWRAPBase):
         :param email: Email address
         :param password: Password to use when creating the user
         :param unit_id: Id of the unit/team the user belongs to
-        :param active: If the user should be activated or not
-        :param external: If the user is an employee or an external employee (his user id will now show up in reports etc.)
-        :param language: de, de-AT, de-CH, en, it or fr
-        :param mobile_phone: Mobile phone number
-        :param work_phone: Work phone number
-        :param home_address: Phyical home address
-        :param birthday: Birthday date
-        :param custom_properties: Custom fields to add to the user
-        :param info: Additional information about the user
+        :param active: If the user should be activated or not (default ``None``)
+        :param external: If the user is an employee or an external employee
+            (his user id will now show up in reports etc.) (default ``None``)
+        :param language: de, de-AT, de-CH, en, it or fr (default ``None``)
+        :param mobile_phone: Mobile phone number (default ``None``)
+        :param work_phone: Work phone number (default ``None``)
+        :param home_address: Physical home address (default ``None``)
+        :param birthday: Birthday date (default ``None``)
+        :param custom_properties: Custom fields to add to the user (default ``None``)
+        :param info: Additional information about the user (default ``None``)
 
         :type firstname: str
         :type lastname: str
@@ -70,6 +69,7 @@ class User(MWRAPBase):
         :type info: str
 
         :returns: The created user object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {
@@ -122,20 +122,21 @@ class User(MWRAPBase):
         Updates an existing user.
 
         :param user_id: the Id of the user
-        :param firstname: First name of the user
-        :param lastname: Last name of the user
-        :param email: Email address
-        :param password: Password to use when creating the user
-        :param unit_id: Id of the unit/team the user belongs to
-        :param active: If the user should be activated or not
-        :param external: If the user is an employee or an external employee (his user id will now show up in reports etc.)
-        :param language: de, de-AT, de-CH, en, it or fr
-        :param mobile_phone: Mobile phone number
-        :param work_phone: Work phone number
-        :param home_address: Physical home address
-        :param birthday: Birthday date
-        :param custom_properties: Custom fields to add to the user
-        :param info: Additional information abotu the user
+        :param firstname: First name of the user (default ``None``)
+        :param lastname: Last name of the user (default ``None``)
+        :param email: Email address (default ``None``)
+        :param password: Password to use when creating the user (default ``None``)
+        :param unit_id: Id of the unit/team the user belongs to (default ``None``)
+        :param active: If the user should be activated or not (default ``None``)
+        :param external: If the user is an employee or an external employee
+            (his user id will now show up in reports etc.) (default ``None``)
+        :param language: de, de-AT, de-CH, en, it or fr (default ``None``)
+        :param mobile_phone: Mobile phone number (default ``None``)
+        :param work_phone: Work phone number (default ``None``)
+        :param home_address: Physical home address (default ``None``)
+        :param birthday: Birthday date (default ``None``)
+        :param custom_properties: Custom fields to add to the user (default ``None``)
+        :param info: Additional information about the user (default ``None``)
 
         :type user_id: int
         :type firstname: str
@@ -154,7 +155,7 @@ class User(MWRAPBase):
         :type info: str
 
         :returns: The updated user object
-
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {}
         for key, value in (
@@ -179,7 +180,6 @@ class User(MWRAPBase):
                 else:
                     data[key] = value
 
-        # check if length > 0 TODO
         return self._moco.put(API_PATH["user_update"].format(id=user_id), data=data)
 
     def delete(
@@ -194,6 +194,7 @@ class User(MWRAPBase):
         :type user_id: int
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
 
         return self._moco.delete(API_PATH["user_delete"].format(id=user_id))
@@ -210,6 +211,7 @@ class User(MWRAPBase):
         :type user_id: int
 
         :returns: Single user object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["user_get"].format(id=user_id))
 
@@ -223,10 +225,10 @@ class User(MWRAPBase):
         """
         Get a list of users.
 
-        :param include_archived: Include archived users in the list
-        :param sort_by: Sort by key
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param include_archived: Include archived users in the list (default ``None``)
+        :param sort_by: Sort by key (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type include_archived: bool
         :type sort_by: str
@@ -234,6 +236,7 @@ class User(MWRAPBase):
         :type page: int
 
         :returns: List of users
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
