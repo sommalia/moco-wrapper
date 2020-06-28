@@ -55,7 +55,9 @@ With the moco wrapper object you can now interact with moco.
     # load a list of users
     users = moco.Users.getlist().items
 
-    # load the second page of our list of users (requests with lists are paginated (default limit is 100 items per request)
+    # load the second page of our list of users
+    # requests with lists are paginated
+    # default limit is 100 items per request
     user = moco.Users.getlist(page=2).items
 
     # create a project
