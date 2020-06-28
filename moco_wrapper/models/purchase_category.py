@@ -1,5 +1,3 @@
-import datetime
-
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -22,13 +20,14 @@ class PurchaseCategory(MWRAPBase):
         category_id: int
     ):
         """
-        Retrieve a single category
+        Retrieve a single category.
 
         :param category_id: Id of the category to retrieve
 
         :type category_id: int
 
         :returns: Single Category object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         return self._moco.get(API_PATH["purchase_category_get"].format(id=category_id))
@@ -37,20 +36,21 @@ class PurchaseCategory(MWRAPBase):
         self,
         sort_by: str = None,
         sort_order: str = 'asc',
-        page=1
+        page: int = 1
     ):
         """
-        Retrieve a list of catogories
+        Retrieve a list of categories.
 
-        :param sort_by: Sort by field
-        :param sort_order: asc or desc
-        :param page: Page number
+        :param sort_by: Sort by field (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type sort_by: str
         :type sort_order: str
         :type page: int
 
         :returns: List of categories
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {

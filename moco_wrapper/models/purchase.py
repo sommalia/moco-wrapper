@@ -7,9 +7,10 @@ from enum import Enum
 from base64 import b64encode
 from os.path import basename
 
+
 class PurchaseStatus(str, Enum):
     """
-    Enumeration for the allowed values that can be supplied for the``status`` argument of
+    Enumeration for the allowed values that can be supplied for the ``status`` argument of
     :meth:`.Purchase.update_status`.
 
     Example usage:
@@ -58,6 +59,7 @@ class PurchaseFile(object):
     """
     Helper class for handling files in :meth:`.Purchase.create` and :meth:`.Purchase.store_document`.
     """
+
     def __init__(self, file_path, file_name=None):
         """
         Class Constructor
@@ -69,7 +71,6 @@ class PurchaseFile(object):
         :type file_name: str
 
         .. node::
-
             When not supplying a ``file_name``, the basename of the file will be used
         """
         self.path = file_path
@@ -82,7 +83,7 @@ class PurchaseFile(object):
 
     def to_base64(self):
         """
-        Converts the content of the file to its base64 representation
+        Converts the content of the file to its base64 representation.
 
         :returns: File content as base64
         :rtype: str
@@ -93,7 +94,7 @@ class PurchaseFile(object):
     @classmethod
     def load(cls, path):
         """
-        Helper method to create a :class:`.PurchaseFile` object from a path
+        Helper method to create a :class:`.PurchaseFile` object from a path.
 
         :returns: :class:`.PurchaseFile` object
         :rtype: :class:`.PurchaseFile`
@@ -127,7 +128,7 @@ class Purchase(MWRAPBase):
         page: int = 1
     ):
         """
-        Retrieve a list of purchases
+        Retrieve a list of purchases.
 
         :param purchase_id: Id of the purchase (default ``None``)
         :param category_id: Id of the category the purchase belongs to  (default ``None``)
@@ -135,8 +136,10 @@ class Purchase(MWRAPBase):
         :param company_id: Company id of the supplier (default ``None``)
         :param status: Status of the purchases
         :param tags: List of tags (default ``None``)
-        :param start_date: Start date filter (if ``start_date`` is supplied, ``end_date`` must also be supplied) (default ``None``)
-        :param end_date: End date filter (if ``end_date`` is supplied, ``start_date`` must also be supplied) (default ``None``)
+        :param start_date: Start date filter
+            (if ``start_date`` is supplied, ``end_date`` must also be supplied) (default ``None``)
+        :param end_date: End date filter
+            (if ``end_date`` is supplied, ``start_date`` must also be supplied) (default ``None``)
         :param unpaid: Filter only purchases without a payment (default ``None``)
         :param sort_by: Field to sort results by (default ``None``)
         :param sort_order: asc or desc (default ``"asc"``)
@@ -205,7 +208,7 @@ class Purchase(MWRAPBase):
         purchase_id: int
     ):
         """
-        Retrieve a single purchase
+        Retrieve a single purchase.
 
         :param purchase_id: The id of the purchase
 
@@ -235,7 +238,7 @@ class Purchase(MWRAPBase):
         tags: list = None
     ):
         """
-        Create a new purchase
+        Create a new purchase.
 
         :param purchase_date: Date of the purchase
         :param currency: Currency
@@ -298,7 +301,7 @@ class Purchase(MWRAPBase):
         ):
             if value is not None:
                 # check if value is a date
-                if isinstance(value, datetime.date) and key in ["due_date", "service_period_from", "service_period_to"]:
+                if key in ["due_date", "service_period_from", "service_period_to"] and isinstance(value, datetime.date):
                     data[key] = self._convert_date_to_iso(value)
                 elif isinstance(value, PurchaseFile):  # check if value is a file
                     data[key] = {
@@ -315,7 +318,7 @@ class Purchase(MWRAPBase):
         purchase_id: int
     ):
         """
-        Deletes a purchase
+        Deletes a purchase.
 
         :param purchase_id: Id of the purchase to delete
 
@@ -325,8 +328,8 @@ class Purchase(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
 
         .. warning::
-            Deletion of a purchase is only possible if the state of the purchase is ``PENDING`` and no payments
-            have been registered to the purchase yet
+            Deletion of a purchase is only possible if the state of the purchase is :attr:`.PurchaseStatus.PENDING`
+            and no payments have been registered to the purchase yet
 
         """
         return self._moco.delete(API_PATH["purchase_delete"].format(id=purchase_id))
@@ -337,7 +340,7 @@ class Purchase(MWRAPBase):
         status: PurchaseStatus,
     ):
         """
-        Updates the state of a purchase
+        Updates the state of a purchase.
 
         :param purchase_id: Id of the purchase to update
         :param status: New status
@@ -360,7 +363,7 @@ class Purchase(MWRAPBase):
         file,
     ):
         """
-        Stores the document for a purchase
+        Stores the document for a purchase.
 
         :param purchase_id: Id of the purchase
         :param file: Purchase file
