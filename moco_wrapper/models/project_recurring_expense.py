@@ -5,6 +5,7 @@ from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
+
 class ProjectRecurringExpensePeriod(str, Enum):
     """
     Enumeration for allowed values of ``period`` argument of :meth:`.ProjectRecurringExpense.create`.
@@ -30,14 +31,15 @@ class ProjectRecurringExpensePeriod(str, Enum):
     BIANNUAL = "biannual"
     ANNUAL = "annual"
 
+
 class ProjectRecurringExpense(MWRAPBase):
     """
     Class for handling recurring expenses of a project.
 
-    An example for this would be when a third part subscription (repeat cost) is bought for a specific customer project and then get billed to the project to regain the cost.
+    An example for this would be when a third part subscription (repeat cost) is bought for a specific customer project
+    and then get billed to the project to regain the cost.
 
     .. seealso::
-
         :class:`moco_wrapper.models.ProjectExpense` for one time expenses.
     """
 
@@ -55,14 +57,14 @@ class ProjectRecurringExpense(MWRAPBase):
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
-        ):
+    ):
         """
-        Retrieve a list of recurring expenses for a project
+        Retrieve a list of recurring expenses for a project.
 
         :param project_id: Id of the project the expenses belong to
-        :param sort_by: Field to sort results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param sort_by: Field to sort results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type project_id: int
         :type sort_by: str
@@ -70,6 +72,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type page: int
 
         :returns: List of recurring expenses
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
 
@@ -82,32 +85,35 @@ class ProjectRecurringExpense(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_recurring_expense_getlist"].format(project_id=project_id), params=params)
+        return self._moco.get(API_PATH["project_recurring_expense_getlist"].format(project_id=project_id),
+                              params=params)
 
     def get(
         self,
         project_id: int,
         recurring_expense_id: int,
-        ):
+    ):
         """
         Retrieve a single recurring expense
 
-        :param project_id: Id of the project the expesen belongs to
+        :param project_id: Id of the project the expense belongs to
         :param recurring_expense_id: iI of the recurring expense
 
         :type project_id: int
         :type recurring_expense_id: int
 
         :returns: Single recurring expense object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
-        return self._moco.get(API_PATH["project_recurring_expense_get"].format(project_id=project_id, recurring_expense_id=recurring_expense_id))
+        return self._moco.get(API_PATH["project_recurring_expense_get"]
+                              .format(project_id=project_id, recurring_expense_id=recurring_expense_id))
 
     def create(
         self,
         project_id: int,
         start_date: datetime.date,
         period: ProjectRecurringExpensePeriod,
-        title: str, 
+        title: str,
         quantity: float,
         unit: str,
         unit_price: float,
@@ -117,7 +123,7 @@ class ProjectRecurringExpense(MWRAPBase):
         billable: bool = True,
         budget_relevant: bool = False,
         custom_properties: dict = None,
-        ):
+    ):
         """
         Create a new recurring expense for a project.
 
@@ -125,15 +131,15 @@ class ProjectRecurringExpense(MWRAPBase):
         :param start_date: Starting date of the expense
         :param period: period of the expense
         :param title: Title of the expense
-        :param quantity: Quantity (how much of ``unit`` was bought?) 
+        :param quantity: Quantity (how much of ``unit`` was bought?)
         :param unit: Name of the unit (What was bought for the customer/project?)
         :param unit_price: Price of the unit that will be billed to the customer/project
         :param unit_cost: Cost that we had to pay
-        :param finish_date: Finish date, (if empty: unlimited)
-        :param description: Descripion of the expense
-        :param billable: If this expense billable (default True)
-        :param budget_relevant: If this expense is budget relevant (default False)
-        :param custom_properties: Additional fields as dictionary
+        :param finish_date: Finish date, (if None: unlimited) (default ``None``)
+        :param description: Description of the expense (default ``None``)
+        :param billable: If this expense billable (default ``True``)
+        :param budget_relevant: If this expense is budget relevant (default ``False``)
+        :param custom_properties: Additional fields as dictionary (default ``None``)
 
         :type project_id: int
         :type start_date: datetime.date, str
@@ -150,6 +156,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type custom_properties: dict
 
         :returns: The created recurring expense object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {
             "start_date": start_date,
@@ -184,7 +191,7 @@ class ProjectRecurringExpense(MWRAPBase):
         self,
         project_id: int,
         recurring_expense_id: int,
-        title: str = None, 
+        title: str = None,
         quantity: float = None,
         unit: str = None,
         unit_price: float = None,
@@ -194,21 +201,22 @@ class ProjectRecurringExpense(MWRAPBase):
         billable: bool = None,
         budget_relevant: bool = None,
         custom_properties: dict = None,
-        ):
+    ):
         """
         Update an existing recurring expense.
 
         :param project_id: Id of the project
         :param recurring_expense_id: Id of the recurring expense to update
-        :param title: Title of the expense
-        :param quantity: Quantity (how much of ``unit`` was bought?) 
-        :param unit: Name of the unit (What was bought for the customer/project?)
-        :param unit_price: Price of the unit that will be billed to the customer/project
-        :param unit_cost: Cost that we had to pay
-        :param finish_date: Finish date, (if empty: unlimited)
-        :param description: Descripion of the expense
-        :param billable: If this expense billable
-        :param custom_properties: Additional fields as dictionary
+        :param title: Title of the expense (default ``None``)
+        :param quantity: Quantity (how much of ``unit`` was bought?) (default ``None``)
+        :param unit: Name of the unit (What was bought for the customer/project?) (default ``None``)
+        :param unit_price: Price of the unit that will be billed to the customer/project (default ``None``)
+        :param unit_cost: Cost that we had to pay (default ``None``)
+        :param finish_date: Finish date, (if None: unlimited) (default ``None``)
+        :param description: Description of the expense (default ``None``)
+        :param billable: If this expense billable (default ``None``)
+        :param budget_relevant: If this expense is budget relevant (default ``None``)
+        :param custom_properties: Additional fields as dictionary (default ``None``)
 
         :type project_id: int
         :type recurring_expense_id: int
@@ -223,6 +231,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type custom_properties: dict
 
         :returns: The updated recurring expense object
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {}
         for key, value in (
@@ -243,13 +252,14 @@ class ProjectRecurringExpense(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["project_recurring_expense_update"].format(project_id=project_id, recurring_expense_id=recurring_expense_id), data=data)
+        return self._moco.put(API_PATH["project_recurring_expense_update"]
+                              .format(project_id=project_id, recurring_expense_id=recurring_expense_id), data=data)
 
     def delete(
         self,
         project_id: int,
         recurring_expense_id: int,
-        ):
+    ):
         """
         Deletes an existing recurring expense.
 
@@ -260,5 +270,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type recurring_expense_id: int
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
-        return self._moco.delete(API_PATH["project_recurring_expense_delete"].format(project_id=project_id, recurring_expense_id=recurring_expense_id))
+        return self._moco.delete(API_PATH["project_recurring_expense_delete"]
+                                 .format(project_id=project_id, recurring_expense_id=recurring_expense_id))
