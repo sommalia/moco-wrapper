@@ -1,6 +1,5 @@
 import requests
 import time
-import collections
 
 from moco_wrapper.util.requestor.base import BaseRequestor
 from moco_wrapper.util.response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
@@ -10,11 +9,11 @@ class DefaultRequestor(BaseRequestor):
     """
     Default Requestor class that is used by the :class:`moco_wrapper.Moco` instance.
 
-    When the default requests requests a resources and it sees the error code 429 (too many requests), it waits a bit and then tries the request again.
-    If you do not want that behaviour, use :class:`moco_wrapper.util.requestor.NoRetryRequestor`.
+    When the default requestor requests a resources and it sees the error code 429 (too many requests),
+    it waits a bit and then tries the request again. If you do not want that behaviour, use
+    :class:`moco_wrapper.util.requestor.NoRetryRequestor`.
 
     .. seealso::
-
         :class:`moco_wrapper.util.requestor.NoRetryRequestor`
     """
 
@@ -54,15 +53,24 @@ class DefaultRequestor(BaseRequestor):
         """
         return self._session
 
-    def request(self, method, path, params=None, data=None, delay_ms=0, **kwargs):
+    def request(
+        self,
+        method: str,
+        path: str,
+        params: dict = None,
+        data: dict = None,
+        delay_ms: float = 0,
+        **kwargs
+    ):
         """
-        Request the given resource
+        Request the given resource.
 
         :param method: HTTP Method (eg. POST, GET, PUT, DELETE)
         :param path: Path of the resource (e.g. ``/projects``)
-        :param params: Url parameters (e.g. ``page=1``, query parameters)
-        :param data: Dictionary with data (http body)
-        :param delay_ms: Delay in milliseconds the requestor should wait before sending the request (used for retrying, default 0)
+        :param params: Url parameters (e.g. ``page=1``, query parameters) (default ``None``)
+        :param data: Dictionary with data (http body) (default ``None``)
+        :param delay_ms: Delay in milliseconds the requestor should wait before sending the request
+            (used for retrying, default ``0``)
         :param kwargs: Additional http arguments.
 
         :type method: str
@@ -132,8 +140,8 @@ class DefaultRequestor(BaseRequestor):
             response_obj = ErrorResponse(response)
             if response_obj.is_recoverable:
                 # error is recoverable, try the resource again
-                return self.request(method, path, params=params, data=data, delay_ms=self.delay_milliseconds_on_error,
-                                    **kwargs)
+                return self.request(method, path, params=params, data=data,
+                                    delay_ms=self.delay_milliseconds_on_error, **kwargs)
 
             # error is not recoverable
             return response_obj
