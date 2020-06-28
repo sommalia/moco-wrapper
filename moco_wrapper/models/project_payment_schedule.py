@@ -8,7 +8,8 @@ class ProjectPaymentSchedule(MWRAPBase):
     """
     Class for handling billing schedules for fixed price projects.
 
-    Fixed Price projects can have a target date they should be billed on (in the future). With this class you can create this target entry (and how much should be billed).
+    Fixed Price projects can have a target date they should be billed on (in the future). With this class you can
+    create this target entry (and how much should be billed).
 
     For Example you can create a project that will be billed in four (4) steps over the year.
 
@@ -18,15 +19,13 @@ class ProjectPaymentSchedule(MWRAPBase):
         from datetime import date
 
         m = Moco()
-        leader_id = 1
-        customer_id = 2
 
-        #create fixed price projects
+        # create fixed price project
         project = m.Project.create(
-            "my fixed price project",
-            "EUR",
-            leader_id,
-            customer_id,
+            name="my fixed price project",
+            currency="EUR",
+            leader_id=1,
+            customer_id=2,
             fixed_price=True,
             budget=4000
         ).data
@@ -37,7 +36,6 @@ class ProjectPaymentSchedule(MWRAPBase):
         fourth_payment = m.ProjectPaymentSchedule.create(project.id, 1000.0, date(2020, 12, 1))
 
     .. seealso::
-
         :meth:`moco_wrapper.models.Project.create`
     """
 
@@ -63,16 +61,17 @@ class ProjectPaymentSchedule(MWRAPBase):
         :param project_id: The id of the project the entry belongs to
         :param net_total: How much should be billed on this schedule
         :param schedule_date: Date of the entry
-        :param title: Title string
-        :param checked: Mark entry as checked (the entry will be crossed out in the UI)
+        :param title: Title string (default ``None``)
+        :param checked: Mark entry as checked (the entry will be crossed out in the UI) (default ``False``)
 
         :type project_id: int
         :type net_total: float
         :type schedule_date: datetime.date, str
         :type title: str
-        :type checkecd: bool
+        :type checked: bool
 
         :returns: The created schedule item
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {
@@ -107,10 +106,10 @@ class ProjectPaymentSchedule(MWRAPBase):
 
         :param project_id: Project id the schedule item belongs to
         :param schedule_id: Id of the schedule item to update
-        :param net_total: Total amount to be billed
-        :param schedule_date: Date the billing will take place
-        :param title: Title of the item
-        :param checked: Mark entry as checked (the entry will be crossed out in the UI)
+        :param net_total: Total amount to be billed (default ``None``)
+        :param schedule_date: Date the billing will take place (default ``None``)
+        :param title: Title of the item (default ``None``)
+        :param checked: Mark entry as checked (the entry will be crossed out in the UI) (default ``None``)
 
         :type project_id: int
         :type schedule_id: int
@@ -120,6 +119,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type checked: bool
 
         :returns: The updated schedule item
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {}
 
@@ -154,6 +154,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: The schedule item
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         return self._moco.get(
@@ -170,9 +171,9 @@ class ProjectPaymentSchedule(MWRAPBase):
         Retrieve a list of project payment schedules
 
         :param project_id: Project id of the schedule items
-        :param sort_by: Field to sort the results by
-        :param sort_order: asc or desc
-        :param page: Page number (default 1)
+        :param sort_by: Field to sort the results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type project_id: int
         :type sort_by: str
@@ -180,6 +181,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type page: int
 
         :returns: List of schedules payments
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
 
         params = {}
@@ -210,6 +212,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: The deleted response on success
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         return self._moco.delete(
