@@ -26,9 +26,9 @@ class ProjectTask(MWRAPBase):
         Retrieve a list of tasks for a project.
 
         :param project_id: Id of the project
-        :param sort_by: Field to sort results by
-        :param sort_order: asc or desc (default asc)
-        :param page: Page number (default 1)
+        :param sort_by: Field to sort results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type project_id: int
         :type sort_by: str
@@ -36,6 +36,7 @@ class ProjectTask(MWRAPBase):
         :type page: int
 
         :returns: List of project tasks
+        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
         """
         params = {}
 
@@ -65,6 +66,7 @@ class ProjectTask(MWRAPBase):
         :type task_id: int
 
         :returns: Single project task
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         return self._moco.get(API_PATH["project_task_get"].format(project_id=project_id, task_id=task_id))
 
@@ -82,10 +84,10 @@ class ProjectTask(MWRAPBase):
 
         :param project_id: Id of the project the created task will belong to
         :param name: Name of the task
-        :param billable: If this expense billable (default True)
-        :param active: If this expense active (default True)
-        :param budget: Budget for the task (e.g. 200.75)
-        :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5)
+        :param billable: If this expense billable (default ``True``)
+        :param active: If this expense active (default ``True``)
+        :param budget: Budget for the task (e.g. 200.75) (default ``None``)
+        :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5) (default ``None``)
 
         :type project_id: int
         :type name: str
@@ -95,6 +97,7 @@ class ProjectTask(MWRAPBase):
         :type hourly_rate: float
 
         :returns: The created project task
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {
             "name": name
@@ -126,11 +129,11 @@ class ProjectTask(MWRAPBase):
 
         :param project_id: Id of the project the task belongs to
         :param task_id: Id of the task to update
-        :param name: Name of the task
-        :param billable: If this expense billable (default True)
-        :param active: If this expense active (default True)
-        :param budget: Budget for the task (e.g. 200.75)
-        :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5)
+        :param name: Name of the task (default ``None``)
+        :param billable: If this expense billable (default ``None``)
+        :param active: If this expense active (default ``None``)
+        :param budget: Budget for the task (e.g. 200.75) (default ``None``)
+        :param hourly_rate: How much is the hourly rate for the task (e.g.: 120.5) (default ``None``)
 
         :type project_id: int
         :type task_id: int
@@ -141,6 +144,7 @@ class ProjectTask(MWRAPBase):
         :type hourly_rate: float
 
         :returns: The updated project task
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
         data = {}
         for key, value in (
@@ -161,7 +165,7 @@ class ProjectTask(MWRAPBase):
         task_id: int
     ):
         """
-        Delete project task
+        Delete project task.
 
         :param project_id: Id of the project the task belongs to
         :param task_id: Id of the task to delete
@@ -170,6 +174,7 @@ class ProjectTask(MWRAPBase):
         :type task_id: int
 
         :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
 
         .. note::
 
