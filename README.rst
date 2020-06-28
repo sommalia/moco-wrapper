@@ -46,7 +46,7 @@ If you already have credentials or an api key you can instantiate your moco-wrap
     moco = moco_wrapper.Moco(auth={
         "api_key": "[MY API KEY]",
         "domain": "example" # domain of the moco webapp is example.mocoapp.com
-    }
+    })
 
 With the moco wrapper object you can now interact with moco.
 
