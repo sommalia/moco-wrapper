@@ -1,12 +1,14 @@
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
+
 class Session(MWRAPBase):
     """
-    Class for handling authentication against the moco api with a users email address and password
+    Class for handling authentication against the moco api with a users email address and password.
 
-    This model is internally when the moco instance is created with no api key in the authentication object and will be invoked before the first request is fired.
-    """ 
+    This model is used internally when the moco instance is created with no api key in the authentication object and
+    will be invoked before the first request is fired.
+    """
 
     def __init__(self, moco):
         """
@@ -18,11 +20,11 @@ class Session(MWRAPBase):
 
     def authenticate(
         self,
-        email: str, 
+        email: str,
         password: str
-        ):
+    ):
         """
-        Authenticates the client with email and password
+        Authenticates the client with email and password.
 
         :param email: Email address
         :param password: Password
@@ -31,6 +33,7 @@ class Session(MWRAPBase):
         :type password: str
 
         :returns: Authentication information
+        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
         """
 
         data = {
