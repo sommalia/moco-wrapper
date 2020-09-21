@@ -60,18 +60,16 @@ class ScheduleAssignmentType(object):
     """
     Enumeration for types of schedules that can exist.
     """
-
-    PROJECT = "Project"
     ABSENCE = "Absence"
 
 
 class Schedule(MWRAPBase):
     """
-    Class for handling user schedules (Old Planning and Absences).
+    Class for handling user absences.
 
     .. note::
 
-        For handling planning the new way, use the :class:`moco_wrapper.models.PlanningEntry`
+        For handling planning, use the :class:`moco_wrapper.models.PlanningEntry`
     """
 
     def __init__(self, moco):
@@ -87,7 +85,6 @@ class Schedule(MWRAPBase):
         from_date: datetime.date = None,
         to_date: datetime.date = None,
         user_id: int = None,
-        project_id: int = None,
         absence_code: ScheduleAbsenceCode = None,
         sort_by: str = None,
         sort_order: str = 'asc',
@@ -99,7 +96,6 @@ class Schedule(MWRAPBase):
         :param from_date: Start date (default ``None``)
         :param to_date: End date (default ``None``)
         :param user_id: user id the planned entries are belonging to (default ``None``)
-        :param project_id: project id (default ``None``)
         :param absence_code: Type of absence (default ``None``)
         :param sort_by: Field to sort the results by (default ``None``)
         :param sort_order: asc or desc (default ``"asc"``)
@@ -108,7 +104,6 @@ class Schedule(MWRAPBase):
         :type from_date: datetime.date, str
         :type to_date: datetime.date, str
         :type user_id: int
-        :type project_id: int
         :type absence_code: :class:`.ScheduleAbsenceCode`, int
         :type sort_by: str
         :type sort_order: str
@@ -123,7 +118,6 @@ class Schedule(MWRAPBase):
             ("from", from_date),
             ("to", to_date),
             ("user_id", user_id),
-            ("project_id", project_id),
             ("absence_code ", absence_code),
             ("page", page),
         ):
@@ -157,8 +151,7 @@ class Schedule(MWRAPBase):
     def create(
         self,
         schedule_date: datetime.date,
-        project_id: int = None,
-        absence_code: ScheduleAbsenceCode = None,
+        absence_code: ScheduleAbsenceCode,
         user_id: int = None,
         am: bool = None,
         pm: bool = None,
@@ -170,8 +163,7 @@ class Schedule(MWRAPBase):
         Create a new schedule entry.
 
         :param schedule_date: date of the entry
-        :param project_id: Project id (default ``None``)
-        :param absence_code: Type of absence (default ``None``)
+        :param absence_code: Type of absence
         :param user_id: User id (default ``None``)
         :param am: Morning yes/no (default ``None``)
         :param pm: Afternoon yes/no (default ``None``)
@@ -180,7 +172,6 @@ class Schedule(MWRAPBase):
         :param overwrite: yes/no overwrite existing entry (default ``None``)
 
         :type schedule_date: datetime.date, str
-        :type project_id: int
         :type absence_code: :class:`.ScheduleAbsenceCode`, int
         :type user_id: int
         :type am: bool
@@ -191,18 +182,10 @@ class Schedule(MWRAPBase):
 
         :returns: The created planning entry
         :rtype: :class:`moco_wrapper.util.response.JsonResponse`
-
-        .. note::
-            Define either ``project_id`` OR ``absence_code``, specify one, not both.
         """
 
-        if absence_code is not None and project_id is not None:
-            raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-
-        if absence_code is None and project_id is None:
-            raise ValueError("Either abscence_code or project_id must be specified")
-
         data = {
+            "absence_code": absence_code,
             "date": schedule_date
         }
 
@@ -211,8 +194,6 @@ class Schedule(MWRAPBase):
                 data[date_key] = self._convert_date_to_iso(data[date_key])
 
         for key, value in (
-            ("project_id", project_id),
-            ("absence_code", absence_code),
             ("user_id", user_id),
             ("am", am),
             ("pm", pm),
@@ -228,7 +209,6 @@ class Schedule(MWRAPBase):
     def update(
         self,
         schedule_id: int,
-        project_id: int = None,
         absence_code: ScheduleAbsenceCode = None,
         am: bool = None,
         pm: bool = None,
@@ -240,7 +220,6 @@ class Schedule(MWRAPBase):
         Update a schedule entry.
 
         :param schedule_id: Id of the entry to update
-        :param project_id: Project id (default ``None``)
         :param absence_code: Type of absence (default ``None``)
         :param am: Morning yes/no (default ``None``)
         :param pm: Afternoon yes/no (default ``None``)
@@ -249,7 +228,6 @@ class Schedule(MWRAPBase):
         :param overwrite: yes/no overwrite existing entry (default ``None``)
 
         :type schedule_id: int
-        :type project_id: int
         :type absence_code: :class:`.ScheduleAbsenceCode`, int
         :type am: bool
         :type pm: bool
@@ -259,21 +237,10 @@ class Schedule(MWRAPBase):
 
         :returns: The updated schedule entry
         :rtype: :class:`moco_wrapper.util.response.JsonResponse`
-
-        .. note::
-            Define either ``project_id`` OR ``absence_code``, specify one, not both.
         """
-
-        if absence_code is not None and project_id is not None:
-            raise ValueError("absence_code and project_id are mutually exclusive (specify one, not both)")
-
-        if absence_code is None and project_id is None:
-            raise ValueError("either absence_code or project_id must be specified")
-
         data = {}
 
         for key, value in (
-            ("project_id", project_id),
             ("absence_code", absence_code),
             ("am", am),
             ("pm", pm),
