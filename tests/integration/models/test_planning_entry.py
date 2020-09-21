@@ -9,8 +9,8 @@ class TestPlanningEntry(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestPlanningEntry.get_customer"):
             customer = self.moco.Company.create(
-                "Dummy company, planning entry",
-                CompanyType.CUSTOMER
+                name="Dummy company, planning entry",
+                company_type=CompanyType.CUSTOMER
             )
 
             return customer.data
@@ -30,11 +30,11 @@ class TestPlanningEntry(IntegrationTest):
 
         with self.recorder.use_cassette("TestPlanningEntry.get_other_user"):
             user = self.moco.User.create(
-                "dummy",
-                "user",
-                "dummy.user@mycompany.com",
-                self.id_generator(),
-                unit.id
+                firstname="dummy",
+                lastname="user",
+                email="{}@mycompany.com".format(self.id_generator()),
+                password=self.id_generator(),
+                unit_id=unit.id
             )
 
             return user.data
