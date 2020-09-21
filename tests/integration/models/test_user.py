@@ -7,13 +7,13 @@ from datetime import date
 
 from .. import IntegrationTest
 
+
 class TestUser(IntegrationTest):
 
     def get_unit(self):
         with self.recorder.use_cassette("TestUser.get_unit"):
             unit = self.moco.Unit.getlist().items[0]
             return unit
-    
 
     def test_create(self):
         unit = self.get_unit()
@@ -25,10 +25,10 @@ class TestUser(IntegrationTest):
             password = self.id_generator()
 
             user_create = self.moco.User.create(
-                firstname, 
-                lastname, 
-                email, 
-                password, 
+                firstname,
+                lastname,
+                email,
+                password,
                 unit.id
             )
 
@@ -49,10 +49,10 @@ class TestUser(IntegrationTest):
             lastname = "user"
             email = "{}@mycompany.com".format(self.id_generator())
             password = self.id_generator()
-            
+
             active = False
             external = True
-            language = "EN"
+            language = "de"
             mobile_phone = "+49 123"
             work_phone = "#49 456"
             home_address = "gen. dumpster diver area 123"
@@ -74,7 +74,7 @@ class TestUser(IntegrationTest):
                 birthday=birthday,
                 info=info
             )
-            
+
             assert user_create.response.status_code == 200
 
             assert isinstance(user_create, JsonResponse)
@@ -99,10 +99,10 @@ class TestUser(IntegrationTest):
             lastname = "user"
             email = "{}@mycompany.com".format(self.id_generator())
             password = self.id_generator()
-            
+
             active = False
             external = True
-            language = "EN"
+            language = "de-CH"
             mobile_phone = "+49 123"
             work_phone = "#49 456"
             home_address = "gen. dumpster diver area 123"
@@ -153,10 +153,10 @@ class TestUser(IntegrationTest):
             lastname = "user"
             email = "{}@mycompany.com".format(self.id_generator())
             password = self.id_generator()
-            
+
             active = False
             external = True
-            language = "EN"
+            language = "en"
             mobile_phone = "+49 123"
             work_phone = "#49 456"
             home_address = "gen. dumpster diver area 123"
@@ -187,7 +187,7 @@ class TestUser(IntegrationTest):
                 birthday=birthday,
                 info=info
             )
-           
+
             assert user_create.response.status_code == 200
             assert user_update.response.status_code == 200
 
@@ -226,7 +226,6 @@ class TestUser(IntegrationTest):
             assert isinstance(user_create, JsonResponse)
             assert isinstance(user_delete, EmptyResponse)
 
-        
     def test_getlist(self):
         with self.recorder.use_cassette("TestUser.test_getlist"):
             user_getlist = self.moco.User.getlist()

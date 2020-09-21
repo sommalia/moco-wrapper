@@ -49,6 +49,7 @@ class Project(MWRAPBase):
         currency: str,
         leader_id: int,
         customer_id: int,
+        deal_id: int = None,
         finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
@@ -67,6 +68,7 @@ class Project(MWRAPBase):
         :param currency: Currency used by the project (e.g. EUR)
         :param leader_id: User id of the project leader
         :param customer_id: Company id of the customer
+        :param deal_id: Deal id the the project originated from
         :param finish_date: Finish date (default ``None``)
         :param identifier: Project Identifier (default ``None``)
         :param billing_address: Billing address the invoices go to (default ``None``)
@@ -82,6 +84,7 @@ class Project(MWRAPBase):
         :type currency: str
         :type leader_id: int
         :type customer_id: int
+        :type deal_id: int
         :type finish_date: datetime.date, str
         :type identifier: str
         :type billing_address: str
@@ -113,6 +116,7 @@ class Project(MWRAPBase):
             raise ValueError("When you create a fixed price project, the project budget must be set")
 
         for key, value in (
+            ("deal_id", deal_id),
             ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),
@@ -138,6 +142,7 @@ class Project(MWRAPBase):
         name: str = None,
         leader_id: int = None,
         customer_id: int = None,
+        deal_id: int = None,
         finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
@@ -155,6 +160,7 @@ class Project(MWRAPBase):
         :param name: Name of the project (default ``None``)
         :param leader_id: User id of the project leader (default ``None``)
         :param customer_id: Company id of the customer (default ``None``)
+        :param deal_id: Deal id of the project (default ``None``)
         :param finish_date: Finish date (default ``None``)
         :param identifier: Project Identifier (default ``None``)
         :param billing_address: Address the invoices go to (default ``None``)
@@ -169,6 +175,7 @@ class Project(MWRAPBase):
         :type name: str
         :type leader_id: int
         :type customer_id: int
+        :type deal_id: int
         :type finish_date: datetime.date, str
         :type identifier: str
         :type billing_address: str
@@ -188,6 +195,7 @@ class Project(MWRAPBase):
             ("name", name),
             ("leader_id", leader_id),
             ("customer_id", customer_id),
+            ("deal_id", deal_id),
             ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),

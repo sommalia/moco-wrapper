@@ -5,6 +5,7 @@ from datetime import date
 
 from .. import IntegrationTest
 
+
 class TestProject(IntegrationTest):
     def get_unit(self):
         with self.recorder.use_cassette("TestProject.get_unit"):
@@ -21,24 +22,23 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.get_other_user"):
             user_create = self.moco.User.create(
-                "dummy user",
-                "testing contracts",
-                "{}@mycompany.com".format(self.id_generator()),
-                self.id_generator(),
-                unit.id,
+                firstname="dummy user",
+                lastname="testing contracts",
+                email="{}@mycompany.com".format(self.id_generator()),
+                password=self.id_generator(),
+                unit_id=unit.id,
             )
 
             return user_create.data
-    
+
     def get_customer(self):
         with self.recorder.use_cassette("TestProject.get_customer"):
             customer_create = self.moco.Company.create(
-                "TestProject",
+                name="TestProject",
                 company_type="customer"
             )
 
             return customer_create.data
-
 
     def test_create(self):
         user = self.get_user()
@@ -48,12 +48,12 @@ class TestProject(IntegrationTest):
             name = "test project create"
             currency = "EUR"
             finish_date = date(2021, 1, 1)
-            
+
             project_create = self.moco.Project.create(
-                name,
-                currency,
-                user.id,
-                customer.id,
+                name=name,
+                currency=currency,
+                leader_id=user.id,
+                customer_id=customer.id,
                 finish_date=finish_date
             )
 
@@ -81,12 +81,12 @@ class TestProject(IntegrationTest):
             budget = 100
             labels = ["low risk", "low income"]
             info = "general information"
-            
+
             project_create = self.moco.Project.create(
-                name,
-                currency,
-                user.id,
-                customer.id,
+                name=name,
+                currency=currency,
+                leader_id=user.id,
+                customer_id=customer.id,
                 finish_date=finish_date,
                 billing_address=billing_address,
                 billing_variant=billing_variant,
@@ -126,12 +126,12 @@ class TestProject(IntegrationTest):
             budget = 100
             labels = ["low risk", "low income"]
             info = "general information"
-            
+
             project_create = self.moco.Project.create(
-                name,
-                currency,
-                user.id,
-                customer.id,
+                name=name,
+                currency=currency,
+                leader_id=user.id,
+                customer_id=customer.id,
                 finish_date=finish_date,
                 billing_address=billing_address,
                 billing_variant=billing_variant,
@@ -177,15 +177,15 @@ class TestProject(IntegrationTest):
             info = "general information"
 
             project_create = self.moco.Project.create(
-                "dummy project, test update",
-                "EUR",
-                user.id,
-                customer.id,
-                finish_date = date(2020, 1, 1),
+                name="dummy project, test update",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
+                finish_date=date(2020, 1, 1),
             )
-            
+
             project_update = self.moco.Project.update(
-                project_create.data.id,
+                project_id=project_create.data.id,
                 name=name,
                 finish_date=finish_date,
                 leader_id=user.id,
@@ -224,16 +224,16 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_create_contract"):
             project_create = self.moco.Project.create(
-                "dummy project, test contracts",
-                "EUR",
-                user.id,
-                customer.id,
+                name="dummy project, test contracts",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
                 finish_date=date(2020, 1, 1),
             )
 
             contract_create = self.moco.ProjectContract.create(
-                project_create.data.id,
-                other_user.id
+                project_id=project_create.data.id,
+                user_id=other_user.id
             )
 
             project_get = self.moco.Project.get(project_create.data.id)
@@ -256,16 +256,16 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_create_task"):
             project_create = self.moco.Project.create(
-                "dummy project, test tasks",
-                "EUR",
-                user.id,
-                customer.id,
+                name="dummy project, test tasks",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
                 finish_date=date(2020, 1, 1),
             )
 
             task_create = self.moco.ProjectTask.create(
-                project_create.data.id,
-                "dummy task, test project with task",
+                project_id=project_create.data.id,
+                name="dummy task, test project with task",
             )
 
             project_get = self.moco.Project.get(project_create.data.id)
@@ -297,7 +297,7 @@ class TestProject(IntegrationTest):
             )
 
             assert project_list.response.status_code == 200
-            
+
             assert isinstance(project_list, ListingResponse)
 
             assert project_list.current_page == 1
@@ -326,11 +326,11 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_archive"):
             project_create = self.moco.Project.create(
-                "dummy project, test archive",
-                "EUR",
-                user.id,
-                customer.id,
-                finish_date = date(2020, 1, 1),
+                name="dummy project, test archive",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
+                finish_date=date(2020, 1, 1),
             )
 
             project_archive = self.moco.Project.archive(project_create.data.id)
@@ -349,11 +349,11 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_unarchive"):
             project_create = self.moco.Project.create(
-                "dummy project, test unarchive",
-                "EUR",
-                user.id,
-                customer.id,
-                finish_date = date(2020, 1, 1),
+                name="dummy project, test unarchive",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
+                finish_date=date(2020, 1, 1),
             )
 
             project_archive = self.moco.Project.archive(project_create.data.id)
@@ -374,13 +374,13 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_report"):
             project_create = self.moco.Project.create(
-                "dummy project, test report",
-                "EUR",
-                user.id,
-                customer.id,
-                finish_date = date(2020, 1, 1),
+                name="dummy project, test report",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
+                finish_date=date(2020, 1, 1),
             )
-            
+
             project_report = self.moco.Project.report(project_create.data.id)
 
             assert project_create.response.status_code == 200
@@ -396,12 +396,12 @@ class TestProject(IntegrationTest):
         with self.recorder.use_cassette("TestProject.test_create_without_finish_date"):
             name = "test project create"
             currency = "EUR"
-            
+
             project_create = self.moco.Project.create(
-                name,
-                currency,
-                user.id,
-                customer.id,
+                name=name,
+                currency=currency,
+                leader_id=user.id,
+                customer_id=customer.id,
             )
 
             assert project_create.response.status_code == 200
@@ -423,12 +423,12 @@ class TestProject(IntegrationTest):
             currency = "EUR"
             budget = 200
             fixed_price = True
-            
+
             project_create = self.moco.Project.create(
-                name,
-                currency,
-                user.id,
-                customer.id,
+                name=name,
+                currency=currency,
+                leader_id=user.id,
+                customer_id=customer.id,
                 fixed_price=fixed_price,
                 budget=200
             )
@@ -444,4 +444,3 @@ class TestProject(IntegrationTest):
             assert project_create.data.customer.id == customer.id
             assert project_create.data.budget == budget
             assert project_create.data.fixed_price == fixed_price
-            

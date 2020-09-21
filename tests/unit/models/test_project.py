@@ -1,6 +1,7 @@
 import pytest
 from .. import UnitTest
 
+
 class TestProject(UnitTest):
 
     def test_create(self):
@@ -9,6 +10,7 @@ class TestProject(UnitTest):
         finish_date = "2019-05-15"
         leader_id = 4123
         customer_id = 4
+        deal_id = 834
         identifier = "PROJ-4"
         billing_address = "this is the billing address"
         billing_variant = "project"
@@ -16,11 +18,26 @@ class TestProject(UnitTest):
         budget = 120000
         labels = ["this", "is", "my", "board"]
         custom_properties = {
-            "boards" : 14
+            "boards": 14
         }
         info = "more information about boards"
 
-        response = self.moco.Project.create(name, currency, leader_id, customer_id,  finish_date=finish_date, identifier=identifier, billing_address=billing_address, billing_variant=billing_variant, hourly_rate=hourly_rate, budget=budget, labels=labels, custom_properties=custom_properties, info=info)
+        response = self.moco.Project.create(
+            name=name,
+            currency=currency,
+            leader_id=leader_id,
+            customer_id=customer_id,
+            deal_id=deal_id,
+            finish_date=finish_date,
+            identifier=identifier,
+            billing_address=billing_address,
+            billing_variant=billing_variant,
+            hourly_rate=hourly_rate,
+            budget=budget,
+            labels=labels,
+            custom_properties=custom_properties,
+            info=info
+        )
         data = response["data"]
 
         assert data["name"] == name
@@ -28,13 +45,14 @@ class TestProject(UnitTest):
         assert data["finish_date"] == finish_date
         assert data["leader_id"] == leader_id
         assert data["customer_id"] == customer_id
+        assert data["deal_id"] == deal_id
         assert data["billing_address"] == billing_address
         assert data["billing_variant"] == billing_variant
         assert data["hourly_rate"] == hourly_rate
         assert data["labels"] == labels
         assert data["custom_properties"] == custom_properties
         assert data["info"] == info
-        
+
         assert response["method"] == "POST"
 
     def test_update(self):
@@ -43,6 +61,7 @@ class TestProject(UnitTest):
         finish_date = "2019-05-15"
         leader_id = 4123
         customer_id = 4
+        deal_id = 231
         identifier = "PROJ-4"
         billing_address = "this is the billing address"
         billing_variant = "project"
@@ -50,24 +69,40 @@ class TestProject(UnitTest):
         budget = 120000
         labels = ["this", "is", "my", "board"]
         custom_properties = {
-            "boards" : 14
+            "boards": 14
         }
         info = "more information about boards"
 
-        response = self.moco.Project.update(project_id, name=name, finish_date=finish_date, leader_id=leader_id, customer_id=customer_id, identifier=identifier, billing_address=billing_address, billing_variant=billing_variant, hourly_rate=hourly_rate, budget=budget, labels=labels, custom_properties=custom_properties, info=info)
+        response = self.moco.Project.update(
+            project_id=project_id,
+            name=name,
+            finish_date=finish_date,
+            leader_id=leader_id,
+            customer_id=customer_id,
+            deal_id=deal_id,
+            identifier=identifier,
+            billing_address=billing_address,
+            billing_variant=billing_variant,
+            hourly_rate=hourly_rate,
+            budget=budget,
+            labels=labels,
+            custom_properties=custom_properties,
+            info=info
+        )
         data = response["data"]
 
         assert data["name"] == name
         assert data["finish_date"] == finish_date
         assert data["leader_id"] == leader_id
         assert data["customer_id"] == customer_id
+        assert data["deal_id"] == deal_id
         assert data["billing_address"] == billing_address
         assert data["billing_variant"] == billing_variant
         assert data["hourly_rate"] == hourly_rate
         assert data["labels"] == labels
         assert data["custom_properties"] == custom_properties
         assert data["info"] == info
-        
+
         assert response["method"] == "PUT"
 
     def test_get(self):
@@ -89,7 +124,10 @@ class TestProject(UnitTest):
         tags = ["these", "are", "my", "tags"]
         identifier = "PROJ-IAM-SEARCHING"
 
-        response = self.moco.Project.getlist(include_archived=include_archived, include_company=include_company, leader_id=leader_id, company_id=company_id, created_from=created_from, created_to=created_to, updated_from=updated_from, updated_to=updated_to, tags=tags, identifier=identifier)
+        response = self.moco.Project.getlist(include_archived=include_archived, include_company=include_company,
+                                             leader_id=leader_id, company_id=company_id, created_from=created_from,
+                                             created_to=created_to, updated_from=updated_from, updated_to=updated_to,
+                                             tags=tags, identifier=identifier)
         params = response["params"]
 
         assert params["include_archived"] == include_archived
@@ -132,7 +170,6 @@ class TestProject(UnitTest):
         response = self.moco.Project.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
 
-
     def test_assigned(self):
         active = False
 
@@ -166,7 +203,6 @@ class TestProject(UnitTest):
 
         response = self.moco.Project.assigned(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
-
 
     def test_archive(self):
         project_id = 123
