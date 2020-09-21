@@ -325,7 +325,7 @@ class TestActivity(IntegrationTest):
             self.moco.impersonate(project.leader.id)
 
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1),
+                date.today(),
                 project.id,
                 task.id,
                 0.5,
@@ -349,7 +349,7 @@ class TestActivity(IntegrationTest):
             self.moco.impersonate(project.leader.id)
 
             activity_create = self.moco.Activity.create(
-                date(2021, 1, 1),
+                date.today(),
                 project.id,
                 task.id,
                 0.5,

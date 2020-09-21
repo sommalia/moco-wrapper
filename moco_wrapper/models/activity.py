@@ -304,6 +304,10 @@ class Activity(MWRAPBase):
 
         :returns: The activity the timer was started for
         :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+
+        .. note::
+
+            Timers can only be started for activities of the current day
         """
 
         return self._moco.patch(API_PATH["activity_start_timer"].format(id=activity_id))
