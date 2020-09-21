@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-06-05T11:14:49",
+      "recorded_at": "2020-09-21T12:27:53",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"deal_id\": 198670, \"currency\": \"EUR\", \"recipient_address\": \"this is the recipient address\", \"change_address\": \"offer\", \"date\": \"2020-01-01\", \"project_id\": null, \"due_date\": \"2021-01-01\", \"items\": [{\"type\": \"title\", \"title\": \"this is the title\"}, {\"description\": \"This is the first description\", \"type\": \"description\"}, {\"type\": \"item\", \"unit\": \"h\", \"unit_price\": 65, \"title\": \"support\", \"optional\": false, \"quantity\": 1}, {\"type\": \"item\", \"net_total\": 200, \"title\": \"server hardware\", \"optional\": false}, {\"type\": \"subtotal\", \"title\": \"subtotal position\"}, {\"type\": \"item\", \"unit\": \"h\", \"unit_price\": 90, \"title\": \"special support\", \"optional\": false, \"quantity\": 3}, {\"type\": \"page-break\"}], \"title\": \"offer title\", \"tax\": 19}"
+          "string": "{\"project_id\": null, \"recipient_address\": \"this is the recipient address\", \"title\": \"offer title\", \"change_address\": \"offer\", \"due_date\": \"2021-01-01\", \"date\": \"2020-01-01\", \"items\": [{\"title\": \"this is the title\", \"type\": \"title\"}, {\"type\": \"description\", \"description\": \"This is the first description\"}, {\"unit\": \"h\", \"title\": \"support\", \"unit_price\": 65, \"quantity\": 1, \"optional\": false, \"type\": \"item\"}, {\"optional\": false, \"title\": \"server hardware\", \"type\": \"item\", \"net_total\": 200}, {\"title\": \"subtotal position\", \"type\": \"subtotal\"}, {\"unit\": \"h\", \"title\": \"special support\", \"unit_price\": 90, \"quantity\": 3, \"optional\": false, \"type\": \"item\"}, {\"type\": \"page-break\"}], \"currency\": \"EUR\", \"tax\": 19, \"deal_id\": 224488}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7yTT4/TPBDGv0o0Z7eykybb+vZKL2cktFxAqPLGk60htY09BirU747cNNmU1bYcFm6ePx7/5nmSn2A0yHLdVLVgYDRaMp3BABL+KzlvFlzUwEArQpBQ8pIvuFhwkXMJt095MeXJUJ+TruswFEPEIGBrvEFLW6V1wBhBAu1MLEwsaIfFVC/GOoM2hYC2PYCEN+/fAQOLtCVHqgdZV/WSMyD1A6TY5ONjcDGO5aZqlk3NQJvYumQJJM89kRSl/HQbUBHq/Ijbe2UPIG3qewY+uM/Y0hhqzNMGlcRm3dxxBlbt8373GOntacf/c9ORjUO3iiatmgWv74WQYiVX6+VqXX4ABsnra32bpahWuW+c5+xF32zC80pUfSJF5lQBBp1zdLITGBjCfQT5cVinqhtebUoGdPB5n9Gp0b+5O2NNY2yD8cP4QaGvSVkydDgrnKyZxMvnrQ+mxXNx5t8pdqdJOexUH/HI5mTVRDZ/deIb/ZkBwf0MuTMhUnF59a+xribWrPFMxJi8d4FuSSeecGAHlzRN/RvOkLjKU7/Ig+EbhmKngv6uwutaWvLbQjUTWEwPw725WEOq8C6as2X/8ou7e1E1j61RffGHblZX3Nw8U+3uNth6AvPqERcPAdWXq3/C6wv16fgrAAD//1bghLorBgAA",
+          "base64_string": "H4sIAAAAAAAA/7yTTY/TPBDHv0o0Z7dy3trEt0d6OCOhcgGhyptMtobUNvYYqFC/O3LSZFNW23JYuHlePP7N/5/8BNWCyLOq4BUD1aIm1Sl0IOC/jPN6xVMODFpJCAIynvEVT1c8jbmA+6d8OudJUR+TpuvQJWPEwGGjrEJNe9m2Dr0HAXRQPlE+oQMmcz2Z6gya4Bzq5gQC3rx/Bww00p4MyR5EmZdrzoDkDxBpHY+Pzng/lTf5Zr0pGbTKNyZoAsFjjydJIT7dOJSEbXzEHK3UJxA69D0D68xnbGgKW4zTRpWyrCiqioGWx7jfDj29HXb8Pzad2TR0L2nWql5l6S7NRLYVZbbO0/oDMAi2vdWXr3k19E3zjL7qW0x4XvGyDyRJDRVg0BlDg53AQBEePYiP4zoFr6u6KBjQycZ9Jqcm/5buTLUWfeOUHcePCn0NUpOi00XhoNUsXjzvrVMNXooL/4bYDJNi2Mne45ktycqZbPnqzDf5swCC3QK5U85Tcn31r7FuZtao8UJEH6w1ju5Jlz7hwAGuaTblbzhj4ibP9kUedN/QJQfp2u/Sva6lGb8vVDWD+fAw3luKNaYSa7y6WPYvv7j6RdUsNkr2yR+6md9ws36m2vYuWMlnMCsfcfXgUH65+Se8vlCfzr8CAAD//0kaVqIrBgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Jun 2020 11:14:49 GMT"
+            "Mon, 21 Sep 2020 12:27:53 GMT"
           ],
           "Etag": [
-            "W/\"2ac31316dac6baa4a0537a845fd92a57\""
+            "W/\"87c29b731428be2c47bfc42a07566775\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "aa15a44f-67de-4598-b092-c09d2777909d"
+            "77003f15-717b-419f-a5c4-c8e03b8b9014"
           ],
           "X-Runtime": [
-            "0.744292"
+            "0.856560"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

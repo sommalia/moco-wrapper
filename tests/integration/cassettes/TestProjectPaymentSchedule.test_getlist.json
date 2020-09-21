@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-03-03T14:55:07",
+      "recorded_at": "2020-09-21T12:31:32",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,15 +24,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules?page=1&sort_by=net_total+asc"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules?page=1&sort_by=net_total+asc"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+TVUWviQBAH8K8S5nk9dnazRudT3MM93XFImh1r2k0MyQQqxe9eJKGNFVzbl2r7qPwzGX4M//x7htIDZQadU+BzYSAw2uiZxplGUCClhMOfoKBmWclW8gCEWv/SCpp2+8CFAA1jlqnDuUHrFJSeaynXJbdA8NtobfVhQl4dZvm+qnbJ+LBKhDtJmnxXcS1JV2zY94Fhr6DYcPHIHmidh44V3JUhTH4WLefCfpXL69J2pu0fTCk1hO4vKOgbH8ns1ZtB9q0MUnKLmMGQmRjM5+cNjvZO+KnhuuNx/2GZZN2H8KVU0vYfknJIbhmRGjNTqcXnpe5ZbkvIks5iQkNmIpTpH3hLKRmMSQ2Z6S29b197udTwottCQrKxahoz03pOT5HsuXq+8n7GC/oZT/rZHCOgOfuNumoBp8mY2BkMmf3/lwAAAP//ioZC6KsIAAA=",
+          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "344"
+            "26"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 03 Mar 2020 14:55:07 GMT"
+            "Mon, 21 Sep 2020 12:31:32 GMT"
           ],
           "Etag": [
-            "W/\"fe1e571c7ae2b64c8affa0f4b486c2e8\""
+            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -75,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b2cefe4a-9250-47d2-a8f5-88a1b7a6f275"
+            "ef39e75c-a8e0-4d0e-8463-cf015176c013"
           ],
           "X-Runtime": [
-            "0.042850"
+            "0.036577"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules?page=1&sort_by=net_total+asc"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules?page=1&sort_by=net_total+asc"
       }
     }
   ],

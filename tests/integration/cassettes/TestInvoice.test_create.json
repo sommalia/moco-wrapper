@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-05-30T09:54:13",
+      "recorded_at": "2020-09-21T12:26:35",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2018-09-17\", \"service_period_from\": \"2019-12-01\", \"customer_id\": 760802152, \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"quantity\": 2, \"unit_price\": 65, \"unit\": \"hours\", \"title\": \"Service\", \"net_total\": 130, \"type\": \"item\"}], \"service_period_to\": \"2019-12-31\", \"tags\": [], \"status\": \"created\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"tax\": 8.0, \"due_date\": \"2018-10-16\", \"title\": \"invoice\", \"change_address\": \"invoice\", \"currency\": \"EUR\"}"
+          "string": "{\"tags\": [], \"service_period_from\": \"2019-12-01\", \"date\": \"2018-09-17\", \"currency\": \"EUR\", \"service_period_to\": \"2019-12-31\", \"status\": \"created\", \"tax\": 8.0, \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"title\": \"invoice\", \"due_date\": \"2018-10-16\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"unit\": \"hours\", \"title\": \"Service\", \"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"net_total\": 130}], \"change_address\": \"invoice\", \"customer_id\": 760863079}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K6s5O2Wc/WjWd6RKwKXApbSKXHu2NWTtYI8rVqj/jBt/DDnZj5SVyoWbM+955uXN809wFpTEGucNCjA5cdhSbEv1coUN1nJZC+hj+EqGh7LPXSfAWfLsNo4iKLiuEVFKEGA1EyioUTYVrit5WWqZ2mldYiVXICBRfHKG2p6iCxYUyPpNjXJ9BrWbGLbj7XUl6wrlOYXDhDAfCKw5J1BgImkmCwIiPVFMugO10V0iAey4K7qcfwrO0EAxrnfkudXWRkqlwQdyfvYue0u3/krnnhNHnRLN5K1vEHF28/tXdOYRioExkjc7UPD28zUI8MQtBy4z5RwvUADrH6CacnqIIaUjusCLhQDrkgnZM6iBbHR6bF+rtVbv0h6wdO+49Xl7X7Yy7slEsmfFLphvZE8u6IcE6sudOFjVah7crLHCZTXHT7hWy4WS9Q0IyL19jTMvnEOf4F9wJrfPkaS7zJrdgICATQg8pAsEOKZtkTjGddGsG6xXAnjXl+2NWzxt8yrkmErwKJno+rHl+Offs/bseLd3LHvHB6ic2z6WGIzgZHV4gc9iOvzyOHw65Chh7PhiPrx3iZ1/mIXNTHfd7HEv8n8pao6KilkTNz6OD+VfftSn6XDQNhWwWv6lYIjz852AXu+25HkfoUhb5y3F4fP5TwAAAP//mzzHkmAEAAA=",
+          "base64_string": "H4sIAAAAAAAA/6xTTY/TMBD9K9Gc3cVOtmnrO9JKwGWBy7KryGtPW0NiB3tcUaH+M278MeSkH1kqLRduzrznmZf3xj/BGpBCLOqqFAx0iuQ7DE2uLmq+rCu+WDHog/+KmoayS23LwBp0ZNcWA0i4LznnQgADowhBQsnFcsZXM7HItYTNtC74TNTAIGLYWY1Nj8F6AxJE+abkYnUFNevgu/H2aibKGRfXFPITQjUQSFGKIEEHVIQGGATcYYiqBblWbUQGZKnNuqzbeatxoGjbW3TUKGMCxtzgA1pXvEvO4KO7U6mnSEHFiIV4dEvOefHw+1ewegvZwBDQ6T1IePv5Hhg4pIY85Zmi4jecAakfIJf5tAk+xjN6y29uGRgbtU+OQA5kreK2ea3WGLWPR8Dgs6XGpe45pzLmpAOaq2Lr9Tc0FxfUJoL88sROVjWKBjdLnkMsxSdRyrKWVfUADFJvXuPMM+fUx7sXnMntaySqNpEiOyDAYO09DdsFDCxhlyWO6zqvb1eiqhnQvs/pjSle0rzzKcS8eBh1sP3Ycvzz70k5srQ/OpacpROUz00f8hqM4CQ6fsMPbDp8cR4+HXKWMHZ8MR/e20jWbQq/LlTbFtujyP+laHlWlM2auPFxfCj/8qO8TIeTtqmAev6XgmGdD08MerXv0NFxhQJ21hkMw+fhTwAAAP//CrCgJGAEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 30 May 2020 09:54:13 GMT"
+            "Mon, 21 Sep 2020 12:26:35 GMT"
           ],
           "Etag": [
-            "W/\"554126136c26a36045354a07e0256c43\""
+            "W/\"266a8b7b5eccbf644fe26675877cfca9\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "1a5c08c4-3a82-4174-8532-3152fd133e6b"
+            "be8578ac-8982-42ae-8dbb-d0529a123eb5"
           ],
           "X-Runtime": [
-            "1.344938"
+            "1.397087"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

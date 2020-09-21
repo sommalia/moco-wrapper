@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-05-30T09:54:55",
+      "recorded_at": "2020-09-21T12:27:18",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2019-12-31\", \"paid_total\": 1, \"currency\": \"EUR\", \"invoice_id\": 1020383}"
+          "string": "{\"invoice_id\": 1176325, \"date\": \"2019-12-31\", \"currency\": \"EUR\", \"paid_total\": 1}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOzWrFIBAF4FcpZ61l1Fjudd8XCO2mGxG1MJCYIGMhlLx76R/t7i5n+M7hvIMLwgNN5mIVSpKKAEvmqo3VzkCB29vGuSJ8U0OW3MUpcKlN+JVrR8BsichMUBCW5bOjjHU97n7Dp8KeuETZJC0I5p7+PyK3mHLeRpOYR++15eMH/Z14fJ6hkHtNUktM8jXUkiavHT3RNfgpeP8ChbGXG+b8CAAA//8wycIT+AAAAA==",
+          "base64_string": "H4sIAAAAAAAA/4TOzUoEMRAE4FeROifS3bsaNndfYNGLlxCSCA27mSF0hEHm3cU/9Oaxm6+KeoNWxEByDOJQszVECPHJs/gDw0H766KlIX5R5nB/kDsHra2bvmgbiDgLEfERDqZ2+eio83rdbn7Cu8OatSZbLF8Q+Zb+PpL2lEtZZrdU5hitl+0b/Z54eDrDoYyWrdWU7XOokKeTF35kiRIih2c4zLX+Y/b3AAAA//8aobjk+AAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 30 May 2020 09:54:55 GMT"
+            "Mon, 21 Sep 2020 12:27:18 GMT"
           ],
           "Etag": [
-            "W/\"4f3ba52cbaf7b72aa5e20681b9574323\""
+            "W/\"4dde2861264ffdeef760f35a5b0e61e5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "0fbb7803-e7f4-4e08-862b-67c1fd2494de"
+            "ab7f0370-961c-4bb1-ba1b-b8050583ba8f"
           ],
           "X-Runtime": [
-            "0.079697"
+            "0.095764"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-05-30T09:54:55",
+      "recorded_at": "2020-09-21T12:27:18",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -125,11 +125,11 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/604182"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/702472"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOwWrEIBDG8Vcp39mU0cSSeu8LhPbSi4haGEhMkLEQSt69LMtm97bXP78Zvj9wgnujQY9GIQXJcDBkqCPdkYECl9+VY4a7Uk2G+rFX4JSL8A/nCofJEJEeoCAs8+VHasuyv9yOD4UtcPKySpjhDNErPSbPxYcY11bEx1ZrLnE/2T3g42uCQqw5SE4+yDnWdj190ruzg7P2GwptS0/M8R8AAP//jCUiCPwAAAA=",
+          "base64_string": "H4sIAAAAAAAA/3zOQUrAMBCF4avIW6cyGavR7L1A0U03ISQRBtq0hIlQpHcXEasrtz/fDO8DkuEd8ejYIEct8GBiGsgOxDCQ+r5JKvDf1Fr3cMf3BpJLVXmT0uAxMRHZEQYqunz9yH1dj5uf49Ngj5KDbhoXeCa6pb8pSA0xpa1XDam3Vmo6LvYb8Pw6wSC1ErXkEPUa+zSwfbHs2XnrZhj0Pf9nHmecnwEAAP//ptV9tvwAAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,10 +147,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 30 May 2020 09:54:55 GMT"
+            "Mon, 21 Sep 2020 12:27:18 GMT"
           ],
           "Etag": [
-            "W/\"d6ab5486e51af344e58dbc972a85611d\""
+            "W/\"f84138c87879e323bcf917906fad0aa5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "04c1f6d7-84ec-47d0-af6e-8f2af2e6d1fc"
+            "08456d92-6834-4221-947a-ff3f3fd93b14"
           ],
           "X-Runtime": [
-            "0.048623"
+            "0.045429"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/604182"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/702472"
       }
     }
   ],

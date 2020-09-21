@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-19T12:15:01",
+      "recorded_at": "2020-09-21T12:34:11",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,15 +24,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?user_id=933630037&project_id=945150148&page=1&to=2021-12-31&absence_code+=ScheduleAbsenceCode.UNPLANNED&from=2019-01-01"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?to=2021-12-31&absence_code+=ScheduleAbsenceCode.UNPLANNED&page=1&from=2019-01-01&user_id=933636529"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SQvWrDQBAGX8V8addwf3bQdcFl2lQJwZzu1raIThL3U4igdw+yg0iXdneYWfbjG12A1Y08CCMIwRWGhRJK7IXcCwmCH2PkocAi1BjnXfY3DrVn2hXOZXflAoKLsBfXZyZMEbakyoQ8x3bsYTXB5dxdh4fn0WzMQUvzbBRhcHGtviY3fN24W32+5jJGTuff3ZpyrQ/3e/oxweLpdDqBUOZpBV7azINnLISaOW0VrY/6eFAN4dKlXP7oQOjdNrnLF4JP7AqHsyvbH5q9km9SWWmsUe8g1Cn8wyyfPwEAAP//ousS1VoBAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "26"
+            "242"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 12:15:01 GMT"
+            "Mon, 21 Sep 2020 12:34:11 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"9ad8f0a86c5ce7ee7114d0a6475822bf\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "38e0cdb4-cbe0-41f1-9fcb-642a51b52a6c"
+            "ec61c77b-4f16-49ff-bc07-b906f3df8231"
           ],
           "X-Runtime": [
-            "0.038586"
+            "0.050539"
           ],
           "X-Total": [
-            "0"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?user_id=933630037&project_id=945150148&page=1&to=2021-12-31&absence_code+=ScheduleAbsenceCode.UNPLANNED&from=2019-01-01"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?to=2021-12-31&absence_code+=ScheduleAbsenceCode.UNPLANNED&page=1&from=2019-01-01&user_id=933636529"
       }
     }
   ],

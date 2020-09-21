@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-05-30T09:54:44",
+      "recorded_at": "2020-09-21T12:27:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"bulk_data\": [{\"date\": \"2020-01-01\", \"paid_total\": 200, \"currency\": \"EUR\", \"invoice_id\": 1020383}, {\"date\": \"2020-01-02\", \"paid_total\": 150, \"currency\": \"EUR\", \"invoice_id\": 1020383}]}"
+          "string": "{\"bulk_data\": [{\"invoice_id\": 1176325, \"date\": \"2020-01-01\", \"currency\": \"EUR\", \"paid_total\": 200}, {\"invoice_id\": 1176325, \"date\": \"2020-01-02\", \"currency\": \"EUR\", \"paid_total\": 150}]}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7TPwUoDMRSF4VeRs87ISSajbfa+QNGNIiEkES60mTLcCEX67iJqK7jQTbeHP+F+T2+QgnBDb2/XBiVpRYCj40A70MJA2ussuSJ8ppaO42o0kFKbyovUBQEbR9J6GKjo9uOP0ne7w9X346PBPkmJOmvaIjjymj+nKC2mnOfeNOa+LLXlwyk7D7h72MAgLzVpLTHp6dhpGHnPdZh88P4RBn1f/miO5oxf8TfeXQhvp3/hv7JL4Z/fAwAA//84Kaxe+wEAAA==",
+          "base64_string": "H4sIAAAAAAAA/7TPwUoDMRDG8VeR75yVmbHd0Nx9gaKXioSQRBhos2WZFYrsu4uoreDB9dDrxz9hfk9v0ILgSVb9xqEkqwgQEuqIO2I4aHsdNFeEz5TZ93eydtBSm+mL1hEBWyEiXsHB1PYff5TpcDjdfD+eHY5JS7TB0h5BiG7p5xS1xZTzMDWLeRrH2vLpnF0G3D9u4ZDHmqyWmOx87KYTfmAJ4gP1OzhMx/JHM7sL3tNvvFwJz+tF+K/sv3i/AO93mJ/fAwAA//+chGSc+wEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "205"
+            "211"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 30 May 2020 09:54:44 GMT"
+            "Mon, 21 Sep 2020 12:27:07 GMT"
           ],
           "Etag": [
-            "W/\"dac5b6768a0f857329a5424041b252f6\""
+            "W/\"901bfe1dc0f35274c3fdf15188c14b6b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "8e7251c5-fb55-43a4-829a-82a7d09ac132"
+            "da03a347-2ce6-42ef-997e-469a3995459f"
           ],
           "X-Runtime": [
-            "0.109791"
+            "0.534690"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

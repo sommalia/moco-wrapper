@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-19T07:40:16",
+      "recorded_at": "2020-09-21T12:33:03",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"billable\": false, \"active\": true, \"name\": \"dummy task, test create full\", \"budget\": 500, \"hourly_rate\": 20}"
+          "string": "{\"name\": \"dummy task, test create full\", \"budget\": 500, \"active\": true, \"billable\": false, \"hourly_rate\": 20}"
         },
         "headers": {
           "Accept": [
@@ -27,15 +27,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149556/tasks"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TMQarCMBCH8auE/zp9TMLr63PO4cpNmTZTLaYq6UQo4t0FPYDbj4/fA3MCt6HrKPx7XGRRMFJdls2ZrGfvTFdzY1ExdVPNGR7DnLMMWcGT5FU9ZLT5rmArVT2Gmo5q4JbohzxO11ry1hcxBcd3+nCpFwMjUqSGYhN2e+r4lzj8HeBRb+nL83wFAAD//1xuziK9AAAA",
+          "base64_string": "H4sIAAAAAAAA/4TMQWrDMBBG4auIfy0XWaJ1PefoqhsztsaJyTgJ8ihgQu4eSA6Q7ePx3bFk0E8X++43eZx5FRByXdfdGW8n70w2c1MRNnFzVYXHuKjyqAKaWTfx4MmWm4CsVPEYaz6Igb5D+Aoex0stug+FTUDxld5cHthAiCGGJvRNbP/aSClRSP/wqNf84Xk8AwAA///1/6MkvQAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "159"
+            "160"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 07:40:16 GMT"
+            "Mon, 21 Sep 2020 12:33:03 GMT"
           ],
           "Etag": [
-            "W/\"105a8f0cf9a64ff846b16c15e34a3485\""
+            "W/\"d2ad1293e99b949fa201f4a6bc8ae76b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3aec54a5-4c43-4db8-9e3d-01b1883d4050"
+            "6ce2ed94-6920-44d0-963f-83c0a70abd28"
           ],
           "X-Runtime": [
-            "0.041800"
+            "0.039194"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149556/tasks"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
       }
     }
   ],

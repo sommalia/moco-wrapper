@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-18T17:09:34",
+      "recorded_at": "2020-09-21T12:23:01",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"commentable_ids\": [760748842, 760748843], \"commentable_type\": \"Customer\", \"text\": \"bulk comment creation\"}"
+          "string": "{\"commentable_type\": \"Customer\", \"text\": \"bulk comment creation\", \"commentable_ids\": [760863060, 760863061]}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/9yPz0rEMBCHX2X5nWchTbr9k6uv4EmRZbYdodgkJZ2Ai/TdpSqiB/G+1/m+gd/3+IZphK/dqbJNRRhSCBKVL7Ocd9A2pq27rra/kV4XgcddCgvHKwgqrwqPS5lfDl/iYcjCOqUIQuBYeIbXXITwAWQ88/5ijTVHY49Vd1+13vTe1Q8glGX831klw38W9M41tu/bE+F5yqtGDvtClVVBmPn7wsOQSlRsG/1st3+3uxtsf3oPAAD//ziuBYP5AQAA",
+          "base64_string": "H4sIAAAAAAAA/9yPwUrEQAyGX2X5z7OQSXC0c/UVPCmypG2EYmda2hRcZN9dqiJ6EO9e832B/3t4xdAjJxHiyAHdVIpV13a00w6uE90koUQ/kZ9nQ8btVGatZwS4vTgy2m18PnyKh24x9WGqCChaNx2Rfdks4B1Yf9L9hYnpSM2R413kzJIp3iNgm/u/ndUW5I+CRiRJuuIm4GlYVq9a9oVuqyNg1K+Ltl2PyyV8D5ffw+N/C398CwAA//+/SYFr8wEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "201"
+            "196"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 18 Feb 2020 17:09:34 GMT"
+            "Mon, 21 Sep 2020 12:23:01 GMT"
           ],
           "Etag": [
-            "W/\"80389c754c7f00830a9c113767c97aab\""
+            "W/\"15a92d9ccf175b80a776044ccf085fee\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4fd28198-3687-4fd3-8e03-70db374f37c5"
+            "863d5d1b-5689-4c99-a3b4-97498ebe6587"
           ],
           "X-Runtime": [
-            "0.061213"
+            "0.076165"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

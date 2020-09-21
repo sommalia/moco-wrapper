@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-03-03T09:55:50",
+      "recorded_at": "2020-09-21T12:22:26",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"hours\": 0.5, \"task_id\": 5281350, \"description\": \"dummy activity, test delete\", \"project_id\": 945161414, \"date\": \"2020-01-01\"}"
+          "string": "{\"project_id\": 945314880, \"date\": \"2020-01-01\", \"task_id\": 6729426, \"hours\": 0.5, \"description\": \"dummy activity, test delete\"}"
         },
         "headers": {
           "Accept": [
@@ -30,7 +30,7 @@
             "python-requests/2.23.0"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933630617"
+            "933636529"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5yRvW7jMBCEX0WYmj6Qkihb7K683tU1Bi2ufbxQPyCXBozA7x7IkZy/IkBKDoaz3+w+wzuYtq1V3ZbNTsBZJhiUspQbqTZSQeDfmGOCkb+0gKPURT+xHwcYuNz318J27C+er6JgSlw4CsQEgaMPgRzMyYZEr097DATDMZMA2zMMIBCpH5kOieLFd/RBm+mGHMJDyDGsyhTH/9QxzFKi1qpRtaoFBtvPMYuh6CJZJlecxngn9MN5ZfaU8JnsNqOlpzVXlztVafkldfb8ILrLicee4hq/beRWt6puHgP2lPj3slLcBHJ6c7dV1VSyUVuBk4+J332BQLAP5U8/UUzjYO+Xmiv5nuIhsY1M7mB53eLS4K4sZ682strL1mhttPwLgTy5bzy3lwAAAP//cgA06UkCAAA=",
+          "base64_string": "H4sIAAAAAAAA/5ySQW/jIBCF/4r1ziTCOHZsbvsfctqLRcwkyxbbEQyRoir/vSK1U7U9VOqRx5s3H8O8wlnormtVVbZtLWANEzSUVHIjy40sIfBvTiFCy22+pzgEd2E3T9CwaRxvhRnYXR3fRMEUubDkiQkCR+c9WeiT8ZHej+boCZpDIgE2Z2hAINA4M/WRwtUN9EnLdFPy/imk4FflEub/NDD08ohdXZW7tpUCkxlzzGIohkCGyRanOTwI3XRemR1FfCW7Z7T4suY2e9XtVPMtNXt+ET2kyPNIYY3fN7JtKlm3zwYHivxnGSnuAil+uLuqaqqmVp3AyYXIS0luDQFvnoo5DjYXsxsp9JFNYLK94XV4C/hDWX6726jyUCqtlFbNXwiki/3Rk3fD3/rwWBu5lfe3AAAA//8QhoeTUgIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -50,16 +50,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "317"
+            "322"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 03 Mar 2020 09:55:50 GMT"
+            "Mon, 21 Sep 2020 12:22:26 GMT"
           ],
           "Etag": [
-            "W/\"547d1cbb24ff8e7f1fc392d1bbf0a379\""
+            "W/\"5c35792b33c53b1e386f239bbc12372a\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "ddf03ad7-b0ca-42d1-a531-5ac04fea2ab9"
+            "528f1781-795c-4966-a899-b0b50626ca8f"
           ],
           "X-Runtime": [
-            "0.052014"
+            "0.069106"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -98,7 +98,7 @@
       }
     },
     {
-      "recorded_at": "2020-03-03T09:55:50",
+      "recorded_at": "2020-09-21T12:22:26",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -127,11 +127,11 @@
             "python-requests/2.23.0"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933630617"
+            "933636529"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/994149268"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/998231885"
       },
       "response": {
         "body": {
@@ -147,7 +147,7 @@
             "gzip"
           ],
           "Date": [
-            "Tue, 03 Mar 2020 09:55:50 GMT"
+            "Mon, 21 Sep 2020 12:22:26 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -169,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "461d3373-def1-43d5-89a8-431bf818c1fc"
+            "bf254bd3-4bd9-4b03-9538-68d80ca7dc14"
           ],
           "X-Runtime": [
-            "0.028150"
+            "0.039437"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +182,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/994149268"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/998231885"
       }
     }
   ],

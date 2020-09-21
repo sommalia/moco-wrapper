@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-19T13:24:14",
+      "recorded_at": "2020-09-21T12:34:22",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-01\", \"am\": false, \"user_id\": 933630037, \"pm\": true, \"overwrite\": true, \"project_id\": 945150148, \"comment\": \"dummy schedule, test create full\"}"
+          "string": "{\"overwrite\": true, \"am\": false, \"symbol\": 3, \"comment\": \"dummy schedule, test create full\", \"user_id\": 933636529, \"date\": \"2020-01-01\", \"pm\": true, \"absence_code\": 4}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "160"
+            "167"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQzU7DMBCEXyUarlvJP2lL/BRI9MSlMvG2BOwk2OtDhfruqCT0hMR1d/R9o/nCEOBsq9XedITgheFglFEbpTdKg9BPKfEocAg1pUtT+jcONTI1wkWaPrMXbk41RhB8gjv5WJgwJzjJlQnlkl6nCDfWGAm+lOE8LshF37VbvVW6fSSMPvHdNOfpnXtZRb/ecutUi0yJ83HNH7jI8/r/qRynDIeHbrczJoAgl/mWe1qIuBJq4XwvYO3OKmX3hNOQi6zU/jwMY/3MHzdC9H/dr4RlgHD0cl/ObHR30NaZ1un2BYQ6h38y1+8AAAD//3AndAiKAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SQvW6sMBCFXwWd2w4StmH34i7iFZImzcrgIUGyAfmnQBHvHrFEKF3amaPvmzlfmCy0akVT/b8TrEkMDVnJqqxEWQkQhsV7nhM0bPZ+K+LwyTY7piJxTMUQ2CQuxuwcCMZDj8ZFJqweOoXMhLj5fnHQimBinD7mk3e627pRor7XNWE2/rC/BWdyf5hzTIvn8PhZHD7TD/Z5lFsCNP51XQdC2tYj8NJHngfGTsiRw6VQ6qZujWwJ4xRi+oUDwZlr8oTvhPMn+zDpKqMtpXgVUqtaS/kOQl7tH5n9OwAA//8UlpfYXQEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "255"
+            "241"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 13:24:14 GMT"
+            "Mon, 21 Sep 2020 12:34:22 GMT"
           ],
           "Etag": [
-            "W/\"10c16d61dd89b46d26161b0c73c4c24d\""
+            "W/\"01bb09dece84958f3b45825b5ab1dde9\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3c68a819-ad0e-4343-9b28-325aab369430"
+            "0c4ee394-52ea-4c37-97ba-d111eb6f4db4"
           ],
           "X-Runtime": [
-            "0.036424"
+            "0.110937"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

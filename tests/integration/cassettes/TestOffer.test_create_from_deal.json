@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-06-05T11:11:51",
+      "recorded_at": "2020-09-21T12:27:47",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"recipient_address\": \"this is the recpipient address\", \"tax\": 21.5, \"items\": [{\"title\": \"This is the title of the offer\", \"type\": \"title\"}, {\"description\": \"this is the description\", \"type\": \"description\"}, {\"type\": \"item\", \"optional\": false, \"net_total\": 400, \"unit_price\": 100.0, \"quantity\": 1, \"unit\": \"h\", \"title\": \"MailChimp Einrichtung\"}, {\"type\": \"item\", \"optional\": true, \"net_total\": 400, \"unit_price\": 20, \"quantity\": 20, \"unit\": \"h\", \"title\": \"On Site Support\"}], \"project_id\": null, \"change_address\": \"offer\", \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"deal_id\": 198670, \"title\": \"offer created from deal\", \"currency\": \"EUR\"}"
+          "string": "{\"project_id\": null, \"recipient_address\": \"this is the recpipient address\", \"title\": \"offer created from deal\", \"change_address\": \"offer\", \"due_date\": \"2021-01-01\", \"date\": \"2020-01-02\", \"items\": [{\"title\": \"This is the title of the offer\", \"type\": \"title\"}, {\"type\": \"description\", \"description\": \"this is the description\"}, {\"unit\": \"h\", \"title\": \"MailChimp Einrichtung\", \"unit_price\": 100.0, \"quantity\": 1, \"optional\": false, \"type\": \"item\", \"net_total\": 400}, {\"unit\": \"h\", \"title\": \"On Site Support\", \"unit_price\": 20, \"quantity\": 20, \"optional\": true, \"type\": \"item\", \"net_total\": 400}], \"currency\": \"EUR\", \"tax\": 21.5, \"deal_id\": 224488}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7STT4/aPBDGv4o1Z4PsQPKyvr1q91it1KWXVhWyksniKtiuPZaKKr57ZQdC2FXZU2/MH2Z+8zzObzAdqGrTrNY1B9OhJdMbDKDg/0qIZiHEA3DoNCEoqEQlFkIuRJVzCXfXvCx5CRzI0JCTru8xsDagJuxYH9yBdagH4BCwNd6gpZ3uuoAxggLam8hMZLRHFrD1YwO7NHBoUwho2yMoePzyGThYpB050gMoKcRScCD9C1QllzWHl+BinMpjrjOxdckSqNIdSVPKq8+IeYc7eG2PoGwaBg4+uB/Y0iUs9GpUTD5smv8EB6sP+dYtRnoq937MTSd+GbrTNOnWLES9lVJJqWq5lEJ8BQ7Jd/f7NtUm913mOXvTN5vwthL1kEiTKRXg0DtHxVrgYAgPEdS38ZxV3YhVU3Ggo8/3jB5evdzO3Ck55voSFJPzY8DYBuPHXaNcP5O2ZOh4ljtZMymZf+98MC2eizMvS+zKpBz2eoh44nPM1YQ53zrBXsyaAd28rts//TPK9USZpZ5p+Umb4cPeHDx7NDaYdk/JvrwnobzCwR5u2c6v/+33cJev/hvfk2XPhpA9J+9doPfIKnEHrXpNtn5NRiHh6fvpTwAAAP//qbQj74gEAAA=",
+          "base64_string": "H4sIAAAAAAAA/7STz47aMBDGX8Was1k5JrsQ36p2j9VKXXppVSErmSyugu3aY6mo4t0rOxDCrsqeemP+MPOb73P+gOlALeW6FisOpkNLpjcYQMEHKUSzEKIBDp0mBAVSSLEQ1ULInEu4veSrkq+AAxkactL1PQbWBtSEHeuD27MO9QAcArbGG7S01V0XMEZQQDsTmYmMdsgCtn5sYOcGDm0KAW17AAWPX78AB4u0JUd6AFUJcSc4kP4NSlZ39xxegotxKo+5zsTWJUugSnckTSmvPiHmHW7vtT2AsmkYOPjgfmJL57DQq1ExKet6veZg9T7fusFIT+XeT7npyM9Dt5om3ZqFrDaVVHKl6oe7pbj/BhyS7273NauH3Hee5+xV32zC20rUQyJNplSAQ+8cFWuBgyHcR1Dfx3Nq0aybOkt48Pme0cOLl5uZOyXHXF+CYnJ+DBjbYPy4a5TrV9KWDB1OcidrJiXz760PpsVTceZliV2ZlMNeDxGPfI5ZTZjzrRPs2awZ0NXruv7Tf6OUE2WWeqblZ22Gjzuz9+zR2GDaHSX78p6E1QUOdnDNdnr9b7+Hm3zLf/E9WfZsCNlz8t4Feo9Mihto8jVZ/ZqMQsLjj+PfAAAA//8tdcpriAQAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "482"
+            "481"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Jun 2020 11:11:51 GMT"
+            "Mon, 21 Sep 2020 12:27:46 GMT"
           ],
           "Etag": [
-            "W/\"4e723021fa7ca8bef80776169c6f5834\""
+            "W/\"a8107fbe336f564b099e56f6d73497cd\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "9c8037f6-1bd3-474d-bff2-8909f3269300"
+            "4c4f537f-ae2f-4762-aee5-61657b12e668"
           ],
           "X-Runtime": [
-            "0.797900"
+            "0.772077"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

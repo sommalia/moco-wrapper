@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-19T07:42:18",
+      "recorded_at": "2020-09-21T12:33:08",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"active\": true, \"billable\": true, \"name\": \"dummy task, test delete\"}"
+          "string": "{\"name\": \"dummy task, test delete\", \"active\": true, \"billable\": true}"
         },
         "headers": {
           "Accept": [
@@ -27,15 +27,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149556/tasks"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TKwQqCQBAG4FeR/7zGuCjWPEenLjK6Q0mjxTobSPTu3bp2/OB7Y07grul76tqAVRYFI5Vl2SuX7R4q182rpKauCBhnMxlNwZ6LBsjk8+unsaSrOngtZgG3R8m2D1lcwXSggCmruKZBHIxIkWqKdXM6U89t5OZ4QUB5pj/n8w0AAP//KqlfOrUAAAA=",
+          "base64_string": "H4sIAAAAAAAA/4TKsYqDQBAG4FeRvx6PdT1Onee4Ko2M7pBIRhPW2YCEvHu6tCk/+J5YEvivi0PX/xI2WRWMVNb1qFz2K1Wuu1dJTV1BmBYzmUzBnosSZPbl8dFU0lkdvBUzwuVWsh1jFldw+AmEOau4plEcjBhiqMNQx+a/idy2HPoTCOWevpzXOwAA//+23zFMtQAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "149"
+            "151"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 07:42:18 GMT"
+            "Mon, 21 Sep 2020 12:33:08 GMT"
           ],
           "Etag": [
-            "W/\"147499fe6d67113c6a87ddadd06a17e3\""
+            "W/\"5525c3285d8706144a9dda46650caa0d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "5d917557-d21a-4202-be32-ebd7d44a1383"
+            "91faf310-6d38-4540-bd2d-34fcfda85c7d"
           ],
           "X-Runtime": [
-            "0.042277"
+            "0.051660"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,11 +91,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149556/tasks"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
       }
     },
     {
-      "recorded_at": "2020-02-19T07:42:18",
+      "recorded_at": "2020-09-21T12:33:08",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -121,11 +121,11 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149556/tasks/5177054"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks/6729784"
       },
       "response": {
         "body": {
@@ -141,7 +141,7 @@
             "gzip"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 07:42:18 GMT"
+            "Mon, 21 Sep 2020 12:33:08 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -163,10 +163,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "64415e84-e650-4a1f-8c8b-91a13103a30c"
+            "0cdf4aee-8add-4b78-9daf-89dd9476264f"
           ],
           "X-Runtime": [
-            "0.043060"
+            "0.033040"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -176,7 +176,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945149556/tasks/5177054"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks/6729784"
       }
     }
   ],

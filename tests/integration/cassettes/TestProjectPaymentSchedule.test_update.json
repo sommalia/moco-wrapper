@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-03-03T14:51:38",
+      "recorded_at": "2020-09-21T12:31:53",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-12-01\", \"checked\": false, \"net_total\": 1}"
+          "string": "{\"date\": \"2020-12-01\", \"net_total\": 1, \"checked\": false}"
         },
         "headers": {
           "Accept": [
@@ -27,15 +27,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOwU7DMBBEfyWa8wat7aaAv4IDJy6V8W5Vg51GyeZQofw7igCJW48zmvc0XyiC+OjdcSBIMkWEZ8+98z07EKxY3UsQRrWTXS1VRPfAhGm+fmg2xB/J82FwR+/CQCiio5Vz0RkRL5458M6ntptkbe3W/cLUmS7WTenWdLRuyReVtSo2Qr5o/lRBPKe6KOG91Pov5lmTqZyS/V3m0HN4dYc4uBie3kBYJ7mz2b4DAAD//7ryFq8BAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SOwWrDMBBEf8XMeV20cgyVvqKHnnoJqnZD1EqOsdeHUPLvxeBCbznOMO8xPyiCGF59YIIkU0R4513PvncMghWrewnCpHa2m6WKyC+OMC+3L82GeEhO48CnwIFQRCcrl6ILIt68c6Pf+dR2k2yt3bsDps50tW5O96aTdWu+qmxV8SDkq+ZvFcRLqqsSPkut/2JeNJnKOdnfZRd6z+/s48BxHD5A2GZ5snn8BgAA//+SHSEYAQEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "195"
+            "193"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 03 Mar 2020 14:51:38 GMT"
+            "Mon, 21 Sep 2020 12:31:53 GMT"
           ],
           "Etag": [
-            "W/\"365dd38c80cdb164cd7e829720556cd4\""
+            "W/\"09d87de92ac684d856cdea2d939beb4d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "579e9938-8ae7-4306-a2e8-912776205a2d"
+            "6c52f5fa-bf42-4cb3-b40a-60a8606da1ec"
           ],
           "X-Runtime": [
-            "0.051182"
+            "0.047732"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,15 +91,15 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules"
       }
     },
     {
-      "recorded_at": "2020-03-03T14:51:38",
+      "recorded_at": "2020-09-21T12:31:53",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-03-01\", \"title\": \"dummy project expense, test update\", \"checked\": true, \"net_total\": 100}"
+          "string": "{\"date\": \"2020-03-01\", \"title\": \"dummy project expense, test update\", \"net_total\": 100, \"checked\": true}"
         },
         "headers": {
           "Accept": [
@@ -121,15 +121,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules/72165"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules/98291"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yPwU7DMBBEfyWa8xat46aAv4IDJy6VsaeqwUmjZCNRof47Cu0BCanHXe3bN/ONkhEeW7frBDkaEdBqqxv1G3UQWLG6LvPS9+dmnE4fTNbwa+QwUxrjbM0y/pKCgba3k8WK4FQfVHADEK6i523ndq3znaBkDlYOhRMCXlpVr+uH2P+z3SxjPPccrJnTkXmpxEWQjkyfzAg2LRS8l1rX6RDrTEGaGI15H+1vK//qtqFzwT+9QXDNfu/m8hMAAP//5T96ZSQBAAA=",
+          "base64_string": "H4sIAAAAAAAA/3yPwU7DMBBEf8Wa8xbZTiNhfwUHTlwqY09Vg5NGyUaiQv13FIi4IHHc1b59M5+oBTE8+uAEJSkR4a23B9sdrINAq7ZtWdZhuJlpvr4xq+HHxHGhGOWiZp2+ScFIPelVU0N01j5YwQ4g7qJj37ljcEFQC0et58oZEU/e2t5vH9Lwx7ZbpnQbOKpZ8oVlbcRdkC/M7yyIOq8UvNbWtumc2kJBnpmU5ZT0t1U4ePfsfOxc7LsXCH6y/3dz/woAAP//2Tv/myQBAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,10 +147,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 03 Mar 2020 14:51:38 GMT"
+            "Mon, 21 Sep 2020 12:31:53 GMT"
           ],
           "Etag": [
-            "W/\"7b205479d05ffa35a9505a71e727fd44\""
+            "W/\"0e1a5dff05937c95c5eb78f7d2c2514b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "37b08459-2980-45ac-bd9d-f63509466ad3"
+            "d8f63462-2f61-47ad-8283-3794ef121dfc"
           ],
           "X-Runtime": [
-            "0.042029"
+            "0.051055"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945162135/payment_schedules/72165"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules/98291"
       }
     }
   ],

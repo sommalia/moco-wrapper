@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-02-19T11:54:18",
+      "recorded_at": "2020-09-21T12:36:41",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,11 +24,11 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.22.0"
+            "python-requests/2.23.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933630037&page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?to=2021-01-01&page=1&from=2020-01-01&user_id=933636529"
       },
       "response": {
         "body": {
@@ -50,7 +50,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 19 Feb 2020 11:54:18 GMT"
+            "Mon, 21 Sep 2020 12:36:41 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "acad27d9-97e2-4378-8872-3c1270e1b658"
+            "0addd605-2676-47d7-96a5-bbe4dbbab284"
           ],
           "X-Runtime": [
-            "0.028026"
+            "0.049724"
           ],
           "X-Total": [
             "0"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933630037&page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?to=2021-01-01&page=1&from=2020-01-01&user_id=933636529"
       }
     }
   ],
