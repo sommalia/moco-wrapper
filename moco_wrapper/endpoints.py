@@ -31,6 +31,7 @@ API_PATH = {
     "invoice_timesheet":                "/invoices/{id}/timesheet.pdf",
     "invoice_update_status":            "/invoices/{id}/update_status",
     "invoice_create":                   "/invoices",
+    "invoice_send_email":               "/invoices/{id}/send_email",
     "invoice_payment_getlist":          "/invoices/payments",
     "invoice_payment_get":              "/invoices/payments/{id}",
     "invoice_payment_create":           "/invoices/payments",

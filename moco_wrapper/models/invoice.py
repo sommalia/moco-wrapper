@@ -369,3 +369,62 @@ class Invoice(MWRAPBase):
                 data[key] = value
 
         return self._moco.post(API_PATH["invoice_create"], data=data)
+
+    def send_emaiL(
+        self,
+        invoice_id: int,
+        emails_to: list,
+        subject: str,
+        text: str,
+        emails_cc: list = None,
+        emails_bcc: list = None
+    ):
+        """
+        Send an invoice by mail
+
+        :param invoice_id: Id of the invoice to send
+        :param emails_to: List of email adresses to send the invoice to
+        :param subject: Email subject
+        :param text: Email text
+        :param emails_cc: List of email addresses in cc (default ``None``)
+        :param emails_bcc: List of email addresses in bcc (default ``None``)
+
+        :type invoice_id: int
+        :type emails_to: list
+        :type subject: str
+        :type text: str
+        :type emails_cc: list
+        :type emails_bcc: list
+
+        .. note ::
+
+            If you want to send an email to the defautl recipient configured in the project or customer, set ``emails_to`` and ``emails_cc`` To ``None``.
+
+        """
+        if emails_to is None:
+            emails_to = []
+
+        if emails_cc is None:
+            emails_cc = []
+
+        if emails_bcc is None:
+            emails_bcc = []
+        
+        data = {
+            "emails_to": ";".join(emails_to),
+            "subject": subject,
+            "text": text
+        }
+
+        for key, value in (
+            ("emails_cc", emails_cc),
+            ("emails_bcc", emails_bcc)
+        ):
+
+            if value is not None:
+                if key in ["emails_cc", "emails_bcc"] and isinstance(value, list) and len(value) > 0:
+                    data[key] = ";".join(value)
+                else:
+                    data[key] = value
+
+        return self._moco.post(API_PATH["invoice_send_email"].format(id=invoice_id), data=data)
