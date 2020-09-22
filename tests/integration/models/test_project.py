@@ -40,6 +40,27 @@ class TestProject(IntegrationTest):
 
             return customer_create.data
 
+    def get_deal_category(self):
+        with self.recorder.use_cassette("TestProject.get_deal_category"):
+            deal_category = self.moco.DealCategory.getlist().items[0]
+            return deal_category
+
+    def get_deal(self):
+        category = self.get_deal_category()
+        user = self.get_user()
+
+        with self.recorder.use_cassette("TestProject.get_deal"):
+            deal_create = self.moco.Deal.create(
+                name="dummy deal",
+                currency="EUR",
+                money=100,
+                reminder_date=date(2021, 1, 1),
+                user_id=user.id,
+                deal_category_id=category.id
+            )
+            return deal_create.data
+
+
     def test_create(self):
         user = self.get_user()
         customer = self.get_customer()
@@ -66,6 +87,31 @@ class TestProject(IntegrationTest):
             assert project_create.data.finish_date == finish_date.isoformat()
             assert project_create.data.leader.id == user.id
             assert project_create.data.customer.id == customer.id
+
+
+    def test_create_with_deal(self):
+        user = self.get_user()
+        customer = self.get_customer()
+        deal = self.get_deal()
+
+        with self.recorder.use_cassette("TestProject.test_create_with_deal"):
+            name = "test project create with deal"
+            currency = "EUR"
+
+            project_create = self.moco.Project.create(
+                name=name,
+                currency=currency,
+                leader_id=user.id,
+                customer_id=customer.id,
+                deal_id=deal.id
+            )
+
+            assert project_create.data.name == name
+            assert project_create.data.currency == currency
+            assert project_create.data.leader.id == user.id
+            assert project_create.data.customer.id == customer.id
+            assert project_create.data.deal.id == deal.id
+
 
     def test_create_full(self):
         user = self.get_user()
@@ -444,3 +490,6 @@ class TestProject(IntegrationTest):
             assert project_create.data.customer.id == customer.id
             assert project_create.data.budget == budget
             assert project_create.data.fixed_price == fixed_price
+
+   
+
