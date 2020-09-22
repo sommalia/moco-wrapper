@@ -396,9 +396,9 @@ class Invoice(MWRAPBase):
         :type emails_cc: str, list
         :type emails_bcc: str, list
 
-        .. note ::
+        .. note::
 
-            If you want to send an email to the defautl recipient configured in the project or customer, set ``emails_to`` and ``emails_cc`` To ``None``.
+            If you want to send an email to the default recipient configured in the project or customer, set ``emails_to`` and ``emails_cc`` To ``None``.
 
         """
         if emails_to is None:
