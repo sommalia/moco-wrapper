@@ -373,28 +373,28 @@ class Invoice(MWRAPBase):
     def send_emaiL(
         self,
         invoice_id: int,
-        emails_to: list,
+        emails_to: str,
         subject: str,
         text: str,
-        emails_cc: list = None,
-        emails_bcc: list = None
+        emails_cc: str = None,
+        emails_bcc: str = None
     ):
         """
         Send an invoice by mail
 
         :param invoice_id: Id of the invoice to send
-        :param emails_to: List of email adresses to send the invoice to
+        :param emails_to: Target email adress (or a list of mutiple email adresses)
         :param subject: Email subject
         :param text: Email text
-        :param emails_cc: List of email addresses in cc (default ``None``)
-        :param emails_bcc: List of email addresses in bcc (default ``None``)
+        :param emails_cc: Email address for cc (or a list of mutiple email adresses) (default ``None``)
+        :param emails_bcc: Email address for bcc (or a list of mutiple email adresses) (default ``None``)
 
         :type invoice_id: int
-        :type emails_to: list
+        :type emails_to: str, list
         :type subject: str
         :type text: str
-        :type emails_cc: list
-        :type emails_bcc: list
+        :type emails_cc: str, list
+        :type emails_bcc: str, list
 
         .. note ::
 
@@ -411,10 +411,14 @@ class Invoice(MWRAPBase):
             emails_bcc = []
         
         data = {
-            "emails_to": ";".join(emails_to),
             "subject": subject,
             "text": text
         }
+
+        if isinstance(emails_to, list):
+            data["emails_to"] = ";".join(emails_to)
+        else:
+            data["emails_to"] = emails_to
 
         for key, value in (
             ("emails_cc", emails_cc),
