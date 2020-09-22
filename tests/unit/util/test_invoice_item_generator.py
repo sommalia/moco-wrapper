@@ -26,14 +26,26 @@ class TestInvoiceItemGenerator(object):
         unit_price = 55
         net_total = 44
         quantity = 3
+        activity_ids = [123, 456]
+        expense_ids = [4, 999]
 
-        item = self.generator.generate_item(title, quantity=quantity, unit=unit, unit_price=unit_price, net_total=net_total)
+        item = self.generator.generate_item(
+            title, 
+            quantity=quantity, 
+            unit=unit, 
+            unit_price=unit_price, 
+            net_total=net_total,
+            activity_ids=activity_ids,
+            expense_ids=expense_ids
+        )
 
         assert item["title"] == title
         assert item["unit"] == unit
         assert item["unit_price"] == unit_price
         assert item["quantity"] == quantity
         assert item["net_total"] == net_total
+        assert item["activity_ids"] == activity_ids
+        assert item["expense_ids"] == expense_ids
 
     def test_generate_separator(self):
         item = self.generator.generate_separator()

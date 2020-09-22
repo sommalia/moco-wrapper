@@ -8,7 +8,9 @@ class InvoiceItemGenerator(BaseGenerator):
         quantity: float = None,
         unit: str = None,
         unit_price: float = None,
-        net_total: float = None
+        net_total: float = None,
+        activity_ids: list = None,
+        expense_ids: list = None
     ) -> dict:
         """
         Generate an invoice item.
@@ -18,12 +20,16 @@ class InvoiceItemGenerator(BaseGenerator):
         :param unit: Unit name of the supplied item
         :param unit_price: Unit price of the supplied item
         :param net_total: Net total sum (either this is supplied or unit, unit_price, and quantity)
+        :param activity_ids: Ids of the activities billed by this item
+        :param expense_ids: Ids of the expenses billed by this item
 
         :type title: str
         :type quantity: float
         :type unit: str
         :type unit_price: float
         :type net_total: float
+        :type activity_ids: list
+        :type expense_ids: list
 
         :returns: The generated item
 
@@ -44,6 +50,8 @@ class InvoiceItemGenerator(BaseGenerator):
             ("unit", unit),
             ("unit_price", unit_price),
             ("net_total", net_total),
+            ("activity_ids", activity_ids),
+            ("expense_ids", expense_ids)
         ):
             if value is not None:
                 data[key] = value
@@ -55,7 +63,9 @@ class InvoiceItemGenerator(BaseGenerator):
         title: str,
         quantity: float,
         unit: str,
-        unit_price: float
+        unit_price: float,
+        activity_ids: list = None,
+        expense_ids: list = None
     ) -> dict:
         """
         Generates a detailed position item to be used in an offer items list (for example hours are a perfect example that can be split into units (a single hours set the unit, unit_price, and quantity)).
@@ -64,11 +74,15 @@ class InvoiceItemGenerator(BaseGenerator):
         :param quantity: How many of the things (i.e. how many hours)
         :param unit: What is the thing (i.e. hours)
         :param unit_price: Price of a single thing (i.e. price of a single hour)
+        :param activity_ids: Ids of the activities billed by this item
+        :param expense_ids: Ids of the expenses billed by this item
 
         :type title: str
         :type quantity: float
         :type unit: str
         :type unit_price: float
+        :type activity_ids: list
+        :type expense_ids: list
 
         :returns: The generated item
 
@@ -76,7 +90,7 @@ class InvoiceItemGenerator(BaseGenerator):
 
             :meth:`.generate_item`
         """
-        return self.generate_item(title, quantity=quantity, unit=unit, unit_price=unit_price)
+        return self.generate_item(title, quantity=quantity, unit=unit, unit_price=unit_price, activity_ids=activity_ids, expense_ids=expense_ids)
 
     def generate_lump_position(
         self,

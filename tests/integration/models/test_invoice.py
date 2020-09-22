@@ -360,3 +360,4 @@ class TestInvoice(IntegrationTest):
             assert inv_create.data.cash_discount == cash_discount
             assert inv_create.data.cash_discount_days == cash_discount_days
             assert sorted(inv_create.data.tags) == sorted(tags)
+            

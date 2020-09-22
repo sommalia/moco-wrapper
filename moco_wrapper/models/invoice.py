@@ -60,7 +60,7 @@ class InvoiceChangeAddress(str, Enum):
 
 class Invoice(MWRAPBase):
     """
-    Models for handling invoices.
+    Model for handling invoices.
     """
 
     def __init__(self, moco):
