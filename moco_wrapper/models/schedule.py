@@ -54,6 +54,8 @@ class ScheduleSymbol(int, Enum):
     USERS = 8
     MOON = 9
     INFO_CIRCLE = 10
+    DOT_CIRCLE = 11
+    EXCLAMATION_MARK = 12
 
 
 class ScheduleAssignmentType(object):
