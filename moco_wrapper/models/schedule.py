@@ -58,13 +58,6 @@ class ScheduleSymbol(int, Enum):
     EXCLAMATION_MARK = 12
 
 
-class ScheduleAssignmentType(object):
-    """
-    Enumeration for types of schedules that can exist.
-    """
-    ABSENCE = "Absence"
-
-
 class Schedule(MWRAPBase):
     """
     Class for handling user absences.

@@ -1,4 +1,4 @@
-from moco_wrapper.models.schedule import ScheduleAbsenceCode, ScheduleSymbol, ScheduleAssignmentType
+from moco_wrapper.models.schedule import ScheduleAbsenceCode, ScheduleSymbol
 from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
 
 from datetime import date
@@ -55,7 +55,6 @@ class TestSchedule(IntegrationTest):
 
             assert isinstance(sched_create, JsonResponse)
 
-            assert sched_create.data.assignment.type == ScheduleAssignmentType.ABSENCE
             assert sched_create.data.user.id == user.id
 
     def test_create_full(self):
@@ -86,7 +85,6 @@ class TestSchedule(IntegrationTest):
             assert isinstance(sched_create, JsonResponse)
 
             assert sched_create.data.date == sched_date.isoformat()
-            assert sched_create.data.assignment.type == ScheduleAssignmentType.ABSENCE
             assert sched_create.data.user.id == user.id
             assert sched_create.data.am == am
             assert sched_create.data.pm == pm
@@ -123,7 +121,6 @@ class TestSchedule(IntegrationTest):
             assert isinstance(sched_get, JsonResponse)
 
             assert sched_get.data.date == sched_date.isoformat()
-            assert sched_get.data.assignment.type == ScheduleAssignmentType.ABSENCE
             assert sched_get.data.user.id == user.id
             assert sched_get.data.am == am
             assert sched_get.data.pm == pm
@@ -162,7 +159,6 @@ class TestSchedule(IntegrationTest):
             assert isinstance(sched_create, JsonResponse)
             assert isinstance(sched_update, JsonResponse)
 
-            assert sched_update.data.assignment.type == ScheduleAssignmentType.ABSENCE
             assert sched_update.data.user.id == user.id
             assert sched_update.data.am == am
             assert sched_update.data.pm == pm
