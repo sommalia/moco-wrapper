@@ -38,6 +38,8 @@ from .project_payment_schedule import ProjectPaymentSchedule
 from .purchase_category import PurchaseCategory
 from .purchase import Purchase
 
+from .hourly_rate import HourlyRate
+
 from .session import Session
 
 from . import objector_models

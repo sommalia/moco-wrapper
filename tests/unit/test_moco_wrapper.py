@@ -79,6 +79,9 @@ class TestMocoWrapper(UnitTest):
     def test_planning_entry_set(self):
         assert isinstance(self.moco.PlanningEntry, models.PlanningEntry)
 
+    def test_hourly_rate_set(self):
+        assert isinstance(self.moco.HourlyRate, models.HourlyRate)
+
     def test_wrapper_init(self):
         new_moco = moco.Moco(
             auth={
