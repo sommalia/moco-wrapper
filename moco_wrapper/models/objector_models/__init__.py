@@ -29,3 +29,5 @@ from .purchase_category import PurchaseCategory
 from .purchase import Purchase
 
 from .planning_entry import PlanningEntry
+
+from .hourly_rate import HourlyRate
