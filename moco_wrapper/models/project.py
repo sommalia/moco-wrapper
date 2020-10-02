@@ -53,6 +53,10 @@ class Project(MWRAPBase):
         finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
+        billing_email_to: str = None,
+        billing_email_cc: str = None,
+        billing_notes: str = None,
+        setting_include_time_report: bool = None,
         billing_variant: ProjectBillingVariant = None,
         hourly_rate: float = None,
         budget: float = None,
@@ -72,6 +76,10 @@ class Project(MWRAPBase):
         :param finish_date: Finish date (default ``None``)
         :param identifier: Project Identifier (default ``None``)
         :param billing_address: Billing address the invoices go to (default ``None``)
+        :param billing_email_to: Email address to send billing email to (default ``None``)
+        :param billing_email_cc: Email address to cc in billing emails (default ``None``)
+        :param billing_notes: Billing notes (default ``None``)
+        :param setting_include_time_report: Include time report in billing emails (default ``None``)
         :param billing_variant: Billing variant used (default ``None``)
         :param hourly_rate: Hourly rate that will get billed (default ``None``)
         :param budget: Budget for the project (default ``None``)
@@ -88,6 +96,10 @@ class Project(MWRAPBase):
         :type finish_date: datetime.date, str
         :type identifier: str
         :type billing_address: str
+        :type billing_email_to: str
+        :type billing_email_cc: str
+        :type billing_notes: str
+        :type setting_include_time_report: bool
         :type billing_variant: :class:`.ProjectBillingVariant`, str
         :type hourly_rate: float
         :type budget: float
@@ -120,6 +132,10 @@ class Project(MWRAPBase):
             ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),
+            ("billing_email_to", billing_email_to),
+            ("billing_email_cc", billing_email_cc),
+            ("billing_notes", billing_notes),
+            ("setting_include_time_report", setting_include_time_report),
             ("billing_variant", billing_variant),
             ("hourly_rate", hourly_rate),
             ("budget", budget),
@@ -146,6 +162,10 @@ class Project(MWRAPBase):
         finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
+        billing_email_to: str = None,
+        billing_email_cc: str = None,
+        billing_notes: str = None,
+        setting_include_time_report: bool = None,
         billing_variant: ProjectBillingVariant = None,
         hourly_rate: float = None,
         budget: float = None,
@@ -164,6 +184,10 @@ class Project(MWRAPBase):
         :param finish_date: Finish date (default ``None``)
         :param identifier: Project Identifier (default ``None``)
         :param billing_address: Address the invoices go to (default ``None``)
+        :param billing_email_to: Email address to send billing emails to (default ``None``)
+        :param billing_email_cc: Email address to cc in billing emails (default ``None``)
+        :param billing_notes: Billing notes
+        :param setting_include_time_report: Include time reports in billing emails
         :param billing_variant: Billing variant used (default ``None``)
         :param hourly_rate: Hourly rate that will get billed (default ``None``)
         :param budget: Budget for the project (default ``None``)
@@ -179,6 +203,10 @@ class Project(MWRAPBase):
         :type finish_date: datetime.date, str
         :type identifier: str
         :type billing_address: str
+        :type billing_email_to: str
+        :type billing_email_cc: str
+        :type billing_notes: str
+        :type setting_include_time_report: bool
         :type billing_variant: :class:`.ProjectBillingVariant`, str
         :type hourly_rate: float
         :type budget: float
@@ -199,6 +227,10 @@ class Project(MWRAPBase):
             ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),
+            ("billing_email_to", billing_email_to),
+            ("billing_email_cc", billing_email_cc),
+            ("billing_notes", billing_notes),
+            ("setting_include_time_report", setting_include_time_report),
             ("billing_variant", billing_variant),
             ("hourly_rate", hourly_rate),
             ("budget", budget),

@@ -13,6 +13,10 @@ class TestProject(UnitTest):
         deal_id = 834
         identifier = "PROJ-4"
         billing_address = "this is the billing address"
+        billing_email_to = "billing-to@example.org"
+        billing_email_cc = "billing-cc@example.org"
+        billing_notes = "billing notes text"
+        setting_include_time_report = True
         billing_variant = "project"
         hourly_rate = 124
         budget = 120000
@@ -31,6 +35,10 @@ class TestProject(UnitTest):
             finish_date=finish_date,
             identifier=identifier,
             billing_address=billing_address,
+            billing_email_to=billing_email_to,
+            billing_email_cc=billing_email_cc,
+            billing_notes=billing_notes,
+            setting_include_time_report=setting_include_time_report,
             billing_variant=billing_variant,
             hourly_rate=hourly_rate,
             budget=budget,
@@ -47,6 +55,10 @@ class TestProject(UnitTest):
         assert data["customer_id"] == customer_id
         assert data["deal_id"] == deal_id
         assert data["billing_address"] == billing_address
+        assert data["billing_email_to"] == billing_email_to
+        assert data["billing_email_cc"] == billing_email_cc
+        assert data["billing_notes"] == billing_notes
+        assert data["setting_include_time_report"] == setting_include_time_report
         assert data["billing_variant"] == billing_variant
         assert data["hourly_rate"] == hourly_rate
         assert data["labels"] == labels
@@ -64,6 +76,10 @@ class TestProject(UnitTest):
         deal_id = 231
         identifier = "PROJ-4"
         billing_address = "this is the billing address"
+        billing_email_to = "billing-to-update@example.org"
+        billing_email_cc = "billing-cc-update@example.org"
+        billing_notes = "billing notes update text"
+        setting_include_time_report = True
         billing_variant = "project"
         hourly_rate = 124
         budget = 120000
@@ -82,6 +98,10 @@ class TestProject(UnitTest):
             deal_id=deal_id,
             identifier=identifier,
             billing_address=billing_address,
+            billing_email_to=billing_email_to,
+            billing_email_cc=billing_email_cc,
+            billing_notes=billing_notes,
+            setting_include_time_report=setting_include_time_report,
             billing_variant=billing_variant,
             hourly_rate=hourly_rate,
             budget=budget,
@@ -97,6 +117,10 @@ class TestProject(UnitTest):
         assert data["customer_id"] == customer_id
         assert data["deal_id"] == deal_id
         assert data["billing_address"] == billing_address
+        assert data["billing_email_to"] == billing_email_to
+        assert data["billing_email_cc"] == billing_email_cc
+        assert data["billing_notes"] == billing_notes
+        assert data["setting_include_time_report"] == setting_include_time_report
         assert data["billing_variant"] == billing_variant
         assert data["hourly_rate"] == hourly_rate
         assert data["labels"] == labels
@@ -124,10 +148,19 @@ class TestProject(UnitTest):
         tags = ["these", "are", "my", "tags"]
         identifier = "PROJ-IAM-SEARCHING"
 
-        response = self.moco.Project.getlist(include_archived=include_archived, include_company=include_company,
-                                             leader_id=leader_id, company_id=company_id, created_from=created_from,
-                                             created_to=created_to, updated_from=updated_from, updated_to=updated_to,
-                                             tags=tags, identifier=identifier)
+        response = self.moco.Project.getlist(
+            include_archived=include_archived,
+            include_company=include_company,
+            leader_id=leader_id,
+            company_id=company_id,
+            created_from=created_from,
+            created_to=created_to,
+            updated_from=updated_from,
+            updated_to=updated_to,
+            tags=tags,
+            identifier=identifier
+        )
+
         params = response["params"]
 
         assert params["include_archived"] == include_archived

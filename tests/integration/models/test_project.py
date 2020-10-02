@@ -24,7 +24,7 @@ class TestProject(IntegrationTest):
             user_create = self.moco.User.create(
                 firstname="dummy user",
                 lastname="testing contracts",
-                email="{}@mycompany.com".format(self.id_generator()),
+                email="{}@example.org".format(self.id_generator()),
                 password=self.id_generator(),
                 unit_id=unit.id,
             )
@@ -60,7 +60,6 @@ class TestProject(IntegrationTest):
             )
             return deal_create.data
 
-
     def test_create(self):
         user = self.get_user()
         customer = self.get_customer()
@@ -88,7 +87,6 @@ class TestProject(IntegrationTest):
             assert project_create.data.leader.id == user.id
             assert project_create.data.customer.id == customer.id
 
-
     def test_create_with_deal(self):
         user = self.get_user()
         customer = self.get_customer()
@@ -112,7 +110,6 @@ class TestProject(IntegrationTest):
             assert project_create.data.customer.id == customer.id
             assert project_create.data.deal.id == deal.id
 
-
     def test_create_full(self):
         user = self.get_user()
         customer = self.get_customer()
@@ -122,6 +119,10 @@ class TestProject(IntegrationTest):
             currency = "EUR"
             finish_date = date(2021, 1, 1)
             billing_address = "general street 22"
+            billing_email_to = "billing@example.org"
+            billing_email_cc = "billing-cc@example.org"
+            billing_notes = "billing notes text"
+            setting_include_time_report = True
             billing_variant = ProjectBillingVariant.PROJECT
             hourly_rate = 12.5
             budget = 100
@@ -135,6 +136,10 @@ class TestProject(IntegrationTest):
                 customer_id=customer.id,
                 finish_date=finish_date,
                 billing_address=billing_address,
+                billing_email_to=billing_email_to,
+                billing_email_cc=billing_email_cc,
+                billing_notes=billing_notes,
+                setting_include_time_report=setting_include_time_report,
                 billing_variant=billing_variant,
                 hourly_rate=hourly_rate,
                 budget=budget,
@@ -152,6 +157,10 @@ class TestProject(IntegrationTest):
             assert project_create.data.leader.id == user.id
             assert project_create.data.customer.id == customer.id
             assert project_create.data.billing_address == billing_address
+            assert project_create.data.billing_email_to == billing_email_to
+            assert project_create.data.billing_email_cc == billing_email_cc
+            assert project_create.data.billing_notes == billing_notes
+            assert project_create.data.setting_include_time_report == setting_include_time_report
             assert project_create.data.billing_variant == billing_variant
             assert project_create.data.hourly_rate == hourly_rate
             assert project_create.data.budget == budget
@@ -216,6 +225,10 @@ class TestProject(IntegrationTest):
             currency = "EUR"
             finish_date = date(2021, 1, 1)
             billing_address = "general street 22"
+            billing_email_to = "billing-update@example.org"
+            billing_email_cc = "billing-cc-update@example.org"
+            billing_notes = "billings notes update text"
+            setting_include_time_report = False
             billing_variant = ProjectBillingVariant.PROJECT
             hourly_rate = 12.5
             budget = 100
@@ -237,6 +250,10 @@ class TestProject(IntegrationTest):
                 leader_id=user.id,
                 customer_id=customer.id,
                 billing_address=billing_address,
+                billing_email_to=billing_email_to,
+                billing_email_cc=billing_email_cc,
+                billing_notes=billing_notes,
+                setting_include_time_report=setting_include_time_report,
                 billing_variant=billing_variant,
                 hourly_rate=hourly_rate,
                 budget=budget,
@@ -256,6 +273,10 @@ class TestProject(IntegrationTest):
             assert project_update.data.leader.id == user.id
             assert project_update.data.customer.id == customer.id
             assert project_update.data.billing_address == billing_address
+            assert project_update.data.billing_email_to == billing_email_to
+            assert project_update.data.billing_email_cc == billing_email_cc
+            assert project_update.data.billing_notes == billing_notes
+            assert project_update.data.setting_include_time_report == setting_include_time_report
             assert project_update.data.billing_variant == billing_variant
             assert project_update.data.hourly_rate == hourly_rate
             assert project_update.data.budget == budget
@@ -296,8 +317,6 @@ class TestProject(IntegrationTest):
 
     def test_create_task(self):
         user = self.get_user()
-        other_user = self.get_other_user()
-
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestProject.test_create_task"):
@@ -490,6 +509,3 @@ class TestProject(IntegrationTest):
             assert project_create.data.customer.id == customer.id
             assert project_create.data.budget == budget
             assert project_create.data.fixed_price == fixed_price
-
-   
-
