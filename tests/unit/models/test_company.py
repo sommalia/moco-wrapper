@@ -2,15 +2,17 @@ import pytest
 
 from .. import UnitTest
 
+
 class TestCompany(UnitTest):
 
     def test_create(self):
         name = "test company"
         company_type = "customer"
-        website = "https://example.com"
+        website = "https://example.org"
         fax = "1234"
         phone = "12345"
-        email = "example@example.org"
+        email = "email@example.org"
+        billing_email_cc = "billing@example.org"
         address = "here is the address 25 street"
         info = "more information about the company"
         custom_properties = {
@@ -26,10 +28,24 @@ class TestCompany(UnitTest):
         vat = "123412321"
 
         response = self.moco.Company.create(
-            name, company_type, website=website, fax=fax, phone=phone, email=email,
-            address=address, info=info, custom_properties=custom_properties, labels=labels,
-            user_id=user_id, currency=currency, identifier=identifier, billing_tax=billing_tax,
-            default_invoice_due_days=default_invoice_due_days, vat_identifier=vat)
+            name=name,
+            company_type=company_type,
+            website=website,
+            fax=fax,
+            phone=phone,
+            email=email,
+            billing_email_cc=billing_email_cc,
+            address=address,
+            info=info,
+            custom_properties=custom_properties,
+            labels=labels,
+            user_id=user_id,
+            currency=currency,
+            identifier=identifier,
+            billing_tax=billing_tax,
+            default_invoice_due_days=default_invoice_due_days,
+            vat_identifier=vat
+        )
 
         data = response["data"]
 
@@ -39,6 +55,7 @@ class TestCompany(UnitTest):
         assert data["fax"] == fax
         assert data["phone"] == phone
         assert data["email"] == email
+        assert data["billing_email_cc"] == billing_email_cc
         assert data["address"] == address
         assert data["info"] == info
         assert data["custom_properties"] == custom_properties
@@ -59,7 +76,8 @@ class TestCompany(UnitTest):
         website = "https://example.com"
         fax = "1234"
         phone = "12345"
-        email = "example@example.org"
+        email = "email-update@example.org"
+        billing_email_cc = "billing-update@example.org"
         address = "here is the address 25 street"
         info = "more information about the company"
         custom_properties = {
@@ -73,7 +91,25 @@ class TestCompany(UnitTest):
         billing_tax = 21
         default_invoice_due_days = 22
 
-        response = self.moco.Company.update(company_id, company_type=company_type, name=name, website=website, fax=fax, phone=phone, email=email, address=address, info=info, custom_properties=custom_properties, labels=labels, user_id=user_id, currency=currency, identifier=identifier, billing_tax=billing_tax, default_invoice_due_days=default_invoice_due_days)
+        response = self.moco.Company.update(
+            company_id=company_id,
+            company_type=company_type,
+            name=name,
+            website=website,
+            fax=fax,
+            phone=phone,
+            email=email,
+            billing_email_cc=billing_email_cc,
+            address=address,
+            info=info,
+            custom_properties=custom_properties,
+            labels=labels,
+            user_id=user_id,
+            currency=currency,
+            identifier=identifier,
+            billing_tax=billing_tax,
+            default_invoice_due_days=default_invoice_due_days
+        )
 
         data = response["data"]
 
@@ -83,6 +119,7 @@ class TestCompany(UnitTest):
         assert data["fax"] == fax
         assert data["phone"] == phone
         assert data["email"] == email
+        assert data["billing_email_cc"] == billing_email_cc
         assert data["address"] == address
         assert data["info"] == info
         assert data["custom_properties"] == custom_properties
@@ -107,7 +144,12 @@ class TestCompany(UnitTest):
         tags = ["test", "this", "list"]
         identifier = "COMP-3"
 
-        response = self.moco.Company.getlist(company_type=company_type, tags=tags, identifier=identifier)
+        response = self.moco.Company.getlist(
+            company_type=company_type,
+            tags=tags,
+            identifier=identifier
+        )
+
         params = response["params"]
 
         assert params["tags"] == tags
@@ -143,28 +185,33 @@ class TestCompany(UnitTest):
         response = self.moco.Company.getlist(page=page_overwrite)
         assert response["params"]["page"] == page_overwrite
 
-
-
-
-
-
     def test_create_iban_omitted_in_orga(self):
         iban = "CHF1234"
 
-        response = self.moco.Company.create("test company", company_type="organization", iban=iban)
+        response = self.moco.Company.create(
+            name="test company",
+            company_type="organization",
+            iban=iban
+        )
 
         assert "vat_identifier" not in response["data"].keys()
 
     def test_update_iban(self):
         iban = "CHF1234"
 
-        response = self.moco.Company.update(1, iban=iban)
+        response = self.moco.Company.update(
+            company_id=1,
+            iban=iban
+        )
 
         assert response["data"]["iban"] == iban
 
     def test_update_vat(self):
         vat = "12345"
 
-        response = self.moco.Company.update(1, vat_identifier=vat)
+        response = self.moco.Company.update(
+            company_id=1,
+            vat_identifier=vat
+        )
 
         assert response["data"]["vat_identifier"] == vat

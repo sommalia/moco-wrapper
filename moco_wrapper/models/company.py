@@ -66,6 +66,7 @@ class Company(MWRAPBase):
         fax: str = None,
         phone: str = None,
         email: str = None,
+        billing_email_cc: str = None,
         address: str = None,
         info: str = None,
         custom_properties: dict = None,
@@ -91,6 +92,7 @@ class Company(MWRAPBase):
         :param fax: Fax number of the company (default ``None``)
         :param phone: Phone number of the company (default ``None``)
         :param email: Email address of the company (default ``None``)
+        :param billing_email_cc: Email address to cc for billing emails (default ``None``)
         :param address: Company address (default ``None``)
         :param info: Additional information about the company (default ``None``)
         :param custom_properties: Custom properties dictionary (default ``None``)
@@ -116,6 +118,7 @@ class Company(MWRAPBase):
         :type fax: str
         :type phone: str
         :type email: str
+        :type billing_email_cc: str
         :type address: str
         :type info: str
         :type custom_properties: dict
@@ -151,6 +154,7 @@ class Company(MWRAPBase):
             ("fax", fax),
             ("phone", phone),
             ("email", email),
+            ("billing_email_cc", billing_email_cc),
             ("address", address),
             ("info", info),
             ("custom_properties", custom_properties),
@@ -194,6 +198,7 @@ class Company(MWRAPBase):
         fax: str = None,
         phone: str = None,
         email: str = None,
+        billing_email_cc: str = None,
         address: str = None,
         info: str = None,
         custom_properties: dict = None,
@@ -220,6 +225,7 @@ class Company(MWRAPBase):
         :param fax: Fax number of the company (default ``None``)
         :param phone: Phone number of the company (default ``None``)
         :param email: Email address of the company (default ``None``)
+        :param billing_email_cc: Email address to cc in billing emails (default ``None``)
         :param address: Company address (default ``None``)
         :param info: Additional information about the company (default ``None``)
         :param custom_properties: Custom properties dictionary (default ``None``)
@@ -245,6 +251,7 @@ class Company(MWRAPBase):
         :type fax: str
         :type phone: str
         :type email: str
+        :type billing_email_cc: str
         :type address: str
         :type info: str
         :type custom_properties: dict
@@ -275,6 +282,7 @@ class Company(MWRAPBase):
             ("fax", fax),
             ("phone", phone),
             ("email", email),
+            ("billing_email_cc", billing_email_cc),
             ("address", address),
             ("info", info),
             ("custom_properties", custom_properties),
