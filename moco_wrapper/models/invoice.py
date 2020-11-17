@@ -370,7 +370,7 @@ class Invoice(MWRAPBase):
 
         return self._moco.post(API_PATH["invoice_create"], data=data)
 
-    def send_emaiL(
+    def send_email(
         self,
         invoice_id: int,
         emails_to: str,
@@ -383,11 +383,11 @@ class Invoice(MWRAPBase):
         Send an invoice by mail
 
         :param invoice_id: Id of the invoice to send
-        :param emails_to: Target email adress (or a list of mutiple email adresses)
+        :param emails_to: Target email address (or a list of multiple email addresses)
         :param subject: Email subject
         :param text: Email text
-        :param emails_cc: Email address for cc (or a list of mutiple email adresses) (default ``None``)
-        :param emails_bcc: Email address for bcc (or a list of mutiple email adresses) (default ``None``)
+        :param emails_cc: Email address for cc (or a list of multiple email addresses) (default ``None``)
+        :param emails_bcc: Email address for bcc (or a list of multiple email addresses) (default ``None``)
 
         :type invoice_id: int
         :type emails_to: str, list
@@ -398,7 +398,8 @@ class Invoice(MWRAPBase):
 
         .. note::
 
-            If you want to send an email to the default recipient configured in the project or customer, set ``emails_to`` and ``emails_cc`` To ``None``.
+            If you want to send an email to the default recipient configured in the project or customer,
+            set ``emails_to`` and ``emails_cc`` To ``None``.
 
         """
         if emails_to is None:
@@ -409,7 +410,7 @@ class Invoice(MWRAPBase):
 
         if emails_bcc is None:
             emails_bcc = []
-        
+
         data = {
             "subject": subject,
             "text": text
