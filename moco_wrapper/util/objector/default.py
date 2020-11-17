@@ -4,6 +4,7 @@ from moco_wrapper.util.response import EmptyResponse, JsonResponse, ListingRespo
 
 from importlib import import_module
 
+
 class DefaultObjector(BaseObjector):
     """
     This is the default class for handling the modification ob response objects that the requestor classes generated and were pushed to the objector.
@@ -22,7 +23,7 @@ class DefaultObjector(BaseObjector):
         self.class_map = {
             "projects": {
                 "base": "Project",
-                "tasks" : "ProjectTask",
+                "tasks": "ProjectTask",
                 "archive": "Project",
                 "unarchive": "Project",
                 "assigned": "Project",
@@ -36,13 +37,13 @@ class DefaultObjector(BaseObjector):
                 "payment_schedules": "ProjectPaymentSchedule",
             },
             "activities": {
-                "base" : "Activity",
+                "base": "Activity",
                 "start_timer": "Activity",
                 "stop_timer": "Activity",
                 "disregard": None
             },
             "users": {
-                "base" : "User",
+                "base": "User",
                 "presences": "UserPresence",
                 "employments": "UserEmployment",
                 "holidays": "UserHoliday"
@@ -60,6 +61,7 @@ class DefaultObjector(BaseObjector):
                     "base": "InvoicePayment",
                     "bulk": "InvoicePayment"
                 },
+                "send_email": "InvoiceEmail"
             },
             "deals": {
                 "base": "Deal"
@@ -82,10 +84,10 @@ class DefaultObjector(BaseObjector):
                 "base": "Schedule"
             },
             "session": {
-                "base" : "Session"
+                "base": "Session"
             },
             "purchases": {
-                "base" : "Purchase",
+                "base": "Purchase",
                 "categories": "PurchaseCategory"
             },
             "planning_entries": {
@@ -111,12 +113,12 @@ class DefaultObjector(BaseObjector):
         self.error_module_path = "moco_wrapper.exceptions"
 
         self.error_class_map = {
-            401 : "UnauthorizedException",
-            403 : "ForbiddenException",
-            404 : "NotFoundException",
-            422 : "UnprocessableException",
-            429 : "RateLimitException",
-            500 : "ServerErrorException"
+            401: "UnauthorizedException",
+            403: "ForbiddenException",
+            404: "NotFoundException",
+            422: "UnprocessableException",
+            429: "RateLimitException",
+            500: "ServerErrorException"
         }
         """
         Dictionary used to convert http status codes into the appropriate exceptions
@@ -128,7 +130,6 @@ class DefaultObjector(BaseObjector):
                 ..
             }
         """
-
 
     def convert(self, requestor_response):
         """
@@ -143,7 +144,7 @@ class DefaultObjector(BaseObjector):
         """
         http_response = requestor_response.response
 
-        if isinstance(requestor_response, (JsonResponse, ListingResponse) ):
+        if isinstance(requestor_response, (JsonResponse, ListingResponse)):
             class_name = self.get_class_name_from_request_url(http_response.request.url)
 
             if class_name is not None:
@@ -151,7 +152,6 @@ class DefaultObjector(BaseObjector):
                     import_module(self.module_path),
                     class_name
                 )
-
 
                 if isinstance(requestor_response, JsonResponse):
                     obj = class_(**requestor_response.data)
@@ -167,7 +167,7 @@ class DefaultObjector(BaseObjector):
                     requestor_response._data = new_items
 
         elif isinstance(requestor_response, ErrorResponse):
-            #convert the data for the error response into an actual exception
+            # convert the data for the error response into an actual exception
             class_name = self.get_error_class_name_from_response_status_code(http_response.status_code)
 
             if class_name is not None:
@@ -176,7 +176,7 @@ class DefaultObjector(BaseObjector):
                     class_name
                 )
 
-                #overwrite data of the error response with the actual exception
+                # overwrite data of the error response with the actual exception
                 obj = class_(http_response, requestor_response.data)
                 requestor_response._data = obj
 
@@ -200,9 +200,8 @@ class DefaultObjector(BaseObjector):
         if status_code in self.error_class_map.keys():
             return self.error_class_map[status_code]
 
-        #raise error if status code was not found
+        # raise error if status code was not found
         raise ValueError("Objector could not find an error type, but it should, status_code: {}".format(status_code))
-
 
     def get_class_name_from_request_url(self, url) -> str:
         """
@@ -258,17 +257,16 @@ class DefaultObjector(BaseObjector):
 
         parts = url.split("/api/v1/")[-1].split("/")
 
-        #remove ids and query string parameters
+        # remove ids and query string parameters
         parts = [x for x in parts if not x.isdigit()]
         if "?" in parts[-1]:
             parts[-1] = parts[-1].split("?")[0]
 
-
-        #find classname by walking the classname
-        #pop the first item from the stack
-        #look into map if our item is a key of the map
-        #set map to map[key]
-        #repeat until stack is empty -> last value should be the class name
+        # find classname by walking the classname
+        # pop the first item from the stack
+        # look into map if our item is a key of the map
+        # set map to map[key]
+        # repeat until stack is empty -> last value should be the class name
         current_map = self.class_map
         stack = [x for x in parts]
         while len(stack) > 0:
@@ -278,12 +276,11 @@ class DefaultObjector(BaseObjector):
             else:
                 raise ValueError("Objector could not find a type, but it should, path: {}".format(">".join(parts)))
 
-
         if current_map is None:
-            return None #no type conversion
+            return None  # no type conversion
 
         if isinstance(current_map, str):
-            return current_map #current map is a specific class name
+            return current_map  # current map is a specific class name
 
         if isinstance(current_map, dict):
-            return current_map["base"] #more cases are present but we need the base case
+            return current_map["base"]  # more cases are present but we need the base case

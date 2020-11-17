@@ -429,7 +429,12 @@ class Invoice(MWRAPBase):
             if value is not None:
                 if key in ["emails_cc", "emails_bcc"] and isinstance(value, list) and len(value) > 0:
                     data[key] = ";".join(value)
+                elif isinstance(value, list) and len(value) == 0:
+                    # skip lists with 0 elements
+                    pass
                 else:
                     data[key] = value
+
+        print(data)
 
         return self._moco.post(API_PATH["invoice_send_email"].format(id=invoice_id), data=data)
