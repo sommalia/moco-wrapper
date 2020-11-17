@@ -435,6 +435,4 @@ class Invoice(MWRAPBase):
                 else:
                     data[key] = value
 
-        print(data)
-
         return self._moco.post(API_PATH["invoice_send_email"].format(id=invoice_id), data=data)

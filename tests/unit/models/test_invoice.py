@@ -240,7 +240,7 @@ class TestInvoice(UnitTest):
         page_overwrite = 22
 
         response = self.moco.Invoice.getlist(page=page_overwrite)
-        assert response["params"]["page"] == page_overwrite#
+        assert response["params"]["page"] == page_overwrite  #
 
     def test_send_email_multiple(self):
         invoice_id = 2
@@ -250,7 +250,7 @@ class TestInvoice(UnitTest):
         emails_cc = ["test2@example.org", "test5@example.org"]
         emails_bcc = ["test3@example.org", "test4@example.org"]
 
-        response = self.moco.Invoice.send_emaiL(
+        response = self.moco.Invoice.send_email(
             invoice_id,
             emails_to,
             subject,
@@ -266,7 +266,6 @@ class TestInvoice(UnitTest):
         assert data["emails_cc"] == ";".join(emails_cc)
         assert data["emails_bcc"] == ";".join(emails_bcc)
 
-
         assert response["method"] == "POST"
 
     def test_send_email(self):
@@ -277,7 +276,7 @@ class TestInvoice(UnitTest):
         emails_cc = "test5@example.org"
         emails_bcc = "test4@example.org"
 
-        response = self.moco.Invoice.send_emaiL(
+        response = self.moco.Invoice.send_email(
             invoice_id,
             emails_to,
             subject,
@@ -293,8 +292,4 @@ class TestInvoice(UnitTest):
         assert data["emails_cc"] == emails_cc
         assert data["emails_bcc"] == emails_bcc
 
-
         assert response["method"] == "POST"
-
-        
-
