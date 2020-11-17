@@ -4,7 +4,7 @@
 
 __author__ = """Sommalia"""
 __email__ = 'sommalia@tuta.io'
-__version__ = '0.8.0'
+__version__ = '0.8.1'
 
 from . import models
 from . import util

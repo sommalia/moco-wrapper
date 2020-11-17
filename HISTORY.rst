@@ -2,6 +2,16 @@
 History
 =======
 
+0.8.1 (2020-11-17)
+------------------
+
+* Removed Project from Schedules (only used for Absences)
+* Cleanup tests
+* Added deal parameter to project create and update
+* Implemented invoice send_email endpoint
+* Implemented hourly rates endpoint
+
+
 0.8.0 (2020-06-28)
 ------------------
 
