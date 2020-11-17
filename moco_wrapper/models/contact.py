@@ -110,7 +110,7 @@ class Contact(MWRAPBase):
         }
 
         for key, value in (
-            ("customer_id", company_id),
+            ("company_id", company_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
@@ -200,7 +200,7 @@ class Contact(MWRAPBase):
             ("firstname", firstname),
             ("lastname", lastname),
             ("gender", gender),
-            ("customer_id", company_id),
+            ("company_id", company_id),
             ("title", title),
             ("job_position", job_position),
             ("mobile_phone", mobile_phone),
