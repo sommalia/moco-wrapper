@@ -29,6 +29,7 @@ class ActivityRemoteService(str, Enum):
     BASECAMP = "basecamp"
     BASECAMP2 = "basecamp2"
     BASECAMP3 = "basecamp3"
+    CLICKUP = "clickup"
     TOGGL = "toggl"
     MITE = "mite"
     GITHUB = "github"
