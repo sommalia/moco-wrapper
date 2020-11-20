@@ -42,7 +42,7 @@ class Tagging(MWRAPBase):
 
         :param moco: An instance of :class:`moco_wrapper.Moco`
         """
-        self.moco = moco
+        self._moco = moco
 
     def add(
         self,
@@ -65,7 +65,15 @@ class Tagging(MWRAPBase):
 
            If you supply tags that already exist for the entity they will be ignored.
         """
-        pass
+
+        data = {
+            "tags": tags
+        }
+
+        return self._moco.patch(
+            API_PATH["tagging_add"].format(entity=str(entity), entity_id=entity_id),
+            data=data
+        )
 
     def replace(
         self,
@@ -89,7 +97,15 @@ class Tagging(MWRAPBase):
             You can remove all tags from an entity by supplying an empty list.
 
         """
-        pass
+
+        data = {
+            "tags": tags
+        }
+
+        return self._moco.put(
+            API_PATH["tagging_replace"].format(entity=str(entity), entity_id=entity_id),
+            data=data
+        )
 
     def delete(
         self,
@@ -108,4 +124,12 @@ class Tagging(MWRAPBase):
         :type entity_id: int
         :type tags: list
         """
-        pass
+
+        data = {
+            "tags": tags
+        }
+
+        return self._moco.delete(
+            API_PATH["tagging_delete"].format(entity=str(entity), entity_id=entity_id),
+            data=data
+        )
