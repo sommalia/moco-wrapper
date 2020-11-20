@@ -96,6 +96,7 @@ class Moco(object):
         self.Purchase = models.Purchase(self)
 
         self.HourlyRate = models.HourlyRate(self)
+        self.Tagging = models.Tagging(self)
 
         self._requestor = requestor
         self._objector = objector

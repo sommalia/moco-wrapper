@@ -71,7 +71,7 @@ class Tagging(MWRAPBase):
         }
 
         return self._moco.patch(
-            API_PATH["tagging_add"].format(entity=str(entity), entity_id=entity_id),
+            API_PATH["tagging_add"].format(entity=entity, entity_id=entity_id),
             data=data
         )
 
@@ -103,7 +103,7 @@ class Tagging(MWRAPBase):
         }
 
         return self._moco.put(
-            API_PATH["tagging_replace"].format(entity=str(entity), entity_id=entity_id),
+            API_PATH["tagging_replace"].format(entity=entity, entity_id=entity_id),
             data=data
         )
 
@@ -130,6 +130,6 @@ class Tagging(MWRAPBase):
         }
 
         return self._moco.delete(
-            API_PATH["tagging_delete"].format(entity=str(entity), entity_id=entity_id),
+            API_PATH["tagging_delete"].format(entity=entity, entity_id=entity_id),
             data=data
         )
