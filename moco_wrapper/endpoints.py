@@ -126,5 +126,8 @@ API_PATH = {
     "purchase_create":                  "/purchases",
     "purchase_delete":                  "/purchases/{id}",
     "purchase_update_status":           "/purchases/{id}/update_status",
-    "purchase_store_document":          "/purchases/{id}/store_document"
+    "purchase_store_document":          "/purchases/{id}/store_document",
+    "tagging_add":                      "/taggings/{entity}/{entity_id}",
+    "tagging_replace":                  "/taggings/{entity}/{entity_id}",
+    "tagging_delete":                   "/taggings/{entity}/{entity_id}",
 }
