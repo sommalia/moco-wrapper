@@ -128,7 +128,7 @@ class InvoicePayment(MWRAPBase):
         :type items: list
 
         :returns: List of created invoice payments
-        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
 
         Bulk creation if invoice payments items with generator:
 

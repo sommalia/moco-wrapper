@@ -182,9 +182,6 @@ class DefaultObjector(BaseObjector):
                 obj = class_(http_response, requestor_response.data)
                 requestor_response._data = obj
 
-
-        print(requestor_response.response)
-        print(requestor_response)
         return requestor_response
 
     def get_error_class_name_from_response_status_code(self, status_code) -> str:

@@ -39,7 +39,7 @@ class TestProjectPaymentSchedule(IntegrationTest):
         project = self.get_project()
 
         with self.recorder.use_cassette("TestProjectPaymentSchedule.test_getlist"):
-            sched_list = self.moco.ProjectPaymentSchedule.getlist(project.id, sort_by="net_total")
+            sched_list = self.moco.ProjectPaymentSchedule.getlist(project.id)
 
             assert sched_list.response.status_code == 200
 

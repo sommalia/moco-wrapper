@@ -350,37 +350,24 @@ class Project(MWRAPBase):
     def assigned(
         self,
         active: bool = None,
-        sort_by: str = None,
-        sort_order: str = 'asc',
-        page: int = 1
     ):
         """
         Get list of all project currently assigned to the user.
 
         :param active: Show only active or inactive projects (default ``None``)
-        :param sort_by: Sort by field (default ``None``)
-        :param sort_order: asc or desc (default ``"asc"``)
-        :param page: Page number (default ``1``)
 
         :type active: bool
-        :type sort_by: str
-        :type sort_order: str
-        :type page: int
 
         :returns: List of project objects
-        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
 
         params = {}
         for key, value in (
             ("active", active),
-            ("page", page),
         ):
             if value is not None:
                 params[key] = value
-
-        if sort_by is not None:
-            params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get(API_PATH["project_assigned"], params=params)
 

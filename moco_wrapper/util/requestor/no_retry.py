@@ -101,7 +101,7 @@ class NoRetryRequestor(BaseRequestor):
                     if "X-Page" in response.headers.keys():
                         return PagedListResponse(response)  # response is a paged list
                     else:
-                        return ListResponse(response) # response is an unpdaged list
+                        return ListResponse(response) # response is an unpaged list
 
                 # return single json response
                 return ObjectResponse(response)
@@ -112,6 +112,6 @@ class NoRetryRequestor(BaseRequestor):
                 return error_response
 
         except ValueError as ex:
-            print("ValueError in response conversion:" + str(ex))
+            # print("ValueError in response conversion:" + str(ex))
             response_obj = ErrorResponse(response)
             return response_obj

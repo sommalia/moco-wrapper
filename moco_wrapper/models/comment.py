@@ -107,7 +107,7 @@ class Comment(MWRAPBase):
         :type text: str
 
         :returns: List of created comments.
-        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
         data = {
             "commentable_ids": commentable_ids,

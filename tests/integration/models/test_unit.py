@@ -5,13 +5,12 @@ import random
 
 from .. import IntegrationTest
 
+
 class TestUnit(IntegrationTest):
     def get_unit(self):
         with self.recorder.use_cassette("TestUnit.get_unit"):
             unit = self.moco.Unit.getlist().items[0]
             return unit
-
-
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestUnit.test_getlist"):
@@ -44,7 +43,7 @@ class TestUnit(IntegrationTest):
         unit = self.get_unit()
 
         with self.recorder.use_cassette("TestUnit.test_get_unit_with_users"):
-            #create a radom user and assign them to our unit
+            # create a random user and assign them to our unit
             user_create = self.moco.User.create(
                 "unit",
                 "test",

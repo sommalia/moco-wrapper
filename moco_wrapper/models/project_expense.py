@@ -107,7 +107,7 @@ class ProjectExpense(MWRAPBase):
         :type items: list
 
         :returns: The created entries
-        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
 
         .. seealso::
             :class:`moco_wrapper.util.generator.ProjectExpenseGenerator`
@@ -227,8 +227,8 @@ class ProjectExpense(MWRAPBase):
         :type expense_ids: list
         :type reason: str
 
-        :returns: Empty response on success
-        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
+        :returns: List of disregarded expense ids
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
 
         Example usage:
 

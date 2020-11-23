@@ -163,39 +163,19 @@ class ProjectPaymentSchedule(MWRAPBase):
     def getlist(
         self,
         project_id: int,
-        sort_by: str = None,
-        sort_order: str = 'asc',
-        page: int = 1
     ):
         """
         Retrieve a list of project payment schedules
 
         :param project_id: Project id of the schedule items
-        :param sort_by: Field to sort the results by (default ``None``)
-        :param sort_order: asc or desc (default ``"asc"``)
-        :param page: Page number (default ``1``)
 
         :type project_id: int
-        :type sort_by: str
-        :type sort_order: str
-        :type page: int
 
         :returns: List of schedules payments
-        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
 
-        params = {}
-
-        for key, value in (
-            ("page", page),
-        ):
-            if value is not None:
-                params[key] = value
-
-        if sort_by is not None:
-            params["sort_by"] = "{} {}".format(sort_by, sort_order)
-
-        return self._moco.get(API_PATH["project_payment_schedule_getlist"].format(project_id=project_id), params=params)
+        return self._moco.get(API_PATH["project_payment_schedule_getlist"].format(project_id=project_id))
 
     def delete(
         self,

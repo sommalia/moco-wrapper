@@ -123,7 +123,7 @@ class DefaultRequestor(BaseRequestor):
                     if "X-Page" in response.headers.keys():
                         return PagedListResponse(response)  # response is a paged list
                     else:
-                        return ListResponse(response)  # response is an unpdaged list
+                        return ListResponse(response)  # response is an unpaged list
 
                 # return object response as default
                 return ObjectResponse(response)
