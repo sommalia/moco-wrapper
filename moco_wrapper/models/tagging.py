@@ -62,6 +62,9 @@ class Tagging(MWRAPBase):
         :type entity_id: int
         :type tags: list
 
+        :returns: List of tags assigned to the entity
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
+
         .. note::
 
            If you supply tags that already exist for the entity they will be ignored.
@@ -93,6 +96,9 @@ class Tagging(MWRAPBase):
         :type entity_id: int
         :type tags: list
 
+        :returns: List of tags assigned to the entity
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
+
         .. note::
 
             You can remove all tags from an entity by supplying an empty list.
@@ -123,6 +129,9 @@ class Tagging(MWRAPBase):
         :type entity: TaggingEntity, str
         :type entity_id: int
         :type tags: list
+
+        :returns: List of tags assigned to the entity
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
 
         data = {
