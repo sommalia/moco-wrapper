@@ -1,6 +1,7 @@
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
+
 class HourlyRate(MWRAPBase):
     """
     Model for handling hourly rates
@@ -25,18 +26,18 @@ class HourlyRate(MWRAPBase):
 
         :type company_id: int
 
-        :returns: Hourly rates of
+        :returns: Hourly rates of the specified company
+
         .. note::
 
             When no company_id is specified the global hourly rates are returned
         """
         params = {}
 
-        for key,value in (
+        for key, value in (
             ("company_id", company_id),
         ):
             if value is not None:
                 params[key] = value
 
         return self._moco.get(API_PATH["hourly_rate_get"], params=params)
-

@@ -15,6 +15,7 @@ The Moco Instance
    endpoints/contact
    endpoints/deal
    endpoints/deal_category
+   endpoints/hourly_rate
    endpoints/invoice
    endpoints/invoice_payment
    endpoints/offer
@@ -28,6 +29,7 @@ The Moco Instance
    endpoints/purchase
    endpoints/purchase_category
    endpoints/schedule
+   endpoints/tagging
    endpoints/unit
    endpoints/user
    endpoints/user_employment

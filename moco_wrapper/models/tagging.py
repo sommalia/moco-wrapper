@@ -11,6 +11,7 @@ class TaggingEntity(str, Enum):
     Example Usage:
 
     .. code-block:: python
+
         from moco_wrapper import Moco
         from moco_wrapper.models.tagging import TaggingEntity
 
@@ -90,12 +91,11 @@ class Tagging(MWRAPBase):
 
         :type entity: TaggingEntity, str
         :type entity_id: int
-        :type tags
+        :type tags: list
 
         .. note::
 
             You can remove all tags from an entity by supplying an empty list.
-
         """
 
         data = {
