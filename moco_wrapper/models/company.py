@@ -136,7 +136,7 @@ class Company(MWRAPBase):
         :type footer: str
 
         :returns: The created company
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
 
@@ -269,7 +269,7 @@ class Company(MWRAPBase):
         :type footer: str
 
         :returns: The updated company
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
 
@@ -316,7 +316,7 @@ class Company(MWRAPBase):
         :type company_id: int
 
         :returns: Single company object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["company_get"].format(id=company_id))
 
@@ -347,7 +347,7 @@ class Company(MWRAPBase):
         :type page: int
 
         :returns: List of companies
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}

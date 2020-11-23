@@ -1,4 +1,4 @@
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse
 
 import string 
 import random
@@ -61,7 +61,7 @@ class TestProjectContract(IntegrationTest):
             assert project_create.response.status_code == 200
             assert contract_list.response.status_code == 200
             
-            assert isinstance(contract_list, ListingResponse)
+            assert isinstance(contract_list, PagedListResponse)
 
             assert contract_list.current_page == 1
             assert contract_list.is_last is not None
@@ -100,8 +100,8 @@ class TestProjectContract(IntegrationTest):
             assert project_create.response.status_code == 200
             assert contract_create.response.status_code == 200
 
-            assert isinstance(project_create, JsonResponse)
-            assert isinstance(contract_create, JsonResponse)
+            assert isinstance(project_create, ObjectResponse)
+            assert isinstance(contract_create, ObjectResponse)
             
             assert contract_create.data.firstname == other_user.firstname
             assert contract_create.data.lastname == other_user.lastname
@@ -148,9 +148,9 @@ class TestProjectContract(IntegrationTest):
             assert contract_create.response.status_code == 200
             assert contract_get.response.status_code == 200
 
-            assert isinstance(project_create, JsonResponse)
-            assert isinstance(contract_create, JsonResponse)
-            assert isinstance(contract_get, JsonResponse)
+            assert isinstance(project_create, ObjectResponse)
+            assert isinstance(contract_create, ObjectResponse)
+            assert isinstance(contract_get, ObjectResponse)
             
             assert contract_get.data.firstname == other_user.firstname
             assert contract_get.data.lastname == other_user.lastname
@@ -200,9 +200,9 @@ class TestProjectContract(IntegrationTest):
             assert contract_create.response.status_code == 200
             assert contract_update.response.status_code == 200
 
-            assert isinstance(project_create, JsonResponse)
-            assert isinstance(contract_create, JsonResponse)
-            assert isinstance(contract_update, JsonResponse)
+            assert isinstance(project_create, ObjectResponse)
+            assert isinstance(contract_create, ObjectResponse)
+            assert isinstance(contract_update, ObjectResponse)
             
             assert contract_update.data.firstname == other_user.firstname
             assert contract_update.data.lastname == other_user.lastname
@@ -249,7 +249,7 @@ class TestProjectContract(IntegrationTest):
             assert contract_create.response.status_code == 200
             assert contract_delete.response.status_code == 204
 
-            assert isinstance(project_create, JsonResponse)
-            assert isinstance(contract_create, JsonResponse)
+            assert isinstance(project_create, ObjectResponse)
+            assert isinstance(contract_create, ObjectResponse)
             assert isinstance(contract_delete, EmptyResponse)
             

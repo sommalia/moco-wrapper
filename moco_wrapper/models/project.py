@@ -109,7 +109,7 @@ class Project(MWRAPBase):
         :type fixed_price: bool
 
         :returns: The created project object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
             The parameter ``identifier`` is required if number ranges are manual.
@@ -215,7 +215,7 @@ class Project(MWRAPBase):
         :type info: str
 
         :returns: The updated project object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {}
@@ -258,7 +258,7 @@ class Project(MWRAPBase):
         :type project_id: int
 
         :returns: Project object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["project_get"].format(id=project_id))
@@ -310,7 +310,7 @@ class Project(MWRAPBase):
         :type page: int
 
         :returns: List of project objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
 
@@ -368,7 +368,7 @@ class Project(MWRAPBase):
         :type page: int
 
         :returns: List of project objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}
@@ -396,7 +396,7 @@ class Project(MWRAPBase):
         :type project_id: int
 
         :returns: The archived project
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.put(API_PATH["project_archive"].format(id=project_id))
 
@@ -412,7 +412,7 @@ class Project(MWRAPBase):
         :type project_id: int
 
         :returns: The unarchived project
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.put(API_PATH["project_unarchive"].format(id=project_id))
 
@@ -428,7 +428,7 @@ class Project(MWRAPBase):
         :type project_id: int
 
         :returns: Report with the most important project business indicators
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
             All costs are in the accounts main currency, it might differ from the budget and billable items.

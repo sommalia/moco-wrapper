@@ -1,4 +1,4 @@
-from moco_wrapper.util.response import JsonResponse, ListingResponse
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse
 
 import string
 import random
@@ -19,7 +19,7 @@ class TestUnit(IntegrationTest):
 
             assert unit_getlist.response.status_code == 200
 
-            assert isinstance(unit_getlist, ListingResponse)
+            assert isinstance(unit_getlist, PagedListResponse)
 
             assert unit_getlist.current_page == 1
             assert unit_getlist.is_last is not None
@@ -35,7 +35,7 @@ class TestUnit(IntegrationTest):
 
             assert unit_get.response.status_code == 200
 
-            assert isinstance(unit_get, JsonResponse)
+            assert isinstance(unit_get, ObjectResponse)
 
             assert unit_get.data.name is not None
             assert unit_get.data.users is not None
@@ -58,7 +58,7 @@ class TestUnit(IntegrationTest):
             assert user_create.response.status_code == 200
             assert unit_get.response.status_code == 200
 
-            assert isinstance(user_create, JsonResponse)
-            assert isinstance(unit_get, JsonResponse)
+            assert isinstance(user_create, ObjectResponse)
+            assert isinstance(unit_get, ObjectResponse)
 
             assert user_create.data.id in [x.id for x in unit_get.data.users]

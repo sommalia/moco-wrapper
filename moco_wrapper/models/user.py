@@ -69,7 +69,7 @@ class User(MWRAPBase):
         :type info: str
 
         :returns: The created user object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -155,7 +155,7 @@ class User(MWRAPBase):
         :type info: str
 
         :returns: The updated user object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
         for key, value in (
@@ -211,7 +211,7 @@ class User(MWRAPBase):
         :type user_id: int
 
         :returns: Single user object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["user_get"].format(id=user_id))
 
@@ -236,7 +236,7 @@ class User(MWRAPBase):
         :type page: int
 
         :returns: List of users
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}

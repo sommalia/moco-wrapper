@@ -1,20 +1,21 @@
 from moco_wrapper.models.comment import CommentTargetType
-from moco_wrapper.util.response import ListingResponse, JsonResponse, EmptyResponse
+from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
 
 from datetime import date
 
 from .. import IntegrationTest
+
 
 class TestComment(IntegrationTest):
     def get_user(self):
         with self.recorder.use_cassette("TestComment.get_user"):
             user = self.moco.User.getlist().items[0]
             return user
-    
+
     def get_customer(self):
         with self.recorder.use_cassette("TestComment.get_customer"):
             customer_create = self.moco.Company.create(
-                "TestComment", 
+                "TestComment",
                 company_type="customer"
             )
 
@@ -49,8 +50,8 @@ class TestComment(IntegrationTest):
             comment_list = self.moco.Comment.getlist()
 
             assert comment_list.response.status_code == 200
-            
-            assert isinstance(comment_list, ListingResponse)
+
+            assert isinstance(comment_list, PagedListResponse)
 
             assert comment_list.current_page == 1
             assert comment_list.is_last is not None
@@ -60,13 +61,13 @@ class TestComment(IntegrationTest):
 
     def test_get(self):
         project = self.get_project()
-        
+
         with self.recorder.use_cassette("TestComment.test_get"):
             text = "test create comment"
 
             comment_create = self.moco.Comment.create(
-                project.id, 
-                CommentTargetType.PROJECT, 
+                project.id,
+                CommentTargetType.PROJECT,
                 text,
             )
 
@@ -74,9 +75,9 @@ class TestComment(IntegrationTest):
 
             assert comment_create.response.status_code == 200
             assert comment_get.response.status_code == 200
-            
-            assert isinstance(comment_create, JsonResponse)
-            assert isinstance(comment_get, JsonResponse)
+
+            assert isinstance(comment_create, ObjectResponse)
+            assert isinstance(comment_get, ObjectResponse)
 
             assert comment_get.data.text == text
             assert comment_get.data.commentable_id == project.id
@@ -90,14 +91,14 @@ class TestComment(IntegrationTest):
             text = "test create comment"
 
             comment_create = self.moco.Comment.create(
-                project.id, 
-                CommentTargetType.PROJECT, 
+                project.id,
+                CommentTargetType.PROJECT,
                 text,
             )
 
             assert comment_create.response.status_code == 200
-            
-            assert isinstance(comment_create, JsonResponse)
+
+            assert isinstance(comment_create, ObjectResponse)
 
             assert comment_create.data.text == text
             assert comment_create.data.commentable_id == project.id
@@ -112,7 +113,7 @@ class TestComment(IntegrationTest):
             text = "bulk comment creation"
             comment_ids = [first_customer.id, second_customer.id]
             comment_type = CommentTargetType.CUSTOMER
-            
+
             comment_create_bulk = self.moco.Comment.create_bulk(
                 comment_ids,
                 comment_type,
@@ -121,15 +122,13 @@ class TestComment(IntegrationTest):
 
             assert comment_create_bulk.response.status_code == 200
 
-            assert isinstance(comment_create_bulk, ListingResponse)
+            assert isinstance(comment_create_bulk, ListResponse)
 
             assert len(comment_create_bulk.data) == len(comment_ids)
-
 
     def test_update(self):
         project = self.get_project()
         user = self.get_user()
-
 
         with self.recorder.use_cassette("TestComment.test_update"):
             update_text = "updated comment"
@@ -148,8 +147,8 @@ class TestComment(IntegrationTest):
             assert comment_create.response.status_code == 200
             assert comment_update.response.status_code == 200
 
-            assert isinstance(comment_create, JsonResponse)
-            assert isinstance(comment_update, JsonResponse)
+            assert isinstance(comment_create, ObjectResponse)
+            assert isinstance(comment_update, ObjectResponse)
 
             assert comment_update.data.text == update_text
             assert comment_update.data.commentable_id == project.id
@@ -161,8 +160,8 @@ class TestComment(IntegrationTest):
 
         with self.recorder.use_cassette("TestComment.test_delete"):
             comment_create = self.moco.Comment.create(
-                project.id, 
-                CommentTargetType.PROJECT, 
+                project.id,
+                CommentTargetType.PROJECT,
                 "dummy comment ,test delete"
             )
 
@@ -171,4 +170,3 @@ class TestComment(IntegrationTest):
             assert comment_delete.response.status_code == 204
 
             assert isinstance(comment_delete, EmptyResponse)
-            

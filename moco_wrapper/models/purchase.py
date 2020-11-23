@@ -159,7 +159,7 @@ class Purchase(MWRAPBase):
         :type page: int
 
         :returns: List of purchases
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         if start_date is not None and end_date is None:
@@ -215,7 +215,7 @@ class Purchase(MWRAPBase):
         :type purchase_id: int
 
         :returns: A single purchase
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["purchase_get"].format(id=purchase_id))
 
@@ -273,7 +273,7 @@ class Purchase(MWRAPBase):
         :type tags: list
 
         :returns: The created purchase
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {

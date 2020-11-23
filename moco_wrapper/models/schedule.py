@@ -105,7 +105,7 @@ class Schedule(MWRAPBase):
         :type page: int
 
         :returns: List of schedule objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}
@@ -139,7 +139,7 @@ class Schedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: Single schedule object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["schedule_get"].format(id=schedule_id))
 
@@ -176,7 +176,7 @@ class Schedule(MWRAPBase):
         :type overwrite: bool
 
         :returns: The created planning entry
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -231,7 +231,7 @@ class Schedule(MWRAPBase):
         :type overwrite: bool
 
         :returns: The updated schedule entry
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
 
@@ -260,7 +260,7 @@ class Schedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: The deleted schedule object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.delete(API_PATH["schedule_delete"].format(id=schedule_id))

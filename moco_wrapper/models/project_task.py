@@ -36,7 +36,7 @@ class ProjectTask(MWRAPBase):
         :type page: int
 
         :returns: List of project tasks
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
 
@@ -66,7 +66,7 @@ class ProjectTask(MWRAPBase):
         :type task_id: int
 
         :returns: Single project task
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["project_task_get"].format(project_id=project_id, task_id=task_id))
 
@@ -97,7 +97,7 @@ class ProjectTask(MWRAPBase):
         :type hourly_rate: float
 
         :returns: The created project task
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
             "name": name
@@ -144,7 +144,7 @@ class ProjectTask(MWRAPBase):
         :type hourly_rate: float
 
         :returns: The updated project task
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
         for key, value in (

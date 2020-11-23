@@ -1,12 +1,12 @@
 from .base import MWRAPResponse
 
-class JsonResponse(MWRAPResponse):
-    """
-    Class for handling http responses where the body is a single json object
-    """
-    
 
-    @property 
+class ObjectResponse(MWRAPResponse):
+    """
+    Class for handling http responses where the body is a single object
+    """
+
+    @property
     def data(self) -> object:
         """
         Returns the json data of the response as a dictionary
@@ -18,7 +18,7 @@ class JsonResponse(MWRAPResponse):
 
             json_response = m.Project.get(project_id).data
             print(json_response)
-            
+
         """
         return self._data
 
@@ -28,10 +28,9 @@ class JsonResponse(MWRAPResponse):
 
         :param response: http response object
         """
-        super(JsonResponse, self).__init__(response)
+        super(ObjectResponse, self).__init__(response)
 
         self._data = self.response.json()
 
     def __str__(self):
-        return "<JsonResponse, Status Code: {}, Data: {}>".format(self.response.status_code, str(self._data))
-        
+        return "<ObjectResponse, Status Code: {}, Data: {}>".format(self.response.status_code, str(self._data))

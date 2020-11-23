@@ -1,16 +1,13 @@
-from moco_wrapper.util.response import JsonResponse, ListingResponse, ErrorResponse, EmptyResponse
-
-import string
-import random
-
+from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, ErrorResponse, EmptyResponse
 from .. import IntegrationTest
+
 
 class TestDealCategory(IntegrationTest):
     def test_create(self):
         with self.recorder.use_cassette("TestDealCategory.test_create"):
             name = self.id_generator()
             probability = 1
-            
+
             cat_create = self.moco.DealCategory.create(
                 name,
                 probability
@@ -18,17 +15,16 @@ class TestDealCategory(IntegrationTest):
 
             assert cat_create.response.status_code == 200
 
-            assert isinstance(cat_create, JsonResponse)      
-            
+            assert isinstance(cat_create, ObjectResponse)
+
             assert cat_create.data.name is not None
             assert cat_create.data.probability == probability
-            
 
     def test_update(self):
         with self.recorder.use_cassette("TestDealCategory.test_update"):
             name = self.id_generator()
             probability = 50
-            
+
             cat_create = self.moco.DealCategory.create(
                 self.id_generator(),
                 1
@@ -41,17 +37,15 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.response.status_code == 200
             assert cat_update.response.status_code == 200
 
-            assert isinstance(cat_update, JsonResponse) 
+            assert isinstance(cat_update, ObjectResponse)
 
             assert cat_update.data.name is not None
             assert cat_update.data.probability == probability
-            
 
     def test_get(self):
         with self.recorder.use_cassette("TestDealCategory.test_get"):
             name = self.id_generator()
             probability = 77
-
 
             cat_create = self.moco.DealCategory.create(
                 name,
@@ -62,11 +56,10 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.response.status_code == 200
             assert cat_get.response.status_code == 200
 
-            assert isinstance(cat_get, JsonResponse) 
+            assert isinstance(cat_get, ObjectResponse)
 
             assert cat_get.data.name is not None
             assert cat_get.data.probability == probability
-            
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestDealCategory.test_getlist"):
@@ -74,13 +67,7 @@ class TestDealCategory(IntegrationTest):
 
             assert cat_getlist.response.status_code == 200
 
-            assert isinstance(cat_getlist, ListingResponse) 
-
-            assert cat_getlist.current_page == 1
-            assert cat_getlist.is_last is not None
-            assert cat_getlist.next_page is not None
-            assert cat_getlist.total is not None
-            assert cat_getlist.page_size is not None
+            assert isinstance(cat_getlist, ListResponse)
 
     def test_delete(self):
         with self.recorder.use_cassette("TestDealCategory.test_delete"):
@@ -93,5 +80,4 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.response.status_code == 200
             assert cat_delete.response.status_code == 204
 
-            assert isinstance(cat_delete, EmptyResponse) 
-            
+            assert isinstance(cat_delete, EmptyResponse)

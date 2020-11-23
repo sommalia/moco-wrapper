@@ -71,7 +71,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type checked: bool
 
         :returns: The created schedule item
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -119,7 +119,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type checked: bool
 
         :returns: The updated schedule item
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
 
@@ -154,7 +154,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: The schedule item
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(
@@ -181,7 +181,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type page: int
 
         :returns: List of schedules payments
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}
@@ -212,7 +212,7 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type schedule_id: int
 
         :returns: The deleted response on success
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.delete(

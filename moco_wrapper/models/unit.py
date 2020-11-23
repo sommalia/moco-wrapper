@@ -29,7 +29,7 @@ class Unit(MWRAPBase):
         :type unit_id: int
 
         :returns: Single team object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["unit_get"].format(id=unit_id))
@@ -52,7 +52,7 @@ class Unit(MWRAPBase):
         :type page: int
 
         :returns: List of team objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}

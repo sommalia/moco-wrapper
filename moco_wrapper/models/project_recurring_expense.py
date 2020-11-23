@@ -72,7 +72,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type page: int
 
         :returns: List of recurring expenses
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
 
@@ -103,7 +103,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type recurring_expense_id: int
 
         :returns: Single recurring expense object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["project_recurring_expense_get"]
                               .format(project_id=project_id, recurring_expense_id=recurring_expense_id))
@@ -156,7 +156,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type custom_properties: dict
 
         :returns: The created recurring expense object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
             "start_date": start_date,
@@ -231,7 +231,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type custom_properties: dict
 
         :returns: The updated recurring expense object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
         for key, value in (

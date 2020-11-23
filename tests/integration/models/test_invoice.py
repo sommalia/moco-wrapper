@@ -2,7 +2,7 @@ from .. import IntegrationTest
 
 from datetime import date
 
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse, FileResponse, ErrorResponse
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse, FileResponse, ErrorResponse
 from moco_wrapper.util.generator import InvoiceItemGenerator
 from moco_wrapper.models.invoice import InvoiceStatus, InvoiceChangeAddress
 from moco_wrapper.models.company import CompanyType
@@ -44,7 +44,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_getlist.response.status_code == 200
 
-            assert isinstance(inv_getlist, ListingResponse)
+            assert isinstance(inv_getlist, PagedListResponse)
 
             assert inv_getlist.current_page == 1
             assert inv_getlist.is_last is not None
@@ -58,7 +58,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_locked.response.status_code == 200
 
-            assert isinstance(inv_locked, ListingResponse)
+            assert isinstance(inv_locked, PagedListResponse)
 
             assert inv_locked.current_page == 1
             assert inv_locked.is_last is not None
@@ -104,8 +104,8 @@ class TestInvoice(IntegrationTest):
             assert inv_create.response.status_code == 200
             assert inv_get.response.status_code == 200
 
-            assert isinstance(inv_get, JsonResponse)
-            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_get, ObjectResponse)
+            assert isinstance(inv_create, ObjectResponse)
 
             assert inv_get.data.customer_id == customer.id
             assert inv_get.data.title == title
@@ -152,7 +152,7 @@ class TestInvoice(IntegrationTest):
             assert inv_create.response.status_code == 200
             assert inv_pdf.response.status_code == 200
 
-            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_create, ObjectResponse)
             assert isinstance(inv_pdf, FileResponse)
 
     def test_update_status(self):
@@ -199,9 +199,9 @@ class TestInvoice(IntegrationTest):
             assert inv_update.response.status_code == 204
             assert inv_get.response.status_code == 200
 
-            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_create, ObjectResponse)
             assert isinstance(inv_update, EmptyResponse)
-            assert isinstance(inv_get, JsonResponse)
+            assert isinstance(inv_get, ObjectResponse)
 
             assert inv_create.data.status == InvoiceStatus.CREATED
             assert inv_get.data.status == InvoiceStatus.IGNORED
@@ -241,7 +241,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_create.response.status_code == 200
 
-            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_create, ObjectResponse)
 
             assert inv_create.data.title == "invoice"
             assert inv_create.data.currency == "EUR"
@@ -289,7 +289,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_create.response.status_code == 200
 
-            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_create, ObjectResponse)
 
             assert inv_create.data.project_id == project.id
 
@@ -344,7 +344,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_create.response.status_code == 200
 
-            assert isinstance(inv_create, JsonResponse)
+            assert isinstance(inv_create, ObjectResponse)
 
             assert inv_create.data.title == "invoice"
             assert inv_create.data.currency == "EUR"

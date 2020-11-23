@@ -1,4 +1,4 @@
-from moco_wrapper.util.response import JsonResponse, EmptyResponse, ListingResponse
+from moco_wrapper.util.response import ObjectResponse, EmptyResponse, PagedListResponse
 
 from .. import IntegrationTest
 
@@ -25,7 +25,7 @@ class TestUserHoliday(IntegrationTest):
 
             assert holi_create.response.status_code == 200
             
-            assert isinstance(holi_create, JsonResponse)
+            assert isinstance(holi_create, ObjectResponse)
 
             assert holi_create.data.year == year
             assert holi_create.data.title == title
@@ -49,7 +49,7 @@ class TestUserHoliday(IntegrationTest):
 
             assert holi_create.response.status_code == 200
             
-            assert isinstance(holi_create, JsonResponse)
+            assert isinstance(holi_create, ObjectResponse)
 
             assert holi_create.data.year == year
             assert holi_create.data.title == title
@@ -83,8 +83,8 @@ class TestUserHoliday(IntegrationTest):
             assert holi_create.response.status_code == 200
             assert holi_update.response.status_code == 200
             
-            assert isinstance(holi_create, JsonResponse)
-            assert isinstance(holi_update, JsonResponse)
+            assert isinstance(holi_create, ObjectResponse)
+            assert isinstance(holi_update, ObjectResponse)
 
             assert holi_update.data.year == year
             assert holi_update.data.title == title
@@ -116,10 +116,8 @@ class TestUserHoliday(IntegrationTest):
             assert holi_create.response.status_code == 200
             assert holi_update.response.status_code == 200
             
-            assert isinstance(holi_create, JsonResponse)
-            assert isinstance(holi_update, JsonResponse)
-
-            print(vars(holi_update.data))
+            assert isinstance(holi_create, ObjectResponse)
+            assert isinstance(holi_update, ObjectResponse)
 
             assert holi_update.data.year == year
             assert holi_update.data.title == title
@@ -159,8 +157,8 @@ class TestUserHoliday(IntegrationTest):
             assert holi_create.response.status_code == 200
             assert holi_get.response.status_code == 200
             
-            assert isinstance(holi_create, JsonResponse)
-            assert isinstance(holi_get, JsonResponse)
+            assert isinstance(holi_create, ObjectResponse)
+            assert isinstance(holi_get, ObjectResponse)
             
             assert holi_get.data.year == year
             assert holi_get.data.title == title
@@ -173,7 +171,7 @@ class TestUserHoliday(IntegrationTest):
 
             assert hol_list.response.status_code == 200
             
-            assert isinstance(hol_list, ListingResponse)
+            assert isinstance(hol_list, PagedListResponse)
 
             assert hol_list.current_page == 1
             assert hol_list.is_last is not None

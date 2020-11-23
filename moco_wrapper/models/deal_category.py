@@ -50,7 +50,7 @@ class DealCategory(MWRAPBase):
         :type probability: int
 
         :returns: The created deal category
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -78,7 +78,7 @@ class DealCategory(MWRAPBase):
         :type probability: int
 
         :returns: The updated deal category
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
 
@@ -109,7 +109,7 @@ class DealCategory(MWRAPBase):
         :type page: int
 
         :returns: List of deal categories
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
         for key, value in (
@@ -135,7 +135,7 @@ class DealCategory(MWRAPBase):
         :type category_id: int
 
         :returns: Single deal category
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["deal_category_get"].format(id=category_id))

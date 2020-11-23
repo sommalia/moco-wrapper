@@ -79,7 +79,7 @@ class Comment(MWRAPBase):
         :type text: str
 
         :returns: The created comment
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
             "commentable_id": commentable_id,
@@ -107,7 +107,7 @@ class Comment(MWRAPBase):
         :type text: str
 
         :returns: List of created comments.
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         data = {
             "commentable_ids": commentable_ids,
@@ -132,7 +132,7 @@ class Comment(MWRAPBase):
         :type text: str
 
         :returns: The created comment
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
             "text": text,
@@ -169,7 +169,7 @@ class Comment(MWRAPBase):
         :type comment_id: int
 
         :returns: Single comment
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["comment_get"].format(id=comment_id))
 
@@ -203,7 +203,7 @@ class Comment(MWRAPBase):
         :type page: int
 
         :returns: list of comments
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
         for key, value in (

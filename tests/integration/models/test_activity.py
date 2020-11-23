@@ -1,4 +1,4 @@
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
+from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
 from moco_wrapper.models.activity import ActivityRemoteService
 from datetime import date
 
@@ -100,7 +100,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_create.response.status_code == 200
 
-            assert isinstance(activity_create, JsonResponse)
+            assert isinstance(activity_create, ObjectResponse)
 
             assert activity_create.data.date == activity_date.isoformat()
             assert activity_create.data.description == description
@@ -147,7 +147,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_create.response.status_code == 200
 
-            assert isinstance(activity_create, JsonResponse)
+            assert isinstance(activity_create, ObjectResponse)
 
             assert activity_create.data.date == activity_date.isoformat()
             assert activity_create.data.description == description
@@ -210,8 +210,8 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert activity_update.response.status_code == 200
 
-            assert isinstance(activity_create, JsonResponse)
-            assert isinstance(activity_update, JsonResponse)
+            assert isinstance(activity_create, ObjectResponse)
+            assert isinstance(activity_update, ObjectResponse)
 
             assert activity_update.data.date == activity_date.isoformat()
             assert activity_update.data.description == description
@@ -234,7 +234,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_getlist.response.status_code == 200
 
-            assert isinstance(activity_getlist, ListingResponse)
+            assert isinstance(activity_getlist, PagedListResponse)
 
             assert activity_getlist.current_page == 1
             assert activity_getlist.is_last is not None
@@ -253,7 +253,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_getlist.response.status_code == 200
 
-            assert isinstance(activity_getlist, ListingResponse)
+            assert isinstance(activity_getlist, PagedListResponse)
 
             assert activity_getlist.current_page == 1
             assert activity_getlist.is_last is not None
@@ -301,8 +301,8 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert activity_get.response.status_code == 200
 
-            assert isinstance(activity_create, JsonResponse)
-            assert isinstance(activity_get, JsonResponse)
+            assert isinstance(activity_create, ObjectResponse)
+            assert isinstance(activity_get, ObjectResponse)
 
             assert activity_get.data.date == activity_date.isoformat()
             assert activity_get.data.description == description
@@ -339,7 +339,7 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert timer_start.response.status_code == 200
 
-            assert isinstance(timer_start, JsonResponse)
+            assert isinstance(timer_start, ObjectResponse)
 
     def test_stop_timer(self):
         project = self.get_project()
@@ -364,7 +364,7 @@ class TestActivity(IntegrationTest):
             assert timer_start.response.status_code == 200
             assert timer_stop.response.status_code == 200
 
-            assert isinstance(timer_stop, JsonResponse)
+            assert isinstance(timer_stop, ObjectResponse)
 
     def test_delete(self):
         project = self.get_project()
@@ -447,7 +447,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_create.response.status_code == 200
 
-            assert isinstance(activity_create, JsonResponse)
+            assert isinstance(activity_create, ObjectResponse)
 
             assert activity_create.data.user.id == other_user.id
 

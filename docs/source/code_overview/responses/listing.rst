@@ -1,5 +1,5 @@
 Listing Response
 =================
 
-.. autoclass:: moco_wrapper.util.response.ListingResponse
+.. autoclass:: moco_wrapper.util.response.PagedListResponse
     :inherited-members:

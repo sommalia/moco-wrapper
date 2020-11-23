@@ -3,7 +3,7 @@ from .. import IntegrationTest
 from datetime import date
 
 from moco_wrapper.models.offer import OfferStatus
-from moco_wrapper.util.response import ListingResponse, JsonResponse, FileResponse, EmptyResponse
+from moco_wrapper.util.response import PagedListResponse, ObjectResponse, FileResponse, EmptyResponse
 from moco_wrapper.util.generator import OfferItemGenerator
 
 
@@ -67,7 +67,7 @@ class TestOffer(IntegrationTest):
 
             assert off_getlist.response.status_code == 200
 
-            assert isinstance(off_getlist, ListingResponse)
+            assert isinstance(off_getlist, PagedListResponse)
 
             assert off_getlist.current_page == 1
             assert off_getlist.is_last is not None
@@ -82,7 +82,7 @@ class TestOffer(IntegrationTest):
 
             assert off_getlist.response.status_code == 200
 
-            assert isinstance(off_getlist, ListingResponse)
+            assert isinstance(off_getlist, PagedListResponse)
 
             assert off_getlist.current_page == 1
             assert off_getlist.is_last is not None
@@ -127,8 +127,8 @@ class TestOffer(IntegrationTest):
             assert offer_create.response.status_code == 201
             assert offer_get.response.status_code == 200
 
-            assert isinstance(offer_create, JsonResponse)
-            assert isinstance(offer_get, JsonResponse)
+            assert isinstance(offer_create, ObjectResponse)
+            assert isinstance(offer_get, ObjectResponse)
 
             assert offer_get.data.deal.id == deal.id
             assert offer_get.data.date == creation_date.isoformat()
@@ -170,7 +170,7 @@ class TestOffer(IntegrationTest):
 
             assert offer_create.response.status_code == 201
 
-            assert isinstance(offer_create, JsonResponse)
+            assert isinstance(offer_create, ObjectResponse)
 
             assert offer_create.data.deal.id == deal.id
             assert offer_create.data.date == creation_date.isoformat()
@@ -209,7 +209,7 @@ class TestOffer(IntegrationTest):
 
             assert offer_create.response.status_code == 201
 
-            assert isinstance(offer_create, JsonResponse)
+            assert isinstance(offer_create, ObjectResponse)
 
             assert len(offer_create.data.items) == 7
 
@@ -244,7 +244,7 @@ class TestOffer(IntegrationTest):
 
             assert offer_create.response.status_code == 201
 
-            assert isinstance(offer_create, JsonResponse)
+            assert isinstance(offer_create, ObjectResponse)
 
             assert offer_create.data.project.id == project.id
             assert offer_create.data.date == creation_date.isoformat()
@@ -292,7 +292,7 @@ class TestOffer(IntegrationTest):
 
             assert offer_create.response.status_code == 201
 
-            assert isinstance(offer_create, JsonResponse)
+            assert isinstance(offer_create, ObjectResponse)
 
             assert offer_create.data.project.id == project.id
             assert offer_create.data.date == creation_date.isoformat()
@@ -345,9 +345,9 @@ class TestOffer(IntegrationTest):
             assert offer_update_status.response.status_code == 204
             assert offer_get.response.status_code == 200
 
-            assert isinstance(offer_create, JsonResponse)
+            assert isinstance(offer_create, ObjectResponse)
             assert isinstance(offer_update_status, EmptyResponse)
-            assert isinstance(offer_get, JsonResponse)
+            assert isinstance(offer_get, ObjectResponse)
 
             assert offer_create.data.status == OfferStatus.CREATED
             assert offer_get.data.status == offer_status

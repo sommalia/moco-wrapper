@@ -27,7 +27,7 @@ class PurchaseCategory(MWRAPBase):
         :type category_id: int
 
         :returns: Single Category object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["purchase_category_get"].format(id=category_id))
@@ -50,7 +50,7 @@ class PurchaseCategory(MWRAPBase):
         :type page: int
 
         :returns: List of categories
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {

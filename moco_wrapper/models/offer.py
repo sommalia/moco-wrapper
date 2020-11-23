@@ -95,7 +95,7 @@ class Offer(MWRAPBase):
         :type page: int
 
         :returns: List of offer objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
         for key, value in (
@@ -128,7 +128,7 @@ class Offer(MWRAPBase):
         :type offer_id: int
 
         :returns: Single offer object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["offer_get"].format(id=offer_id))
 
@@ -199,7 +199,7 @@ class Offer(MWRAPBase):
         :type contact_id: int
 
         :returns: The created offer
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
             Either ``deal_id`` or ``project_id`` must be specified (or both)

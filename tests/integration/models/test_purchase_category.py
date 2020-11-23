@@ -1,5 +1,5 @@
 from .. import IntegrationTest
-from moco_wrapper.util.response import ListingResponse
+from moco_wrapper.util.response import ListResponse
 
 
 class TestPurchaseCategory(IntegrationTest):
@@ -10,10 +10,5 @@ class TestPurchaseCategory(IntegrationTest):
 
             assert category_list.response.status_code == 200
 
-            assert isinstance(category_list, ListingResponse)
+            assert isinstance(category_list, ListResponse)
 
-            assert category_list.current_page == 1
-            assert category_list.is_last is not None
-            assert category_list.next_page is not None
-            assert category_list.total is not None
-            assert category_list.page_size is not None
