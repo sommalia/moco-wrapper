@@ -4,9 +4,9 @@ from json import dumps
 
 class ListResponse(MWRAPResponse):
     """
-    Class for handling responses where the response body is a json list
+    Class for handling responses where the response body is a json list.
 
-    The difference to ``:class:.PagedListResponse`` is that ListResponses are not paged.
+    The difference to :class:`moco_wrapper.util.response.PagedListResponse` is that ListResponses are not paged.
     """
 
     def __init__(self, response):

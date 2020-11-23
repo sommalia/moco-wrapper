@@ -9,7 +9,7 @@ class DefaultObjector(BaseObjector):
     """
     This is the default class for handling the modification ob response objects that the requestor classes generated and were pushed to the objector.
 
-    Successfull responses will have their data converted into actual python objects, while error responses will be converted into exceptions and raised at a later stage.
+    Successful responses will have their data converted into actual python objects, while error responses will be converted into exceptions and raised at a later stage.
 
     .. note::
 
