@@ -396,6 +396,9 @@ class Invoice(MWRAPBase):
         :type emails_cc: str, list
         :type emails_bcc: str, list
 
+        :returns: Object containing the details of the sent mail
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
+
         .. note::
 
             If you want to send an email to the default recipient configured in the project or customer,
