@@ -97,7 +97,13 @@ class DefaultObjector(BaseObjector):
                 "base": "HourlyRate"
             },
             "taggings": {
-                "Company": None
+                "Company": None,
+                "Contact": None,
+                "Project": None,
+                "Deal": None,
+                "Purchase": None,
+                "Invoice": None,
+                "Offer": None,
             }
         }
         """
