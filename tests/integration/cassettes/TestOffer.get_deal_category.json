@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:27:39",
+      "recorded_at": "2020-11-24T07:04:09",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7ST0WrqQBCGX0XmOsLOxjXu3p1TEdHallbTYillTQYNpqvEtVBK36x3fbFStBs1YAzU+x++f76ZeXyHJAbVDJhseWD0C4GC/sJYPbcJZWTAg2W2mOhJkib2DRR6EGWkLcXP2oICzjirM1nnOERUiEr4Y/BgvYxLMh/eLxpZjh71Zf/ishrUF0rwEug2swNF7qD/b7ttyapAueJC+Y2jUJfJoUxKB/1npjRZ2BplK0tpWjTts3OoZoUCr5StolkSzW2hgThDA/Rdg7v74Wg4OKSKY3NvpMoTxMv9uXPx7Yew0+5Uom7uJzjhxlr7VHTUkLKZNnG6NtPiqpvnWDU2HLx7fRMEha8KgjLRDVEu+iezS80P7IqFYa9XiYrKbypWNus2sys6f+bB16eJ0ySaUW28XukpHRaQfyf76TsAAP//Z40buD8FAAA=",
+          "base64_string": "H4sIAAAAAAAA/7SQzUrDQBRGX6XcdQo3k2SmmZ0/BEFdSItIRWSSXJKhcVImE0HEN3Pni4kL0zShpIt2/8H5znn+BJ2D5DHn6IFRbwQSbmvj1MZpsmTAg62tU5XqSrsPkL4HmSXlKH9VDiQwZDj3/TkLVhjLCGWIa/Cg3eYTmy/vHy0Y69DJIsSr5dHQcIVCIpPIDkP7mx2Uc7+DXpiC0trNyDaOqmosHeDprTlnowPvZJus1NnGjR5E5+gedA8er5Pk8mZIjQ56d1HFEeHFvnePSrZUJq9aU4yj8zNEFyzs4MuHZHH3NKQKMaXsB9PKf5u+8o56//Nt8kpnJc3WbaMKGh6IT6f98hsAAP//iiUpWt4DAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "338"
+            "278"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:27:39 GMT"
+            "Tue, 24 Nov 2020 07:04:09 GMT"
           ],
           "Etag": [
-            "W/\"4e89cb4859221a3315e7f37b92787d82\""
+            "W/\"2c2c82517ec75c0b254b783e3b59414f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -75,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "bc20ba5a-8a49-43a4-b85e-28bf5b994ca7"
+            "761deabb-9c0d-410e-85ac-8a590d0eae2e"
           ],
           "X-Runtime": [
-            "0.040084"
+            "0.035521"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       }
     }
   ],

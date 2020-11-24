@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:25:17",
+      "recorded_at": "2020-11-24T07:01:46",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"test deal to get\", \"reminder_date\": \"2020-01-10\", \"user_id\": 933636529, \"money\": 210, \"currency\": \"EUR\", \"deal_category_id\": 67098, \"status\": \"won\"}"
+          "string": "{\"status\": \"won\", \"reminder_date\": \"2020-01-10\", \"money\": 210, \"name\": \"test deal to get\", \"user_id\": 933638919, \"deal_category_id\": 69660, \"currency\": \"EUR\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQwWrDMBBEfyXMWSmSkjix7j31VtpLSwmKtTGitmRWa4oJ/vdi2pjeepxldmf23RADnLX7/alSSL4nOAgV2QTy3UbypiWBQhEvY4HDV05QYOpjCsTn4GXZsNrqrTZbo6HQ50QTnDX6QSs0IzOlZoLD4+szFGK6ZjhAQXxb4N4/FlOR3J8HzgOxRCpwt1lhLMRwPx3r3a7aVQdbK1wjF/nTFQqdXyf+0gTMCgNxyQkujV13T1jO/ercDz5Nq/RCbebpnlYddX1agTzlJP5TIjEt3w+cL/4SuygTnJkVGiYvFM5eVhb11poXY509OHN8g8I4hH8883cAAAD//yV2a2aNAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SQQUvDQBCF/0p5563sJjU1e/fkTfSiSJlmp2Ux2Q2zEySU/HcJ2uLN4xvezHvzXRADfLW7d/vaINHA8FAuuglM/Ubz5swKg6KkU4HHV04wEB5iCiyHQLpuVLayW+u2zsJgyIln+MrZO2vQTSKcuhkej6/PMIjplOEBA6VzgX//WE1F83AYJY8sGrnAXxaDqbDA/3Rs67qpH1rXGpyiFP3TFQY93SZ07AIWg5Gl5ASfpr6/JqznfnUeRkrzTZLyOct8TWvaprE3IE85KX1qZOH1+1HykY6xjzrDu8WgEyblcCC9snBuW+1e7N5b53fNGwymMfzjWb4DAAD///7G1D6NAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:25:17 GMT"
+            "Tue, 24 Nov 2020 07:01:46 GMT"
           ],
           "Etag": [
-            "W/\"dbef2b5fe8a7bf7170be6628b2387efc\""
+            "W/\"d62037d08649b18ccfa31727b88193bd\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a0d94ce4-740a-46ab-8a87-9cd8cb17e677"
+            "454c772f-2b1d-4e04-8b77-ee3fdb8902a1"
           ],
           "X-Runtime": [
-            "0.069594"
+            "0.051156"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:25:17",
+      "recorded_at": "2020-11-24T07:01:46",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,11 +122,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/224486"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/245173"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQwWrDMBBEfyXMWSmSkjix7j31VtpLSwmKtTGitmRWa4oJ/vdi2pjeepxldmf23RADnLX7/alSSL4nOAgV2QTy3UbypiWBQhEvY4HDV05QYOpjCsTn4GXZsNrqrTZbo6HQ50QTnDX6QSs0IzOlZoLD4+szFGK6ZjhAQXxb4N4/FlOR3J8HzgOxRCpwt1lhLMRwPx3r3a7aVQdbK1wjF/nTFQqdXyf+0gTMCgNxyQkujV13T1jO/ercDz5Nq/RCbebpnlYddX1agTzlJP5TIjEt3w+cL/4SuygTnJkVGiYvFM5eVhb11poXY509OHN8g8I4hH8883cAAAD//yV2a2aNAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SQQUvDQBCF/0p5563sJjU1e/fkTfSiSJlmp2Ux2Q2zEySU/HcJ2uLN4xvezHvzXRADfLW7d/vaINHA8FAuuglM/Ubz5swKg6KkU4HHV04wEB5iCiyHQLpuVLayW+u2zsJgyIln+MrZO2vQTSKcuhkej6/PMIjplOEBA6VzgX//WE1F83AYJY8sGrnAXxaDqbDA/3Rs67qpH1rXGpyiFP3TFQY93SZ07AIWg5Gl5ASfpr6/JqznfnUeRkrzTZLyOct8TWvaprE3IE85KX1qZOH1+1HykY6xjzrDu8WgEyblcCC9snBuW+1e7N5b53fNGwymMfzjWb4DAAD///7G1D6NAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -144,10 +144,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:25:17 GMT"
+            "Tue, 24 Nov 2020 07:01:46 GMT"
           ],
           "Etag": [
-            "W/\"dbef2b5fe8a7bf7170be6628b2387efc\""
+            "W/\"d62037d08649b18ccfa31727b88193bd\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -169,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "dda9b241-bb8f-4081-8eef-fa2266e7e2a5"
+            "8ece545e-0bb8-4c11-8e7e-2ffa03ffff52"
           ],
           "X-Runtime": [
-            "0.054425"
+            "0.112045"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +182,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/224486"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/245173"
       }
     }
   ],

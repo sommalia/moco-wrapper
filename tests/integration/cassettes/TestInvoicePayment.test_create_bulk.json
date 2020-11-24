@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:27:07",
+      "recorded_at": "2020-11-24T07:03:37",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"bulk_data\": [{\"invoice_id\": 1176325, \"date\": \"2020-01-01\", \"currency\": \"EUR\", \"paid_total\": 200}, {\"invoice_id\": 1176325, \"date\": \"2020-01-02\", \"currency\": \"EUR\", \"paid_total\": 150}]}"
+          "string": "{\"bulk_data\": [{\"currency\": \"EUR\", \"paid_total\": 200, \"invoice_id\": 1273230, \"date\": \"2020-01-01\"}, {\"currency\": \"EUR\", \"paid_total\": 150, \"invoice_id\": 1273230, \"date\": \"2020-01-02\"}]}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7TPwUoDMRDG8VeR75yVmbHd0Nx9gaKXioSQRBhos2WZFYrsu4uoreDB9dDrxz9hfk9v0ILgSVb9xqEkqwgQEuqIO2I4aHsdNFeEz5TZ93eydtBSm+mL1hEBWyEiXsHB1PYff5TpcDjdfD+eHY5JS7TB0h5BiG7p5xS1xZTzMDWLeRrH2vLpnF0G3D9u4ZDHmqyWmOx87KYTfmAJ4gP1OzhMx/JHM7sL3tNvvFwJz+tF+K/sv3i/AO93mJ/fAwAA//+chGSc+wEAAA==",
+          "base64_string": "H4sIAAAAAAAA/7TPwUoDMRDG8VeR7zwrk4luIHdfoOhFkRCSCANttiwToUjfXUSrBQ966fXjnzC/pzdoRQyzn2ch1GwNEcLCE7uJHQjaXxctDfEzdRK8eCZobd30RduKiI0wMwcQTG378Ucdu93h6vT4SNhnrckWy1tEYb7m8ylpT7mUZXRLZaxr6+Xwnf0MuHvYgFDWlq3VlO10rHOT3NxziOyjD48gjH39oznSGd7/xsuF8O72X/iv7FL45/cAAAD//yP7iyn7AQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "211"
+            "204"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:27:07 GMT"
+            "Tue, 24 Nov 2020 07:03:37 GMT"
           ],
           "Etag": [
-            "W/\"901bfe1dc0f35274c3fdf15188c14b6b\""
+            "W/\"1bef3a455fcf6f4c4bf375bca7740f66\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "da03a347-2ce6-42ef-997e-469a3995459f"
+            "5ddc4008-b337-4c65-a626-dcdd796bc824"
           ],
           "X-Runtime": [
-            "0.534690"
+            "0.267313"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

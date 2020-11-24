@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:25:06",
+      "recorded_at": "2020-11-24T07:01:35",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7TQ0UqEQBgF4FdZ/msX/lHUnbmLlr1Yq6uS2IgY9UeHncZlHIOI3qy7XiyCTUthLcj7A9855+4FVAEiipGvPDDykUBAUhsn906RJQMeHGydyUxp5Z5BMA9yS9JR8SAdCPDRxyXypc+uGROMiTDYgQftoZjIvHpfNMOevkl4cn7xNzQIRehPoMdMjyLnHXpmSspqtyDbONJ6PDrAOVbjqMAT2SavVL53owbhHA36C9a36Wa9Garh6d2fp8a/OH71U2WdmpKtpCl0a8rx6dEcp7P+9CtM0+12qMbx6cmRwCn1mPk+2e/Uy/c3U2iVV7TYtY0saViA/9/s+48AAAD//w1BpmLeAwAA",
+          "base64_string": "H4sIAAAAAAAA/7TPsWrDMBSF4Vcxd5ZBkm2BtXUu3UoHl1Jk6WILq7KRrwul5M2y5cWyORANWeL9wP+dz3/wDrRqleIMovlB0PA6RzITeUwYgcGS5t70Pnj6Ay0Y2ISG0H0bAg2SS14KUcrqnbe64brmHTDYFvdgc2K3tNjTL3HAfqYC00oYQt6v+BEAmQF+Ma129HaiTNAcIah2wQem0UQXtjjk99Uh9+s9/nY5Rxe8HbHottUMeA9onwf4ugYAAP//9jc98n0CAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "273"
+            "203"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:25:06 GMT"
+            "Tue, 24 Nov 2020 07:01:35 GMT"
           ],
           "Etag": [
-            "W/\"00aae7c063713f223253b45f812c7e37\""
+            "W/\"240ab2718479a147981029ee684abe66\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -75,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "1e6ba04f-9daf-4656-aaac-3e36576870ab"
+            "298c9375-ce3b-4bcb-a7b9-3bc6fc55c54c"
           ],
           "X-Runtime": [
-            "0.027780"
+            "0.034507"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
       }
     }
   ],

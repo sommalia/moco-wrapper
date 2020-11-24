@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:26:49",
+      "recorded_at": "2020-11-24T07:03:20",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945314886, \"cash_discount_days\": 200, \"service_period_from\": \"2019-12-01\", \"date\": \"2018-09-17\", \"currency\": \"EUR\", \"service_period_to\": \"2019-12-31\", \"status\": \"sent\", \"tax\": 8.0, \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"title\": \"invoice\", \"tags\": [\"Hosting\", \"Europe\"], \"cash_discount\": 10.2, \"due_date\": \"2018-10-16\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"unit\": \"hours\", \"title\": \"Service\", \"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"net_total\": 130}], \"change_address\": \"customer\", \"customer_id\": 760863079, \"salutation\": \"salut\", \"footer\": \"this is the footer\"}"
+          "string": "{\"change_address\": \"customer\", \"title\": \"invoice\", \"cash_discount\": 10.2, \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"unit\": \"hours\", \"title\": \"Service\", \"net_total\": 130}], \"salutation\": \"salut\", \"customer_id\": 760895541, \"cash_discount_days\": 200, \"currency\": \"EUR\", \"service_period_from\": \"2019-12-01\", \"status\": \"sent\", \"project_id\": 945370996, \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"tags\": [\"Hosting\", \"Europe\"], \"service_period_to\": \"2019-12-31\", \"footer\": \"this is the footer\", \"date\": \"2018-09-17\", \"tax\": 8.0, \"due_date\": \"2018-10-16\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTwW7bOhD8FWHPtB9Jy7LMe4AAr72k7SVNIDDiOmYrkSq5DGoU+bPe+mMFpdhWYqC99EbODrnDmeUPsAaUEJtqJUsGbYrkewxNRjcVr6sV32wZDMF/wZZGeFuuV6Ks64qBNejI7iwGUHAjOediBQyMJgQFkot6wbcLsclYwmaOC74QFTCIGJ5si82AwXoDCoT8T3KxvSg1u+D76fR2IeSCi0sK+RlhNRJIU4qgoA2oCQ0wCPiEIeoO1E53ERmQpS7rsu7J2xZHSmsHi44abUzAmC94j9YV/ydn8M5d6zRQpKBjxELcuZpzXtz++hlsu4fsYgjo2gMouPp0AwwcUkOeck+x4kvOgPR3UHVePQYf46la8mXJwNjY+uQI1Ehuddw3Z0zwpXwDNkYfIijJR77BB0uNS/1DDsalrmP5/eYC7Hz7Fc3ZCP0YQX2GqxT8kH249pGse4R7dvSv0TRaLHlOVoqPQipZqXJzCwzSYP7EqTPneI93rziz05eVqLtEmuxYGTfAYOc9jXNHexsLGwvaY/ECMrCEfX7LNN/rqtyKdbb9MOSkp8TPyV/7FGIeUoxtsMPUabLoW9KOLB1eokjO0rGU180Q8shMxVnMfMmf2by5ODWfNzlJmG581R/e2dH9wu8K3XXF/kXkv1IkT4qyWTM3Pkyf6m9+yHN3OGqbC6jWbxSMo/98z2DQhx4d5Xzu82frrTMYxu3z7wAAAP//hEN46ZEEAAA=",
+          "base64_string": "H4sIAAAAAAAA/6xTzW7bPBB8FWHPlD+Sln/Ee4AAX3tJ20uaQGDEdcxWIlVyGdQo8ma99cUKSrGtxEB76Y2cHXKHM8sfYA0oITdLKWsGbYrkewxNRjdrvq1Xq0owGIL/gi2NcF2tlhte12sG1qAju7MYQMGN5JzzNTAwmhAUSC62Ja9LsclYwmaOC16KzI0YnmyLzYDBegMKhPxPclFflJpd8P10ui6FLLm4pJCfEZYjgTSlCAragJrQAIOATxii7kDtdBeRAVnqsi7rnrxtcaS0drDoqNHGBIz5gvdoXfF/cgbv3LVOA0UKOkYsxJ3bcs6L218/g233kF0MAV17AAVXn26AgUNqyFPuKZZ8wRmQ/g5qm1ePwcd4qlZ8UTEwNrY+OQI1klsd980ZE3wh34CN0YcISvKRb/DBUuNS/5CDcanrWH6/uQA7335FczZCP0ZQn+EqBT9kH659JOse4Z4d/Ws0jRZLXgpRyuoj3yi+VKK+BQZpMH/gSJ45x3u8e8WZnb6sRN0l0mTHyrgBBjvvaZw72ttY2FjQHosXkIEl7PNbpvlei2ottksGdBhy0lPi5+SvfQoxDynGNthh6jRZ9C1pR5YOL1EkZ+lYyutmCHlkpuIsZr7gz2zevDo1nzc5SZhufNUf3tnR/cLvCt11xf5F5L9StDopymbN3Pgwfaq/+SHP3eGobS5gvXqjYBz953sGgz706Cjnc58/W2+dwTBun38HAAD//0GaatuRBAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "563"
+            "564"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:26:48 GMT"
+            "Tue, 24 Nov 2020 07:03:20 GMT"
           ],
           "Etag": [
-            "W/\"8f9f0931202c5af41f1cb91048ada3cf\""
+            "W/\"efa296f7e60826d61b1285f626a652f7\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "bc9f14ba-09c2-40c3-81a6-b170f4f279fb"
+            "358a7636-8f95-462b-a85b-82695a1debbe"
           ],
           "X-Runtime": [
-            "1.392444"
+            "0.994522"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

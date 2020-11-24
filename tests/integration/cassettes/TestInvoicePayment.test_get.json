@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:27:12",
+      "recorded_at": "2020-11-24T07:03:42",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"invoice_id\": 1176325, \"date\": \"2020-01-02\", \"currency\": \"EUR\", \"paid_total\": 200}"
+          "string": "{\"currency\": \"EUR\", \"paid_total\": 200, \"invoice_id\": 1273230, \"date\": \"2020-01-02\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOwUrFMBCF4VeRs05lZrwazN4XuOjGTQhJhIE2LWEiFOm7i4jVndufb4bzAS0InuTi2aEkqwgQEpqIJxI4aHtfNVeEb8rsH+7k3kFLbaZvWjsCrkJEfIGDqc1fP8pYlv3m5/hw2JKWaKulGUGIbulvitpiynkdzWIevdeW95P9Bjy9XOGQe01WS0x2jn2chJ9ZgvjA8gqHsZV/zPEZAAD//4351iX8AAAA",
+          "base64_string": "H4sIAAAAAAAA/4TOwUrFMBCF4VeRs05lMikNZO8LXHTjJoQkwsBtWsJEKNJ3F5GqO7c/3wznA1IQ/OKWZTYoSSsCmJgmshMxDKS9b5Irwje17B07MpBSm8qb1I6AGxMReRio6P3rRxnrejxcx6fBnqRE3TTdEZjokf6mKC2mnLfRNObRe235+GG/AU8vNxjkXpPWEpNeY62deH4mH8iFmV9hMPbyjzk/AwAA//9LsvQ5/AAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "180"
+            "181"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:27:12 GMT"
+            "Tue, 24 Nov 2020 07:03:42 GMT"
           ],
           "Etag": [
-            "W/\"b28d92438f0ba5e7d6b60a9dfc5a79c5\""
+            "W/\"553977ceef38c26aa8da82dcafa2737f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "440aa6a2-4aa3-4c1a-abee-b1948b4d5efc"
+            "6b8b595f-ebbf-433f-91d9-b7ca61dbab8e"
           ],
           "X-Runtime": [
-            "0.082772"
+            "0.076541"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:27:12",
+      "recorded_at": "2020-11-24T07:03:42",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,11 +122,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/702471"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/763664"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOwUrFMBCF4VeRs05lZrwazN4XuOjGTQhJhIE2LWEiFOm7i4jVndufb4bzAS0InuTi2aEkqwgQEpqIJxI4aHtfNVeEb8rsH+7k3kFLbaZvWjsCrkJEfIGDqc1fP8pYlv3m5/hw2JKWaKulGUGIbulvitpiynkdzWIevdeW95P9Bjy9XOGQe01WS0x2jn2chJ9ZgvjA8gqHsZV/zPEZAAD//4351iX8AAAA",
+          "base64_string": "H4sIAAAAAAAA/4TOwUrFMBCF4VeRs05lMikNZO8LXHTjJoQkwsBtWsJEKNJ3F5GqO7c/3wznA1IQ/OKWZTYoSSsCmJgmshMxDKS9b5Irwje17B07MpBSm8qb1I6AGxMReRio6P3rRxnrejxcx6fBnqRE3TTdEZjokf6mKC2mnLfRNObRe235+GG/AU8vNxjkXpPWEpNeY62deH4mH8iFmV9hMPbyjzk/AwAA//9LsvQ5/AAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -138,16 +138,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "180"
+            "181"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:27:12 GMT"
+            "Tue, 24 Nov 2020 07:03:42 GMT"
           ],
           "Etag": [
-            "W/\"b28d92438f0ba5e7d6b60a9dfc5a79c5\""
+            "W/\"553977ceef38c26aa8da82dcafa2737f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -169,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "f1a12184-3cdc-44d5-aa06-41a4a5a8b1ba"
+            "9557d31b-8f90-4324-b6be-4d67e6b9450c"
           ],
           "X-Runtime": [
-            "0.052546"
+            "0.031245"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +182,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/702471"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/763664"
       }
     }
   ],

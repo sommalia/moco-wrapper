@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:26:35",
+      "recorded_at": "2020-11-24T07:03:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"tags\": [], \"service_period_from\": \"2019-12-01\", \"date\": \"2018-09-17\", \"currency\": \"EUR\", \"service_period_to\": \"2019-12-31\", \"status\": \"created\", \"tax\": 8.0, \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"title\": \"invoice\", \"due_date\": \"2018-10-16\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"unit\": \"hours\", \"title\": \"Service\", \"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"net_total\": 130}], \"change_address\": \"invoice\", \"customer_id\": 760863079}"
+          "string": "{\"change_address\": \"invoice\", \"title\": \"invoice\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"unit\": \"hours\", \"title\": \"Service\", \"net_total\": 130}], \"customer_id\": 760895541, \"currency\": \"EUR\", \"service_period_from\": \"2019-12-01\", \"status\": \"created\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"tags\": [], \"service_period_to\": \"2019-12-31\", \"date\": \"2018-09-17\", \"tax\": 8.0, \"due_date\": \"2018-10-16\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTY/TMBD9K9Gc3cVOtmnrO9JKwGWBy7KryGtPW0NiB3tcUaH+M278MeSkH1kqLRduzrznmZf3xj/BGpBCLOqqFAx0iuQ7DE2uLmq+rCu+WDHog/+KmoayS23LwBp0ZNcWA0i4LznnQgADowhBQsnFcsZXM7HItYTNtC74TNTAIGLYWY1Nj8F6AxJE+abkYnUFNevgu/H2aibKGRfXFPITQjUQSFGKIEEHVIQGGATcYYiqBblWbUQGZKnNuqzbeatxoGjbW3TUKGMCxtzgA1pXvEvO4KO7U6mnSEHFiIV4dEvOefHw+1ewegvZwBDQ6T1IePv5Hhg4pIY85Zmi4jecAakfIJf5tAk+xjN6y29uGRgbtU+OQA5kreK2ea3WGLWPR8Dgs6XGpe45pzLmpAOaq2Lr9Tc0FxfUJoL88sROVjWKBjdLnkMsxSdRyrKWVfUADFJvXuPMM+fUx7sXnMntaySqNpEiOyDAYO09DdsFDCxhlyWO6zqvb1eiqhnQvs/pjSle0rzzKcS8eBh1sP3Ycvzz70k5srQ/OpacpROUz00f8hqM4CQ6fsMPbDp8cR4+HXKWMHZ8MR/e20jWbQq/LlTbFtujyP+laHlWlM2auPFxfCj/8qO8TIeTtqmAev6XgmGdD08MerXv0NFxhQJ21hkMw+fhTwAAAP//CrCgJGAEAAA=",
+          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K9GcnWJn02TXd6RKwKXApbSKXHu2NSR2sMcVK9R/xo0/hpzsR8pK5cLNmfc88/Lm+SdYA1JU7aqqWgY6RfIDhi5X24avN5eXtWAwBv8VNU1ll/qegTXoyG4tBpBwXXHOeQ0MjCIECRUX65JvStHmWsJuWRe8FA0wiBierMZuxGC9AQmielNxsTmDum3ww3x7U4qq5OKcQn5BWE0EUpQiSNABFaEBBgGfMETVg9yqPiIDstRnXdY9eatxomg7WnTUKWMCxtzgA1pXvEvO4K27UmmkSEHFiIW4dWvOeXHz+1ew+hGygSGg0zuQ8PbzNTBwSB15yjPFil9wBqR+gFzn00PwMR7Rml/UDIyN2idHICeyVvGxe63WGbWLe8DgvaXOpeE+b2Xekw5ozoq919/QnFxQDxHklzt2sKpTNLlZ8VKIsqo/8VbyleTNDTBIo3mN02bOoY93LziL2+dIVH0iRXZCgMHWe5rSBQws4ZAlznFtRN2ItmVAuzFvb97iaZtXPoWYg4dRBzvOLec//56UI0u7vWPJWTpA+dyNIcdgBher4xf8mS2Hr4/Dl0OOEuaOL+bDexvJuofCbwvV98XjXuT/UrQ5KspmLdz4OD+Uf/lRnabDQdtSQHP5l4Ipzs93DEa1G9DRPkIBB+sMhunz+U8AAAD//xuTt6lgBAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "527"
+            "528"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:26:35 GMT"
+            "Tue, 24 Nov 2020 07:03:07 GMT"
           ],
           "Etag": [
-            "W/\"266a8b7b5eccbf644fe26675877cfca9\""
+            "W/\"38abcd9e8f5f7640c8b4ac41c59b950c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "be8578ac-8982-42ae-8dbb-d0529a123eb5"
+            "2eb77ee7-7a40-4c56-903b-d094693a0c96"
           ],
           "X-Runtime": [
-            "1.397087"
+            "1.101145"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

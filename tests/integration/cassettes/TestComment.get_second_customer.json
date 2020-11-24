@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:23:00",
+      "recorded_at": "2020-11-24T06:59:31",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestComment second customer\", \"type\": \"customer\"}"
+          "string": "{\"type\": \"customer\", \"name\": \"TestComment second customer\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQMY/UMBSE/8ppah9yEhEubuEqOnQ0IGQ59sth5NiR/bIQrfa/I2ezsN119qfRaL53hndQH3r51HeybwR4WwgKdi2cZsoQiGau5IUKf0zzTJEfCtkU3cNd6DeNxXPNQYBm4wNUXEMQGH0IPr7qHWprb3z5meKRn8yf68M4l6mU68emNXLetE2u5j49Q+BkWHtHkf3kKd+q2LwWqO8/BNZS6VVq6Lq+69+3g8Dkc+HDg6kwBIL5R8xoHS4VjRSOIh+ndIxLiWvpPmkX1ktOC2X2VKDOFwGbyTA5bRgKrWzloxwe2+alaVXbKSm/QWBd3JuZezN8lrJ9qjAy5Qg1mVDo/zm53qwZ3sm6KmeKdoPC89cvEHA0mTWw9vGUvCXtVtLObAWqkwJLTr/I8i56+RsAAP//PrUvGAACAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SQQW/UMBSE/0o1Zxc5Cdk2vkJP3FC5gJDl2C/FyLEj+6UQVfvfkbNZ2Bs3+9NoNN97g3dQDyf5OPR92wvwthAU7Fo4zZQhEM1cyTMV/pDmmSLfFbIpurub0C8ai+eagwDNxgeouIYgMPoQfHzRO9TWXvnyI8UjP5nfl4dxLlMpl49Na+S8aZtczX18gsCrYe0dRfaTp3ytYvNSoL59F1hLpRepoetO3ePQDAKTz4UPD6bCEAjmLzGjdThXNFI4inyc0jEuJa6l+6RdWC85LZTZU4F6OwvYTIbJacNQaGUr75vmvn3/LE+qH1TXfIXAurj/Zm7N8ElK+VBhZMoRajKh0L9zcr1ZM7yTdVXOFO0GhacvnyHgaDJrYO3ja/KWtFtJO7MVqE4KLDn9JMu76PlPAAAA//9XfB2mAAIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "326"
+            "328"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:23:00 GMT"
+            "Tue, 24 Nov 2020 06:59:31 GMT"
           ],
           "Etag": [
-            "W/\"61ced875f8feeb1cc310c44b9524c18e\""
+            "W/\"a500fe5bcd42fbe49986af2b7391ac5d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "766a38d6-d617-4209-98f5-e6e1e580cf82"
+            "b3de0099-27e2-436e-a7c8-225ca500ae19"
           ],
           "X-Runtime": [
-            "0.154731"
+            "0.095363"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

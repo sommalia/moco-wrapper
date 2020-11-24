@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:27:53",
+      "recorded_at": "2020-11-24T07:04:23",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": null, \"recipient_address\": \"this is the recipient address\", \"title\": \"offer title\", \"change_address\": \"offer\", \"due_date\": \"2021-01-01\", \"date\": \"2020-01-01\", \"items\": [{\"title\": \"this is the title\", \"type\": \"title\"}, {\"type\": \"description\", \"description\": \"This is the first description\"}, {\"unit\": \"h\", \"title\": \"support\", \"unit_price\": 65, \"quantity\": 1, \"optional\": false, \"type\": \"item\"}, {\"optional\": false, \"title\": \"server hardware\", \"type\": \"item\", \"net_total\": 200}, {\"title\": \"subtotal position\", \"type\": \"subtotal\"}, {\"unit\": \"h\", \"title\": \"special support\", \"unit_price\": 90, \"quantity\": 3, \"optional\": false, \"type\": \"item\"}, {\"type\": \"page-break\"}], \"currency\": \"EUR\", \"tax\": 19, \"deal_id\": 224488}"
+          "string": "{\"date\": \"2020-01-01\", \"change_address\": \"offer\", \"title\": \"offer title\", \"due_date\": \"2021-01-01\", \"deal_id\": 245175, \"items\": [{\"title\": \"this is the title\", \"type\": \"title\"}, {\"description\": \"This is the first description\", \"type\": \"description\"}, {\"unit_price\": 65, \"optional\": false, \"quantity\": 1, \"type\": \"item\", \"unit\": \"h\", \"title\": \"support\"}, {\"title\": \"server hardware\", \"net_total\": 200, \"optional\": false, \"type\": \"item\"}, {\"title\": \"subtotal position\", \"type\": \"subtotal\"}, {\"unit_price\": 90, \"optional\": false, \"quantity\": 3, \"type\": \"item\", \"unit\": \"h\", \"title\": \"special support\"}, {\"type\": \"page-break\"}], \"project_id\": null, \"recipient_address\": \"this is the recipient address\", \"tax\": 19, \"currency\": \"EUR\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7yTTY/TPBDHv0o0Z7dy3trEt0d6OCOhcgGhyptMtobUNvYYqFC/O3LSZFNW23JYuHlePP7N/5/8BNWCyLOq4BUD1aIm1Sl0IOC/jPN6xVMODFpJCAIynvEVT1c8jbmA+6d8OudJUR+TpuvQJWPEwGGjrEJNe9m2Dr0HAXRQPlE+oQMmcz2Z6gya4Bzq5gQC3rx/Bww00p4MyR5EmZdrzoDkDxBpHY+Pzng/lTf5Zr0pGbTKNyZoAsFjjydJIT7dOJSEbXzEHK3UJxA69D0D68xnbGgKW4zTRpWyrCiqioGWx7jfDj29HXb8Pzad2TR0L2nWql5l6S7NRLYVZbbO0/oDMAi2vdWXr3k19E3zjL7qW0x4XvGyDyRJDRVg0BlDg53AQBEePYiP4zoFr6u6KBjQycZ9Jqcm/5buTLUWfeOUHcePCn0NUpOi00XhoNUsXjzvrVMNXooL/4bYDJNi2Mne45ktycqZbPnqzDf5swCC3QK5U85Tcn31r7FuZtao8UJEH6w1ju5Jlz7hwAGuaTblbzhj4ibP9kUedN/QJQfp2u/Sva6lGb8vVDWD+fAw3luKNaYSa7y6WPYvv7j6RdUsNkr2yR+6md9ws36m2vYuWMlnMCsfcfXgUH65+Se8vlCfzr8CAAD//0kaVqIrBgAA",
+          "base64_string": "H4sIAAAAAAAA/7yTTY/TPBDHv0o0Z7ey89bWt0d6OCOhcgGhyptMtobUNvYYqFC/O3LTZFNW23JYuHlePP7N/5/8BN2CLKq1qAsGukVDutPoQcJ/ORdiwXkBDFpFCBJynvMFFwsuUi7i7ikvpjxp6lPSdh36bIgYeGy002hop9rWYwgggfY6ZDpktMdsqmdjnUETvUfTHEHCm/fvgIFB2pEl1YOsimrJGZD6AVJs0vHR2xDGcl3Uy7pi0OrQ2GgIJE89gRTF9HTjURG26RF7cMocQZrY9wyct5+xoTFsMU0bVMrLSqwqBkYd0n5bDPT2vOP/qenExqE7RaNWQizycstXkpcyz5dlufkADKJrb/UVS8Hz1DfOs+aqbzbheSWoPpIifa4Ag85aOtsJDDThIYD8OKxTluuV4CUDOrq0z+jU6N/cnbHWYmi8dsP4QaGvURnSdLwoHI2exEvnnfO6wUtx5t85tudJKexUH/DE5mTVRDZ/deIb/ZkBwXaG3GkfKLu++tdY64k1aTwTMUTnrKd70oknHNjDNU1d/YYzJG7yrF7kQf8NfbZXvv2u/OtamvP7Qq0nsBAfhntzsYZU5mzQF8v+5Re3eVE1h41WffaHbhY33Nw8U211F0zwCcypR1w8eFRfbv4Jry/Up9OvAAAA//+wbupZKwYAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "507"
+            "508"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:27:53 GMT"
+            "Tue, 24 Nov 2020 07:04:23 GMT"
           ],
           "Etag": [
-            "W/\"87c29b731428be2c47bfc42a07566775\""
+            "W/\"5825d1873935e5abf383b5935b321d1e\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "77003f15-717b-419f-a5c4-c8e03b8b9014"
+            "acdee8c4-c00b-49f6-88ff-741672251e8f"
           ],
           "X-Runtime": [
-            "0.856560"
+            "0.783532"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

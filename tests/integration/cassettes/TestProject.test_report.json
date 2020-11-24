@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-10-02T10:25:10",
+      "recorded_at": "2020-11-24T07:06:29",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"currency\": \"EUR\", \"customer_id\": 760870776, \"fixed_price\": false, \"name\": \"dummy project, test report\", \"leader_id\": 933637082, \"finish_date\": \"2020-01-01\"}"
+          "string": "{\"fixed_price\": false, \"leader_id\": 933638919, \"name\": \"dummy project, test report\", \"customer_id\": 760895545, \"finish_date\": \"2020-01-01\", \"currency\": \"EUR\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTQW7bMBD8SrBnOiAlS3Z5D3oNivTSoiBocu2wpiiBXKYxAv+9oC3JjnsoiuamHQ1mZ2ekN3AW5KdlU1eNaJYMnMVAbuswgoTHinMhgEHQHYIEm7vucDfE/icaYneEie4iDn0kYKANuRcESTEjg43zXm/8PG/dK1o1RGcQ5Fb7dMKCS8/KairiFa/4gosFLwtNjhGDOYCEh69f4Kznwk696Oh0IJAw2rh6p62NmBJIuAKx084r6kGG7P0tbswtHnrCNIEJiQrogvHZoiLXoRovnq7YZLtDmmVOk8LXAUMqQvyeM3juc/QHFU+XnhAXtv3ZKOldAvn9BwOvN+jHZ5MT9Z0aYj9gJFeU3o4MPGpbqhl7q+u2XvF1VbKMicaaSi9Q5GZEb4yF46R6EVi1fL3iq1U7V/yEiR7HZI/FXNoXR2d6u655tVzO5BNxTx4d5bCDP1u/+SbeJfUuE8H5PT+y6zXNvOYh0C9n9v7jd1zu/hz11u3/X75U1weK2tAlt2Ur2roSTcsgJ4zq37v7CF8WtZ8YJqImtErT9OcJvuDVk+CyaqTg34BBHuxfOMffAQAA///ygzZSPwQAAA==",
+          "base64_string": "H4sIAAAAAAAA/6xTwW7bOhD8FWPPdEDKtmTzHrxr8JBeWhQETa4d1hQlkMs0RuB/L6hIiuMeiqK5aUeD2dkZ6RWcBblbb1aN4GLFwFkM5A4OI0h4qDgXNTAIukWQYHPbnhd97H6gIbYgTLSI2HeRgIE25J4RJMWMDPbOe73383xwL2hVH51BkAft04AFl56U1VTEK17xJRdLLoCByTFiMGeQcP/lf3jTc+GonnV0OhBIGG1cvdPWRkwJJFyB2GrnFXUgQ/b+FjfmFg8dYZrAhEQFdMH4bFGRa1GNF09X7LM9Is0yw6TwpceQihC/4wyeuhz9WcXh0gFx4dC9GSV9TCC/fWfg9R79+Gxyoq5Vfex6jOSK0uuFgUdtSzVjb6tVvdruxK5kGRONNZVeoMjNiN4bC5dJ9V2gqfl2t9msN3PFj5joYUz2UsylU3E00qum2dZ8Jg/EE3l0lMMRfm/95pv4kNSHTATnd/zCrteIec19oJ/OnPzn76jmHf9FfXCnf5cv1XWBojb0ntu6FlsuNk3NICeM6u+7+wxfFrWfGCaiJrRK0/TnCbGs1o+8kbyW1e4rMMi9/QPn8isAAP//ZMRPiD8EAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "454"
+            "455"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 02 Oct 2020 10:25:10 GMT"
+            "Tue, 24 Nov 2020 07:06:29 GMT"
           ],
           "Etag": [
-            "W/\"7330f666f4f723563248749e7ef82eb2\""
+            "W/\"29876ab0311b4203dc8613a581dae20e\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c4171967-4d50-4867-aa34-d780216719f4"
+            "7ad4026c-ed1f-41a1-a070-3cd114c2bbbf"
           ],
           "X-Runtime": [
-            "0.180497"
+            "0.162699"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-10-02T10:25:11",
+      "recorded_at": "2020-11-24T07:06:29",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,7 +122,7 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945325154/report"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371013/report"
       },
       "response": {
         "body": {
@@ -144,7 +144,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 02 Oct 2020 10:25:11 GMT"
+            "Tue, 24 Nov 2020 07:06:29 GMT"
           ],
           "Etag": [
             "W/\"c9ac22ee845e7b162bd884adc754736b\""
@@ -169,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "83b57664-fabe-457b-ad59-94bac4fb0e32"
+            "46a76625-bd9b-40aa-87d2-cbb137a8ce72"
           ],
           "X-Runtime": [
-            "0.049423"
+            "0.051345"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +182,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945325154/report"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371013/report"
       }
     }
   ],

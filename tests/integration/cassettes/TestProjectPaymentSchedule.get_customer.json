@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:31:31",
+      "recorded_at": "2020-11-24T07:08:04",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"dummy customer, test project payment scheduke\", \"type\": \"customer\"}"
+          "string": "{\"type\": \"customer\", \"name\": \"dummy customer, test project payment scheduke\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SRQY/VIBzEv0ozZ9bQVp9bzu7Jm9GLxhAe/LuLUmjgz2qzed/d0Nen3vYGvwyTmeEF3kG9P8n70yjvJwHeVoKCrYXTQhkC0SyNuLosW3fjomMq3K05/SDL3Wq2hSJ3xT6Rqz8JAr/oXDy3lxCgxfgAFWsIAmcfgo+Peofa2htfn1I89LP5fT0Y5zKVcr3YVCPnTdvkmu7DAwSeDWvvKLKfPeWbFZvHAvXtu0AtjV5rTuN4Gk/vhklg9rnw0aw1gUAwf4k5W4dLQ2cKh5GPczrCpcTNdI+076HXnFbK7KlAvVwEbCbD5LRhKAxykHdyuhv6z/2gxl6N/VcI1NW9qvm/GT5K+XZoMDLlCDWbUOjfnNw266c3sqXKmaLdoPDw5RMEHM2mBtY+PidvSbtK2pmtQI1S4PjFvejlTwAAAP//h/8EDRICAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SRwW7cIBiEX8WaM6lYbzZZc25OvVXtpVWFMPxOaDFY8JPWivbdK7zetrfe4NMwmhne4B3U44M8D6fTSQrwuhAUbC2cZsoQiGZuxNV5XrsbFx1T4W7J6TtZ7hazzhS5K/aFXP1BEPhJY/HcXkKAZuMDVKwhCIw+BB+f9Qa1tTe+vKS46yfz63owzmUq5XqxqUbOq7bJNd37Jwi8GtbeUWQ/eco3KzbPBerrN4FaGr3WHI7Hh+N5OAwCk8+F92atCQSC+UPMaB0uDY0UdiMfp7SHS4mb6RZp20MvOS2U2VOBersI2EyGyWnDUOhlL+8Oh7v+/pN8VPKs5P0XCNTF/VfzbzN8kLLvG4xMOUJNJhT6Oye3zQ7DO9lS5UzRrlB4+vwRAo4mUwNrH1+Tt6RdJe3MWqCOUmD/xa3o5XcAAAD//1a2dOUSAgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "338"
+            "339"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:31:31 GMT"
+            "Tue, 24 Nov 2020 07:08:04 GMT"
           ],
           "Etag": [
-            "W/\"f9e4b2fd8fd29fb1243f099a244bbe8d\""
+            "W/\"ede86a72222632337aff2bec033195a2\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a18e986a-6eef-4dfe-9748-8d5b8e8295c0"
+            "14b44358-86b1-46fe-863d-95c328b88a92"
           ],
           "X-Runtime": [
-            "0.082104"
+            "0.081810"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

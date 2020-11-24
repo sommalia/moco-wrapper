@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:25:06",
+      "recorded_at": "2020-11-24T07:01:35",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"deal create test\", \"reminder_date\": \"2020-01-01\", \"user_id\": 933636529, \"money\": 200, \"currency\": \"EUR\", \"deal_category_id\": 67098, \"status\": \"pending\"}"
+          "string": "{\"status\": \"pending\", \"reminder_date\": \"2020-01-01\", \"money\": 200, \"name\": \"deal create test\", \"user_id\": 933638919, \"deal_category_id\": 69660, \"currency\": \"EUR\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQMY/iMBCF/wp6tTk5BnLE/VXXnW6bXa3QEA/I2sS2xpMiQvnvKwSk3fJZz/M+fTfEAO/cfn/cGyQaGR6Badj0wqS8Ua4Kg6qkU4VH4RRiusJAeIwpsJwC6f2Xs85ubbO1DQzGnHiGd9b+sgb9JMKpn+Hx5+0fDGK6ZHjAQOla4T8+76WqeTwVyYVFI1f422IwVRb4B2e327W79uA6g0uUqk/eJ+NA6wud+4DFoLDUnODTNAyvhfu5Z85joTSvkZSvWebXWvvbdsdVyt+clL40snCCQZF8pnMcos7wzWLw8BVOpKuLbuua/43z7uBt+w6DqYQfOst3AAAA//+PMVDakQEAAA==",
+          "base64_string": "H4sIAAAAAAAA/4SQzYrjMBCEXyXUWVkkO3HWuu9pb8vOZYYhdKxOEGNLotU+mOB3H0J+rnMsUer6+K6IAb7Z7d3BGSSaGB6BadwMwqS8Ua4Kg6qkc4VH4RRiusBAeIopsBwD6e1XYxu7tW5rHQymnHiBb6z9ZQ2GWYTTsMDjz9s/GMR0zvCAgdKlwn983kpV83QskguLRq7w19Vgrizwd86+bbv2d+96g3OUqg/eB+NIrxc6DQGrQWGpOcGneRyfC7dzj5ynQml5RVK+ZFmea13fdfYl5W9OSl8aWTjBoEg+0SmOURd4txrcfYUj6dOFc9tm998evHW+3b/DYC7hh876HQAA//94EVT/kQEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:25:06 GMT"
+            "Tue, 24 Nov 2020 07:01:35 GMT"
           ],
           "Etag": [
-            "W/\"7010e8ca6e9c317372ec6a76027bbebd\""
+            "W/\"73c8c1a2ed006349a36d6b50948c32fe\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a3ea98aa-3f7a-4664-ab20-ac5d947a1e4e"
+            "df1c4fb5-7036-48e4-8b2a-e624fe8fdf50"
           ],
           "X-Runtime": [
-            "0.069158"
+            "0.065443"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

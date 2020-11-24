@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:35:42",
+      "recorded_at": "2020-11-24T07:12:27",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?to=2021-01-01&page=1&from=2020-01-01&user_id=933636529"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&page=1&to=2021-01-01&user_id=933638919"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOzUoDQRCE36XOnTA/2cD0c3gyhKXNdDQ4+8NMDyJh311yERHEQ12qiqrvdMctg0NMIQ6ED9X38jma1Fe18W3ptYEPbu8Iq5hpncF3yAQ+HfaOfulMWP+KNsK1LhMYwQW3c2nnPAi2gOdeCqE3rY/xB06K8RiPQ0iE6602m2VSMEybgVDk25GXS8ZGuFQV0zyK/TgI/sl79p6H+AxCX/M/ne38FQAA//+quh48DwEAAA==",
+          "base64_string": "H4sIAAAAAAAA/4SOzUoDQRCE36XOndA7s/5sP4cnQ1jaTEeDsz/M9CAS9t0lFxFBPNSlqqj6DldcEiT04SEy4cPsPX+OruXVfHxbWqmQnvdMWNXdygy5QifIod8z/dKRsP4VbYRzWSYIAgfedd2OOxB8gcwtZ0KrVm7jN5whxvv4OHQD4Xwp1WedDAK36iBk/Xb05ZSwEU7F1C2N6j8OQnziQe5Yen4Goa3pn852/AoAAP//iTZBCA8BAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "187"
+            "188"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:35:42 GMT"
+            "Tue, 24 Nov 2020 07:12:27 GMT"
           ],
           "Etag": [
-            "W/\"7a3146e7968c5cfb65a75b326737c4d1\""
+            "W/\"89b4be860d1443c164c8d8a90722a6c1\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4df0d9a3-da4f-4ac4-aa96-689c09b2aa20"
+            "7fec325e-db40-4dd5-9ecd-372363568ded"
           ],
           "X-Runtime": [
-            "0.052529"
+            "0.098568"
           ],
           "X-Total": [
             "1"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?to=2021-01-01&page=1&from=2020-01-01&user_id=933636529"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&page=1&to=2021-01-01&user_id=933638919"
       }
     }
   ],

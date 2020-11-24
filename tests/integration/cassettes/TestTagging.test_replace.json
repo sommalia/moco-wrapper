@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-23T09:53:27",
+      "recorded_at": "2020-11-24T07:11:19",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -31,7 +31,7 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760894679"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760895557"
       },
       "response": {
         "body": {
@@ -53,7 +53,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 23 Nov 2020 09:53:27 GMT"
+            "Tue, 24 Nov 2020 07:11:19 GMT"
           ],
           "Etag": [
             "W/\"d746cc5867decc441d1041adf6a76477\""
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "47ff6e4e-a5d3-4d16-93d9-1c19c4ea3244"
+            "6a78a28e-1382-482c-8bee-1ec54a0ba8fc"
           ],
           "X-Runtime": [
-            "0.084476"
+            "0.059730"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760894679"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760895557"
       }
     }
   ],
