@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T06:59:26",
+      "recorded_at": "2020-11-24T10:34:22",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"commentable_type\": \"Project\", \"text\": \"test create comment\", \"commentable_id\": 945370991}"
+          "string": "{\"text\": \"TestComment.test_create\", \"commentable_type\": \"Project\", \"commentable_id\": 945371413}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "91"
+            "95"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOy2qFMBRFf+WyxxHy8NHkKzroqBM5JqdgMSrxCC3Ffy+idNDJne61NqwfjAmh0846bRTikjPPQsPE/Ql83bhOe/8PyffKCHgtyydHgYLwlyBAeJNHLEzCj9uHQqZ5pwlBys4KF049nQerra6MqWz9ptvQ+GCbdyjsa3rubFwQrn7vXOtevPEKH2PZZKbMdw4UJvpbaIgJx/EbAAD//8uxUuT2AAAA",
+          "base64_string": "H4sIAAAAAAAA/4SPPWrEMBBG7/LV2qC/XUdqc4EUW6Uxs9IEHCzbSGNICL57EIZAqrTfewNvvjFlxEG74WpuCmkthRehx8xjB8Ff3WC8cX+RfG2MiNe6fnASKAh/CiLu3OTl9J6Em4ypMglDodCy04wodWeFc84j9SOrrb4Yc7H+bnR0Plr7BoV9y/87jSvi+UNw7uaegwkK71NtslDpjT0DCjP9LvRIGcfxEwAA//+4bB92+gAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "177"
+            "184"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 06:59:26 GMT"
+            "Tue, 24 Nov 2020 10:34:22 GMT"
           ],
           "Etag": [
-            "W/\"636a040889edc3a04e3a9ea3386f597b\""
+            "W/\"0cdeae994a0690b46d4d123d0a5bea92\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4c4d273b-fc8a-4b97-a73f-342f0805a332"
+            "860053eb-c93f-4c52-a856-a54b7202b01e"
           ],
           "X-Runtime": [
-            "0.114885"
+            "0.062115"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

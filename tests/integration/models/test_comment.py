@@ -1,5 +1,7 @@
 from moco_wrapper.models.comment import CommentTargetType
+from moco_wrapper.models.company import CompanyType
 from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
+
 
 from datetime import date
 
@@ -15,17 +17,17 @@ class TestComment(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestComment.get_customer"):
             customer_create = self.moco.Company.create(
-                "TestComment",
-                company_type="customer"
+                name="TestComment.get_customer",
+                company_type=CompanyType.CUSTOMER
             )
 
             return customer_create.data
 
-    def get_second_customer(self):
-        with self.recorder.use_cassette("TestComment.get_second_customer"):
+    def get_other_customer(self):
+        with self.recorder.use_cassette("TestComment.get_other_customer"):
             customer_create = self.moco.Company.create(
-                "TestComment second customer",
-                company_type="customer"
+                name="TestComment.get_other_customer",
+                company_type=CompanyType.CUSTOMER
             )
 
             return customer_create.data
@@ -36,10 +38,10 @@ class TestComment(IntegrationTest):
 
         with self.recorder.use_cassette("TestComment.get_project"):
             project_create = self.moco.Project.create(
-                "TestProjects for comments",
-                "EUR",
-                user.id,
-                customer.id,
+                name="TestComment.get_project",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
                 finish_date=date(2020, 1, 1)
             )
 
@@ -63,15 +65,17 @@ class TestComment(IntegrationTest):
         project = self.get_project()
 
         with self.recorder.use_cassette("TestComment.test_get"):
-            text = "test create comment"
+            text = "TestComment.test_get_create"
 
             comment_create = self.moco.Comment.create(
-                project.id,
-                CommentTargetType.PROJECT,
-                text,
+                commentable_id=project.id,
+                commentable_type=CommentTargetType.PROJECT,
+                text=text,
             )
 
-            comment_get = self.moco.Comment.get(comment_create.data.id)
+            comment_get = self.moco.Comment.get(
+                comment_id=comment_create.data.id
+            )
 
             assert comment_create.response.status_code == 200
             assert comment_get.response.status_code == 200
@@ -88,12 +92,12 @@ class TestComment(IntegrationTest):
         project = self.get_project()
 
         with self.recorder.use_cassette("TestComment.test_create"):
-            text = "test create comment"
+            text = "TestComment.test_create"
 
             comment_create = self.moco.Comment.create(
-                project.id,
-                CommentTargetType.PROJECT,
-                text,
+                commentable_id=project.id,
+                commentable_type=CommentTargetType.PROJECT,
+                text=text,
             )
 
             assert comment_create.response.status_code == 200
@@ -106,18 +110,18 @@ class TestComment(IntegrationTest):
             assert comment_create.data.user.id is not None
 
     def test_create_bulk(self):
-        first_customer = self.get_customer()
-        second_customer = self.get_second_customer()
+        customer = self.get_customer()
+        other_customer = self.get_other_customer()
 
         with self.recorder.use_cassette("TestComment.test_create_bulk"):
-            text = "bulk comment creation"
-            comment_ids = [first_customer.id, second_customer.id]
+            text = "TestComment.test_create_bulk"
+            comment_ids = [customer.id, other_customer.id]
             comment_type = CommentTargetType.CUSTOMER
 
             comment_create_bulk = self.moco.Comment.create_bulk(
-                comment_ids,
-                comment_type,
-                text,
+                commentable_ids=comment_ids,
+                commentable_type=comment_type,
+                text=text,
             )
 
             assert comment_create_bulk.response.status_code == 200
@@ -128,20 +132,19 @@ class TestComment(IntegrationTest):
 
     def test_update(self):
         project = self.get_project()
-        user = self.get_user()
 
         with self.recorder.use_cassette("TestComment.test_update"):
-            update_text = "updated comment"
+            update_text = "TestComment.test_update"
 
             comment_create = self.moco.Comment.create(
-                project.id,
-                CommentTargetType.PROJECT,
-                "dummy comment, update comment"
+                commentable_id=project.id,
+                commentable_type=CommentTargetType.PROJECT,
+                text="TestComment.test_update_create"
             )
 
             comment_update = self.moco.Comment.update(
-                comment_create.data.id,
-                update_text
+                comment_id=comment_create.data.id,
+                text=update_text
             )
 
             assert comment_create.response.status_code == 200
@@ -160,12 +163,14 @@ class TestComment(IntegrationTest):
 
         with self.recorder.use_cassette("TestComment.test_delete"):
             comment_create = self.moco.Comment.create(
-                project.id,
-                CommentTargetType.PROJECT,
-                "dummy comment ,test delete"
+                commentable_id=project.id,
+                commentable_type=CommentTargetType.PROJECT,
+                text="TestActivity.test_delete_create"
             )
 
-            comment_delete = self.moco.Comment.delete(comment_create.data.id)
+            comment_delete = self.moco.Comment.delete(
+                comment_id=comment_create.data.id
+            )
 
             assert comment_delete.response.status_code == 204
 

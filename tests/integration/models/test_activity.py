@@ -1,6 +1,6 @@
-from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
 from moco_wrapper.models.activity import ActivityRemoteService
 from moco_wrapper.models.company import CompanyType
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse
 from datetime import date
 
 from .. import IntegrationTest
