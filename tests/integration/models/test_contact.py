@@ -48,7 +48,7 @@ class TestContact(IntegrationTest):
 
             assert contact_create.response.status_code == 200
 
-            assert isinstance(contact_create, ObjectResponse)
+            assert type(contact_create) is ObjectResponse
 
             assert contact_create.data.firstname == firstname
             assert contact_create.data.lastname == lastname
@@ -67,7 +67,7 @@ class TestContact(IntegrationTest):
 
             assert contact_create.response.status_code == 200
 
-            assert isinstance(contact_create, ObjectResponse)
+            assert type(contact_create) is ObjectResponse
 
             assert contact_create.data.company.type == "organization"
             assert contact_create.data.company.id == orga.id
@@ -85,7 +85,7 @@ class TestContact(IntegrationTest):
 
             assert contact_create.response.status_code == 200
 
-            assert isinstance(contact_create, ObjectResponse)
+            assert type(contact_create) is ObjectResponse
 
             assert contact_create.data.company.type == "supplier"
             assert contact_create.data.company.id == supplier.id
@@ -133,7 +133,7 @@ class TestContact(IntegrationTest):
 
             assert contact_create.response.status_code == 200
 
-            assert isinstance(contact_create, ObjectResponse)
+            assert type(contact_create) is ObjectResponse
 
             assert contact_create.data.firstname == firstname
             assert contact_create.data.lastname == lastname
@@ -205,8 +205,8 @@ class TestContact(IntegrationTest):
             assert contact_create.response.status_code == 200
             assert contact_update.response.status_code == 200
 
-            assert isinstance(contact_create, ObjectResponse)
-            assert isinstance(contact_update, ObjectResponse)
+            assert type(contact_create) is ObjectResponse
+            assert type(contact_update) is ObjectResponse
 
             assert contact_update.data.firstname == firstname
             assert contact_update.data.lastname == lastname
@@ -242,7 +242,7 @@ class TestContact(IntegrationTest):
             assert contact_create.response.status_code == 200
             assert contact_get.response.status_code == 200
 
-            assert isinstance(contact_get, ObjectResponse)
+            assert type(contact_get) is ObjectResponse
 
             assert contact_get.data.firstname == firstname
             assert contact_get.data.lastname == lastname
@@ -254,7 +254,7 @@ class TestContact(IntegrationTest):
 
             assert contact_getlist.response.status_code == 200
 
-            assert isinstance(contact_getlist, PagedListResponse)
+            assert type(contact_getlist) is PagedListResponse
 
             assert contact_getlist.current_page == 1
             assert contact_getlist.is_last is not None
@@ -276,8 +276,8 @@ class TestContact(IntegrationTest):
             assert contact_create.response.status_code == 200
             assert contact_getlist.response.status_code == 200
 
-            assert isinstance(contact_create, ObjectResponse)
-            assert isinstance(contact_getlist, PagedListResponse)
+            assert type(contact_create) is ObjectResponse
+            assert type(contact_getlist) is PagedListResponse
 
             assert contact_create.data.id in [x.id for x in contact_getlist.items]
 
@@ -296,7 +296,7 @@ class TestContact(IntegrationTest):
             assert contact_create.response.status_code == 200
             assert contact_getlist.response.status_code == 200
 
-            assert isinstance(contact_create, ObjectResponse)
-            assert isinstance(contact_getlist, PagedListResponse)
+            assert type(contact_create) is ObjectResponse
+            assert type(contact_getlist) is PagedListResponse
 
             assert contact_create.data.id in [x.id for x in contact_getlist.items]

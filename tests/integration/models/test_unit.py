@@ -18,7 +18,7 @@ class TestUnit(IntegrationTest):
 
             assert unit_getlist.response.status_code == 200
 
-            assert isinstance(unit_getlist, PagedListResponse)
+            assert type(unit_getlist) is PagedListResponse
 
             assert unit_getlist.current_page == 1
             assert unit_getlist.is_last is not None
@@ -34,7 +34,7 @@ class TestUnit(IntegrationTest):
 
             assert unit_get.response.status_code == 200
 
-            assert isinstance(unit_get, ObjectResponse)
+            assert type(unit_get) is ObjectResponse
 
             assert unit_get.data.name is not None
             assert unit_get.data.users is not None
@@ -57,7 +57,7 @@ class TestUnit(IntegrationTest):
             assert user_create.response.status_code == 200
             assert unit_get.response.status_code == 200
 
-            assert isinstance(user_create, ObjectResponse)
-            assert isinstance(unit_get, ObjectResponse)
+            assert type(user_create) is ObjectResponse
+            assert type(unit_get) is ObjectResponse
 
             assert user_create.data.id in [x.id for x in unit_get.data.users]

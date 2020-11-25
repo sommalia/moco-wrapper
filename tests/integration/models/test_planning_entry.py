@@ -59,7 +59,7 @@ class TestPlanningEntry(IntegrationTest):
 
             assert plan_list.response.status_code == 200
 
-            assert isinstance(plan_list, PagedListResponse)
+            assert type(plan_list) is PagedListResponse
 
             assert plan_list.current_page == 1
             assert plan_list.is_last is not None
@@ -84,7 +84,7 @@ class TestPlanningEntry(IntegrationTest):
 
             assert plan_create.response.status_code == 200
 
-            assert isinstance(plan_create, ObjectResponse)
+            assert type(plan_create) is ObjectResponse
 
             assert plan_create.data.project is not None
             assert plan_create.data.user is not None
@@ -122,8 +122,8 @@ class TestPlanningEntry(IntegrationTest):
             assert plan_create.response.status_code == 200
             assert plan_get.response.status_code == 200
 
-            assert isinstance(plan_create, ObjectResponse)
-            assert isinstance(plan_get, ObjectResponse)
+            assert type(plan_create) is ObjectResponse
+            assert type(plan_get) is ObjectResponse
 
             assert plan_get.data.project is not None
             assert plan_get.data.user is not None
@@ -159,7 +159,7 @@ class TestPlanningEntry(IntegrationTest):
 
             assert plan_create.response.status_code == 200
 
-            assert isinstance(plan_create, ObjectResponse)
+            assert type(plan_create) is ObjectResponse
 
             assert plan_create.data.project is not None
             assert plan_create.data.user is not None
@@ -206,8 +206,8 @@ class TestPlanningEntry(IntegrationTest):
             assert plan_create.response.status_code == 200
             assert plan_update.response.status_code == 200
 
-            assert isinstance(plan_create, ObjectResponse)
-            assert isinstance(plan_update, ObjectResponse)
+            assert type(plan_create) is ObjectResponse
+            assert type(plan_update) is ObjectResponse
 
             assert plan_update.data.project is not None
             assert plan_update.data.user is not None
@@ -236,6 +236,6 @@ class TestPlanningEntry(IntegrationTest):
             assert plan_create.response.status_code == 200
             assert plan_delete.response.status_code == 200
 
-            assert isinstance(plan_create, ObjectResponse)
-            assert isinstance(plan_delete, ObjectResponse)
+            assert type(plan_create) is ObjectResponse
+            assert type(plan_delete) is ObjectResponse
 

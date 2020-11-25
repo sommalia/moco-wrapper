@@ -10,5 +10,5 @@ class TestPurchaseCategory(IntegrationTest):
 
             assert category_list.response.status_code == 200
 
-            assert isinstance(category_list, ListResponse)
+            assert type(category_list) is ListResponse
 

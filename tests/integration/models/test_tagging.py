@@ -29,7 +29,7 @@ class TestTagging(IntegrationTest):
 
             assert tagging_add.response.status_code == 200
 
-            assert isinstance(tagging_add, ListResponse)
+            assert type(tagging_add) is ListResponse
 
             for tag in tags:
                 assert tag in tagging_add.items
@@ -46,7 +46,7 @@ class TestTagging(IntegrationTest):
             )
             assert tagging_replace.response.status_code == 200
 
-            assert isinstance(tagging_replace, ListResponse)
+            assert type(tagging_replace) is ListResponse
 
             assert sorted(tagging_replace.data) == sorted(tags)
 
@@ -63,7 +63,7 @@ class TestTagging(IntegrationTest):
 
             assert tagging_delete.response.status_code == 200
 
-            assert isinstance(tagging_delete, ListResponse)
+            assert type(tagging_delete) is ListResponse
 
             for tag in tags:
                 assert tag not in tagging_delete.items

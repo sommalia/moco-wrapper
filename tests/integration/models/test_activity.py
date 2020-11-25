@@ -101,7 +101,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_create.response.status_code == 200
 
-            assert isinstance(activity_create, ObjectResponse)
+            assert type(activity_create) is ObjectResponse
 
             assert activity_create.data.date == activity_date.isoformat()
             assert activity_create.data.description == description
@@ -148,7 +148,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_create.response.status_code == 200
 
-            assert isinstance(activity_create, ObjectResponse)
+            assert type(activity_create) is ObjectResponse
 
             assert activity_create.data.date == activity_date.isoformat()
             assert activity_create.data.description == description
@@ -211,8 +211,8 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert activity_update.response.status_code == 200
 
-            assert isinstance(activity_create, ObjectResponse)
-            assert isinstance(activity_update, ObjectResponse)
+            assert type(activity_create) is  ObjectResponse
+            assert type(activity_update) is ObjectResponse
 
             assert activity_update.data.date == activity_date.isoformat()
             assert activity_update.data.description == description
@@ -239,7 +239,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_getlist.response.status_code == 200
 
-            assert isinstance(activity_getlist, PagedListResponse)
+            assert type(activity_getlist) is PagedListResponse
 
             assert activity_getlist.current_page == 1
             assert activity_getlist.is_last is not None
@@ -264,7 +264,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_getlist.response.status_code == 200
 
-            assert isinstance(activity_getlist, PagedListResponse)
+            assert type(activity_getlist) is PagedListResponse
 
             assert activity_getlist.current_page == 1
             assert activity_getlist.is_last is not None
@@ -312,8 +312,8 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert activity_get.response.status_code == 200
 
-            assert isinstance(activity_create, ObjectResponse)
-            assert isinstance(activity_get, ObjectResponse)
+            assert type(activity_create) is ObjectResponse
+            assert type(activity_get) is ObjectResponse
 
             assert activity_get.data.date == activity_date.isoformat()
             assert activity_get.data.description == description
@@ -352,7 +352,7 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert timer_start.response.status_code == 200
 
-            assert isinstance(timer_start, ObjectResponse)
+            assert type(timer_start) is ObjectResponse
 
     def test_stop_timer(self):
         project = self.get_project()
@@ -382,7 +382,7 @@ class TestActivity(IntegrationTest):
             assert timer_start.response.status_code == 200
             assert timer_stop.response.status_code == 200
 
-            assert isinstance(timer_stop, ObjectResponse)
+            assert type(timer_stop) is ObjectResponse
 
     def test_delete(self):
         project = self.get_project()
@@ -409,7 +409,7 @@ class TestActivity(IntegrationTest):
             assert activity_create.response.status_code == 200
             assert activity_delete.response.status_code == 204
 
-            assert isinstance(activity_delete, EmptyResponse)
+            assert type(activity_delete) is EmptyResponse
 
     def test_disregard(self):
         customer = self.get_customer()
@@ -467,7 +467,7 @@ class TestActivity(IntegrationTest):
 
             assert activity_create.response.status_code == 200
 
-            assert isinstance(activity_create, ObjectResponse)
+            assert type(activity_create) is ObjectResponse
 
             assert activity_create.data.user.id == other_user.id
 

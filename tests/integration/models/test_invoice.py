@@ -44,7 +44,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_getlist.response.status_code == 200
 
-            assert isinstance(inv_getlist, PagedListResponse)
+            assert type(inv_getlist) is PagedListResponse
 
             assert inv_getlist.current_page == 1
             assert inv_getlist.is_last is not None
@@ -58,7 +58,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_locked.response.status_code == 200
 
-            assert isinstance(inv_locked, PagedListResponse)
+            assert type(inv_locked) is PagedListResponse
 
             assert inv_locked.current_page == 1
             assert inv_locked.is_last is not None
@@ -104,8 +104,8 @@ class TestInvoice(IntegrationTest):
             assert inv_create.response.status_code == 200
             assert inv_get.response.status_code == 200
 
-            assert isinstance(inv_get, ObjectResponse)
-            assert isinstance(inv_create, ObjectResponse)
+            assert type(inv_get) is ObjectResponse
+            assert type(inv_create) is ObjectResponse
 
             assert inv_get.data.customer_id == customer.id
             assert inv_get.data.title == title
@@ -152,8 +152,8 @@ class TestInvoice(IntegrationTest):
             assert inv_create.response.status_code == 200
             assert inv_pdf.response.status_code == 200
 
-            assert isinstance(inv_create, ObjectResponse)
-            assert isinstance(inv_pdf, FileResponse)
+            assert type(inv_create) is ObjectResponse
+            assert type(inv_pdf) is FileResponse
 
     def test_update_status(self):
         customer = self.get_customer()
@@ -199,9 +199,9 @@ class TestInvoice(IntegrationTest):
             assert inv_update.response.status_code == 204
             assert inv_get.response.status_code == 200
 
-            assert isinstance(inv_create, ObjectResponse)
-            assert isinstance(inv_update, EmptyResponse)
-            assert isinstance(inv_get, ObjectResponse)
+            assert type(inv_create) is ObjectResponse
+            assert type(inv_update) is EmptyResponse
+            assert type(inv_get) is ObjectResponse
 
             assert inv_create.data.status == InvoiceStatus.CREATED
             assert inv_get.data.status == InvoiceStatus.IGNORED
@@ -241,7 +241,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_create.response.status_code == 200
 
-            assert isinstance(inv_create, ObjectResponse)
+            assert type(inv_create) is ObjectResponse
 
             assert inv_create.data.title == "invoice"
             assert inv_create.data.currency == "EUR"
@@ -289,7 +289,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_create.response.status_code == 200
 
-            assert isinstance(inv_create, ObjectResponse)
+            assert type(inv_create) is ObjectResponse
 
             assert inv_create.data.project_id == project.id
 
@@ -344,7 +344,7 @@ class TestInvoice(IntegrationTest):
 
             assert inv_create.response.status_code == 200
 
-            assert isinstance(inv_create, ObjectResponse)
+            assert type(inv_create) is ObjectResponse
 
             assert inv_create.data.title == "invoice"
             assert inv_create.data.currency == "EUR"

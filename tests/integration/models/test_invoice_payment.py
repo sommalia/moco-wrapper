@@ -48,7 +48,7 @@ class TestInvoicePayment(IntegrationTest):
 
             assert payment_list.response.status_code == 200
 
-            assert isinstance(payment_list, PagedListResponse)
+            assert type(payment_list) is PagedListResponse
 
             assert payment_list.current_page == 1
             assert payment_list.is_last is not None
@@ -73,7 +73,7 @@ class TestInvoicePayment(IntegrationTest):
 
             assert payment_create.response.status_code == 200
 
-            assert isinstance(payment_create, ObjectResponse)
+            assert type(payment_create) is ObjectResponse
 
             assert payment_create.data.date == payment_date.isoformat()
             assert payment_create.data.paid_total == amount
@@ -94,7 +94,7 @@ class TestInvoicePayment(IntegrationTest):
 
             assert payment_create.response.status_code == 200
 
-            assert isinstance(payment_create, ListResponse)
+            assert type(payment_create) is ListResponse
 
     def test_get(self):
         invoice = self.get_invoice()
@@ -116,8 +116,8 @@ class TestInvoicePayment(IntegrationTest):
             assert payment_create.response.status_code == 200
             assert payment_get.response.status_code == 200
 
-            assert isinstance(payment_create, ObjectResponse)
-            assert isinstance(payment_get, ObjectResponse)
+            assert type(payment_create) is ObjectResponse
+            assert type(payment_get) is ObjectResponse
 
             assert payment_get.data.date == payment_date.isoformat()
             assert payment_get.data.paid_total == amount
@@ -149,8 +149,8 @@ class TestInvoicePayment(IntegrationTest):
             assert payment_create.response.status_code == 200
             assert payment_update.response.status_code == 200
 
-            assert isinstance(payment_create, ObjectResponse)
-            assert isinstance(payment_update, ObjectResponse)
+            assert type(payment_create) is ObjectResponse
+            assert type(payment_update) is ObjectResponse
 
             assert payment_update.data.date == payment_date.isoformat()
             assert payment_update.data.paid_total == amount
@@ -173,5 +173,5 @@ class TestInvoicePayment(IntegrationTest):
             assert payment_create.response.status_code == 200
             assert payment_delete.response.status_code == 204
 
-            assert isinstance(payment_create, ObjectResponse)
-            assert isinstance(payment_delete, EmptyResponse)
+            assert type(payment_create) is ObjectResponse
+            assert type(payment_delete) is EmptyResponse

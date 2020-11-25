@@ -23,7 +23,7 @@ class TestCompany(IntegrationTest):
 
             assert company_create.response.status_code == 200
 
-            assert isinstance(company_create, ObjectResponse)
+            assert type(company_create) is ObjectResponse
 
             assert company_create.data.name == name
             assert company_create.data.type == CompanyType.CUSTOMER
@@ -38,7 +38,7 @@ class TestCompany(IntegrationTest):
 
             assert company_create.response.status_code == 200
 
-            assert isinstance(company_create, ObjectResponse)
+            assert type(company_create) is ObjectResponse
 
             assert company_create.data.name == name
             assert company_create.data.type == CompanyType.SUPPLIER
@@ -53,7 +53,7 @@ class TestCompany(IntegrationTest):
 
             assert company_create.response.status_code == 200
 
-            assert isinstance(company_create, ObjectResponse)
+            assert type(company_create) is ObjectResponse
 
             assert company_create.data.name == name
             assert company_create.data.type == CompanyType.ORGANIZATION
@@ -105,7 +105,7 @@ class TestCompany(IntegrationTest):
 
             assert company_create.response.status_code == 200
 
-            assert isinstance(company_create, ObjectResponse)
+            assert type(company_create) is ObjectResponse
 
             assert company_create.data.name == name
             assert company_create.data.type == company_type
@@ -147,7 +147,7 @@ class TestCompany(IntegrationTest):
             assert company_create.response.status_code == 200
             assert company_update.response.status_code == 200
 
-            assert isinstance(company_update, ObjectResponse)
+            assert type(company_update) is ObjectResponse
 
             assert company_update.data.name == name
             assert company_update.data.website == website
@@ -207,7 +207,7 @@ class TestCompany(IntegrationTest):
             assert company_create.response.status_code == 200
             assert company_update.response.status_code == 200
 
-            assert isinstance(company_update, ObjectResponse)
+            assert type(company_update) is ObjectResponse
 
             assert company_update.data.name == name
             assert company_update.data.type == company_type
@@ -239,7 +239,7 @@ class TestCompany(IntegrationTest):
             assert company_create.response.status_code == 200
             assert company_get.response.status_code == 200
 
-            assert isinstance(company_get, ObjectResponse)
+            assert type(company_get) is ObjectResponse
 
             assert company_get.data.name == name
             assert company_get.data.type == CompanyType.CUSTOMER
@@ -250,7 +250,7 @@ class TestCompany(IntegrationTest):
 
             assert company_getlist.response.status_code == 200
 
-            assert isinstance(company_getlist, PagedListResponse)
+            assert type(company_getlist) is PagedListResponse
 
             assert company_getlist.current_page == 1
             assert company_getlist.is_last is not None
@@ -269,7 +269,7 @@ class TestCompany(IntegrationTest):
 
             assert company_create.response.status_code == 200
 
-            assert isinstance(company_create, ObjectResponse)
+            assert type(company_create) is ObjectResponse
 
             assert company_create.data.iban == iban
 
@@ -284,7 +284,7 @@ class TestCompany(IntegrationTest):
 
             assert company_create.response.status_code == 200
 
-            assert isinstance(company_create, ObjectResponse)
+            assert type(company_create) is ObjectResponse
 
             assert company_create.data.vat_identifier == vat
 
@@ -305,7 +305,7 @@ class TestCompany(IntegrationTest):
             assert company_create.response.status_code == 200
             assert company_update.response.status_code == 200
 
-            assert isinstance(company_create, ObjectResponse)
-            assert isinstance(company_update, ObjectResponse)
+            assert type(company_create) is ObjectResponse
+            assert type(company_update) is ObjectResponse
 
             assert company_update.data.iban == iban

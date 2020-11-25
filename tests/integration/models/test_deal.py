@@ -49,7 +49,7 @@ class TestDeal(IntegrationTest):
             
             assert deal_create.response.status_code == 200
 
-            assert isinstance(deal_create, ObjectResponse)
+            assert type(deal_create) is ObjectResponse
 
             assert deal_create.data.name == name
             assert deal_create.data.currency == currency
@@ -87,7 +87,7 @@ class TestDeal(IntegrationTest):
             
             assert deal_create.response.status_code == 200
 
-            assert isinstance(deal_create, ObjectResponse)
+            assert type(deal_create) is ObjectResponse
 
             assert deal_create.data.name == name
             assert deal_create.data.currency == currency
@@ -125,8 +125,8 @@ class TestDeal(IntegrationTest):
             assert deal_create.response.status_code == 200
             assert deal_get.response.status_code == 200
 
-            assert isinstance(deal_create, ObjectResponse)
-            assert isinstance(deal_get, ObjectResponse)
+            assert type(deal_create) is ObjectResponse
+            assert type(deal_get) is ObjectResponse
 
             assert deal_get.data.name == name
             assert deal_get.data.currency == currency
@@ -142,7 +142,7 @@ class TestDeal(IntegrationTest):
 
             assert deal_getlist.response.status_code == 200
 
-            assert isinstance(deal_getlist, PagedListResponse)
+            assert type(deal_getlist) is PagedListResponse
 
             assert deal_getlist.current_page == 1
             assert deal_getlist.is_last is not None
@@ -188,8 +188,8 @@ class TestDeal(IntegrationTest):
             assert deal_create.response.status_code == 200
             assert deal_update.response.status_code == 200
 
-            assert isinstance(deal_create, ObjectResponse)
-            assert isinstance(deal_update, ObjectResponse)
+            assert type(deal_create) is ObjectResponse
+            assert type(deal_update) is ObjectResponse
 
             assert deal_update.data.name == name
             assert deal_update.data.currency == currency

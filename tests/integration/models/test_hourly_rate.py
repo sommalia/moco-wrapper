@@ -23,7 +23,7 @@ class TestHourlyRate(IntegrationTest):
 
             assert hourly_rate_get.response.status_code == 200
 
-            assert isinstance(hourly_rate_get, ObjectResponse)
+            assert type(hourly_rate_get) is ObjectResponse
 
             assert hourly_rate_get.data.users is not None
             assert hourly_rate_get.data.tasks is not None

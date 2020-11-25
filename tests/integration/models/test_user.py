@@ -34,7 +34,7 @@ class TestUser(IntegrationTest):
 
             assert user_create.response.status_code == 200
 
-            assert isinstance(user_create, ObjectResponse)
+            assert type(user_create) is ObjectResponse
 
             assert user_create.data.firstname == firstname
             assert user_create.data.lastname == lastname
@@ -77,7 +77,7 @@ class TestUser(IntegrationTest):
 
             assert user_create.response.status_code == 200
 
-            assert isinstance(user_create, ObjectResponse)
+            assert type(user_create) is ObjectResponse
 
             assert user_create.data.firstname == firstname
             assert user_create.data.lastname == lastname
@@ -130,8 +130,8 @@ class TestUser(IntegrationTest):
             assert user_create.response.status_code == 200
             assert user_get.response.status_code == 200
 
-            assert isinstance(user_create, ObjectResponse)
-            assert isinstance(user_get, ObjectResponse)
+            assert type(user_create) is ObjectResponse
+            assert type(user_get) is ObjectResponse
 
             assert user_get.data.firstname == firstname
             assert user_get.data.lastname == lastname
@@ -191,8 +191,8 @@ class TestUser(IntegrationTest):
             assert user_create.response.status_code == 200
             assert user_update.response.status_code == 200
 
-            assert isinstance(user_create, ObjectResponse)
-            assert isinstance(user_update, ObjectResponse)
+            assert type(user_create) is ObjectResponse
+            assert type(user_update) is ObjectResponse
 
             assert user_update.data.firstname == firstname
             assert user_update.data.lastname == lastname
@@ -223,8 +223,8 @@ class TestUser(IntegrationTest):
             assert user_create.response.status_code == 200
             assert user_delete.response.status_code == 204
 
-            assert isinstance(user_create, ObjectResponse)
-            assert isinstance(user_delete, EmptyResponse)
+            assert type(user_create) is ObjectResponse
+            assert type(user_delete) is EmptyResponse
 
     def test_getlist(self):
         with self.recorder.use_cassette("TestUser.test_getlist"):
@@ -232,7 +232,7 @@ class TestUser(IntegrationTest):
 
             assert user_getlist.response.status_code == 200
 
-            assert isinstance(user_getlist, PagedListResponse)
+            assert type(user_getlist) is PagedListResponse
 
             assert user_getlist.current_page == 1
             assert user_getlist.is_last is not None

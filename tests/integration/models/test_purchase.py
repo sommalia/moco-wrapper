@@ -40,7 +40,7 @@ class TestPurchase(IntegrationTest):
 
             assert purchase_create.response.status_code == 200
 
-            assert isinstance(purchase_create, ObjectResponse)
+            assert type(purchase_create) is ObjectResponse
 
             assert purchase_create.data.payment_method == payment_method
             assert purchase_create.data.currency == currency
@@ -92,7 +92,7 @@ class TestPurchase(IntegrationTest):
 
             assert purchase_create.response.status_code == 200
 
-            assert isinstance(purchase_create, ObjectResponse)
+            assert type(purchase_create) is ObjectResponse
 
             assert purchase_create.data.date == purchase_date.isoformat()
             assert purchase_create.data.currency == currency
@@ -130,7 +130,7 @@ class TestPurchase(IntegrationTest):
 
             assert purchase_create.response.status_code == 200
 
-            assert isinstance(purchase_create, ObjectResponse)
+            assert type(purchase_create) is ObjectResponse
 
             assert purchase_create.data.date == purchase_date.isoformat()
             assert purchase_create.data.currency == currency
@@ -164,8 +164,8 @@ class TestPurchase(IntegrationTest):
             assert purchase_create.response.status_code == 200
             assert purchase_get.response.status_code == 200
 
-            assert isinstance(purchase_create, ObjectResponse)
-            assert isinstance(purchase_get, ObjectResponse)
+            assert type(purchase_create) is ObjectResponse
+            assert type(purchase_get) is ObjectResponse
 
             assert purchase_get.data.date == purchase_date.isoformat()
             assert purchase_get.data.currency == currency
@@ -190,8 +190,8 @@ class TestPurchase(IntegrationTest):
             assert purchase_create.response.status_code == 200
             assert purchase_delete.response.status_code == 200
 
-            assert isinstance(purchase_create, ObjectResponse)
-            assert isinstance(purchase_delete, EmptyResponse)
+            assert type(purchase_create) is ObjectResponse
+            assert type(purchase_delete) is EmptyResponse
 
     def test_update_status(self):
         generator = PurchaseItemGenerator()
@@ -219,9 +219,9 @@ class TestPurchase(IntegrationTest):
             assert purchase_update_status.response.status_code == 200
             assert purchase_get.response.status_code == 200
 
-            assert isinstance(purchase_create, ObjectResponse)
-            assert isinstance(purchase_update_status, EmptyResponse)
-            assert isinstance(purchase_get, ObjectResponse)
+            assert type(purchase_create) is ObjectResponse
+            assert type(purchase_update_status) is EmptyResponse
+            assert type(purchase_get) is ObjectResponse
 
             assert purchase_create.data.status == PurchaseStatus.PENDING
             assert purchase_get.data.status == PurchaseStatus.APPROVED
@@ -252,9 +252,9 @@ class TestPurchase(IntegrationTest):
             assert purchase_store_doc.response.status_code == 200
             assert purchase_get.response.status_code == 200
 
-            assert isinstance(purchase_create, ObjectResponse)
-            assert isinstance(purchase_store_doc, EmptyResponse)
-            assert isinstance(purchase_get, ObjectResponse)
+            assert type(purchase_create) is ObjectResponse
+            assert type(purchase_store_doc) is EmptyResponse
+            assert type(purchase_get) is ObjectResponse
 
             assert purchase_create.data.file_url is None
             assert purchase_get.data.file_url is not None
@@ -265,5 +265,5 @@ class TestPurchase(IntegrationTest):
 
             assert purchase_list.response.status_code == 200
 
-            assert isinstance(purchase_list, PagedListResponse)
+            assert type(purchase_list) is PagedListResponse
 

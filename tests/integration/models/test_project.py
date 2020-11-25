@@ -79,7 +79,7 @@ class TestProject(IntegrationTest):
 
             assert project_create.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
+            assert type(project_create) is ObjectResponse
 
             assert project_create.data.name == name
             assert project_create.data.currency == currency
@@ -149,7 +149,7 @@ class TestProject(IntegrationTest):
 
             assert project_create.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
+            assert type(project_create) is ObjectResponse
 
             assert project_create.data.name == name
             assert project_create.data.currency == currency
@@ -201,8 +201,8 @@ class TestProject(IntegrationTest):
             assert project_create.response.status_code == 200
             assert project_get.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
-            assert isinstance(project_get, ObjectResponse)
+            assert type(project_create) is ObjectResponse
+            assert type(project_get) is ObjectResponse
 
             assert project_get.data.name == name
             assert project_get.data.currency == currency
@@ -264,8 +264,8 @@ class TestProject(IntegrationTest):
             assert project_create.response.status_code == 200
             assert project_update.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
-            assert isinstance(project_update, ObjectResponse)
+            assert type(project_create) is ObjectResponse
+            assert type(project_update) is ObjectResponse
 
             assert project_update.data.name == name
             assert project_update.data.currency == currency
@@ -309,9 +309,9 @@ class TestProject(IntegrationTest):
             assert contract_create.response.status_code == 200
             assert project_get.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
-            assert isinstance(contract_create, ObjectResponse)
-            assert isinstance(project_get, ObjectResponse)
+            assert type(project_create) is ObjectResponse
+            assert type(contract_create) is ObjectResponse
+            assert type(project_get) is ObjectResponse
 
             assert contract_create.data.id in [x.id for x in project_get.data.contracts]
 
@@ -339,9 +339,9 @@ class TestProject(IntegrationTest):
             assert task_create.response.status_code == 200
             assert project_get.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
-            assert isinstance(task_create, ObjectResponse)
-            assert isinstance(project_get, ObjectResponse)
+            assert type(project_create) is ObjectResponse
+            assert type(task_create) is ObjectResponse
+            assert type(project_get) is ObjectResponse
 
             assert task_create.data.id in [x.id for x in project_get.data.tasks]
 
@@ -363,7 +363,7 @@ class TestProject(IntegrationTest):
 
             assert project_list.response.status_code == 200
 
-            assert isinstance(project_list, PagedListResponse)
+            assert type(project_list) is PagedListResponse
 
             assert project_list.current_page == 1
             assert project_list.is_last is not None
@@ -377,7 +377,7 @@ class TestProject(IntegrationTest):
 
             assert project_ass.response.status_code == 200
 
-            assert isinstance(project_ass, ListResponse)
+            assert type(project_ass) is ListResponse
 
     def test_archive(self):
         user = self.get_user()
@@ -397,8 +397,8 @@ class TestProject(IntegrationTest):
             assert project_create.response.status_code == 200
             assert project_archive.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
-            assert isinstance(project_archive, ObjectResponse)
+            assert type(project_create) is ObjectResponse
+            assert type(project_archive) is ObjectResponse
 
             assert not project_archive.data.active
 
@@ -421,8 +421,8 @@ class TestProject(IntegrationTest):
             assert project_create.response.status_code == 200
             assert project_archive.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
-            assert isinstance(project_archive, ObjectResponse)
+            assert type(project_create) is ObjectResponse
+            assert type(project_archive) is ObjectResponse
 
             assert not project_archive.data.active
             assert project_unarchive.data.active
@@ -445,8 +445,8 @@ class TestProject(IntegrationTest):
             assert project_create.response.status_code == 200
             assert project_report.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
-            assert isinstance(project_report, ObjectResponse)
+            assert type(project_create) is ObjectResponse
+            assert type(project_report) is ObjectResponse
 
     def test_create_without_finish_date(self):
         user = self.get_user()
@@ -465,7 +465,7 @@ class TestProject(IntegrationTest):
 
             assert project_create.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
+            assert type(project_create) is ObjectResponse
 
             assert project_create.data.name == name
             assert project_create.data.currency == currency
@@ -494,7 +494,7 @@ class TestProject(IntegrationTest):
 
             assert project_create.response.status_code == 200
 
-            assert isinstance(project_create, ObjectResponse)
+            assert type(project_create) is ObjectResponse
 
             assert project_create.data.name == name
             assert project_create.data.currency == currency

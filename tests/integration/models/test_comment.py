@@ -53,7 +53,7 @@ class TestComment(IntegrationTest):
 
             assert comment_list.response.status_code == 200
 
-            assert isinstance(comment_list, PagedListResponse)
+            assert type(comment_list) is PagedListResponse
 
             assert comment_list.current_page == 1
             assert comment_list.is_last is not None
@@ -80,8 +80,8 @@ class TestComment(IntegrationTest):
             assert comment_create.response.status_code == 200
             assert comment_get.response.status_code == 200
 
-            assert isinstance(comment_create, ObjectResponse)
-            assert isinstance(comment_get, ObjectResponse)
+            assert type(comment_create) is ObjectResponse
+            assert type(comment_get) is ObjectResponse
 
             assert comment_get.data.text == text
             assert comment_get.data.commentable_id == project.id
@@ -102,7 +102,7 @@ class TestComment(IntegrationTest):
 
             assert comment_create.response.status_code == 200
 
-            assert isinstance(comment_create, ObjectResponse)
+            assert type(comment_create) is ObjectResponse
 
             assert comment_create.data.text == text
             assert comment_create.data.commentable_id == project.id
@@ -126,7 +126,7 @@ class TestComment(IntegrationTest):
 
             assert comment_create_bulk.response.status_code == 200
 
-            assert isinstance(comment_create_bulk, ListResponse)
+            assert type(comment_create_bulk) is ListResponse
 
             assert len(comment_create_bulk.data) == len(comment_ids)
 
@@ -150,8 +150,8 @@ class TestComment(IntegrationTest):
             assert comment_create.response.status_code == 200
             assert comment_update.response.status_code == 200
 
-            assert isinstance(comment_create, ObjectResponse)
-            assert isinstance(comment_update, ObjectResponse)
+            assert type(comment_create) is ObjectResponse
+            assert type(comment_update) is ObjectResponse
 
             assert comment_update.data.text == update_text
             assert comment_update.data.commentable_id == project.id
@@ -174,4 +174,4 @@ class TestComment(IntegrationTest):
 
             assert comment_delete.response.status_code == 204
 
-            assert isinstance(comment_delete, EmptyResponse)
+            assert type(comment_delete) is EmptyResponse

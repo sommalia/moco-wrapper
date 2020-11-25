@@ -43,7 +43,7 @@ class TestProjectPaymentSchedule(IntegrationTest):
 
             assert sched_list.response.status_code == 200
 
-            assert isinstance(sched_list, ListResponse)
+            assert type(sched_list) is ListResponse
 
     def test_get(self):
         project = self.get_project()
@@ -70,8 +70,8 @@ class TestProjectPaymentSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_get.response.status_code == 200
 
-            assert isinstance(sched_create, ObjectResponse)
-            assert isinstance(sched_get, ObjectResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_get) is ObjectResponse
 
             assert sched_get.data.date == sched_date.isoformat()
             assert sched_get.data.net_total == net_total
@@ -94,7 +94,7 @@ class TestProjectPaymentSchedule(IntegrationTest):
 
             assert sched_create.response.status_code == 200
 
-            assert isinstance(sched_create, ObjectResponse)
+            assert type(sched_create) is ObjectResponse
 
             assert sched_create.data.date == sched_date.isoformat()
             assert sched_create.data.net_total == net_total
@@ -119,7 +119,7 @@ class TestProjectPaymentSchedule(IntegrationTest):
 
             assert sched_create.response.status_code == 200
 
-            assert isinstance(sched_create, ObjectResponse)
+            assert type(sched_create) is ObjectResponse
 
             assert sched_create.data.date == sched_date.isoformat()
             assert sched_create.data.net_total == net_total
@@ -154,8 +154,8 @@ class TestProjectPaymentSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_update.response.status_code == 200
 
-            assert isinstance(sched_create, ObjectResponse)
-            assert isinstance(sched_update, ObjectResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_update) is ObjectResponse
 
             assert sched_update.data.date == sched_date.isoformat()
             assert sched_update.data.net_total == net_total
@@ -181,5 +181,5 @@ class TestProjectPaymentSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_delete.response.status_code == 200
 
-            assert isinstance(sched_create, ObjectResponse)
-            assert isinstance(sched_delete, ObjectResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_delete) is ObjectResponse

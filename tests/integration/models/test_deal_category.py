@@ -15,7 +15,7 @@ class TestDealCategory(IntegrationTest):
 
             assert cat_create.response.status_code == 200
 
-            assert isinstance(cat_create, ObjectResponse)
+            assert type(cat_create) is ObjectResponse
 
             assert cat_create.data.name is not None
             assert cat_create.data.probability == probability
@@ -37,7 +37,7 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.response.status_code == 200
             assert cat_update.response.status_code == 200
 
-            assert isinstance(cat_update, ObjectResponse)
+            assert type(cat_update) is ObjectResponse
 
             assert cat_update.data.name is not None
             assert cat_update.data.probability == probability
@@ -56,7 +56,7 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.response.status_code == 200
             assert cat_get.response.status_code == 200
 
-            assert isinstance(cat_get, ObjectResponse)
+            assert type(cat_get) is ObjectResponse
 
             assert cat_get.data.name is not None
             assert cat_get.data.probability == probability
@@ -67,7 +67,7 @@ class TestDealCategory(IntegrationTest):
 
             assert cat_getlist.response.status_code == 200
 
-            assert isinstance(cat_getlist, ListResponse)
+            assert type(cat_getlist) is ListResponse
 
     def test_delete(self):
         with self.recorder.use_cassette("TestDealCategory.test_delete"):
@@ -80,4 +80,4 @@ class TestDealCategory(IntegrationTest):
             assert cat_create.response.status_code == 200
             assert cat_delete.response.status_code == 204
 
-            assert isinstance(cat_delete, EmptyResponse)
+            assert type(cat_delete) is EmptyResponse

@@ -58,7 +58,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_create.response.status_code == 200
 
-            assert isinstance(ex_create, ObjectResponse)
+            assert type(ex_create) is ObjectResponse
 
             assert ex_create.data.project.id == project.id
             assert ex_create.data.company.id == project.customer.id
@@ -97,7 +97,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_create.response.status_code == 200
 
-            assert isinstance(ex_create, ObjectResponse)
+            assert type(ex_create) is ObjectResponse
 
             assert ex_create.data.project.id == project.id
             assert ex_create.data.company.id == project.customer.id
@@ -142,8 +142,8 @@ class TestProjectExpense(IntegrationTest):
             assert ex_create.response.status_code == 200
             assert ex_get.response.status_code == 200
 
-            assert isinstance(ex_create, ObjectResponse)
-            assert isinstance(ex_get, ObjectResponse)
+            assert type(ex_create) is ObjectResponse
+            assert type(ex_get) is ObjectResponse
 
             assert ex_get.data.project.id == project.id
             assert ex_get.data.company.id == project.customer.id
@@ -197,8 +197,8 @@ class TestProjectExpense(IntegrationTest):
             assert ex_create.response.status_code == 200
             assert ex_update.response.status_code == 200
 
-            assert isinstance(ex_create, ObjectResponse)
-            assert isinstance(ex_update, ObjectResponse)
+            assert type(ex_create) is ObjectResponse
+            assert type(ex_update) is ObjectResponse
 
             assert ex_update.data.project.id == project.id
             assert ex_update.data.company.id == project.customer.id
@@ -230,8 +230,8 @@ class TestProjectExpense(IntegrationTest):
             assert ex_create.response.status_code == 200
             assert ex_delete.response.status_code == 204
 
-            assert isinstance(ex_create, ObjectResponse)
-            assert isinstance(ex_delete, EmptyResponse)
+            assert type(ex_create) is ObjectResponse
+            assert type(ex_delete) is EmptyResponse
 
     def test_getlist(self):
         project = self.get_project()
@@ -241,7 +241,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_list.response.status_code == 200
 
-            assert isinstance(ex_list, PagedListResponse)
+            assert type(ex_list) is PagedListResponse
 
             assert ex_list.current_page == 1
             assert ex_list.is_last is not None
@@ -258,7 +258,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_list.response.status_code == 200
 
-            assert isinstance(ex_list, PagedListResponse)
+            assert type(ex_list) is PagedListResponse
 
             assert ex_list.current_page == 1
             assert ex_list.is_last is not None
@@ -295,7 +295,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_bulk.response.status_code == 200
 
-            assert isinstance(ex_bulk, ListResponse)
+            assert type(ex_bulk) is ListResponse
 
     def test_disregard_items(self):
         project = self.get_project()
@@ -337,6 +337,6 @@ class TestProjectExpense(IntegrationTest):
             assert ex_bulk.response.status_code == 200
             assert ex_disregard.response.status_code == 204
 
-            assert isinstance(ex_bulk, ListResponse)
-            assert isinstance(ex_disregard, EmptyResponse)
+            assert type(ex_bulk) is ListResponse
+            assert type(ex_disregard) is EmptyResponse
 

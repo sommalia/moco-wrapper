@@ -42,7 +42,7 @@ class TestProjectRecurringExpense(IntegrationTest):
 
             assert recexp_list.response.status_code == 200
             
-            assert isinstance(recexp_list, PagedListResponse)
+            assert type(recexp_list) is PagedListResponse
 
             assert recexp_list.current_page == 1
             assert recexp_list.is_last is not None
@@ -75,7 +75,7 @@ class TestProjectRecurringExpense(IntegrationTest):
 
             assert recexp_create.response.status_code == 200
 
-            assert isinstance(recexp_create, ObjectResponse)
+            assert type(recexp_create) is ObjectResponse
 
             assert recexp_create.data.start_date == start_date.isoformat() 
             assert recexp_create.data.period == period
@@ -118,7 +118,7 @@ class TestProjectRecurringExpense(IntegrationTest):
 
             assert recexp_create.response.status_code == 200
 
-            assert isinstance(recexp_create, ObjectResponse)
+            assert type(recexp_create) is ObjectResponse
 
             assert recexp_create.data.start_date == start_date.isoformat() 
             assert recexp_create.data.period == period
@@ -175,8 +175,8 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert recexp_create.response.status_code == 200
             assert recexp_update.response.status_code == 200
 
-            assert isinstance(recexp_create, ObjectResponse)
-            assert isinstance(recexp_update, ObjectResponse)
+            assert type(recexp_create) is ObjectResponse
+            assert type(recexp_update) is ObjectResponse
 
             assert recexp_update.data.start_date == start_date.isoformat() 
             assert recexp_update.data.period == period
@@ -216,8 +216,8 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert recexp_create_with_finish.response.status_code == 200
             assert recexp_update_delete_finish.response.status_code == 200
 
-            assert isinstance(recexp_create_with_finish, ObjectResponse)
-            assert isinstance(recexp_update_delete_finish, ObjectResponse)
+            assert type(recexp_create_with_finish) is ObjectResponse
+            assert type(recexp_update_delete_finish) is ObjectResponse
 
             assert recexp_create_with_finish.data.finish_date == finish_date.isoformat()
             assert recexp_update_delete_finish.data.finish_date is None
@@ -262,8 +262,8 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert recexp_create.response.status_code == 200
             assert recexp_get.response.status_code == 200
 
-            assert isinstance(recexp_create, ObjectResponse)
-            assert isinstance(recexp_get, ObjectResponse)
+            assert type(recexp_create) is ObjectResponse
+            assert type(recexp_get) is ObjectResponse
 
             assert recexp_get.data.start_date == start_date.isoformat() 
             assert recexp_get.data.period == period
@@ -299,5 +299,5 @@ class TestProjectRecurringExpense(IntegrationTest):
             assert recexp_create.response.status_code == 200
             assert recexp_delete.response.status_code == 204
 
-            assert isinstance(recexp_delete, EmptyResponse)
+            assert type(recexp_delete) is EmptyResponse
             
