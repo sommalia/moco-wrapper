@@ -45,6 +45,28 @@ class Tagging(MWRAPBase):
         """
         self._moco = moco
 
+    def get(
+        self,
+        entity: TaggingEntity,
+        entity_id: int
+    ):
+        """
+        Get the tags associated with an entity
+
+        :param entity: Type of entity to add tags to
+        :param entity_id: Id of the entity
+
+        :type entity: TaggingEntity, str
+        :type entity_id: int
+
+        :returns: List of tags assigned to the entity
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
+        """
+
+        return self._moco.get(
+            API_PATH["tagging_get"].format(entity=entity, entity_id=entity_id),
+        )
+
     def add(
         self,
         entity: TaggingEntity,

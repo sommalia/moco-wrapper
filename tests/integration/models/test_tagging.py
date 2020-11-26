@@ -16,6 +16,19 @@ class TestTagging(IntegrationTest):
 
             return company_create.data
 
+    def test_get(self):
+        company = self.get_company()
+
+        with self.recorder.use_cassette("TestTagging.test_get"):
+            tagging_get = self.moco.Tagging.get(
+                entity=TaggingEntity.COMPANY,
+                entity_id=company.id
+            )
+
+            assert tagging_get.response.status_code == 200
+
+            assert type(tagging_get) is ListResponse
+
     def test_add(self):
         company = self.get_company()
         tags = ["test tagging", "add", "tags"]

@@ -130,4 +130,5 @@ API_PATH = {
     "tagging_add":                      "/taggings/{entity}/{entity_id}",
     "tagging_replace":                  "/taggings/{entity}/{entity_id}",
     "tagging_delete":                   "/taggings/{entity}/{entity_id}",
+    "tagging_get":                      "/taggings/{entity}/{entity_id}",
 }
