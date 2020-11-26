@@ -1,6 +1,6 @@
 from .. import IntegrationTest
 
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse
 from datetime import date
 import random
 
@@ -39,7 +39,7 @@ class TestUserPresence(IntegrationTest):
 
             assert pre_create.response.status_code == 200
             
-            assert isinstance(pre_create, JsonResponse)
+            assert type(pre_create) is ObjectResponse
             
             assert pre_create.data.date is not None
             assert pre_create.data.from_time == from_time
@@ -58,8 +58,8 @@ class TestUserPresence(IntegrationTest):
             assert pre_create.response.status_code == 200
             assert pre_get.response.status_code == 200
 
-            assert isinstance(pre_create, JsonResponse)
-            assert isinstance(pre_get, JsonResponse)
+            assert type(pre_create) is ObjectResponse
+            assert type(pre_get) is ObjectResponse
             
             assert pre_get.data.date is not None
             assert pre_get.data.from_time == from_time
@@ -78,7 +78,7 @@ class TestUserPresence(IntegrationTest):
 
             assert pre_list.response.status_code == 200
 
-            assert isinstance(pre_list, ListingResponse)
+            assert type(pre_list) is PagedListResponse
 
             assert pre_list.current_page == 1
             assert pre_list.is_last is not None
@@ -108,8 +108,8 @@ class TestUserPresence(IntegrationTest):
             assert pre_create.response.status_code == 200
             assert pre_update.response.status_code == 200
 
-            assert isinstance(pre_create, JsonResponse)
-            assert isinstance(pre_update, JsonResponse)
+            assert type(pre_create) is ObjectResponse
+            assert type(pre_update) is ObjectResponse
 
             assert pre_update.data.date is not None
             assert pre_update.data.from_time == from_time
@@ -130,8 +130,8 @@ class TestUserPresence(IntegrationTest):
             assert pre_create.response.status_code == 200
             assert pre_delete.response.status_code == 204
 
-            assert isinstance(pre_create, JsonResponse)
-            assert isinstance(pre_delete, EmptyResponse)
+            assert type(pre_create) is ObjectResponse
+            assert type(pre_delete) is EmptyResponse
 
     def test_touch(self):
         with self.recorder.use_cassette("TestUserPresence.test_touch"):
@@ -142,7 +142,7 @@ class TestUserPresence(IntegrationTest):
 
             assert pre_touch.response.status_code == 200
             
-            assert isinstance(pre_touch, EmptyResponse)
+            assert type(pre_touch) is EmptyResponse
 
     def test_create_impersonate(self):
         other_user = self.get_other_user()
@@ -158,7 +158,7 @@ class TestUserPresence(IntegrationTest):
 
             assert pre_create.response.status_code == 200
 
-            assert isinstance(pre_create, JsonResponse)
+            assert type(pre_create) is ObjectResponse
             
             assert pre_create.data.user.id == other_user.id
 

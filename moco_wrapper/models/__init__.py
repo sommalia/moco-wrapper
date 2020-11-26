@@ -42,6 +42,8 @@ from .hourly_rate import HourlyRate
 
 from .session import Session
 
+from .tagging import Tagging
+
 from . import objector_models
 
 

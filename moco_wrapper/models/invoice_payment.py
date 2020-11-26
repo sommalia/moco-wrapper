@@ -44,7 +44,7 @@ class InvoicePayment(MWRAPBase):
         :type page: int
 
         :returns: List of invoice payments
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}
@@ -77,7 +77,7 @@ class InvoicePayment(MWRAPBase):
         :type payment_id: int
 
         :returns: Single invoice payment object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["invoice_payment_get"].format(id=payment_id))
 
@@ -102,7 +102,7 @@ class InvoicePayment(MWRAPBase):
         :type currency: str
 
         :returns: The created invoice payment object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
             "date": payment_date,
@@ -128,7 +128,7 @@ class InvoicePayment(MWRAPBase):
         :type items: list
 
         :returns: List of created invoice payments
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
 
         Bulk creation if invoice payments items with generator:
 
@@ -177,7 +177,7 @@ class InvoicePayment(MWRAPBase):
         :type currency: str
 
         :returns: The updated invoice payment object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
         for key, value in (

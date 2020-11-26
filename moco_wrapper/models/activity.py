@@ -107,7 +107,7 @@ class Activity(MWRAPBase):
         :type page: int
 
         :returns: List of activities
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         if task_id is not None and project_id is None:
@@ -151,7 +151,7 @@ class Activity(MWRAPBase):
         :type activity_id: int
 
         :returns: The activity object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["activity_get"].format(id=activity_id))
@@ -196,7 +196,7 @@ class Activity(MWRAPBase):
         :type remote_url: str
 
         :returns: The created activity
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -266,7 +266,7 @@ class Activity(MWRAPBase):
         :type remote_url: str
 
         :returns: The updated activity
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {}
@@ -304,7 +304,7 @@ class Activity(MWRAPBase):
         :type activity_id: int
 
         :returns: The activity the timer was started for
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
 
@@ -325,7 +325,7 @@ class Activity(MWRAPBase):
         :type activity_id: int
 
         :returns: The activity the timer was stopped for
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.patch(API_PATH["activity_stop_timer"].format(id=activity_id))
@@ -368,7 +368,7 @@ class Activity(MWRAPBase):
         :type project_id: int
 
         :returns: List with the activity ids that were disregarded
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         data = {

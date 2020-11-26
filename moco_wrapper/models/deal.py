@@ -80,7 +80,7 @@ class Deal(MWRAPBase):
         :type status: :class:`.DealStatus`, str
 
         :returns: The created deal object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -145,7 +145,7 @@ class Deal(MWRAPBase):
         :type status: :class:`.DealStatus`, str
 
         :returns: The updated deal object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {}
@@ -181,7 +181,7 @@ class Deal(MWRAPBase):
         :type deal_id: int
 
         :returns: Single deal object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["deal_get"].format(id=deal_id))
 
@@ -209,7 +209,7 @@ class Deal(MWRAPBase):
         :type page: int
 
         :returns: List of deal objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
         for key, value in (

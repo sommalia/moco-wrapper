@@ -33,7 +33,7 @@ class Session(MWRAPBase):
         :type password: str
 
         :returns: Authentication information
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {

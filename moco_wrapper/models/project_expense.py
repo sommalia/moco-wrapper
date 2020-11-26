@@ -66,7 +66,7 @@ class ProjectExpense(MWRAPBase):
         :type custom_properties: dict
 
         :returns: The created expense object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -107,7 +107,7 @@ class ProjectExpense(MWRAPBase):
         :type items: list
 
         :returns: The created entries
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
 
         .. seealso::
             :class:`moco_wrapper.util.generator.ProjectExpenseGenerator`
@@ -164,7 +164,7 @@ class ProjectExpense(MWRAPBase):
         :type custom_properties: dict
 
         :returns: The updated expense object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {}
@@ -227,8 +227,8 @@ class ProjectExpense(MWRAPBase):
         :type expense_ids: list
         :type reason: str
 
-        :returns: Empty response on success
-        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
+        :returns: List of disregarded expense ids
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
 
         Example usage:
 
@@ -276,7 +276,7 @@ class ProjectExpense(MWRAPBase):
         :type page: int
 
         :returns: List of expense objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}
@@ -311,7 +311,7 @@ class ProjectExpense(MWRAPBase):
         :type expense_id: int
 
         :returns: Single expense object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["project_expense_get"].format(project_id=project_id, expense_id=expense_id))
@@ -337,7 +337,7 @@ class ProjectExpense(MWRAPBase):
         :type page: int
 
         :returns: List of expense objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}

@@ -44,7 +44,7 @@ class ProjectContract(MWRAPBase):
         :type hourly_rate: float
 
         :returns: Created contract object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
             "user_id": user_id
@@ -88,7 +88,7 @@ class ProjectContract(MWRAPBase):
         :type hourly_rate: float
 
         :returns: The updated project contract
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {}
@@ -119,7 +119,7 @@ class ProjectContract(MWRAPBase):
         :type contract_id: int
 
         :returns: The contract object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["project_contract_get"].format(project_id=project_id, contract_id=contract_id))
@@ -145,7 +145,7 @@ class ProjectContract(MWRAPBase):
         :type page: int
 
         :returns: List of contract objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}

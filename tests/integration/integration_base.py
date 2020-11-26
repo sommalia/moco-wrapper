@@ -10,6 +10,7 @@ from moco_wrapper import moco
 from moco_wrapper.util.requestor import NoRetryRequestor
 from moco_wrapper.util.objector import NoErrorObjector, DefaultObjector
 
+
 class IntegrationTest(object):
     """
     Base class for integration tests.
@@ -29,9 +30,9 @@ class IntegrationTest(object):
 
     def setup_moco(self):
         self._moco = moco.Moco(
-            auth = {
-                "api_key" : pytest.placeholders.mocotest_apikey,
-                "domain" : pytest.placeholders.mocotest_domain
+            auth={
+                "api_key": pytest.placeholders.mocotest_apikey,
+                "domain": pytest.placeholders.mocotest_domain
             },
             requestor=NoRetryRequestor(),
             objector=DefaultObjector(),
@@ -43,7 +44,6 @@ class IntegrationTest(object):
         }
         # ignore ssl errors
         self._moco.requestor.session.verify = False
-
 
     def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
         """

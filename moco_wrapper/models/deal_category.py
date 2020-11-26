@@ -50,7 +50,7 @@ class DealCategory(MWRAPBase):
         :type probability: int
 
         :returns: The created deal category
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {
@@ -78,7 +78,7 @@ class DealCategory(MWRAPBase):
         :type probability: int
 
         :returns: The updated deal category
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
 
@@ -92,36 +92,16 @@ class DealCategory(MWRAPBase):
         return self._moco.put(API_PATH["deal_category_update"].format(id=category_id), data=data)
 
     def getlist(
-        self,
-        sort_by: str = None,
-        sort_order: str = 'asc',
-        page: int = 1
+        self
     ):
         """
         Retrieves a list of a deal categories.
 
-        :param sort_by: Field to sort by (default ``None``)
-        :param sort_order: asc or desc (default ``"asc"``)
-        :param page: Page number (default ``1``)
-
-        :type sort_by: str
-        :type sort_order: str
-        :type page: int
-
         :returns: List of deal categories
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
-        params = {}
-        for key, value in (
-            ("page", page),
-        ):
-            if value is not None:
-                params[key] = value
 
-        if sort_by is not None:
-            params["sort_by"] = "{} {}".format(sort_by, sort_order)
-
-        return self._moco.get(API_PATH["deal_category_getlist"], params=params)
+        return self._moco.get(API_PATH["deal_category_getlist"])
 
     def get(
         self,
@@ -135,7 +115,7 @@ class DealCategory(MWRAPBase):
         :type category_id: int
 
         :returns: Single deal category
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["deal_category_get"].format(id=category_id))

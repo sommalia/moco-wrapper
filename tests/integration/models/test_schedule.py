@@ -1,5 +1,5 @@
 from moco_wrapper.models.schedule import ScheduleAbsenceCode, ScheduleSymbol
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse
 
 from datetime import date
 from .. import IntegrationTest
@@ -33,7 +33,7 @@ class TestSchedule(IntegrationTest):
 
             assert sched_list.response.status_code == 200
 
-            assert isinstance(sched_list, ListingResponse)
+            assert type(sched_list) is PagedListResponse
 
             assert sched_list.current_page == 1
             assert sched_list.is_last is not None
@@ -53,7 +53,7 @@ class TestSchedule(IntegrationTest):
 
             assert sched_create.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
+            assert type(sched_create) is ObjectResponse
 
             assert sched_create.data.user.id == user.id
 
@@ -82,7 +82,7 @@ class TestSchedule(IntegrationTest):
 
             assert sched_create.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
+            assert type(sched_create) is ObjectResponse
 
             assert sched_create.data.date == sched_date.isoformat()
             assert sched_create.data.user.id == user.id
@@ -117,8 +117,8 @@ class TestSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_get.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
-            assert isinstance(sched_get, JsonResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_get) is ObjectResponse
 
             assert sched_get.data.date == sched_date.isoformat()
             assert sched_get.data.user.id == user.id
@@ -156,8 +156,8 @@ class TestSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_update.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
-            assert isinstance(sched_update, JsonResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_update) is ObjectResponse
 
             assert sched_update.data.user.id == user.id
             assert sched_update.data.am == am
@@ -179,5 +179,5 @@ class TestSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_delete.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
-            assert isinstance(sched_delete, JsonResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_delete) is ObjectResponse

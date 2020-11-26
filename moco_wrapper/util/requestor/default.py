@@ -2,7 +2,7 @@ import requests
 import time
 
 from moco_wrapper.util.requestor.base import BaseRequestor
-from moco_wrapper.util.response import ListingResponse, JsonResponse, ErrorResponse, EmptyResponse, FileResponse
+from moco_wrapper.util.response import PagedListResponse, ListResponse, ObjectResponse, ErrorResponse, EmptyResponse, FileResponse
 
 
 class DefaultRequestor(BaseRequestor):
@@ -118,12 +118,15 @@ class DefaultRequestor(BaseRequestor):
                 # json response handling is the default
                 response_content = response.json()
 
-                # if the response can be converted into a list return it
+                # if response is a list, return list response
                 if isinstance(response_content, list):
-                    return ListingResponse(response)
+                    if "X-Page" in response.headers.keys():
+                        return PagedListResponse(response)  # response is a paged list
+                    else:
+                        return ListResponse(response)  # response is an unpaged list
 
-                # return json response as default
-                return JsonResponse(response)
+                # return object response as default
+                return ObjectResponse(response)
 
             # check if the response has an error status code
             if response.status_code in self.ERROR_STATUS_CODES:

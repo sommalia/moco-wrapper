@@ -1,0 +1,99 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2020-11-24T07:11:19",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"tags\": [\"test tagging replace\", \"replace\", \"tags\"]}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "53"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.23.0"
+          ]
+        },
+        "method": "PUT",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760895557"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAA/4pWKkotyElMTlXSUSpJTC8GUanFJQolienpmXnpCjDZWEAAAAD//5hWJNEpAAAA",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "57"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Tue, 24 Nov 2020 07:11:19 GMT"
+          ],
+          "Etag": [
+            "W/\"d746cc5867decc441d1041adf6a76477\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "6a78a28e-1382-482c-8bee-1ec54a0ba8fc"
+          ],
+          "X-Runtime": [
+            "0.059730"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760895557"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

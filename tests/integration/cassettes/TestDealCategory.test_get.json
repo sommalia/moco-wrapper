@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:25:45",
+      "recorded_at": "2020-11-24T07:02:13",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"HOP77L\", \"probability\": 77}"
+          "string": "{\"probability\": 77, \"name\": \"SQF8LX\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6pWykxRsjIzNzQ00VHKS8xNVbJS8vAPMDf3UdJRKijKT0pMyszJLKlUsjI311FKLkpNLElNiU8sUbJSMjIwMtA1sNQ1MgwxNLIyMrUyMY1S0lEqLUghoKYWEAAA//9j568gdQAAAA==",
+          "base64_string": "H4sIAAAAAAAA/6pWykxRsjKzNDcy0VHKS8xNVbJSCg50s/CJUNJRKijKT0pMyszJLKlUsjI311FKLkpNLElNiU8sUbJSMjIwMtA1NNQ1MgkxMLcyMLIyNI5S0lEqLUghoKYWEAAA///rER7+dQAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:25:45 GMT"
+            "Tue, 24 Nov 2020 07:02:13 GMT"
           ],
           "Etag": [
-            "W/\"2c5a13617178a2152ee1d4ac9420c1fc\""
+            "W/\"aeecc6b24eaad393f64e6439bc24e814\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "9119e6cf-6c1c-4fd4-9dcc-f31998bb63df"
+            "939f35ee-0098-4534-b993-29d655c7fed7"
           ],
           "X-Runtime": [
-            "0.090038"
+            "0.038703"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:25:45",
+      "recorded_at": "2020-11-24T07:02:13",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,11 +122,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/67114"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/69724"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6pWykxRsjIzNzQ00VHKS8xNVbJS8vAPMDf3UdJRKijKT0pMyszJLKlUsjI311FKLkpNLElNiU8sUbJSMjIwMtA1sNQ1MgwxNLIyMrUyMY1S0lEqLUghoKYWEAAA//9j568gdQAAAA==",
+          "base64_string": "H4sIAAAAAAAA/6pWykxRsjKzNDcy0VHKS8xNVbJSCg50s/CJUNJRKijKT0pMyszJLKlUsjI311FKLkpNLElNiU8sUbJSMjIwMtA1NNQ1MgkxMLcyMLIyNI5S0lEqLUghoKYWEAAA///rER7+dQAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -144,10 +144,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:25:45 GMT"
+            "Tue, 24 Nov 2020 07:02:13 GMT"
           ],
           "Etag": [
-            "W/\"2c5a13617178a2152ee1d4ac9420c1fc\""
+            "W/\"aeecc6b24eaad393f64e6439bc24e814\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -169,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a5866c89-4984-422f-9850-eca51fea93ab"
+            "2ddcb6fd-a017-4093-b379-0204a5fe5312"
           ],
           "X-Runtime": [
-            "0.039419"
+            "0.035272"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +182,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/67114"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/69724"
       }
     }
   ],

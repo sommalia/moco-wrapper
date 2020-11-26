@@ -107,7 +107,7 @@ class Invoice(MWRAPBase):
         :type page: int
 
         :returns: List of invoice objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
         for key, value in (
@@ -163,7 +163,7 @@ class Invoice(MWRAPBase):
         :type page: int
 
         :returns: List of invoice objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
         for key, value in (
@@ -196,7 +196,7 @@ class Invoice(MWRAPBase):
         :type invoice_id: int
 
         :returns: Single invoice object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["invoice_get"].format(id=invoice_id))
 
@@ -325,7 +325,7 @@ class Invoice(MWRAPBase):
         :type tags: list
 
         :returns: The created invoice
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
             Note that if you create an invoice with a project, that project must also belong to the customer the invoice
@@ -395,6 +395,9 @@ class Invoice(MWRAPBase):
         :type text: str
         :type emails_cc: str, list
         :type emails_bcc: str, list
+
+        :returns: Object containing the details of the sent mail
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
 

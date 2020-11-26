@@ -27,7 +27,7 @@ After that we make a test call to the api.
 
     >> projects = wrapper.Project.getlist()
     >> print(projects)
-    <ListingResponse, Status Code: 200, Data: [<moco_wrapper.models.objector_models.project.Project at ..]>
+    <PagedListResponse, Status Code: 200, Data: [<moco_wrapper.models.objector_models.project.Project at ..]>
 
 
 

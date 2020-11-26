@@ -2,6 +2,15 @@
 History
 =======
 
+0.9.0 (TODO)
+------------
+
+* Split ListingResponse into 2 separate classes
+    * ListResponse for unpaged response data
+    * PageListResponse for paginated response data
+* Implemented taggings endpoint
+
+
 0.8.1 (2020-11-17)
 ------------------
 

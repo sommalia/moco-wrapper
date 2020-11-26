@@ -1,5 +1,6 @@
 from .base import MWRAPResponse
 
+
 class EmptyResponse(MWRAPResponse):
     """
     Class for handling responses where the body contains no content but the operation on the api was a success (likely a delete operation)
@@ -24,4 +25,3 @@ class EmptyResponse(MWRAPResponse):
 
     def __str__(self):
         return "<EmptyResponse, Status Code: {}>".format(self.response.status_code)
-        

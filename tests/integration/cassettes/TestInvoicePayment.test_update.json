@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:27:18",
+      "recorded_at": "2020-11-24T07:03:48",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"invoice_id\": 1176325, \"date\": \"2019-12-31\", \"currency\": \"EUR\", \"paid_total\": 1}"
+          "string": "{\"currency\": \"EUR\", \"paid_total\": 1, \"invoice_id\": 1273230, \"date\": \"2019-12-31\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOzUoEMRAE4FeROifS3bsaNndfYNGLlxCSCA27mSF0hEHm3cU/9Oaxm6+KeoNWxEByDOJQszVECPHJs/gDw0H766KlIX5R5nB/kDsHra2bvmgbiDgLEfERDqZ2+eio83rdbn7Cu8OatSZbLF8Q+Zb+PpL2lEtZZrdU5hitl+0b/Z54eDrDoYyWrdWU7XOokKeTF35kiRIih2c4zLX+Y/b3AAAA//8aobjk+AAAAA==",
+          "base64_string": "H4sIAAAAAAAA/4TOz0rGMBAE8FeROSeyST4bzd0XKHrxEkISYaFNS9gIRfru4j/09h13+c0w7+CC4Cc3TXcKJUlFgCXzoI3VzkCB29vGuSJ8U2O9s44UuNQm/Mq1I2C2REQeCsKyfHaUsa7HzW/4VNgTlyibpAXB3NL/R+QWU87baBLz6L22fPygvxOPzzMUcq9JaolJvoZa0sZoe3kiH8iFy/0LFMZerpjzIwAA///Eg5/y+AAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:27:18 GMT"
+            "Tue, 24 Nov 2020 07:03:48 GMT"
           ],
           "Etag": [
-            "W/\"4dde2861264ffdeef760f35a5b0e61e5\""
+            "W/\"e417d443e253529e1779a39ea9ab152f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "ab7f0370-961c-4bb1-ba1b-b8050583ba8f"
+            "b4e50de8-48bc-4fce-8f53-2f7a31802a0c"
           ],
           "X-Runtime": [
-            "0.095764"
+            "0.072110"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,11 +95,11 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:27:18",
+      "recorded_at": "2020-11-24T07:03:48",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-02\", \"currency\": \"EUR\", \"paid_total\": 200}"
+          "string": "{\"currency\": \"EUR\", \"paid_total\": 200, \"date\": \"2020-01-02\"}"
         },
         "headers": {
           "Accept": [
@@ -125,11 +125,11 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/702472"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/763665"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3zOQUrAMBCF4avIW6cyGavR7L1A0U03ISQRBtq0hIlQpHcXEasrtz/fDO8DkuEd8ejYIEct8GBiGsgOxDCQ+r5JKvDf1Fr3cMf3BpJLVXmT0uAxMRHZEQYqunz9yH1dj5uf49Ngj5KDbhoXeCa6pb8pSA0xpa1XDam3Vmo6LvYb8Pw6wSC1ErXkEPUa+zSwfbHs2XnrZhj0Pf9nHmecnwEAAP//ptV9tvwAAAA=",
+          "base64_string": "H4sIAAAAAAAA/4TOwUrFMBCF4VeRs05lMrk2kr0vcNGNmxCSCAO3aQkToUjfXUSq7tz+fDOcD0hB8LOb5weDkrQigIlpIjsRw0Da+yq5InxTy96xIwMptam8Se0IuDIRkYeBit6+fpSxLPvdeXwYbElK1FXTDYGJ7ulvitJiynkdTWMevdeW9x/2G/D0coVB7jVpLTHpOdbaiS/P5AO5cHl8hcHYyj/m+AwAAP//Uvpz1/wAAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,10 +147,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:27:18 GMT"
+            "Tue, 24 Nov 2020 07:03:48 GMT"
           ],
           "Etag": [
-            "W/\"f84138c87879e323bcf917906fad0aa5\""
+            "W/\"312927d6cd583f08230623b75f3a5986\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "08456d92-6834-4221-947a-ff3f3fd93b14"
+            "715b0fbe-2611-4603-a9c1-cc3a2d416a78"
           ],
           "X-Runtime": [
-            "0.045429"
+            "0.044246"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/702472"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments/763665"
       }
     }
   ],

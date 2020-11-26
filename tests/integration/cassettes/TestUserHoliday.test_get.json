@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:36:20",
+      "recorded_at": "2020-11-24T07:13:05",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"year\": 2019, \"title\": \"last year holiday\", \"hours\": 2, \"user_id\": 933636529}"
+          "string": "{\"hours\": 2, \"title\": \"last year holiday\", \"year\": 2019, \"user_id\": 933638919}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TMwUrFMBCF4Ve5nPXcMpnYQuY5XLmRsYk0UK0k00WRvrtU3d/tOT/fN2qGjuEpMOEo1qDCIRG8+lqgWK377Tpuy7bWbAcI2Y4O5UFGwrLtrUNlYMLeS4P+kSnGKU6jJMJ7bd0/7ePivHQH/ar/i73NGSdhbsW85FdzKISF75zuEp6DaJxU+AWE/Ss/aM6fAAAA//+UGQm70QAAAA==",
+          "base64_string": "H4sIAAAAAAAA/4TMva6CQBDF8Vchpx7IfsC9Ms9hZWNGdg2boJjdoSCGdzeove05//yeSAHctdZbwholg52xPUGTThGMSYpW+1GN85SCrCAEWQvYNK4jjPOSC9g1hrCUmMEfsvf+zx/6nbqmXPQut53TWBT0Vr+LXIaAjTDkKBrDWRQMZ5ypra1dezT/bD2b7gTC8gg/mu0VAAD//+J3/9LRAAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "166"
+            "165"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:36:20 GMT"
+            "Tue, 24 Nov 2020 07:13:05 GMT"
           ],
           "Etag": [
-            "W/\"6bd5cb667dd409ae120d11cf078b63e9\""
+            "W/\"a0c83053d06e6ab1bf3715b0c49d4b6e\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "abe7ff8f-440c-4564-a8b0-b27dd8d48a62"
+            "dcf35334-041f-4bff-90cd-e2f699e38ec7"
           ],
           "X-Runtime": [
-            "0.061526"
+            "0.091560"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:36:20",
+      "recorded_at": "2020-11-24T07:13:05",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,11 +122,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/51410"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/54131"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TMwUrFMBCF4Ve5nPXcMpnYQuY5XLmRsYk0UK0k00WRvrtU3d/tOT/fN2qGjuEpMOEo1qDCIRG8+lqgWK377Tpuy7bWbAcI2Y4O5UFGwrLtrUNlYMLeS4P+kSnGKU6jJMJ7bd0/7ePivHQH/ar/i73NGSdhbsW85FdzKISF75zuEp6DaJxU+AWE/Ss/aM6fAAAA//+UGQm70QAAAA==",
+          "base64_string": "H4sIAAAAAAAA/4TMva6CQBDF8Vchpx7IfsC9Ms9hZWNGdg2boJjdoSCGdzeove05//yeSAHctdZbwholg52xPUGTThGMSYpW+1GN85SCrCAEWQvYNK4jjPOSC9g1hrCUmMEfsvf+zx/6nbqmXPQut53TWBT0Vr+LXIaAjTDkKBrDWRQMZ5ypra1dezT/bD2b7gTC8gg/mu0VAAD//+J3/9LRAAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -138,16 +138,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "166"
+            "165"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:36:20 GMT"
+            "Tue, 24 Nov 2020 07:13:05 GMT"
           ],
           "Etag": [
-            "W/\"6bd5cb667dd409ae120d11cf078b63e9\""
+            "W/\"a0c83053d06e6ab1bf3715b0c49d4b6e\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -169,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "11e1a151-d48a-4f40-99fb-b56d5c903f36"
+            "b294f099-38eb-4abe-94de-fd25119fa89c"
           ],
           "X-Runtime": [
-            "0.041959"
+            "0.048969"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +182,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/51410"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/54131"
       }
     }
   ],

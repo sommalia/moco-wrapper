@@ -49,7 +49,7 @@ class UserPresence(MWRAPBase):
         :type page: int
 
         :returns: List of presence objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
 
         .. note::
             ``from_date`` and ``to_date`` must be provided together.
@@ -85,7 +85,7 @@ class UserPresence(MWRAPBase):
         :type pres_id: int
 
         :returns: Single presence object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["presence_get"].format(id=pres_id))
 
@@ -107,7 +107,7 @@ class UserPresence(MWRAPBase):
         :type to_time: str
 
         :returns: The created presence
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {
             'from': from_time,
@@ -153,7 +153,7 @@ class UserPresence(MWRAPBase):
         :type to_time: str
 
         :returns: The updated presence
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         data = {}
         for key, value in (

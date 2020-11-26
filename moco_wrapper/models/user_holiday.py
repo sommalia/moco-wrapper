@@ -61,7 +61,7 @@ class UserHoliday(MWRAPBase):
         :type page: int
 
         :returns: List of holiday entries
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
         params = {}
         for key, value in (
@@ -89,7 +89,7 @@ class UserHoliday(MWRAPBase):
         :type holiday_id: int
 
         :returns: The holiday object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["holiday_get"].format(id=holiday_id))
 
@@ -117,7 +117,7 @@ class UserHoliday(MWRAPBase):
         :type days: float
 
         :returns: The created holiday object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         if days is None and hours is None:
@@ -138,8 +138,6 @@ class UserHoliday(MWRAPBase):
         ):
             if value is not None:
                 data[key] = value
-
-        print(data)
 
         return self._moco.post(API_PATH["holiday_create"], data=data)
 
@@ -170,7 +168,7 @@ class UserHoliday(MWRAPBase):
         :type days: float
 
         :returns: The updated holiday object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         if days is None and hours is None:

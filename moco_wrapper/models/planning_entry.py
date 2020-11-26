@@ -81,7 +81,7 @@ class PlanningEntry(MWRAPBase):
         :type page: int
 
         :returns: List of planning entries
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         if start_date is not None and end_date is None:
@@ -133,7 +133,7 @@ class PlanningEntry(MWRAPBase):
         :type planning_entry_id: int
 
         :returns: Single planning entry
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["planning_entry_get"].format(id=planning_entry_id))
@@ -168,7 +168,7 @@ class PlanningEntry(MWRAPBase):
         :type symbol: :class:`.PlanningEntrySymbol`, int
 
         :returns: The created planning entry
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
 
         .. note::
             If no ``user_id`` is supplied the entry will be created with the user_id of the executing request
@@ -231,7 +231,7 @@ class PlanningEntry(MWRAPBase):
         :type symbol: :class:`.PlanningEntrySymbol`, int
 
         :returns: The updated planning entry
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         data = {}
@@ -265,6 +265,6 @@ class PlanningEntry(MWRAPBase):
         :type planning_entry_id: int
 
         :returns: The deleted planning entry
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.delete(API_PATH["planning_entry_delete"].format(id=planning_entry_id))

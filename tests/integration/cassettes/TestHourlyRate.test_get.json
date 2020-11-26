@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-24T13:09:11",
+      "recorded_at": "2020-11-24T07:02:29",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/hourly_rates?company_id=760866287"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/hourly_rates?company_id=760895540"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7yV0Wu7MBDH/xW55/Aj1cRW38uPvY2xPY1SMk27TI0luTBK6f8+7LoWwQ1Wvb2bz+fuzH1zgFJvVKjRr51C7SF/PkARnNO22EMOy6cHYPDaBlfvT19APuP8Hz+uGKDy1ecBU0KeZhnnDKxqNORw79o3XWGtDQa7BQa/pB/ZlTq7UJcW301R1aOR8QX536mNqW6grRgEr911AFmSpEkq44zBJtT1+ixA7TFSL0V5e8VncsL75MeOfNfstPOtVWhaO14R0yuSvqIMTbOPulGOR4vv0FH3F4zdRkVr0akC/XiZ7Mu+yBO1kvbpwRo8NTGePB+4n9PUvPhx/FHYld3psRrBBxowlzs6gWBGNSERk5ETMrIgI6fkYSPmf5gIYkGZCCKjSgQ5tFCT1CzJNkmSbZIk2yQpiYNLphM+ravjRwAAAP//dOC1sRwKAAA=",
+          "base64_string": "H4sIAAAAAAAA/6TQT0sDMRAF8K8i7xxkt8E/yb2INxE9SSkxO6sxaSKTCVLKfndRSxePrveZ38x7Bww0upakbtkJVdinA3xjpuz3sFg/3kPhtTRO++8J2L7rzrtpoyCuxp+FMMBe6ZXpFbLbESzuuLxRlERBWn6Bwh/1Sc3q6qSus3wEH9O/SX0ib9iNIS7QNgqtEs8FGK0v9bXpjcLYUtoeDwhVOXPPflj+8VG+0L/lhy/5dvdOXEt2EkpeEmP6DAAA//9pZskzAwIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "341"
+            "205"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 24 Sep 2020 13:09:11 GMT"
+            "Tue, 24 Nov 2020 07:02:29 GMT"
           ],
           "Etag": [
-            "W/\"e5ef3a831adaeb50bc213cd0555a8a6a\""
+            "W/\"3e72d01d96e91e7d102149d4c806f72d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -75,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "43bd34dd-a9e4-4e6b-9e9f-0b4c76dbd261"
+            "e5224acf-78e7-4496-9b73-778fb5b226a4"
           ],
           "X-Runtime": [
-            "0.090383"
+            "0.061284"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/hourly_rates?company_id=760866287"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/hourly_rates?company_id=760895540"
       }
     }
   ],

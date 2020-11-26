@@ -1,6 +1,6 @@
 from .base import BaseObjector
 
-from moco_wrapper.util.response import EmptyResponse, JsonResponse, ListingResponse, ErrorResponse
+from moco_wrapper.util.response import EmptyResponse, PagedListResponse, ListResponse, ObjectResponse, ErrorResponse
 
 from importlib import import_module
 
@@ -9,7 +9,7 @@ class DefaultObjector(BaseObjector):
     """
     This is the default class for handling the modification ob response objects that the requestor classes generated and were pushed to the objector.
 
-    Successfull responses will have their data converted into actual python objects, while error responses will be converted into exceptions and raised at a later stage.
+    Successful responses will have their data converted into actual python objects, while error responses will be converted into exceptions and raised at a later stage.
 
     .. note::
 
@@ -95,6 +95,15 @@ class DefaultObjector(BaseObjector):
             },
             "hourly_rates": {
                 "base": "HourlyRate"
+            },
+            "taggings": {
+                "Company": None,
+                "Contact": None,
+                "Project": None,
+                "Deal": None,
+                "Purchase": None,
+                "Invoice": None,
+                "Offer": None,
             }
         }
         """
@@ -138,25 +147,24 @@ class DefaultObjector(BaseObjector):
         :param requestor_response: response object (see :ref:`response`)
         :returns: modified response object
 
-        .. note:: The data of an error resposne response (:class:`moco_wrapper.util.response.ErrorResponse`) will be converted into an actual exception that later can be raised
+        .. note:: The data of an error response response (:class:`moco_wrapper.util.response.ErrorResponse`) will be converted into an actual exception that later can be raised
 
         .. note:: if the method :meth:`get_class_name_from_request_url` that is used to find the right class for conversion, returns ``None``, no conversion of objects will take place
         """
         http_response = requestor_response.response
 
-        if isinstance(requestor_response, (JsonResponse, ListingResponse)):
+        if isinstance(requestor_response, (ObjectResponse, ListResponse, PagedListResponse)):
             class_name = self.get_class_name_from_request_url(http_response.request.url)
-
             if class_name is not None:
                 class_ = getattr(
                     import_module(self.module_path),
                     class_name
                 )
 
-                if isinstance(requestor_response, JsonResponse):
+                if isinstance(requestor_response, ObjectResponse):
                     obj = class_(**requestor_response.data)
                     requestor_response._data = obj
-                elif isinstance(requestor_response, ListingResponse):
+                elif isinstance(requestor_response, (ListResponse, PagedListResponse)):
                     new_items = []
 
                     for item in requestor_response.items:

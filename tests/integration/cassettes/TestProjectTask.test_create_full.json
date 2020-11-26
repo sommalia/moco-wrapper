@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:33:03",
+      "recorded_at": "2020-11-24T07:09:36",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"dummy task, test create full\", \"budget\": 500, \"active\": true, \"billable\": false, \"hourly_rate\": 20}"
+          "string": "{\"active\": true, \"budget\": 500, \"hourly_rate\": 20, \"billable\": false, \"name\": \"dummy task, test create full\"}"
         },
         "headers": {
           "Accept": [
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371026/tasks"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TMQWrDMBBG4auIfy0XWaJ1PefoqhsztsaJyTgJ8ihgQu4eSA6Q7ePx3bFk0E8X++43eZx5FRByXdfdGW8n70w2c1MRNnFzVYXHuKjyqAKaWTfx4MmWm4CsVPEYaz6Igb5D+Aoex0stug+FTUDxld5cHthAiCGGJvRNbP/aSClRSP/wqNf84Xk8AwAA///1/6MkvQAAAA==",
+          "base64_string": "H4sIAAAAAAAA/4TMQWrDMBBG4auIfy2XsepWeM7RVTdmbI0TEzkJ8ihgQu4eSA6Q7ePx3bEkcAwx9tR5nGVVMFJd192ZbCfvTDdzU1ExdXPNGR7jkrOMWcGz5E09ZLLlpmArVT3Gmg5q4B+iL/I4XmrJ+1DEFBxe6c2lQQyMQIGatm1C90eRqefv33941Gv68DyeAQAA//9rHaYkvQAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:33:03 GMT"
+            "Tue, 24 Nov 2020 07:09:36 GMT"
           ],
           "Etag": [
-            "W/\"d2ad1293e99b949fa201f4a6bc8ae76b\""
+            "W/\"1fa362aabe069f77cc17d4571b8cc923\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6ce2ed94-6920-44d0-963f-83c0a70abd28"
+            "61986a3f-7b4f-4bea-acd1-a3cdc2260420"
           ],
           "X-Runtime": [
-            "0.039194"
+            "0.043724"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371026/tasks"
       }
     }
   ],

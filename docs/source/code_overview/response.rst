@@ -8,8 +8,9 @@ Responses
    :maxdepth: 1
    :caption: Response Types
 
-   responses/json
-   responses/listing
+   responses/object
+   responses/list
+   responses/paged_list
    responses/file
    responses/empty
    responses/error

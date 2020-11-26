@@ -1,16 +1,17 @@
 from .base import MWRAPResponse
 
+
 class FileResponse(MWRAPResponse):
     """
     Class for handling http responses where the body is just binary content representing a file
     """
 
-    @property 
+    @property
     def data(self):
         """
         Returns the binary data of the response
 
-        
+
         .. seealso::
 
             :attr:`file`
@@ -43,7 +44,7 @@ class FileResponse(MWRAPResponse):
     def write_to_file(
         self,
         file_path: str
-        ):
+    ):
         """
         Writes the binary response content to a file
 
@@ -64,9 +65,9 @@ class FileResponse(MWRAPResponse):
             bf.write(self._data)
 
     def __init__(
-        self, 
+        self,
         response
-        ):
+    ):
         """
         class constructor
 
@@ -79,4 +80,3 @@ class FileResponse(MWRAPResponse):
 
     def __str__(self):
         return "<FileResponse, Status Code: {}, Data: binary_content>".format(self.response.status_code)
-        

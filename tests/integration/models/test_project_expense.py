@@ -1,8 +1,9 @@
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
+from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
 from moco_wrapper.util.generator import ProjectExpenseGenerator
 
 from datetime import date
 from .. import IntegrationTest
+
 
 class TestProjectExpense(IntegrationTest):
     def get_user(self):
@@ -29,7 +30,7 @@ class TestProjectExpense(IntegrationTest):
                 "EUR",
                 user.id,
                 customer.id,
-                finish_date = date(2020, 1, 1),
+                finish_date=date(2020, 1, 1),
             )
 
             return project_create.data
@@ -42,8 +43,8 @@ class TestProjectExpense(IntegrationTest):
             title = "fire hydrants"
             quantity = 3.5
             unit = "stk"
-            unit_price = 30 #selling price
-            unit_cost = 20 #buying price
+            unit_price = 30  # selling price
+            unit_cost = 20  # buying price
 
             ex_create = self.moco.ProjectExpense.create(
                 project.id,
@@ -57,7 +58,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_create.response.status_code == 200
 
-            assert isinstance(ex_create, JsonResponse)
+            assert type(ex_create) is ObjectResponse
 
             assert ex_create.data.project.id == project.id
             assert ex_create.data.company.id == project.customer.id
@@ -75,8 +76,8 @@ class TestProjectExpense(IntegrationTest):
             title = "fire hydrants"
             quantity = 3.5
             unit = "stk"
-            unit_price = 30 #selling price
-            unit_cost = 20 #buying price
+            unit_price = 30  # selling price
+            unit_cost = 20  # buying price
             description = "misc tools"
             billable = True
             budget_relevant = True
@@ -96,7 +97,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_create.response.status_code == 200
 
-            assert isinstance(ex_create, JsonResponse)
+            assert type(ex_create) is ObjectResponse
 
             assert ex_create.data.project.id == project.id
             assert ex_create.data.company.id == project.customer.id
@@ -117,8 +118,8 @@ class TestProjectExpense(IntegrationTest):
             title = "fire hydrants"
             quantity = 3.5
             unit = "stk"
-            unit_price = 30 #selling price
-            unit_cost = 20 #buying price
+            unit_price = 30  # selling price
+            unit_cost = 20  # buying price
             description = "misc tools"
             billable = True
             budget_relevant = True
@@ -141,8 +142,8 @@ class TestProjectExpense(IntegrationTest):
             assert ex_create.response.status_code == 200
             assert ex_get.response.status_code == 200
 
-            assert isinstance(ex_create, JsonResponse)
-            assert isinstance(ex_get, JsonResponse)
+            assert type(ex_create) is ObjectResponse
+            assert type(ex_get) is ObjectResponse
 
             assert ex_get.data.project.id == project.id
             assert ex_get.data.company.id == project.customer.id
@@ -163,8 +164,8 @@ class TestProjectExpense(IntegrationTest):
             title = "fire hydrants"
             quantity = 3.5
             unit = "stk"
-            unit_price = 30 #selling price
-            unit_cost = 20 #buying price
+            unit_price = 30  # selling price
+            unit_cost = 20  # buying price
             description = "misc tools"
             billable = True
             budget_relevant = True
@@ -196,8 +197,8 @@ class TestProjectExpense(IntegrationTest):
             assert ex_create.response.status_code == 200
             assert ex_update.response.status_code == 200
 
-            assert isinstance(ex_create, JsonResponse)
-            assert isinstance(ex_update, JsonResponse)
+            assert type(ex_create) is ObjectResponse
+            assert type(ex_update) is ObjectResponse
 
             assert ex_update.data.project.id == project.id
             assert ex_update.data.company.id == project.customer.id
@@ -225,12 +226,12 @@ class TestProjectExpense(IntegrationTest):
             )
 
             ex_delete = self.moco.ProjectExpense.delete(project.id, ex_create.data.id)
-            
+
             assert ex_create.response.status_code == 200
             assert ex_delete.response.status_code == 204
 
-            assert isinstance(ex_create, JsonResponse)
-            assert isinstance(ex_delete, EmptyResponse)
+            assert type(ex_create) is ObjectResponse
+            assert type(ex_delete) is EmptyResponse
 
     def test_getlist(self):
         project = self.get_project()
@@ -239,8 +240,8 @@ class TestProjectExpense(IntegrationTest):
             ex_list = self.moco.ProjectExpense.getlist(project.id)
 
             assert ex_list.response.status_code == 200
-            
-            assert isinstance(ex_list, ListingResponse)
+
+            assert type(ex_list) is PagedListResponse
 
             assert ex_list.current_page == 1
             assert ex_list.is_last is not None
@@ -256,8 +257,8 @@ class TestProjectExpense(IntegrationTest):
             )
 
             assert ex_list.response.status_code == 200
-            
-            assert isinstance(ex_list, ListingResponse)
+
+            assert type(ex_list) is PagedListResponse
 
             assert ex_list.current_page == 1
             assert ex_list.is_last is not None
@@ -270,7 +271,7 @@ class TestProjectExpense(IntegrationTest):
 
         with self.recorder.use_cassette("TestProjectExpense.test_create_bulk"):
             gen = ProjectExpenseGenerator()
-            
+
             items = [
                 gen.generate(
                     date(2020, 1, 1),
@@ -294,13 +295,7 @@ class TestProjectExpense(IntegrationTest):
 
             assert ex_bulk.response.status_code == 200
 
-            assert isinstance(ex_bulk, ListingResponse)
-
-            assert ex_bulk.current_page == 1
-            assert ex_bulk.is_last is not None
-            assert ex_bulk.next_page is not None
-            assert ex_bulk.total is not None
-            assert ex_bulk.page_size is not None
+            assert type(ex_bulk) is ListResponse
 
     def test_disregard_items(self):
         project = self.get_project()
@@ -331,7 +326,7 @@ class TestProjectExpense(IntegrationTest):
                 project.id,
                 items
             )
-            
+
             disregard_expense_ids = [x.id for x in ex_bulk.items]
             ex_disregard = self.moco.ProjectExpense.disregard(
                 project.id,
@@ -342,12 +337,6 @@ class TestProjectExpense(IntegrationTest):
             assert ex_bulk.response.status_code == 200
             assert ex_disregard.response.status_code == 204
 
-            assert isinstance(ex_bulk, ListingResponse)
-            assert isinstance(ex_disregard, EmptyResponse)
+            assert type(ex_bulk) is ListResponse
+            assert type(ex_disregard) is EmptyResponse
 
-            assert ex_bulk.current_page == 1
-            assert ex_bulk.is_last is not None
-            assert ex_bulk.next_page is not None
-            assert ex_bulk.total is not None
-            assert ex_bulk.page_size is not None
-            

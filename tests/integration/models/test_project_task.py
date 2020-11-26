@@ -1,7 +1,7 @@
 from datetime import date
 from .. import IntegrationTest
 
-from moco_wrapper.util.response import JsonResponse, EmptyResponse, ListingResponse
+from moco_wrapper.util.response import ObjectResponse, EmptyResponse, PagedListResponse
 
 class TestProjectTask(IntegrationTest):
     def get_customer(self):
@@ -60,8 +60,8 @@ class TestProjectTask(IntegrationTest):
             assert task_create.response.status_code == 200
             assert task_get.response.status_code == 200
 
-            assert isinstance(task_create, JsonResponse)
-            assert isinstance(task_get, JsonResponse)
+            assert type(task_create) is ObjectResponse
+            assert type(task_get) is ObjectResponse
 
             assert task_get.data.name == name
             assert task_get.data.billable == billable
@@ -77,7 +77,7 @@ class TestProjectTask(IntegrationTest):
 
             assert task_list.response.status_code == 200
 
-            assert isinstance(task_list, ListingResponse)
+            assert type(task_list) is PagedListResponse
 
             assert task_list.current_page == 1
             assert task_list.is_last is not None
@@ -98,7 +98,7 @@ class TestProjectTask(IntegrationTest):
             
             assert task_create.response.status_code == 200
 
-            assert isinstance(task_create, JsonResponse)
+            assert type(task_create) is ObjectResponse
 
             assert task_create.data.name == name
 
@@ -123,7 +123,7 @@ class TestProjectTask(IntegrationTest):
 
             assert task_create.response.status_code == 200
           
-            assert isinstance(task_create, JsonResponse)
+            assert type(task_create) is ObjectResponse
           
             assert task_create.data.name == name
             assert task_create.data.billable == billable
@@ -148,7 +148,7 @@ class TestProjectTask(IntegrationTest):
             assert task_create.response.status_code == 200
             assert task_delete.response.status_code == 204
 
-            assert isinstance(task_delete, EmptyResponse)
+            assert type(task_delete) is EmptyResponse
 
 
     def test_update(self):
@@ -179,8 +179,8 @@ class TestProjectTask(IntegrationTest):
             assert task_create.response.status_code == 200
             assert task_update.response.status_code == 200
           
-            assert isinstance(task_create, JsonResponse)
-            assert isinstance(task_update, JsonResponse)
+            assert type(task_create) is ObjectResponse
+            assert type(task_update) is ObjectResponse
           
             assert task_update.data.name == name
             assert task_update.data.billable == billable

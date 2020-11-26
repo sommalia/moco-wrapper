@@ -1,7 +1,8 @@
 from .. import IntegrationTest
 from datetime import date
 
-from moco_wrapper.util.response import JsonResponse, ListingResponse, EmptyResponse
+from moco_wrapper.util.response import ObjectResponse, ListResponse, EmptyResponse
+
 
 class TestProjectPaymentSchedule(IntegrationTest):
     def get_customer(self):
@@ -12,12 +13,12 @@ class TestProjectPaymentSchedule(IntegrationTest):
             )
 
             return customer_create.data
-    
+
     def get_user(self):
         with self.recorder.use_cassette("TestProjectPaymentSchedule.get_user"):
             user = self.moco.User.getlist().items[0]
             return user
-    
+
     def get_project(self):
         user = self.get_user()
         customer = self.get_customer()
@@ -33,22 +34,16 @@ class TestProjectPaymentSchedule(IntegrationTest):
             )
 
             return project_create.data
-    
+
     def test_getlist(self):
         project = self.get_project()
-        
+
         with self.recorder.use_cassette("TestProjectPaymentSchedule.test_getlist"):
-            sched_list = self.moco.ProjectPaymentSchedule.getlist(project.id, sort_by="net_total")
+            sched_list = self.moco.ProjectPaymentSchedule.getlist(project.id)
 
             assert sched_list.response.status_code == 200
 
-            assert isinstance(sched_list, ListingResponse)
-
-            assert sched_list.current_page == 1
-            assert sched_list.is_last is not None
-            assert sched_list.next_page is not None
-            assert sched_list.total is not None
-            assert sched_list.page_size is not None
+            assert type(sched_list) is ListResponse
 
     def test_get(self):
         project = self.get_project()
@@ -75,15 +70,14 @@ class TestProjectPaymentSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_get.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
-            assert isinstance(sched_get, JsonResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_get) is ObjectResponse
 
             assert sched_get.data.date == sched_date.isoformat()
             assert sched_get.data.net_total == net_total
             assert sched_get.data.project.id == project.id
             assert sched_get.data.title == title
             assert sched_get.data.checked == checked
-
 
     def test_create(self):
         project = self.get_project()
@@ -99,8 +93,8 @@ class TestProjectPaymentSchedule(IntegrationTest):
             )
 
             assert sched_create.response.status_code == 200
-            
-            assert isinstance(sched_create, JsonResponse)
+
+            assert type(sched_create) is ObjectResponse
 
             assert sched_create.data.date == sched_date.isoformat()
             assert sched_create.data.net_total == net_total
@@ -124,8 +118,8 @@ class TestProjectPaymentSchedule(IntegrationTest):
             )
 
             assert sched_create.response.status_code == 200
-            
-            assert isinstance(sched_create, JsonResponse)
+
+            assert type(sched_create) is ObjectResponse
 
             assert sched_create.data.date == sched_date.isoformat()
             assert sched_create.data.net_total == net_total
@@ -160,15 +154,14 @@ class TestProjectPaymentSchedule(IntegrationTest):
             assert sched_create.response.status_code == 200
             assert sched_update.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
-            assert isinstance(sched_update, JsonResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_update) is ObjectResponse
 
             assert sched_update.data.date == sched_date.isoformat()
             assert sched_update.data.net_total == net_total
             assert sched_update.data.project.id == project.id
             assert sched_update.data.title == title
             assert sched_update.data.checked == checked
-
 
     def test_delete(self):
         project = self.get_project()
@@ -181,12 +174,12 @@ class TestProjectPaymentSchedule(IntegrationTest):
             )
 
             sched_delete = self.moco.ProjectPaymentSchedule.delete(
-                project.id, 
+                project.id,
                 sched_create.data.id
             )
 
             assert sched_create.response.status_code == 200
             assert sched_delete.response.status_code == 200
 
-            assert isinstance(sched_create, JsonResponse)
-            assert isinstance(sched_delete, JsonResponse)
+            assert type(sched_create) is ObjectResponse
+            assert type(sched_delete) is ObjectResponse

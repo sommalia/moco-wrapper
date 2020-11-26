@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:21:53",
+      "recorded_at": "2020-11-24T10:20:34",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945314880, \"date\": \"2019-12-31\", \"task_id\": 6729426, \"hours\": 2.3, \"description\": \"dummy activity, test_update\"}"
+          "string": "{\"project_id\": 945371385, \"description\": \"TestActivity.test_update_create\", \"date\": \"2019-12-31\", \"hours\": 2.3, \"task_id\": 7281879}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "127"
+            "131"
           ],
           "Content-Type": [
             "application/json"
@@ -30,7 +30,7 @@
             "python-requests/2.23.0"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933636529"
+            "933638919"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5ySzY6cMBCEXwXV2az8M7DgW95hT7kgD+7ZODEwstsrjaJ59wgGJkoi5bBHl6qrP3f3TwQP2/edNqprGgHvmGChpeprpWujIPBtKSnD6hcj4CmPKVw5LDMsfJmmW+VGDh+Bb6JiyjyU6xYicA4xkoe9uJjp8XTnSLCcCgmwe4cFBBJNC9OQKX2Ekf7QVrq5xPgUSoqHck3LdxoZdv/EqTHq1HVSYHbTGrMbqjGRY/LVZUkbYZjfD+ZAGX+T3Ve0/OPIbV91f9LtP6mr5xPRY8m8TJSO+NdWdq2RTfds8EaZv+wjxV2g5N/u3pjWtI3uBS4hZd5L1tYQiO6puPPo12IOE6Uhs0tMfnB8DG8H3xRoqWUt+1qrN6WtVrYxXyHwWOT/PettxNuQtrORL/L+KwAA///zRoUMUgIAAA==",
+          "base64_string": "H4sIAAAAAAAA/4SSy27qMBCG32XWDvIlIbF35x1YnY1lkoG6dQiyx0io4t0rE5KqqJdlfuX79Htm3sEPYLTWHW90UzMYHCEYkFzoSshKCWDwMuWYwMiNYjBg6qM/k59OYGCHif715C+erhvCRDafi8H2EYuIwd6HgAOYgwsJ50+3DwiGYkYG5I5gABhEHCdCmzBefI9fstLwlENYgxzDkpzj9Io9gXk8pG5UK1TXMDi5EZ8bHpHsQjx3uZUy6W0xtbITXav/9Ng79I2sz4mmEeMq3PJOb5Vqf1auyI1BTp+oVmqrOi00g4OPiR58mTcwCG5N3L4fCkx+xGgTuUg4WEfLtOatzAlILnklRCXrneBGcqPq/8BgXuDv/5SDCFcb77fCN/z2EQAA//8z5JfDRwIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -50,16 +50,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "325"
+            "307"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:21:53 GMT"
+            "Tue, 24 Nov 2020 10:20:34 GMT"
           ],
           "Etag": [
-            "W/\"f82c6d12068c13485a18f214a76fff6e\""
+            "W/\"21b536d2a198de53b2905c5539f55fbf\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "7d12cf5f-7da8-434a-8582-a52e24894243"
+            "548cd67e-630e-42be-8075-53ae4878f84f"
           ],
           "X-Runtime": [
-            "0.104472"
+            "0.064451"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -98,11 +98,11 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:21:53",
+      "recorded_at": "2020-11-24T10:20:34",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945314880, \"tag\": \"test_activity\", \"task_id\": 6729426, \"billable\": true, \"remote_url\": \"https://jira.mycompany.com\", \"description\": \"activity create description\", \"remote_id\": \"JIRA-123\", \"date\": \"2020-01-01\", \"hours\": 3.5, \"remote_service\": \"jira\"}"
+          "string": "{\"billable\": true, \"remote_url\": \"https://jira.example.org\", \"project_id\": 945371385, \"task_id\": 7281879, \"remote_id\": \"JIRA-123\", \"tag\": \"test_activity\", \"remote_service\": \"jira\", \"description\": \"TestActivity.test_update\", \"hours\": 3.5, \"date\": \"2020-01-01\"}"
         },
         "headers": {
           "Accept": [
@@ -118,7 +118,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "264"
+            "259"
           ],
           "Content-Type": [
             "application/json"
@@ -127,15 +127,15 @@
             "python-requests/2.23.0"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933636529"
+            "933638919"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/998231855"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805954"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5xSsW7bMBT8FeFm2qFIS5G4ZWzHIlMXgaaeE6aUKJBPAYzC/14wle2iHQpk5L179+6I+wk/wvR9p3TdNY3AaJlgoKSSO1nvZA2B17imDKP3ZU7ZJb+wjzMMrGP/7vlcuUSWqfpzKnD0IdAIc7Ih0++nPQaC4bSSANsXGDBlHq46EEg0RaYhU3r3rlh588ne8WIXX798e9rVSt/hNQUYvDIv2Tw8lJX9dHZxWux83rs4QWBJ8Y0cw2yZD42uD10nBWY7lUMbYcsyVqeYquLOzy/VZtBTxt9BLiVJ/nHVbR9Vf1DtP6qF8wlpt2aOE6Wr/GMru1bLprsdeKbMT9f/uwis+c7utW5126he4ORT5m2lnIZAsDfEHt1YltlPlIbMNjGNg2WYeQ1BYDP+gWzl6Heqfq6VUbVp9HcIrMv4X06pUjgP6aNlci8vvwIAAP//54LKcYECAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SSzY6bMBSF3+WsDWNjCNi7WbbLalbdIAfuJE5NQPYlalTl3SvInxT1Z+kjf5/Ote8v+B7WGNPIylSlQO+YYFHIQmZSZVJBYD/OMcHqvBLoKXXRT+zHIyw+KPF7x/7k+ZwzJW7naTUIbH0I1MN+upDoenTbQLAcZxJgt4PFiribAAKRhpGpTRRPvlt6HHx0z3zpiq9fvr1nqtDPeI4BFnvmKdm3twXJ6acbpkD5GHcQmOJ4oI5hb+OWla6VbiqBoxvodY4dcXsnXotflubpx91UF41qavNfT7tCf5B1c+JxoPgQbmRjNlrXf1c+kIvAnJ6o0XqjG6OMwKePiW/88sQQCO6RuG3XLzD7gWKb2EWmvnUMe5xDEOgiuXtyXQSlsqL8UNIW0uryOwSu3/zvO8vahHMb142Subz8DgAA//9mRvWzbQIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,16 +147,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "353"
+            "337"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:21:53 GMT"
+            "Tue, 24 Nov 2020 10:20:34 GMT"
           ],
           "Etag": [
-            "W/\"dc10a8ce0cecac0fa8c781a29888d735\""
+            "W/\"129fa9002525eb1ae7f3e77b87b349df\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -178,10 +178,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4ac3918c-7d9b-42d0-b32e-44d05cc2e851"
+            "26d87422-e8b8-4fc3-b1c6-91c213a28f07"
           ],
           "X-Runtime": [
-            "0.184883"
+            "0.054763"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -191,7 +191,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/998231855"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805954"
       }
     }
   ],

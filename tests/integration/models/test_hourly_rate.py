@@ -1,6 +1,6 @@
 from .. import IntegrationTest
 
-from moco_wrapper.util.response import JsonResponse
+from moco_wrapper.util.response import ObjectResponse
 from moco_wrapper.models.company import CompanyType
 
 
@@ -23,7 +23,7 @@ class TestHourlyRate(IntegrationTest):
 
             assert hourly_rate_get.response.status_code == 200
 
-            assert isinstance(hourly_rate_get, JsonResponse)
+            assert type(hourly_rate_get) is ObjectResponse
 
             assert hourly_rate_get.data.users is not None
             assert hourly_rate_get.data.tasks is not None

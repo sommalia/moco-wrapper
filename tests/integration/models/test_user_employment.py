@@ -1,4 +1,4 @@
-from moco_wrapper.util.response import ListingResponse, JsonResponse
+from moco_wrapper.util.response import PagedListResponse, ObjectResponse
 
 from datetime import date
 from .. import IntegrationTest
@@ -24,7 +24,7 @@ class TestUserEmployment(IntegrationTest):
 
             assert emp_list.response.status_code == 200
 
-            assert isinstance(emp_list, ListingResponse)
+            assert type(emp_list) is PagedListResponse
 
             assert emp_list.current_page == 1
             assert emp_list.is_last is not None
@@ -40,7 +40,7 @@ class TestUserEmployment(IntegrationTest):
 
             assert emp_get.response.status_code == 200
 
-            assert isinstance(emp_get, JsonResponse)
+            assert type(emp_get) is ObjectResponse
 
             assert emp_get.data.user.id is not None
             assert emp_get.data.pattern is not None

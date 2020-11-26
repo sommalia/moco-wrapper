@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:26:13",
+      "recorded_at": "2020-11-24T07:02:46",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"tags\": [], \"service_period_from\": \"2019-12-01\", \"date\": \"2018-09-17\", \"currency\": \"EUR\", \"service_period_to\": \"2019-12-31\", \"status\": \"created\", \"tax\": 8.0, \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"title\": \"invoice\", \"due_date\": \"2018-10-16\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"unit\": \"hours\", \"title\": \"Service\", \"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"net_total\": 130}], \"change_address\": \"invoice\", \"customer_id\": 760863079}"
+          "string": "{\"change_address\": \"invoice\", \"title\": \"invoice\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"unit\": \"hours\", \"title\": \"Service\", \"net_total\": 130}], \"customer_id\": 760895541, \"currency\": \"EUR\", \"service_period_from\": \"2019-12-01\", \"status\": \"created\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"tags\": [], \"service_period_to\": \"2019-12-31\", \"date\": \"2018-09-17\", \"tax\": 8.0, \"due_date\": \"2018-10-16\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K9GcvcXOttnEd6RKwKXApbSKXHu2a0jsYI9XrND+M278MeRkP1JWKhduzrznmZf3xj/BGpBCrKqlqBnoFMn3GNpcXVW8rpZ81TAYgv+KmsayS13HwBp0ZNcWA0i4KznnvAYGRhGChJKLesGbhVjlWsJ2Xhd8ISpgEDFsrcZ2wGC9AQmifFNy0VxA7Tr4frrdLES54OKSQn5GWI4EUpQiSNABFaEBBgG3GKLqQK5VF5EBWeqyLuu23mocKdoOFh21ypiAMTf4gNYV75Iz+OBuVRooUlAxYiEeXM05L+5//wpWbyAbGAI6vQMJbz/fAQOH1JKnPFMs+RVnQOoHyDqfnoOP8YRe86trBsZG7ZMjkCNZq7hpX6u1Ru3iATD4ZKl1qX/KqUw56YDmoth5/Q3N2QX1HEF+eWRHq1pFo5slzyGW4pMoZVlJIe6BQRrMa5xl5hz7ePeCM7t9iUTVJVJkRwQYrL2ncbuAgSXss8RpXW+q60aUKwa0G3J6U4rnNG99CjEvHkYd7DC1nP78e1KOLO0OjiVn6QjlczuEvAYTOIuOX/E9mw+vT8PnQ04Spo4v5sN7G8m658KvC9V1xeYg8n8pak6KslkzNz5OD+VffpTn6XDUNhdQ3fylYFzn/SODQe16dHRYoYC9dQbD+Ln/EwAA//+eYRDUYAQAAA==",
+          "base64_string": "H4sIAAAAAAAA/6xTwW7bOhD8FWHPVB7JyLLN+wMCtL2k7SVNIDDkOmErkSq5DGoU+bPe+mMFJdtREiC99EbtDHdGs8uf4CwoIdfnUjYMTE4UBoxdqa5bvtmuVo1gMMbwFQ1NZZ/7noGz6MntHEZQcCk551wAA6sJQYHkYlPzbS3WpZaxW9YFr0ULDBLGB2ewGzG6YEGBkP9JLravoG4XwzDf3tZC1pPSCwqFBeF8IpCmnECBiagJLTCI+IAx6R7UTvcJGZCjvvhy/iE4gxPFuNGhp05bGzGVBh/Q+epd9hav/YXOIyWKOiWsxLXfcM6rq9+/ojP3UAKMEb3Zg4L/P18CA4/UUaCiKc75GWdA+geoTTndxZDSCW34WcPAumRC9gRqIhud7ru3ap3V+3QALN466nwebstU5jmZiPZVsQ/mG9qnFPRdAvXlhh2j6jRNaUpeC1HL5hNfKy5Vs7oCBnm0b3Hawjn2Cf4ZZ3H7NZJ0n0mTmxBgsAuBpu0CBo5wKBbndW1F04p2w4D2Y5nePMWnaV6EHFNZPEwmunFuOf/596w9OdofEsve0REq526MZQ1mcDE6fsYf2VJ8exJfipwszB2f6cN7l8j5uyrsKt331f3B5D9ytOYnRyWsRRof54fytzzkkzocvS0NtKsXDqZ1frxhMOr9gJ4OKxRxcN5inD4f/wQAAP//8XDyF2AEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "526"
+            "530"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:26:13 GMT"
+            "Tue, 24 Nov 2020 07:02:46 GMT"
           ],
           "Etag": [
-            "W/\"610851ac60a602082535b56966a76e14\""
+            "W/\"041c31d58101593382d2eefbc8ecd222\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "95629f5b-a69e-4be1-940d-8a6329c4fa92"
+            "ffba0921-2f08-44ff-8732-138c7b05eb3d"
           ],
           "X-Runtime": [
-            "1.215751"
+            "1.228188"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +95,7 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:26:13",
+      "recorded_at": "2020-11-24T07:02:46",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,11 +122,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/1176318"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/1273224"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K9GcvcXOttnEd6RKwKXApbSKXHu2a0jsYI9XrND+M278MeRkP1JWKhduzrznmZf3xj/BGpBCrKqlqBnoFMn3GNpcXVW8rpZ81TAYgv+KmsayS13HwBp0ZNcWA0i4KznnvAYGRhGChJKLesGbhVjlWsJ2Xhd8ISpgEDFsrcZ2wGC9AQmifFNy0VxA7Tr4frrdLES54OKSQn5GWI4EUpQiSNABFaEBBgG3GKLqQK5VF5EBWeqyLuu23mocKdoOFh21ypiAMTf4gNYV75Iz+OBuVRooUlAxYiEeXM05L+5//wpWbyAbGAI6vQMJbz/fAQOH1JKnPFMs+RVnQOoHyDqfnoOP8YRe86trBsZG7ZMjkCNZq7hpX6u1Ru3iATD4ZKl1qX/KqUw56YDmoth5/Q3N2QX1HEF+eWRHq1pFo5slzyGW4pMoZVlJIe6BQRrMa5xl5hz7ePeCM7t9iUTVJVJkRwQYrL2ncbuAgSXss8RpXW+q60aUKwa0G3J6U4rnNG99CjEvHkYd7DC1nP78e1KOLO0OjiVn6QjlczuEvAYTOIuOX/E9mw+vT8PnQ04Spo4v5sN7G8m658KvC9V1xeYg8n8pak6KslkzNz5OD+VffpTn6XDUNhdQ3fylYFzn/SODQe16dHRYoYC9dQbD+Ln/EwAA//+eYRDUYAQAAA==",
+          "base64_string": "H4sIAAAAAAAA/6xTwW7bOhD8FWHPVB7JyLLN+wMCtL2k7SVNIDDkOmErkSq5DGoU+bPe+mMFJdtREiC99EbtDHdGs8uf4CwoIdfnUjYMTE4UBoxdqa5bvtmuVo1gMMbwFQ1NZZ/7noGz6MntHEZQcCk551wAA6sJQYHkYlPzbS3WpZaxW9YFr0ULDBLGB2ewGzG6YEGBkP9JLravoG4XwzDf3tZC1pPSCwqFBeF8IpCmnECBiagJLTCI+IAx6R7UTvcJGZCjvvhy/iE4gxPFuNGhp05bGzGVBh/Q+epd9hav/YXOIyWKOiWsxLXfcM6rq9+/ojP3UAKMEb3Zg4L/P18CA4/UUaCiKc75GWdA+geoTTndxZDSCW34WcPAumRC9gRqIhud7ru3ap3V+3QALN466nwebstU5jmZiPZVsQ/mG9qnFPRdAvXlhh2j6jRNaUpeC1HL5hNfKy5Vs7oCBnm0b3Hawjn2Cf4ZZ3H7NZJ0n0mTmxBgsAuBpu0CBo5wKBbndW1F04p2w4D2Y5nePMWnaV6EHFNZPEwmunFuOf/596w9OdofEsve0REq526MZQ1mcDE6fsYf2VJ8exJfipwszB2f6cN7l8j5uyrsKt331f3B5D9ytOYnRyWsRRof54fytzzkkzocvS0NtKsXDqZ1frxhMOr9gJ4OKxRxcN5inD4f/wQAAP//8XDyF2AEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -138,16 +138,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "526"
+            "530"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:26:13 GMT"
+            "Tue, 24 Nov 2020 07:02:46 GMT"
           ],
           "Etag": [
-            "W/\"610851ac60a602082535b56966a76e14\""
+            "W/\"041c31d58101593382d2eefbc8ecd222\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -169,10 +169,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a1a59711-7e4f-4f62-a7a1-97fda2cf12b9"
+            "c52bdc33-4899-4311-bf9d-d8d94606a79c"
           ],
           "X-Runtime": [
-            "0.073774"
+            "0.037558"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +182,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/1176318"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/1273224"
       }
     }
   ],

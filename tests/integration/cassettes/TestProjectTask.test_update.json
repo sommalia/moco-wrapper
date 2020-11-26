@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:33:13",
+      "recorded_at": "2020-11-24T07:09:47",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"dummy task, test update\", \"active\": true, \"billable\": true}"
+          "string": "{\"active\": true, \"billable\": true, \"name\": \"dummy task, test update\"}"
         },
         "headers": {
           "Accept": [
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371026/tasks"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yNwcrCMBAGX6V85+1PmvJbu8/hyUvZNosWkyrpRijiu4sIHj0OzDAPzAG863zf7f8JiyQFI5SUtspkvVBlulpVbkFMQRjnGGWMCrZclCCTzfcvjSWc1MBLiZFwvpYctyG/S3Z/jjBlFdMwiIHhnXe162vfHBrPbctNewThs/rlPF8BAAD//4iBlBi1AAAA",
+          "base64_string": "H4sIAAAAAAAA/3yNwYqDQBAFf0XeuV3aQXawv2NPe5HWaXYlowljT0BC/j2EQI45FlRRNywJEkOMA38TNl0NglTX9Whc9xM1brs39ZLUDYRpyVmnbBAv1Qg6+3J901TTnzlkqzkT/s+15GMsz1L4iwlzMXVLozoEgQO3XdeG/oej8CB9/AXhtfrk3B8BAAD//7roqgO1AAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:33:13 GMT"
+            "Tue, 24 Nov 2020 07:09:47 GMT"
           ],
           "Etag": [
-            "W/\"348113c2e63be94fd152387f2afe8b96\""
+            "W/\"dc7b01ba41bfa81f5a524768bd61fb93\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "317aa49f-6936-426c-9cd1-4ddff30cc373"
+            "8c83943b-a9d2-44c1-ae57-f284df077770"
           ],
           "X-Runtime": [
-            "0.051320"
+            "0.044835"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,15 +91,15 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371026/tasks"
       }
     },
     {
-      "recorded_at": "2020-09-21T12:33:13",
+      "recorded_at": "2020-11-24T07:09:47",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"dummy task, this task was successfully updated\", \"budget\": 500, \"active\": true, \"billable\": false, \"hourly_rate\": 20}"
+          "string": "{\"active\": true, \"budget\": 500, \"hourly_rate\": 20, \"billable\": false, \"name\": \"dummy task, this task was successfully updated\"}"
         },
         "headers": {
           "Accept": [
@@ -125,11 +125,11 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks/6729785"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371026/tasks/7277906"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yNwUrFMBBFfyXcdSppSq2d73DlpkyTqQ2mKslEKeK/i+Wt3+5yOZzzgxRBj5Ofp6fR4p0PASG24ziNcn2zRvdUr2m+uZraQpBat5bzadpnZJUIizXlzGsW0Ma5igUHTV8C0tLEYm3xVRQ0OvfgLPaPVvK5FFYB+esKRf5VCysI3nnXubnz/XPvaRioH15gccvdYX7/AgAA//8v/ROnzwAAAA==",
+          "base64_string": "H4sIAAAAAAAA/3yNwUrFMBBFfyXcdZ7MC09D5ztcuSnTZGqDqUoyUYr472Jx7e5yOZzzhZLBMcQ40YPHq+wKRh77fjiT/uKdbaWf031Kd32kpL2vo9bDjfcsphkeS6lVlqrgVWpXD0lWPhRsbajHMvKzGvie6I48trfR6jE3MQWH80pNf1WzGBiBAl2u10u4PVJkmvgWn+Dxl/uH+f4JAAD//7C7+ffPAAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -141,16 +141,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "172"
+            "171"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:33:13 GMT"
+            "Tue, 24 Nov 2020 07:09:47 GMT"
           ],
           "Etag": [
-            "W/\"ac707de89285dd2eececf3be8dcf4e72\""
+            "W/\"3b52141fa9117b6192c1a59113d15a32\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "10275dc0-0e21-4a65-8d62-823030d3fb57"
+            "72a66ecb-3fad-4b91-a680-5e0d4a2f0741"
           ],
           "X-Runtime": [
-            "0.052063"
+            "0.039068"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314922/tasks/6729785"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371026/tasks/7277906"
       }
     }
   ],

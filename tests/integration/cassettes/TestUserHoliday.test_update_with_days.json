@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:36:09",
+      "recorded_at": "2020-11-24T07:12:54",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"year\": 2019, \"title\": \"dummy holiday, test update (with days)\", \"user_id\": 933636529, \"days\": 1}"
+          "string": "{\"title\": \"dummy holiday, test update (with days)\", \"year\": 2019, \"user_id\": 933638919, \"days\": 1}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yOzUoEMRCEXyXUSaFX8uMOm34OT16k3UQmMONK0kGC7LtLGPDoqYqiqK9+UBL47J7thTCyVLC3LhK06JbBSH3fh1lvW0kyyGhuavpXEs3m4bvoapKM9gjCVLB7soT11msDX6bvLVfwgYkhLGE5+0j4KLXpp+wTMTdB2OQvkfdrwp1wrVk0pzdRMLz19mTjybsX5zksbOMrCMeZ/zr33wAAAP//clfp2uUAAAA=",
+          "base64_string": "H4sIAAAAAAAA/3yOwUoEMRBEfyXUSaFXksysbvo7PHmRdhOZwIwrSQcJMv8uYcDjnropivfqFzmCz7PzgdCTFLC3LhA065rAiG3bullua47SyWiqatp3FE3m4SfrYqL0+gjCuGD3ZAnLrZUKvoy/1VTAhyZM0/N0CQP/mUvVL9mGYjBBWOU/kY9rxE64liSa4rsoGN56e3Lu5OdX+8LO83l+A+EYc6+z/wUAAP//uaIryuUAAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:36:09 GMT"
+            "Tue, 24 Nov 2020 07:12:54 GMT"
           ],
           "Etag": [
-            "W/\"8eb9e38c56f3f6e61f2c6997d64214c2\""
+            "W/\"fd43f4538980e739e7c7a3ec729b02d0\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "71208c63-ab12-473b-b76c-a853b5af7deb"
+            "685f72e8-4082-4694-973d-3a119cd45a0b"
           ],
           "X-Runtime": [
-            "0.039978"
+            "0.047892"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,11 +95,11 @@
       }
     },
     {
-      "recorded_at": "2020-09-21T12:36:09",
+      "recorded_at": "2020-11-24T07:12:54",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"year\": 2020, \"title\": \"this year holiday\", \"user_id\": 933636529, \"days\": 3}"
+          "string": "{\"title\": \"this year holiday\", \"year\": 2020, \"days\": 3, \"user_id\": 933638919}"
         },
         "headers": {
           "Accept": [
@@ -125,11 +125,11 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/51408"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/54129"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOTQrCMBCFr1Leeipp0hYz53DlRsYm0kC1kkwXRXp3qYJbl++Hj++FFMBd05ojYY2SwdZYQ9CkUwRDx1SqfajGeUpBVhCCrAXsDoYwzksuYNvuYSkxg79I71zv+s56wi3log+5f3CxKAiT/Bq5DgEbYchRNIaLKBi7Q218bZtTY9n1bPwZhOUZ/ny2dwAAAP//lCgHxdEAAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SOSwrCMBRFt1Lu+FXyq5q3DkdO5NlEGqhWknRQpHuXKjh1eD8czgspgDunjScsUTLYKKMINdUxglGHVJptaIZpTEEWEIIsBWx3ijBMcy5g47Ywl5jBX6S3dm+PXnvCLeVSH3L/4GKpIIzya+TaB6yEPkepMVykgrE5tFq3xp3UgbXhzp1BmJ/hz2d9BwAA//8JN4e10QAAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -141,16 +141,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "164"
+            "163"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:36:09 GMT"
+            "Tue, 24 Nov 2020 07:12:54 GMT"
           ],
           "Etag": [
-            "W/\"43595228162ddf6ffdebfd60c0b85ffa\""
+            "W/\"56be3864c6b6697b25d8e5f491d0a74d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "bdb337c3-7ed0-4b0f-80a9-fcfaf0b6bd0b"
+            "d25e6324-cdd7-4274-925a-b1a4c9f425d0"
           ],
           "X-Runtime": [
-            "0.053717"
+            "0.044483"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/51408"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/54129"
       }
     }
   ],

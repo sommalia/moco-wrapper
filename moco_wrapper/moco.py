@@ -96,6 +96,7 @@ class Moco(object):
         self.Purchase = models.Purchase(self)
 
         self.HourlyRate = models.HourlyRate(self)
+        self.Tagging = models.Tagging(self)
 
         self._requestor = requestor
         self._objector = objector
@@ -152,11 +153,9 @@ class Moco(object):
         # merge headers if set in model
         headers = self.headers
         if "headers" in kwargs.keys():
-            print(kwargs["headers"])
             for key, value in kwargs["headers"].items():
                 headers[key] = value
 
-            print(headers)
             del kwargs["headers"]
 
         # pass request making to the requestor object

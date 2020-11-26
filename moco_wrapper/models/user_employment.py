@@ -31,7 +31,7 @@ class UserEmployment(MWRAPBase):
         :type employment_id: int
 
         :returns: Employment object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
         return self._moco.get(API_PATH["employment_get"].format(id=employment_id))
 
@@ -62,7 +62,7 @@ class UserEmployment(MWRAPBase):
         :type page: int
 
         :returns: List of employment objects
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
 
         params = {}

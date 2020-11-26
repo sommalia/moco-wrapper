@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:23:17",
+      "recorded_at": "2020-11-24T06:59:47",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"company create customer\", \"type\": \"customer\"}"
+          "string": "{\"type\": \"customer\", \"name\": \"company create customer\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQQY/VIBSF/8rkrBnDo7FjWTsrd0Y3GkMo3I4YCg3cjjaT998NbUffbnbw5eTmfOcFwUM/9PJD38leCfC2EDTcWjnPVCCQ7LyTPC82bXeukGW6uwn8prEGbhkI0GxDhE5rjAJjiDGkJ7ND49wrX37mdOYn++d4WO8L1Xp8XF4Tl8247Fvu4yMEni2b4ClxmAKV11Nsnyr09x8Ca230EBq6ru/692oQmEKpfDowVYZAtP+IHZ3HtaGR4nkopCmf5XLmdnSvtAubpeSFCgeq0C9XgWMObyxDQ0kl7+Vwry5fLkqrTl8evkFgXfybmVszfJJSDQ0mppKgJxsr/Z+T22aX4Z1srUqh5DZoPH79DAFPk10jm5Cec3Bk/ErG261Cd1JgKfkXOd5Fr38DAAD//yHOohP8AQAA",
+          "base64_string": "H4sIAAAAAAAA/4SQQW/UMBSE/0o1Zxd5k2668ZmeuCG4gJDl2C/FyLEj+6UQVfvfkZMU9tab/Wn0NN+8wjuox05e+vO56QR4nQkKdimcJsoQiGbaSJpmE9c7m8kw3d0EftNQPNcMBGgyPkDFJQSBwYfg47PeoLb2jc8/Uzzyo/mzP4xzmUrZPzYtkfOqbXI19/EJAi+GtXcU2Y+e8tspNs8F6vsPgaVUugv1bdu1l/7UC4w+Fz4cmApDIJh/xAzW4VrRQOE45OOYjnIpcT26VdqE9ZzTTJk9FajXq8A+h9OGodDIRt6fTvfNwxfZqXOvHh6/QWCZ3buZWzN8klJeKoxMOUKNJhT6PyfXzU79B1lb5UzRrlB4+voZAo5GswTWPr4kb0m7hbQza4FqpcCc0y+yvIle/wYAAP//hNd6nfwBAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "321"
+            "323"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:23:17 GMT"
+            "Tue, 24 Nov 2020 06:59:47 GMT"
           ],
           "Etag": [
-            "W/\"16fe6402060c1fa904f915234be58078\""
+            "W/\"899135f962020b18a717b2d5352cf36f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "48e4ccfd-ab5b-4a7d-99ac-137583420273"
+            "e125f52f-a6f8-4ff2-bc1d-2c55e925ca4d"
           ],
           "X-Runtime": [
-            "0.084378"
+            "0.081124"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

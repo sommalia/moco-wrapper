@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:34:16",
+      "recorded_at": "2020-11-24T07:10:47",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2013-07-27\", \"user_id\": 933636529, \"absence_code\": 4}"
+          "string": "{\"date\": \"2013-06-19\", \"user_id\": 933638919, \"absence_code\": 4}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TPzWqFMBAF4Hc53Y5gEn9qdsVXaDfdXKJOi5CoJJPFpfjuRW+R7u4uZM58h/nBPMGaTtXla0OYnDAsdKlMUbaFbkEY1xB4EViA4AKsxMyE7XqlexhWD7tk7wkupfl7eWw89K6qjaraqiIsLhz+R/QuD4edk6yB4+1vIJzEDeN01vo1wuKl73sQ5L4dgbch8TIydkJOHK8KYxrT1LojfM0xyT8OBO+unxPfCWNkJzzdnJzn6rIou0Krd6WtqaxqPkHI2/Qks/8GAAD//1ltQ1o/AQAA",
+          "base64_string": "H4sIAAAAAAAA/4TPwUrEMBAG4Hf5vU4haePW5ib7CnrxsqTNKIUkLcnksEjfXdqV4s1byPzz/cw3Zg9rVKv6wRC8E4ZFq3TXqEujBxCmJUZOAgsQXISVXJmwnq9yj+MSYFMNgeBKmb/SY+OhD+a565UympBc3P33HFwdd7sWWSLn2+9AuIgbJ3/UhiXD4ul6vYIg93UPvI6F08TYCLVwPiu67tK9DHogfM65yB8OhODOnwPfCFNmJ+xvTo5zW9Vo3bTmTfVWK2v6DxDq6v/JbD8BAAD//z55l1s/AQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:34:16 GMT"
+            "Tue, 24 Nov 2020 07:10:47 GMT"
           ],
           "Etag": [
-            "W/\"a6ebbcd5b7e5b444ae7432c5a3d9d981\""
+            "W/\"ee78606e5b8945db15d33d21f8f5887c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "1ebe5da8-dc72-45f8-ac8d-7f4a1a7d0777"
+            "f1052f71-5509-4238-97aa-6705e5ef1d40"
           ],
           "X-Runtime": [
-            "0.404506"
+            "0.227524"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

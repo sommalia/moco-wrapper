@@ -27,37 +27,19 @@ class PurchaseCategory(MWRAPBase):
         :type category_id: int
 
         :returns: Single Category object
-        :rtype: :class:`moco_wrapper.util.response.JsonResponse`
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
         return self._moco.get(API_PATH["purchase_category_get"].format(id=category_id))
 
     def getlist(
-        self,
-        sort_by: str = None,
-        sort_order: str = 'asc',
-        page: int = 1
+        self
     ):
         """
         Retrieve a list of categories.
 
-        :param sort_by: Sort by field (default ``None``)
-        :param sort_order: asc or desc (default ``"asc"``)
-        :param page: Page number (default ``1``)
-
-        :type sort_by: str
-        :type sort_order: str
-        :type page: int
-
         :returns: List of categories
-        :rtype: :class:`moco_wrapper.util.response.ListingResponse`
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
 
-        params = {
-            "page": page
-        }
-
-        if sort_by is not None:
-            params["sort_by"] = "{} {}".format(sort_by, sort_order)
-
-        return self._moco.get(API_PATH["purchase_category_getlist"], params=params)
+        return self._moco.get(API_PATH["purchase_category_getlist"])

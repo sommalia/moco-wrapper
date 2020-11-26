@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-17T09:46:18",
+      "recorded_at": "2020-11-26T08:54:37",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"type\": \"organization\", \"name\": \"TestContact organization\"}"
+          "string": "{\"name\": \"TestContact.get_organization\", \"type\": \"organization\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "60"
+            "64"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPQWvjMBCF/8ryzgrYyWI7uu7uP8hpSzFjaZwOKJKRxm3TkP9enDg99NLbzMfH470LxMO2TdXtq65qDfQ8MSxSPlKUD1JJEQaRTgs9cNE/KSo5/fXNeOOhiC4SDPhEEmDjHILBICFIPPY32Dv34NNLiqs/0vv9IO8zl3J/XJqj5nPvkl+8v/9g8Erai+eoMgrnR5TSscA+PRvMZaH3Vfvdrtl1Tbs1GCUXXUcoF4VBoC9Cg/O4LmjgsAZJHNNaLiVdQm+V5qLp1E85TZxVuMBergYuMyn7nhQW22pbbep6U7eHam9/N7bu/sNgnvwPzvUzAAD//0tbjN6NAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SPQU7DMBBF7zJrF6UNNIm3wA26AiFrYk/CSK4d2ROgVL07cpOyYMNu5unp6/8zsAPd7Ku2a7qmVSCniUBDTCMG/kbhGEBBwGOhB8ryGIOglbuRxPyxPqnPLEUEBXRE9qDD7L2Cnr3nMJorNNbe+PQew+oP+LUc6FyinJfHxjlIOhkbXfGenkHBB4phR0F4YEq3KMExg359UzDnQpdlXV3v67bbdgoGTlnWIUJZQIHHX4K9dXApqCe/BnEY4louRimh10pzlng0U4oTJWHKoM8XBTYRCjmDAhp21a7abLeb3f5QtfrhXtfNCyiYJ/ePc/kJAAD//+Fg+BWRAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 17 Nov 2020 09:46:18 GMT"
+            "Thu, 26 Nov 2020 08:54:37 GMT"
           ],
           "Etag": [
-            "W/\"52d931a590e1c96957936b826c8a25f2\""
+            "W/\"8fd6f1def7b64547f62fe884d78568f6\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6fc8c2fb-0a46-4266-bc9e-7eca2d3ca146"
+            "b19f1f28-5498-4950-a0bb-8a749ed014e0"
           ],
           "X-Runtime": [
-            "0.059386"
+            "0.310272"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

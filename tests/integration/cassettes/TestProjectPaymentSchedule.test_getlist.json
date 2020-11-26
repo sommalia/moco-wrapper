@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-09-21T12:31:32",
+      "recorded_at": "2020-11-24T07:08:05",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,7 +28,7 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules?page=1&sort_by=net_total+asc"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371023/payment_schedules"
       },
       "response": {
         "body": {
@@ -50,7 +50,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 21 Sep 2020 12:31:32 GMT"
+            "Tue, 24 Nov 2020 07:08:05 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -75,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "ef39e75c-a8e0-4d0e-8463-cf015176c013"
+            "fd3bed26-0870-4702-890c-a2c54a1e6c16"
           ],
           "X-Runtime": [
-            "0.036577"
+            "0.048705"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945314919/payment_schedules?page=1&sort_by=net_total+asc"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371023/payment_schedules"
       }
     }
   ],
