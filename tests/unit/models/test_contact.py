@@ -5,19 +5,19 @@ from .. import UnitTest
 class TestContact(UnitTest):
 
     def test_create(self):
-        firstname = "Peter"
-        lastname = "Muster"
-        gender = "F"
+        firstname = "John"
+        lastname = "Doe"
+        gender = "M"
         company_id = 123
-        title = "Dr. med."
+        title = "Dr."
         job_position = "Account Manager"
-        mobile_phone = "+49 177 123 45 67"
-        work_fax = "+49 30 123 45 67"
-        work_phone = "+49 30 123 45 67"
-        work_email = "bestellung@lieferant.de"
-        work_address = "Lieferant AG\nBeispielstrasse 123\n12345 Berlin"
-        home_email = "privat@home.ch"
-        home_address = "Peter Muster\nZu Hause"
+        mobile_phone = "177 123 45 67"
+        work_fax = "30 123 45 67"
+        work_phone = "30 123 45 67"
+        work_email = "order@example.org"
+        work_address = "21. Main Street"
+        home_email = "private@example.org"
+        home_address = "John Doe\nat Home"
         birthday = "1959-05-22"
         info = "Information for this company"
         tags = ["Christmas Card", "Project Lead"]
@@ -64,19 +64,19 @@ class TestContact(UnitTest):
 
     def test_update(self):
         contact_id = 123
-        firstname = "Peter"
-        lastname = "Muster"
-        gender = "F"
+        firstname = "John"
+        lastname = "Doe"
+        gender = "M"
         company_id = 123
-        title = "Dr. med."
+        title = "Dr."
         job_position = "Account Manager"
-        mobile_phone = "+49 177 123 45 67"
-        work_fax = "+49 30 123 45 67"
-        work_phone = "+49 30 123 45 67"
-        work_email = "bestellung@lieferant.de"
-        work_address = "Lieferant AG\nBeispielstrasse 123\n12345 Berlin"
-        home_email = "privat@home.ch"
-        home_address = "Peter Muster\nZu Hause"
+        mobile_phone = "177 123 45 67"
+        work_fax = "30 123 45 67"
+        work_phone = "30 123 45 67"
+        work_email = "order@example.org"
+        work_address = "21. Main Street"
+        home_email = "private@example.org"
+        home_address = "John Doe\nat Home"
         birthday = "1959-05-22"
         info = "Information for this company"
         tags = ["Christmas Card", "Project Lead"]
@@ -125,14 +125,19 @@ class TestContact(UnitTest):
     def test_get(self):
         contact_id = 1234
 
-        response = self.moco.Contact.get(contact_id)
+        response = self.moco.Contact.get(
+            contact_id=contact_id
+        )
 
         assert response["method"] == "GET"
 
     def test_getlist(self):
-        tags = ["eins", "zwei", "drei", "polizei"]
+        tags = ["first", "seconds", "third", "fourth"]
 
-        response = self.moco.Contact.getlist(tags=tags)
+        response = self.moco.Contact.getlist(
+            tags=tags
+        )
+
         params = response["params"]
 
         assert params["tags"] == tags
@@ -141,15 +146,20 @@ class TestContact(UnitTest):
     def test_getlist_sort_default(self):
         sort_by = "testfield to sort by"
 
-        response = self.moco.Contact.getlist(sort_by=sort_by)
+        response = self.moco.Contact.getlist(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
     def test_getlist_sort_overwrite(self):
-        sort_by = "testfield to sort by"
+        sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.Contact.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.Contact.getlist(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -157,18 +167,25 @@ class TestContact(UnitTest):
         page_default = 1
 
         response = self.moco.Contact.getlist()
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.Contact.getlist(page=page_overwrite)
+        response = self.moco.Contact.getlist(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_getlist_phone(self):
         phone = "test phone number"
 
-        response = self.moco.Contact.getlist(phone=phone)
+        response = self.moco.Contact.getlist(
+            phone=phone
+        )
+
         params = response["params"]
 
         assert params["phone"] == phone
@@ -177,7 +194,10 @@ class TestContact(UnitTest):
     def test_getlist_term(self):
         term = "test term"
 
-        response = self.moco.Contact.getlist(term=term)
+        response = self.moco.Contact.getlist(
+            term=term
+        )
+
         params = response["params"]
 
         assert params["term"] == term
