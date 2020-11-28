@@ -1,5 +1,6 @@
 from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
 from moco_wrapper.util.generator import InvoiceItemGenerator, InvoicePaymentGenerator
+from moco_wrapper.models.company import CompanyType
 
 from .. import IntegrationTest
 from datetime import date
@@ -9,8 +10,8 @@ class TestInvoicePayment(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestInvoicePayment.get_customer"):
             customer_create = self.moco.Company.create(
-                "TestInvoicePayment",
-                company_type="customer"
+                name="TestInvoicePayment.get_customer",
+                company_type=CompanyType.CUSTOMER
             )
             return customer_create.data
 
@@ -20,22 +21,29 @@ class TestInvoicePayment(IntegrationTest):
         with self.recorder.use_cassette("TestInvoicePayment.get_invoice"):
             gen = InvoiceItemGenerator()
             items = [
-                gen.generate_title("dummy invoice item title"),
-                gen.generate_description("dummy invoice item description"),
-                gen.generate_lump_position("server hardware", 2000)
+                gen.generate_title(
+                    title="dummy invoice item title"
+                ),
+                gen.generate_description(
+                    description="dummy invoice item description"
+                ),
+                gen.generate_lump_position(
+                    title="server hardware",
+                    net_total=2000
+                )
             ]
 
             invoice_create = self.moco.Invoice.create(
-                customer.id,
-                "dummy invoice",
-                date(2020, 1, 1),
-                date(2021, 1, 1),
-                date(2020, 1, 1),
-                date(2020, 3, 1),
-                "dummy invoice",
-                19,
-                "EUR",
-                items,
+                customer_id=customer.id,
+                recipient_address="MY customer dummy address",
+                created_date=date(2020, 1, 1),
+                due_date=date(2021, 1, 1),
+                service_period_from=date(2020, 1, 1),
+                service_period_to=date(2020, 3, 1),
+                title="TestInvoicePayment.get_invoice",
+                tax=19,
+                currency="EUR",
+                items=items,
             )
 
             return invoice_create.data
@@ -44,7 +52,9 @@ class TestInvoicePayment(IntegrationTest):
         invoice = self.get_invoice()
 
         with self.recorder.use_cassette("TestInvoicePayment.test_getlist"):
-            payment_list = self.moco.InvoicePayment.getlist(invoice_id=invoice.id)
+            payment_list = self.moco.InvoicePayment.getlist(
+                invoice_id=invoice.id
+            )
 
             assert payment_list.response.status_code == 200
 
@@ -65,10 +75,10 @@ class TestInvoicePayment(IntegrationTest):
             currency = "EUR"
 
             payment_create = self.moco.InvoicePayment.create(
-                payment_date,
-                invoice.id,
-                amount,
-                "EUR"
+                payment_date=payment_date,
+                invoice_id=invoice.id,
+                paid_total=amount,
+                currency="EUR"
             )
 
             assert payment_create.response.status_code == 200
@@ -86,8 +96,18 @@ class TestInvoicePayment(IntegrationTest):
         with self.recorder.use_cassette("TestInvoicePayment.test_create_bulk"):
             gen = InvoicePaymentGenerator()
             items = [
-                gen.generate(date(2020, 1, 1), invoice.id, 200, "EUR"),
-                gen.generate(date(2020, 1, 2), invoice.id, 150, "EUR")
+                gen.generate(
+                    payment_date=date(2020, 1, 1),
+                    invoice_id=invoice.id,
+                    paid_total=200,
+                    currency="EUR"
+                ),
+                gen.generate(
+                    payment_date=date(2020, 1, 2),
+                    invoice_id=invoice.id,
+                    paid_total=150,
+                    currency="EUR"
+                )
             ]
 
             payment_create = self.moco.InvoicePayment.create_bulk(items)
@@ -105,13 +125,15 @@ class TestInvoicePayment(IntegrationTest):
             currency = "EUR"
 
             payment_create = self.moco.InvoicePayment.create(
-                payment_date,
-                invoice.id,
-                amount,
-                "EUR"
+                payment_date=payment_date,
+                invoice_id=invoice.id,
+                paid_total=amount,
+                currency="EUR"
             )
 
-            payment_get = self.moco.InvoicePayment.get(payment_create.data.id)
+            payment_get = self.moco.InvoicePayment.get(
+                payment_id=payment_create.data.id
+            )
 
             assert payment_create.response.status_code == 200
             assert payment_get.response.status_code == 200
@@ -133,14 +155,14 @@ class TestInvoicePayment(IntegrationTest):
             currency = "EUR"
 
             payment_create = self.moco.InvoicePayment.create(
-                date(2019, 12, 31),
-                invoice.id,
-                1,
-                "EUR"
+                payment_date=date(2019, 12, 31),
+                invoice_id=invoice.id,
+                paid_total=1,
+                currency="EUR"
             )
 
             payment_update = self.moco.InvoicePayment.update(
-                payment_create.data.id,
+                payment_id=payment_create.data.id,
                 payment_date=payment_date,
                 paid_total=amount,
                 currency="EUR"
@@ -162,13 +184,15 @@ class TestInvoicePayment(IntegrationTest):
 
         with self.recorder.use_cassette("TestInvoicePayment.test_delete"):
             payment_create = self.moco.InvoicePayment.create(
-                date(2020, 1, 1),
-                invoice.id,
-                100,
-                "EUR"
+                payment_date=date(2020, 1, 1),
+                invoice_id=invoice.id,
+                paid_total=100,
+                currency="EUR"
             )
 
-            payment_delete = self.moco.InvoicePayment.delete(payment_create.data.id)
+            payment_delete = self.moco.InvoicePayment.delete(
+                payment_id=payment_create.data.id
+            )
 
             assert payment_create.response.status_code == 200
             assert payment_delete.response.status_code == 204
