@@ -1,9 +1,11 @@
 from moco_wrapper.util.response import ObjectResponse, PagedListResponse
 from moco_wrapper.models.deal import DealStatus
+from moco_wrapper.models.company import CompanyType
 
 from datetime import date
 
 from .. import IntegrationTest
+
 
 class TestDeal(IntegrationTest):
     def get_user(self):
@@ -19,34 +21,33 @@ class TestDeal(IntegrationTest):
     def get_company(self):
         with self.recorder.use_cassette("TestDeal.get_company"):
             company_create = self.moco.Company.create(
-                "TestDeal",
-                company_type="customer"
+                name="TestDeal.get_company",
+                company_type=CompanyType.CUSTOMER
             )
 
             return company_create.data
-
 
     def test_create(self):
         user = self.get_user()
         category = self.get_deal_category()
 
         with self.recorder.use_cassette("TestDeal.test_create"):
-            name = "deal create test"
+            name = "TestDeal.test_create"
             currency = "EUR"
             money = 200
             reminder_date = date(2020, 1, 1)
             status = DealStatus.PENDING
 
             deal_create = self.moco.Deal.create(
-                name,
-                currency,
-                money,
-                reminder_date,
-                user.id,
-                category.id,
+                name=name,
+                currency=currency,
+                money=money,
+                reminder_date=reminder_date,
+                user_id=user.id,
+                deal_category_id=category.id,
                 status=status
             )
-            
+
             assert deal_create.response.status_code == 200
 
             assert type(deal_create) is ObjectResponse
@@ -65,26 +66,25 @@ class TestDeal(IntegrationTest):
         company = self.get_company()
 
         with self.recorder.use_cassette("TestDeal.test_create_full"):
-            name = "deal create test"
+            name = "TestDeal.test_create_full"
             currency = "EUR"
             money = 200
             reminder_date = date(2020, 1, 1)
             status = DealStatus.PENDING
             info = "more info"
 
-
             deal_create = self.moco.Deal.create(
-                name,
-                currency,
-                money,
-                reminder_date,
-                user.id,
-                category.id,
+                name=name,
+                currency=currency,
+                money=money,
+                reminder_date=reminder_date,
+                user_id=user.id,
+                deal_category_id=category.id,
                 status=status,
                 company_id=company.id,
                 info=info,
             )
-            
+
             assert deal_create.response.status_code == 200
 
             assert type(deal_create) is ObjectResponse
@@ -104,23 +104,25 @@ class TestDeal(IntegrationTest):
         category = self.get_deal_category()
 
         with self.recorder.use_cassette("TestDeal.test_get"):
-            name = "test deal to get"
+            name = "TestDeal.test_get_create"
             currency = "EUR"
             reminder_date = date(2020, 1, 10)
             money = 210
             status = DealStatus.WON
 
             deal_create = self.moco.Deal.create(
-                name,
-                currency, 
-                money, 
-                reminder_date, 
-                user.id, 
-                category.id, 
+                name=name,
+                currency=currency,
+                money=money,
+                reminder_date=reminder_date,
+                user_id=user.id,
+                deal_category_id=category.id,
                 status=status
             )
 
-            deal_get = self.moco.Deal.get(deal_create.data.id)
+            deal_get = self.moco.Deal.get(
+                deal_id=deal_create.data.id
+            )
 
             assert deal_create.response.status_code == 200
             assert deal_get.response.status_code == 200
@@ -157,15 +159,15 @@ class TestDeal(IntegrationTest):
 
         with self.recorder.use_cassette("TestDeal.test_update"):
             deal_create = self.moco.Deal.create(
-                "dummy deal, test update",
-                "EUR",
-                0,
-                date(2000, 1, 1),
-                user.id,
-                category.id
+                name="TestDeal.test_update_create",
+                currency="EUR",
+                money=0,
+                reminder_date=date(2000, 1, 1),
+                user_id=user.id,
+                deal_category_id=category.id
             )
 
-            name = "updated deal"
+            name = "TestDeal.test_update"
             currency = "EUR"
             money = 400
             reminder_date = date(2020, 1, 1)
@@ -173,7 +175,7 @@ class TestDeal(IntegrationTest):
             status = DealStatus.POTENTIAL
 
             deal_update = self.moco.Deal.update(
-                deal_create.data.id, 
+                deal_id=deal_create.data.id,
                 name=name,
                 currency=currency,
                 money=money,
@@ -200,4 +202,3 @@ class TestDeal(IntegrationTest):
             assert deal_update.data.company.id == company.id
             assert deal_update.data.info == info
             assert deal_update.data.status == status
-            
