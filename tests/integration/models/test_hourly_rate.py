@@ -9,7 +9,7 @@ class TestHourlyRate(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestHourlyRate.get_company"):
             company_create = self.moco.Company.create(
-                name="test hourly rate",
+                name="TestHourlyRate.get_customer",
                 company_type=CompanyType.CUSTOMER
             )
 
@@ -19,7 +19,9 @@ class TestHourlyRate(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestHourlyRate.test_get"):
-            hourly_rate_get = self.moco.HourlyRate.get(customer.id)
+            hourly_rate_get = self.moco.HourlyRate.get(
+                company_id=customer.id
+            )
 
             assert hourly_rate_get.response.status_code == 200
 
