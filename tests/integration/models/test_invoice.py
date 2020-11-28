@@ -12,8 +12,8 @@ class TestInvoice(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestInvoice.get_customer"):
             customer_create = self.moco.Company.create(
-                "TestInvoice",
-                company_type="customer"
+                name="TestInvoice.get_customer",
+                company_type=CompanyType.CUSTOMER
             )
 
             return customer_create.data
@@ -29,10 +29,10 @@ class TestInvoice(IntegrationTest):
 
         with self.recorder.use_cassette("TestInvoice.get_project"):
             project_create = self.moco.Project.create(
-                "TestInvoice",
-                "EUR",
-                user.id,
-                customer.id,
+                name="TestInvoice.get_project",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
                 finish_date=date(2020, 1, 1),
             )
 
@@ -70,10 +70,10 @@ class TestInvoice(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestInvoice.test_get"):
-            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            recipient_address = "My Customer Address 22"
             creation_date = date(2018, 9, 17)
             due_date = date(2018, 10, 16)
-            title = "invoice"
+            title = "TestInvoice.test_get_create"
             tax = 8.0
             currency = "EUR"
             service_from_date = date(2019, 12, 1)
@@ -81,25 +81,37 @@ class TestInvoice(IntegrationTest):
 
             item_generator = InvoiceItemGenerator()
             items = [
-                item_generator.generate_title("Hours"),
-                item_generator.generate_description("Listing of all hours"),
-                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+                item_generator.generate_title(
+                    title="Hours"
+                ),
+                item_generator.generate_description(
+                    description="Listing of all hours"
+                ),
+                item_generator.generate_item(
+                    title="Service",
+                    quantity=2,
+                    unit="hours",
+                    unit_price=65,
+                    net_total=130
+                )
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id,
-                recipient_address,
-                creation_date,
-                due_date,
-                service_from_date,
-                service_to_date,
-                title,
-                tax,
-                currency,
-                items
+                customer_id=customer.id,
+                recipient_address=recipient_address,
+                created_date=creation_date,
+                due_date=due_date,
+                service_period_from=service_from_date,
+                service_period_to=service_to_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
             )
 
-            inv_get = self.moco.Invoice.get(inv_create.data.id)
+            inv_get = self.moco.Invoice.get(
+                invoice_id=inv_create.data.id
+            )
 
             assert inv_create.response.status_code == 200
             assert inv_get.response.status_code == 200
@@ -118,10 +130,10 @@ class TestInvoice(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestInvoice.test_pdf"):
-            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            recipient_address = "My Customer Address 22"
             creation_date = date(2018, 9, 17)
             due_date = date(2018, 10, 16)
-            title = "invoice"
+            title = "TestInvoice.test_pdf_create"
             tax = 8.0
             currency = "EUR"
             service_from_date = date(2019, 12, 1)
@@ -129,25 +141,37 @@ class TestInvoice(IntegrationTest):
 
             item_generator = InvoiceItemGenerator()
             items = [
-                item_generator.generate_title("Hours"),
-                item_generator.generate_description("Listing of all hours"),
-                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+                item_generator.generate_title(
+                    title="Hours"
+                ),
+                item_generator.generate_description(
+                    description="Listing of all hours"
+                ),
+                item_generator.generate_item(
+                    title="Service",
+                    quantity=2,
+                    unit="hours",
+                    unit_price=65,
+                    net_total=130
+                )
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id,
-                recipient_address,
-                creation_date,
-                due_date,
-                service_from_date,
-                service_to_date,
-                title,
-                tax,
-                currency,
-                items
+                customer_id=customer.id,
+                recipient_address=recipient_address,
+                created_date=creation_date,
+                due_date=due_date,
+                service_period_from=service_from_date,
+                service_period_to=service_to_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
             )
 
-            inv_pdf = self.moco.Invoice.pdf(inv_create.data.id)
+            inv_pdf = self.moco.Invoice.pdf(
+                invoice_id=inv_create.data.id
+            )
 
             assert inv_create.response.status_code == 200
             assert inv_pdf.response.status_code == 200
@@ -159,10 +183,10 @@ class TestInvoice(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestInvoice.test_update_status"):
-            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            recipient_address = "My Customer Address 22"
             creation_date = date(2018, 9, 17)
             due_date = date(2018, 10, 16)
-            title = "invoice"
+            title = "TestInvoice.test_update_status_create"
             tax = 8.0
             currency = "EUR"
             service_from_date = date(2019, 12, 1)
@@ -170,30 +194,42 @@ class TestInvoice(IntegrationTest):
 
             item_generator = InvoiceItemGenerator()
             items = [
-                item_generator.generate_title("Hours"),
-                item_generator.generate_description("Listing of all hours"),
-                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+                item_generator.generate_title(
+                    title="Hours"
+                ),
+                item_generator.generate_description(
+                    description="Listing of all hours"
+                ),
+                item_generator.generate_item(
+                    title="Service",
+                    quantity=2,
+                    unit="hours",
+                    unit_price=65,
+                    net_total=130
+                )
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id,
-                recipient_address,
-                creation_date,
-                due_date,
-                service_from_date,
-                service_to_date,
-                title,
-                tax,
-                currency,
-                items
+                customer_id=customer.id,
+                recipient_address=recipient_address,
+                created_date=creation_date,
+                due_date=due_date,
+                service_period_from=service_from_date,
+                service_period_to=service_to_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
             )
 
             inv_update = self.moco.Invoice.update_status(
-                inv_create.data.id,
-                InvoiceStatus.IGNORED
+                invoice_id=inv_create.data.id,
+                status=InvoiceStatus.IGNORED
             )
 
-            inv_get = self.moco.Invoice.get(inv_create.data.id)
+            inv_get = self.moco.Invoice.get(
+                invoice_id=inv_create.data.id
+            )
 
             assert inv_create.response.status_code == 200
             assert inv_update.response.status_code == 204
@@ -210,10 +246,10 @@ class TestInvoice(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestInvoice.test_create"):
-            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            recipient_address = "My Customer Address 22"
             creation_date = date(2018, 9, 17)
             due_date = date(2018, 10, 16)
-            title = "invoice"
+            title = "TestInvoice.test_create"
             tax = 8.0
             currency = "EUR"
             service_from_date = date(2019, 12, 1)
@@ -221,30 +257,40 @@ class TestInvoice(IntegrationTest):
 
             item_generator = InvoiceItemGenerator()
             items = [
-                item_generator.generate_title("Hours"),
-                item_generator.generate_description("Listing of all hours"),
-                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+                item_generator.generate_title(
+                    title="Hours"
+                ),
+                item_generator.generate_description(
+                    description="Listing of all hours"
+                ),
+                item_generator.generate_item(
+                    title="Service",
+                    quantity=2,
+                    unit="hours",
+                    unit_price=65,
+                    net_total=130
+                )
             ]
 
             inv_create = self.moco.Invoice.create(
-                customer.id,
-                recipient_address,
-                creation_date,
-                due_date,
-                service_from_date,
-                service_to_date,
-                title,
-                tax,
-                currency,
-                items
+                customer_id=customer.id,
+                recipient_address=recipient_address,
+                created_date=creation_date,
+                due_date=due_date,
+                service_period_from=service_from_date,
+                service_period_to=service_to_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
             )
 
             assert inv_create.response.status_code == 200
 
             assert type(inv_create) is ObjectResponse
 
-            assert inv_create.data.title == "invoice"
-            assert inv_create.data.currency == "EUR"
+            assert inv_create.data.title == title
+            assert inv_create.data.currency == currency
             assert inv_create.data.customer_id == customer.id
             assert inv_create.data.service_period_from == service_from_date.isoformat()
             assert inv_create.data.service_period_to == service_to_date.isoformat()
@@ -257,10 +303,10 @@ class TestInvoice(IntegrationTest):
         project = self.get_project()
 
         with self.recorder.use_cassette("TestInvoice.test_create_with_project"):
-            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            recipient_address = "My Customer Address 22"
             creation_date = date(2018, 9, 17)
             due_date = date(2018, 10, 16)
-            title = "invoice"
+            title = "TestInvoice.test_create_with_project"
             tax = 8.0
             currency = "EUR"
             service_from_date = date(2019, 12, 1)
@@ -268,22 +314,32 @@ class TestInvoice(IntegrationTest):
 
             item_generator = InvoiceItemGenerator()
             items = [
-                item_generator.generate_title("Hours"),
-                item_generator.generate_description("Listing of all hours"),
-                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+                item_generator.generate_title(
+                    title="Hours"
+                ),
+                item_generator.generate_description(
+                    description="Listing of all hours"
+                ),
+                item_generator.generate_item(
+                    title="Service",
+                    quantity=2,
+                    unit="hours",
+                    unit_price=65,
+                    net_total=130
+                )
             ]
 
             inv_create = self.moco.Invoice.create(
-                project.customer.id,
-                recipient_address,
-                creation_date,
-                due_date,
-                service_from_date,
-                service_to_date,
-                title,
-                tax,
-                currency,
-                items,
+                customer_id=project.customer.id,
+                recipient_address=recipient_address,
+                created_date=creation_date,
+                due_date=due_date,
+                service_period_from=service_from_date,
+                service_period_to=service_to_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items,
                 project_id=project.id
             )
 
@@ -298,10 +354,10 @@ class TestInvoice(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestInvoice.test_create_full"):
-            recipient_address = "Mein Kunde\nHauptstrasse 1\n8000 Zürich"
+            recipient_address = "My Customer Address 22"
             creation_date = date(2018, 9, 17)
             due_date = date(2018, 10, 16)
-            title = "invoice"
+            title = "TestInvoice.test_create_full"
             tax = 8.0
             currency = "EUR"
             service_from_date = date(2019, 12, 1)
@@ -310,28 +366,38 @@ class TestInvoice(IntegrationTest):
 
             item_generator = InvoiceItemGenerator()
             items = [
-                item_generator.generate_title("Hours"),
-                item_generator.generate_description("Listing of all hours"),
-                item_generator.generate_item("Service", quantity=2, unit="hours", unit_price=65, net_total=130)
+                item_generator.generate_title(
+                    title="Hours"
+                ),
+                item_generator.generate_description(
+                    description="Listing of all hours"
+                ),
+                item_generator.generate_item(
+                    title="Service",
+                    quantity=2,
+                    unit="hours",
+                    unit_price=65,
+                    net_total=130
+                )
             ]
 
             change_add = InvoiceChangeAddress.CUSTOMER
-            salutation = "salut"
+            salutation = "salutation"
             footer = "this is the footer"
             cash_discount_days = 200
             cash_discount = 10.2
 
             inv_create = self.moco.Invoice.create(
-                customer.id,
-                recipient_address,
-                creation_date,
-                due_date,
-                service_from_date,
-                service_to_date,
-                title,
-                tax,
-                currency,
-                items,
+                customer_id=customer.id,
+                recipient_address=recipient_address,
+                created_date=creation_date,
+                due_date=due_date,
+                service_period_from=service_from_date,
+                service_period_to=service_to_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items,
                 status=InvoiceStatus.SENT,
                 change_address=change_add,
                 salutation=salutation,
@@ -346,8 +412,8 @@ class TestInvoice(IntegrationTest):
 
             assert type(inv_create) is ObjectResponse
 
-            assert inv_create.data.title == "invoice"
-            assert inv_create.data.currency == "EUR"
+            assert inv_create.data.title == title
+            assert inv_create.data.currency == currency
             assert inv_create.data.customer_id == customer.id
             assert inv_create.data.service_period_from == service_from_date.isoformat()
             assert inv_create.data.service_period_to == service_to_date.isoformat()
@@ -360,4 +426,3 @@ class TestInvoice(IntegrationTest):
             assert inv_create.data.cash_discount == cash_discount
             assert inv_create.data.cash_discount_days == cash_discount_days
             assert sorted(inv_create.data.tags) == sorted(tags)
-            

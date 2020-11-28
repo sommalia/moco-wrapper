@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:03:07",
+      "recorded_at": "2020-11-28T15:05:28",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"change_address\": \"invoice\", \"title\": \"invoice\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit_price\": 65, \"quantity\": 2, \"type\": \"item\", \"unit\": \"hours\", \"title\": \"Service\", \"net_total\": 130}], \"customer_id\": 760895541, \"currency\": \"EUR\", \"service_period_from\": \"2019-12-01\", \"status\": \"created\", \"recipient_address\": \"Mein Kunde\\nHauptstrasse 1\\n8000 Z\\u00fcrich\", \"tags\": [], \"service_period_to\": \"2019-12-31\", \"date\": \"2018-09-17\", \"tax\": 8.0, \"due_date\": \"2018-10-16\"}"
+          "string": "{\"status\": \"created\", \"tax\": 8.0, \"service_period_to\": \"2019-12-31\", \"currency\": \"EUR\", \"title\": \"TestInvoice.test_create\", \"service_period_from\": \"2019-12-01\", \"customer_id\": 760900795, \"change_address\": \"invoice\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit\": \"hours\", \"title\": \"Service\", \"quantity\": 2, \"unit_price\": 65, \"net_total\": 130, \"type\": \"item\"}], \"date\": \"2018-09-17\", \"recipient_address\": \"My Customer Address 22\", \"tags\": [], \"due_date\": \"2018-10-16\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "546"
+            "540"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTTW/UMBD9K9GcnWJn02TXd6RKwKXApbSKXHu2NSR2sMcVK9R/xo0/hpzsR8pK5cLNmfc88/Lm+SdYA1JU7aqqWgY6RfIDhi5X24avN5eXtWAwBv8VNU1ll/qegTXoyG4tBpBwXXHOeQ0MjCIECRUX65JvStHmWsJuWRe8FA0wiBierMZuxGC9AQmielNxsTmDum3ww3x7U4qq5OKcQn5BWE0EUpQiSNABFaEBBgGfMETVg9yqPiIDstRnXdY9eatxomg7WnTUKWMCxtzgA1pXvEvO4K27UmmkSEHFiIW4dWvOeXHz+1ew+hGygSGg0zuQ8PbzNTBwSB15yjPFil9wBqR+gFzn00PwMR7Rml/UDIyN2idHICeyVvGxe63WGbWLe8DgvaXOpeE+b2Xekw5ozoq919/QnFxQDxHklzt2sKpTNLlZ8VKIsqo/8VbyleTNDTBIo3mN02bOoY93LziL2+dIVH0iRXZCgMHWe5rSBQws4ZAlznFtRN2ItmVAuzFvb97iaZtXPoWYg4dRBzvOLec//56UI0u7vWPJWTpA+dyNIcdgBher4xf8mS2Hr4/Dl0OOEuaOL+bDexvJuofCbwvV98XjXuT/UrQ5KspmLdz4OD+Uf/lRnabDQdtSQHP5l4Ipzs93DEa1G9DRPkIBB+sMhunz+U8AAAD//xuTt6lgBAAA",
+          "base64_string": "H4sIAAAAAAAA/6xTwW7bOhD8FWPPlB/JxLLN20NRoAXaS5peWgQEQ64TthKpkqugQpF/LyjJtlID6aU3emZ2dzy7+gXegRJyJ/imZmD7TLHFpAu6rfme8+1+w6BL8RtaGuHQNw0D7zCQP3hMoOBGcs6FAAbOEIICycWu4vtKbAvWo17igleiBgYZ05O3qDtMPjpQIOR/kov9BaUPKbZT9b4SsuLiUkJxIbgaBWSoz6DAJjSEDhgkfMKUTQPqYJqMDMhTU3zdYqb34Sl6i2vCTHqqGUus7zwG0sa5hLk0/Dis3sxBrf6f0JWUUOJLCYMdQMHbzzfAICBpilQmiiu+5gzI/AS1K6+HFHM+sdd8fc3A+WxjHwjUKLYmP+rXMO3MkGfC4b0nHfr2vuxk2pJN6C7AJtrv6M4ZmIcM6usdOwalDY1ZSl4JUcndrdgovlFy+wUY9J17TbMrmmOfGF5oFtWXTDZNT4b8yACDQ4w03hYw8IRtsTgday12db2XDGjoyu6mHZ53+S72KZezw2yT76aW0z//0ZtAnoY5sT54OlLlrbvkLc7kYnV8zZ/ZcvjVafhyyMnC1PHFfPjgM/nwsIqHlWma1eNs8l85uj45KmEt0vg0fSZ/y0Oep8PR29JAvfnDwXjOz3cMOjO0GGg+oYStDw7T+PP5dwAAAP//bC+Cl14EAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "528"
+            "518"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:03:07 GMT"
+            "Sat, 28 Nov 2020 15:05:28 GMT"
           ],
           "Etag": [
-            "W/\"38abcd9e8f5f7640c8b4ac41c59b950c\""
+            "W/\"647d9949287d824481830f3c4a23d258\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "2eb77ee7-7a40-4c56-903b-d094693a0c96"
+            "d0bc9fa2-4722-40ab-a8e7-23b0978f0e37"
           ],
           "X-Runtime": [
-            "1.101145"
+            "1.027681"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

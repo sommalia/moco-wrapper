@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:02:45",
+      "recorded_at": "2020-11-28T15:05:05",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"type\": \"customer\", \"name\": \"TestInvoice\"}"
+          "string": "{\"name\": \"TestInvoice.get_customer\", \"type\": \"customer\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "43"
+            "56"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SRQY/TMBSE/8ucvchJ2u7GZ/aAuKHlAkKWY78UI9eO7JdCVPW/IycpcONmfxqNZubd4B3U80m+9MfjoRHgZSIo2LlwulCGQDSXSt6o8Id4Td4SBH7SUDxXDgG6GB+g4hyCwOBD8PGsV6itffDpe4q7fjS/todxLlMp28emOXJetE2u6t6/QuBqWHtHkf3oKT+s2JwL1NdvAnOpdCvRd92pe+mbXmD0ufCem6kwBIL5Q8xgHe4VDRR2Ix/HtIdLiavpGmldQU85TZTZU4G63QVsJsPktGEotLKVT03z1B7e5LOSrTocv0Bgntx/Nf82w0cpm1OFkSlHqNGEQn/n5LpZ07+TNVXOFO0ChdfPnyDgaDRzYO2382g3k3ZmKVCdFJhy+kGW16L33wEAAP//Qf/mEfABAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SRza7bIBCF3+WsuVfY1v0x62ZRdVelm1YVwjBOqQhYME5rRXn3Cttps6vEAj4djc43XOEd1Nur7KV8618EeJkICnYunM6UIRDNuZIjFf4YL8lbej4R64fELxqK5xqCAJ2ND1BxDkFg8CH4eNIr1Nbe+fQjxT0/mt/bxTiXqZTtYdMcOS/aJldzHw4QuBjW3lFkP3rK91FsTgXq23eBuVS6GfVd99q9900vMPpceJdgKgyBYP4SM1iHW0UDhX2Qj2Pay6XEdehaaRXWU04TZfZUoK43AZvJMDltGAqtbOVT0zy178fmRcl6vkJgntx/M49m+CRl11YYmXKEGk0o9G+dXHfW9M+ytsqZol2gcPjyGQKORjMH1n77K+1m0s4sBaqTAlNOP8nyKnr7EwAA///gH4Ke/QEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "320"
+            "322"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:02:45 GMT"
+            "Sat, 28 Nov 2020 15:05:05 GMT"
           ],
           "Etag": [
-            "W/\"cfe4a7f19011004ed90baee0a1be7dc6\""
+            "W/\"7aa909d8222a9a4c97e9a64451d470f4\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3e66b71e-548f-4f17-940b-b4e7b511c578"
+            "5eb102f0-1932-4234-88fb-59ced003d575"
           ],
           "X-Runtime": [
-            "0.079889"
+            "0.075119"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

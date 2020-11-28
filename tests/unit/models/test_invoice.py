@@ -1,7 +1,6 @@
-from moco_wrapper.util.generator import InvoiceItemGenerator
-
 from .. import UnitTest
-import pytest
+
+from moco_wrapper.util.generator import InvoiceItemGenerator
 
 from datetime import date
 
@@ -19,7 +18,12 @@ class TestInvoice(UnitTest):
         title = "Invoice"
         tax = 8.0
         currency = "CHF"
-        items = [generator.generate_title("this is the title"), generator.generate_separator()]
+        items = [
+            generator.generate_title(
+                title="this is the title"
+            ),
+            generator.generate_separator()
+        ]
         status = "created"
         change_address = "customer"
         salutation = "salute"
@@ -31,16 +35,16 @@ class TestInvoice(UnitTest):
         tags = ["Hosting", "Europe"]
 
         response = self.moco.Invoice.create(
-            customer_id,
-            recipient_address,
-            create_date,
-            due_date,
-            service_period_from,
-            service_period_to,
-            title,
-            tax,
-            currency,
-            items,
+            customer_id=customer_id,
+            recipient_address=recipient_address,
+            created_date=create_date,
+            due_date=due_date,
+            service_period_from=service_period_from,
+            service_period_to=service_period_to,
+            title=title,
+            tax=tax,
+            currency=currency,
+            items=items,
             status=status,
             change_address=change_address,
             salutation=salutation,
@@ -51,6 +55,7 @@ class TestInvoice(UnitTest):
             project_id=project_id,
             tags=tags
         )
+
         data = response["data"]
 
         assert data["customer_id"] == customer_id
@@ -81,7 +86,6 @@ class TestInvoice(UnitTest):
         generator = InvoiceItemGenerator()
 
         default_status = 'created'
-
         customer_id = 123456
         recipient_address = "My customer..."
         created_date = "2018-09-17"
@@ -91,10 +95,26 @@ class TestInvoice(UnitTest):
         title = "Invoice"
         tax = 8.0
         currency = "CHF"
-        items = [generator.generate_title("this is the title"), generator.generate_separator()]
+        items = [
+            generator.generate_title(
+                title="this is the title"
+            ),
+            generator.generate_separator()
+        ]
 
-        response = self.moco.Invoice.create(customer_id, recipient_address, created_date, due_date, service_period_from,
-                                            service_period_to, title, tax, currency, items)
+        response = self.moco.Invoice.create(
+            customer_id=customer_id,
+            recipient_address=recipient_address,
+            created_date=created_date,
+            due_date=due_date,
+            service_period_from=service_period_from,
+            service_period_to=service_period_to,
+            title=title,
+            tax=tax,
+            currency=currency,
+            items=items
+        )
+
         data = response["data"]
 
         assert data["status"] == default_status
@@ -103,9 +123,8 @@ class TestInvoice(UnitTest):
         generator = InvoiceItemGenerator()
 
         default_change_address = 'invoice'
-
         customer_id = 123456
-        recipient_address = "My customer..."
+        recipient_address = "My customer address 22"
         created_date = "2018-09-17"
         due_date = "2018-10-16"
         service_period_from = date(2019, 10, 1)
@@ -113,10 +132,26 @@ class TestInvoice(UnitTest):
         title = "Invoice"
         tax = 8.0
         currency = "CHF"
-        items = [generator.generate_title("this is the title"), generator.generate_separator()]
+        items = [
+            generator.generate_title(
+                title="this is the title"
+            ),
+            generator.generate_separator()
+        ]
 
-        response = self.moco.Invoice.create(customer_id, recipient_address, created_date, due_date, service_period_from,
-                                            service_period_to, title, tax, currency, items)
+        response = self.moco.Invoice.create(
+            customer_id=customer_id,
+            recipient_address=recipient_address,
+            created_date=created_date,
+            due_date=due_date,
+            service_period_from=service_period_from,
+            service_period_to=service_period_to,
+            title=title,
+            tax=tax,
+            currency=currency,
+            items=items
+        )
+
         data = response["data"]
 
         assert data["change_address"] == default_change_address
@@ -125,7 +160,11 @@ class TestInvoice(UnitTest):
         invoice_id = 2
         status = "paid"
 
-        response = self.moco.Invoice.update_status(invoice_id, status)
+        response = self.moco.Invoice.update_status(
+            invoice_id=invoice_id,
+            status=status
+        )
+
         data = response["data"]
 
         assert data["status"] == status
@@ -134,21 +173,27 @@ class TestInvoice(UnitTest):
     def test_timesheet(self):
         invoice_id = 2
 
-        response = self.moco.Invoice.timesheet(invoice_id)
+        response = self.moco.Invoice.timesheet(
+            invoice_id=invoice_id
+        )
 
         assert response["method"] == "GET"
 
     def test_pdf(self):
         invoice_id = 2
 
-        response = self.moco.Invoice.pdf(invoice_id)
+        response = self.moco.Invoice.pdf(
+            invoice_id=invoice_id
+        )
 
         assert response["method"] == "GET"
 
     def test_get(self):
         invoice_id = 2
 
-        response = self.moco.Invoice.get(invoice_id)
+        response = self.moco.Invoice.get(
+            invoice_id=invoice_id
+        )
 
         assert response["method"] == "GET"
 
@@ -158,7 +203,13 @@ class TestInvoice(UnitTest):
         date_to = '2020-10-10'
         identifier = "INVOICE-001"
 
-        response = self.moco.Invoice.locked(status=status, date_from=date_from, date_to=date_to, identifier=identifier)
+        response = self.moco.Invoice.locked(
+            status=status,
+            date_from=date_from,
+            date_to=date_to,
+            identifier=identifier
+        )
+
         params = response["params"]
 
         assert params["status"] == status
@@ -171,7 +222,9 @@ class TestInvoice(UnitTest):
     def test_locked_sort_default(self):
         sort_by = "this is the field to sort by"
 
-        response = self.moco.Invoice.locked(sort_by=sort_by)
+        response = self.moco.Invoice.locked(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -179,7 +232,10 @@ class TestInvoice(UnitTest):
         sort_by = "this is the field to sort by"
         sort_order = "desc"
 
-        response = self.moco.Invoice.locked(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.Invoice.locked(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -187,12 +243,16 @@ class TestInvoice(UnitTest):
         page_default = 1
 
         response = self.moco.Invoice.locked()
+
         assert response["params"]["page"] == page_default
 
     def test_locked_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.Invoice.locked(page=page_overwrite)
+        response = self.moco.Invoice.locked(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_getlist(self):
@@ -203,8 +263,15 @@ class TestInvoice(UnitTest):
         identifier = "INVOICE-001"
         term = "horse"
 
-        response = self.moco.Invoice.getlist(status=status, date_from=date_from, date_to=date_to, tags=tags,
-                                             identifier=identifier, term=term)
+        response = self.moco.Invoice.getlist(
+            status=status,
+            date_from=date_from,
+            date_to=date_to,
+            tags=tags,
+            identifier=identifier,
+            term=term
+        )
+
         params = response["params"]
 
         assert params["status"] == status
@@ -218,7 +285,9 @@ class TestInvoice(UnitTest):
     def test_getlist_sort_default(self):
         sort_by = "this is the field to sort by"
 
-        response = self.moco.Invoice.getlist(sort_by=sort_by)
+        response = self.moco.Invoice.getlist(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -226,7 +295,10 @@ class TestInvoice(UnitTest):
         sort_by = "this is the field to sort by"
         sort_order = "desc"
 
-        response = self.moco.Invoice.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.Invoice.getlist(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -239,25 +311,29 @@ class TestInvoice(UnitTest):
     def test_getlist_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.Invoice.getlist(page=page_overwrite)
+        response = self.moco.Invoice.getlist(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite  #
 
     def test_send_email_multiple(self):
         invoice_id = 2
         emails_to = ["test1@example.org", "test6@example.org"]
-        subject = "testemail"
+        subject = "test email"
         text = "test email text"
         emails_cc = ["test2@example.org", "test5@example.org"]
         emails_bcc = ["test3@example.org", "test4@example.org"]
 
         response = self.moco.Invoice.send_email(
-            invoice_id,
-            emails_to,
-            subject,
-            text,
+            invoice_id=invoice_id,
+            emails_to=emails_to,
+            subject=subject,
+            text=text,
             emails_cc=emails_cc,
             emails_bcc=emails_bcc
         )
+
         data = response["data"]
 
         assert data["emails_to"] == ";".join(emails_to)
@@ -271,19 +347,20 @@ class TestInvoice(UnitTest):
     def test_send_email(self):
         invoice_id = 2
         emails_to = "test1@example.org"
-        subject = "testemail"
+        subject = "test email"
         text = "test email text"
         emails_cc = "test5@example.org"
         emails_bcc = "test4@example.org"
 
         response = self.moco.Invoice.send_email(
-            invoice_id,
-            emails_to,
-            subject,
-            text,
+            invoice_id=invoice_id,
+            emails_to=emails_to,
+            subject=subject,
+            text=text,
             emails_cc=emails_cc,
             emails_bcc=emails_bcc
         )
+
         data = response["data"]
 
         assert data["emails_to"] == emails_to
