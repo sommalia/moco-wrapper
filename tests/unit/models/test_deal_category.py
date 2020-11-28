@@ -1,6 +1,5 @@
-import pytest
-
 from .. import UnitTest
+
 
 class TestDealCategory(UnitTest):
 
@@ -8,7 +7,11 @@ class TestDealCategory(UnitTest):
         name = "test deal category"
         prob = 15
 
-        response = self.moco.DealCategory.create(name, prob)
+        response = self.moco.DealCategory.create(
+            name=name,
+            probability=prob
+        )
+
         data = response["data"]
 
         assert data["name"] == name
@@ -21,7 +24,12 @@ class TestDealCategory(UnitTest):
         name = "test deal category to update"
         prob = 32
 
-        response = self.moco.DealCategory.update(cat_id, name, prob)
+        response = self.moco.DealCategory.update(
+            category_id=cat_id,
+            name=name,
+            probability=prob
+        )
+
         data = response["data"]
 
         assert data["name"] == name
@@ -30,20 +38,19 @@ class TestDealCategory(UnitTest):
         assert response["method"] == "PUT"
 
     def test_get(self):
-        deal_id = 333
+        cat_id = 123
 
-        response = self.moco.DealCategory.get(deal_id)
+        response = self.moco.DealCategory.get(
+            category_id=cat_id
+        )
 
         assert response["method"] == "GET"
 
     def test_delete(self):
         cat_id = 22
 
-        response = self.moco.DealCategory.delete(cat_id)
+        response = self.moco.DealCategory.delete(
+            category_id=cat_id
+        )
 
         assert response["method"] == "DELETE"
-
-
-
-
-

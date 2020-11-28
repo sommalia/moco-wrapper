@@ -9,8 +9,8 @@ class TestDealCategory(IntegrationTest):
             probability = 1
 
             cat_create = self.moco.DealCategory.create(
-                name,
-                probability
+                name=name,
+                probability=probability
             )
 
             assert cat_create.response.status_code == 200
@@ -26,13 +26,15 @@ class TestDealCategory(IntegrationTest):
             probability = 50
 
             cat_create = self.moco.DealCategory.create(
-                self.id_generator(),
-                1
+                name=self.id_generator(),
+                probability=probability
             )
+
             cat_update = self.moco.DealCategory.update(
                 cat_create.data.id,
                 name=name,
-                probability=probability)
+                probability=probability
+            )
 
             assert cat_create.response.status_code == 200
             assert cat_update.response.status_code == 200
@@ -48,9 +50,10 @@ class TestDealCategory(IntegrationTest):
             probability = 77
 
             cat_create = self.moco.DealCategory.create(
-                name,
-                probability
+                name=name,
+                probability=probability
             )
+
             cat_get = self.moco.DealCategory.get(cat_create.data.id)
 
             assert cat_create.response.status_code == 200
@@ -72,9 +75,10 @@ class TestDealCategory(IntegrationTest):
     def test_delete(self):
         with self.recorder.use_cassette("TestDealCategory.test_delete"):
             cat_create = self.moco.DealCategory.create(
-                self.id_generator(),
-                1
+                name=self.id_generator(),
+                probability=1
             )
+
             cat_delete = self.moco.DealCategory.delete(cat_create.data.id)
 
             assert cat_create.response.status_code == 200
