@@ -83,7 +83,7 @@ class OfferItemGenerator(BaseGenerator):
         self,
         title: str,
         quantity: float = None,
-        unit: int = None,
+        unit: str = None,
         unit_price: float = None,
         net_total: float = None,
         optional=False

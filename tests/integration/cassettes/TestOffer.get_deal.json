@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:04:09",
+      "recorded_at": "2020-12-02T14:12:48",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"status\": \"pending\", \"reminder_date\": \"2020-01-01\", \"money\": 1000, \"name\": \"TestOffer Deal\", \"user_id\": 933638919, \"deal_category_id\": 69660, \"currency\": \"EUR\"}"
+          "string": "{\"deal_category_id\": 69660, \"money\": 1000, \"status\": \"pending\", \"reminder_date\": \"2020-01-01\", \"currency\": \"EUR\", \"name\": \"TestOffer.get_deal\", \"user_id\": 933638919}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "161"
+            "165"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQQWvrMBCE/8pjzpuH7CTOs86vpx4KJb20lKBY6yBqS2K1Ppjg/15Mk1x7nGV2Z/a7InjYerevDntCdCPD4shFX/qe5c9/dgMIRZ1OBRaZow/xAoLwGKJnOXmn605tarMx1cZUIIwp8gxbGWP+GkI3iXDsZlg8vb2CEGKfYAGCukuB/fhcTUXTeMqSMosGLrDXhTAVFtifmu1222z/tVVL6IMUvdVVLgrC4B4Td+48FkJmKSnCxmkY7gnruZtOY3ZxfkinfEky39OatmnMg8lziuq+NLBwBCFLOrtzGIKufy6ETtgp+5PTO4yq2tS7ozlYs7OmfQdhyv4Xz/IdAAD//xzqqtaQAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SQP2vrQBDEv8vUa3P6g7Cuf9UrHjycJiGIs24ljkh3Ym9VCKPvHkRstylnmd2Z/d0RPGxZX0xVE6KbGRZXzvpvGFjOI2vn2U0gZHW6ZlgsHH2IIwjCc4iepfNOj73SlOZkipMpQJhT5A22MMacDaFfRTj2Gyz+vP0HIcQhwQIEdWOG/fg8TFnT3C2SFhYNnGHvO2HNLLA/VduqaqpLW7SEIUjWR2XlrCBM7jVxt95jJywsOUXYuE7TM+E499BpXlzcXtIpj0m2Z1rTNo15cfmborovDSwcQVgk3dwtTEGPP3dCL+yUfef0CaMoT6a8FrUtSltf3kFYF/+LZ/8OAAD//2gstnmUAQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:04:09 GMT"
+            "Wed, 02 Dec 2020 14:12:48 GMT"
           ],
           "Etag": [
-            "W/\"81616a17f569a6c035edfa7608be0bd4\""
+            "W/\"996af444b2b99a7cb5f2500c9ecd85a1\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "30a8ef2c-30b0-4a5d-81bd-348dd8608e11"
+            "cf44b45b-f427-4b20-a49e-007522ceaf14"
           ],
           "X-Runtime": [
-            "0.053475"
+            "0.056387"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

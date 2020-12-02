@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:04:23",
+      "recorded_at": "2020-12-02T14:13:01",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-01\", \"change_address\": \"offer\", \"title\": \"offer title\", \"due_date\": \"2021-01-01\", \"deal_id\": 245175, \"items\": [{\"title\": \"this is the title\", \"type\": \"title\"}, {\"description\": \"This is the first description\", \"type\": \"description\"}, {\"unit_price\": 65, \"optional\": false, \"quantity\": 1, \"type\": \"item\", \"unit\": \"h\", \"title\": \"support\"}, {\"title\": \"server hardware\", \"net_total\": 200, \"optional\": false, \"type\": \"item\"}, {\"title\": \"subtotal position\", \"type\": \"subtotal\"}, {\"unit_price\": 90, \"optional\": false, \"quantity\": 3, \"type\": \"item\", \"unit\": \"h\", \"title\": \"special support\"}, {\"type\": \"page-break\"}], \"project_id\": null, \"recipient_address\": \"this is the recipient address\", \"tax\": 19, \"currency\": \"EUR\"}"
+          "string": "{\"recipient_address\": \"My Customer Address 43\", \"project_id\": null, \"due_date\": \"2021-01-01\", \"currency\": \"EUR\", \"deal_id\": 248034, \"date\": \"2020-01-01\", \"items\": [{\"type\": \"title\", \"title\": \"this is the title\"}, {\"description\": \"This is the first description\", \"type\": \"description\"}, {\"optional\": false, \"unit_price\": 65, \"quantity\": 1, \"title\": \"support\", \"type\": \"item\", \"unit\": \"h\"}, {\"optional\": false, \"type\": \"item\", \"net_total\": 200, \"title\": \"server hardware\"}, {\"type\": \"subtotal\", \"title\": \"subtotal position\"}, {\"optional\": false, \"unit_price\": 90, \"quantity\": 3, \"title\": \"special support\", \"type\": \"item\", \"unit\": \"h\"}, {\"type\": \"page-break\"}], \"change_address\": \"offer\", \"title\": \"TestOffer.test_create_with_all_items\", \"tax\": 19}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "728"
+            "746"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7yTTY/TPBDHv0o0Z7ey89bWt0d6OCOhcgGhyptMtobUNvYYqFC/O3LTZFNW23JYuHlePP7N/5/8BN2CLKq1qAsGukVDutPoQcJ/ORdiwXkBDFpFCBJynvMFFwsuUi7i7ikvpjxp6lPSdh36bIgYeGy002hop9rWYwgggfY6ZDpktMdsqmdjnUETvUfTHEHCm/fvgIFB2pEl1YOsimrJGZD6AVJs0vHR2xDGcl3Uy7pi0OrQ2GgIJE89gRTF9HTjURG26RF7cMocQZrY9wyct5+xoTFsMU0bVMrLSqwqBkYd0n5bDPT2vOP/qenExqE7RaNWQizycstXkpcyz5dlufkADKJrb/UVS8Hz1DfOs+aqbzbheSWoPpIifa4Ag85aOtsJDDThIYD8OKxTluuV4CUDOrq0z+jU6N/cnbHWYmi8dsP4QaGvURnSdLwoHI2exEvnnfO6wUtx5t85tudJKexUH/DE5mTVRDZ/deIb/ZkBwXaG3GkfKLu++tdY64k1aTwTMUTnrKd70oknHNjDNU1d/YYzJG7yrF7kQf8NfbZXvv2u/OtamvP7Qq0nsBAfhntzsYZU5mzQF8v+5Re3eVE1h41WffaHbhY33Nw8U211F0zwCcypR1w8eFRfbv4Jry/Up9OvAAAA//+wbupZKwYAAA==",
+          "base64_string": "H4sIAAAAAAAA/7yTT4/TMBDFv0o0Z7ey82+3vq0QR4SEygWEIm8yaQ1pbOwxS4X63ZGbJk1Zbcth4Wa/GY9/fi/5BboBmZXpPc8Z6AZ70q1GBxIeUi7SBRccGDSKECSkPOULLhZcRC1gddbFpJOmLopr9PS+bdEtCT1VtUNFWD1p2laq6ypNuPPAwGGtrcaeKtU0Dr0HCe/2yZvgyezQJQ+DmuQZMKiDc9jXe5Dw9uMHYNAjVWRIdSCLrFhyBqR+ghSruNw44/1YLrNyWRYMGu1rE3oCyWOPJ0Uh3jnwNfESs7Oq34PsQ9cxsM58xZrGbYNx2uBbmt/zLGfQq93lizdI1bHxwMbBlaLRwWhruha5FJnkfFkUq0/AINjmWp9YcnEX+8Z5pr/om014XvGqC6RIHyvAoDWGjiEDgyEI+Xl4Ul7khShXDGhv45uGNM+p0lb7RPuEtpiMtQZ97bQdxg8ufQ+qJ037k8uh15OBcV1Zp2s8FWcZHvfmOCluW9V5PLAZ2R2fyOa3TnxjRjMgWM+QW+08JZdH/xmrmFijxzMTfbDWOLplnTjjwBYuacriD5xBuMqTvsiD7ge6ZKtc86Tc60aa8ttGZROYD4/DublZg5RY4/Upsv/5xeUvumax1qpL/jLN7Eqaq2eu3d0GKyYwqza4eHSovl39E17fqC+H3wEAAP//urCUuUEGAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "508"
+            "527"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:04:23 GMT"
+            "Wed, 02 Dec 2020 14:13:01 GMT"
           ],
           "Etag": [
-            "W/\"5825d1873935e5abf383b5935b321d1e\""
+            "W/\"ab6e4b6f3332e1eb47a766eed64223d2\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "acdee8c4-c00b-49f6-88ff-741672251e8f"
+            "cc3ccc8a-6d38-493b-8923-a52c028c3766"
           ],
           "X-Runtime": [
-            "0.783532"
+            "0.543886"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

@@ -1,5 +1,5 @@
 from .. import UnitTest
-import pytest
+
 
 class TestOffer(UnitTest):
     def test_getlist(self):
@@ -8,7 +8,13 @@ class TestOffer(UnitTest):
         to_date = '2020-10-10'
         identifier = 'OFFER-10-21'
 
-        response = self.moco.Offer.getlist(status=status, from_date=from_date, to_date=to_date, identifier=identifier)
+        response = self.moco.Offer.getlist(
+            status=status,
+            from_date=from_date,
+            to_date=to_date,
+            identifier=identifier
+        )
+
         params = response["params"]
 
         assert params["status"] == status
@@ -21,7 +27,9 @@ class TestOffer(UnitTest):
     def test_getlist_sort_default(self):
         sort_by = "field to sort by"
 
-        response = self.moco.Offer.getlist(sort_by=sort_by)
+        response = self.moco.Offer.getlist(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -29,7 +37,10 @@ class TestOffer(UnitTest):
         sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.Offer.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.Offer.getlist(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -37,32 +48,40 @@ class TestOffer(UnitTest):
         page_default = 1
 
         response = self.moco.Offer.getlist()
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.Offer.getlist(page=page_overwrite)
+        response = self.moco.Offer.getlist(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_get(self):
         offer_id = 123
 
-        response = self.moco.Offer.get(offer_id)
+        response = self.moco.Offer.get(
+            offer_id=offer_id
+        )
 
         assert response["method"] == "GET"
 
     def test_pdf(self):
         offer_id = 123
 
-        response = self.moco.Offer.pdf(offer_id)
+        response = self.moco.Offer.pdf(
+            offer_id=offer_id
+        )
 
         assert response["method"] == "GET"
 
     def test_create(self):
         deal_id = 1
         project_id = 2
-        recipient_address = "My customer..."
+        recipient_address = "My Customer Address 22"
         creation_date = "2018-09-17"
         due_date = "2018-10-16"
         title = "my offer"
@@ -70,12 +89,27 @@ class TestOffer(UnitTest):
         currency = "CHF"
         items = []
         change_address = "offer"
-        salutation = "salut"
+        salutation = "salutation text"
         footer = "footer text"
         discount = 10.2
         contact_id = 3
 
-        response = self.moco.Offer.create(deal_id, project_id, recipient_address, creation_date, due_date, title, tax, currency, items, change_address=change_address, salutation=salutation, footer=footer, discount=discount, contact_id=contact_id)
+        response = self.moco.Offer.create(
+            deal_id=deal_id,
+            project_id=project_id,
+            recipient_address=recipient_address,
+            creation_date=creation_date,
+            due_date=due_date,
+            title=title,
+            tax=tax,
+            currency=currency,
+            items=items,
+            change_address=change_address,
+            salutation=salutation,
+            footer=footer,
+            discount=discount,
+            contact_id=contact_id
+        )
 
         data = response["data"]
 
@@ -99,7 +133,11 @@ class TestOffer(UnitTest):
         offer_id = 123
         new_status = "ACCEPTED"
 
-        response = self.moco.Offer.update_status(offer_id, new_status)
+        response = self.moco.Offer.update_status(
+            offer_id=offer_id,
+            status=new_status
+        )
+
         data = response["data"]
 
         assert response["method"] == "PUT"

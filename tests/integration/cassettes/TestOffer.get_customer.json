@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:04:28",
+      "recorded_at": "2020-12-02T14:13:06",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,11 +28,11 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies?page=1&type=customer"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies?type=customer&page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+ya227bOBPHX4XgtZpSoiRbuvr6JUHSLQpkiyywSFMYtDS2uZApgaSSGkXebO/2xRY6+SRZsru2GrS+ij0aj8n5/0Jyxvz8DfMQ+wOXDD3bHdgG1osEsI+DVOl4DhIbWLB5Zvk/cJVwiNDNfHyLDfwMY8V19gQbGOaMR9gXaRQZeMyjiIvpKDeOgqCyJ7NYlP4T9rV4wcJQglLb8R9F9VZpyZQCZFr0UZgWtR20esRCjQ0cxKnQcjEK4jALf3WNDfzE9IiHIDSfcJDVCDSbKux//mLgVGXWYvYepS4deqZn4AmXSpcT1qCy6BFbWtg4CPFLZhpDVAbiYhKXc4pjvfqqIoGjRMYJSM1BYf/bi4EDCUxDOGIa+9giFnljmm8sek883yG+TR6wgdMk7PRZnxv+QAihmVFokAL7ExYpWOmgs2Sb3gXJRiUliGCBfXz9xyds4BAmLI30iIunmAcwClMYhWyhsE+JgRMZ/wWBzqf6Yqyx4jiW28JKEM8TJhaomC1aczg2Na9P/nxIh4hv3xPXdzzfHuwWf9OnJv6wb/G9PcSHJ5ALlOUAKdAb2s+0TpT/9u08DmKWJBdBPF/hUPz9H3xl8ySCi1hOcRMdlSkItlwrYPLFYklN9W6FTiYwUloCaGTWObq8beAIX95e55HcwdDDS6Iwk4CXYBhYz0ABPhpnO8OX9HGB9IwrVM88SL1AXJUCLBHNvblCegaoNB4O7cAnxCe0Fdo1n400Wg/vbv782EGt5Vw4B1FrOq3UUmsPanWMplu0nleqLUFNr1v0wmd7pTLNnlcq2nakqSzomesZemI/UHZ81bSuvFL9qdOtf+FT09/qVX/bHdAW/T+mSoNE725OoPsy9qMoXjYcZKsH52Ps8iTTOx9te0KWujxZv8Ju8GP0Xt8PtEyPLXeZKduhA0KouzWAO6scQZmo98VADMwCzZ9gfURsHEFJ5EvtNNy2xtyD0u+ycFwvfgmOvrP+Gfqm1VX/VD41ipwTrxrrGHnDYRNG1kry8oNl9RuiSSxRlk0upogVKGQp2Y1Z9r5OWdtJJqPsMp7PQZyPrq1FttWyVG361CBz+4TMM5sgo5uK35UfzgkLCvkP58rZjyukIIhFeG7m7MUZNbs5K3xqnA36LpFIxxFo2Vcop4PyZ439nEX8LErzZlOnbywaWia99GUaujPHqLjIcI82S2PFTby+cRp2ridCs2x7PC8kncqbezTYzKYGW1Zr9/2TAG3rCmfKXwGLzmq3qd1WSW361NS2e1bb7tw2ZnEqowWSTMNZ9d2qW77V2U+tfGqqn7ryqaludvyPvy8inqKjBlygD6kI4VHcsjTRy47aoxgSQtDDP39LHsx+IjDszkYr3dVo77daaeys2LvIOKg+sds6dGtx79jiXP62A0V9aw+grObOfb9lie0Ouk4T92w65WKKLovq5JUIjyUkEcsxzzdBXY6yMh+v+Oj+oiOAU7RvqW+5XS3eyqdWgPR9MKFtW1RVwlYlbf7L33dfUnhThDvgrkLzJ059ZcEbDlzHppb5c1xZqET8b1cXTHuPX7HtGtIPxPv0+28nv7rw5d8AAAD//1/qtlCbJwAA",
+          "base64_string": "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",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "1206"
+            "2016"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:04:28 GMT"
+            "Wed, 02 Dec 2020 14:13:06 GMT"
           ],
           "Etag": [
-            "W/\"62abd3fb0905139e52fea522d3283e66\""
+            "W/\"39bdedf2398f24e46026baa71bf81714\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "e4e68f1a-32cd-45be-9335-af94d48f9038"
+            "ffe7548b-f343-48f2-8f7d-45ddadbbbaab"
           ],
           "X-Runtime": [
-            "0.094386"
+            "0.261974"
           ],
           "X-Total": [
-            "18"
+            "33"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies?page=1&type=customer"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies?type=customer&page=1"
       }
     }
   ],

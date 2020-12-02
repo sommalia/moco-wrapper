@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:04:17",
+      "recorded_at": "2020-12-02T14:12:55",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-02\", \"change_address\": \"offer\", \"title\": \"offer created from deal\", \"due_date\": \"2021-01-01\", \"deal_id\": 245175, \"items\": [{\"title\": \"This is the title of the offer\", \"type\": \"title\"}, {\"description\": \"this is the description\", \"type\": \"description\"}, {\"unit_price\": 100.0, \"optional\": false, \"quantity\": 1, \"type\": \"item\", \"unit\": \"h\", \"title\": \"MailChimp Einrichtung\", \"net_total\": 400}, {\"unit_price\": 20, \"optional\": true, \"quantity\": 20, \"type\": \"item\", \"unit\": \"h\", \"title\": \"On Site Support\", \"net_total\": 400}], \"project_id\": null, \"recipient_address\": \"this is the recpipient address\", \"tax\": 21.5, \"currency\": \"EUR\"}"
+          "string": "{\"recipient_address\": \"My Customer Address 34\", \"project_id\": null, \"due_date\": \"2021-01-01\", \"currency\": \"EUR\", \"deal_id\": 248034, \"date\": \"2020-01-02\", \"items\": [{\"type\": \"title\", \"title\": \"This is the title of the offer\"}, {\"description\": \"this is the description\", \"type\": \"description\"}, {\"optional\": false, \"unit_price\": 100.0, \"quantity\": 1, \"title\": \"MailChimp Setup\", \"type\": \"item\", \"net_total\": 400, \"unit\": \"h\"}, {\"optional\": true, \"unit_price\": 20, \"quantity\": 20, \"title\": \"On-Site Support\", \"type\": \"item\", \"net_total\": 400, \"unit\": \"h\"}], \"change_address\": \"offer\", \"title\": \"TestOffer.test_create_from_deal\", \"tax\": 21.5}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "644"
+            "638"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7STz2obMRDGX0XMWTaSso6DbqXNsQQa99JSjNidjVXWkiqNoKb43Yu0XnudUOfUm+ePZ37zfdo/YDvQd6sHea842A4d2d5iBA0flJByIYQCDp0hBA1KKLEQcjHmMm4veVnzEjiQpaEkfd9jZG1EQ9ixPvo969AMwCFia4NFR1vTdRFTAg20s4nZxGiHLGIbxgY2NXBoc4zo2gNoePz6BTg4pC15MgNoKcRScCDzG7SSyxWHl+hTOpfHXGdT67Mj0LU7kaFcVp8Qyw6/D8YdQLs8DBxC9D+xpSms9HpUTDUruV5xcGZfbt1goqd676fSdOTT0K2hSTcpF6rZiLUWjZb3y3spvwGHHLpbfeulWD+Uvmmed1d9swlvK8kMmQzZWgEOvfdUrQUOlnCfQH8fz2mah7UURcJDKPeMHl683MzcqTnm+xpUk8tjwNRGG8Zdo1y/snFk6XCSOzt7VrL83oZoWzwVZ17W2NdJJezNkPDI55jyjDnfeoadzJoBXb2u6z/9N0p1pixSz7T8bOzwcWf3gT1aF227o+xe3pNQXuBgB9dsp9f/9nu4yXf3L74nx54tIXvOIfhI75EpcQNNvSZrXpNRzHj8cfwbAAD//+KSxcOIBAAA",
+          "base64_string": "H4sIAAAAAAAA/7STQW/bPAyG/4rBsxJIip2muhXFdywKfOkuGwZDsOlGgy1pEgUsGPLfB9mJ67RYetotfMmQD1/Kv8G0oDZbueMbBqZFS6YzGEDBg+RCrji/BwatJgQFkku+4mLFZdYS1m+6GHUBDMhQn8UXjPTcdRjWhJHqJqAmrLvghrpF3QODgI3xBi3Vum0DxggKno7FY4rkBgzFw6QWmxIYNCkEtM0RFPz35X9gYJFqcqR7UILzNWdA+hcoKdYVg9fgYpzTk9aa2LhkCdRYHUlTyiMnsjbPcIPX9gjKpr5n4IP7gQ1dwpFaTY7Jcsc3JQOrh+tdX5Gm9U7s0rjWdPEuGypfRKmEVFW5vtvefwUGybe36qq1LHmuu/Rz9qpu0eFjJuo+kSYzZoBB5xyN5wUGhnCIoL5NK5VVWYltxYCOPu803XFxz4OJhYkFHbAYtcJ1Y+Dy4vlBYGyC8dOsybKfSVsydDxbnqyZ3cy/ax9Mg+fk4p5j7MZOOex0H/HElpjbGXM5dYa9HGwBBLTgv/7TP6O8mymz1Qsvn7TpHw9m8MUeKfnPzBNvWHCAa6rz2//4Ndwk2/2N7Nmu9oaw2CfvXaDPyCS/gSbfk5XvySgkPH0//QkAAP//ZerGu4YEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "480"
+            "485"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:04:17 GMT"
+            "Wed, 02 Dec 2020 14:12:55 GMT"
           ],
           "Etag": [
-            "W/\"3bb03f09737f33c2ff8c6df69bd23c2c\""
+            "W/\"a03ed36179924795a5d371da5593cabc\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "69fa0e6f-3f62-4680-921f-a110672d6552"
+            "4ecad607-675b-4fec-ba02-60a32ad86e00"
           ],
           "X-Runtime": [
-            "0.545974"
+            "0.531727"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

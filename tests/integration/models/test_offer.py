@@ -3,6 +3,7 @@ from .. import IntegrationTest
 from datetime import date
 
 from moco_wrapper.models.offer import OfferStatus
+from moco_wrapper.models.contact import ContactGender
 from moco_wrapper.util.response import PagedListResponse, ObjectResponse, FileResponse, EmptyResponse
 from moco_wrapper.util.generator import OfferItemGenerator
 
@@ -26,19 +27,22 @@ class TestOffer(IntegrationTest):
 
         with self.recorder.use_cassette("TestOffer.get_deal"):
             deal = self.moco.Deal.create(
-                "TestOffer Deal",
-                "EUR",
-                1000,
-                date(2020, 1, 1),
-                user.id,
-                deal_cat.id
+                name="TestOffer.get_deal",
+                currency="EUR",
+                money=1000,
+                reminder_date=date(2020, 1, 1),
+                user_id=user.id,
+                deal_category_id=deal_cat.id
             )
 
             return deal.data
 
     def get_customer(self):
         with self.recorder.use_cassette("TestOffer.get_customer"):
-            customer = self.moco.Company.getlist(company_type="customer").items[0]
+            customer = self.moco.Company.getlist(
+                company_type="customer"
+            ).items[0]
+
             return customer
 
     def get_project(self):
@@ -47,10 +51,10 @@ class TestOffer(IntegrationTest):
 
         with self.recorder.use_cassette("TestOffer.get_project"):
             project_create = self.moco.Project.create(
-                "project for offer creation",
-                "EUR",
-                leader.id,
-                customer.id,
+                name="TestOffer.get_project",
+                currency="EUR",
+                leader_id=leader.id,
+                customer_id=customer.id,
                 finish_date=date(2020, 1, 1),
             )
 
@@ -58,7 +62,12 @@ class TestOffer(IntegrationTest):
 
     def get_contact(self):
         with self.recorder.use_cassette("TestOffer.get_contact"):
-            contact_create = self.moco.Contact.create("Offer", "Contact", "u")
+            contact_create = self.moco.Contact.create(
+                firstname="-",
+                lastname="TestOffer.get_contact",
+                gender=ContactGender.FEMALE
+            )
+
             return contact_create.data
 
     def test_getlist(self):
@@ -77,8 +86,12 @@ class TestOffer(IntegrationTest):
 
     def test_getlist_full(self):
         with self.recorder.use_cassette("TestOffer.test_getlist_full"):
-            off_getlist = self.moco.Offer.getlist(status=OfferStatus.ACCEPTED, from_date=date(2020, 1, 1),
-                                                  to_date=date(2020, 1, 31), identifier="TEST-IDENT")
+            off_getlist = self.moco.Offer.getlist(
+                status=OfferStatus.ACCEPTED,
+                from_date=date(2020, 1, 1),
+                to_date=date(2020, 1, 31),
+                identifier="TEST-IDENT"
+            )
 
             assert off_getlist.response.status_code == 200
 
@@ -95,34 +108,53 @@ class TestOffer(IntegrationTest):
         user = self.get_user()
 
         with self.recorder.use_cassette("TestOffer.test_get"):
-            rec_address = "this is the recpipient address"
+            rec_address = "My Customer Address 33"
             creation_date = date(2020, 1, 2)
             due_date = date(2021, 1, 1)
-            title = "offer created from deal"
+            title = "TestOffer.get_get_create"
             tax = 21.5
             currency = "EUR"
 
             gen = OfferItemGenerator()
             items = [
-                gen.generate_title("This is the title of the offer"),
-                gen.generate_description("this is the description"),
-                gen.generate_item("MailChimp Einrichtung", quantity=1, unit="h", unit_price=100.0, net_total=400),
-                gen.generate_item("On Site Support", quantity=20, unit_price=20, unit="h", net_total=400, optional=True)
+                gen.generate_title(
+                    title="This is the title of the offer"
+                ),
+                gen.generate_description(
+                    description="this is the description"
+                ),
+                gen.generate_item(
+                    title="MailChimp Setup",
+                    quantity=1,
+                    unit="h",
+                    unit_price=100.0,
+                    net_total=400
+                ),
+                gen.generate_item(
+                    title="On-Site Support",
+                    quantity=20,
+                    unit_price=20,
+                    unit="h",
+                    net_total=400,
+                    optional=True
+                )
             ]
 
             offer_create = self.moco.Offer.create(
-                deal.id,
-                None,
-                rec_address,
-                creation_date,
-                due_date,
-                title,
-                tax,
-                currency,
-                items
+                deal_id=deal.id,
+                project_id=None,
+                recipient_address=rec_address,
+                creation_date=creation_date,
+                due_date=due_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
             )
 
-            offer_get = self.moco.Offer.get(offer_create.data.id)
+            offer_get = self.moco.Offer.get(
+                offer_id=offer_create.data.id
+            )
 
             assert offer_create.response.status_code == 201
             assert offer_get.response.status_code == 200
@@ -141,31 +173,48 @@ class TestOffer(IntegrationTest):
         deal = self.get_deal()
 
         with self.recorder.use_cassette("TestOffer.test_create_from_deal"):
-            rec_address = "this is the recpipient address"
+            rec_address = "My Customer Address 34"
             creation_date = date(2020, 1, 2)
             due_date = date(2021, 1, 1)
-            title = "offer created from deal"
+            title = "TestOffer.test_create_from_deal"
             tax = 21.5
             currency = "EUR"
 
             gen = OfferItemGenerator()
             items = [
-                gen.generate_title("This is the title of the offer"),
-                gen.generate_description("this is the description"),
-                gen.generate_item("MailChimp Einrichtung", quantity=1, unit="h", unit_price=100.0, net_total=400),
-                gen.generate_item("On Site Support", quantity=20, unit_price=20, unit="h", net_total=400, optional=True)
+                gen.generate_title(
+                    title="This is the title of the offer"
+                ),
+                gen.generate_description(
+                    description="this is the description"
+                ),
+                gen.generate_item(
+                    title="MailChimp Setup",
+                    quantity=1,
+                    unit="h",
+                    unit_price=100.0,
+                    net_total=400
+                ),
+                gen.generate_item(
+                    title="On-Site Support",
+                    quantity=20,
+                    unit_price=20,
+                    unit="h",
+                    net_total=400,
+                    optional=True
+                )
             ]
 
             offer_create = self.moco.Offer.create(
-                deal.id,
-                None,
-                rec_address,
-                creation_date,
-                due_date,
-                title,
-                tax,
-                currency,
-                items
+                deal_id=deal.id,
+                project_id=None,
+                recipient_address=rec_address,
+                creation_date=creation_date,
+                due_date=due_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
             )
 
             assert offer_create.response.status_code == 201
@@ -181,30 +230,48 @@ class TestOffer(IntegrationTest):
 
     def test_create_with_all_items(self):
         deal = self.get_deal()
-        user = self.get_user()
 
         with self.recorder.use_cassette("TestOffer.test_create_with_all_items"):
             gen = OfferItemGenerator()
             items = [
-                gen.generate_title("this is the title"),
-                gen.generate_description("This is the first description"),
-                gen.generate_detail_position("support", 1, "h", 65),
-                gen.generate_lump_position("server hardware", 200),
-                gen.generate_subtotal("subtotal position"),
-                gen.generate_detail_position("special support", 3, "h", 90),
+                gen.generate_title(
+                    title="this is the title"
+                ),
+                gen.generate_description(
+                    description="This is the first description"
+                ),
+                gen.generate_detail_position(
+                    title="support",
+                    quantity=1,
+                    unit="h",
+                    unit_price=65
+                ),
+                gen.generate_lump_position(
+                    title="server hardware",
+                    net_total=200
+                ),
+                gen.generate_subtotal(
+                    title="subtotal position"
+                ),
+                gen.generate_detail_position(
+                    title="special support",
+                    quantity=3,
+                    unit="h",
+                    unit_price=90
+                ),
                 gen.generate_pagebreak()
             ]
 
             offer_create = self.moco.Offer.create(
-                deal.id,
-                None,
-                "this is the recipient address",
-                date(2020, 1, 1),
-                date(2021, 1, 1),
-                "offer title",
-                19,
-                "EUR",
-                items
+                deal_id=deal.id,
+                project_id=None,
+                recipient_address="My Customer Address 43",
+                creation_date=date(2020, 1, 1),
+                due_date=date(2021, 1, 1),
+                title="TestOffer.test_create_with_all_items",
+                tax=19,
+                currency="EUR",
+                items=items
             )
 
             assert offer_create.response.status_code == 201
@@ -217,29 +284,34 @@ class TestOffer(IntegrationTest):
         project = self.get_project()
 
         with self.recorder.use_cassette("TestOffer.test_create_with_project"):
-            rec_address = "this is the recpipient address"
+            rec_address = "My Customer Address 34"
             creation_date = date(2020, 1, 2)
             due_date = date(2021, 1, 1)
-            title = "offer created from deal"
+            title = "TestOffer.test_create_project"
             tax = 21.5
             currency = "EUR"
 
             gen = OfferItemGenerator()
             items = [
-                gen.generate_title("offer from project title"),
-                gen.generate_lump_position("misc", 2000)
+                gen.generate_title(
+                    title="offer from project title"
+                ),
+                gen.generate_lump_position(
+                    title="misc",
+                    net_total=2000
+                )
             ]
 
             offer_create = self.moco.Offer.create(
-                None,
-                project.id,
-                rec_address,
-                creation_date,
-                due_date,
-                title,
-                tax,
-                currency,
-                items
+                deal_id=None,
+                project_id=project.id,
+                recipient_address=rec_address,
+                creation_date=creation_date,
+                due_date=due_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
             )
 
             assert offer_create.response.status_code == 201
@@ -258,10 +330,10 @@ class TestOffer(IntegrationTest):
         deal = self.get_deal()
 
         with self.recorder.use_cassette("TestOffer.test_create_full"):
-            rec_address = "this is the recpipient address"
+            rec_address = "My Customer Address 34"
             creation_date = date(2020, 1, 2)
             due_date = date(2021, 1, 1)
-            title = "offer created from deal"
+            title = "TestOffer.test_create_full"
             tax = 21.5
             currency = "EUR"
             salutation = "salute"
@@ -270,20 +342,25 @@ class TestOffer(IntegrationTest):
 
             gen = OfferItemGenerator()
             items = [
-                gen.generate_title("offer from project title"),
-                gen.generate_lump_position("misc", 2000)
+                gen.generate_title(
+                    title="offer from project title"
+                ),
+                gen.generate_lump_position(
+                    title="misc",
+                    net_total=2000
+                )
             ]
 
             offer_create = self.moco.Offer.create(
-                deal.id,
-                project.id,
-                rec_address,
-                creation_date,
-                due_date,
-                title,
-                tax,
-                currency,
-                items,
+                deal_id=deal.id,
+                project_id=project.id,
+                recipient_address=rec_address,
+                creation_date=creation_date,
+                due_date=due_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items,
                 salutation=salutation,
                 footer=footer,
                 discount=discount,
@@ -309,13 +386,30 @@ class TestOffer(IntegrationTest):
         with self.recorder.use_cassette("TestOffer.test_pdf"):
             gen = OfferItemGenerator()
             items = [
-                gen.generate_title("title"),
-                gen.generate_lump_position("pos 1", 200)
+                gen.generate_title(
+                    title="title"
+                ),
+                gen.generate_lump_position(
+                    title="pos 1",
+                    net_total=200
+                )
             ]
 
-            offer_create = self.moco.Offer.create(None, project.id, "rec address", date(2020, 1, 1), date(2021, 1, 1),
-                                                  "title", 21, "EUR", items)
-            offer_pdf = self.moco.Offer.pdf(offer_create.data.id)
+            offer_create = self.moco.Offer.create(
+                deal_id=None,
+                project_id=project.id,
+                recipient_address="My Customer Address 24",
+                creation_date=date(2020, 1, 1),
+                due_date=date(2021, 1, 1),
+                title="TestOffer.test_pdf_create",
+                tax=21,
+                currency="EUR",
+                items=items
+            )
+
+            offer_pdf = self.moco.Offer.pdf(
+                offer_id=offer_create.data.id
+            )
 
             assert offer_create.response.status_code == 201
             assert offer_pdf.response.status_code == 200
@@ -330,16 +424,35 @@ class TestOffer(IntegrationTest):
 
             gen = OfferItemGenerator()
             items = [
-                gen.generate_title("title"),
-                gen.generate_lump_position("pos 1", 200)
+                gen.generate_title(
+                    title="title"
+                ),
+                gen.generate_lump_position(
+                    title="pos 1",
+                    net_total=200
+                )
             ]
 
-            offer_create = self.moco.Offer.create(None, project.id, "rec adress", date(2020, 1, 1), date(2021, 1, 1),
-                                                  "title", 21, "EUR", items)
+            offer_create = self.moco.Offer.create(
+                deal_id=None,
+                project_id=project.id,
+                recipient_address="My Customer Address 44",
+                creation_date=date(2020, 1, 1),
+                due_date=date(2021, 1, 1),
+                title="TestOffer.test_update_status_create",
+                tax=21,
+                currency="EUR",
+                items=items
+            )
 
-            offer_update_status = self.moco.Offer.update_status(offer_create.data.id, offer_status)
+            offer_update_status = self.moco.Offer.update_status(
+                offer_id=offer_create.data.id,
+                status=offer_status
+            )
 
-            offer_get = self.moco.Offer.get(offer_create.data.id)
+            offer_get = self.moco.Offer.get(
+                offer_id=offer_create.data.id
+            )
 
             assert offer_create.response.status_code == 201
             assert offer_update_status.response.status_code == 204
