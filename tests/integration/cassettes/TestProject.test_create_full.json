@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:05:38",
+      "recorded_at": "2020-12-02T14:48:59",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"hourly_rate\": 12.5, \"billing_notes\": \"billing notes text\", \"setting_include_time_report\": true, \"leader_id\": 933638919, \"billing_email_to\": \"billing@example.org\", \"customer_id\": 760895545, \"name\": \"test project create\", \"billing_address\": \"general street 22\", \"info\": \"general information\", \"billing_email_cc\": \"billing-cc@example.org\", \"billing_variant\": \"project\", \"fixed_price\": false, \"budget\": 100, \"labels\": [\"low risk\", \"low income\"], \"finish_date\": \"2021-01-01\", \"currency\": \"EUR\"}"
+          "string": "{\"leader_id\": 933638919, \"billing_notes\": \"billing notes text\", \"billing_variant\": \"project\", \"finish_date\": \"2021-01-01\", \"billing_email_to\": \"billing@example.org\", \"labels\": [\"low risk\", \"low income\"], \"billing_address\": \"general street 22\", \"hourly_rate\": 12.5, \"setting_include_time_report\": true, \"currency\": \"EUR\", \"name\": \"TestProject.test_create_full\", \"fixed_price\": false, \"customer_id\": 760902806, \"billing_email_cc\": \"billing-cc@example.org\", \"budget\": 100, \"info\": \"general information\"}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "491"
+            "500"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6yUy24bOwyGX2XAtRxobr5odTbB2QZFumlRDGSJdlRrpAHFSRwEfvdCvoyNFG1RNMBsyPlEUvx/6A2cBbVq2npRStkIcBYDu41DAgUPlZRyBQKC7hEUMCYuBorf0XBhCDUjCNCG3TOCYhpRwNp5r9d+ijduj7YbyBkEtdE+HXPBpafO5vMKKlmVM5k/EGBGIgzmFRTcf/4Ep3oubLtnTU4HBgXnAW7+aWsJUwIFWwxI2heJCZGLqrqhsNfOdxxBXVL/4V73g8e7SNufQGOu4MyYX7AhMqYrWBzjgnGf50vInCEXjB8tdux67AiHSDyta7RbZFCllHfyEna4HzCkXPiYfYoj+deOjvsqq7tWgAubeHPfHFKv2cUAAlhvE6iv4ONL4YKJfZYpB+TSDr4J8HqN/veIGRPHvhsoDkjs8ixvBwEetc3eOBunruf1clWusqaU+MYnuZyeMnptLBwuVa8FFnO5XLVt004ee8TED2eFD/kqaZcHPePVYrGsqwk+gjv26HgMF1lu3ffOm+dlh9H791vN+z+I2zb11OY+8IszO//xPZqpx/+kN2737+WzdDEwacPXvTXzcinLdt4IGBNS9/fafcRcFrW/EKfXw3aaTy+AnJXlrGoe5ULJVtXLLyBgHOwfmMOPAAAA//+66b3WwAQAAA==",
+          "base64_string": "H4sIAAAAAAAA/6xUTW/bMAz9KwHPSuCPxIl12qXYtRi6y4ZBUCQm1SJLBkW3KYr890H5cILuC8MK+EL68ZF6fOArOAuynS/qZbtsGwHOYmC3cUgg4b4qinoJAoLuECQ8YOJ7it/R8IwxsTKEmlFtBu9BgDbsnhAk04AC1s57vfZjvHF7tKonZxDkRvt0zAWXHpXVnOmroiqnRf5AgBmIMJgXkHD3+ROc+FzYqidNTgcGCf1plJt/2lrClEDCFgOS9pPEhMiTqrpBYaedVxxBXlIfcK+73uMs0vYnoDFX4NSY32BDZExX4OQYTxj3eb6EzBnkgvGDRcWuQ0XYR+JRrsFukUGWRTErLqHCfY8hZeJj9jEO5F8UHfUqq9lCgAubePPeHFKn2cUAAlhvE8iv4OPzxAUTOwRxDMilHXwT4PUa/Z8hZkgcO9VT7JHY5VleDwI8aptNcnZQXTf1qi3bvFNKfDZMNkmm02NGr42Fw4X1SrBsiraoVkXzS7NlKcaKQ35X2uWpz7V1U9dlOVYeq3bs0fEQLju6teIbo56VD4P3byXOyziI2zbV2OYu8LMzO//+Peqxx0fSG7f7f/q8xxiYtOGrbvOmXNWLZrkUMCQk9e+LfI+5LGp/QZzuiVWaT+egmJbVtKgeyrmcr+Si/QICht7+BXP4EQAA//8qMYod1gQAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "511"
+            "517"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:05:38 GMT"
+            "Wed, 02 Dec 2020 14:48:59 GMT"
           ],
           "Etag": [
-            "W/\"f82850478a7a3677181e593705a6c5e1\""
+            "W/\"cc8abd778712e48e340f66d02609e122\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "2e5a9b17-b70e-4d32-afc1-82f28f2f17d8"
+            "47e32e11-c7bd-4113-b146-00d09376dd9d"
           ],
           "X-Runtime": [
-            "0.143046"
+            "0.165159"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

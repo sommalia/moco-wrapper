@@ -1,5 +1,6 @@
 from moco_wrapper.util.response import ObjectResponse, PagedListResponse, ListResponse
 from moco_wrapper.models.project import ProjectBillingVariant
+from moco_wrapper.models.company import CompanyType
 
 from datetime import date
 
@@ -22,8 +23,8 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.get_other_user"):
             user_create = self.moco.User.create(
-                firstname="dummy user",
-                lastname="testing contracts",
+                firstname="-",
+                lastname="TestProject.get_other_user",
                 email="{}@example.org".format(self.id_generator()),
                 password=self.id_generator(),
                 unit_id=unit.id,
@@ -34,8 +35,8 @@ class TestProject(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestProject.get_customer"):
             customer_create = self.moco.Company.create(
-                name="TestProject",
-                company_type="customer"
+                name="TestProject.get_customer",
+                company_type=CompanyType.CUSTOMER
             )
 
             return customer_create.data
@@ -43,6 +44,7 @@ class TestProject(IntegrationTest):
     def get_deal_category(self):
         with self.recorder.use_cassette("TestProject.get_deal_category"):
             deal_category = self.moco.DealCategory.getlist().items[0]
+
             return deal_category
 
     def get_deal(self):
@@ -51,13 +53,14 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.get_deal"):
             deal_create = self.moco.Deal.create(
-                name="dummy deal",
+                name="TestProject.get_deal",
                 currency="EUR",
                 money=100,
                 reminder_date=date(2021, 1, 1),
                 user_id=user.id,
                 deal_category_id=category.id
             )
+
             return deal_create.data
 
     def test_create(self):
@@ -65,7 +68,7 @@ class TestProject(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestProject.test_create"):
-            name = "test project create"
+            name = "TestProject.test_create"
             currency = "EUR"
             finish_date = date(2021, 1, 1)
 
@@ -93,7 +96,7 @@ class TestProject(IntegrationTest):
         deal = self.get_deal()
 
         with self.recorder.use_cassette("TestProject.test_create_with_deal"):
-            name = "test project create with deal"
+            name = "TestProject.test_create_with_deal"
             currency = "EUR"
 
             project_create = self.moco.Project.create(
@@ -103,6 +106,10 @@ class TestProject(IntegrationTest):
                 customer_id=customer.id,
                 deal_id=deal.id
             )
+
+            assert project_create.response.status_code == 200
+
+            assert type(project_create) is ObjectResponse
 
             assert project_create.data.name == name
             assert project_create.data.currency == currency
@@ -115,7 +122,7 @@ class TestProject(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestProject.test_create_full"):
-            name = "test project create"
+            name = "TestProject.test_create_full"
             currency = "EUR"
             finish_date = date(2021, 1, 1)
             billing_address = "general street 22"
@@ -172,7 +179,7 @@ class TestProject(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestProject.test_get"):
-            name = "test project get"
+            name = "TestProject.test_get_create"
             currency = "EUR"
             finish_date = date(2021, 1, 1)
             billing_address = "general street 22"
@@ -221,7 +228,7 @@ class TestProject(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestProject.test_update"):
-            name = "test project update"
+            name = "TestProject.test_update"
             currency = "EUR"
             finish_date = date(2021, 1, 1)
             billing_address = "general street 22"
@@ -236,7 +243,7 @@ class TestProject(IntegrationTest):
             info = "general information"
 
             project_create = self.moco.Project.create(
-                name="dummy project, test update",
+                name="TestProject.test_update_create",
                 currency="EUR",
                 leader_id=user.id,
                 customer_id=customer.id,
@@ -291,7 +298,7 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_create_contract"):
             project_create = self.moco.Project.create(
-                name="dummy project, test contracts",
+                name="TestProject.test_create_contract_create",
                 currency="EUR",
                 leader_id=user.id,
                 customer_id=customer.id,
@@ -321,7 +328,7 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_create_task"):
             project_create = self.moco.Project.create(
-                name="dummy project, test tasks",
+                name="TestProject.test_create_task_create",
                 currency="EUR",
                 leader_id=user.id,
                 customer_id=customer.id,
@@ -330,7 +337,7 @@ class TestProject(IntegrationTest):
 
             task_create = self.moco.ProjectTask.create(
                 project_id=project_create.data.id,
-                name="dummy task, test project with task",
+                name="TestProject.test_create_task_task_create",
             )
 
             project_get = self.moco.Project.get(project_create.data.id)
@@ -385,7 +392,7 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_archive"):
             project_create = self.moco.Project.create(
-                name="dummy project, test archive",
+                name="TestProject.test_archive_create",
                 currency="EUR",
                 leader_id=user.id,
                 customer_id=customer.id,
@@ -408,7 +415,7 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_unarchive"):
             project_create = self.moco.Project.create(
-                name="dummy project, test unarchive",
+                name="TestProject.test_unarchive_create",
                 currency="EUR",
                 leader_id=user.id,
                 customer_id=customer.id,
@@ -433,7 +440,7 @@ class TestProject(IntegrationTest):
 
         with self.recorder.use_cassette("TestProject.test_report"):
             project_create = self.moco.Project.create(
-                name="dummy project, test report",
+                name="TestProject.test_report_create",
                 currency="EUR",
                 leader_id=user.id,
                 customer_id=customer.id,
@@ -453,7 +460,7 @@ class TestProject(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestProject.test_create_without_finish_date"):
-            name = "test project create"
+            name = "TestProject.test_create_without_finish_date_create"
             currency = "EUR"
 
             project_create = self.moco.Project.create(
@@ -478,7 +485,7 @@ class TestProject(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestProject.test_create_fixed_price"):
-            name = "test project create"
+            name = "TestProject.test_create_fixed_price_create"
             currency = "EUR"
             budget = 200
             fixed_price = True

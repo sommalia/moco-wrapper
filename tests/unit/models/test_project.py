@@ -46,6 +46,7 @@ class TestProject(UnitTest):
             custom_properties=custom_properties,
             info=info
         )
+
         data = response["data"]
 
         assert data["name"] == name
@@ -109,6 +110,7 @@ class TestProject(UnitTest):
             custom_properties=custom_properties,
             info=info
         )
+
         data = response["data"]
 
         assert data["name"] == name
@@ -179,7 +181,9 @@ class TestProject(UnitTest):
     def test_getlist_sort_default(self):
         sort_by = "test field to sort by"
 
-        response = self.moco.Project.getlist(sort_by=sort_by)
+        response = self.moco.Project.getlist(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -187,7 +191,10 @@ class TestProject(UnitTest):
         sort_by = "test field to sort by"
         sort_order = "desc"
 
-        response = self.moco.Project.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.Project.getlist(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -195,38 +202,50 @@ class TestProject(UnitTest):
         page_default = 1
 
         response = self.moco.Project.getlist()
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.Project.getlist(page=page_overwrite)
+        response = self.moco.Project.getlist(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_assigned(self):
         active = False
 
-        response = self.moco.Project.assigned(active=active)
+        response = self.moco.Project.assigned(
+            active=active
+        )
 
         assert response["params"]["active"] == active
 
     def test_archive(self):
         project_id = 123
 
-        response = self.moco.Project.archive(project_id)
+        response = self.moco.Project.archive(
+            project_id=project_id
+        )
 
         assert response["method"] == "PUT"
 
     def test_unarchive(self):
         project_id = 123
 
-        response = self.moco.Project.unarchive(project_id)
+        response = self.moco.Project.unarchive(
+            project_id=project_id
+        )
 
         assert response["method"] == "PUT"
 
     def test_report(self):
         project_id = 123
 
-        response = self.moco.Project.report(project_id)
+        response = self.moco.Project.report(
+            project_id=project_id
+        )
 
         assert response["method"] == "GET"
