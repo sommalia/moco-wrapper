@@ -42,7 +42,7 @@ class TestComment(UnitTest):
         assert response["method"] == "POST"
 
     def test_getlist(self):
-        commentable_type = "Customer"
+        commentable_type = "Company"
         commentable_id = 4
         user_id = 4
         manual = False
@@ -57,7 +57,7 @@ class TestComment(UnitTest):
         params = response["params"]
 
         assert params["commentable_id"] == commentable_id
-        assert params["commentable_type"] == CommentTargetType.CUSTOMER
+        assert params["commentable_type"] == CommentTargetType.COMPANY
         assert params["user_id"] == user_id
         assert params["manual"] == manual
 

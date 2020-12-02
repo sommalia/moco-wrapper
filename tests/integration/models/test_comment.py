@@ -109,6 +109,27 @@ class TestComment(IntegrationTest):
             assert comment_create.data.commentable_type == CommentTargetType.PROJECT
             assert comment_create.data.user.id is not None
 
+    def test_create_company(self):
+        company = self.get_customer()
+
+        with self.recorder.use_cassette("TestComment.test_create_company"):
+            text = "TestComment.test_create_company"
+
+            comment_create = self.moco.Comment.create(
+                commentable_id=company.id,
+                commentable_type=CommentTargetType.COMPANY,
+                text=text
+            )
+
+            assert comment_create.response.status_code == 200
+
+            assert type(comment_create) is ObjectResponse
+
+            assert comment_create.data.text == text
+            assert comment_create.data.commentable_id == company.id
+            assert comment_create.data.commentable_type == CommentTargetType.COMPANY
+            assert comment_create.data.user.id is not None
+
     def test_create_bulk(self):
         customer = self.get_customer()
         other_customer = self.get_other_customer()
@@ -116,7 +137,7 @@ class TestComment(IntegrationTest):
         with self.recorder.use_cassette("TestComment.test_create_bulk"):
             text = "TestComment.test_create_bulk"
             comment_ids = [customer.id, other_customer.id]
-            comment_type = CommentTargetType.CUSTOMER
+            comment_type = CommentTargetType.COMPANY
 
             comment_create_bulk = self.moco.Comment.create_bulk(
                 commentable_ids=comment_ids,

@@ -21,14 +21,24 @@ class CommentTargetType(str, Enum):
         )
 
     """
-    USER = "User"
-    DEAL = "Deal"
-    OFFER = "Offer"
-    OFFERCONFIRMATION = "OfferConfirmation"
-    CUSTOMER = "Customer"
-    PROJECT = "Project"
-    INVOICE = "Invoice"
     CONTACT = "Contact"
+    DEAL = "Deal"
+    PROJECT = "Project"
+    USER = "User"
+    UNIT = "Unit"
+    COMPANY = "Company"
+    OFFER = "Offer"
+    OFFER_CONFIRMATION = "OfferConfirmation"
+    INVOICE = "Invoice"
+    INVOICE_REMINDER = "InvoiceReminder"
+    INVOICE_DELETION = "InvoiceDeletion"
+    INVOICE_BOOKKEEPING_EXPORT = "InvoiceBookkeepingExport"
+    EXPENSE = "Expense"
+    RECURRING_EXPENSE = "RecurringExpense"
+    RECEIPT = "Receipt"
+    RECEIPT_REFUND_REQUEST = "ReceiptRefundRequest"
+    PURCHASE = "Purchase"
+    PURCHASE_BOOKKEEPING_EXPORT = "PurchaseBookkeepingExport"
 
 
 class Comment(MWRAPBase):
