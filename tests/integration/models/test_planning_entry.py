@@ -9,7 +9,7 @@ class TestPlanningEntry(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestPlanningEntry.get_customer"):
             customer = self.moco.Company.create(
-                name="Dummy company, planning entry",
+                name="TestPlanningEntry.get_customer",
                 company_type=CompanyType.CUSTOMER
             )
 
@@ -30,9 +30,9 @@ class TestPlanningEntry(IntegrationTest):
 
         with self.recorder.use_cassette("TestPlanningEntry.get_other_user"):
             user = self.moco.User.create(
-                firstname="dummy",
-                lastname="user",
-                email="{}@mycompany.com".format(self.id_generator()),
+                firstname="-",
+                lastname="TestPlanningEntry.get_other_user",
+                email="{}@example.org".format(self.id_generator()),
                 password=self.id_generator(),
                 unit_id=unit.id
             )
@@ -45,10 +45,10 @@ class TestPlanningEntry(IntegrationTest):
 
         with self.recorder.use_cassette("TestPlanningEntry.get_project"):
             project = self.moco.Project.create(
-                "Dummy Project, planning entry",
-                "EUR",
-                user.id,
-                customer.id
+                name="TestPlanningEntry.get_project",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id
             )
 
             return project.data
@@ -76,10 +76,10 @@ class TestPlanningEntry(IntegrationTest):
             hours_per_day = 2.5
 
             plan_create = self.moco.PlanningEntry.create(
-                project.id,
-                start_date,
-                end_date,
-                hours_per_day
+                project_id=project.id,
+                starts_on=start_date,
+                ends_on=end_date,
+                hours_per_day=hours_per_day
             )
 
             assert plan_create.response.status_code == 200
@@ -102,21 +102,21 @@ class TestPlanningEntry(IntegrationTest):
             start_date = date(2020, 1, 1)
             end_date = date(2020, 1, 2)
             hours_per_day = 2.5
-            comment = "dummy entry, test get"
+            comment = "TestPlanningEntry.test_get_create"
             symbol = PlanningEntrySymbol.GRADUATION_CAP
 
             plan_create = self.moco.PlanningEntry.create(
-                project.id,
-                start_date,
-                end_date,
-                hours_per_day,
+                project_id=project.id,
+                starts_on=start_date,
+                ends_on=end_date,
+                hours_per_day=hours_per_day,
                 user_id=user.id,
                 comment=comment,
                 symbol=symbol
             )
 
             plan_get = self.moco.PlanningEntry.get(
-                plan_create.data.id
+                planning_entry_id=plan_create.data.id
             )
 
             assert plan_create.response.status_code == 200
@@ -144,14 +144,14 @@ class TestPlanningEntry(IntegrationTest):
             start_date = date(2020, 1, 1)
             end_date = date(2020, 1, 2)
             hours_per_day = 2.5
-            comment = "this is the comment text"
+            comment = "TestPlanningEntry.test_create_full"
             symbol = PlanningEntrySymbol.GRADUATION_CAP
 
             plan_create = self.moco.PlanningEntry.create(
-                project.id,
-                start_date,
-                end_date,
-                hours_per_day,
+                project_id=project.id,
+                starts_on=start_date,
+                ends_on=end_date,
+                hours_per_day=hours_per_day,
                 user_id=user.id,
                 comment=comment,
                 symbol=symbol
@@ -180,21 +180,21 @@ class TestPlanningEntry(IntegrationTest):
             start_date = date(2020, 1, 1)
             end_date = date(2020, 1, 2)
             hours_per_day = 2.5
-            comment = "dummy entry, test update 2"
+            comment = "TestPlanningEntry.test_update"
             symbol = PlanningEntrySymbol.GRADUATION_CAP
 
             plan_create = self.moco.PlanningEntry.create(
-                project.id,
-                date(2020, 2, 1),
-                date(2020, 2, 2),
-                3,
+                project_id=project.id,
+                starts_on=date(2020, 2, 1),
+                ends_on=date(2020, 2, 2),
+                hours_per_day=3,
                 user_id=user.id,
-                comment="dummy comment, test update",
+                comment="TestPlanningEntry.test_update_create",
                 symbol=PlanningEntrySymbol.HOME
             )
 
             plan_update = self.moco.PlanningEntry.update(
-                plan_create.data.id,
+                planning_entry_id=plan_create.data.id,
                 project_id=project.id,
                 starts_on=start_date,
                 ends_on=end_date,
@@ -225,13 +225,16 @@ class TestPlanningEntry(IntegrationTest):
 
         with self.recorder.use_cassette("TestPlanningEntry.test_delete"):
             plan_create = self.moco.PlanningEntry.create(
-                project.id,
-                date(2020, 1, 1),
-                date(2020, 1, 1),
-                2
+                project_id=project.id,
+                starts_on=date(2020, 1, 1),
+                ends_on=date(2020, 1, 1),
+                hours_per_day=2,
+                comment="TestPlanningEntry.test_delete_create"
             )
 
-            plan_delete = self.moco.PlanningEntry.delete(plan_create.data.id)
+            plan_delete = self.moco.PlanningEntry.delete(
+                planning_entry_id=plan_create.data.id
+            )
 
             assert plan_create.response.status_code == 200
             assert plan_delete.response.status_code == 200

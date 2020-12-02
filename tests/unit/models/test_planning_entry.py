@@ -15,6 +15,7 @@ class TestPlanningEntry(UnitTest):
             user_id=user_id,
             project_id=project_id
         )
+
         params = response["params"]
 
         assert params["period"] == "{}:{}".format(start_date, end_date)
@@ -26,7 +27,9 @@ class TestPlanningEntry(UnitTest):
     def test_getlist_sort_default(self):
         sort_by = "field to sort by"
 
-        response = self.moco.PlanningEntry.getlist(sort_by=sort_by)
+        response = self.moco.PlanningEntry.getlist(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -34,7 +37,10 @@ class TestPlanningEntry(UnitTest):
         sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.PlanningEntry.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.PlanningEntry.getlist(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -42,26 +48,38 @@ class TestPlanningEntry(UnitTest):
         page_default = 1
 
         response = self.moco.PlanningEntry.getlist()
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.PlanningEntry.getlist(page=page_overwrite)
+        response = self.moco.PlanningEntry.getlist(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_getlist_throws_only_start_date(self):
         with pytest.raises(ValueError):
-            response = self.moco.PlanningEntry.getlist(start_date='2020-02-10', end_date=None)
+            self.moco.PlanningEntry.getlist(
+                start_date='2020-02-10',
+                end_date=None
+            )
 
     def test_getlist_throws_only_end_date(self):
         with pytest.raises(ValueError):
-            response = self.moco.PlanningEntry.getlist(start_date=None, end_date='2020-10-10')
+            self.moco.PlanningEntry.getlist(
+                start_date=None,
+                end_date='2020-10-10'
+            )
 
     def test_get(self):
         entry_id = 12345
 
-        response = self.moco.PlanningEntry.get(entry_id)
+        response = self.moco.PlanningEntry.get(
+            planning_entry_id=entry_id
+        )
 
         assert response["method"] == "GET"
 
@@ -71,18 +89,19 @@ class TestPlanningEntry(UnitTest):
         ends_on = "2020-10-10"
         hours_per_day = 3.5
         user_id = 1
-        comment = "This is the comment"
+        comment = "TestPlanningEntry.test_create"
         symbol = 2
 
         response = self.moco.PlanningEntry.create(
-            project_id,
-            starts_on,
-            ends_on,
-            hours_per_day,
+            project_id=project_id,
+            starts_on=starts_on,
+            ends_on=ends_on,
+            hours_per_day=hours_per_day,
             user_id=user_id,
             comment=comment,
             symbol=symbol
         )
+
         data = response["data"]
 
         assert data["project_id"] == project_id
@@ -102,11 +121,11 @@ class TestPlanningEntry(UnitTest):
         ends_on = "2020-10-10"
         hours_per_day = 3.5
         user_id = 1
-        comment = "This is the comment"
+        comment = "TestPlanningEntry.test_update"
         symbol = 2
 
         response = self.moco.PlanningEntry.update(
-            entry_id,
+            planning_entry_id=entry_id,
             project_id=project_id,
             starts_on=starts_on,
             ends_on=ends_on,
@@ -115,6 +134,7 @@ class TestPlanningEntry(UnitTest):
             comment=comment,
             symbol=symbol
         )
+
         data = response["data"]
 
         assert data["project_id"] == project_id
@@ -128,6 +148,8 @@ class TestPlanningEntry(UnitTest):
         assert response["method"] == "PUT"
 
     def test_delete(self):
-        response = self.moco.PlanningEntry.delete(123)
+        response = self.moco.PlanningEntry.delete(
+            planning_entry_id=123
+        )
 
         assert response["method"] == "DELETE"
