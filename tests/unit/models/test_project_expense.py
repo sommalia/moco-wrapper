@@ -1,6 +1,7 @@
 import pytest
 from .. import UnitTest
 
+
 class TestProjectExpense(UnitTest):
     def test_create(self):
         project_id = 2
@@ -14,10 +15,23 @@ class TestProjectExpense(UnitTest):
         billable = False
         budget_relevant = True
         custom_properties = {
-            "server_os" : "Windows XP"
+            "server_os": "Windows XP"
         }
 
-        response = self.moco.ProjectExpense.create(project_id, date, title, quantity, unit, unit_price, unit_cost, description=description, billable=billable, budget_relevant=budget_relevant, custom_properties=custom_properties)
+        response = self.moco.ProjectExpense.create(
+            project_id=project_id,
+            expense_date=date,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost,
+            description=description,
+            billable=billable,
+            budget_relevant=budget_relevant,
+            custom_properties=custom_properties
+        )
+
         data = response["data"]
 
         assert data["date"] == date
@@ -44,7 +58,16 @@ class TestProjectExpense(UnitTest):
         unit_price = 200
         unit_cost = 100
 
-        response = self.moco.ProjectExpense.create(project_id, date, title, quantity, unit, unit_price, unit_cost)
+        response = self.moco.ProjectExpense.create(
+            project_id=project_id,
+            expense_date=date,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost
+        )
+
         data = response["data"]
 
         assert data["billable"] == billable_default
@@ -60,40 +83,51 @@ class TestProjectExpense(UnitTest):
         unit_price = 200
         unit_cost = 100
 
-        response = self.moco.ProjectExpense.create(project_id, date, title, quantity, unit, unit_price, unit_cost)
+        response = self.moco.ProjectExpense.create(
+            project_id=project_id,
+            expense_date=date,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost
+        )
+
         data = response["data"]
 
         assert data["budget_relevant"] == budget_relevant_default
-
 
     def test_create_bulk(self):
         project_id = 2
         items = [
             {
-                "date" : "2019-10-10",
-                "title" : "more server hosting",
-                "quanity": 4,
+                "date": "2019-10-10",
+                "title": "more server hosting",
+                "quantity": 4,
                 "unit": "server",
                 "unit_price": 400,
-                "unit_cost" : 200
+                "unit_cost": 200
             },
             {
 
-                "date" : "2011-03-04",
-                "title" : "image hosting",
-                "quanity": 45,
+                "date": "2011-03-04",
+                "title": "image hosting",
+                "quantity": 45,
                 "unit": "image",
                 "unit_price": 3200,
-                "unit_cost" : 300
+                "unit_cost": 300
             }
         ]
 
-        response = self.moco.ProjectExpense.create_bulk(project_id, items)
+        response = self.moco.ProjectExpense.create_bulk(
+            project_id=project_id,
+            items=items
+        )
+
         data = response["data"]
 
         assert data["bulk_data"] == items
         assert response["method"] == "POST"
-
 
     def test_update(self):
         expense_id = 1
@@ -108,10 +142,24 @@ class TestProjectExpense(UnitTest):
         billable = False
         budget_relevant = True
         custom_properties = {
-            "server_os" : "Windows XP"
+            "server_os": "Windows XP"
         }
 
-        response = self.moco.ProjectExpense.update(project_id, expense_id, expense_date=expense_date, title=title, quantity=quantity, unit=unit, unit_price=unit_price, unit_cost=unit_cost, description=description, billable=billable, budget_relevant=budget_relevant, custom_properties=custom_properties)
+        response = self.moco.ProjectExpense.update(
+            project_id=project_id,
+            expense_id=expense_id,
+            expense_date=expense_date,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost,
+            description=description,
+            billable=billable,
+            budget_relevant=budget_relevant,
+            custom_properties=custom_properties
+        )
+
         data = response["data"]
 
         assert data["date"] == expense_date
@@ -131,16 +179,24 @@ class TestProjectExpense(UnitTest):
         project_id = 2
         expense_id = 3
 
-        response = self.moco.ProjectExpense.delete(project_id, expense_id)
+        response = self.moco.ProjectExpense.delete(
+            project_id=project_id,
+            expense_id=expense_id
+        )
 
         assert response["method"] == "DELETE"
 
     def test_disregard(self):
         project_id = 2
-        expense_ids = [1,2,3,4]
-        reason = "this is the reason for disgarding the expenses"
+        expense_ids = [1, 2, 3, 4]
+        reason = "this is the reason for disregarding the expenses"
 
-        response = self.moco.ProjectExpense.disregard(project_id, expense_ids, reason)
+        response = self.moco.ProjectExpense.disregard(
+            project_id=project_id,
+            expense_ids=expense_ids,
+            reason=reason
+        )
+
         data = response["data"]
 
         assert data["expense_ids"] == expense_ids
@@ -151,7 +207,11 @@ class TestProjectExpense(UnitTest):
         from_date = "2019-10-10"
         to_date = '2018-10-02'
 
-        response = self.moco.ProjectExpense.getall(from_date=from_date, to_date=to_date)
+        response = self.moco.ProjectExpense.getall(
+            from_date=from_date,
+            to_date=to_date
+        )
+
         params = response["params"]
 
         assert params["from"] == from_date
@@ -161,7 +221,9 @@ class TestProjectExpense(UnitTest):
     def test_getall_sort_default(self):
         sort_by = "field to sort by"
 
-        response = self.moco.ProjectExpense.getall(sort_by=sort_by)
+        response = self.moco.ProjectExpense.getall(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -169,7 +231,10 @@ class TestProjectExpense(UnitTest):
         sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.ProjectExpense.getall(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.ProjectExpense.getall(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -177,26 +242,35 @@ class TestProjectExpense(UnitTest):
         page_default = 1
 
         response = self.moco.ProjectExpense.getall()
+
         assert response["params"]["page"] == page_default
 
     def test_getall_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.ProjectExpense.getall(page=page_overwrite)
+        response = self.moco.ProjectExpense.getall(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_get(self):
         project_id = 2
         expense_id = 4
 
-        response = self.moco.ProjectExpense.get(project_id, expense_id)
+        response = self.moco.ProjectExpense.get(
+            project_id=project_id,
+            expense_id=expense_id
+        )
 
         assert response["method"] == "GET"
 
     def test_getlist(self):
         project_id = 2
 
-        response = self.moco.ProjectExpense.getlist(project_id)
+        response = self.moco.ProjectExpense.getlist(
+            project_id=project_id
+        )
 
         assert response["method"] == "GET"
 
@@ -204,31 +278,43 @@ class TestProjectExpense(UnitTest):
         project_id = 2
         sort_by = "default field to sort by"
 
-        response = self.moco.ProjectExpense.getlist(project_id, sort_by=sort_by)
+        response = self.moco.ProjectExpense.getlist(
+            project_id=project_id,
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
-
 
     def test_getlist_sort_overwrite(self):
         project_id = 2
         sort_by = "default field to sort by"
         sort_order = "desc"
 
-        response = self.moco.ProjectExpense.getlist(project_id, sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.ProjectExpense.getlist(
+            project_id=project_id,
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
-        assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)      
+        assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
     def test_getlist_page_default(self):
         project_id = 1
         page_default = 1
 
-        response = self.moco.ProjectExpense.getlist(project_id)
+        response = self.moco.ProjectExpense.getlist(
+            project_id=project_id
+        )
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         project_id = 1
         page_overwrite = 22
 
-        response = self.moco.ProjectExpense.getlist(project_id, page=page_overwrite)
+        response = self.moco.ProjectExpense.getlist(
+            project_id=project_id,
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
-        
