@@ -56,7 +56,13 @@ lint: ## check style with flake8
 test: ## run tests quickly with the default Python
 	python3 -m pytest
 
-test-all: ## run tests on every Python version with tox
+test_unit: ## run unit tests
+	python3 -m pytest ./tests/unit
+
+test_int: ## run integration tests
+	python3 -m pytest ./tests/integration
+
+test_tox: ## run tests via tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
