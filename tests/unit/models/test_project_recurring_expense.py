@@ -1,11 +1,14 @@
 from .. import UnitTest
 import pytest
 
+
 class TestProjectRecurringExpense(UnitTest):
     def test_getlist(self):
         project_id = 2
 
-        response = self.moco.ProjectRecurringExpense.getlist(project_id)
+        response = self.moco.ProjectRecurringExpense.getlist(
+            project_id=project_id
+        )
 
         assert response["method"] == "GET"
 
@@ -13,7 +16,10 @@ class TestProjectRecurringExpense(UnitTest):
         project_id = 2
         sort_by = "field to sort by"
 
-        response = self.moco.ProjectRecurringExpense.getlist(project_id, sort_by=sort_by)
+        response = self.moco.ProjectRecurringExpense.getlist(
+            project_id=project_id,
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -22,7 +28,11 @@ class TestProjectRecurringExpense(UnitTest):
         sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.ProjectRecurringExpense.getlist(project_id, sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.ProjectRecurringExpense.getlist(
+            project_id=project_id,
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -30,21 +40,31 @@ class TestProjectRecurringExpense(UnitTest):
         project_id = 1
         page_default = 1
 
-        response = self.moco.ProjectRecurringExpense.getlist(project_id)
+        response = self.moco.ProjectRecurringExpense.getlist(
+            project_id=project_id
+        )
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         project_id = 1
         page_overwrite = 22
 
-        response = self.moco.ProjectRecurringExpense.getlist(project_id, page=page_overwrite)
+        response = self.moco.ProjectRecurringExpense.getlist(
+            project_id=project_id,
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_get(self):
         project_id = 2
         expense_id = 400
 
-        response = self.moco.ProjectRecurringExpense.get(project_id, expense_id)
+        response = self.moco.ProjectRecurringExpense.get(
+            project_id=project_id,
+            recurring_expense_id=expense_id
+        )
 
         assert response["method"] == "GET"
 
@@ -57,7 +77,7 @@ class TestProjectRecurringExpense(UnitTest):
         unit = "vserver"
         unit_price = 20
         unit_cost = 13.5
-        
+
         finish_date = '2020-10-10'
         description = "this is a note"
         billable = False
@@ -66,7 +86,22 @@ class TestProjectRecurringExpense(UnitTest):
             "add_dog": True
         }
 
-        response = self.moco.ProjectRecurringExpense.create(project_id, start_date, period, title, quantity, unit, unit_price, unit_cost, finish_date=finish_date, description=description, billable=billable, budget_relevant=budget_relevant, custom_properties=custom_properties)
+        response = self.moco.ProjectRecurringExpense.create(
+            project_id=project_id,
+            start_date=start_date,
+            period=period,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost,
+            finish_date=finish_date,
+            description=description,
+            billable=billable,
+            budget_relevant=budget_relevant,
+            custom_properties=custom_properties
+        )
+
         data = response["data"]
 
         assert data["start_date"] == start_date
@@ -96,7 +131,17 @@ class TestProjectRecurringExpense(UnitTest):
 
         billable_default = True
 
-        response = self.moco.ProjectRecurringExpense.create(project_id, start_date, period, title, quantity, unit, unit_price, unit_cost)
+        response = self.moco.ProjectRecurringExpense.create(
+            project_id=project_id,
+            start_date=start_date,
+            period=period,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost
+        )
+
         data = response["data"]
 
         assert data["billable"] == billable_default
@@ -113,23 +158,30 @@ class TestProjectRecurringExpense(UnitTest):
 
         budget_relevant_default = False
 
-        response = self.moco.ProjectRecurringExpense.create(project_id, start_date, period, title, quantity, unit, unit_price, unit_cost)
+        response = self.moco.ProjectRecurringExpense.create(
+            project_id=project_id,
+            start_date=start_date,
+            period=period,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost
+        )
+
         data = response["data"]
 
         assert data["budget_relevant"] == budget_relevant_default
 
-
     def test_update(self):
         project_id = 2
         expense_id = 123
-        start_date = '2019-10-10'
-        period = "weekly"
         title = "hosting xl"
         quantity = 100
-        unit = "vserver"
+        unit = "v-server"
         unit_price = 20
         unit_cost = 13.5
-        
+
         finish_date = '2020-10-10'
         description = "this is a note"
         billable = False
@@ -138,7 +190,21 @@ class TestProjectRecurringExpense(UnitTest):
             "add_dog": True
         }
 
-        response = self.moco.ProjectRecurringExpense.update(project_id, expense_id, title=title, quantity=quantity, unit=unit, unit_price=unit_price, unit_cost=unit_cost, finish_date=finish_date, description=description, billable=billable, budget_relevant=budget_relevant, custom_properties=custom_properties)
+        response = self.moco.ProjectRecurringExpense.update(
+            project_id=project_id,
+            recurring_expense_id=expense_id,
+            title=title,
+            quantity=quantity,
+            unit=unit,
+            unit_price=unit_price,
+            unit_cost=unit_cost,
+            finish_date=finish_date,
+            description=description,
+            billable=billable,
+            budget_relevant=budget_relevant,
+            custom_properties=custom_properties
+        )
+
         data = response["data"]
 
         assert data["title"] == title
@@ -158,7 +224,9 @@ class TestProjectRecurringExpense(UnitTest):
         project_id = 2
         expense_id = 123
 
-        response = self.moco.ProjectRecurringExpense.delete(project_id, expense_id)
+        response = self.moco.ProjectRecurringExpense.delete(
+            project_id=project_id,
+            recurring_expense_id=expense_id
+        )
 
         assert response["method"] == "DELETE"
-        
