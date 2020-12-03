@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:08:05",
+      "recorded_at": "2020-12-03T14:30:01",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,11 +24,11 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371023/payment_schedules"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945381040/payment_schedules"
       },
       "response": {
         "body": {
@@ -50,7 +50,7 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:08:05 GMT"
+            "Thu, 03 Dec 2020 14:30:01 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -75,10 +75,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "fd3bed26-0870-4702-890c-a2c54a1e6c16"
+            "3f8350cd-948e-4a2e-a217-d75d57e7f3e4"
           ],
           "X-Runtime": [
-            "0.048705"
+            "0.047635"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +88,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371023/payment_schedules"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945381040/payment_schedules"
       }
     }
   ],

@@ -11,9 +11,9 @@ class TestProjectPaymentSchedule(UnitTest):
         checked = False
 
         response = self.moco.ProjectPaymentSchedule.create(
-            project_id,
-            net_total,
-            sched_date,
+            project_id=project_id,
+            net_total=net_total,
+            schedule_date=sched_date,
             title=title,
             checked=checked
         )
@@ -36,8 +36,8 @@ class TestProjectPaymentSchedule(UnitTest):
         checked = False
 
         response = self.moco.ProjectPaymentSchedule.update(
-            project_id,
-            schedule_id,
+            project_id=project_id,
+            schedule_id=schedule_id,
             net_total=net_total,
             schedule_date=sched_date,
             title=title,
@@ -58,8 +58,8 @@ class TestProjectPaymentSchedule(UnitTest):
         schedule_id = 2
 
         response = self.moco.ProjectPaymentSchedule.delete(
-            project_id,
-            schedule_id,
+            project_id=project_id,
+            schedule_id=schedule_id,
         )
 
         assert response["method"] == "DELETE"
@@ -69,8 +69,8 @@ class TestProjectPaymentSchedule(UnitTest):
         schedule_id = 2
 
         response = self.moco.ProjectPaymentSchedule.get(
-            project_id,
-            schedule_id,
+            project_id=project_id,
+            schedule_id=schedule_id,
         )
 
         assert response["method"] == "GET"
@@ -79,7 +79,7 @@ class TestProjectPaymentSchedule(UnitTest):
         project_id = 1
 
         response = self.moco.ProjectPaymentSchedule.getlist(
-            project_id,
+            project_id=project_id,
         )
 
         assert response["method"] == "GET"
