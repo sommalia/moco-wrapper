@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:09:58",
+      "recorded_at": "2020-12-07T13:15:30",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"type\": \"supplier\", \"name\": \"dummy supplier, test purchase\"}"
+          "string": "{\"name\": \"TestPurchase.get_company\", \"type\": \"supplier\"}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "61"
+            "56"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPwWrzMBCEXyXMWQEn+Z3EOv99g55aipGldSKQJSGt2obgdy+KnV572/0Yhm/usAbydGzOXdu2RwG+RYJELjE6SwkCXk2VmDJNt82Tiw1T5k0sSV9VJgh80ZAt1yQEaFLWQfrinMBgnbP+0j9gr/WTx2vwa35U38uhjEmU8/LoUDynW6+Dqbn/LxD4VNxbQ57tWPXWKlaXDPn+IVBypcus7nA4Hs7drhMYbcq8LqnmEHDql6hBG8wVDeTWIuvHsMqFwLX0oVQyh6mPKURKbClD3mcBnUgxmV4xJPbNvtnudtv9v9fmJJtOtuc3CJRo/szYQfll0/wTAAD//8MSc0OaAQAA",
+          "base64_string": "H4sIAAAAAAAA/4SPTU/zMBCE/8uc3Vf5eGmJz3Dn0BMIRY69aS05tmWvgarqf0duAlduu48ejWausAbysG+G5v+h7QT4EgkSucToLCUIeLVUcqTMLyXps8r070Q86rBE5S8Q+KQpW64SBGhR1kH64pzAZJ2z/jTe4aj1D4/n4Dd/Vl/roYxJlPP66FA8p8uog6ne0zMEPhSP1pBnO9dmWxSrU4Z8excoudJ10dD3+/5xaAeB2abM2wimzBBw6peoSRvcKprIbUHWz2ErFwLX0HulkjksY0whUmJLGfJ6E9CJFJMZFUOia7pm13a75nBse9k+yL55hUCJ5k/HTsqvm27fAQAA//9/dgr2lQEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "270"
+            "271"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:09:58 GMT"
+            "Mon, 07 Dec 2020 13:15:30 GMT"
           ],
           "Etag": [
-            "W/\"4e63b0e4de14d600f77ec269ab4711e7\""
+            "W/\"4f833752bfcb04335f92eb78b0d69c00\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "dd242a6b-e3d7-4007-b591-958e4297a022"
+            "354066a2-3a56-4df6-9310-f703b33f362e"
           ],
           "X-Runtime": [
-            "0.069151"
+            "0.073942"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

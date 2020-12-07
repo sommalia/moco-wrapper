@@ -2,15 +2,15 @@ import pytest
 import datetime
 from .. import UnitTest
 from moco_wrapper.util.generator import PurchaseItemGenerator
-from moco_wrapper.models.purchase import PurchaseFile
-
 
 
 class TestPurchase(UnitTest):
     def test_getlist_sort_default(self):
         sort_by = "field to sort by"
 
-        response = self.moco.Purchase.getlist(sort_by=sort_by)
+        response = self.moco.Purchase.getlist(
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -18,7 +18,10 @@ class TestPurchase(UnitTest):
         sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.Purchase.getlist(sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.Purchase.getlist(
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -26,21 +29,31 @@ class TestPurchase(UnitTest):
         page_default = 1
 
         response = self.moco.Purchase.getlist()
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         page_overwrite = 22
 
-        response = self.moco.Purchase.getlist(page=page_overwrite)
+        response = self.moco.Purchase.getlist(
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_getlist_throws_only_start_date(self):
         with pytest.raises(ValueError):
-            response = self.moco.Purchase.getlist(start_date='2020-02-10', end_date=None)
+            self.moco.Purchase.getlist(
+                start_date='2020-02-10',
+                end_date=None
+            )
 
     def test_getlist_throws_only_end_date(self):
         with pytest.raises(ValueError):
-            response = self.moco.Purchase.getlist(start_date=None, end_date='2020-10-10')
+            self.moco.Purchase.getlist(
+                start_date=None,
+                end_date='2020-10-10'
+            )
 
     def test_getlist(self):
         purchase_id = 123
@@ -64,6 +77,7 @@ class TestPurchase(UnitTest):
             end_date=end_date,
             unpaid=unpaid
         )
+
         params = response["params"]
 
         assert response["method"] == "GET"
@@ -84,7 +98,11 @@ class TestPurchase(UnitTest):
         currency = "EUR"
         payment_method = "PAYPAL"
         items = [
-            generator.generate_item("title", 100, 7.4)
+            generator.generate_item(
+                title="title",
+                total=100,
+                tax=7.4
+            )
         ]
 
         due_date = "2020-04-30"
@@ -99,16 +117,16 @@ class TestPurchase(UnitTest):
             "this": "custom"
         }
         file = {
-            "filename" : "this is the filename",
+            "filename": "this is the filename",
             "base64": "base64 encoded values"
         }
         tags = ["these", "are", "tags"]
 
         response = self.moco.Purchase.create(
-            purchase_date,
-            currency,
-            payment_method,
-            items,
+            purchase_date=purchase_date,
+            currency=currency,
+            payment_method=payment_method,
+            items=items,
             due_date=due_date,
             service_period_from=service_from,
             service_period_to=service_to,
@@ -121,6 +139,7 @@ class TestPurchase(UnitTest):
             file=file,
             tags=tags
         )
+
         data = response["data"]
 
         assert response["method"] == "POST"
@@ -143,14 +162,18 @@ class TestPurchase(UnitTest):
     def test_get(self):
         purchase_id = 212
 
-        response = self.moco.Purchase.get(purchase_id)
+        response = self.moco.Purchase.get(
+            purchase_id=purchase_id
+        )
 
         assert response["method"] == "GET"
 
     def test_delete(self):
         purchase_id = 212
 
-        response = self.moco.Purchase.delete(purchase_id)
+        response = self.moco.Purchase.delete(
+            purchase_id=purchase_id
+        )
 
         assert response["method"] == "DELETE"
 
@@ -158,12 +181,13 @@ class TestPurchase(UnitTest):
         purchase_id = 234
         status = "approved"
 
-        response = self.moco.Purchase.update_status(purchase_id, status)
+        response = self.moco.Purchase.update_status(
+            purchase_id=purchase_id,
+            status=status
+        )
+
         data = response["data"]
 
         assert response["method"] == "PATCH"
 
         assert data["status"] == status
-
-
-

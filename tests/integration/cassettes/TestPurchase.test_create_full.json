@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:09:58",
+      "recorded_at": "2020-12-07T13:15:30",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"info\": \"dummy info text\", \"items\": [{\"title\": \"dummy purchase item, first\", \"tax_included\": false, \"total\": 100, \"tax\": 2}, {\"title\": \"dummy purchase item, second\", \"total\": 200, \"tax\": 3.5}], \"custom_properties\": {\"test\": \"vars\"}, \"reference\": \"reference text\", \"date\": \"2020-01-01\", \"service_period_from\": \"2020-01-01\", \"currency\": \"EUR\", \"payment_method\": \"bank_transfer\", \"company_id\": 760895556, \"tags\": [\"dummy file\"], \"service_period_to\": \"2020-12-31\", \"receipt_identifier\": \"7KM35G\", \"due_date\": \"2021-01-01\"}"
+          "string": "{\"date\": \"2020-01-01\", \"currency\": \"EUR\", \"payment_method\": \"bank_transfer\", \"items\": [{\"title\": \"TestPurchase.item_title_1\", \"total\": 100, \"tax\": 2, \"tax_included\": false}, {\"title\": \"TestPurchase.item_title_2\", \"total\": 200, \"tax\": 3.5}], \"due_date\": \"2021-01-01\", \"service_period_from\": \"2020-01-01\", \"service_period_to\": \"2020-12-31\", \"company_id\": 760904712, \"receipt_identifier\": \"6IVRDJ\", \"info\": \"TestPurchase.test_create_full\", \"reference\": \"reference text\", \"custom_properties\": {\"test\": \"vars\"}, \"tags\": [\"test\", \"purchase\"]}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "519"
+            "536"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5RSwY7TMBD9lWrObmUnTdP4jjggLgguoJXl2pOuRWJH9hhtteq/I9M0ZXNZuMWTN2/evDev4CxI0Qne7Bk4i55c7zCChA8VF2LLOa+AQUSDbiL1BtF++lw3H4EBORoQJNg8jpfNlKN51gk3jnBkm97FRBskswMGzvdhAZbHhvCFyo+T9iB9HoYyrMeI3hTK5fsOtJpKveIV33Kx5aLUMqpHXSz1hPGXM6gmjC5Y1ccwrltXEAp3gKi29R8AacoJJEzorfNnYDDpy4ie1Ij0HCxIOGn/U1HUPvUYgYFHUhRIDyCrrt5VewbnGFK6F2te7TgDk2NZ7VLM/vYFGPRuQJXjcDfC5ERhVFMME0ZymEC+XhmQPieQP2YXSxM8MTBhnLS/gLxl2h74sWua5sDA6/GRTsrTNDiMbEOYaAnrTQTXZccy54lBTiXwG3FX14f62Imu6I2JZvbCBsssfTIWrgzKCRSOW2tVH/eH7l/u5a2JgvPiF+mXxdb5/fhSzpshW7Qgez0kXFkuZss14TnEy83IuxfKRLSOlM/jqSzacs75lT1Et/wd0QlN8Haleo7+L9mHXXuYdde7Zq2bYl7Lrm6b/4/scgoRNaFVmpZrFttq/5W3kneyOX4HBnmy72CuvwMAAP//Gx2siR0EAAA=",
+          "base64_string": "H4sIAAAAAAAA/5RTwW7bMAz9lYJnxZDkxI513g7baSi6HTYUgmLRqTBbNiRqaFDk3wclTpp6h2A3hXkkH997fgNnQYlmuy3XDJxFT65zGEDBZ8mFXHHOG2AQsEU3kf6AqL78ePz0FRiQox5BwRNG+pZC+2IiFo5w0Kd/tHhAagtg4Hw3LnGEkXQb0BDqLvV9hu2MB+VT3+fNHQb0bZ5/fT8QvhIwsIZyXXLJV1ysuMi1hPq9Lq71iOGPa1FPGNxodRfGYdm6gNB4AQi5Kk8AMpQiKJjQW+f3wGAyhwE96QHpZbSgYGf8b03B+NhhAAYeSdNIpgclm7KQawb7MMZ4KZZcFpxBm0I+7ZCV//4IDDrXo06hvwjRpkjjoKcwThjIYQT1dmRAZh9B/YJp1jPbgZHgmUE7DpPxB1Bnl+uKN3xdC8nAm+Efv/ZI+tJxa8HxemPe88wgxez+eWZTllW5bUST+YZI8+ATg+sas2stHBnkROQZ51a5rqssxt3wfNRQcJ7lIvN6VXX+/f7Szrd9smhBdaaPuFBczIobwv0YDmcdY5qm3mHIUbSOtE/DLt9Zc875kd1w3tznLBecZ99vSFdFXc2sy2KzZE0hLUnL893/QzpH4PRdWW3oJsq8fhKlEhtV8p/AIE32Dub4NwAA///S+ErvJwQAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "503"
+            "505"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:09:58 GMT"
+            "Mon, 07 Dec 2020 13:15:30 GMT"
           ],
           "Etag": [
-            "W/\"eb43406140ccea3bf95f42c207956493\""
+            "W/\"6c9dce27e15b93456c81c4614b78be0a\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "f9da0155-a632-4ffc-a787-3b2164d72c14"
+            "666929da-2839-4f90-8646-ba0bca02e296"
           ],
           "X-Runtime": [
-            "0.117614"
+            "0.371751"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
