@@ -1,11 +1,13 @@
 from .. import UnitTest
-import pytest
+
 
 class TestProjectTask(UnitTest):
     def test_getlist(self):
         project_id = 2
 
-        response = self.moco.ProjectTask.getlist(project_id)
+        response = self.moco.ProjectTask.getlist(
+            project_id=project_id
+        )
 
         assert response["method"] == "GET"
 
@@ -13,7 +15,10 @@ class TestProjectTask(UnitTest):
         project_id = 2
         sort_by = "field to sort by"
 
-        response = self.moco.ProjectTask.getlist(project_id, sort_by=sort_by)
+        response = self.moco.ProjectTask.getlist(
+            project_id=project_id,
+            sort_by=sort_by
+        )
 
         assert response["params"]["sort_by"] == "{} asc".format(sort_by)
 
@@ -22,7 +27,11 @@ class TestProjectTask(UnitTest):
         sort_by = "field to sort by"
         sort_order = "desc"
 
-        response = self.moco.ProjectTask.getlist(project_id, sort_by=sort_by, sort_order=sort_order)
+        response = self.moco.ProjectTask.getlist(
+            project_id=project_id,
+            sort_by=sort_by,
+            sort_order=sort_order
+        )
 
         assert response["params"]["sort_by"] == "{} {}".format(sort_by, sort_order)
 
@@ -30,21 +39,31 @@ class TestProjectTask(UnitTest):
         project_id = 1
         page_default = 1
 
-        response = self.moco.ProjectTask.getlist(project_id)
+        response = self.moco.ProjectTask.getlist(
+            project_id=project_id
+        )
+
         assert response["params"]["page"] == page_default
 
     def test_getlist_page_overwrite(self):
         project_id = 1
         page_overwrite = 22
 
-        response = self.moco.ProjectTask.getlist(project_id, page=page_overwrite)
+        response = self.moco.ProjectTask.getlist(
+            project_id=project_id,
+            page=page_overwrite
+        )
+
         assert response["params"]["page"] == page_overwrite
 
     def test_get(self):
         project_id = 2
         task_id = 3
 
-        response = self.moco.ProjectTask.get(project_id, task_id)
+        response = self.moco.ProjectTask.get(
+            project_id=project_id,
+            task_id=task_id
+        )
 
         assert response["method"] == "GET"
 
@@ -56,7 +75,15 @@ class TestProjectTask(UnitTest):
         budget = 400
         hourly_rate = 20
 
-        response = self.moco.ProjectTask.create(project_id, name, billable=billable, active=active, budget=budget, hourly_rate=hourly_rate)
+        response = self.moco.ProjectTask.create(
+            project_id=project_id,
+            name=name,
+            billable=billable,
+            active=active,
+            budget=budget,
+            hourly_rate=hourly_rate
+        )
+
         data = response["data"]
 
         assert data["name"] == name
@@ -65,7 +92,6 @@ class TestProjectTask(UnitTest):
         assert data["budget"] == budget
         assert data["hourly_rate"] == hourly_rate
         assert response["method"] == "POST"
-
 
     def test_update(self):
         project_id = 2
@@ -76,7 +102,16 @@ class TestProjectTask(UnitTest):
         budget = 400
         hourly_rate = 20
 
-        response = self.moco.ProjectTask.update(project_id, task_id, name=name, billable=billable, active=active, budget=budget, hourly_rate=hourly_rate)
+        response = self.moco.ProjectTask.update(
+            project_id=project_id,
+            task_id=task_id,
+            name=name,
+            billable=billable,
+            active=active,
+            budget=budget,
+            hourly_rate=hourly_rate
+        )
+
         data = response["data"]
 
         assert data["name"] == name
@@ -90,7 +125,9 @@ class TestProjectTask(UnitTest):
         project_id = 2
         task_id = 3
 
-        response = self.moco.ProjectTask.delete(project_id, task_id)
+        response = self.moco.ProjectTask.delete(
+            project_id=project_id,
+            task_id=task_id
+        )
 
         assert response["method"] == "DELETE"
-        

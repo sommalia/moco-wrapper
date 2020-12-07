@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:09:20",
+      "recorded_at": "2020-12-07T12:46:14",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"fixed_price\": false, \"leader_id\": 933638919, \"name\": \"dummy project, test project_task\", \"customer_id\": 760895554, \"finish_date\": \"2020-01-01\", \"currency\": \"EUR\"}"
+          "string": "{\"name\": \"TestProjectTask.get_project\", \"currency\": \"EUR\", \"leader_id\": 933638919, \"customer_id\": 760904678, \"finish_date\": \"2020-01-01\", \"fixed_price\": false}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "164"
+            "159"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6yTT2/bMAzFv0rBs1JIzh/Huhe7FkN22TAIisSkWmTZkKiuQZHvPiixnTY7DEN7M5+p9yj+7FdwFmSzWM5rwasVA2cxkNs5jCDhseK8qoFB0C2CBJvb9njXx+4XGmJ3hInGSpFOB2CgDblnBEkxI4Ot815v/VTv3Ata1UdnEORO+3TWgktPymoqERWv+IyLGRfAwOQYMZgjSHj49hUufi7s1bOOTgcCCUP8m3fa2ogpgYQ3IrbaeUUdyJC9v9WNudVDR5hGMSFREV0wPltU5FpUEfsu0nSLbbZ7pMnmXCl86TGkYsTvOYOnLkd/VPF807Piwq67DEp6n0D++MnA6y364dnkRF2r+tj1GMkVp9cTA4/aFkADvfl8NV83oim7jIkGWIUOFLtJ0Vtj4TS6Xg3qFV83y+VyMYHeYKLHy2Y3heupDJgOZarhSFXX66aZDpybD+TRUQ57+Jv8zXfxblvv9iI4v+cndo1pOJ9iHgL9dubgPz9DTBlfot65w8ftC74uUNSGrntbrMSai2WzZpATRvX//D5jLovajx0moia0StP49wkxqxYbXkveyIp/Bwa5t//oOf0JAAD//9nbnshJBAAA",
+          "base64_string": "H4sIAAAAAAAA/6xTTW/bMAz9LzwrgRy5jq17sWsxZJcNg8BITKpFkQ2J7loU+e+D8uG0GbBhWG/ms/ge9R71Ct6B7uo71ao7pQR4R5H9xlMCDQ8LKesWBETcE2hYUeaH1P8gyyvMu/mW2AynGgSgZf9EoDmNJGDtQ8B1mOqNfyZnhuQtgd5gyEcs+vxoHHJhX8iFnMlqJisQYMeUKNoX0HD/5TOc+HzcmidMHiODhqvy5R86lyhn0PAGpD36YLgHHccQbnFrb/HYM+ULmIm5gD7aMDoy7PdkEg194ukW69FtiSeaY2XoeaCYC5GcSwGP/ZjCi0nHmx4RHzf9aVDGbQb97buAgGsK5287Zu73xd6BEvvC9HoQEAhdyeYcnFKNaruqK16mzOecmHKxJeCE4No6OFxYrwTLRnaybpbtHzOeug5l2rwrI577VbdU6tp97NxxIM9j3MLva3CzJO+se2dSJeVcHsRbmW6SuY/809td+HCNWk4anxJu/O7/6UuWfeSElq++1U3V1m2zVALGTMn8e5gfMZcjDJcTNhEyOYN8eYrVYiaXq2qh60ZX9VcQMA7uL2cOvwIAAP//S/QwhFEEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "462"
+            "452"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:09:20 GMT"
+            "Mon, 07 Dec 2020 12:46:14 GMT"
           ],
           "Etag": [
-            "W/\"fc8e1a9df1774c6b0d4382d9e8f691bd\""
+            "W/\"5677e5612280eb024ed7de8f7eab4f16\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "375722b3-1b23-4928-b35c-1a509ac87b1c"
+            "fcdf353c-3ef4-4041-b6ec-b8f4e375bbc9"
           ],
           "X-Runtime": [
-            "0.121961"
+            "0.149852"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
