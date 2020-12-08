@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:10:41",
+      "recorded_at": "2020-12-08T15:20:01",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,15 +24,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?from=2019-01-01&absence_code+=ScheduleAbsenceCode.UNPLANNED&page=1&to=2021-12-31&user_id=933638919"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?from=2019-01-01&to=2021-12-31&user_id=933638919&absence_code+=ScheduleAbsenceCode.UNPLANNED&page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
+          "base64_string": "H4sIAAAAAAAA/4SQT0+EMBBHvwr5eR2SlrIivRmOXj1pzKa0s7tECqR/DsTw3Q27uvHmdeblvcm8f2Fw0LWoRNM2BGcSQ6MSlSiFLIUEwc7e85Sg4bL3axHthV0emYrEMRVnTiAYD30yY2TC4qFTyEyIq+/nEVoRTIzDebp5bs22PqhGCNUSJuP36ksw0+eFh91nc0yz53D82e0p01t3vWecAzQeuq4DIa3LDjz3kSfL2Ag5crhXlHpUT61sCachxPRHB8Jo7pOrfCPYwCaxO5r0+wcpy6p+FY2WQh+aNxDy4v5hto/vAAAA//8ehvGmWgEAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +44,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "26"
+            "244"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:10:41 GMT"
+            "Tue, 08 Dec 2020 15:20:01 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"98684f08e706c95d34febbbb5094c861\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "ceb65a9e-0116-4a5f-a628-8e1594ce013b"
+            "c7fe55c6-8213-45e5-a91f-198cca4059c9"
           ],
           "X-Runtime": [
-            "0.031148"
+            "0.047353"
           ],
           "X-Total": [
-            "0"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +97,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?from=2019-01-01&absence_code+=ScheduleAbsenceCode.UNPLANNED&page=1&to=2021-12-31&user_id=933638919"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/schedules?from=2019-01-01&to=2021-12-31&user_id=933638919&absence_code+=ScheduleAbsenceCode.UNPLANNED&page=1"
       }
     }
   ],

@@ -1,5 +1,7 @@
 from moco_wrapper.models.schedule import ScheduleAbsenceCode, ScheduleSymbol
-from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse
+from moco_wrapper.models.company import CompanyType
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse
+
 
 from datetime import date
 from .. import IntegrationTest
@@ -14,8 +16,8 @@ class TestSchedule(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestSchedule.get_customer"):
             customer_create = self.moco.Company.create(
-                name="TestSchedule",
-                company_type="customer"
+                name="TestSchedule.get_customer",
+                company_type=CompanyType.CUSTOMER
             )
 
             return customer_create.data
@@ -64,7 +66,7 @@ class TestSchedule(IntegrationTest):
             sched_date = date(2020, 1, 1)
             am = False
             pm = True
-            comment = "dummy schedule, test create full"
+            comment = "TestSchedule.test_create_full"
             symbol = ScheduleSymbol.CAR
             overwrite = True
             absence_code = ScheduleAbsenceCode.HOLIDAY
@@ -76,7 +78,7 @@ class TestSchedule(IntegrationTest):
                 am=am,
                 pm=pm,
                 comment=comment,
-                overwrite=True,
+                overwrite=overwrite,
                 symbol=symbol,
             )
 
@@ -97,7 +99,7 @@ class TestSchedule(IntegrationTest):
             sched_date = date(2020, 1, 1)
             am = False
             pm = True
-            comment = "dummy schedule, test get"
+            comment = "TestSchedule.test_get_create"
             symbol = ScheduleSymbol.CAR
             absence_code = ScheduleAbsenceCode.SICK_DAY
 
@@ -133,7 +135,7 @@ class TestSchedule(IntegrationTest):
             sched_date = self.create_random_date()
             am = False
             pm = True
-            comment = "dummy schedule, test update"
+            comment = "TestSchedule.test_update"
             symbol = ScheduleSymbol.CAR
             absence_code = ScheduleAbsenceCode.ABSENCE
 
@@ -141,7 +143,8 @@ class TestSchedule(IntegrationTest):
                 schedule_date=sched_date,
                 absence_code=absence_code,
                 user_id=user.id,
-                symbol=symbol
+                symbol=symbol,
+                comment="TestSchedule.test_update_create"
             )
 
             sched_update = self.moco.Schedule.update(
@@ -171,7 +174,8 @@ class TestSchedule(IntegrationTest):
             sched_create = self.moco.Schedule.create(
                 schedule_date=self.create_random_date(),
                 absence_code=ScheduleAbsenceCode.ABSENCE,
-                user_id=user.id
+                user_id=user.id,
+                comment="TestSchedule.test_delete_create"
             )
 
             sched_delete = self.moco.Schedule.delete(sched_create.data.id)
