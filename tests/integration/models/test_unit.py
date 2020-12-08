@@ -1,8 +1,5 @@
 from moco_wrapper.util.response import ObjectResponse, PagedListResponse
 
-import string
-import random
-
 from .. import IntegrationTest
 
 
@@ -30,7 +27,9 @@ class TestUnit(IntegrationTest):
         unit = self.get_unit()
 
         with self.recorder.use_cassette("TestUnit.test_get"):
-            unit_get = self.moco.Unit.get(unit.id)
+            unit_get = self.moco.Unit.get(
+                unit_id=unit.id
+            )
 
             assert unit_get.response.status_code == 200
 
@@ -45,14 +44,16 @@ class TestUnit(IntegrationTest):
         with self.recorder.use_cassette("TestUnit.test_get_unit_with_users"):
             # create a random user and assign them to our unit
             user_create = self.moco.User.create(
-                "unit",
-                "test",
-                "{}@mycompany.com".format(self.id_generator()),
+                "-",
+                "TestUnit.test_get_unit_with_users_user_create",
+                "{}@example.org".format(self.id_generator()),
                 self.id_generator(),
                 unit.id
             )
 
-            unit_get = self.moco.Unit.get(unit.id)
+            unit_get = self.moco.Unit.get(
+                unit_id=unit.id
+            )
 
             assert user_create.response.status_code == 200
             assert unit_get.response.status_code == 200

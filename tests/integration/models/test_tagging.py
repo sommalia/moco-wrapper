@@ -10,7 +10,7 @@ class TestTagging(IntegrationTest):
     def get_company(self):
         with self.recorder.use_cassette("TestTagging.get_company"):
             company_create = self.moco.Company.create(
-                name="TestTagging Company",
+                name="TestTagging.get_customer",
                 company_type=CompanyType.CUSTOMER
             )
 

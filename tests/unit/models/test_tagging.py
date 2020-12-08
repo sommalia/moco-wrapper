@@ -14,6 +14,7 @@ class TestTagging(UnitTest):
             entity=entity,
             entity_id=entity_id
         )
+
         url_parts = response["path"].split("/")
 
         assert url_parts[-1] == str(entity_id)
@@ -42,7 +43,7 @@ class TestTagging(UnitTest):
     def test_replace(self):
         entity = TaggingEntity.OFFER
         entity_id = 335
-        tags = ["other", "taglist"]
+        tags = ["other", "tag list"]
 
         response = self.moco.Tagging.replace(
             entity=entity,
