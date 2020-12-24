@@ -44,11 +44,11 @@ class TestUnit(IntegrationTest):
         with self.recorder.use_cassette("TestUnit.test_get_unit_with_users"):
             # create a random user and assign them to our unit
             user_create = self.moco.User.create(
-                "-",
-                "TestUnit.test_get_unit_with_users_user_create",
-                "{}@example.org".format(self.id_generator()),
-                self.id_generator(),
-                unit.id
+                firstname="-",
+                lastname="TestUnit.test_get_unit_with_users_user_create",
+                email="{}@example.org".format(self.id_generator()),
+                password=self.id_generator(),
+                unit_id=unit.id
             )
 
             unit_get = self.moco.Unit.get(

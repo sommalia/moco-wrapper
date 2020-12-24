@@ -14,17 +14,17 @@ class TestUser(IntegrationTest):
         unit = self.get_unit()
 
         with self.recorder.use_cassette("TestUser.test_create"):
-            firstname = "test"
-            lastname = "user"
-            email = "{}@mycompany.com".format(self.id_generator())
+            firstname = "-"
+            lastname = "TestUser.test_create"
+            email = "{}@example.org".format(self.id_generator())
             password = self.id_generator()
 
             user_create = self.moco.User.create(
-                firstname,
-                lastname,
-                email,
-                password,
-                unit.id
+                firstname=firstname,
+                lastname=lastname,
+                email=email,
+                password=password,
+                unit_id=unit.id
             )
 
             assert user_create.response.status_code == 200
@@ -40,9 +40,9 @@ class TestUser(IntegrationTest):
         unit = self.get_unit()
 
         with self.recorder.use_cassette("TestUser.test_create_full"):
-            firstname = "test"
-            lastname = "user"
-            email = "{}@mycompany.com".format(self.id_generator())
+            firstname = "-"
+            lastname = "TestUser.test_create_full"
+            email = "{}@example.org".format(self.id_generator())
             password = self.id_generator()
 
             active = False
@@ -50,16 +50,16 @@ class TestUser(IntegrationTest):
             language = "de"
             mobile_phone = "+49 123"
             work_phone = "#49 456"
-            home_address = "gen. dumpster diver area 123"
+            home_address = "gen. market diver area 123"
             birthday = date(2020, 1, 1)
             info = "info for this person"
 
             user_create = self.moco.User.create(
-                firstname,
-                lastname,
-                email,
-                password,
-                unit.id,
+                firstname=firstname,
+                lastname=lastname,
+                email=email,
+                password=password,
+                unit_id=unit.id,
                 active=active,
                 external=external,
                 language=language,
@@ -90,9 +90,9 @@ class TestUser(IntegrationTest):
         unit = self.get_unit()
 
         with self.recorder.use_cassette("TestUser.test_get"):
-            firstname = "test"
-            lastname = "user"
-            email = "{}@mycompany.com".format(self.id_generator())
+            firstname = "-"
+            lastname = "TestUser.test_get_create"
+            email = "{}@example.org".format(self.id_generator())
             password = self.id_generator()
 
             active = False
@@ -105,11 +105,11 @@ class TestUser(IntegrationTest):
             info = "info for this person"
 
             user_create = self.moco.User.create(
-                firstname,
-                lastname,
-                email,
-                password,
-                unit.id,
+                firstname=firstname,
+                lastname=lastname,
+                email=email,
+                password=password,
+                unit_id=unit.id,
                 active=active,
                 external=external,
                 language=language,
@@ -120,7 +120,9 @@ class TestUser(IntegrationTest):
                 info=info
             )
 
-            user_get = self.moco.User.get(user_create.data.id)
+            user_get = self.moco.User.get(
+                user_id=user_create.data.id
+            )
 
             assert user_create.response.status_code == 200
             assert user_get.response.status_code == 200
@@ -144,9 +146,9 @@ class TestUser(IntegrationTest):
         unit = self.get_unit()
 
         with self.recorder.use_cassette("TestUser.test_update"):
-            firstname = "test"
-            lastname = "user"
-            email = "{}@mycompany.com".format(self.id_generator())
+            firstname = "-"
+            lastname = "TestUser.test_update"
+            email = "{}@example.org".format(self.id_generator())
             password = self.id_generator()
 
             active = False
@@ -159,15 +161,15 @@ class TestUser(IntegrationTest):
             info = "info for this person"
 
             user_create = self.moco.User.create(
-                "dummy user",
-                "test update",
-                "{}@mycompany.com".format(self.id_generator()),
-                self.id_generator(),
-                unit.id
+                firstname="-",
+                lastname="TestUser.test_update_create",
+                email="{}@example.org".format(self.id_generator()),
+                password=self.id_generator(),
+                unit_id=unit.id
             )
 
             user_update = self.moco.User.update(
-                user_create.data.id,
+                user_id=user_create.data.id,
                 firstname=firstname,
                 lastname=lastname,
                 email=email,
@@ -206,14 +208,16 @@ class TestUser(IntegrationTest):
 
         with self.recorder.use_cassette("TestUser.test_delete"):
             user_create = self.moco.User.create(
-                "dummy user",
-                "test delete",
-                "{}@mycompany.com".format(self.id_generator()),
-                self.id_generator(),
-                unit.id
+                firstname="-",
+                lastname="TestUser.test_delete_create",
+                email="{}@example.org".format(self.id_generator()),
+                password=self.id_generator(),
+                unit_id=unit.id
             )
 
-            user_delete = self.moco.User.delete(user_create.data.id)
+            user_delete = self.moco.User.delete(
+                user_id=user_create.data.id
+            )
 
             assert user_create.response.status_code == 200
             assert user_delete.response.status_code == 204
