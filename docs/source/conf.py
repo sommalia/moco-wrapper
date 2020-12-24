@@ -15,19 +15,23 @@
 import os
 import sys
 import sphinx_rtd_theme
+from datetime import datetime
+
 sys.path.insert(0, os.path.abspath('../..'))
 
 
 # -- Project information -----------------------------------------------------
 
+
+
 project = 'moco-wrapper'
-copyright = '2020, sommalia'
+copyright = '{0}, sommalia'.format(datetime.now().year)
 author = 'sommalia'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '0.8.1'
+release = '0.9.0'
 
 
 # -- General configuration ---------------------------------------------------

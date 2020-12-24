@@ -2,14 +2,17 @@
 History
 =======
 
-0.9.0 (TODO)
-------------
+0.9.0 (2020-12-24)
+-------------------
 
-* Split ListingResponse into 2 separate classes
+* Reworked response classes
+    * Split ListingResponse into 2 separate classes
     * ListResponse for unpaged response data
     * PageListResponse for paginated response data
+    * Renamed JsonResponse to ObjectResponse
 * Implemented taggings endpoint
-* Added "clickup" remote service
+* Added *clickup* remote service
+* Cleaned up tests
 
 0.8.1 (2020-11-17)
 ------------------
@@ -140,10 +143,3 @@ History
 ------------------
 
 * First release on PyPI.
-
-
-
-
-
-
-
