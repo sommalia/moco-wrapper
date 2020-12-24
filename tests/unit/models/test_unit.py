@@ -1,4 +1,3 @@
-import pytest
 from .. import UnitTest
 
 

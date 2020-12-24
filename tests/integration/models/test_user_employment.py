@@ -3,6 +3,7 @@ from moco_wrapper.util.response import PagedListResponse, ObjectResponse
 from datetime import date
 from .. import IntegrationTest
 
+
 class TestUserEmployment(IntegrationTest):
     def get_user(self):
         with self.recorder.use_cassette("TestUserEmployment.get_user"):
@@ -15,9 +16,9 @@ class TestUserEmployment(IntegrationTest):
         with self.recorder.use_cassette("TestUserEmployment.test_getlist"):
             from_date = date(2020, 1, 1)
             to_date = date(2021, 1, 1)
-            
+
             emp_list = self.moco.UserEmployment.getlist(
-                from_date, 
+                from_date,
                 to_date=to_date,
                 user_id=user.id
             )
@@ -45,4 +46,3 @@ class TestUserEmployment(IntegrationTest):
             assert emp_get.data.user.id is not None
             assert emp_get.data.pattern is not None
             assert emp_get.data.from_date is not None
-            
