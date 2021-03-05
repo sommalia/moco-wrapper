@@ -1,5 +1,4 @@
 from .base import MWRAPResponse
-from json import dumps
 
 
 class ListResponse(MWRAPResponse):
