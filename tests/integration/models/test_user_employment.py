@@ -7,7 +7,7 @@ from .. import IntegrationTest
 class TestUserEmployment(IntegrationTest):
     def get_user(self):
         with self.recorder.use_cassette("TestUserEmployment.get_user"):
-            user = self.moco.User.getlist().items[0]
+            user = self.moco.User.getlist()[0]
             return user
 
     def test_getlist(self):
@@ -35,7 +35,7 @@ class TestUserEmployment(IntegrationTest):
 
     def test_get(self):
         with self.recorder.use_cassette("TestUserEmployment.test_get"):
-            emp_id = self.moco.UserEmployment.getlist().items[0].id
+            emp_id = self.moco.UserEmployment.getlist()[0].id
 
             emp_get = self.moco.UserEmployment.get(
                 employment_id=emp_id

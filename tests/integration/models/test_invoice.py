@@ -20,7 +20,7 @@ class TestInvoice(IntegrationTest):
 
     def get_user(self):
         with self.recorder.use_cassette("TestInvoice.get_user"):
-            user = self.moco.User.getlist().items[0]
+            user = self.moco.User.getlist()[0]
             return user
 
     def get_project(self):

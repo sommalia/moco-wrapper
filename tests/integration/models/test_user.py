@@ -7,7 +7,7 @@ class TestUser(IntegrationTest):
 
     def get_unit(self):
         with self.recorder.use_cassette("TestUser.get_unit"):
-            unit = self.moco.Unit.getlist().items[0]
+            unit = self.moco.Unit.getlist()[0]
             return unit
 
     def test_create(self):

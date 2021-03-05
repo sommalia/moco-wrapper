@@ -59,5 +59,23 @@ class ListResponse(MWRAPResponse):
         """
         return self._data
 
+    def __iter__(self):
+        """
+        Returns the iterator of the items list so we can loop over the response
+        """
+        return iter(self.items)
+
+    def __getitem__(self, key):
+        """
+        Return the item of items with at key i
+
+        :param key: Index
+        :returns: item at key
+        """
+        return self.items[key]
+
+    def __len__(self):
+        return len(self.items)
+
     def __str__(self):
         return "<ListResponse, Status Code: {}, Data: {}>".format(self.response.status_code, str(self._data))

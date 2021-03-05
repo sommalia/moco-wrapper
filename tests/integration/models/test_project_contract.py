@@ -11,7 +11,7 @@ from .. import IntegrationTest
 class TestProjectContract(IntegrationTest):
     def get_unit(self):
         with self.recorder.use_cassette("TestProjectContract.get_unit"):
-            unit = self.moco.Unit.getlist().items[0]
+            unit = self.moco.Unit.getlist()[0]
             return unit
 
     def get_customer(self):
@@ -25,7 +25,7 @@ class TestProjectContract(IntegrationTest):
 
     def get_user(self):
         with self.recorder.use_cassette("TestProjectContract.get_user"):
-            user = self.moco.User.getlist().items[0]
+            user = self.moco.User.getlist()[0]
             return user
 
     def get_other_user(self):

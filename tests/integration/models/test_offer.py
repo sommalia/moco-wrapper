@@ -12,12 +12,12 @@ class TestOffer(IntegrationTest):
 
     def get_user(self):
         with self.recorder.use_cassette("TestOffer.get_user"):
-            user = self.moco.User.getlist().items[0]
+            user = self.moco.User.getlist()[0]
             return user
 
     def get_deal_category(self):
         with self.recorder.use_cassette("TestOffer.get_deal_category"):
-            deal_cat = self.moco.DealCategory.getlist().items[0]
+            deal_cat = self.moco.DealCategory.getlist()[0]
 
             return deal_cat
 
@@ -41,7 +41,7 @@ class TestOffer(IntegrationTest):
         with self.recorder.use_cassette("TestOffer.get_customer"):
             customer = self.moco.Company.getlist(
                 company_type="customer"
-            ).items[0]
+            )[0]
 
             return customer
 

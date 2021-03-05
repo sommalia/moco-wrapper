@@ -10,12 +10,12 @@ from .. import IntegrationTest
 class TestProject(IntegrationTest):
     def get_unit(self):
         with self.recorder.use_cassette("TestProject.get_unit"):
-            unit = self.moco.Unit.getlist().items[0]
+            unit = self.moco.Unit.getlist()[0]
             return unit
 
     def get_user(self):
         with self.recorder.use_cassette("TestProject.get_user"):
-            user = self.moco.User.getlist().items[0]
+            user = self.moco.User.getlist()[0]
             return user
 
     def get_other_user(self):
@@ -43,7 +43,7 @@ class TestProject(IntegrationTest):
 
     def get_deal_category(self):
         with self.recorder.use_cassette("TestProject.get_deal_category"):
-            deal_category = self.moco.DealCategory.getlist().items[0]
+            deal_category = self.moco.DealCategory.getlist()[0]
 
             return deal_category
 

@@ -53,16 +53,16 @@ With the moco wrapper object you can now interact with moco.
 .. code-block:: python
 
     # load a list of users
-    users = moco.User.getlist().items
+    users = moco.User.getlist()
 
     # load the second page of our list of users
     # requests with lists are paginated
     # default limit is 100 items per request
-    user = moco.User.getlist(page=2).items
+    users_page_two = moco.User.getlist(page=2)
 
     # create a project
-    leader = moco.User.getlist().items[0]
-    customer = moco.Company.getlist(type="customer").getlist().items[0]
+    leader = moco.User.getlist()[0]
+    customer = moco.Company.getlist(type="customer").getlist()[0]
     project = moco.Project.create(
         name = "my new project",
         currency = "EUR",

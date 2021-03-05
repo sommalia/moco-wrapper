@@ -10,12 +10,12 @@ from .. import IntegrationTest
 class TestDeal(IntegrationTest):
     def get_user(self):
         with self.recorder.use_cassette("TestDeal.get_user"):
-            user = self.moco.User.getlist().items[0]
+            user = self.moco.User.getlist()[0]
             return user
 
     def get_deal_category(self):
         with self.recorder.use_cassette("TestDeal.get_deal_category"):
-            cat = self.moco.DealCategory.getlist().items[0]
+            cat = self.moco.DealCategory.getlist()[0]
             return cat
 
     def get_company(self):

@@ -19,7 +19,7 @@ class TestActivity(IntegrationTest):
 
     def get_user(self):
         with self.recorder.use_cassette("TestActivity.get_user"):
-            user = self.moco.User.getlist().items[0]
+            user = self.moco.User.getlist()[0]
             return user
 
     def get_project(self):
@@ -71,7 +71,7 @@ class TestActivity(IntegrationTest):
 
     def get_unit(self):
         with self.recorder.use_cassette("TestActivity.get_unit"):
-            unit = self.moco.Unit.getlist().items[0]
+            unit = self.moco.Unit.getlist()[0]
             return unit
 
     def test_create(self):
