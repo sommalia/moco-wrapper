@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-28T14:42:08",
+      "recorded_at": "2021-03-18T15:36:25",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"money\": 210, \"name\": \"TestDeal.test_get_create\", \"currency\": \"EUR\", \"status\": \"won\", \"reminder_date\": \"2020-01-10\", \"user_id\": 933638919, \"deal_category_id\": 69660}"
+          "string": "{\"name\": \"TestDeal.test_get_create\", \"currency\": \"EUR\", \"money\": 210, \"user_id\": 933643740, \"deal_category_id\": 74697, \"reminder_date\": \"2020-01-10\", \"status\": \"won\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQwWrzMBCE32XOSpCc4N/e899TbyW9tBSj2JsgaktmtaaY4HcvJomvPc7usDP73RA6UHEsq3/OIPqBQThx1v/s+71y1ubK2rTCXhkGWb1OGYSfFGEgPITYsTTduiYUtrA763bOwmBIkWdQ4ezeGrSTCMd2BuHl/Q0GIV4SCDBQf82gz6/VlDUNzShpZNHAGXRbDKbMArp3rQ+H8lDVrja4BMn66LxWhUHvt4k/tx0Wg5ElpwiKU98/E9ZzD52G0cd5k175mmR+ppV1WdoNzGuK6r81sPD6/Sjp7M+hDzqD3GJwx9Q1Xp8snNsV1ckd6ViQrT5gMI3dH57lNwAA//9GSMoElQEAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":278269,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2021-03-18\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":74697,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2021-03-18T15:36:25Z\",\"updated_at\":\"2021-03-18T15:36:25Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "274"
+            "430"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 28 Nov 2020 14:42:08 GMT"
+            "Thu, 18 Mar 2021 15:36:25 GMT"
           ],
           "Etag": [
-            "W/\"d232d86ddb4b67f35ad9b8d40de5deee\""
+            "W/\"601499770a98bf6a775918ae5fd7f53d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4628febf-b2c9-4544-ab06-7e70c7b9e644"
+            "50c145be-c6b2-4988-9567-a59845fa9fc1"
           ],
           "X-Runtime": [
-            "0.074740"
+            "0.055407"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2020-11-28T14:42:09",
+      "recorded_at": "2021-03-18T15:36:26",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -118,43 +113,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/246871"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/278269"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQwWrzMBCE32XOSpCc4N/e899TbyW9tBSj2JsgaktmtaaY4HcvJomvPc7usDP73RA6UHEsq3/OIPqBQThx1v/s+71y1ubK2rTCXhkGWb1OGYSfFGEgPITYsTTduiYUtrA763bOwmBIkWdQ4ezeGrSTCMd2BuHl/Q0GIV4SCDBQf82gz6/VlDUNzShpZNHAGXRbDKbMArp3rQ+H8lDVrja4BMn66LxWhUHvt4k/tx0Wg5ElpwiKU98/E9ZzD52G0cd5k175mmR+ppV1WdoNzGuK6r81sPD6/Sjp7M+hDzqD3GJwx9Q1Xp8snNsV1ckd6ViQrT5gMI3dH57lNwAA//9GSMoElQEAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":278269,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2021-03-18\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":74697,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2021-03-18T15:36:25Z\",\"updated_at\":\"2021-03-18T15:36:25Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "274"
+            "430"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 28 Nov 2020 14:42:09 GMT"
+            "Thu, 18 Mar 2021 15:36:26 GMT"
           ],
           "Etag": [
-            "W/\"d232d86ddb4b67f35ad9b8d40de5deee\""
+            "W/\"601499770a98bf6a775918ae5fd7f53d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -169,10 +159,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "258046c8-d557-44d1-9cdd-0fc7aff09298"
+            "bc6db2d0-12a0-470e-b678-7a26bc8a6246"
           ],
           "X-Runtime": [
-            "0.066144"
+            "0.330641"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +172,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/246871"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/278269"
       }
     }
   ],

@@ -14,6 +14,7 @@ class TestDeal(UnitTest):
         company_id = 2
         info = "more deal information"
         status = "potential"
+        closed_on = "2021-01-01"
 
         response = self.moco.Deal.create(
             name=name,
@@ -24,7 +25,8 @@ class TestDeal(UnitTest):
             deal_category_id=deal_category_id,
             company_id=company_id,
             info=info,
-            status=status
+            status=status,
+            closed_on=closed_on
         )
 
         data = response["data"]
@@ -38,6 +40,7 @@ class TestDeal(UnitTest):
         assert data["company_id"] == company_id
         assert data["info"] == info
         assert data["status"] == status
+        assert data["closed_on"] == closed_on
 
         assert response["method"] == "POST"
 
@@ -79,6 +82,7 @@ class TestDeal(UnitTest):
         company_id = 2
         info = "more deal information"
         status = "potential"
+        closed_on = "2022-02-02"
 
         response = self.moco.Deal.update(
             deal_id=deal_id,
@@ -90,7 +94,8 @@ class TestDeal(UnitTest):
             deal_category_id=deal_category_id,
             company_id=company_id,
             info=info,
-            status=status
+            status=status,
+            closed_on=closed_on
         )
 
         data = response["data"]
@@ -104,6 +109,7 @@ class TestDeal(UnitTest):
         assert data["company_id"] == company_id
         assert data["info"] == info
         assert data["status"] == status
+        assert data["closed_on"] == closed_on
 
         assert response["method"] == "PUT"
 

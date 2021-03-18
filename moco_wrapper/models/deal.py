@@ -54,7 +54,8 @@ class Deal(MWRAPBase):
         deal_category_id: int,
         company_id: int = None,
         info: str = None,
-        status: DealStatus = DealStatus.PENDING
+        status: DealStatus = DealStatus.PENDING,
+        closed_on: datetime.date = None
     ):
         """
         Create a new deal.
@@ -68,6 +69,7 @@ class Deal(MWRAPBase):
         :param company_id: Company id (default ``None``)
         :param info: Additional information (default ``None``)
         :param status: Current state of the deal (default :attr:`.DealStatus.PENDING`)
+        :param closed_on: Date the deal was closed on (default ``None``)
 
         :type name: str
         :type currency: str
@@ -78,17 +80,21 @@ class Deal(MWRAPBase):
         :type company_id: int
         :type info: str
         :type status: :class:`.DealStatus`, str
+        :type closed_on: datetime.date, str
 
         :returns: The created deal object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
-        """
 
+        .. note ::
+            The ``closed_on`` field can only be set if the deal is in the state WON, LOST
+            or DROPPED. Otherwise it will be ignored.
+        """
         data = {
             "name": name,
             "currency": currency,
             "money": money,
             "user_id": user_id,
-            "deal_category_id": deal_category_id
+            "deal_category_id": deal_category_id,
         }
 
         if isinstance(reminder_date, datetime.date):
@@ -99,10 +105,14 @@ class Deal(MWRAPBase):
         for key, value in (
             ("company_id", company_id),
             ("info", info),
-            ("status", status)
+            ("status", status),
+            ("closed_on", closed_on)
         ):
             if value is not None:
-                data[key] = value
+                if isinstance(value, datetime.date) and key in ["closed_on"]:
+                    data[key] = self._convert_date_to_iso(value)
+                else:
+                    data[key] = value
 
         return self._moco.post(API_PATH["deal_create"], data=data)
 
@@ -117,7 +127,8 @@ class Deal(MWRAPBase):
         deal_category_id: int = None,
         company_id: int = None,
         info: str = None,
-        status: DealStatus = None
+        status: DealStatus = None,
+        closed_on: datetime.date = None
     ):
         """
         Update an existing deal.
@@ -132,6 +143,7 @@ class Deal(MWRAPBase):
         :param company_id: Company id (default ``None``)
         :param info: Additional information (default ``None``)
         :param status: Current state of the deal (default ``None``)
+        :param closed_on: Date the deal was closed on (default ``None``)
 
         :type deal_id: int
         :type name: str
@@ -143,9 +155,14 @@ class Deal(MWRAPBase):
         :type company_id: int
         :type info: str
         :type status: :class:`.DealStatus`, str
+        :type closed_on: datetime.date, str
 
         :returns: The updated deal object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
+
+        .. note ::
+            The ``closed_on`` field can only be set if the deal is in the state WON, LOST
+            or DROPPED. Otherwise it will be ignored.
         """
 
         data = {}
@@ -158,11 +175,12 @@ class Deal(MWRAPBase):
             ("deal_category_id", deal_category_id),
             ("company_id", company_id),
             ("info", info),
-            ("status", status)
+            ("status", status),
+            ("closed_on", closed_on)
         ):
 
             if value is not None:
-                if key in ["reminder_date"] and isinstance(value, datetime.date):
+                if key in ["reminder_date", "closed_on"] and isinstance(value, datetime.date):
                     data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value

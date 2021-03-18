@@ -37,10 +37,10 @@ class AccountFixedCost(MWRAPBase):
         """
         Retrieve a list of fixed costs
 
-        :param year: The year to retrieve the fixed costs for
-        :param sort_by: Sort the resuling list by this
-        :param sort_order: asc or desc
-        :param page: Page number
+        :param year: The year to retrieve the fixed costs for (default ``None``)
+        :param sort_by: Field to the results by (default ``None``)
+        :param sort_order: asc or desc (default ``"asc"``)
+        :param page: Page number (default ``1``)
 
         :type year: int
         :type sort_by: str

@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-18T15:36:31",
+      "recorded_at": "2021-03-18T15:42:58",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"name\": \"TestDeal.test_create\", \"currency\": \"EUR\", \"money\": 200, \"user_id\": 933643740, \"deal_category_id\": 74697, \"reminder_date\": \"2020-01-01\", \"status\": \"pending\", \"closed_on\": \"2021-01-01\"}"
         },
         "headers": {
           "Accept": [
@@ -20,6 +20,9 @@
           "Connection": [
             "keep-alive"
           ],
+          "Content-Length": [
+            "193"
+          ],
           "Content-Type": [
             "application/json"
           ],
@@ -27,40 +30,35 @@
             "python-requests/2.25.0"
           ]
         },
-        "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals?page=1"
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/+SYwW+bMBTG/5XpnZ3KNpgEn7fTblN3aVUhN7gRGrGRMZpQlf99ckxTGGlMD0mjcAvRBzj+fc/ve3l8hSIHTpcrymIESmwlcLiXtf0uRXlnZW2ztZHCSkBQW2GbGjhUUuWF2gACI7eFyqXJcifhQDHFC0wWmACCdalrmWdaAQdAsNVKtsApxncYwboxRqp1Cxx+/P4FCAr1or3Qik0N/PHJiWqrt1lldCWNLWQN/HWHoKmlAe6XnkZREkfLGCN4KUxtu5/gVg4ISnH4Rjyvc9ghqKSp3ZJUU5Zvb3CP6671thKqPVwKKzfatG9vW8ZJujzs00+trPhjC2mkAgSV0c/iuSgL2wInOwR+5/JMWL81ZIGjBVndE8YjzMnqARA0VR7Q7FAP0mrmkC4LifI4DUHymj6kJJo5pMtCYpxGIUheM4D0XsYzP+4uctwlnMQhSF7Th8TYSUjZS1OWlyK11UZ+21P7KmRdC0pwumQpPdKuN9Jmb0Rd++k+jm+0beVuPDw6/Kgz9sFw9eJR9bJ0vOReWBkZ469Wn0krvld3bplWyNdmj2S8QdPskVyVPShnLGQPr+nbIzmdZUf2KPW+Fien2Rvwx5ECmuaP9Kr8wTgNJjSvGfjjdIyeuT+cPyIy3qFJ/nA3XpE/Ek5xyB9e0/cHO3J67tvLfgtG8/Dp7kLwUXc4e/ZiIpl5TPQxEU8oZzwuZzxzXF+FK+I4WF1eM8D1UaqfOa6z43K9MITLawa4PsraM8d1dlwJp0FcXtPHxd5Le/jHhp+w+n2r0lYqW4jyM9n3vWfFpxNNt+yZz8znmZmjCV0y/v/YPRLpZm6MgzFuZFqOOCEhY3jN4ID/KO3O3BjOGDczJscTOn+cPMDu6d8AJUM5dhQcAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":278273,\"name\":\"TestDeal.test_create\",\"status\":\"pending\",\"reminder_date\":\"2020-01-01\",\"closed_on\":\"\",\"money\":200.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":74697,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2021-03-18T15:42:58Z\",\"updated_at\":\"2021-03-18T15:42:58Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "677"
+            "420"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 18 Mar 2021 15:36:31 GMT"
+            "Thu, 18 Mar 2021 15:42:58 GMT"
           ],
           "Etag": [
-            "W/\"b3a98943a47a89c49f8f6aeb8d5edbf6\""
+            "W/\"8d1d63ccfbef2d31b065c0f8dbdaf083\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -71,23 +69,14 @@
           "X-Frame-Options": [
             "SAMEORIGIN"
           ],
-          "X-Page": [
-            "1"
-          ],
-          "X-Per-Page": [
-            "100"
-          ],
           "X-Permitted-Cross-Domain-Policies": [
             "none"
           ],
           "X-Request-Id": [
-            "52416618-0c04-4232-8a5a-574709207159"
+            "03579573-4213-43d7-b785-60d88e65e671"
           ],
           "X-Runtime": [
-            "0.056602"
-          ],
-          "X-Total": [
-            "15"
+            "0.048947"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +86,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals"
       }
     }
   ],

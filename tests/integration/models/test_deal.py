@@ -70,8 +70,9 @@ class TestDeal(IntegrationTest):
             currency = "EUR"
             money = 200
             reminder_date = date(2020, 1, 1)
-            status = DealStatus.PENDING
+            status = DealStatus.LOST
             info = "more info"
+            closed_on = date(2021, 1, 1)
 
             deal_create = self.moco.Deal.create(
                 name=name,
@@ -83,6 +84,7 @@ class TestDeal(IntegrationTest):
                 status=status,
                 company_id=company.id,
                 info=info,
+                closed_on=closed_on
             )
 
             assert deal_create.response.status_code == 200
@@ -98,6 +100,7 @@ class TestDeal(IntegrationTest):
             assert deal_create.data.status == status
             assert deal_create.data.company.id == company.id
             assert deal_create.data.info == info
+            assert deal_create.data.closed_on == closed_on.isoformat()
 
     def test_get(self):
         user = self.get_user()
@@ -172,7 +175,8 @@ class TestDeal(IntegrationTest):
             money = 400
             reminder_date = date(2020, 1, 1)
             info = "updated info"
-            status = DealStatus.POTENTIAL
+            status = DealStatus.DROPPED
+            closed_on = date(2021, 1, 1)
 
             deal_update = self.moco.Deal.update(
                 deal_id=deal_create.data.id,
@@ -184,7 +188,8 @@ class TestDeal(IntegrationTest):
                 deal_category_id=category.id,
                 company_id=company.id,
                 info=info,
-                status=status
+                status=status,
+                closed_on=closed_on
             )
 
             assert deal_create.response.status_code == 200
@@ -202,3 +207,32 @@ class TestDeal(IntegrationTest):
             assert deal_update.data.company.id == company.id
             assert deal_update.data.info == info
             assert deal_update.data.status == status
+            assert deal_update.data.closed_on == closed_on.isoformat()
+
+    def test_closed_on_not_set_when_pending(self):
+        user = self.get_user()
+        category = self.get_deal_category()
+
+        with self.recorder.use_cassette("TestDeal.test_closed_on_not_set_when_pending"):
+            name = "TestDeal.test_create"
+            currency = "EUR"
+            money = 200
+            reminder_date = date(2020, 1, 1)
+            status = DealStatus.PENDING
+            closed_on = date(2021, 1, 1)
+
+            deal_create = self.moco.Deal.create(
+                name=name,
+                currency=currency,
+                money=money,
+                reminder_date=reminder_date,
+                user_id=user.id,
+                deal_category_id=category.id,
+                status=status,
+                closed_on=closed_on
+            )
+
+            assert deal_create.response.status_code == 200
+
+            assert deal_create.data.closed_on == ''
+
