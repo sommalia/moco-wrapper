@@ -9,6 +9,7 @@ API_PATH = {
     "activity_start_timer":             "/activities/{id}/start_timer",
     "activity_stop_timer":              "/activities/{id}/stop_timer",
     "activity_disregard":               "/activities/disregard",
+    "account_fixed_cost_getlist":       "/account/fixed_costs",
     "company_create":                   "/companies",
     "company_update":                   "/companies/{id}",
     "company_get":                      "/companies/{id}",

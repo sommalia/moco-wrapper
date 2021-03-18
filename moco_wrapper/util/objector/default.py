@@ -93,8 +93,9 @@ class DefaultObjector(BaseObjector):
             "planning_entries": {
                 "base": "PlanningEntry"
             },
-            "account" : {
-                "hourly_rates": "HourlyRate"
+            "account": {
+                "hourly_rates": "HourlyRate",
+                "fixed_costs": "AccountFixedCost",
             },
             "hourly_rates": {
                 "base": "HourlyRate"

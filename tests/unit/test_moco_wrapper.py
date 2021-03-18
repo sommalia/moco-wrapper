@@ -10,6 +10,9 @@ class TestMocoWrapper(UnitTest):
     def test_activity_set(self):
         assert isinstance(self.moco.Activity, models.Activity)
 
+    def test_account_fixed_cost(self):
+        assert isinstance(self.moco.AccountFixedCost, models.AccountFixedCost)
+
     def test_contact_set(self):
         assert isinstance(self.moco.Contact, models.Contact)
 

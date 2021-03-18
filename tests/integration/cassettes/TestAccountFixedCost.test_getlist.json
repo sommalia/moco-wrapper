@@ -1,0 +1,105 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2021-03-18T15:17:03",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.25.0"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/account/fixed_costs?year=2021&page=1&sort_by=year+desc"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAJbogA/6zUz2rCQBDH8Xf5ndeyf7JG5zl6UqQEs9BATCTZHIr47kWhMNruOIfeP7DszJfZX9C1IO+sXxvkLvcJhJzmDIM2zcepO+duHEDD0vcGx3HOM2h/wVdqJpC33hmcxiF/gpxBcxqXIYMqa9/s1fzJvI4FHat0LOrYWsdqHdvo2FbHnFU6p3S/FnEwOE6pyan9aDIIt+2ubFi5zburKNYU/A4Gy7mVzHaH24s/XdX/2VUo/oZ9poxYU2XEiioj1lMZsZrKiLVURqykMmIdlRGvSFCqmfOCwot+IjlPPor93E2Ij/1sHvvxzwEB+rMUVVdJUCwgQbGCBMUSEhRrSFAsIkGxigTFMhIU70hiLCSJPY9fOkX3THz9OqXK7XA9fA8AGc101OQGAAA=",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "305"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Thu, 18 Mar 2021 15:17:03 GMT"
+          ],
+          "Etag": [
+            "W/\"3103c1fc5dcb037253a0dd45b642b9af\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Page": [
+            "1"
+          ],
+          "X-Per-Page": [
+            "100"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "0951706d-a7a8-4d08-897a-246a849761f4"
+          ],
+          "X-Runtime": [
+            "0.130985"
+          ],
+          "X-Total": [
+            "3"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/account/fixed_costs?year=2021&page=1&sort_by=year+desc"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

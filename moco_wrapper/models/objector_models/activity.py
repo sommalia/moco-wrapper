@@ -1,13 +1,12 @@
 from moco_wrapper.models import objector_models as obj
 
+
 class Activity(object):
     def __init__(
-        self, 
+        self,
         **kwargs
     ):
         nk = kwargs
-
-
 
         if "project" in kwargs.keys() and kwargs["project"] is not None:
             p = obj.Project(**kwargs["project"])
@@ -24,6 +23,5 @@ class Activity(object):
         if "user" in kwargs.keys() and kwargs["user"] is not None:
             u = obj.User(**kwargs["user"])
             nk["user"] = u
-    
+
         self.__dict__.update(nk)
-        

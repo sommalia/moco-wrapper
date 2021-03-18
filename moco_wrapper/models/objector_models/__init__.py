@@ -1,4 +1,5 @@
 from .activity import Activity
+from .account_fixed_cost import AccountFixedCost
 
 from .project import Project
 from .project_recurring_expense import ProjectRecurringExpense

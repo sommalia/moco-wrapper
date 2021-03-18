@@ -1,0 +1,67 @@
+from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.const import API_PATH
+
+
+class AccountFixedCost(MWRAPBase):
+    """
+    Class for handling the fixed costs
+
+    Example Usage:
+
+    .. code-block:: python
+
+        import datetime
+        from moco_wrapper import Moco
+
+        m = Moco()
+
+        costs = m.AccountFixedCost.getlist(year=2020)
+
+    """
+
+    def __init__(self, moco):
+        """
+        Class constructor
+
+        :param moco: An instance of :class:`moco_wrapper.Moco`
+        """
+        self._moco = moco
+
+    def getlist(
+        self,
+        year: int = None,
+        sort_by: str = None,
+        sort_order: str = 'asc',
+        page: int = 1,
+    ):
+        """
+        Retrieve a list of fixed costs
+
+        :param year: The year to retrieve the fixed costs for
+        :param sort_by: Sort the resuling list by this
+        :param sort_order: asc or desc
+        :param page: Page number
+
+        :type year: int
+        :type sort_by: str
+        :type sort_order: str
+        :type page: str
+
+        :returns: List of fixed costs
+        :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
+        """
+
+        params = {}
+
+        for key, value in (
+            ("year", year),
+            ("page", page)
+        ):
+            if value is not None:
+                params[key] = value
+
+        if sort_by is not None:
+            params["sort_by"] = "{} {}".format(sort_by, sort_order)
+
+        return self._moco.get(API_PATH["account_fixed_cost_getlist"], params=params)
+

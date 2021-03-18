@@ -7,6 +7,9 @@ __email__ = 'sommalia@tuta.io'
 __version__ = '0.1.0'
 
 from .activity import Activity
+
+from .account_fixed_cost import AccountFixedCost
+
 from .contact import Contact
 from .company import Company
 from .comment import Comment
