@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:02:29",
+      "recorded_at": "2021-03-18T14:43:24",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,43 +24,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.0"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/hourly_rates?company_id=760895540"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/account/hourly_rates?company_id=760975905"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6TQT0sDMRAF8K8i7xxkt8E/yb2INxE9SSkxO6sxaSKTCVLKfndRSxePrveZ38x7Bww0upakbtkJVdinA3xjpuz3sFg/3kPhtTRO++8J2L7rzrtpoyCuxp+FMMBe6ZXpFbLbESzuuLxRlERBWn6Bwh/1Sc3q6qSus3wEH9O/SX0ib9iNIS7QNgqtEs8FGK0v9bXpjcLYUtoeDwhVOXPPflj+8VG+0L/lhy/5dvdOXEt2EkpeEmP6DAAA//9pZskzAwIAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"defaults_rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}],\"tasks\":[{\"id\":80229,\"name\":\"Projektleitung\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]},{\"id\":80230,\"name\":\"Entwicklung\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]},{\"id\":80231,\"name\":\"Grafik\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]}],\"users\":[{\"id\":933643740,\"full_name\":\"test abcd\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]}]}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "205"
+            "416"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:02:29 GMT"
+            "Thu, 18 Mar 2021 14:43:24 GMT"
           ],
           "Etag": [
-            "W/\"3e72d01d96e91e7d102149d4c806f72d\""
+            "W/\"8445b319e0ef9f312829fc483986494d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -75,10 +70,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "e5224acf-78e7-4496-9b73-778fb5b226a4"
+            "b9de5933-da1a-46aa-838c-4b54789a4723"
           ],
           "X-Runtime": [
-            "0.061284"
+            "0.053009"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +83,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/hourly_rates?company_id=760895540"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/account/hourly_rates?company_id=760975905"
       }
     }
   ],

@@ -24,7 +24,7 @@ API_PATH = {
     "holiday_create":                   "/users/holidays",
     "holiday_update":                   "/users/holidays/{id}",
     "holiday_delete":                   "/users/holidays/{id}",
-    "hourly_rate_get":                  "/hourly_rates",
+    "hourly_rate_get":                  "/account/hourly_rates",
     "invoice_getlist":                  "/invoices",
     "invoice_get":                      "/invoices/{id}",
     "invoice_locked":                   "/invoices/locked",
