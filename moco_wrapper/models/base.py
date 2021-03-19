@@ -1,4 +1,5 @@
 import datetime
+from moco_wrapper.util.endpoint import Endpoint
 
 
 class MWRAPBase(object):
@@ -22,3 +23,13 @@ class MWRAPBase(object):
             date_to_convert.month,
             date_to_convert.day
         ).isoformat()
+
+    @staticmethod
+    def endpoints() -> [Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of endpoint objects
+        :rtype: list
+        """
+        return []

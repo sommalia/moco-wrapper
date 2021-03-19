@@ -7,4 +7,6 @@ class BaseObjector(object):
 
     def convert(self, requestor_response):
         pass
-    
+
+    def convert_e(self, requestor_response, endpoint):
+        pass

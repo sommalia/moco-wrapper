@@ -14,8 +14,12 @@ class TestEndpoint(object):
         url_expected = template.format(id=id, value=value)
 
         e = Endpoint("test_slug", template, "GET")
+        e_params = {
+            "id": id,
+            "value": value
+        }
 
-        assert e.url_format(id=id, value=value) == url_expected
+        assert e.url_format(e_params) == url_expected
 
     def test_objector_model(self):
         e = Endpoint("test-slug", "test/template/", "GET", MockObjectorModel)

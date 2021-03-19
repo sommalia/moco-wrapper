@@ -1,6 +1,6 @@
 from moco_wrapper.const import API_PATH
 from moco_wrapper import models, util, exceptions
-from moco_wrapper.util import requestor, objector, response
+from moco_wrapper.util import requestor, objector, response, endpoint
 
 from requests import get, post, put, delete
 
@@ -61,43 +61,34 @@ class Moco(object):
             )
 
         """
+        self.endpoint_manager = endpoint.EndpointManager()
 
         self.Activity = models.Activity(self)
-
         self.AccountFixedCost = models.AccountFixedCost(self)
-
         self.Contact = models.Contact(self)
         self.Company = models.Company(self)
         self.Comment = models.Comment(self)
         self.Unit = models.Unit(self)
-
         self.User = models.User(self)
         self.UserPresence = models.UserPresence(self)
         self.UserHoliday = models.UserHoliday(self)
         self.UserEmployment = models.UserEmployment(self)
-
         self.Schedule = models.Schedule(self)  # old way for handling planning + absenses
         self.PlanningEntry = models.PlanningEntry(self)  # new way for handling planning
-
         self.Project = models.Project(self)
         self.ProjectContract = models.ProjectContract(self)
         self.ProjectExpense = models.ProjectExpense(self)
         self.ProjectTask = models.ProjectTask(self)
         self.ProjectRecurringExpense = models.ProjectRecurringExpense(self)
         self.ProjectPaymentSchedule = models.ProjectPaymentSchedule(self)
-
         self.Deal = models.Deal(self)
         self.DealCategory = models.DealCategory(self)
-
         self.Invoice = models.Invoice(self)
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
-
         self.Session = models.Session(self)
-
         self.PurchaseCategory = models.PurchaseCategory(self)
         self.Purchase = models.Purchase(self)
-
         self.HourlyRate = models.HourlyRate(self)
         self.Tagging = models.Tagging(self)
 
@@ -184,16 +175,82 @@ class Moco(object):
         # return the objector result by default
         return objector_result
 
-    def get(self, path, params=None, data=None, **kwargs):
+    def request_e(
+        self,
+        ep: endpoint.Endpoint,
+        ep_params={},
+        params=None,
+        data=None,
+        bypass_auth: bool = False,
+        **kwargs,
+    ):
+        print(ep_params)
+        full_path = self.full_domain + ep.url_format(ep_params)
+        requestor_response = None
+
+        if not bypass_auth:
+            self.authenticate()
+
+        # merge headers if set in model
+        headers = self.headers
+        if "headers" in kwargs.keys():
+            for key, value in kwargs["headers"].items():
+                headers[key] = value
+
+            del kwargs["headers"]
+
+        # pass request making to the requestor object
+        if ep.method == "GET":
+            requestor_response = self._requestor.get(full_path, params=params, data=data, headers=headers, **kwargs)
+        elif ep.method == "PUT":
+            requestor_response = self._requestor.put(full_path, params=params, data=data, headers=headers, **kwargs)
+        elif ep.method == "POST":
+            requestor_response = self._requestor.post(full_path, params=params, data=data, headers=headers, **kwargs)
+        elif ep.method == "DELETE":
+            requestor_response = self._requestor.delete(full_path, params=params, data=data, headers=headers, **kwargs)
+        elif ep.method == "PATCH":
+            requestor_response = self._requestor.patch(full_path, params=params, data=data, headers=headers, **kwargs)
+
+        # push the response to the current objector
+        objector_result = self._objector.convert_e(requestor_response, ep)
+
+        # if the result is an exception we raise it, otherwise return it
+        if isinstance(objector_result, response.ErrorResponse) and isinstance(objector_result.data,
+                                                                              exceptions.MocoException):
+            raise objector_result.data
+
+        # return the objector result by default
+        return objector_result
+
+    def get(self, path, endpoint_params=None, params=None, data=None, **kwargs):
         """
         Helper function for GET requests
         """
+        # check if path is now and endpoint slug
+        ep = self.endpoint_manager.get(path)
+        if ep is not None:
+            return self.request_e(ep,
+                                  ep_params=endpoint_params,
+                                  params=params,
+                                  data=data,
+                                  **kwargs)
+
         return self.request("GET", path, params=params, data=data, **kwargs)
 
-    def post(self, path, params=None, data=None, **kwargs):
+    def post(self, path, endpoint_params=None, params=None, data=None, **kwargs):
         """
         Helper function for POST requests
         """
+        ep = self.endpoint_manager.get(path)
+        if ep is not None:
+            return self.request_e(
+                ep,
+                ep_params=endpoint_params,
+                params=params,
+                data=data,
+                **kwargs
+            )
+
         return self.request("POST", path, params=params, data=data, **kwargs)
 
     def put(self, path, params=None, data=None, **kwargs):

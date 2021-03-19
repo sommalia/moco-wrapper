@@ -1,5 +1,9 @@
+from typing import List
+
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 
 
 class Session(MWRAPBase):
@@ -9,6 +13,20 @@ class Session(MWRAPBase):
     This model is used internally when the moco instance is created with no api key in the authentication object and
     will be invoked before the first request is fired.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse
+
+        """
+        return [
+            Endpoint("session_auth", "/session", "POST", om.SessionAuthentication),
+            Endpoint("session_verify", "/session", "GET", om.SessionVerification)
+        ]
 
     def __init__(self, moco):
         """
@@ -41,7 +59,7 @@ class Session(MWRAPBase):
             "password": password
         }
 
-        return self.moco.post(API_PATH["session_auth"], data=data, bypass_auth=True)
+        return self.moco.post("session_auth", data=data, bypass_auth=True)
 
     def verify(self):
         """
@@ -51,4 +69,4 @@ class Session(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
-        return self.moco.get(API_PATH["session_verify"])
+        return self.moco.get("session_verify")

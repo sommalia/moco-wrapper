@@ -1,12 +1,19 @@
 class SessionAuthentication(object):
     def __init__(
         self,
-        **kwargs
+        api_key,
+        user_id
     ):
-        nk = kwargs
+        self.api_key = api_key
+        self.user_id = user_id
 
-        self.__dict__.update(nk)
 
 class SessionVerification(object):
-    def __init__(self):
-        pass
+
+    def __init__(
+        self,
+        id,
+        uuid,
+    ):
+        self.id = id
+        self.uuid = uuid

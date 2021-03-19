@@ -109,8 +109,6 @@ API_PATH = {
     "deal_category_create":             "/deal_categories",
     "deal_category_update":             "/deal_categories/{id}",
     "deal_category_delete":             "/deal_categories/{id}",
-    "session_auth":                     "/session",
-    "session_verify":                   "/session",
     "project_payment_schedule_create":  "/projects/{project_id}/payment_schedules",
     "project_payment_schedule_getlist": "/projects/{project_id}/payment_schedules",
     "project_payment_schedule_get":     "/projects/{project_id}/payment_schedules/{schedule_id}",

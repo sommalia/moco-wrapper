@@ -1,6 +1,5 @@
-from moco_wrapper.models.schedule import ScheduleAbsenceCode, ScheduleSymbol
-from moco_wrapper.models.company import CompanyType
-from moco_wrapper.util.response import ObjectResponse, PagedListResponse
+from moco_wrapper.util.response import ObjectResponse
+from moco_wrapper.models.objector_models import SessionVerification
 
 
 from datetime import date
@@ -14,5 +13,7 @@ class TestSession(IntegrationTest):
 
         assert session_verify.response.status_code == 200
 
+        assert isinstance(session_verify, ObjectResponse)
+        assert isinstance(session_verify.data, SessionVerification)
 
 
