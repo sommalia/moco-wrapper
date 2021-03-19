@@ -1,0 +1,91 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2021-03-19T14:34:47",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.25.0"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/session"
+      },
+      "response": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"id\":933643740,\"uuid\":\"90839f6f-86a2-49e1-a2c2-6ba197bb5ebc\"}"
+        },
+        "headers": {
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Content-Length": [
+            "62"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Fri, 19 Mar 2021 14:34:47 GMT"
+          ],
+          "Etag": [
+            "W/\"e35e6c0b52e7425fc759ef76d201bd6e\""
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "X-Request-Id": [
+            "d10b9d24-0894-4d92-bfd9-79319ac97178"
+          ],
+          "X-Runtime": [
+            "0.014767"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/session"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

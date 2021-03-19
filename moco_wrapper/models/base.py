@@ -27,7 +27,7 @@ class MWRAPBase(object):
     @staticmethod
     def endpoints() -> [Endpoint]:
         """
-        Returns all endpoints associated with the model
+        Returns all models associated with the model
 
         :returns: List of endpoint objects
         :rtype: list

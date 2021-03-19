@@ -9,11 +9,13 @@ from .. import IntegrationTest
 class TestSession(IntegrationTest):
 
     def test_verify(self):
-        session_verify = self.moco.Session.verify()
 
-        assert session_verify.response.status_code == 200
+        with self.recorder.use_cassette("TestSession.test_verify"):
+            session_verify = self.moco.Session.verify()
 
-        assert isinstance(session_verify, ObjectResponse)
-        assert isinstance(session_verify.data, SessionVerification)
+            assert session_verify.response.status_code == 200
+
+            assert isinstance(session_verify, ObjectResponse)
+            assert isinstance(session_verify.data, SessionVerification)
 
 

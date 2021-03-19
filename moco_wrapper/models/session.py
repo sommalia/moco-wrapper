@@ -17,10 +17,10 @@ class Session(MWRAPBase):
     @staticmethod
     def endpoints() -> List[Endpoint]:
         """
-        Returns all endpoints associated with the model
+        Returns all models associated with the model
 
         :returns: List of Endpoint objects
-        :rtype: :class:`moco_wrapper.util.response.ObjectResponse
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
 
         """
         return [
