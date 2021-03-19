@@ -10,3 +10,4 @@ from . import generator
 from . import requestor
 from . import objector
 from . import response
+from . import endpoint

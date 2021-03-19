@@ -42,3 +42,13 @@ class Session(MWRAPBase):
         }
 
         return self.moco.post(API_PATH["session_auth"], data=data, bypass_auth=True)
+
+    def verify(self):
+        """
+        Verifies that the current api key is still valid
+
+        :returns: Session verification object
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
+        """
+
+        return self.moco.get(API_PATH["session_verify"])

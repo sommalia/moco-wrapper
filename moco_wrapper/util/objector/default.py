@@ -84,7 +84,7 @@ class DefaultObjector(BaseObjector):
                 "base": "Schedule"
             },
             "session": {
-                "base": "Session"
+                "base": "SessionAuthentication"
             },
             "purchases": {
                 "base": "Purchase",
