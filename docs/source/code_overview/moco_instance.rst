@@ -9,6 +9,7 @@ The Moco Instance
    :maxdepth: 1
    :caption: API Endpoints
 
+   endpoints/account_fixed_cost
    endpoints/activity
    endpoints/comment
    endpoints/company
