@@ -178,13 +178,12 @@ class Moco(object):
     def request_e(
         self,
         ep: endpoint.Endpoint,
-        ep_params={},
+        ep_params=None,
         params=None,
         data=None,
         bypass_auth: bool = False,
-        **kwargs,
+        **kwargs
     ):
-        print(ep_params)
         full_path = self.full_domain + ep.url_format(ep_params)
         requestor_response = None
 
