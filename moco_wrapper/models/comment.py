@@ -1,3 +1,7 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -63,6 +67,24 @@ class Comment(MWRAPBase):
         )
     """
 
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("comment_create", "/comments", "POST", om.Comment),
+            Endpoint("comment_update", "/comments/{id}", "PUT", om.Comment),
+            Endpoint("comment_getlist", "/comments", "GET", om.Comment),
+            Endpoint("comment_get", "/comments/{id}", "GET", om.Comment),
+            Endpoint("comment_create_bulk", "/comments/bulk", "POST", om.Comment),
+            Endpoint("comment_delete", "/comments/{id}", "DELETE")
+        ]
+
     def __init__(self, moco):
         """
         Class Constructor
@@ -98,7 +120,7 @@ class Comment(MWRAPBase):
             "text": text
         }
 
-        return self._moco.post(API_PATH["comment_create"], data=data)
+        return self._moco.post("comment_create", data=data)
 
     def create_bulk(
         self,
@@ -126,7 +148,7 @@ class Comment(MWRAPBase):
             "text": text
         }
 
-        return self._moco.post(API_PATH["comment_create_bulk"], data=data)
+        return self._moco.post("comment_create_bulk", data=data)
 
     def update(
         self,
@@ -145,11 +167,15 @@ class Comment(MWRAPBase):
         :returns: The created comment
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": comment_id
+        }
+
         data = {
             "text": text,
         }
 
-        return self._moco.put(API_PATH["comment_update"].format(id=comment_id), data=data)
+        return self._moco.put("comment_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -165,8 +191,11 @@ class Comment(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "id": comment_id
+        }
 
-        return self._moco.delete(API_PATH["comment_delete"].format(id=comment_id))
+        return self._moco.delete("comment_delete", ep_params=ep_params)
 
     def get(
         self,
@@ -182,7 +211,11 @@ class Comment(MWRAPBase):
         :returns: Single comment
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["comment_get"].format(id=comment_id))
+        ep_params = {
+            "id": comment_id
+        }
+
+        return self._moco.get("comment_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -230,4 +263,4 @@ class Comment(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["comment_getlist"], params=params)
+        return self._moco.get("comment_getlist", params=params)
