@@ -14,3 +14,6 @@ class RawObjector(BaseObjector):
         :returns: ``requestor_response`` as it is
         """
         return requestor_response
+
+    def convert_e(self, requestor_response, endpoint):
+        return requestor_response

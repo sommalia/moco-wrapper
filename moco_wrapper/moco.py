@@ -221,7 +221,7 @@ class Moco(object):
         # return the objector result by default
         return objector_result
 
-    def get(self, path, endpoint_params=None, params=None, data=None, **kwargs):
+    def get(self, path, ep_params=None, params=None, data=None, **kwargs):
         """
         Helper function for GET requests
         """
@@ -229,14 +229,14 @@ class Moco(object):
         ep = self.endpoint_manager.get(path)
         if ep is not None:
             return self.request_e(ep,
-                                  ep_params=endpoint_params,
+                                  ep_params=ep_params,
                                   params=params,
                                   data=data,
                                   **kwargs)
 
         return self.request("GET", path, params=params, data=data, **kwargs)
 
-    def post(self, path, endpoint_params=None, params=None, data=None, **kwargs):
+    def post(self, path, ep_params=None, params=None, data=None, **kwargs):
         """
         Helper function for POST requests
         """
@@ -244,7 +244,7 @@ class Moco(object):
         if ep is not None:
             return self.request_e(
                 ep,
-                ep_params=endpoint_params,
+                ep_params=ep_params,
                 params=params,
                 data=data,
                 **kwargs
@@ -252,22 +252,52 @@ class Moco(object):
 
         return self.request("POST", path, params=params, data=data, **kwargs)
 
-    def put(self, path, params=None, data=None, **kwargs):
+    def put(self, path, ep_params=None, params=None, data=None, **kwargs):
         """
         Helper function for PUT requests
         """
+        ep = self.endpoint_manager.get(path)
+        if ep is not None:
+            return self.request_e(
+                ep,
+                ep_params=ep_params,
+                params=params,
+                data=data,
+                **kwargs
+            )
+
         return self.request("PUT", path, params=params, data=data, **kwargs)
 
-    def delete(self, path, params=None, data=None, **kwargs):
+    def delete(self, path, ep_params=None, params=None, data=None, **kwargs):
         """
         Helper function for DELETE requests
         """
+        ep = self.endpoint_manager.get(path)
+        if ep is not None:
+            return self.request_e(
+                ep,
+                ep_params=ep_params,
+                params=params,
+                data=data,
+                **kwargs
+            )
+
         return self.request("DELETE", path, params=params, data=data, **kwargs)
 
-    def patch(self, path, params=None, data=None, **kwargs):
+    def patch(self, path, ep_params=None, params=None, data=None, **kwargs):
         """
         Helper function for PATCH requests
         """
+        ep = self.endpoint_manager.get(path)
+        if ep is not None:
+            return self.request_e(
+                ep,
+                ep_params=ep_params,
+                params=params,
+                data=data,
+                **kwargs
+            )
+
         return self.request("PATCH", path, params=params, data=data, **kwargs)
 
     def impersonate(

@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-20T12:44:45",
+      "recorded_at": "2021-03-20T13:04:05",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -32,30 +32,35 @@
       },
       "response": {
         "body": {
+          "base64_string": "H4sIAAAJbogA/4xSwY7bIBD9lzmTZDBOnHDvvaq2l65WiMAki2SDBUO10Sr/XlHHq6pV1d7wm5k3897z8zsED7rbDyfsBQRPkcMlUAYNnzqJaoOICgRkchRmNr92xDqOAjjwSKDhiQp/rtm92kJbpsImME0gIMRLWpvD2cb1nelCmaKjFfCWG1GHHW5QblCCAF/JLPhCUCh/D47MTDkkby45Tev4byX+WFrYci2gYaboQ7yCgNneJopsJuLX5EGDs+UVBERiw4ntCPq03/ZKwDWnUlZMIm47Aa7mdvitmfT1Cwi4hJFMzSNo2JVbYZp2PrnaVpSddS7VyDs1qP506BV+1Hb9Se6lPO66g5THs0W03dENym5nf4G2p3CazJzTTJkDFdDvdwFsrwX084sAl6bZxtsCPzQ9SrW0EJd4T0odejX02C7NhaOdmtEtpKZ5+bJn5+EuoKXWOJZRJQ/H4/AfKf/pHNu31bd+OzQO+wZ6v8WfLxOiG6snD5pzpb8YbZmuKT8EljrPY6BsXCYf2MQ6nZvIARHx3uzIZJm8sbz8RnKDatPhk1Qale6GbyCgzv4fPfeXHwMAldYSvhYDAAA=",
           "encoding": "utf-8",
-          "string": "[]"
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
+          "Content-Encoding": [
+            "gzip"
+          ],
           "Content-Length": [
-            "2"
+            "449"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 20 Mar 2021 12:44:45 GMT"
+            "Sat, 20 Mar 2021 13:04:05 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"02b201697147c40df53520a6c5164209\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin"
+            "Origin",
+            "Accept-Encoding"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -76,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "48ad47a4-19fa-4e03-84fb-8cd512ebb6e0"
+            "98782353-1001-4dce-9842-1358b1e99907"
           ],
           "X-Runtime": [
-            "0.054675"
+            "0.053955"
           ],
           "X-Total": [
-            "0"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

@@ -1,7 +1,8 @@
 import datetime
 
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
+from moco_wrapper.models import objector_models as om
+from moco_wrapper.util.endpoint import Endpoint
 
 from enum import Enum
 from base64 import b64encode
@@ -104,6 +105,17 @@ class PurchaseFile(object):
 
 class Purchase(MWRAPBase):
 
+    @staticmethod
+    def endpoints() -> [Endpoint]:
+        return [
+            Endpoint("purchase_getlist", "/purchases", "GET", om.Purchase),
+            Endpoint("purchase_get", "/purchases/{id}", "GET", om.Purchase),
+            Endpoint("purchase_create", "/purchases", "POST", om.Purchase),
+            Endpoint("purchase_delete", "/purchases/{id}", "DELETE", om.Purchase),
+            Endpoint("purchase_update_status", "/purchases/{id}/update_status", "PATCH", om.Purchase),
+            Endpoint("purchase_store_document", "/purchases/{id}/store_document", "PATCH", om.Purchase)
+        ]
+
     def __init__(self, moco):
         """
         Class constructor
@@ -205,7 +217,7 @@ class Purchase(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["purchase_getlist"], params=params)
+        return self._moco.get("purchase_getlist", params=params)
 
     def get(
         self,
@@ -221,7 +233,11 @@ class Purchase(MWRAPBase):
         :returns: A single purchase
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["purchase_get"].format(id=purchase_id))
+        ep_params = {
+            "id": purchase_id
+        }
+
+        return self._moco.get("purchase_get", ep_params=ep_params)
 
     def create(
         self,
@@ -315,7 +331,7 @@ class Purchase(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH["purchase_create"], data=data)
+        return self._moco.post("purchase_create", data=data)
 
     def delete(
         self,
@@ -336,7 +352,11 @@ class Purchase(MWRAPBase):
             and no payments have been registered to the purchase yet
 
         """
-        return self._moco.delete(API_PATH["purchase_delete"].format(id=purchase_id))
+        ep_params = {
+            "id": purchase_id
+        }
+
+        return self._moco.delete("purchase_delete", ep_params=ep_params)
 
     def update_status(
         self,
@@ -355,11 +375,15 @@ class Purchase(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "id": purchase_id
+        }
+
         data = {
             "status": status
         }
 
-        return self._moco.patch(API_PATH["purchase_update_status"].format(id=purchase_id), data=data)
+        return self._moco.patch("purchase_update_status", ep_params=ep_params, data=data)
 
     def store_document(
         self,
@@ -388,9 +412,18 @@ class Purchase(MWRAPBase):
             "Content-Type": None
         }
 
+        ep_params = {
+            "id": purchase_id
+        }
+
         files = {
             "file": (file.name, open(file.path, "rb"))
         }
 
-        return self._moco.patch(API_PATH["purchase_store_document"].format(id=purchase_id),
-                                headers=headers, data=None, files=files)
+        return self._moco.patch(
+            "purchase_store_document",
+            ep_params=ep_params,
+            headers=headers,
+            data=None,
+            files=files
+        )

@@ -1,6 +1,8 @@
 import pytest
 import datetime
 from .. import UnitTest
+
+from moco_wrapper.models.purchase import PurchasePaymentMethod
 from moco_wrapper.util.generator import PurchaseItemGenerator
 
 
@@ -65,6 +67,7 @@ class TestPurchase(UnitTest):
         start_date = "2020-01-04"
         end_date = "2020-04-04"
         unpaid = True
+        payment_method = PurchasePaymentMethod.PAYPAL
 
         response = self.moco.Purchase.getlist(
             purchase_id=purchase_id,
@@ -75,7 +78,8 @@ class TestPurchase(UnitTest):
             tags=tags,
             start_date=start_date,
             end_date=end_date,
-            unpaid=unpaid
+            unpaid=unpaid,
+            payment_method=payment_method
         )
 
         params = response["params"]
@@ -90,6 +94,7 @@ class TestPurchase(UnitTest):
         assert sorted(params["tags"]) == sorted(tags)
         assert params["date"] == "{}:{}".format(start_date, end_date)
         assert params["unpaid"] == unpaid
+        assert params["payment_method"] == payment_method
 
     def test_create(self):
         generator = PurchaseItemGenerator()
@@ -186,6 +191,7 @@ class TestPurchase(UnitTest):
             status=status
         )
 
+        print(response)
         data = response["data"]
 
         assert response["method"] == "PATCH"

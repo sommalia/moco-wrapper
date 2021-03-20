@@ -39,3 +39,9 @@ class NoErrorObjector(DefaultObjector):
             return super(NoErrorObjector, self).convert(requestor_response)
 
         return requestor_response
+
+    def convert_e(self, requestor_response, endpoint):
+        if isinstance(requestor_response, (ObjectResponse, ListResponse, PagedListResponse)):
+            return super(NoErrorObjector, self).convert_e(requestor_response, endpoint)
+
+        return requestor_response
