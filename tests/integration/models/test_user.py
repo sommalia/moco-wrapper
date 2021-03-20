@@ -238,3 +238,30 @@ class TestUser(IntegrationTest):
             assert user_getlist.next_page is not None
             assert user_getlist.total is not None
             assert user_getlist.page_size is not None
+
+    def test_performance_report(self):
+        unit = self.get_unit()
+
+        with self.recorder.use_cassette("TestUser.test_performance_report"):
+            year = 2021
+
+            user_create = self.moco.User.create(
+                firstname="-",
+                lastname="TestUser.test_performance_report_create",
+                email="{}@example.org".format(self.id_generator()),
+                password=self.id_generator(),
+                unit_id=unit.id
+            )
+
+            report_get = self.moco.User.performance_report(
+                user_id=user_create.data.id,
+                year=year
+            )
+
+            assert report_get.response.status_code == 200
+
+            assert isinstance(report_get, ObjectResponse)
+
+            assert report_get.data.annually is not None
+            assert report_get.data.monthly is not None
+

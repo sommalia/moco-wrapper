@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-24T10:03:43",
+      "recorded_at": "2021-03-20T13:37:53",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TMwaqDMBCF4Ve5nHWEJEbReQ5Xt4ikZgpCrZIZV5J3L4W2224P5/svJ5YE6m3v2q6rG4NHXBmEgeP652AwH6LbOu152znrwgI6i8EhnAX08XXdBmtf/rZk0XdEWRQG9/hd4nVOKKPBnDkqpykqCN56Wzlf+TDYnkIg1/zD4NjTj08ZnwEAAP//SgWwNcEAAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":909170073,\"name\":\"Team 1\",\"custom_properties\":{},\"users\":[{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"}],\"created_at\":\"2021-03-18T14:39:25Z\",\"updated_at\":\"2021-03-18T14:39:25Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "155"
+            "193"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 24 Dec 2020 10:03:43 GMT"
+            "Sat, 20 Mar 2021 13:37:53 GMT"
           ],
           "Etag": [
-            "W/\"08a79009104d8f16cbbcd6ac6e1238ca\""
+            "W/\"3915d030c8fd899aad5c867cb265f087\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "56473588-2de1-44b2-a337-865da66d178d"
+            "7937780a-712e-447e-bda9-d6aef248f123"
           ],
           "X-Runtime": [
-            "0.052016"
+            "0.041349"
           ],
           "X-Total": [
             "1"

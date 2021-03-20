@@ -72,8 +72,8 @@ class TestUser(UnitTest):
         home_address = "this is my home address"
         birthday = "1994-10-10"
         custom_properties = {
-            "custom_shirt": True
-        },
+                                "custom_shirt": True
+                            },
         info = "more information"
 
         response = self.moco.User.update(
@@ -176,3 +176,16 @@ class TestUser(UnitTest):
         )
 
         assert response["method"] == "DELETE"
+
+    def test_performance_report(self):
+        user_id = 123
+        year = 2020
+
+        response = self.moco.User.performance_report(
+            user_id=user_id,
+            year=year
+        )
+
+        assert response["method"] == "GET"
+
+        assert response["params"]["year"] == year

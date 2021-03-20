@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-24T10:03:44",
+      "recorded_at": "2021-03-20T13:37:55",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"firstname\": \"-\", \"lastname\": \"TestUser.test_create\", \"email\": \"LA1A0W@example.org\", \"password\": \"SARR9U\", \"unit_id\": 909168835}"
+          "string": "{\"firstname\": \"-\", \"lastname\": \"TestUser.test_create\", \"email\": \"BXJU8G@example.org\", \"password\": \"TRC557\", \"unit_id\": 909170073}"
         },
         "headers": {
           "Accept": [
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPy2pqQRBFf+Wyx630eVzRHuUjzCSTQ2mXsUk/DtXVahD/PYiJZJZZrUWxYV0RPNxmGFajtcPK4BCkaqbEcFjAINITt1z1tbIslatOe2FShgHtNZwYTqWxAV+UJcMdKNY7JgoRDpE6sucXvlCaIy+LvMMglV2IPM3Hku/7MDgX+fjNx5J4Iu+Fa32YkA/lce2C6NHTJ1xuMRrQiZRkahJ/zL5VLWmapcwsGrjCXW8GLQeF+y63m261Xg//DZ6VlP51uBk8Cv1ECofe9nbR9Yt+3HbW2cGN4xsM2uz/+Ll9BQAA///DXhSAYwEAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":933643794,\"firstname\":\"-\",\"lastname\":\"TestUser.test_create\",\"active\":true,\"extern\":false,\"email\":\"bxju8g@example.org\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"custom_properties\":{},\"unit\":{\"id\":909170073,\"name\":\"Team 1\"},\"created_at\":\"2021-03-20T13:37:55Z\",\"updated_at\":\"2021-03-20T13:37:55Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "247"
+            "355"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 24 Dec 2020 10:03:44 GMT"
+            "Sat, 20 Mar 2021 13:37:55 GMT"
           ],
           "Etag": [
-            "W/\"04be3a338b71ac17108b0d06b6fa51b6\""
+            "W/\"86316dc098baf409b1742a2687bec6ec\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "2fef229f-a096-4bfd-aad3-8dfaa6f0a8d2"
+            "395ec7ae-9add-4e7b-9b07-c6468bfa38ac"
           ],
           "X-Runtime": [
-            "1.307031"
+            "1.601861"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

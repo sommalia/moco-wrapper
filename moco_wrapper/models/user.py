@@ -26,7 +26,8 @@ class User(MWRAPBase):
             Endpoint("user_update", "/users/{id}", "PUT", om.User),
             Endpoint("user_delete", "/users/{id}", "DELETE"),
             Endpoint("user_get", "/users/{id}", "GET", om.User),
-            Endpoint("user_getlist", "/users", "GET", om.User)
+            Endpoint("user_getlist", "/users", "GET", om.User),
+            Endpoint("user_performance_report", "/users/{id}/performance_report", "GET", om.UserPerformanceReport)
         ]
 
     def __init__(self, moco):
@@ -284,3 +285,39 @@ class User(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get("user_getlist", params=params)
+
+    def performance_report(
+        self,
+        user_id: int,
+        year: int = None
+    ):
+        """
+        Return a year-based performance report for the given user
+
+        :param user_id: Id of the user to generate the performance report for
+        :param year: Year to generate the report for
+
+        :type user_id: int
+        :type year: int (default ``None``)
+
+        :returns: Performance report
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
+
+        .. note::
+
+            If the year is ``None`` the report will be generated for the current year
+
+        """
+        ep_params = {
+            "id": user_id
+        }
+
+        params = {}
+
+        for key, value in (
+            ("year", year),
+        ):
+            if value is not None:
+                params[key] = value
+
+        return self._moco.get("user_performance_report", ep_params=ep_params, params=params)

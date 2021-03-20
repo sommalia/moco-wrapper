@@ -9,7 +9,7 @@ from .project_contract import ProjectContract
 from .project_task import ProjectTask
 from .project_report import ProjectReport
 
-from .user import User
+from .user import User, UserPerformanceReport
 from .user_presence import UserPresence
 from .user_employment import UserEmployment
 from .user_holiday import UserHoliday
