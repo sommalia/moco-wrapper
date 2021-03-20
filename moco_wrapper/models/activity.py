@@ -1,6 +1,10 @@
 import datetime
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
 
 from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.const import API_PATH
 
 from enum import Enum
@@ -65,6 +69,26 @@ class Activity(MWRAPBase):
         )
 
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("activity_get", "/activities/{id}", "GET", om.Activity),
+            Endpoint("activity_getlist", "/activities", "GET", om.Activity),
+            Endpoint("activity_create", "/activities", "POST", om.Activity),
+            Endpoint("activity_update", "/activities/{id}", "PUT", om.Activity),
+            Endpoint("activity_delete", "/activities/{id}", "DELETE", om.Activity),
+            Endpoint("activity_start_timer", "/activities/{id}/start_timer", "PATCH", om.Activity),
+            Endpoint("activity_stop_timer", "/activities/{id}/stop_timer", "PATCH", om.Activity),
+            Endpoint("activity_disregard", "/activities/disregard", "POST")
+        ]
 
     def __init__(self, moco):
         """
@@ -137,7 +161,7 @@ class Activity(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["activity_getlist"], params=params)
+        return self._moco.get("activity_getlist", params=params)
 
     def get(
         self,
@@ -153,8 +177,11 @@ class Activity(MWRAPBase):
         :returns: The activity object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": activity_id
+        }
 
-        return self._moco.get(API_PATH["activity_get"].format(id=activity_id))
+        return self._moco.get("activity_get", ep_params=ep_params)
 
     def create(
         self,
@@ -221,7 +248,7 @@ class Activity(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["activity_create"], data=data)
+        return self._moco.post("activity_create", data=data)
 
     def update(
         self,
@@ -269,6 +296,10 @@ class Activity(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
+        ep_params = {
+            "id": activity_id
+        }
+
         data = {}
         for key, value in (
             ("date", activity_date),
@@ -288,7 +319,7 @@ class Activity(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["activity_update"].format(id=activity_id), data=data)
+        return self._moco.put("activity_update", ep_params=ep_params, data=data)
 
     def start_timer(
         self,
@@ -310,8 +341,11 @@ class Activity(MWRAPBase):
 
             Timers can only be started for activities of the current day
         """
+        ep_params = {
+            "id": activity_id
+        }
 
-        return self._moco.patch(API_PATH["activity_start_timer"].format(id=activity_id))
+        return self._moco.patch("activity_start_timer", ep_params=ep_params)
 
     def stop_timer(
         self,
@@ -327,8 +361,11 @@ class Activity(MWRAPBase):
         :returns: The activity the timer was stopped for
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": activity_id
+        }
 
-        return self._moco.patch(API_PATH["activity_stop_timer"].format(id=activity_id))
+        return self._moco.patch("activity_stop_timer", ep_params=ep_params)
 
     def delete(
         self,
@@ -344,8 +381,11 @@ class Activity(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "id": activity_id
+        }
 
-        return self._moco.delete(API_PATH["activity_delete"].format(id=activity_id))
+        return self._moco.delete("activity_delete", ep_params=ep_params)
 
     def disregard(
         self,
@@ -383,4 +423,4 @@ class Activity(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["activity_disregard"], data=data)
+        return self._moco.post("activity_disregard", data=data)

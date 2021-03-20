@@ -197,19 +197,12 @@ class DefaultObjector(BaseObjector):
     def convert_e(self, requestor_response, endpoint):
         http_response = requestor_response.response
 
-        if isinstance(requestor_response, (ObjectResponse, ListResponse, PagedListResponse)):
-            if isinstance(requestor_response, ObjectResponse):
-                obj = endpoint.type(**requestor_response.data)
-                requestor_response._data = obj
-            elif isinstance(requestor_response, (ListResponse, PagedListResponse)):
-                new_items = []
-
-                for item in requestor_response.items:
-                    new_items.append(
-                        endpoint.type(**item)
-                    )
-
-                requestor_response._data = new_items
+        if isinstance(requestor_response, ObjectResponse) and endpoint.type is not None:
+            obj = endpoint.type(**requestor_response.data)
+            requestor_response._data = obj
+        elif isinstance(requestor_response, (ListResponse, PagedListResponse)) and endpoint.type is not None:
+            obj_list = [endpoint.type(**x) for x in requestor_response.items]
+            requestor_response._data = obj_list
         elif isinstance(requestor_response, ErrorResponse):
             # convert the data for the error response into an actual exception
             class_name = self.get_error_class_name_from_response_status_code(http_response.status_code)

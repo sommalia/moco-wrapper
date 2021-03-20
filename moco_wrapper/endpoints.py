@@ -1,14 +1,6 @@
 """List of API Enpoints the moco wrapper knows about."""
 
 API_PATH = {
-    "activity_get":                     "/activities/{id}",
-    "activity_getlist":                 "/activities",
-    "activity_create":                  "/activities",
-    "activity_update":                  "/activities/{id}",
-    "activity_delete":                  "/activities/{id}",
-    "activity_start_timer":             "/activities/{id}/start_timer",
-    "activity_stop_timer":              "/activities/{id}/stop_timer",
-    "activity_disregard":               "/activities/disregard",
     "account_fixed_cost_getlist":       "/account/fixed_costs",
     "company_create":                   "/companies",
     "company_update":                   "/companies/{id}",
