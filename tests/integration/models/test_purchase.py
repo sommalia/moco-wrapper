@@ -297,7 +297,7 @@ class TestPurchase(IntegrationTest):
             assert purchase_create.data.file_url is None
             assert purchase_get.data.file_url is not None
 
-    def test_getlist_full(self):
+    def test_getlist(self):
         with self.recorder.use_cassette("TestPurchase.test_getlist"):
             purchase_list = self.moco.Purchase.getlist()
 
@@ -305,3 +305,12 @@ class TestPurchase(IntegrationTest):
 
             assert type(purchase_list) is PagedListResponse
 
+    def test_getlist_payment_method(self):
+        with self.recorder.use_cassette("TestPurchase.test_getlist_payment_method"):
+            purchase_list = self.moco.Purchase.getlist(
+                payment_method=PurchasePaymentMethod.CASH
+            )
+
+            assert purchase_list.response.status_code == 200
+
+            assert type(purchase_list) is PagedListResponse

@@ -123,6 +123,7 @@ class Purchase(MWRAPBase):
         start_date: datetime.date = None,
         end_date: datetime.date = None,
         unpaid: bool = None,
+        payment_method: PurchasePaymentMethod = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
@@ -141,6 +142,7 @@ class Purchase(MWRAPBase):
         :param end_date: End date filter
             (if ``end_date`` is supplied, ``start_date`` must also be supplied) (default ``None``)
         :param unpaid: Filter only purchases without a payment (default ``None``)
+        :param payment_method: Method that was used for payment (default ``None``)
         :param sort_by: Field to sort results by (default ``None``)
         :param sort_order: asc or desc (default ``"asc"``)
         :param page: Page number (default ``1``)
@@ -154,6 +156,7 @@ class Purchase(MWRAPBase):
         :type start_date: datetime.date, str
         :type end_date: datetime.date, str
         :type unpaid: bool
+        :type payment_method: :class:`.PurchasePaymentMethod`, str
         :type sort_by: str
         :type sort_order: str
         :type page: int
@@ -193,6 +196,7 @@ class Purchase(MWRAPBase):
             ("status", status),
             ("tags", tags),
             ("unpaid", unpaid),
+            ("payment_method", payment_method),
             ("page", page)
         ):
             if value is not None:
