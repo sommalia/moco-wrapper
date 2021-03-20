@@ -39,6 +39,7 @@ class CommentTargetType(str, Enum):
     RECEIPT_REFUND_REQUEST = "ReceiptRefundRequest"
     PURCHASE = "Purchase"
     PURCHASE_BOOKKEEPING_EXPORT = "PurchaseBookkeepingExport"
+    PURCHASE_DRAFT = "PurchaseDraft"
 
 
 class Comment(MWRAPBase):
