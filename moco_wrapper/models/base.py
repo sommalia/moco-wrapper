@@ -1,4 +1,6 @@
 import datetime
+from typing import List
+
 from moco_wrapper.util.endpoint import Endpoint
 
 
@@ -25,7 +27,7 @@ class MWRAPBase(object):
         ).isoformat()
 
     @staticmethod
-    def endpoints() -> [Endpoint]:
+    def endpoints() -> List[Endpoint]:
         """
         Returns all models associated with the model
 

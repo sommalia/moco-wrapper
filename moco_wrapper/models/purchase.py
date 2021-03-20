@@ -1,4 +1,5 @@
 import datetime
+from typing import List
 
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.models import objector_models as om
@@ -106,7 +107,13 @@ class PurchaseFile(object):
 class Purchase(MWRAPBase):
 
     @staticmethod
-    def endpoints() -> [Endpoint]:
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+        """
         return [
             Endpoint("purchase_getlist", "/purchases", "GET", om.Purchase),
             Endpoint("purchase_get", "/purchases/{id}", "GET", om.Purchase),

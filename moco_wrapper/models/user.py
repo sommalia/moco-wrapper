@@ -1,13 +1,33 @@
 import datetime
+from typing import List
 
 from moco_wrapper.models.base import MWRAPBase
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.const import API_PATH
+from moco_wrapper.util.endpoint import Endpoint
 
 
 class User(MWRAPBase):
     """
     Class for handling users.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("user_create", "/users", "POST", om.User),
+            Endpoint("user_update", "/users/{id}", "PUT", om.User),
+            Endpoint("user_delete", "/users/{id}", "DELETE"),
+            Endpoint("user_get", "/users/{id}", "GET", om.User),
+            Endpoint("user_getlist", "/users", "GET", om.User)
+        ]
 
     def __init__(self, moco):
         """
@@ -98,7 +118,7 @@ class User(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH["user_create"], data=data)
+        return self._moco.post("user_create", data=data)
 
     def update(
         self,
@@ -157,6 +177,11 @@ class User(MWRAPBase):
         :returns: The updated user object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+
+        ep_params = {
+            "id": user_id
+        }
+
         data = {}
         for key, value in (
             ("firstname", firstname),
@@ -180,7 +205,8 @@ class User(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["user_update"].format(id=user_id), data=data)
+
+        return self._moco.put("user_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -196,8 +222,11 @@ class User(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "id": user_id
+        }
 
-        return self._moco.delete(API_PATH["user_delete"].format(id=user_id))
+        return self._moco.delete("user_delete", ep_params=ep_params)
 
     def get(
         self,
@@ -213,7 +242,11 @@ class User(MWRAPBase):
         :returns: Single user object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["user_get"].format(id=user_id))
+        ep_params = {
+            "id": user_id
+        }
+
+        return self._moco.get("user_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -250,4 +283,4 @@ class User(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["user_getlist"], params=params)
+        return self._moco.get("user_getlist", params=params)
