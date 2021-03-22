@@ -1,3 +1,7 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -26,6 +30,23 @@ class DealCategory(MWRAPBase):
         )
 
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("deal_category_create", "/deal_categories", "POST", om.DealCategory),
+            Endpoint("deal_category_update", "/deal_categories/{id}", "PUT", om.DealCategory),
+            Endpoint("deal_category_getlist", "/deal_categories", "GET", om.DealCategory),
+            Endpoint("deal_category_get", "/deal_categories/{id}", "GET", om.DealCategory),
+            Endpoint("deal_category_delete", "/deal_categories/{id}", "DELETE")
+        ]
 
     def __init__(self, moco):
         """
@@ -58,7 +79,7 @@ class DealCategory(MWRAPBase):
             "probability": probability
         }
 
-        return self._moco.post(API_PATH["deal_category_create"], data=data)
+        return self._moco.post("deal_category_create", data=data)
 
     def update(
         self,
@@ -80,6 +101,10 @@ class DealCategory(MWRAPBase):
         :returns: The updated deal category
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": category_id
+        }
+
         data = {}
 
         for key, value in (
@@ -89,7 +114,7 @@ class DealCategory(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["deal_category_update"].format(id=category_id), data=data)
+        return self._moco.put("deal_category_update", ep_params=ep_params, data=data)
 
     def getlist(
         self
@@ -101,7 +126,7 @@ class DealCategory(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
 
-        return self._moco.get(API_PATH["deal_category_getlist"])
+        return self._moco.get("deal_category_getlist")
 
     def get(
         self,
@@ -117,8 +142,11 @@ class DealCategory(MWRAPBase):
         :returns: Single deal category
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": category_id
+        }
 
-        return self._moco.get(API_PATH["deal_category_get"].format(id=category_id))
+        return self._moco.get("deal_category_get", ep_params=ep_params)
 
     def delete(
         self,
@@ -134,5 +162,8 @@ class DealCategory(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "id": category_id
+        }
 
-        return self._moco.delete(API_PATH["deal_category_delete"].format(id=category_id))
+        return self._moco.delete("deal_category_delete", ep_params=ep_params)
