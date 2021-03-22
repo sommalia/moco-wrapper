@@ -1,10 +1,6 @@
 """List of API Enpoints the moco wrapper knows about."""
 
 API_PATH = {
-    "deal_create":                      "/deals",
-    "deal_update":                      "/deals/{id}",
-    "deal_get":                         "/deals/{id}",
-    "deal_getlist":                     "/deals",
     "employment_get":                   "/users/employments/{id}",
     "employment_getlist":               "/users/employments",
     "holiday_getlist":                  "/users/holidays",

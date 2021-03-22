@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -35,6 +38,22 @@ class Deal(MWRAPBase):
     """
     Class for handling deals/leads.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("deal_create", "/deals", "POST", om.Deal),
+            Endpoint("deal_update", "/deals/{id}", "PUT", om.Deal),
+            Endpoint("deal_getlist", "/deals", "GET", om.Deal),
+            Endpoint("deal_get", "/deals/{id}", "GET", om.Deal)
+        ]
 
     def __init__(self, moco):
         """
@@ -114,7 +133,7 @@ class Deal(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH["deal_create"], data=data)
+        return self._moco.post("deal_create", data=data)
 
     def update(
         self,
@@ -164,6 +183,9 @@ class Deal(MWRAPBase):
             The ``closed_on`` field can only be set if the deal is in the state WON, LOST
             or DROPPED. Otherwise it will be ignored.
         """
+        ep_params = {
+            "id": deal_id
+        }
 
         data = {}
         for key, value in (
@@ -185,7 +207,7 @@ class Deal(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["deal_update"].format(id=deal_id), data=data)
+        return self._moco.put("deal_update", ep_params=ep_params, data=data)
 
     def get(
         self,
@@ -201,7 +223,11 @@ class Deal(MWRAPBase):
         :returns: Single deal object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["deal_get"].format(id=deal_id))
+        ep_params = {
+            "id": deal_id
+        }
+
+        return self._moco.get("deal_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -241,4 +267,4 @@ class Deal(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["deal_getlist"], params=params)
+        return self._moco.get("deal_getlist", params=params)
