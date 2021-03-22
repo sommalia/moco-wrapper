@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -34,6 +37,22 @@ class Contact(MWRAPBase):
     """
     Class for handling contacts.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("contact_create", "/contacts/people", "POST", om.Contact),
+            Endpoint("contact_update", "/contacts/people/{id}", "PUT", om.Contact),
+            Endpoint("contact_getlist", "/contacts/people", "GET", om.Contact),
+            Endpoint("contact_get", "/contacts/people/{id}", "GET", om.Contact)
+        ]
 
     def __init__(self, moco):
         """
@@ -130,7 +149,7 @@ class Contact(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH['contact_create'], data=data)
+        return self._moco.post('contact_create', data=data)
 
     def update(
         self,
@@ -195,6 +214,10 @@ class Contact(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
+        ep_params = {
+            "id": contact_id
+        }
+
         data = {}
         for key, value in (
             ("firstname", firstname),
@@ -221,7 +244,7 @@ class Contact(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["contact_update"].format(id=contact_id), data=data)
+        return self._moco.put("contact_update", ep_params=ep_params, data=data)
 
     def get(
         self,
@@ -237,7 +260,11 @@ class Contact(MWRAPBase):
         :returns: The contact object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["contact_get"].format(id=contact_id))
+        ep_params = {
+            "id": contact_id
+        }
+
+        return self._moco.get("contact_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -282,4 +309,4 @@ class Contact(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["contact_getlist"], params=params)
+        return self._moco.get("contact_getlist", params=params)
