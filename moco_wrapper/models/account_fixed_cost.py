@@ -1,3 +1,7 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -18,6 +22,18 @@ class AccountFixedCost(MWRAPBase):
         costs = m.AccountFixedCost.getlist(year=2020)
 
     """
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("account_fixed_cost_getlist", "/account/fixed_costs", "GET", om.AccountFixedCost),
+        ]
 
     def __init__(self, moco):
         """
@@ -63,5 +79,5 @@ class AccountFixedCost(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["account_fixed_cost_getlist"], params=params)
+        return self._moco.get("account_fixed_cost_getlist", params=params)
 

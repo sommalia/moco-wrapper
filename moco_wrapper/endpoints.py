@@ -1,7 +1,6 @@
 """List of API Enpoints the moco wrapper knows about."""
 
 API_PATH = {
-    "account_fixed_cost_getlist":       "/account/fixed_costs",
     "company_create":                   "/companies",
     "company_update":                   "/companies/{id}",
     "company_get":                      "/companies/{id}",
