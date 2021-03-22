@@ -19,7 +19,7 @@ class TestHourlyRate(IntegrationTest):
         customer = self.get_customer()
 
         with self.recorder.use_cassette("TestHourlyRate.test_get"):
-            hourly_rate_get = self.moco.HourlyRate.get(
+            hourly_rate_get = self.moco.AccountHourlyRate.get(
                 company_id=customer.id
             )
 

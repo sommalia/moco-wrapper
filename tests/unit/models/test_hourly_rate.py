@@ -6,7 +6,7 @@ class TestHourlyRate(UnitTest):
     def test_get(self):
         company_id = 2
 
-        response = self.moco.HourlyRate.get(
+        response = self.moco.AccountHourlyRate.get(
             company_id=company_id
         )
 

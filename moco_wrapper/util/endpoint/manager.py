@@ -21,7 +21,7 @@ class EndpointManager(object):
         self.endpoints.extend(m.Contact.endpoints())
         self.endpoints.extend(m.Deal.endpoints())
         self.endpoints.extend(m.DealCategory.endpoints())
-        self.endpoints.extend(m.HourlyRate.endpoints())
+        self.endpoints.extend(m.AccountHourlyRate.endpoints())
         self.endpoints.extend(m.Invoice.endpoints())
         self.endpoints.extend(m.InvoicePayment.endpoints())
         self.endpoints.extend(m.Offer.endpoints())

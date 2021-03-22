@@ -2,7 +2,7 @@ from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
 
-class HourlyRate(MWRAPBase):
+class AccountHourlyRate(MWRAPBase):
     """
     Model for handling hourly rates
     """

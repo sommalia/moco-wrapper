@@ -37,7 +37,7 @@ class TestMocoWrapper(UnitTest):
     def test_project_expense_set(self):
         assert isinstance(self.moco.ProjectExpense, models.ProjectExpense)
 
-    def test_contact_set(self):
+    def test_project_contract_set(self):
         assert isinstance(self.moco.ProjectContract, models.ProjectContract)
 
     def test_project_task_set(self):
@@ -82,8 +82,8 @@ class TestMocoWrapper(UnitTest):
     def test_planning_entry_set(self):
         assert isinstance(self.moco.PlanningEntry, models.PlanningEntry)
 
-    def test_hourly_rate_set(self):
-        assert isinstance(self.moco.HourlyRate, models.HourlyRate)
+    def test_account_hourly_rate_set(self):
+        assert isinstance(self.moco.AccountHourlyRate, models.AccountHourlyRate)
 
     def test_tagging_set(self):
         assert isinstance(self.moco.Tagging, models.Tagging)

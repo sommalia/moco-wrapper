@@ -65,6 +65,7 @@ class Moco(object):
 
         self.Activity = models.Activity(self)
         self.AccountFixedCost = models.AccountFixedCost(self)
+        self.AccountHourlyRate = models.AccountHourlyRate(self)
         self.Contact = models.Contact(self)
         self.Company = models.Company(self)
         self.Comment = models.Comment(self)
@@ -89,7 +90,6 @@ class Moco(object):
         self.Session = models.Session(self)
         self.PurchaseCategory = models.PurchaseCategory(self)
         self.Purchase = models.Purchase(self)
-        self.HourlyRate = models.HourlyRate(self)
         self.Tagging = models.Tagging(self)
 
         self._requestor = requestor
