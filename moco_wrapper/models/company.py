@@ -1,3 +1,7 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -33,7 +37,7 @@ class Company(MWRAPBase):
 
     Companies come in three different flavours (see :class:`.CompanyType`), customers are companies you do stuff for
     and send invoices to. suppliers are companies that supply stuff to you as a customer. Finally organizations are
-    companies that do not fit the laben customer or supplier. For the most part you will interact with companies of
+    companies that do not fit the label customer or supplier. For the most part you will interact with companies of
     type customer.
 
     Example usage:
@@ -49,6 +53,22 @@ class Company(MWRAPBase):
         )
 
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("company_create", "/companies", "POST", om.Company),
+            Endpoint("company_update", "/companies/{id}", "PUT", om.Company),
+            Endpoint("company_get", "/companies/{id}", "GET", om.Company),
+            Endpoint("company_getlist", "/companies", "GET", om.Company)
+        ]
 
     def __init__(self, moco):
         """
@@ -187,7 +207,7 @@ class Company(MWRAPBase):
                 if value is not None:
                     data[key] = value
 
-        return self._moco.post(API_PATH["company_create"], data=data)
+        return self._moco.post("company_create", data=data)
 
     def update(
         self,
@@ -271,9 +291,11 @@ class Company(MWRAPBase):
         :returns: The updated company
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        data = {
-
+        ep_params = {
+            "id": company_id
         }
+
+        data = {}
 
         for key, value in (
             ("type", company_type),
@@ -302,7 +324,7 @@ class Company(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["company_update"].format(id=company_id), data=data)
+        return self._moco.put("company_update", ep_params=ep_params, data=data)
 
     def get(
         self,
@@ -318,7 +340,11 @@ class Company(MWRAPBase):
         :returns: Single company object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["company_get"].format(id=company_id))
+        ep_params = {
+            "id": company_id
+        }
+
+        return self._moco.get("company_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -363,4 +389,4 @@ class Company(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["company_getlist"], params=params)
+        return self._moco.get("company_getlist", params=params)

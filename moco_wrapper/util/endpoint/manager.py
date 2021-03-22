@@ -17,7 +17,7 @@ class EndpointManager(object):
         self.endpoints.extend(m.AccountFixedCost.endpoints())
         self.endpoints.extend(m.Activity.endpoints())
         self.endpoints.extend(m.Comment.endpoints())
-        self.endpoints.extend(m.Comment.endpoints())
+        self.endpoints.extend(m.Company.endpoints())
         self.endpoints.extend(m.Contact.endpoints())
         self.endpoints.extend(m.Deal.endpoints())
         self.endpoints.extend(m.DealCategory.endpoints())
