@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -62,6 +65,27 @@ class Invoice(MWRAPBase):
     """
     Model for handling invoices.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("invoice_create", "/invoices", "POST", om.Invoice),
+            Endpoint("invoice_update", "/invoices/{id}", "PUT", om.Invoice),
+            Endpoint("invoice_get", "/invoices/{id}", "GET", om.Invoice),
+            Endpoint("invoice_getlist", "/invoices", "GET", om.Invoice),
+            Endpoint("invoice_send_email", "/invoices/{id}/send_email", "POST", om.InvoiceEmail),
+            Endpoint("invoice_update_status", "/invoices/{id}/update_status", "PUT", om.Invoice),
+            Endpoint("invoice_locked", "/invoices/locked", "GET", om.Invoice),
+            Endpoint("invoice_pdf", "/invoices/{id}.pdf", "GET"),
+            Endpoint("invoice_timesheet", "/invoices/{id}/timesheet.pdf", "GET")
+        ]
 
     def __init__(self, moco):
         """
@@ -131,7 +155,7 @@ class Invoice(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["invoice_getlist"], params=params)
+        return self._moco.get("invoice_getlist", params=params)
 
     def locked(
         self,
@@ -182,7 +206,7 @@ class Invoice(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["invoice_locked"], params=params)
+        return self._moco.get("invoice_locked", params=params)
 
     def get(
         self,
@@ -198,7 +222,11 @@ class Invoice(MWRAPBase):
         :returns: Single invoice object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["invoice_get"].format(id=invoice_id))
+        ep_params = {
+            "id": invoice_id,
+        }
+
+        return self._moco.get("invoice_get", ep_params=ep_params)
 
     def pdf(
         self,
@@ -214,7 +242,11 @@ class Invoice(MWRAPBase):
         :returns: Invoice pdf
         :rtype: :class:`moco_wrapper.util.response.FileResponse`
         """
-        return self._moco.get(API_PATH["invoice_pdf"].format(id=invoice_id))
+        ep_params = {
+            "id": invoice_id
+        }
+
+        return self._moco.get("invoice_pdf", ep_params=ep_params)
 
     def timesheet(
         self,
@@ -234,7 +266,11 @@ class Invoice(MWRAPBase):
         :return: Invoice timesheet as pdf
         :rtype: :class:`moco_wrapper.util.response.FileResponse`
         """
-        return self._moco.get(API_PATH["invoice_timesheet"].format(id=invoice_id))
+        ep_params = {
+            "id": invoice_id
+        }
+
+        return self._moco.get("invoice_timesheet", ep_params=ep_params)
 
     def update_status(
         self,
@@ -253,11 +289,15 @@ class Invoice(MWRAPBase):
         :return: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "id": invoice_id
+        }
+
         data = {
             "status": status
         }
 
-        return self._moco.put(API_PATH["invoice_update_status"].format(id=invoice_id), data=data)
+        return self._moco.put("invoice_update_status", ep_params=ep_params, data=data)
 
     def create(
         self,
@@ -368,7 +408,7 @@ class Invoice(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["invoice_create"], data=data)
+        return self._moco.post("invoice_create", data=data)
 
     def send_email(
         self,
@@ -405,6 +445,10 @@ class Invoice(MWRAPBase):
             set ``emails_to`` and ``emails_cc`` To ``None``.
 
         """
+        ep_params = {
+            "id": invoice_id
+        }
+
         if emails_to is None:
             emails_to = []
 
@@ -438,4 +482,4 @@ class Invoice(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH["invoice_send_email"].format(id=invoice_id), data=data)
+        return self._moco.post("invoice_send_email", ep_params=ep_params, data=data)

@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -8,6 +11,24 @@ class InvoicePayment(MWRAPBase):
     """
     Class for handling invoice payments.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("invoice_payment_create", "/invoices/payments", "POST", om.InvoicePayment),
+            Endpoint("invoice_payment_update", "/invoices/payments/{id}", "PUT", om.InvoicePayment),
+            Endpoint("invoice_payment_create_bulk", "/invoices/payments/bulk", "POST", om.InvoicePayment),
+            Endpoint("invoice_payment_get", "/invoices/payments/{id}", "GET", om.InvoicePayment),
+            Endpoint("invoice_payment_getlist", "/invoices/payments", "GET", om.InvoicePayment),
+            Endpoint("invoice_payment_delete", "/invoices/payments/{id}", "DELETE")
+        ]
 
     def __init__(self, moco):
         """
@@ -63,7 +84,7 @@ class InvoicePayment(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["invoice_payment_getlist"], params=params)
+        return self._moco.get("invoice_payment_getlist", params=params)
 
     def get(
         self,
@@ -79,7 +100,11 @@ class InvoicePayment(MWRAPBase):
         :returns: Single invoice payment object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["invoice_payment_get"].format(id=payment_id))
+        ep_params = {
+            "id": payment_id
+        }
+
+        return self._moco.get("invoice_payment_get", ep_params=ep_params)
 
     def create(
         self,
@@ -114,7 +139,7 @@ class InvoicePayment(MWRAPBase):
         if isinstance(payment_date, datetime.date):
             data["date"] = self._convert_date_to_iso(payment_date)
 
-        return self._moco.post(API_PATH["invoice_payment_create"], data=data)
+        return self._moco.post("invoice_payment_create", data=data)
 
     def create_bulk(
         self,
@@ -154,7 +179,7 @@ class InvoicePayment(MWRAPBase):
             "bulk_data": items
         }
 
-        return self._moco.post(API_PATH["invoice_payment_create_bulk"], data=data)
+        return self._moco.post("invoice_payment_create_bulk", data=data)
 
     def update(
         self,
@@ -179,6 +204,11 @@ class InvoicePayment(MWRAPBase):
         :returns: The updated invoice payment object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+
+        ep_params = {
+            "id": payment_id
+        }
+
         data = {}
         for key, value in (
             ("date", payment_date),
@@ -191,7 +221,7 @@ class InvoicePayment(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["invoice_payment_update"].format(id=payment_id), data=data)
+        return self._moco.put("invoice_payment_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -207,4 +237,8 @@ class InvoicePayment(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
-        return self._moco.delete(API_PATH["invoice_payment_delete"].format(id=payment_id))
+        ep_params = {
+            "id": payment_id
+        }
+
+        return self._moco.delete("invoice_payment_delete", ep_params=ep_params)
