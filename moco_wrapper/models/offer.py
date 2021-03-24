@@ -1,5 +1,9 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -56,6 +60,24 @@ class Offer(MWRAPBase):
     """
     Class for handling offers.
     """
+
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("offer_create", "/offers", "POST", om.Offer),
+            Endpoint("offer_get", "/offers/{id}", "GET", om.Offer),
+            Endpoint("offer_getlist", "/offers", "GET", om.Offer),
+            Endpoint("offer_pdf", "/offers/{id}.pdf", "GET"),
+            Endpoint("offer_update_status", "/offers/{id}/update_status", "PUT", om.Offer)
+        ]
 
     def __init__(self, moco):
         """
@@ -114,7 +136,7 @@ class Offer(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["offer_getlist"], params=params)
+        return self._moco.get("offer_getlist", params=params)
 
     def get(
         self,
@@ -130,7 +152,11 @@ class Offer(MWRAPBase):
         :returns: Single offer object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["offer_get"].format(id=offer_id))
+        ep_params = {
+            "id": offer_id
+        }
+
+        return self._moco.get("offer_get", ep_params=ep_params)
 
     def pdf(
         self,
@@ -146,7 +172,11 @@ class Offer(MWRAPBase):
         :returns: The offers pdf document
         :rtype: :class:`moco_wrapper.util.response.FileResponse`
         """
-        return self._moco.get(API_PATH["offer_pdf"].format(id=offer_id))
+        ep_params = {
+            "id": offer_id
+        }
+
+        return self._moco.get("offer_pdf", ep_params=ep_params)
 
     def create  (
         self,
@@ -237,7 +267,7 @@ class Offer(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["offer_create"].format(id=id), data=data)
+        return self._moco.post("offer_create", data=data)
 
     def update_status(
         self,
@@ -256,8 +286,12 @@ class Offer(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "id": offer_id
+        }
+
         data = {
             "status": status
         }
 
-        return self._moco.put(API_PATH["offer_update_status"].format(id=offer_id), data=data)
+        return self._moco.put("offer_update_status", ep_params=ep_params, data=data)
