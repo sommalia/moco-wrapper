@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -40,6 +43,23 @@ class PlanningEntry(MWRAPBase):
 
     .. note:: This is the new way for handling planning (the old way was with Schedules)
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("planning_entry_create", "/planning_entries", "POST", om.PlanningEntry),
+            Endpoint("planning_entry_update", "/planning_entries/{id}", "PUT", om.PlanningEntry),
+            Endpoint("planning_entry_get", "/planning_entries/{id}", "GET", om.PlanningEntry),
+            Endpoint("planning_entry_getlist", "/planning_entries", "GET", om.PlanningEntry),
+            Endpoint("planning_entry_delete", "/planning_entries/{id}", "DELETE", om.PlanningEntry)
+        ]
 
     def __init__(self, moco):
         """
@@ -119,7 +139,7 @@ class PlanningEntry(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["planning_entry_getlist"], params=params)
+        return self._moco.get("planning_entry_getlist", params=params)
 
     def get(
         self,
@@ -135,8 +155,11 @@ class PlanningEntry(MWRAPBase):
         :returns: Single planning entry
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": planning_entry_id
+        }
 
-        return self._moco.get(API_PATH["planning_entry_get"].format(id=planning_entry_id))
+        return self._moco.get("planning_entry_get", ep_params=ep_params)
 
     def create(
         self,
@@ -196,7 +219,7 @@ class PlanningEntry(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["planning_entry_create"], data=data)
+        return self._moco.post("planning_entry_create", data=data)
 
     def update(
         self,
@@ -233,6 +256,9 @@ class PlanningEntry(MWRAPBase):
         :returns: The updated planning entry
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": planning_entry_id
+        }
 
         data = {}
 
@@ -251,7 +277,7 @@ class PlanningEntry(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["planning_entry_update"].format(id=planning_entry_id), data=data)
+        return self._moco.put("planning_entry_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -267,4 +293,8 @@ class PlanningEntry(MWRAPBase):
         :returns: The deleted planning entry
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.delete(API_PATH["planning_entry_delete"].format(id=planning_entry_id))
+        ep_params = {
+            "id": planning_entry_id
+        }
+
+        return self._moco.delete("planning_entry_delete", ep_params=ep_params)

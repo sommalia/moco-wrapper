@@ -61,7 +61,6 @@ class Offer(MWRAPBase):
     Class for handling offers.
     """
 
-
     @staticmethod
     def endpoints() -> List[Endpoint]:
         """
@@ -178,7 +177,7 @@ class Offer(MWRAPBase):
 
         return self._moco.get("offer_pdf", ep_params=ep_params)
 
-    def create  (
+    def create(
         self,
         deal_id: int,
         project_id: int,
