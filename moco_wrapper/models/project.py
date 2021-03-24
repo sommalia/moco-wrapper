@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -34,6 +37,26 @@ class Project(MWRAPBase):
     """
     Class for handling projects.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("project_create", "/projects", "POST", om.Project),
+            Endpoint("project_update", "/projects/{id}", "PUT", om.Project),
+            Endpoint("project_archive", "/projects/{id}/archive", "PUT", om.Project),
+            Endpoint("project_unarchive", "/projects/{id}/unarchive", "PUT", om.Project),
+            Endpoint("project_get", "/projects/{id}", "GET", om.Project),
+            Endpoint("project_getlist", "/projects", "GET", om.Project),
+            Endpoint("project_assigned", "/projects/assigned", "GET", om.Project),
+            Endpoint("project_report", "/projects/{id}/report", "GET", om.ProjectReport)
+        ]
 
     def __init__(self, moco):
         """
@@ -150,7 +173,7 @@ class Project(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH["project_create"], data=data)
+        return self._moco.post("project_create", data=data)
 
     def update(
         self,
@@ -217,6 +240,9 @@ class Project(MWRAPBase):
         :returns: The updated project object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": project_id
+        }
 
         data = {}
         for key, value in (
@@ -244,7 +270,7 @@ class Project(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["project_update"].format(id=project_id), data=data)
+        return self._moco.put("project_update", ep_params=ep_params, data=data)
 
     def get(
         self,
@@ -260,8 +286,11 @@ class Project(MWRAPBase):
         :returns: Project object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": project_id
+        }
 
-        return self._moco.get(API_PATH["project_get"].format(id=project_id))
+        return self._moco.get("project_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -345,7 +374,7 @@ class Project(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_getlist"], params=params)
+        return self._moco.get("project_getlist", params=params)
 
     def assigned(
         self,
@@ -369,7 +398,7 @@ class Project(MWRAPBase):
             if value is not None:
                 params[key] = value
 
-        return self._moco.get(API_PATH["project_assigned"], params=params)
+        return self._moco.get("project_assigned", params=params)
 
     def archive(
         self,
@@ -385,7 +414,11 @@ class Project(MWRAPBase):
         :returns: The archived project
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.put(API_PATH["project_archive"].format(id=project_id))
+        ep_params = {
+            "id": project_id
+        }
+
+        return self._moco.put("project_archive", ep_params=ep_params)
 
     def unarchive(
         self,
@@ -401,7 +434,11 @@ class Project(MWRAPBase):
         :returns: The unarchived project
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.put(API_PATH["project_unarchive"].format(id=project_id))
+        ep_params = {
+            "id": project_id
+        }
+
+        return self._moco.put("project_unarchive", ep_params=ep_params)
 
     def report(
         self,
@@ -421,4 +458,8 @@ class Project(MWRAPBase):
             All costs are in the accounts main currency, it might differ from the budget and billable items.
 
         """
-        return self._moco.get(API_PATH["project_report"].format(id=project_id))
+        ep_params = {
+            "id": project_id
+        }
+
+        return self._moco.get("project_report", ep_params=ep_params)
