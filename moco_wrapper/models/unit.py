@@ -1,5 +1,8 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
 
 
 class Unit(MWRAPBase):
@@ -8,6 +11,20 @@ class Unit(MWRAPBase):
 
     When a user is created he always belongs to a team (e.g. development). These can be managed with this model.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("unit_get", "/units/{id}", "GET", om.Unit),
+            Endpoint("unit_getlist", "/units", "GET", om.Unit)
+        ]
 
     def __init__(self, moco):
         """
@@ -31,8 +48,11 @@ class Unit(MWRAPBase):
         :returns: Single team object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": unit_id
+        }
 
-        return self._moco.get(API_PATH["unit_get"].format(id=unit_id))
+        return self._moco.get("unit_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -54,7 +74,6 @@ class Unit(MWRAPBase):
         :returns: List of team objects
         :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
-
         params = {}
 
         for key, value in (
@@ -66,4 +85,4 @@ class Unit(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["unit_getlist"], params=params)
+        return self._moco.get("unit_getlist", params=params)

@@ -15,6 +15,4 @@ API_PATH = {
     "presence_update":                  "/users/presences/{id}",
     "presence_touch":                   "/users/presences/touch",
     "presence_delete":                  "/users/presences/{id}",
-    "unit_get":                         "/units/{id}",
-    "unit_getlist":                     "/units"
 }

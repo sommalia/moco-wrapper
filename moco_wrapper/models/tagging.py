@@ -1,9 +1,7 @@
 from typing import List
 
 from moco_wrapper.util.endpoint import Endpoint
-from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
 from enum import Enum
 
 
