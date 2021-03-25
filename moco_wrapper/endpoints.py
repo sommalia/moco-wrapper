@@ -22,8 +22,6 @@ API_PATH = {
     "schedule_create":                  "/schedules",
     "schedule_update":                  "/schedules/{id}",
     "schedule_delete":                  "/schedules/{id}",
-    "purchase_category_get":            "/purchases/categories/{id}",
-    "purchase_category_getlist":        "/purchases/categories",
     "tagging_add":                      "/taggings/{entity}/{entity_id}",
     "tagging_replace":                  "/taggings/{entity}/{entity_id}",
     "tagging_delete":                   "/taggings/{entity}/{entity_id}",

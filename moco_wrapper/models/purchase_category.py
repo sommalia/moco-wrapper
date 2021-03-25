@@ -1,11 +1,28 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
 
 
 class PurchaseCategory(MWRAPBase):
     """
     Class for handling Purchase Categories.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("purchase_category_get", "/purchases/categories/{id}", "GET", om.PurchaseCategory),
+            Endpoint("purchase_category_getlist", "/purchases/categories", "GET", om.PurchaseCategory)
+        ]
 
     def __init__(self, moco):
         """
@@ -30,7 +47,10 @@ class PurchaseCategory(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
-        return self._moco.get(API_PATH["purchase_category_get"].format(id=category_id))
+        ep_params = {
+            "id": category_id
+        }
+        return self._moco.get("purchase_category_get", ep_params=ep_params)
 
     def getlist(
         self
@@ -42,4 +62,4 @@ class PurchaseCategory(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
 
-        return self._moco.get(API_PATH["purchase_category_getlist"])
+        return self._moco.get("purchase_category_getlist")
