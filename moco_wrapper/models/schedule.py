@@ -1,7 +1,9 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
@@ -67,6 +69,23 @@ class Schedule(MWRAPBase):
         For handling planning, use the :class:`moco_wrapper.models.PlanningEntry`
     """
 
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("schedule_create", "/schedules", "POST", om.Schedule),
+            Endpoint("schedule_update", "/schedules/{id}", "PUT", om.Schedule),
+            Endpoint("schedule_get", "/schedules/{id}", "GET", om.Schedule),
+            Endpoint("schedule_getlist", "/schedules", "GET", om.Schedule),
+            Endpoint("schedule_delete", "/schedules/{id}", "DELETE", om.Schedule)
+        ]
+
     def __init__(self, moco):
         """
         Class Constructor
@@ -107,7 +126,6 @@ class Schedule(MWRAPBase):
         :returns: List of schedule objects
         :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
-
         params = {}
         for key, value in (
             ("from", from_date),
@@ -125,7 +143,7 @@ class Schedule(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["schedule_getlist"], params=params)
+        return self._moco.get("schedule_getlist", params=params)
 
     def get(
         self,
@@ -141,7 +159,10 @@ class Schedule(MWRAPBase):
         :returns: Single schedule object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["schedule_get"].format(id=schedule_id))
+        ep_params = {
+            "id": schedule_id
+        }
+        return self._moco.get("schedule_get", ep_params=ep_params)
 
     def create(
         self,
@@ -199,7 +220,7 @@ class Schedule(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["schedule_create"], data=data)
+        return self._moco.post("schedule_create", data=data)
 
     def update(
         self,
@@ -233,6 +254,10 @@ class Schedule(MWRAPBase):
         :returns: The updated schedule entry
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": schedule_id
+        }
+
         data = {}
 
         for key, value in (
@@ -246,7 +271,7 @@ class Schedule(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["schedule_update"].format(id=schedule_id), data=data)
+        return self._moco.put("schedule_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -262,5 +287,8 @@ class Schedule(MWRAPBase):
         :returns: The deleted schedule object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": schedule_id
+        }
 
-        return self._moco.delete(API_PATH["schedule_delete"].format(id=schedule_id))
+        return self._moco.delete("schedule_delete", ep_params=ep_params)
