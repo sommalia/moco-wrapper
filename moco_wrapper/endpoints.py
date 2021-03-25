@@ -16,9 +16,5 @@ API_PATH = {
     "presence_touch":                   "/users/presences/touch",
     "presence_delete":                  "/users/presences/{id}",
     "unit_get":                         "/units/{id}",
-    "unit_getlist":                     "/units",
-    "tagging_add":                      "/taggings/{entity}/{entity_id}",
-    "tagging_replace":                  "/taggings/{entity}/{entity_id}",
-    "tagging_delete":                   "/taggings/{entity}/{entity_id}",
-    "tagging_get":                      "/taggings/{entity}/{entity_id}",
+    "unit_getlist":                     "/units"
 }

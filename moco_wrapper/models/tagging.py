@@ -1,3 +1,7 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 from enum import Enum
@@ -37,6 +41,22 @@ class Tagging(MWRAPBase):
     Class for handling tags/labels.
     """
 
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("tagging_add", "/taggings/{entity}/{entity_id}", "PATCH"),
+            Endpoint("tagging_replace", "/taggings/{entity}/{entity_id}", "PUT"),
+            Endpoint("tagging_get", "/taggings/{entity}/{entity_id}", "GET"),
+            Endpoint("tagging_delete", "/taggings/{entity}/{entity_id}", "DELETE")
+        ]
+
     def __init__(self, moco):
         """
         Class Constructor
@@ -62,10 +82,12 @@ class Tagging(MWRAPBase):
         :returns: List of tags assigned to the entity
         :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
+        ep_params = {
+            "entity": entity,
+            "entity_id": entity_id
+        }
 
-        return self._moco.get(
-            API_PATH["tagging_get"].format(entity=entity, entity_id=entity_id),
-        )
+        return self._moco.get("tagging_get", ep_params=ep_params)
 
     def add(
         self,
@@ -91,15 +113,16 @@ class Tagging(MWRAPBase):
 
            If you supply tags that already exist for the entity they will be ignored.
         """
+        ep_params = {
+            "entity": entity,
+            "entity_id": entity_id
+        }
 
         data = {
             "tags": tags
         }
 
-        return self._moco.patch(
-            API_PATH["tagging_add"].format(entity=entity, entity_id=entity_id),
-            data=data
-        )
+        return self._moco.patch("tagging_add", ep_params=ep_params, data=data)
 
     def replace(
         self,
@@ -125,15 +148,16 @@ class Tagging(MWRAPBase):
 
             You can remove all tags from an entity by supplying an empty list.
         """
+        ep_params = {
+            "entity": entity,
+            "entity_id": entity_id
+        }
 
         data = {
             "tags": tags
         }
 
-        return self._moco.put(
-            API_PATH["tagging_replace"].format(entity=entity, entity_id=entity_id),
-            data=data
-        )
+        return self._moco.put("tagging_replace", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -155,12 +179,13 @@ class Tagging(MWRAPBase):
         :returns: List of tags assigned to the entity
         :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
+        ep_params = {
+            "entity": entity,
+            "entity_id": entity_id
+        }
 
         data = {
             "tags": tags
         }
 
-        return self._moco.delete(
-            API_PATH["tagging_delete"].format(entity=entity, entity_id=entity_id),
-            data=data
-        )
+        return self._moco.delete("tagging_delete", ep_params=ep_params, data=data)
