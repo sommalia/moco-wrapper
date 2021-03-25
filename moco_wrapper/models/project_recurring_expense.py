@@ -1,7 +1,9 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
 
 from enum import Enum
 
@@ -43,6 +45,30 @@ class ProjectRecurringExpense(MWRAPBase):
         :class:`moco_wrapper.models.ProjectExpense` for one time expenses.
     """
 
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("project_recurring_expense_create", "/projects/{project_id}/recurring_expenses", "POST",
+                     om.ProjectRecurringExpense),
+            Endpoint("project_recurring_expense_update",
+                     "/projects/{project_id}/recurring_expenses/{recurring_expense_id}", "PUT",
+                     om.ProjectRecurringExpense),
+            Endpoint("project_recurring_expense_get",
+                     "/projects/{project_id}/recurring_expenses/{recurring_expense_id}", "GET",
+                     om.ProjectRecurringExpense),
+            Endpoint("project_recurring_expense_getlist", "/projects/{project_id}/recurring_expenses",
+                     "GET", om.ProjectRecurringExpense),
+            Endpoint("project_recurring_expense_delete",
+                     "/projects/{project_id}/recurring_expenses/{recurring_expense_id}", "DELETE")
+        ]
+
     def __init__(self, moco):
         """
         Class Constructor
@@ -74,6 +100,10 @@ class ProjectRecurringExpense(MWRAPBase):
         :returns: List of recurring expenses
         :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
+
         params = {}
 
         for key, value in (
@@ -85,8 +115,7 @@ class ProjectRecurringExpense(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_recurring_expense_getlist"].format(project_id=project_id),
-                              params=params)
+        return self._moco.get("project_recurring_expense_getlist", ep_params=ep_params, params=params)
 
     def get(
         self,
@@ -105,8 +134,12 @@ class ProjectRecurringExpense(MWRAPBase):
         :returns: Single recurring expense object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["project_recurring_expense_get"]
-                              .format(project_id=project_id, recurring_expense_id=recurring_expense_id))
+        ep_params = {
+            "project_id": project_id,
+            "recurring_expense_id": recurring_expense_id
+        }
+
+        return self._moco.get("project_recurring_expense_get", ep_params=ep_params)
 
     def create(
         self,
@@ -158,6 +191,10 @@ class ProjectRecurringExpense(MWRAPBase):
         :returns: The created recurring expense object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
+
         data = {
             "start_date": start_date,
             "period": period,
@@ -185,7 +222,7 @@ class ProjectRecurringExpense(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.post(API_PATH["project_recurring_expense_create"].format(project_id=project_id), data=data)
+        return self._moco.post("project_recurring_expense_create", ep_params=ep_params, data=data)
 
     def update(
         self,
@@ -233,6 +270,11 @@ class ProjectRecurringExpense(MWRAPBase):
         :returns: The updated recurring expense object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "recurring_expense_id": recurring_expense_id
+        }
+
         data = {}
         for key, value in (
             ("title", title),
@@ -252,8 +294,7 @@ class ProjectRecurringExpense(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["project_recurring_expense_update"]
-                              .format(project_id=project_id, recurring_expense_id=recurring_expense_id), data=data)
+        return self._moco.put("project_recurring_expense_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -272,5 +313,9 @@ class ProjectRecurringExpense(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
-        return self._moco.delete(API_PATH["project_recurring_expense_delete"]
-                                 .format(project_id=project_id, recurring_expense_id=recurring_expense_id))
+        ep_params = {
+            "project_id": project_id,
+            "recurring_expense_id": recurring_expense_id
+        }
+
+        return self._moco.delete("project_recurring_expense_delete", ep_params=ep_params)
