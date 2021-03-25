@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -15,6 +18,27 @@ class ProjectExpense(MWRAPBase):
 
         :class:`moco_wrapper.models.ProjectRecurringExpense` for repeating expenses.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("project_expense_create", "/projects/{project_id}/expenses", "POST", om.ProjectExpense),
+            Endpoint("project_expense_create_bulk", "/projects/{project_id}/expenses/bulk", "POST", om.ProjectExpense),
+            Endpoint("project_expense_update", "/projects/{project_id}/expenses/{expense_id}", "PUT",
+                     om.ProjectExpense),
+            Endpoint("project_expense_get", "/projects/{project_id}/expenses/{expense_id}", "GET", om.ProjectExpense),
+            Endpoint("project_expense_getlist", "/projects/{project_id}/expenses", "GET", om.ProjectExpense),
+            Endpoint("project_expense_getall", "/projects/expenses", "GET", om.ProjectExpense),
+            Endpoint("project_expense_delete", "/projects/{project_id}/expenses/{expense_id}", "DELETE"),
+            Endpoint("project_expense_disregard", "/projects/{project_id}/expenses/disregard", "POST")
+        ]
 
     def __init__(self, moco):
         """
@@ -69,6 +93,10 @@ class ProjectExpense(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
+        ep_params = {
+            "project_id": project_id
+        }
+
         data = {
             "date": expense_date,
             "title": title,
@@ -90,7 +118,7 @@ class ProjectExpense(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["project_expense_create"].format(project_id=project_id), data=data)
+        return self._moco.post("project_expense_create", ep_params=ep_params, data=data)
 
     def create_bulk(
         self,
@@ -113,11 +141,15 @@ class ProjectExpense(MWRAPBase):
             :class:`moco_wrapper.util.generator.ProjectExpenseGenerator`
         """
 
+        ep_params = {
+            "project_id": project_id
+        }
+
         data = {
             "bulk_data": items
         }
 
-        return self._moco.post(API_PATH["project_expense_create_bulk"].format(project_id=project_id), data=data)
+        return self._moco.post("project_expense_create_bulk", ep_params=ep_params, data=data)
 
     def update(
         self,
@@ -166,6 +198,10 @@ class ProjectExpense(MWRAPBase):
         :returns: The updated expense object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "expense_id": expense_id
+        }
 
         data = {}
         for key, value in (
@@ -186,8 +222,7 @@ class ProjectExpense(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["project_expense_update"].format(project_id=project_id, expense_id=expense_id),
-                              data=data)
+        return self._moco.put("project_expense_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -206,9 +241,12 @@ class ProjectExpense(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "expense_id": expense_id
+        }
 
-        return self._moco.delete(
-            API_PATH["project_expense_delete"].format(project_id=project_id, expense_id=expense_id))
+        return self._moco.delete("project_expense_delete", ep_params=ep_params)
 
     def disregard(
         self,
@@ -245,12 +283,16 @@ class ProjectExpense(MWRAPBase):
             )
         """
 
+        ep_params = {
+            "project_id": project_id
+        }
+
         data = {
             "expense_ids": expense_ids,
             "reason": reason
         }
 
-        return self._moco.post(API_PATH["project_expense_disregard"].format(project_id=project_id), data=data)
+        return self._moco.post("project_expense_disregard", ep_params=ep_params, data=data)
 
     def getall(
         self,
@@ -294,7 +336,7 @@ class ProjectExpense(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_expense_getall"], params=params)
+        return self._moco.get("project_expense_getall", params=params)
 
     def get(
         self,
@@ -313,8 +355,12 @@ class ProjectExpense(MWRAPBase):
         :returns: Single expense object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "expense_id": expense_id
+        }
 
-        return self._moco.get(API_PATH["project_expense_get"].format(project_id=project_id, expense_id=expense_id))
+        return self._moco.get("project_expense_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -339,6 +385,9 @@ class ProjectExpense(MWRAPBase):
         :returns: List of expense objects
         :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
 
         params = {}
 
@@ -351,4 +400,4 @@ class ProjectExpense(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_expense_getlist"].format(project_id=project_id), params=params)
+        return self._moco.get("project_expense_getlist", ep_params=ep_params, params=params)
