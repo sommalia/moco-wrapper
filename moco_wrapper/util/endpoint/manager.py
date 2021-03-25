@@ -39,6 +39,7 @@ class EndpointManager(object):
         self.endpoints.extend(m.Tagging.endpoints())
         self.endpoints.extend(m.Unit.endpoints())
         self.endpoints.extend(m.User.endpoints())
+        self.endpoints.extend(m.UserEmployment.endpoints())
         self.endpoints.extend(m.UserHoliday.endpoints())
         self.endpoints.extend(m.UserPresence.endpoints())
 

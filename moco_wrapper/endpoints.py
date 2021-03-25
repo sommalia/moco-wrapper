@@ -1,8 +1,6 @@
 """List of API Enpoints the moco wrapper knows about."""
 
 API_PATH = {
-    "employment_get":                   "/users/employments/{id}",
-    "employment_getlist":               "/users/employments",
     "holiday_getlist":                  "/users/holidays",
     "holiday_get":                      "/users/holidays/{id}",
     "holiday_create":                   "/users/holidays",

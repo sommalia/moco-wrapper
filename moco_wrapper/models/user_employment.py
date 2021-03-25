@@ -1,7 +1,9 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
 
 
 class UserEmployment(MWRAPBase):
@@ -10,6 +12,20 @@ class UserEmployment(MWRAPBase):
 
     Every user has an employment entry, which defines how many hours every day he should be at work.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("employment_get", "/users/employments/{id}", "GET", om.UserEmployment),
+            Endpoint("employment_getlist", "/users/employments", "GET", om.UserEmployment)
+        ]
 
     def __init__(self, moco):
         """
@@ -33,7 +49,11 @@ class UserEmployment(MWRAPBase):
         :returns: Employment object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["employment_get"].format(id=employment_id))
+        ep_params = {
+            "id": employment_id
+        }
+
+        return self._moco.get("employment_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -81,4 +101,4 @@ class UserEmployment(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["employment_getlist"], params=params)
+        return self._moco.get("employment_getlist", params=params)
