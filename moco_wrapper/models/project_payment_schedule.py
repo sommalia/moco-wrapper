@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -39,6 +42,28 @@ class ProjectPaymentSchedule(MWRAPBase):
         :meth:`moco_wrapper.models.Project.create`
     """
 
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("project_payment_schedule_create", "/projects/{project_id}/payment_schedules", "POST",
+                     om.ProjectPaymentSchedule),
+            Endpoint("project_payment_schedule_update", "/projects/{project_id}/payment_schedules/{schedule_id}",
+                     "PUT", om.ProjectPaymentSchedule),
+            Endpoint("project_payment_schedule_get", "/projects/{project_id}/payment_schedules/{schedule_id}", "GET",
+                     om.ProjectPaymentSchedule),
+            Endpoint("project_payment_schedule_getlist", "/projects/{project_id}/payment_schedules", "GET",
+                     om.ProjectPaymentSchedule),
+            Endpoint("project_payment_schedule_delete", "/projects/{project_id}/payment_schedules/{schedule_id}",
+                     "DELETE")
+        ]
+
     def __init__(self, moco):
         """
         Class Constructor
@@ -73,6 +98,9 @@ class ProjectPaymentSchedule(MWRAPBase):
         :returns: The created schedule item
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
 
         data = {
             "net_total": net_total,
@@ -90,7 +118,7 @@ class ProjectPaymentSchedule(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["project_payment_schedule_create"].format(project_id=project_id), data=data)
+        return self._moco.post("project_payment_schedule_create", ep_params=ep_params, data=data)
 
     def update(
         self,
@@ -121,6 +149,11 @@ class ProjectPaymentSchedule(MWRAPBase):
         :returns: The updated schedule item
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "schedule_id": schedule_id
+        }
+
         data = {}
 
         for key, value in (
@@ -135,9 +168,7 @@ class ProjectPaymentSchedule(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(
-            API_PATH["project_payment_schedule_update"].format(project_id=project_id, schedule_id=schedule_id),
-            data=data)
+        return self._moco.put("project_payment_schedule_update", ep_params=ep_params, data=data)
 
     def get(
         self,
@@ -156,9 +187,12 @@ class ProjectPaymentSchedule(MWRAPBase):
         :returns: The schedule item
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "schedule_id": schedule_id
+        }
 
-        return self._moco.get(
-            API_PATH["project_payment_schedule_get"].format(project_id=project_id, schedule_id=schedule_id))
+        return self._moco.get("project_payment_schedule_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -174,8 +208,11 @@ class ProjectPaymentSchedule(MWRAPBase):
         :returns: List of schedules payments
         :rtype: :class:`moco_wrapper.util.response.ListResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
 
-        return self._moco.get(API_PATH["project_payment_schedule_getlist"].format(project_id=project_id))
+        return self._moco.get("project_payment_schedule_getlist", ep_params=ep_params)
 
     def delete(
         self,
@@ -191,9 +228,13 @@ class ProjectPaymentSchedule(MWRAPBase):
         :type project_id: int
         :type schedule_id: int
 
-        :returns: The deleted response on success
+        :returns: The deleted schedule on success
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
-        return self._moco.delete(
-            API_PATH["project_payment_schedule_delete"].format(project_id=project_id, schedule_id=schedule_id))
+        ep_params = {
+            "project_id": project_id,
+            "schedule_id": schedule_id
+        }
+
+        return self._moco.delete("project_payment_schedule_delete", ep_params=ep_params)
