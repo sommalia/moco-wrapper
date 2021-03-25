@@ -1,3 +1,7 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -8,6 +12,25 @@ class ProjectContract(MWRAPBase):
 
     When a user gets assigned to a project, that is called a project contract. This can be done with this model.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("project_contract_create", "/projects/{project_id}/contracts", "POST", om.ProjectContract),
+            Endpoint("project_contract_update", "/projects/{project_id}/contracts/{contract_id}", "PUT",
+                     om.ProjectContract),
+            Endpoint("project_contract_get", "/projects/{project_id}/contracts/{contract_id}", "GET",
+                     om.ProjectContract),
+            Endpoint("project_contract_getlist", "/projects/{project_id}/contracts", "GET", om.ProjectContract),
+            Endpoint("project_contract_delete", "/projects/{project_id}/contracts/{contract_id}", "DELETE")
+        ]
 
     def __init__(self, moco):
         """
@@ -46,6 +69,10 @@ class ProjectContract(MWRAPBase):
         :returns: Created contract object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
+
         data = {
             "user_id": user_id
         }
@@ -59,7 +86,7 @@ class ProjectContract(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["project_contract_create"].format(project_id=project_id), data=data)
+        return self._moco.post("project_contract_create", ep_params=ep_params, data=data)
 
     def update(
         self,
@@ -90,6 +117,10 @@ class ProjectContract(MWRAPBase):
         :returns: The updated project contract
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "contract_id": contract_id
+        }
 
         data = {}
         for key, value in (
@@ -101,8 +132,7 @@ class ProjectContract(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(
-            API_PATH["project_contract_update"].format(project_id=project_id, contract_id=contract_id), data=data)
+        return self._moco.put("project_contract_update", ep_params=ep_params, data=data)
 
     def get(
         self,
@@ -121,8 +151,12 @@ class ProjectContract(MWRAPBase):
         :returns: The contract object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "contract_id": contract_id
+        }
 
-        return self._moco.get(API_PATH["project_contract_get"].format(project_id=project_id, contract_id=contract_id))
+        return self._moco.get("project_contract_get", ep_params=ep_params)
 
     def getlist(
         self,
@@ -147,6 +181,9 @@ class ProjectContract(MWRAPBase):
         :returns: List of contract objects
         :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
 
         params = {}
 
@@ -159,7 +196,7 @@ class ProjectContract(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_contract_getlist"].format(project_id=project_id), params=params)
+        return self._moco.get("project_contract_getlist", ep_params=ep_params, params=params)
 
     def delete(
         self,
@@ -181,6 +218,9 @@ class ProjectContract(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "contract_id": contract_id
+        }
 
-        return self._moco.delete(
-            API_PATH["project_contract_delete"].format(project_id=project_id, contract_id=contract_id))
+        return self._moco.delete("project_contract_delete", ep_params=ep_params)
