@@ -1,11 +1,31 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
-from moco_wrapper.const import API_PATH
 
 
 class ProjectTask(MWRAPBase):
     """
     Class for handling tasks of a project.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("project_task_create", "/projects/{project_id}/tasks", "POST", om.ProjectTask),
+            Endpoint("project_task_update", "/projects/{project_id}/tasks/{task_id}", "PUT", om.ProjectTask),
+            Endpoint("project_task_get", "/projects/{project_id}/tasks/{task_id}", "GET", om.ProjectTask),
+            Endpoint("project_task_getlist", "/projects/{project_id}/tasks", "GET", om.ProjectTask),
+            Endpoint("project_task_delete", "/projects/{project_id}/tasks/{task_id}", "DELETE")
+        ]
 
     def __init__(self, moco):
         """
@@ -38,6 +58,10 @@ class ProjectTask(MWRAPBase):
         :returns: List of project tasks
         :rtype: :class:`moco_wrapper.util.response.PagedListResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
+
         params = {}
 
         for key, value in (
@@ -49,7 +73,7 @@ class ProjectTask(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["project_task_getlist"].format(project_id=project_id), params=params)
+        return self._moco.get("project_task_getlist", ep_params=ep_params, params=params)
 
     def get(
         self,
@@ -68,7 +92,12 @@ class ProjectTask(MWRAPBase):
         :returns: Single project task
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["project_task_get"].format(project_id=project_id, task_id=task_id))
+        ep_params = {
+            "project_id": project_id,
+            "task_id": task_id
+        }
+
+        return self._moco.get("project_task_get", ep_params=ep_params)
 
     def create(
         self,
@@ -99,6 +128,10 @@ class ProjectTask(MWRAPBase):
         :returns: The created project task
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id
+        }
+
         data = {
             "name": name
         }
@@ -112,7 +145,7 @@ class ProjectTask(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["project_task_create"].format(project_id=project_id), data=data)
+        return self._moco.post("project_task_create", ep_params=ep_params, data=data)
 
     def update(
         self,
@@ -146,6 +179,11 @@ class ProjectTask(MWRAPBase):
         :returns: The updated project task
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "project_id": project_id,
+            "task_id": task_id
+        }
+
         data = {}
         for key, value in (
             ("name", name),
@@ -157,7 +195,7 @@ class ProjectTask(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["project_task_update"].format(project_id=project_id, task_id=task_id), data=data)
+        return self._moco.put("project_task_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -180,5 +218,9 @@ class ProjectTask(MWRAPBase):
 
             Deletion of a task is only possible as long as no hours were tracked for the task
         """
+        ep_params = {
+            "project_id": project_id,
+            "task_id": task_id
+        }
 
-        return self._moco.delete(API_PATH["project_task_delete"].format(project_id=project_id, task_id=task_id))
+        return self._moco.delete("project_task_delete", ep_params=ep_params)
