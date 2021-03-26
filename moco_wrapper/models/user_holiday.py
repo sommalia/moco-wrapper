@@ -1,3 +1,7 @@
+from typing import List
+
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -28,6 +32,23 @@ class UserHoliday(MWRAPBase):
         Please not that the base unit for holiday credits is hours. So if your typical workday contains 8 hours,
         8 holiday credits means one day off.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("holiday_create", "/users/holidays", "POST", om.UserHoliday),
+            Endpoint("holiday_update", "/users/holidays/{id}", "PUT", om.UserHoliday),
+            Endpoint("holiday_get", "/users/holidays/{id}", "GET", om.UserHoliday),
+            Endpoint("holiday_getlist", "/users/holidays", "GET", om.UserHoliday),
+            Endpoint("holiday_delete", "/users/holidays/{id}", "DELETE")
+        ]
 
     def __init__(self, moco):
         """
@@ -75,7 +96,7 @@ class UserHoliday(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["holiday_getlist"], params=params)
+        return self._moco.get("holiday_getlist", params=params)
 
     def get(
         self,
@@ -91,7 +112,11 @@ class UserHoliday(MWRAPBase):
         :returns: The holiday object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["holiday_get"].format(id=holiday_id))
+        ep_params = {
+            "id": holiday_id
+        }
+
+        return self._moco.get("holiday_get", ep_params=ep_params)
 
     def create(
         self,
@@ -139,7 +164,7 @@ class UserHoliday(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.post(API_PATH["holiday_create"], data=data)
+        return self._moco.post("holiday_create", data=data)
 
     def update(
         self,
@@ -170,6 +195,9 @@ class UserHoliday(MWRAPBase):
         :returns: The updated holiday object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": holiday_id
+        }
 
         if days is None and hours is None:
             raise ValueError("Either the hours or days parameter must be specified")
@@ -188,7 +216,7 @@ class UserHoliday(MWRAPBase):
             if value is not None:
                 data[key] = value
 
-        return self._moco.put(API_PATH["holiday_update"].format(id=holiday_id), data=data)
+        return self._moco.put("holiday_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -204,4 +232,8 @@ class UserHoliday(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
-        return self._moco.delete(API_PATH["holiday_delete"].format(id=holiday_id))
+        ep_params = {
+            "id": holiday_id
+        }
+
+        return self._moco.delete("holiday_delete", ep_params=ep_params)
