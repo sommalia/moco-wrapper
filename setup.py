@@ -19,7 +19,7 @@ test_requirements = ['pytest', 'betamax', 'betamax-serializers']
 
 setup(
     author="sommalia",
-    author_email='sommalia@tuta.io',
+    author_email='sommalia@protonmail.com',
     python_requires='>=3.5.0',
     classifiers=[
         'Development Status :: 3 - Alpha',

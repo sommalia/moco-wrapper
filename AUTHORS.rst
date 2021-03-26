@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* Sommalia <sommalia@tuta.io>
+* Sommalia <sommalia@protonmail.com>
 
 Contributors
 ------------
