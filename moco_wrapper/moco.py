@@ -1,4 +1,3 @@
-from moco_wrapper.const import API_PATH
 from moco_wrapper import models, util, exceptions
 from moco_wrapper.util import requestor, objector, response, endpoint
 
