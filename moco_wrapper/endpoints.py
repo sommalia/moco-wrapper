@@ -6,7 +6,6 @@ API_PATH = {
     "holiday_create":                   "/users/holidays",
     "holiday_update":                   "/users/holidays/{id}",
     "holiday_delete":                   "/users/holidays/{id}",
-    "hourly_rate_get":                  "/account/hourly_rates",
     "presence_getlist":                 "/users/presences",
     "presence_get":                     "/users/presences/{id}",
     "presence_create":                  "/users/presences",
