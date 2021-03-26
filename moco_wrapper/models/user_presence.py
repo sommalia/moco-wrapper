@@ -1,5 +1,8 @@
 import datetime
+from typing import List
 
+from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.const import API_PATH
 
@@ -13,6 +16,24 @@ class UserPresence(MWRAPBase):
 
     Also this can be used to log when you users are at work.
     """
+
+    @staticmethod
+    def endpoints() -> List[Endpoint]:
+        """
+        Returns all endpoints associated with the model
+
+        :returns: List of Endpoint objects
+        :rtype: :class:`moco_wrapper.util.endpoint.Endpoint`
+
+        """
+        return [
+            Endpoint("presence_create", "/users/presences", "POST", om.UserPresence),
+            Endpoint("presence_update", "/users/presences/{id}", "PUT", om.UserPresence),
+            Endpoint("presence_get", "/users/presences/{id}", "GET", om.UserPresence),
+            Endpoint("presence_getlist", "/users/presences", "GET", om.UserPresence),
+            Endpoint("presence_delete", "/users/presences/{id}", "DELETE"),
+            Endpoint("presence_touch", "/users/presences/touch", "POST")
+        ]
 
     def __init__(self, moco):
         """
@@ -71,7 +92,7 @@ class UserPresence(MWRAPBase):
         if sort_by is not None:
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
-        return self._moco.get(API_PATH["presence_getlist"], params=params)
+        return self._moco.get("presence_getlist", params=params)
 
     def get(
         self,
@@ -87,7 +108,11 @@ class UserPresence(MWRAPBase):
         :returns: Single presence object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
-        return self._moco.get(API_PATH["presence_get"].format(id=pres_id))
+        ep_params = {
+            "id": pres_id
+        }
+
+        return self._moco.get("presence_get", ep_params=ep_params)
 
     def create(
         self,
@@ -119,7 +144,7 @@ class UserPresence(MWRAPBase):
         else:
             data["date"] = pres_date
 
-        return self._moco.post(API_PATH["presence_create"], data=data)
+        return self._moco.post("presence_create", data=data)
 
     def touch(
         self,
@@ -129,8 +154,11 @@ class UserPresence(MWRAPBase):
         Or it terminates an existing open presence at the current time. Can be used to implement a clock system (RFID).
 
         If a presence is started and stopped within the same minute, it will be discarded.
+
+        :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
-        return self._moco.post(API_PATH["presence_touch"])
+        return self._moco.post("presence_touch")
 
     def update(
         self,
@@ -155,6 +183,10 @@ class UserPresence(MWRAPBase):
         :returns: The updated presence
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
+        ep_params = {
+            "id": pres_id
+        }
+
         data = {}
         for key, value in (
             ("date", pres_date),
@@ -167,7 +199,7 @@ class UserPresence(MWRAPBase):
                 else:
                     data[key] = value
 
-        return self._moco.put(API_PATH["presence_update"].format(id=pres_id), data=data)
+        return self._moco.put("presence_update", ep_params=ep_params, data=data)
 
     def delete(
         self,
@@ -183,4 +215,8 @@ class UserPresence(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
-        return self._moco.delete(API_PATH["presence_delete"].format(id=pres_id))
+        ep_params = {
+            "id": pres_id
+        }
+
+        return self._moco.delete("presence_delete", ep_params=ep_params)

@@ -22,6 +22,7 @@ class AccountFixedCost(MWRAPBase):
         costs = m.AccountFixedCost.getlist(year=2020)
 
     """
+
     @staticmethod
     def endpoints() -> List[Endpoint]:
         """
