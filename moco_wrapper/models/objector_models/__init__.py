@@ -1,5 +1,7 @@
 from .activity import Activity
 from .account_fixed_cost import AccountFixedCost
+from .account_hourly_rate import AccountHourlyRate
+from .account_internal_hourly_rate import AccountInternalHourlyRate
 
 from .project import Project
 from .project_recurring_expense import ProjectRecurringExpense
@@ -31,4 +33,4 @@ from .purchase import Purchase
 
 from .planning_entry import PlanningEntry
 
-from .hourly_rate import HourlyRate
+

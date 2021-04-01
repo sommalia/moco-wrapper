@@ -9,6 +9,8 @@ __version__ = '0.1.0'
 from .activity import Activity
 
 from .account_fixed_cost import AccountFixedCost
+from .account_hourly_rate import AccountHourlyRate
+from .account_internal_hourly_rate import AccountInternalHourlyRate
 
 from .contact import Contact
 from .company import Company
@@ -41,7 +43,7 @@ from .project_payment_schedule import ProjectPaymentSchedule
 from .purchase_category import PurchaseCategory
 from .purchase import Purchase
 
-from .account_hourly_rate import AccountHourlyRate
+
 
 from .session import Session
 

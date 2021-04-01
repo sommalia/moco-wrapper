@@ -18,6 +18,5 @@ class Deal(object):
             com = obj.Company(**kwargs["company"])
             nk["company"] = com
 
-        print(kwargs)
 
         self.__dict__.update(nk)

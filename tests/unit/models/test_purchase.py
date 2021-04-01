@@ -191,7 +191,6 @@ class TestPurchase(UnitTest):
             status=status
         )
 
-        print(response)
         data = response["data"]
 
         assert response["method"] == "PATCH"

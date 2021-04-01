@@ -4,7 +4,7 @@ from moco_wrapper.util.response import ObjectResponse
 from moco_wrapper.models.company import CompanyType
 
 
-class TestHourlyRate(IntegrationTest):
+class TestAccountHourlyRate(IntegrationTest):
 
     def get_customer(self):
         with self.recorder.use_cassette("TestHourlyRate.get_company"):

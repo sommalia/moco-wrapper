@@ -20,7 +20,7 @@ class AccountHourlyRate(MWRAPBase):
 
         """
         return [
-            Endpoint("account_hourly_rate_get", "/account/hourly_rates", "GET", om.HourlyRate),
+            Endpoint("account_hourly_rate_get", "/account/hourly_rates", "GET", om.AccountHourlyRate),
         ]
 
     def __init__(self, moco):

@@ -1,7 +1,7 @@
 from .. import UnitTest
 
 
-class TestHourlyRate(UnitTest):
+class TestAccountHourlyRate(UnitTest):
 
     def test_get(self):
         company_id = 2

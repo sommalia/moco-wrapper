@@ -24,6 +24,7 @@ class TaskRate(object):
             ", ".join([str(x) for x in self.rates])
         )
 
+
 class UserRate(object):
     def __init__(self, id, full_name, raw_rates):
         self.id = id
@@ -41,7 +42,8 @@ class UserRate(object):
             ", ".join([str(x) for x in self.rates])
         )
 
-class HourlyRate(object):
+
+class AccountHourlyRate(object):
     def __init__(self, **kwargs):
         nk = kwargs
 

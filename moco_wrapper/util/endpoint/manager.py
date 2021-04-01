@@ -42,6 +42,7 @@ class EndpointManager(object):
         self.endpoints.extend(m.UserEmployment.endpoints())
         self.endpoints.extend(m.UserHoliday.endpoints())
         self.endpoints.extend(m.UserPresence.endpoints())
+        self.endpoints.extend(m.AccountInternalHourlyRate.endpoints())
 
         self._build_map()
 

@@ -85,6 +85,9 @@ class TestMocoWrapper(UnitTest):
     def test_account_hourly_rate_set(self):
         assert isinstance(self.moco.AccountHourlyRate, models.AccountHourlyRate)
 
+    def test_account_internal_hourly_rate(self):
+        assert isinstance(self.moco.AccountInternalHourlyRate, models.AccountInternalHourlyRate)
+
     def test_tagging_set(self):
         assert isinstance(self.moco.Tagging, models.Tagging)
 

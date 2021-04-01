@@ -65,6 +65,7 @@ class Moco(object):
         self.Activity = models.Activity(self)
         self.AccountFixedCost = models.AccountFixedCost(self)
         self.AccountHourlyRate = models.AccountHourlyRate(self)
+        self.AccountInternalHourlyRate = models.AccountInternalHourlyRate(self)
         self.Contact = models.Contact(self)
         self.Company = models.Company(self)
         self.Comment = models.Comment(self)
