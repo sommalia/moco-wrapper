@@ -10,8 +10,7 @@ History
     * In the old versions the objector has a map of all routes that are available and how the may back to objects
     * Now each model declares the routes by itself and which object will be returned
     * In this release the old map, and the old methods are still present, they will be removed in a future release
-* Changed the timesheet endpoint of the invoice model to timesheet_pdf (clearer distinction between timesheet_pdf and
-the new method timesheet_activities)
+* Changed the timesheet endpoint of the invoice model to timesheet_pdf for clearer distinction between timesheet_pdf and the new method timesheet_activities
 * Renamed HourlyRates model to AccountHourlyRates
 * Added verify method to Session model
 * Implemented AccountInternalHourlyRates model
