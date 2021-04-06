@@ -1,6 +1,6 @@
 
 class SingleInternalRate(object):
-    def __init(
+    def __init__(
         self,
         year,
         rate
@@ -21,5 +21,5 @@ class AccountInternalHourlyRate(object):
         self.rates = []
 
         for rate_raw in rates:
-            item = SingleInternalRate(rate_raw)
+            item = SingleInternalRate(**rate_raw)
             self.rates.append(item)
