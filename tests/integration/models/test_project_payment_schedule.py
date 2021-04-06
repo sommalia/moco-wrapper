@@ -38,10 +38,35 @@ class TestProjectPaymentSchedule(IntegrationTest):
 
     def test_getlist(self):
         project = self.get_project()
+        from_date = date(2021, 2, 23)
+        to_date = date(2023, 2, 2)
+        checked = False
 
         with self.recorder.use_cassette("TestProjectPaymentSchedule.test_getlist"):
             sched_list = self.moco.ProjectPaymentSchedule.getlist(
-                project_id=project.id
+                project_id=project.id,
+                from_date=from_date,
+                to_date=to_date,
+                checked=checked
+            )
+
+            assert sched_list.response.status_code == 200
+
+            assert type(sched_list) is ListResponse
+
+
+    def test_getall(self):
+        customer = self.get_customer()
+        from_date = date(2021, 2, 23)
+        to_date = date(2023, 2, 2)
+        checked = True
+
+        with self.recorder.use_cassette("TestProjectPaymentSchedule.test_getall"):
+            sched_list = self.moco.ProjectPaymentSchedule.getall(
+                company_id=customer.id,
+                from_date=from_date,
+                to_date=to_date,
+                checked=checked
             )
 
             assert sched_list.response.status_code == 200

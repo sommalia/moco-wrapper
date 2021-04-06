@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-03T14:30:01",
+      "recorded_at": "2021-04-06T12:08:55",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,29 +28,25 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945381040/payment_schedules"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945495526/payment_schedules?from=2021-02-23&to=2023-02-02&checked=false"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "26"
+            "2"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 03 Dec 2020 14:30:01 GMT"
+            "Tue, 06 Apr 2021 12:08:55 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -59,8 +55,7 @@
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -75,10 +70,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3f8350cd-948e-4a2e-a217-d75d57e7f3e4"
+            "010d6a67-6532-4c03-9bad-676339cc2aaa"
           ],
           "X-Runtime": [
-            "0.047635"
+            "0.020344"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +83,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945381040/payment_schedules"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945495526/payment_schedules?from=2021-02-23&to=2023-02-02&checked=false"
       }
     }
   ],

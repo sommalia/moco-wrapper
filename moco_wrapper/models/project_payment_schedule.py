@@ -59,6 +59,8 @@ class ProjectPaymentSchedule(MWRAPBase):
                      om.ProjectPaymentSchedule),
             Endpoint("project_payment_schedule_getlist", "/projects/{project_id}/payment_schedules", "GET",
                      om.ProjectPaymentSchedule),
+            Endpoint("project_payment_schedule_getall", "/projects/payment_schedules", "GET",
+                     om.ProjectPaymentSchedule),
             Endpoint("project_payment_schedule_delete", "/projects/{project_id}/payment_schedules/{schedule_id}",
                      "DELETE")
         ]
@@ -196,13 +198,22 @@ class ProjectPaymentSchedule(MWRAPBase):
     def getlist(
         self,
         project_id: int,
+        from_date: datetime.date = None,
+        to_date: datetime.date = None,
+        checked: bool = None
     ):
         """
         Retrieve a list of project payment schedules
 
         :param project_id: Project id of the schedule items
+        :param from_date: From Date
+        :param to_date: To Date
+        :param checked: Show checked off payment schedules
 
         :type project_id: int
+        :type from_date: datetime.date, str (default ``None``)
+        :type to_date: datetime.date, str (default ``None``)
+        :type checked: bool (default ``None``)
 
         :returns: List of schedules payments
         :rtype: :class:`moco_wrapper.util.response.ListResponse`
@@ -211,7 +222,66 @@ class ProjectPaymentSchedule(MWRAPBase):
             "project_id": project_id
         }
 
-        return self._moco.get("project_payment_schedule_getlist", ep_params=ep_params)
+        params = {}
+        for key, value in (
+            ("from", from_date),
+            ("to", to_date),
+            ("checked", checked)
+        ):
+            if value is not None:
+                if key in ["from", "to"] and isinstance(value, datetime.date):
+                    params[key] = self._convert_date_to_iso(value)
+                else:
+                    params[key] = value
+
+        return self._moco.get("project_payment_schedule_getlist", ep_params=ep_params, params=params)
+
+    def getall(
+        self,
+        from_date: datetime.date = None,
+        to_date: datetime.date = None,
+        checked: bool = None,
+        company_id: int = None,
+        project_id: int = None
+    ):
+        """
+        Retrieve all payment schedules
+
+        :param from_date: From Date
+        :param to_date: To Date
+        :param checked: Show checked of payment schedules
+        :param company_id: Show payment schedules for specific company
+        :param project_id: Show payment schedules for a project
+
+        :type from_date: datetime.date, str (default ``None``)
+        :type to_date: datetime.date, str (default ``None``)
+        :type checked: bool (default ``None``)
+        :type company_id: int (default ``None``)
+        :type project_id: int (default ``None``)
+
+        :returns: List of payment schedules
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
+
+        .. note ::
+
+            For retrieving payment schedules for a specific projects see also :meth:`.getlist`
+        """
+
+        params = {}
+        for key, value in (
+            ("from", from_date),
+            ("to", to_date),
+            ("checked", checked),
+            ("company_id", company_id),
+            ("project_id", project_id)
+        ):
+            if value is not None:
+                if key in ["from", "to"] and isinstance(value, datetime.date):
+                    params[key] = self._convert_date_to_iso(value)
+                else:
+                    params[key] = value
+
+        return self._moco.get("project_payment_schedule_getall", params=params)
 
     def delete(
         self,
@@ -237,3 +307,5 @@ class ProjectPaymentSchedule(MWRAPBase):
         }
 
         return self._moco.delete("project_payment_schedule_delete", ep_params=ep_params)
+
+
