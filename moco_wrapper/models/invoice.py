@@ -83,7 +83,8 @@ class Invoice(MWRAPBase):
             Endpoint("invoice_update_status", "/invoices/{id}/update_status", "PUT", om.Invoice),
             Endpoint("invoice_locked", "/invoices/locked", "GET", om.Invoice),
             Endpoint("invoice_pdf", "/invoices/{id}.pdf", "GET"),
-            Endpoint("invoice_timesheet", "/invoices/{id}/timesheet.pdf", "GET")
+            Endpoint("invoice_timesheet_pdf", "/invoices/{id}/timesheet.pdf", "GET"),
+            Endpoint("invoice_timesheet_activities", "/invoices/{id}/timesheet", "GET", om.Activity)
         ]
 
     def __init__(self, moco):
@@ -247,7 +248,7 @@ class Invoice(MWRAPBase):
 
         return self._moco.get("invoice_pdf", ep_params=ep_params)
 
-    def timesheet(
+    def timesheet_pdf(
         self,
         invoice_id: int
     ):
@@ -269,7 +270,30 @@ class Invoice(MWRAPBase):
             "id": invoice_id
         }
 
-        return self._moco.get("invoice_timesheet", ep_params=ep_params)
+        return self._moco.get("invoice_timesheet_pdf", ep_params=ep_params)
+
+    def timesheet_activities(
+        self,
+        invoice_id: int
+    ):
+        """
+        Retrieve all activities that are associated with the given invoice
+
+        .. note::
+            Invoices that have timesheets cannot be created over the api and must be created manually
+            by billing unbilled tasks.
+
+        :param invoice_id: Invoice id
+        :type invoice_id: int
+
+        :return: List of activities
+        :rtype: :class:`moco_wrapper.util.response.ListResponse`
+        """
+        ep_params = {
+            "id": invoice_id
+        }
+
+        return self._moco.get("invoice_timesheet_activities", ep_params=ep_params)
 
     def update_status(
         self,
