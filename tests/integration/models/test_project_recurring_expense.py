@@ -145,7 +145,7 @@ class TestProjectRecurringExpense(IntegrationTest):
             unit = "h"
             unit_price = 32.5
             unit_cost = 20.5
-            finish_date = date(2021, 1, 1)
+            finish_date = date(2040, 1, 1)
             description = "dummy recurring expense, test update"
             billable = False
             budget_relevant = True
