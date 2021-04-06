@@ -4,7 +4,7 @@
 
 __author__ = """Sommalia"""
 __email__ = 'sommalia@protonmail.com'
-__version__ = '0.1.0'
+__version__ = '0.10.0'
 
 from .activity import Activity
 
