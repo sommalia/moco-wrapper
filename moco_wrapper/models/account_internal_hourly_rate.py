@@ -22,6 +22,8 @@ class AccountInternalHourlyRate(MWRAPBase):
         return [
             Endpoint("account_internal_hourly_rate_get", "/account/internal_hourly_rates",
                      "GET", om.AccountInternalHourlyRate),
+            Endpoint("account_internal_hourly_rate_update", "/account/internal_hourly_rates",
+                     "PATCH")
         ]
 
     def __init__(self, moco):
@@ -62,6 +64,41 @@ class AccountInternalHourlyRate(MWRAPBase):
                     params[key] = value
 
         return self._moco.get("account_internal_hourly_rate_get", params=params)
+
+    def update(
+        self,
+        year: int,
+        rates : List[dict]
+    ):
+        """
+        Update internal rates
+
+        :param year: Year to update the internal rates for
+        :param rates: List of rate objects (each object containing user_id and a rate)
+
+        :type year: int
+        :type rates: list
+
+        :returns: Status message on success (can be ignored)
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
+
+        .. note::
+
+            For generating items see :class:`moco_wrapper.util.generator.AccountInternalRateItemGenerator`
+
+        .. note::
+
+            On success the dictionary `{ "status": "ok" }` will be returned.
+            The response can safely be ignored.
+
+        """
+
+        data = {
+            "year": year,
+            "rates": rates
+        }
+
+        return self._moco.patch("account_internal_hourly_rate_update", data=data)
 
 
 
