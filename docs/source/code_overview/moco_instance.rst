@@ -10,13 +10,14 @@ The Moco Instance
    :caption: API Endpoints
 
    models/account_fixed_cost
+   models/account_hourly_rate
+   models/account_internal_hourly_rate
    models/activity
    models/comment
    models/company
    models/contact
    models/deal
    models/deal_category
-   models/hourly_rate
    models/invoice
    models/invoice_payment
    models/offer
