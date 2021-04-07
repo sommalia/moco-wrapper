@@ -2,10 +2,10 @@
 History
 =======
 
-0.10.0 (2021-04-06)
+0.10.0 (2021-04-07)
 -------------------
 
-* ListResponses now behave like lists
+* ListResponses and PagedListResponses now behave like lists
 * Changed how api routes are processed
     * In the old versions the objector has a map of all routes that are available and how the may back to objects
     * Now each model declares the routes by itself and which object will be returned
