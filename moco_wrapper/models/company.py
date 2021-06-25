@@ -100,7 +100,8 @@ class Company(MWRAPBase):
         iban: str = None,
         debit_number: int = None,
         credit_number: int = None,
-        footer: str = None
+        footer: str = None,
+        custom_properties: dict = None
     ):
         """
         Create a company.
@@ -130,6 +131,7 @@ class Company(MWRAPBase):
         :param debit_number: Debit number (if bookkeeping is enabled) (only customer) (default ``None``)
         :param credit_number: Credit number (if bookkeeping is enabled) (only supplier) (default ``None``)
         :param footer: Some html (appears at the end of invoices) (default ``None``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type name: str
         :type company_type: :class:`.CompanyType`, str
@@ -153,6 +155,7 @@ class Company(MWRAPBase):
         :type debit_number: int
         :type credit_number: int
         :type footer: str
+        :type custom_properties: dict
 
         :returns: The created company
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -181,7 +184,8 @@ class Company(MWRAPBase):
             ("user_id", user_id),
             ("country_code", country_code),
             ("vat_identifier", vat_identifier),
-            ("footer", footer)
+            ("footer", footer),
+            ("custom_properties", custom_properties)
         ):
             if value is not None:
                 data[key] = value
@@ -233,6 +237,7 @@ class Company(MWRAPBase):
         debit_number: int = None,
         credit_number: int = None,
         footer: str = None,
+        custom_properties: dict = None
     ):
         """
         Update a company.
@@ -262,6 +267,7 @@ class Company(MWRAPBase):
         :param iban: iban number (only supplier) (default ``None``)
         :param debit_number: Debit number (if bookkeeping is enabled) (only customer) (default ``None``)
         :param credit_number: Credit number (if bookkeeping is enabled) (ony supplier) (default ``None``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type company_id: int
         :type name: str
@@ -286,6 +292,7 @@ class Company(MWRAPBase):
         :type debit_number: int
         :type credit_number: int
         :type footer: str
+        :type custom_properties: dict
 
         :returns: The updated company
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -318,7 +325,8 @@ class Company(MWRAPBase):
             ("iban", iban),
             ("debit_number", debit_number),
             ("credit_number", credit_number),
-            ("footer", footer)
+            ("footer", footer),
+            ("custom_properties", custom_properties)
         ):
             if value is not None:
                 data[key] = value

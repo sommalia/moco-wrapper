@@ -78,7 +78,8 @@ class Contact(MWRAPBase):
         home_email: str = None,
         birthday: datetime.date = None,
         info: str = None,
-        tags: list = None
+        tags: list = None,
+        custom_properties: dict = None
     ):
         """
         Creates a contact.
@@ -99,6 +100,7 @@ class Contact(MWRAPBase):
         :param birthday: Birthday date (default ``None``)
         :param info: More information about the contact (default ``None``)
         :param tags: Array of additional tags (default ``None``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type firstname: str
         :type lastname: str
@@ -116,6 +118,7 @@ class Contact(MWRAPBase):
         :type birthday: datetime.date, str
         :type info: str
         :type tags: list
+        :type custom_properties: dict
 
         :returns: The created contact object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -140,7 +143,8 @@ class Contact(MWRAPBase):
             ("home_email", home_email),
             ("birthday", birthday),
             ("info", info),
-            ("tags", tags)
+            ("tags", tags),
+            ("custom_properties", custom_properties)
         ):
             if value is not None:
                 if isinstance(value, datetime.date):
@@ -168,7 +172,8 @@ class Contact(MWRAPBase):
         home_email: str = None,
         birthday: datetime.date = None,
         info: str = None,
-        tags: list = None
+        tags: list = None,
+        custom_properties: dict = None
     ):
         """
         Updates a contact.
@@ -190,6 +195,7 @@ class Contact(MWRAPBase):
         :param birthday: Birthday date (default ``None``)
         :param info: More information about the contact (default ``None``)
         :param tags: Array of additional tags (default ``None``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type contact_id: int
         :type firstname: str
@@ -208,6 +214,7 @@ class Contact(MWRAPBase):
         :type birthday: datetime.date, str
         :type info: str
         :type tags: list
+        :type custom_properties: dict
 
         :returns: The updated contact object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -234,7 +241,8 @@ class Contact(MWRAPBase):
             ("home_email", home_email),
             ("birthday", birthday),
             ("info", info),
-            ("tags", tags)
+            ("tags", tags),
+            ("custom_properties", custom_properties)
         ):
 
             if value is not None:

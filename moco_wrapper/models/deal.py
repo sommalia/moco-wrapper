@@ -73,7 +73,8 @@ class Deal(MWRAPBase):
         company_id: int = None,
         info: str = None,
         status: DealStatus = DealStatus.PENDING,
-        closed_on: datetime.date = None
+        closed_on: datetime.date = None,
+        custom_properties: dict = None
     ):
         """
         Create a new deal.
@@ -88,6 +89,7 @@ class Deal(MWRAPBase):
         :param info: Additional information (default ``None``)
         :param status: Current state of the deal (default :attr:`.DealStatus.PENDING`)
         :param closed_on: Date the deal was closed on (default ``None``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type name: str
         :type currency: str
@@ -99,6 +101,7 @@ class Deal(MWRAPBase):
         :type info: str
         :type status: :class:`.DealStatus`, str
         :type closed_on: datetime.date, str
+        :type custom_properties: dict
 
         :returns: The created deal object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -124,7 +127,8 @@ class Deal(MWRAPBase):
             ("company_id", company_id),
             ("info", info),
             ("status", status),
-            ("closed_on", closed_on)
+            ("closed_on", closed_on),
+            ("custom_properties", custom_properties)
         ):
             if value is not None:
                 if isinstance(value, datetime.date) and key in ["closed_on"]:
@@ -146,7 +150,8 @@ class Deal(MWRAPBase):
         company_id: int = None,
         info: str = None,
         status: DealStatus = None,
-        closed_on: datetime.date = None
+        closed_on: datetime.date = None,
+        custom_properties: dict = None
     ):
         """
         Update an existing deal.
@@ -162,6 +167,7 @@ class Deal(MWRAPBase):
         :param info: Additional information (default ``None``)
         :param status: Current state of the deal (default ``None``)
         :param closed_on: Date the deal was closed on (default ``None``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type deal_id: int
         :type name: str
@@ -174,6 +180,7 @@ class Deal(MWRAPBase):
         :type info: str
         :type status: :class:`.DealStatus`, str
         :type closed_on: datetime.date, str
+        :type custom_properties: dict
 
         :returns: The updated deal object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -197,7 +204,8 @@ class Deal(MWRAPBase):
             ("company_id", company_id),
             ("info", info),
             ("status", status),
-            ("closed_on", closed_on)
+            ("closed_on", closed_on),
+            ("custom_properties", custom_properties)
         ):
 
             if value is not None:

@@ -93,7 +93,7 @@ class Offer(MWRAPBase):
         identifier: str = None,
         sort_by: str = None,
         sort_order: str = 'asc',
-        page: int = 1
+        page: int = 1,
     ):
         """
         Retrieve a list of offers.
@@ -191,7 +191,8 @@ class Offer(MWRAPBase):
         salutation: str = None,
         footer: str = None,
         discount: float = None,
-        contact_id: int = None
+        contact_id: int = None,
+        custom_properties: dict = None
     ):
         """
         Create a new offer.
@@ -210,6 +211,7 @@ class Offer(MWRAPBase):
         :param footer: Footer text (default ``None``)
         :param discount: Discount in percent (default ``None``)
         :param contact_id: Id of the contact for the offer (default ``None``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type deal_id: int
         :type project_id: int
@@ -225,6 +227,7 @@ class Offer(MWRAPBase):
         :type footer: str
         :type discount: float
         :type contact_id: int
+        :type custom_properties: dict
 
         :returns: The created offer
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -260,7 +263,8 @@ class Offer(MWRAPBase):
             ("salutation", salutation),
             ("footer", footer),
             ("discount", discount),
-            ("contact_id", contact_id)
+            ("contact_id", contact_id),
+            ("custom_properties", custom_properties)
         ):
             if value is not None:
                 data[key] = value
