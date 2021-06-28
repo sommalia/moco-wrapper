@@ -2,6 +2,11 @@
 History
 =======
 
+0.10.1 (2021-06-28)
+-------------------
+
+* Add support for custom properties in contact, deal, offer and invoice
+
 0.10.0 (2021-04-07)
 -------------------
 
