@@ -5,8 +5,8 @@ moco-wrapper
 .. image:: https://img.shields.io/pypi/v/moco_wrapper.svg
         :target: https://pypi.python.org/pypi/moco_wrapper
 
-.. image:: https://img.shields.io/travis/sommalia/moco-wrapper.svg
-        :target: https://travis-ci.org/sommalia/moco-wrapper
+.. image:: https://img.shields.io/travis/com/sommalia/moco-wrapper.svg
+        :target: https://travis-ci.com/sommalia/moco-wrapper
 
 This is a client implementation of the moco api written in python3.
 
