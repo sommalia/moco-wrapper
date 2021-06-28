@@ -342,7 +342,8 @@ class Invoice(MWRAPBase):
         cash_discount: float = None,
         cash_discount_days: int = None,
         project_id: int = None,
-        tags: list = []
+        tags: list = [],
+        custom_properties: dict = None
     ):
         """
         Creates a new invoice.
@@ -366,6 +367,7 @@ class Invoice(MWRAPBase):
         :param cash_discount_days: How many days is the cash discount valid (ex. 4) (default ``None``)
         :param project_id: Id of the project the invoice belongs to (default ``None``)
         :param tags: List of tags (default ``[]``)
+        :param custom_properties: Dict of custom properties (default ``None``)
 
         :type customer_id: int
         :type recipient_address: str
@@ -386,6 +388,7 @@ class Invoice(MWRAPBase):
         :type cash_discount_days: float
         :type project_id: int
         :type tags: list
+        :type custom_properties: dict
 
         :returns: The created invoice
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -426,7 +429,8 @@ class Invoice(MWRAPBase):
             ("cash_discount", cash_discount),
             ("cash_discount_days", cash_discount_days),
             ("project_id", project_id),
-            ("tags", tags)
+            ("tags", tags),
+            ("custom_properties", custom_properties)
         ):
             if value is not None:
                 data[key] = value
