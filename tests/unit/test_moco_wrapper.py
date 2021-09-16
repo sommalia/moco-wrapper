@@ -76,6 +76,9 @@ class TestMocoWrapper(UnitTest):
     def test_purchase_category_set(self):
         assert isinstance(self.moco.PurchaseCategory, models.PurchaseCategory)
 
+    def test_purchase_draft_set(self):
+        assert isinstance(self.moco.PurchaseDraft, models.PurchaseDraft)
+
     def test_purchase_set(self):
         assert isinstance(self.moco.Purchase, models.Purchase)
 

@@ -34,6 +34,7 @@ class EndpointManager(object):
         self.endpoints.extend(m.ProjectTask.endpoints())
         self.endpoints.extend(m.Purchase.endpoints())
         self.endpoints.extend(m.PurchaseCategory.endpoints())
+        self.endpoints.extend(m.PurchaseDraft.endpoints())
         self.endpoints.extend(m.Schedule.endpoints())
         self.endpoints.extend(m.Session.endpoints())
         self.endpoints.extend(m.Tagging.endpoints())

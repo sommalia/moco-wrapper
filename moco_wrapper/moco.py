@@ -88,6 +88,7 @@ class Moco(object):
         self.InvoicePayment = models.InvoicePayment(self)
         self.Offer = models.Offer(self)
         self.Session = models.Session(self)
+        self.PurchaseDraft = models.PurchaseDraft(self)
         self.PurchaseCategory = models.PurchaseCategory(self)
         self.Purchase = models.Purchase(self)
         self.Tagging = models.Tagging(self)
