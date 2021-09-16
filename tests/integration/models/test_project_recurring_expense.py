@@ -31,7 +31,8 @@ class TestProjectRecurringExpense(IntegrationTest):
                 currency="EUR",
                 leader_id=user.id,
                 customer_id=customer.id,
-                finish_date=date(2020, 1, 1)
+                finish_date=date(2020, 1, 1),
+                budget=10000
             )
 
             return project_create.data
