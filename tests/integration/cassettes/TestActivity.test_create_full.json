@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T10:20:29",
+      "recorded_at": "2021-09-20T09:24:49",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"billable\": true, \"remote_url\": \"https://jira.example.org\", \"project_id\": 945371385, \"task_id\": 7281879, \"remote_id\": \"JIRA-123\", \"tag\": \"test_activity\", \"remote_service\": \"jira\", \"description\": \"TestActivity.test_create_full\", \"hours\": 3.5, \"date\": \"2020-01-01\"}"
+          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2020-01-01\", \"description\": \"TestActivity.test_create_full\", \"billable\": true, \"tag\": \"test_activity\", \"remote_service\": \"jira\", \"remote_id\": \"JIRA-123\", \"remote_url\": \"https://jira.example.org\", \"hours\": 3.5}"
         },
         "headers": {
           "Accept": [
@@ -27,10 +27,10 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSQW/cIBCF/8s7YwdMvDbccmyPVU69INae3ZDitQVD1Kja/155vdmVolY58sT36Q3MH4QR1hjTy9a0SmD0TLBoZCMrqSqpIPAyl5Rhdd0KjJSHFBYO8wkWz5T5aeDwFvi9ZsrshkSeyR1KjBDYhxhphD34mGk7+n0kWE6FBNgfYXHh/NUCgUTTzOQypbcwrGVeQ/L3fC2M799+PFWq0fe4pAiLF+Yl24eHFanpt5+WSPWcjhBY0vxKA8NeZ35sdad03wqc/ESfhzkSuw/ic/Hz2jz/+jB1Ta/6znzpcRfoH7KhZJ4nSjfhTvZmp3X3f+UNOQuUfEeN1jvdG2UEDiFlvvLrE0Mg+lvi98O4whwmSi6zT0yj8wx7KjEKbP+4Jds2KFU1j89K2kbaxvyEQFnGL++suxPfXbqslazl+W8AAAD//wkUQ9pyAgAA",
+          "base64_string": "H4sIAAAJbogA/4SSvW7bMBSF3+XMlEPqX9wCdGnGIlMXgZaubaaUKJCXQYvC714wTmzAaJv1gN+HQ5z7G3aGVlL2qiurtheYDRM0SlnKQqpCKgicfAoRuto1AjPFKdiNrV+h8UyRHye2r5Z/7Zgij1MgwzQeknMQ2FvnaIY+GBdJYG+dM3tH0BwSCbA5QuONM+8WCARaPNMYKbzaKZd5scHc8twYT1+/PRaqrG5xCg4aJ+Yt6oeHjOzop1k2RzsfjhDYgn+hiaEvnx7qpq1lo2qB1Sx0/5kj8fhB3Bc/C7CJP66moevKvv/UM75Bf5FNKbJfKHwIu1blQXr1b+UVOQukeEOHqmob2eclDzZEfuef/GmFgDPX5IunzLJdKIyRTWCaR8PQa3JO4DLjJcnHoAo5FKV8loMua10P3yGQtnws/3tz/jMA7vheJGACAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -50,16 +50,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "342"
+            "335"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:20:29 GMT"
+            "Mon, 20 Sep 2021 09:24:49 GMT"
           ],
           "Etag": [
-            "W/\"155823d68e580b7e82fbd24a674ec175\""
+            "W/\"2c032e08b59896837367e12bc0dea30d\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b9f54851-077d-42e8-9cef-30e88ce464d2"
+            "4441b5d6-4d89-4e56-b12b-f04656574fb5"
           ],
           "X-Runtime": [
-            "0.160869"
+            "0.046383"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

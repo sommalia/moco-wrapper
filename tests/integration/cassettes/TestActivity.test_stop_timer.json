@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T10:21:01",
+      "recorded_at": "2021-09-20T09:25:23",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945371385, \"description\": \"TestActivity.test_stop_timer_create\", \"date\": \"2020-11-24\", \"hours\": 0.5, \"task_id\": 7281879}"
+          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2021-09-20\", \"description\": \"TestActivity.test_stop_timer_create\", \"hours\": 0.5}"
         },
         "headers": {
           "Accept": [
@@ -27,10 +27,10 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSQW7CMBBF7zJrg+yYkNi73oFVN5axB+rWIZE9RkIVd69CSNqiVizzlff0PTOfEDxopVTLa6U2DLwlBA0Vr/hKiFW1AQZvfUkZNF/XDDxml8JAoT+Bhh1menEUzoEua8JMJlM/GAodJuMSjjIG+xAjetAHGzNOn3YfETSlggzIHkEDMEjY9YQmYzoHh7+yseWpxLgEJcU5GVL/jo5A3x+zqWUjZFszONkOH1sekcxMPHa5jmXyx2xqqla0jXrqMTfoD5krmfoO0yLc8lZtpWz+Vy7IlUHJ36iScitbJRSDQ0iZ7vw4c2AQ7ZLYvfMjPO0gk02E3liapzVtZUp+rHknuK6E5uIVGJTBP/1nPIp4Mel2L3zNr18BAAD//ybmJf1LAgAA",
+          "base64_string": "H4sIAAAJbogA/4SSzW7DIBCE32XPJALiX26Veuo5p14QsTcJLTYWLJGqKu9eUdduG/XnyLDzadjhFWwPSnDeiFoWomTQG0JQILkUG95uJAcGZ59CBMW3+R5jF+xE1o+gYI+R7jqyF0svW8JIOpKfNNkBg+4CZhiDg3UOe1BH4yLOR3NwCIpCQgZkTqAAGAQcPKGOGC62w29ajjkm59ahFNyiTME/YUeg5te0RVkVvBQFg9EMeJvyhKQXx22Waw4Tn1dSW9eyaf7l6HfTD7AuRfIDhgVYVyJvuhG/I1fLlUGKn9Z2t6tK3lQNg6MNkT78D/48AgNnVuXeY/bOFUQygbDXhpZlzaXMypeW97xVslRy9wgM0pR/wV8z17cBACit5h85AgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -50,16 +50,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "303"
+            "294"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:21:01 GMT"
+            "Mon, 20 Sep 2021 09:25:23 GMT"
           ],
           "Etag": [
-            "W/\"3634ccd3ff8131b2457a59ce3eee00e5\""
+            "W/\"bccf91fc4a4d587616137b5bd82aa72f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b563caa8-cc2d-4abc-a4cc-588339e4b352"
+            "9ca4467b-550a-42de-851c-047c8e2387d4"
           ],
           "X-Runtime": [
-            "0.068801"
+            "0.038553"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -98,7 +98,7 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T10:21:01",
+      "recorded_at": "2021-09-20T09:25:23",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -124,18 +124,18 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "PATCH",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805994/start_timer"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/1008172415/start_timer"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSzW7qMBCF3+WsDbITQmLv7juwuhvLJAN165DIHiOhinevwk8qUFuWOZrv04lnPuE7GK11IyutVwKdY4JBIQu5UGpRrCDwNuSYYOSyEugotdGP7IcDDDaU+F/L/uj5tGRKbBMPo2XfU7RtpEkmsPUhUAezcyHR9dNtA8FwzCTAbg8DCETqByabKB59Sw/Z1PKQQ5iDHMM9GePwTi3D3H5mVZW1KptK4OB6em65J7Z34rnLeSqTPu6mumhUU+uXHnuBfpC1OfHQU5yFa9nodVnWvytn5CyQ0zeqy3JdNlppgZ2PiW/89OYQCG5O3LbtJvi6g8QuMnXW8cNSN0qaQhmp/kPguqe/Z/LYvZyZziScbLxckFzK81cAAAD//27uGFNdAgAA",
+          "base64_string": "H4sIAAAJbogA/4SSzW7rIBCF32XWJALiX3ZXuquus+oGEXuS0GJjwRCpqvLuFXXtKlGbLj2e79OBwzvYHpTgvBG1LETJoDeEoEByKTa83UgODM4+hQiKb/N/jF2wE1k/goI9RvrXkb1YetsSRtKR/KTJDhh0FzDLGBysc9iDOhoXcf40B4egKCRkQOYECoBBwMET6ojhYju8meWYY3JuXUrBLZMp+BfsCNR8mrYoq4KXomAwmgHvU56Q9ELcZ7nmMPF1NbV1LZvmT4/+hH6QdSmSHzAswroS+aYb8btyRa4MUvxG292uKnlTNQyONkT64p/8eQQGzqyT/x4zO1cQyQTCXhu66XTPWyVLJXfPwGCu6fFOmvK7eLRz/RgAMCWjlUsCAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,16 +147,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "303"
+            "293"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:21:01 GMT"
+            "Mon, 20 Sep 2021 09:25:23 GMT"
           ],
           "Etag": [
-            "W/\"2cf090e4a42e3952ad75ad91bbe6aade\""
+            "W/\"f38d969df7b78f6e428cc2d0ab1d88f3\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -178,10 +178,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d76e9385-a885-4354-aac4-46144dfb9910"
+            "0fb00122-429d-49a0-a0c9-750c19cdeed6"
           ],
           "X-Runtime": [
-            "0.099634"
+            "0.036893"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -191,11 +191,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805994/start_timer"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/1008172415/start_timer"
       }
     },
     {
-      "recorded_at": "2020-11-24T10:21:01",
+      "recorded_at": "2021-09-20T09:25:24",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -221,18 +221,18 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "PATCH",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805994/stop_timer"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/1008172415/stop_timer"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSQW7CMBBF7zJrg+yYkNi73oFVN5axB+rWIZE9RkIVd69CSNqiVizzlff0PTOfEDxopVTLa6U2DLwlBA0Vr/hKiFW1AQZvfUkZNF/XDDxml8JAoT+Bhh1menEUzoEua8JMJlM/GAodJuMSjjIG+xAjetAHGzNOn3YfETSlggzIHkEDMEjY9YQmYzoHh7+yseWpxLgEJcU5GVL/jo5A3x+zqWUjZFszONkOH1sekcxMPHa5jmXyx2xqqla0jXrqMTfoD5krmfoO0yLc8lZtpWz+Vy7IlUHJ36iScitbJRSDQ0iZ7vw4c2AQ7ZLYvfMjPO0gk02E3liapzVtZUp+rHknuK6E5uIVGJTBP/1nPIp4Mel2L3zNr18BAAD//ybmJf1LAgAA",
+          "base64_string": "H4sIAAAJbogA/4SSz27zIBDE32XPJALiv9w+6Tv1nFMuiNibhBYbC5ZIVZV3r6hrt40a9ciw89OwwxvYHpTgvBG1LETJoDeEoEByKTa83UgODC4+hQiKb/M9xi7YiawfQcEeI/3ryF4tvW4JI+lIftJkBwy6C5hhDI7WOexBnYyLOB/N0SEoCgkZkDmDAmAQcPCEOmK42g5/aDnmmJxbh1JwizIF/4wdgZpf0xZlVfBSFAxGM+B9yjOSXhz3WW45THxZSW1dy6b5k6M/TL/AuhTJDxgWYF2JvOlGPEaulhuDFL+s7W5XlbypGgYnGyJ9+p/8ZQQGzqzKf4/ZO1cQyQTCXhtaljWXMivfWt7zVslSyd0BGKQp/4KHM8UBbu8DAJGVMYI5AgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -244,16 +244,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "303"
+            "297"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:21:01 GMT"
+            "Mon, 20 Sep 2021 09:25:24 GMT"
           ],
           "Etag": [
-            "W/\"3634ccd3ff8131b2457a59ce3eee00e5\""
+            "W/\"4285f8d4045e70626605399ee7419cf5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -275,10 +275,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "1e6661c7-fc54-4742-b49b-1dc8283d9725"
+            "8fb345e4-f638-453d-8271-4a6fd30f36e7"
           ],
           "X-Runtime": [
-            "0.038387"
+            "0.035879"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -288,7 +288,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805994/stop_timer"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/1008172415/stop_timer"
       }
     }
   ],

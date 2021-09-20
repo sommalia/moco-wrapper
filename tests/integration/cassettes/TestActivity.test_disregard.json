@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T10:21:12",
+      "recorded_at": "2021-09-20T09:25:35",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945371385, \"description\": \"TestActivity.test_disregard_create_1\", \"date\": \"2021-01-01\", \"hours\": 0.5, \"task_id\": 7281879}"
+          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2021-01-01\", \"description\": \"TestActivity.test_disregard_create_1\", \"hours\": 0.5}"
         },
         "headers": {
           "Accept": [
@@ -27,10 +27,10 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSwY7iMAyG38XngJIW2ia3fQdOe4lCYtjsphQ5DhJa8e6jAO1o0IyQeumvfp/+2v4PMYDRWg+yk3IjIDhGMNDIRq1kfUDAn6lQBiPXWwEBs6d45jidwMAOM//yHC+Rr2vGzDbETHh0FKwndIy2CvYxJQxgDi5lfLy6fUIwTAUFsDuCARBAOE6MNiNdoscvWa15KiktQaE0J2ea/qJnMM+/2WzbXrXDVsDJjfha84hsZ+K1y62Wyf9mU98Mauj1W4+9Q9/IfMk8jUiLsJOD7tq2/1m5IDcBJX+ium27dtBKCzhEyvzk69BBQHJL4vY+VJjjiGQzO2IM1vE8rcdeHknds1wptWo2OyVNo4xqfoOAcg5vv6lXka6W7gcj1/L2EQAA//902k79TAIAAA==",
+          "base64_string": "H4sIAAAJbogA/4SSTWvjMBCG/8uclSA7/tRtYU97zmkvQrEmiVrZCqNRoJT896I6dmnoB/jil3keXs/4FZwFVUjZFW1Zla0AaxhBQSnLYiPzAwLOIVEEJbe1AItxIHdhFyZQsMfIfwZ2V8cvW8bI2rpIeDJk9UBoGHUWHJz3aEEdjY84v5qDR1BMCQWwOYECEEA4BkYdka5uwE9Z7jkl79ehRH5JLhSecGBQ8+f0Vd1Usi4qAZMZ8bHmCVkvxGOXWy4Tn1dT37Zl1/3q0e/QF7IhRQ4j0iJsmyKvuiu+V67ITUCKH2i/2zW17JpOwNFR5Dv/L5wnEODNmvwNmFl2I5KObIjRasPLsuazzMn9zP2mlHvZq7JWu/o/CEiX/Bv8NHN7GwAVIDRmOgIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -50,16 +50,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "310"
+            "301"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:21:12 GMT"
+            "Mon, 20 Sep 2021 09:25:35 GMT"
           ],
           "Etag": [
-            "W/\"6f93a3bbac8d1dafbb27e7fe548d4093\""
+            "W/\"16bb1d7274bee91037196672329e9482\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "7a1a12b4-2cc7-4b15-84d5-7b51cde9aef4"
+            "507bcf98-bcd7-4954-9696-4684e5e17adf"
           ],
           "X-Runtime": [
-            "0.069477"
+            "0.039945"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -98,11 +98,11 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T10:21:12",
+      "recorded_at": "2021-09-20T09:25:35",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945371385, \"description\": \"TestActivity.test_disregard_create_2\", \"date\": \"2021-01-01\", \"hours\": 1, \"task_id\": 7281879}"
+          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2021-01-01\", \"description\": \"TestActivity.test_disregard_create_2\", \"hours\": 1}"
         },
         "headers": {
           "Accept": [
@@ -124,10 +124,10 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "POST",
@@ -135,7 +135,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSQY8iIRCF/0ud0UC3djfc9j942gtBKF12adsUhYnZ+N8nqN2TMTMx4cIL38uj6v2HGMBorQfZSbkVEBwjGGhko1ayHhDwZyqUwai1FBAwe4pnjtMJDOww8y/P8RL5umbMbEPMhEdHwXpCx2gbELCPKWEAc3Ap4+Pq9gnBMBUUwO4IBkAA4Tgx2ox0iR6/aDXmqaS0CIXSrJxp+ouewTx/s9m2vWqHrYCTG/E15hHZzsRrllsNk//NTn0zqKHXb33sHfrGzJfM04i0GHZy0F3b9j9bLshNQMmfqG7brh200gIOkTI/+Tp0EJDcori9DxXmOCLZzI4Yg3U8T+uxl4dS9yxXSq2azU5J0yijmt8goJzD2ze1Felq6V4YuZa3jwAAAP//wl5+JEwCAAA=",
+          "base64_string": "H4sIAAAJbogA/4SSy2rDMBBF/+WulSArfmpX6KrrrLoRij1J1Mp2kEaBUvLvxU3s0tAHeHWZc7ie0TtcB51JWWeVylUj0FkmaCipspWcPggcxxQidLaWAh3FNrgTu3GAxpYiP7Tszo7f1kyRTedioIMNnWkDWSajILBz3lMHvbc+ksDOeW93nqA5JBJge4AGBAL1I5OJFM6upW/Z1HNI3i9DKfg5OYXxhVqGvv5OkxdlLossFxhsT/c1D8RmJu67XATYxtfF1FSVqut/PeYT+kHWpshjT2EWVmU2rbrOflcuyEUgxS+02WzKQtZlLbB3IfKNfxqPAwS8XZLHkSaWXU/BRLaBqTOW52Vdz3JNbmduVkpuZaNVoTfFMwTSaXoGf81cPgYAPUM5jjoCAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,16 +147,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "311"
+            "302"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:21:12 GMT"
+            "Mon, 20 Sep 2021 09:25:35 GMT"
           ],
           "Etag": [
-            "W/\"2bc2b201ccdd951ff770119d4bd5ee5b\""
+            "W/\"6539f716ab14353828587f6bf5b1a891\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -178,10 +178,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "7f3e9332-e4ce-4f06-90d1-7460d97bf9df"
+            "c227a76d-16f6-4ae8-a6b9-4f915749075f"
           ],
           "X-Runtime": [
-            "0.063674"
+            "0.066980"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -195,11 +195,11 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T10:21:12",
+      "recorded_at": "2021-09-20T09:25:35",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"activity_ids\": [999806004, 999806005], \"company_id\": 760896337, \"reason\": \"TestActivity.test_disregard\"}"
+          "string": "{\"reason\": \"TestActivity.test_disregard\", \"activity_ids\": [1008172427, 1008172429], \"company_id\": 761081781}"
         },
         "headers": {
           "Accept": [
@@ -215,13 +215,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "106"
+            "108"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -229,35 +229,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4q2tLS0MDAzMDDRgbFMYwEBAAD//6uCY2sVAAAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[1008172427,1008172429]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "39"
+            "23"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:21:12 GMT"
+            "Mon, 20 Sep 2021 09:25:35 GMT"
           ],
           "Etag": [
-            "W/\"315321a7a9c4d1f135364f73a58a529b\""
+            "W/\"8017a82139f68cf13ce35c2787798671\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -272,10 +267,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "be69ad15-3b8c-4519-beab-e9aa08c6ca2a"
+            "c8890ad4-deb6-4838-a252-8f57a85e8708"
           ],
           "X-Runtime": [
-            "0.094112"
+            "0.072140"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

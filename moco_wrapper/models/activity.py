@@ -187,7 +187,8 @@ class Activity(MWRAPBase):
         activity_date: datetime.date,
         project_id: int,
         task_id: int,
-        hours: float,
+        hours: float = None,
+        seconds: int = None,
         description: str = None,
         billable: bool = None,
         tag: str = None,
@@ -201,7 +202,8 @@ class Activity(MWRAPBase):
         :param activity_date: Date of the activity
         :param project_id: Id of the project this activity belongs to
         :param task_id: Id of the task this activity belongs to
-        :param hours: Hours to log to the activity (pass 0 to start a timer, if the date is today)
+        :param hours: Hours to log to the activity (pass 0 to start a timer, if the date is today) (default ``None``)
+        :param seconds: Pass seconds instead of hours to avoid rounding issues (default ``None``)
         :param description: Activity description text (default ``None``)
         :param billable: If this activity is billable
             (pass ``None`` if billing is dependent on project configuration) (default ``None``)
@@ -214,6 +216,7 @@ class Activity(MWRAPBase):
         :type project_id: int
         :type task_id: int
         :type hours: float
+        :type seconds: int
         :type description: str
         :type billable: bool
         :type tag: str
@@ -225,10 +228,14 @@ class Activity(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
+        if hours is None and seconds is None:
+            raise ValueError("Pass either hours or seconds, both are missing")
+        elif hours is not None and seconds is not None:
+            raise ValueError("Pass either hours or seconds, not both")
+
         data = {
             "project_id": project_id,
             "task_id": task_id,
-            "hours": hours,
         }
 
         if isinstance(activity_date, datetime.date):
@@ -242,7 +249,9 @@ class Activity(MWRAPBase):
             ("tag", tag),
             ("remote_service", remote_service),
             ("remote_id", remote_id),
-            ("remote_url", remote_url)
+            ("remote_url", remote_url),
+            ("hours", hours),
+            ("seconds", seconds)
         ):
             if value is not None:
                 data[key] = value
@@ -256,6 +265,7 @@ class Activity(MWRAPBase):
         project_id: int = None,
         task_id: int = None,
         hours: float = None,
+        seconds: int = None,
         description: str = None,
         billable: bool = None,
         tag: str = None,
@@ -267,10 +277,11 @@ class Activity(MWRAPBase):
         Update an activity.
 
         :param activity_id: Id of the activity
-        :param activity_date: Date of the activity
-        :param project_id: Id of the project this activity belongs to
-        :param task_id: Id of the task this activity belongs to
-        :param hours: hours to log to the activity (pass 0 to start a timer, if the date is today)
+        :param activity_date: Date of the activity (default ``None``)
+        :param project_id: Id of the project this activity belongs to (default ``None``)
+        :param task_id: Id of the task this activity belongs to (default ``None``)
+        :param hours: Hours to log to the activity (pass 0 to start a timer, if the date is today) (default ``None``
+        :param seconds: Pass seconds instead of hours to avoid rounding issues (default ``None``)
         :param description: Description text (default ``None``)
         :param billable: If this activity is billable
             (pass ``None``) if billing is dependent on project configuration) (default ``None``)
@@ -284,6 +295,7 @@ class Activity(MWRAPBase):
         :type project_id: int
         :type task_id: int
         :type hours: float
+        :type seconds: int
         :type description: str
         :type billable: bool
         :type tag: str
@@ -295,6 +307,9 @@ class Activity(MWRAPBase):
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
         """
 
+        if hours is not None and seconds is not None:
+            raise ValueError("Pass either seconds or hours, not both")
+
         ep_params = {
             "id": activity_id
         }
@@ -305,6 +320,7 @@ class Activity(MWRAPBase):
             ("project_id", project_id),
             ("task_id", task_id),
             ("hours", hours),
+            ("seconds", seconds),
             ("description", description),
             ("billable", billable),
             ("tag", tag),

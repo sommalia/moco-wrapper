@@ -111,6 +111,43 @@ class TestActivity(IntegrationTest):
             assert activity_create.data.customer.id == customer.id
             assert activity_create.data.user.id is not None
 
+    def test_create_seconds(self):
+        customer = self.get_customer()
+        project = self.get_project()
+        task = self.get_project_task()
+
+        with self.recorder.use_cassette("TestActivity.test_create_seconds"):
+            activity_date = date(2020, 1, 1)
+            seconds = 3600
+            description = "TestActivity.test_create_seconds"
+
+            # impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
+
+            # create the activity
+            activity_create = self.moco.Activity.create(
+                activity_date=activity_date,
+                project_id=project.id,
+                task_id=task.id,
+                seconds=seconds,
+                description=description,
+            )
+
+            # clear impersonation
+            self.moco.clear_impersonation()
+
+            assert activity_create.response.status_code == 200
+
+            assert type(activity_create) is ObjectResponse
+
+            assert activity_create.data.date == activity_date.isoformat()
+            assert activity_create.data.description == description
+            assert activity_create.data.project.id == project.id
+            assert activity_create.data.task.id == task.id
+            assert activity_create.data.hours == float(seconds) / 3600
+            assert activity_create.data.customer.id == customer.id
+            assert activity_create.data.user.id is not None
+
     def test_create_full(self):
         customer = self.get_customer()
         project = self.get_project()
@@ -219,6 +256,70 @@ class TestActivity(IntegrationTest):
             assert activity_update.data.project.id == project.id
             assert activity_update.data.task.id == task.id
             assert activity_update.data.hours == hours
+            assert activity_update.data.billable == billable
+            assert activity_update.data.tag == tag
+            assert activity_update.data.remote_service == remote_service
+            assert activity_update.data.remote_id == remote_id
+            assert activity_update.data.remote_url == remote_url
+            assert activity_update.data.customer.id == customer.id
+            assert activity_update.data.user.id is not None
+
+    def test_update_seconds(self):
+        customer = self.get_customer()
+        project = self.get_project()
+        task = self.get_project_task()
+
+        with self.recorder.use_cassette("TestActivity.test_update_seconds"):
+            activity_date = date(2020, 1, 1)
+            seconds = 4500 # 1.25 hours
+            description = "TestActivity.test_update_seconds"
+            billable = True
+            tag = "test_activity_update_seconds"
+            remote_service = ActivityRemoteService.JIRA
+            remote_id = "JIRA-123"
+            remote_url = "https://jira.example.org"
+
+            # impersonate the user that created the project
+            self.moco.impersonate(project.leader.id)
+
+            # create the activity
+            activity_create = self.moco.Activity.create(
+                activity_date=date(2019, 12, 31),
+                project_id=project.id,
+                task_id=task.id,
+                hours=2.3,
+                description="TestActivity.test_update_seconds_create"
+            )
+
+            # update the activity
+            activity_update = self.moco.Activity.update(
+                activity_create.data.id,
+                activity_date=activity_date,
+                project_id=project.id,
+                task_id=task.id,
+                seconds=seconds,
+                description=description,
+                billable=billable,
+                tag=tag,
+                remote_service=remote_service,
+                remote_id=remote_id,
+                remote_url=remote_url,
+            )
+
+            # clear impersonation
+            self.moco.clear_impersonation()
+
+            assert activity_create.response.status_code == 200
+            assert activity_update.response.status_code == 200
+
+            assert type(activity_create) is ObjectResponse
+            assert type(activity_update) is ObjectResponse
+
+            assert activity_update.data.date == activity_date.isoformat()
+            assert activity_update.data.description == description
+            assert activity_update.data.project.id == project.id
+            assert activity_update.data.task.id == task.id
+            assert activity_update.data.hours == float(seconds) / 3600
             assert activity_update.data.billable == billable
             assert activity_update.data.tag == tag
             assert activity_update.data.remote_service == remote_service

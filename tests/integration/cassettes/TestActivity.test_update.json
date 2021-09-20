@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T10:20:34",
+      "recorded_at": "2021-09-20T09:24:54",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945371385, \"description\": \"TestActivity.test_update_create\", \"date\": \"2019-12-31\", \"hours\": 2.3, \"task_id\": 7281879}"
+          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2019-12-31\", \"description\": \"TestActivity.test_update_create\", \"hours\": 2.3}"
         },
         "headers": {
           "Accept": [
@@ -27,10 +27,10 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSy27qMBCG32XWDvIlIbF35x1YnY1lkoG6dQiyx0io4t0rE5KqqJdlfuX79Htm3sEPYLTWHW90UzMYHCEYkFzoSshKCWDwMuWYwMiNYjBg6qM/k59OYGCHif715C+erhvCRDafi8H2EYuIwd6HgAOYgwsJ50+3DwiGYkYG5I5gABhEHCdCmzBefI9fstLwlENYgxzDkpzj9Io9gXk8pG5UK1TXMDi5EZ8bHpHsQjx3uZUy6W0xtbITXav/9Ng79I2sz4mmEeMq3PJOb5Vqf1auyI1BTp+oVmqrOi00g4OPiR58mTcwCG5N3L4fCkx+xGgTuUg4WEfLtOatzAlILnklRCXrneBGcqPq/8BgXuDv/5SDCFcb77fCN/z2EQAA//8z5JfDRwIAAA==",
+          "base64_string": "H4sIAAAJbogA/4SRy2rzMBCF3+Ws5SDJd+1++FddZ9WNUexJola2gzQOlJJ3L65rl4ZeljrM93E08wrXwSgpK1XqtCwEOssEAy1VnSidpAoC53EKEUbvUoGOYhvchd04wGBPkf+17K6OX3ZMkZvpMhuaNtAsEjg476mDOVofaXnagycYDhMJsD3BAAKB+pGpiRSurqUv2VxxmLzfhqbg1+QSxidqGWb5SZ3lRSZzlQkMtqf7hifiZiXuu9zmMvF5M9VlqavqT0/zDn0ja6fIY09hFZaFmrdcqZ+VG3ITmOInWqdpkcuqqASOLkT+4B/G8wABb7fk/0gzy66n0ES2galrLK/LWo6yJNBSq0TWiZZ7WRudmTx7hMByv99mbm8DANTIkXw1AgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -50,16 +50,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "307"
+            "297"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:20:34 GMT"
+            "Mon, 20 Sep 2021 09:24:54 GMT"
           ],
           "Etag": [
-            "W/\"21b536d2a198de53b2905c5539f55fbf\""
+            "W/\"0fab95641de6496776dcebf3608aeaf2\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "548cd67e-630e-42be-8075-53ae4878f84f"
+            "3b0e1a8b-da99-48c7-8193-25ac8eec840b"
           ],
           "X-Runtime": [
-            "0.064451"
+            "0.038792"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -98,11 +98,11 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T10:20:34",
+      "recorded_at": "2021-09-20T09:24:54",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"billable\": true, \"remote_url\": \"https://jira.example.org\", \"project_id\": 945371385, \"task_id\": 7281879, \"remote_id\": \"JIRA-123\", \"tag\": \"test_activity\", \"remote_service\": \"jira\", \"description\": \"TestActivity.test_update\", \"hours\": 3.5, \"date\": \"2020-01-01\"}"
+          "string": "{\"date\": \"2020-01-01\", \"project_id\": 945640514, \"task_id\": 9977288, \"hours\": 3.5, \"description\": \"TestActivity.test_update\", \"billable\": true, \"tag\": \"test_activity\", \"remote_service\": \"jira\", \"remote_id\": \"JIRA-123\", \"remote_url\": \"https://jira.example.org\"}"
         },
         "headers": {
           "Accept": [
@@ -124,18 +124,18 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933638919"
+            "933650868"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805954"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/activities/1008172376"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSzY6bMBSF3+WsDWNjCNi7WbbLalbdIAfuJE5NQPYlalTl3SvInxT1Z+kjf5/Ote8v+B7WGNPIylSlQO+YYFHIQmZSZVJBYD/OMcHqvBLoKXXRT+zHIyw+KPF7x/7k+ZwzJW7naTUIbH0I1MN+upDoenTbQLAcZxJgt4PFiribAAKRhpGpTRRPvlt6HHx0z3zpiq9fvr1nqtDPeI4BFnvmKdm3twXJ6acbpkD5GHcQmOJ4oI5hb+OWla6VbiqBoxvodY4dcXsnXotflubpx91UF41qavNfT7tCf5B1c+JxoPgQbmRjNlrXf1c+kIvAnJ6o0XqjG6OMwKePiW/88sQQCO6RuG3XLzD7gWKb2EWmvnUMe5xDEOgiuXtyXQSlsqL8UNIW0uryOwSu3/zvO8vahHMb142Subz8DgAA//9mRvWzbQIAAA==",
+          "base64_string": "H4sIAAAJbogA/4SSzarbMBCF3+WsZV/J/9buQje9y5JVN0axJ4lS2TLSOLSUvHtxfiG0vUsd9H2cYeY37ACtpGxUneV1JTAYJmhkMpOJVIlUEDj4JUToPC0FBop9sDNbP0FjQ5Hfe7Yny79SpsjdMl8MAlvrHA3QO+MiXZ9m6wiaw0ICbPbQuCDmJoBAoNEzdZHCyfZrj6MN5pmvZfHx9dt7orL8GS/BQePAPEf99rYiKf004+wo9WEPgTn4I/UMfZ23LcqqkKUqBCYz0usce+LuTrwWP6/N44+Hqa3rrGk+9XQX6C+yfonsRwp3YV2pdReN+rfygZwFlvhE2zyvStlUjcDOhsg3/sMfJgg480i+eFpZtiOFLrIJTENnGHpanBPoA5l7st6BSmSbZHIjW50Vuiy+Q+C65f/9Of8ZAKju7etbAgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,16 +147,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "337"
+            "327"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 10:20:34 GMT"
+            "Mon, 20 Sep 2021 09:24:54 GMT"
           ],
           "Etag": [
-            "W/\"129fa9002525eb1ae7f3e77b87b349df\""
+            "W/\"03f190c6fac6a9c8959cd376598d9399\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -178,10 +178,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "26d87422-e8b8-4fc3-b1c6-91c213a28f07"
+            "60a10de1-9ece-4503-9200-dd0b7b615982"
           ],
           "X-Runtime": [
-            "0.054763"
+            "0.053643"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -191,7 +191,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/999805954"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/activities/1008172376"
       }
     }
   ],
