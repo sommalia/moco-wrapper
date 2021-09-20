@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T10:07:31",
+      "recorded_at": "2021-09-20T10:07:20",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"from\": \"08:30\", \"to\": \"10:30\", \"date\": \"2010-01-03\", \"is_home_office\": true}"
         },
         "headers": {
           "Accept": [
@@ -20,6 +20,9 @@
           "Connection": [
             "keep-alive"
           ],
+          "Content-Length": [
+            "78"
+          ],
           "Content-Type": [
             "application/json"
           ],
@@ -27,40 +30,35 @@
             "python-requests/2.25.1"
           ]
         },
-        "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/9zWT2+bMBgG8K8yvWca2fwL8anStstOPWSXThNy4E1wh21qvyTNqnz3icK2hq0irXYZlyhYj5Tw06MHvjyCKkGsoihNWJZmAWyV82SkRhDwyVYGAqjlr5MPFiEAWZDaIwhyLQaAD4TOgNjK2neXWqoaBOyxub+ja3yQuqlxYd0OAtB2o2rMm8qa7gcggIN1355fV1ZjLsvSoff9iTJb23/bKEdVKY8gTFvXAci9JOny1tU/T4rWk9V542yDjhR6EI+nAFqjCMRwr2zFlyFbJgEMN7VGqd9xOAVQOJSEZS4JBIQs5FdsdcXTNUsF44KxWwigbco/MyFbs5UIYxEtb+EUPFPljEX/UNUcWKz9DFQHsUTE4ZRqnzlTZVmanqsSejrv6nByEWuXlZuivN4crV6U+B9XNRFJKljyIupQZyZYNKoqy5bsHPXqXHSNnm5qaYwyu4+G3HGxQ8otVejy1qO7tMTf74+H+mE+07AU/OVpGLz7zNh7NA1/83b2Dgt6bw05WdAbxU1Z7vx+PuKZSFZT4n1mLB5eKv5G6Y1cVXY5J2n28kAP3e4zY+l4UvqzUbTopjfvrLuHdH5QVD1tiX/6zPu/dumwhNsdT6PZ4PNY8KmaD5kRfsan8T26G4ceTYFv7Hqx17sI58OdiphPcfeZcdeTi7j7rr+u0vsmLfRhTpUOp95Nhsy40tPvJr+NG3Rb67Q0BeYOG+votUuCtc3i+bAngkdT7Ing0S2cvv4YABKVr4kVDgAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":4365922,\"date\":\"2010-01-03\",\"from\":\"08:30\",\"to\":\"10:30\",\"is_home_office\":true,\"user\":{\"id\":933650866,\"firstname\":\"test\",\"lastname\":\"test\"},\"created_at\":\"2021-09-20T10:07:20Z\",\"updated_at\":\"2021-09-20T10:07:20Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "579"
+            "217"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:07:31 GMT"
+            "Mon, 20 Sep 2021 10:07:20 GMT"
           ],
           "Etag": [
-            "W/\"99ad97bc214cfe0d267ca03482a07afd\""
+            "W/\"0c6ecdb6599973266f2e52d72fca8fa0\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -71,23 +69,14 @@
           "X-Frame-Options": [
             "SAMEORIGIN"
           ],
-          "X-Page": [
-            "1"
-          ],
-          "X-Per-Page": [
-            "100"
-          ],
           "X-Permitted-Cross-Domain-Policies": [
             "none"
           ],
           "X-Request-Id": [
-            "fc99f34f-25e3-44b8-a63e-50f454d493b2"
+            "4783bb62-ed17-4ba3-9ecf-3bfdc2619368"
           ],
           "X-Runtime": [
-            "0.048549"
-          ],
-          "X-Total": [
-            "10"
+            "0.030040"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +86,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences"
       }
     }
   ],

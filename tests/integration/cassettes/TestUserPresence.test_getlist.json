@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:13:26",
+      "recorded_at": "2021-09-20T10:07:32",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,33 +24,29 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&page=1&to=2021-01-01&user_id=933638919"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933650868&page=1&is_home_office=false"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "26"
+            "2"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:13:26 GMT"
+            "Mon, 20 Sep 2021 10:07:32 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -59,8 +55,7 @@
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "8041fa2e-42c4-44e5-8832-85e1c4327dd7"
+            "6e2b8ef0-9aa2-43b7-9845-b1a02d532433"
           ],
           "X-Runtime": [
-            "0.037439"
+            "0.020985"
           ],
           "X-Total": [
             "0"
@@ -97,7 +92,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&page=1&to=2021-01-01&user_id=933638919"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933650868&page=1&is_home_office=false"
       }
     }
   ],

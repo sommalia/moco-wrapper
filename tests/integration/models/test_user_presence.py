@@ -48,6 +48,31 @@ class TestUserPresence(IntegrationTest):
             assert pre_create.data.date is not None
             assert pre_create.data.from_time == from_time
             assert pre_create.data.to_time == to_time
+            assert not pre_create.data.is_home_office
+            assert pre_create.data.user.id is not None
+
+    def test_create_home_office(self):
+        with self.recorder.use_cassette("TestUserPresence.test_create_home_office"):
+            pre_date = self.create_random_date()
+            from_time = "08:30"
+            to_time = "10:30"
+            is_home_office = True
+
+            pre_create = self.moco.UserPresence.create(
+                pres_date=pre_date,
+                from_time=from_time,
+                to_time=to_time,
+                is_home_office=is_home_office
+            )
+
+            assert pre_create.response.status_code == 200
+
+            assert type(pre_create) is ObjectResponse
+
+            assert pre_create.data.date is not None
+            assert pre_create.data.from_time == from_time
+            assert pre_create.data.to_time == to_time
+            assert pre_create.data.is_home_office == is_home_office
             assert pre_create.data.user.id is not None
 
     def test_get(self):
@@ -84,7 +109,8 @@ class TestUserPresence(IntegrationTest):
             pre_list = self.moco.UserPresence.getlist(
                 from_date=date(2020, 1, 1),
                 to_date=date(2021, 1, 1),
-                user_id=user.id
+                user_id=user.id,
+                is_home_office=False,
             )
 
             assert pre_list.response.status_code == 200
@@ -125,6 +151,40 @@ class TestUserPresence(IntegrationTest):
             assert pre_update.data.date is not None
             assert pre_update.data.from_time == from_time
             assert pre_update.data.to_time == to_time
+            assert not pre_update.data.is_home_office
+            assert pre_create.data.user.id is not None
+
+    def test_update_home_office(self):
+        with self.recorder.use_cassette("TestUserPresence.test_update_home_office"):
+            pre_create = self.moco.UserPresence.create(
+                pres_date=self.create_random_date(),
+                from_time="10:30",
+                to_time="14:00"
+            )
+
+            pre_date = self.create_random_date()
+            from_time = "08:00"
+            to_time = "09:30"
+            is_home_office = True
+
+            pre_update = self.moco.UserPresence.update(
+                pres_id=pre_create.data.id,
+                pres_date=pre_date,
+                from_time=from_time,
+                to_time=to_time,
+                is_home_office=is_home_office,
+            )
+
+            assert pre_create.response.status_code == 200
+            assert pre_update.response.status_code == 200
+
+            assert type(pre_create) is ObjectResponse
+            assert type(pre_update) is ObjectResponse
+
+            assert pre_update.data.date is not None
+            assert pre_update.data.from_time == from_time
+            assert pre_update.data.to_time == to_time
+            assert pre_update.data.is_home_office == is_home_office
             assert pre_create.data.user.id is not None
 
     def test_delete(self):
@@ -148,6 +208,17 @@ class TestUserPresence(IntegrationTest):
     def test_touch(self):
         with self.recorder.use_cassette("TestUserPresence.test_touch"):
             pre_touch = self.moco.UserPresence.touch()
+
+            # touch it a second time to discard it
+            self.moco.UserPresence.touch()
+
+            assert pre_touch.response.status_code == 200
+
+            assert type(pre_touch) is EmptyResponse
+
+    def test_touch_home_office(self):
+        with self.recorder.use_cassette("TestUserPresence.test_touch"):
+            pre_touch = self.moco.UserPresence.touch(is_home_office=True)
 
             # touch it a second time to discard it
             self.moco.UserPresence.touch()

@@ -25,6 +25,60 @@ class TestActivity(UnitTest):
 
         assert response["method"] == "POST"
 
+    def test_create_seconds(self):
+        date = "2019-10-10"
+        project_id = 1
+        task_id = 2
+        seconds = 5
+
+        response = self.moco.Activity.create(
+            activity_date=date,
+            project_id=project_id,
+            task_id=task_id,
+            seconds=seconds
+        )
+
+        data = response["data"]
+
+        assert data["date"] == date
+        assert data["project_id"] == project_id
+        assert data["task_id"] == task_id
+        assert data["seconds"] == seconds
+
+        assert response["method"] == "POST"
+
+    def test_create_throws_if_hours_and_seconds_set(self):
+        date = "2019-10-10"
+        project_id = 1
+        task_id = 2
+        hours = 200
+        seconds = 2
+
+        with pytest.raises(ValueError) as ex:
+            response = self.moco.Activity.create(
+                activity_date=date,
+                project_id=project_id,
+                task_id=task_id,
+                hours=hours,
+                seconds=seconds
+            )
+
+    def test_create_throws_if_hours_and_seconds_are_none(self):
+        date = "2019-10-10"
+        project_id = 1
+        task_id = 2
+        hours = None
+        seconds = None
+
+        with pytest.raises(ValueError) as ex:
+            response = self.moco.Activity.create(
+                activity_date=date,
+                project_id=project_id,
+                task_id=task_id,
+                hours=hours,
+                seconds=seconds
+            )
+
     def test_getlist(self):
         from_date = "2019-01-01"
         to_date = "2020-01-01"
@@ -138,6 +192,43 @@ class TestActivity(UnitTest):
         assert data["hours"] == hours
 
         assert response["method"] == "PUT"
+
+    def test_update_seconds(self):
+        project_id = 12412
+        task_id = 22
+        seconds = 20
+        activity_id = 33
+
+        response = self.moco.Activity.update(
+            activity_id=activity_id,
+            project_id=project_id,
+            task_id=task_id,
+            seconds=seconds
+        )
+
+        data = response["data"]
+
+        assert data["project_id"] == project_id
+        assert data["task_id"] == task_id
+        assert data["seconds"] == seconds
+
+        assert response["method"] == "PUT"
+
+    def test_update_throws_if_seconds_and_hours_set(self):
+        project_id = 2
+        task_id = 3
+        seconds = 300
+        hours = 4
+        activity_id = 44
+
+        with pytest.raises(ValueError) as ex:
+            response = self.moco.Activity.update(
+                activity_id=activity_id,
+                project_id=project_id,
+                task_id=task_id,
+                seconds=seconds,
+                hours=hours
+            )
 
     def test_start_timer(self):
         activity_id = 123

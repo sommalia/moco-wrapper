@@ -47,6 +47,7 @@ class UserPresence(MWRAPBase):
         from_date: datetime.date = None,
         to_date: datetime.date = None,
         user_id: int = None,
+        is_home_office: bool = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
@@ -57,6 +58,7 @@ class UserPresence(MWRAPBase):
         :param from_date: Start date (default ``None``)
         :param to_date: End date (default ``None``)
         :param user_id: Id of the user (default ``None``)
+        :param is_home_office: Flag weather the users works from home (default ``None``)
         :param sort_by: Field to sort results by (default ``None``)
         :param sort_order: asc or desc (default ``"asc"``)
         :param page: Page number (default ``1``)
@@ -64,6 +66,7 @@ class UserPresence(MWRAPBase):
         :type from_date: datetime.date, str
         :type to_date: datetime.date, str
         :type user_id: int
+        :type is_home_office: bool
         :type sort_by: str
         :type sort_order: str
         :type page: int
@@ -81,6 +84,7 @@ class UserPresence(MWRAPBase):
             ("to", to_date),
             ("user_id", user_id),
             ("page", page),
+            ("is_home_office", is_home_office)
         ):
             if value is not None:
                 if key in ["from", "to"] and isinstance(value, datetime.date):
@@ -117,7 +121,8 @@ class UserPresence(MWRAPBase):
         self,
         pres_date: str,
         from_time: str,
-        to_time: str = None
+        to_time: str = None,
+        is_home_office: bool = None
     ):
         """
         Create a presence.
@@ -125,10 +130,12 @@ class UserPresence(MWRAPBase):
         :param pres_date: Date of the presence
         :param from_time: Starting time of the presence (format HH:MM)
         :param to_time: End time of the presence (format HH:MM) (default ``None``)
+        :param is_home_office: Flag weather the user works from home (default ``None``)
 
         :type pres_date: datetime.date, str
         :type from_time: str
         :type to_time: str
+        :type is_home_office: bool
 
         :returns: The created presence
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -143,10 +150,17 @@ class UserPresence(MWRAPBase):
         else:
             data["date"] = pres_date
 
+        for key, value in (
+            ("is_home_office", is_home_office),
+        ):
+            if value is not None:
+                data[key] = value
+
         return self._moco.post("presence_create", data=data)
 
     def touch(
         self,
+        is_home_office: bool = None
     ):
         """
         Creates a new presence for the user with the corresponding api key starting from the current time.
@@ -154,17 +168,30 @@ class UserPresence(MWRAPBase):
 
         If a presence is started and stopped within the same minute, it will be discarded.
 
+        :param is_home_office: Flag weather the user works from home (default ``None``)
+
+        :type is_home_office: bool
+
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
         """
-        return self._moco.post("presence_touch")
+
+        data = {}
+        for key, value in (
+            ("is_home_office", is_home_office),
+        ):
+            if value is not None:
+                data[key] = value
+
+        return self._moco.post("presence_touch", data=data)
 
     def update(
         self,
         pres_id: int,
         pres_date: datetime.date = None,
         from_time: str = None,
-        to_time: str = None
+        to_time: str = None,
+        is_home_office: bool = None
     ):
         """
         Update a presence.
@@ -173,11 +200,13 @@ class UserPresence(MWRAPBase):
         :param pres_date: Date of the presence (default ``None``)
         :param from_time: Starting time of the presence (format HH:MM) (default ``None``)
         :param to_time: End time of the presence (format HH:MM) (default ``None``)
+        :param is_home_office: Flag weather the user works from home (default ``None``)
 
         :type pres_id: int
         :type pres_date: datetime.date, str
         :type from_time: str
         :type to_time: str
+        :type is_home_office: bool
 
         :returns: The updated presence
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -191,6 +220,7 @@ class UserPresence(MWRAPBase):
             ("date", pres_date),
             ("from", from_time),
             ("to", to_time),
+            ("is_home_office", is_home_office),
         ):
             if value is not None:
                 if key in ["date"] and isinstance(value, datetime.date):
