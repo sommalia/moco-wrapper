@@ -4,6 +4,7 @@ from .. import IntegrationTest
 from moco_wrapper.util.response import ObjectResponse, EmptyResponse, PagedListResponse
 from moco_wrapper.models.company import CompanyType
 
+
 class TestProjectTask(IntegrationTest):
     def get_customer(self):
         with self.recorder.use_cassette("TestProjectTask.get_customer"):
@@ -30,6 +31,21 @@ class TestProjectTask(IntegrationTest):
                 leader_id=user.id,
                 customer_id=customer.id,
                 finish_date=date(2020, 1, 1),
+            )
+
+            return project_create.data
+
+    def get_project_destroy_all(self):
+        user = self.get_user()
+        customer = self.get_customer()
+
+        with self.recorder.use_cassette("TestProjectTask.get_project_destroy_all"):
+            project_create = self.moco.Project.create(
+                name="TestProjectTask.get_project_destroy_all",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
+                finish_date=date(2040, 1, 1)
             )
 
             return project_create.data
@@ -152,6 +168,39 @@ class TestProjectTask(IntegrationTest):
             assert task_delete.response.status_code == 204
 
             assert type(task_delete) is EmptyResponse
+
+    def test_destroy_all(self):
+        project = self.get_project_destroy_all()
+
+        with self.recorder.use_cassette("TestProjectTask.test_destroy_all"):
+            task_create_first = self.moco.ProjectTask.create(
+                project_id=project.id,
+                name="TestProjectTask.test_destroy_all_create_first"
+            )
+
+            task_create_second = self.moco.ProjectTask.create(
+                project_id=project.id,
+                name="TestProjectTask.test_destroy_all_create_second"
+            )
+
+            task_destroy_all = self.moco.ProjectTask.destroy_all(
+                project_id=project.id
+            )
+
+            task_get = self.moco.ProjectTask.getlist(
+                project_id=project.id
+            )
+
+            assert task_create_first.response.status_code == 200
+            assert task_create_second.response.status_code == 200
+            assert task_destroy_all.response.status_code == 204
+            assert task_get.response.status_code == 200
+
+            assert type(task_destroy_all) is EmptyResponse
+
+            for t in task_get:
+                assert t.id != task_create_second.data.id
+                assert t.id != task_create_first.data.id
 
     def test_update(self):
         project = self.get_project()

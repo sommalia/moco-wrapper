@@ -131,3 +131,13 @@ class TestProjectTask(UnitTest):
         )
 
         assert response["method"] == "DELETE"
+
+    def test_destroy_all(self):
+        project_id = 2
+
+        response = self.moco.ProjectTask.destroy_all(
+            project_id=project_id
+        )
+
+        assert response["method"] == "DELETE"
+

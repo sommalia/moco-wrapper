@@ -24,7 +24,8 @@ class ProjectTask(MWRAPBase):
             Endpoint("project_task_update", "/projects/{project_id}/tasks/{task_id}", "PUT", om.ProjectTask),
             Endpoint("project_task_get", "/projects/{project_id}/tasks/{task_id}", "GET", om.ProjectTask),
             Endpoint("project_task_getlist", "/projects/{project_id}/tasks", "GET", om.ProjectTask),
-            Endpoint("project_task_delete", "/projects/{project_id}/tasks/{task_id}", "DELETE")
+            Endpoint("project_task_delete", "/projects/{project_id}/tasks/{task_id}", "DELETE"),
+            Endpoint("project_task_destroy_all", "/projects/{project_id}/tasks/destroy_all", "DELETE")
         ]
 
     def __init__(self, moco):
@@ -224,3 +225,28 @@ class ProjectTask(MWRAPBase):
         }
 
         return self._moco.delete("project_task_delete", ep_params=ep_params)
+
+    def destroy_all(
+        self,
+        project_id: int
+    ):
+        """
+        Delete all tasks on a project that can be deleted
+
+        :param project_id: Id of the project to destroy all tasks
+
+        :type project_id: int
+
+        :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
+
+        .. node::
+
+            Tasks that cannot be deleted will be skipped
+        """
+
+        ep_params = {
+            "project_id": project_id
+        }
+
+        return self._moco.delete("project_task_destroy_all", ep_params=ep_params)

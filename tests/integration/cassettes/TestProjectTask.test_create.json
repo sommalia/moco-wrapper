@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-07T12:46:25",
+      "recorded_at": "2021-09-20T09:00:14",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -27,43 +27,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945383533/tasks"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945640440/tasks"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SMQQuCQBBG/8t3XmVdLWl+RQdPXWR0h7ImjXU2iOi/RwRdOz547z0xRVBb79q6CQ4zXwWETlbbp+Uso3W8XkqT1foxCZvAYZhUeVABWcriwKNN9x8NOR7FQHNWdTgtOemjT5+SfOkdvpvYs4EQfPBFFQrfdlWgZkthc4BDvsU/zusdAAD//7+1gBC5AAAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":9976478,\"name\":\"TestProjectTask.test_create\",\"billable\":true,\"active\":true,\"budget\":null,\"hourly_rate\":0.0,\"created_at\":\"2021-09-20T09:00:14Z\",\"updated_at\":\"2021-09-20T09:00:14Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "153"
+            "185"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 07 Dec 2020 12:46:25 GMT"
+            "Mon, 20 Sep 2021 09:00:14 GMT"
           ],
           "Etag": [
-            "W/\"166b4459b5510ed00fb809bce3f2113a\""
+            "W/\"fb166d3522ecf03f8c5bdbecc2e88923\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "fe1218a0-3750-4903-91de-7b54fc7ffc3d"
+            "07fb9ef3-1eb2-40fb-ab0e-e3a5eeb08278"
           ],
           "X-Runtime": [
-            "0.046147"
+            "0.023568"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,7 +86,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945383533/tasks"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945640440/tasks"
       }
     }
   ],
