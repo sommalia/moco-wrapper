@@ -240,7 +240,7 @@ class ProjectTask(MWRAPBase):
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
 
-        .. node::
+        .. note::
 
             Tasks that cannot be deleted will be skipped
         """

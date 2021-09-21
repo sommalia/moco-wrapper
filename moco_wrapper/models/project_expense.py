@@ -242,7 +242,7 @@ class ProjectExpense(MWRAPBase):
     ):
         """
         Deletes an expense.
-3
+
         :param project_id: Id of the project the expense belongs to
         :param expense_id: Id of the expense to delete
 

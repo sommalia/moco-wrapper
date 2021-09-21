@@ -5,6 +5,11 @@ moco-wrapper
 .. image:: https://img.shields.io/pypi/v/moco_wrapper.svg
         :target: https://pypi.python.org/pypi/moco_wrapper
 
+.. image:: https://readthedocs.org/projects/moco-wrapper/badge/?version=master
+        :target: https://moco-wrapper.readthedocs.io/en/master/?badge=master
+        :alt: Documentation Status
+
+
 This is a client implementation of the moco api written in python3.
 
 Installation
