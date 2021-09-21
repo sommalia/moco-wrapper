@@ -4,10 +4,9 @@ from typing import List
 from moco_wrapper.models.base import MWRAPBase
 from moco_wrapper.models import objector_models as om
 from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.util.io import File
 
 from enum import Enum
-from base64 import b64encode
-from os.path import basename
 
 
 class PurchaseStatus(str, Enum):
@@ -55,53 +54,6 @@ class PurchasePaymentMethod(str, Enum):
     CREDIT_CARD = "credit_card"
     PAYPAL = "paypal"
     CASH = "cash"
-
-
-class PurchaseFile(object):
-    """
-    Helper class for handling files in :meth:`.Purchase.create` and :meth:`.Purchase.store_document`.
-    """
-
-    def __init__(self, file_path, file_name=None):
-        """
-        Class Constructor
-
-        :param file_path: Path to the file on disk
-        :param file_name: Name of the file to be used when used by :class:`.Purchase` (default ``None``)
-
-        :type file_path: str
-        :type file_name: str
-
-        .. node::
-            When not supplying a ``file_name``, the basename of the file will be used
-        """
-        self.path = file_path
-        self.name = file_name
-
-        # if no name was set for the file, use the basename
-        if file_name is None:
-            with open(self.path, "r") as f:
-                self.name = basename(f.name)
-
-    def to_base64(self):
-        """
-        Converts the content of the file to its base64 representation.
-
-        :returns: File content as base64
-        :rtype: str
-        """
-        with open(self.path, "rb") as f:
-            return b64encode(f.read()).decode("utf-8")
-
-    @classmethod
-    def load(cls, path):
-        """
-        Helper method to create a :class:`.PurchaseFile` object from a path.
-
-        :returns: :class:`.PurchaseFile` object
-        :rtype: :class:`.PurchaseFile`
-        """
-        return cls(path)
 
 
 class Purchase(MWRAPBase):
@@ -261,7 +213,7 @@ class Purchase(MWRAPBase):
         iban: str = None,
         reference: str = None,
         custom_properties: dict = None,
-        file: PurchaseFile = None,
+        file: File = None,
         tags: list = None
     ):
         """
@@ -296,7 +248,7 @@ class Purchase(MWRAPBase):
         :type iban: str
         :type reference: str
         :type custom_properties: dict
-        :type file: :class:`.PurchaseFile`
+        :type file: :class:`moco_wrapper.util.io.File`
         :type tags: list
 
         :returns: The created purchase
@@ -330,7 +282,7 @@ class Purchase(MWRAPBase):
                 # check if value is a date
                 if key in ["due_date", "service_period_from", "service_period_to"] and isinstance(value, datetime.date):
                     data[key] = self._convert_date_to_iso(value)
-                elif isinstance(value, PurchaseFile):  # check if value is a file
+                elif isinstance(value, File):  # check if value is a file
                     data[key] = {
                         "filename": value.name,
                         "base64": value.to_base64()

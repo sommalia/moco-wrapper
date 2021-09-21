@@ -1,9 +1,10 @@
 import datetime
 
 from .. import IntegrationTest
-from moco_wrapper.models.purchase import PurchasePaymentMethod, PurchaseFile, PurchaseStatus
+from moco_wrapper.models.purchase import PurchasePaymentMethod, PurchaseStatus
 from moco_wrapper.util.generator import PurchaseItemGenerator
 from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse
+from moco_wrapper.util.io import File
 from moco_wrapper.models.company import CompanyType
 from os import path
 
@@ -121,7 +122,7 @@ class TestPurchase(IntegrationTest):
 
     def test_create_with_file(self):
         pdf_path = path.join(path.dirname(path.dirname(__file__)), "files", "test_purchase_create_with_file.pdf")
-        purchase_file = PurchaseFile.load(pdf_path)
+        purchase_file = File.load(pdf_path)
 
         generator = PurchaseItemGenerator()
 
@@ -259,7 +260,7 @@ class TestPurchase(IntegrationTest):
 
     def test_store_document(self):
         pdf_path = path.join(path.dirname(path.dirname(__file__)), "files", "test_purchase_store_document.pdf")
-        purchase_file = PurchaseFile.load(pdf_path)
+        purchase_file = File.load(pdf_path)
 
         generator = PurchaseItemGenerator()
 
