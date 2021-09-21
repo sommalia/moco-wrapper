@@ -356,7 +356,7 @@ class Purchase(MWRAPBase):
         :param file: Purchase file
 
         :type purchase_id: int
-        :type file: :class:`.PurchaseFile`
+        :type file: :class:`moco_wrapper.util.io.File`
 
         :returns: Empty response on success
         :rtype: :class:`moco_wrapper.util.response.EmptyResponse`

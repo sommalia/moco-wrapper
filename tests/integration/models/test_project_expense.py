@@ -1,8 +1,10 @@
 from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
 from moco_wrapper.util.generator import ProjectExpenseGenerator
+from moco_wrapper.util.io import File
 from moco_wrapper.models.company import CompanyType
 
 from datetime import date
+from os import path
 from .. import IntegrationTest
 
 
@@ -68,6 +70,29 @@ class TestProjectExpense(IntegrationTest):
             assert ex_create.data.unit == unit
             assert ex_create.data.unit_price == unit_price
             assert ex_create.data.unit_cost == unit_cost
+
+    def test_create_with_file(self):
+        project = self.get_project()
+        pdf_path = path.join(path.dirname(path.dirname(__file__)), "files", "test_project_expense_create_with_file.pdf")
+        expense_file = File.load(pdf_path)
+
+        with self.recorder.use_cassette("TestProjectExpense.test_create_with_file"):
+            ex_create = self.moco.ProjectExpense.create(
+                project_id=project.id,
+                expense_date=date(2040, 1, 1),
+                title="test_project_expense_create_with_file",
+                quantity=1,
+                unit="stk",
+                unit_price=2,
+                unit_cost=4,
+                file=expense_file
+            )
+
+            assert ex_create.response.status_code == 200
+
+            assert type(ex_create) is ObjectResponse
+
+            assert ex_create.data.file_url is not None
 
     def test_create_full(self):
         project = self.get_project()
@@ -351,4 +376,3 @@ class TestProjectExpense(IntegrationTest):
 
             assert type(ex_bulk) is ListResponse
             assert type(ex_disregard) is EmptyResponse
-

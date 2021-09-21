@@ -12,7 +12,3 @@ Purchase
 .. autoclass:: moco_wrapper.models.purchase.PurchaseStatus
    :members:
    :undoc-members:
-
-.. autoclass:: moco_wrapper.models.purchase.PurchaseFile
-   :members:
-   :undoc-members:

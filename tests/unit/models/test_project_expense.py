@@ -17,6 +17,10 @@ class TestProjectExpense(UnitTest):
         custom_properties = {
             "server_os": "Windows XP"
         }
+        file = {
+            "filename": "test",
+            "base64": "1234"
+        }
 
         response = self.moco.ProjectExpense.create(
             project_id=project_id,
@@ -29,7 +33,8 @@ class TestProjectExpense(UnitTest):
             description=description,
             billable=billable,
             budget_relevant=budget_relevant,
-            custom_properties=custom_properties
+            custom_properties=custom_properties,
+            file=file,
         )
 
         data = response["data"]
@@ -44,6 +49,7 @@ class TestProjectExpense(UnitTest):
         assert data["billable"] == billable
         assert data["budget_relevant"] == budget_relevant
         assert data["custom_properties"] == custom_properties
+        assert data["file"] == file
 
         assert response["method"] == "POST"
 

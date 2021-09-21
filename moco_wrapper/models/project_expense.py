@@ -2,6 +2,7 @@ import datetime
 from typing import List
 
 from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.util.io import File
 from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 
@@ -59,7 +60,8 @@ class ProjectExpense(MWRAPBase):
         description: str = None,
         billable: bool = True,
         budget_relevant: bool = False,
-        custom_properties: dict = None
+        custom_properties: dict = None,
+        file: File = None
     ):
         """
         Create a project expense.
@@ -75,6 +77,7 @@ class ProjectExpense(MWRAPBase):
         :param billable: If this expense billable (default ``True``)
         :param budget_relevant: If this expense is budget relevant (default ``False``)
         :param custom_properties: Additional fields as dictionary (default ``None``)
+        :param file: File attached to the expense (default ``None``)
 
         :type project_id: int
         :type expense_date: datetime.date, str
@@ -87,6 +90,7 @@ class ProjectExpense(MWRAPBase):
         :type billable: bool
         :type budget_relevant: bool
         :type custom_properties: dict
+        :type file: :class:`moco_wrapper.util.io.File`
 
         :returns: The created expense object
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -113,9 +117,16 @@ class ProjectExpense(MWRAPBase):
             ("billable", billable),
             ("budget_relevant", budget_relevant),
             ("custom_properties", custom_properties),
+            ("file", file)
         ):
             if value is not None:
-                data[key] = value
+                if isinstance(value, File):
+                    data[key] = {
+                        "filename": value.name,
+                        "base64": value.to_base64()
+                    }
+                else:
+                    data[key] = value
 
         return self._moco.post("project_expense_create", ep_params=ep_params, data=data)
 
@@ -180,6 +191,7 @@ class ProjectExpense(MWRAPBase):
         :param billable: If this expense billable (default ``None``)
         :param budget_relevant: If this expense is budget relevant (default ``None``)
         :param custom_properties: Additional fields as dictionary (default ``None``)
+        :param file: File attached to the project expense (default ``None``)
 
         :type project_id: int
         :type expense_id: int
@@ -230,7 +242,7 @@ class ProjectExpense(MWRAPBase):
     ):
         """
         Deletes an expense.
-
+3
         :param project_id: Id of the project the expense belongs to
         :param expense_id: Id of the expense to delete
 
