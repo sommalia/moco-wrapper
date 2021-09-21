@@ -103,6 +103,8 @@ class Invoice(MWRAPBase):
         tags: list = None,
         identifier: str = None,
         term: str = None,
+        company_id: int = None,
+        project_id: int = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
@@ -116,6 +118,8 @@ class Invoice(MWRAPBase):
         :param tags: List of tags (default ``None``)
         :param identifier: Identifier string (e.g. R1903-003) (default ``None``)
         :param term: Wildcard search term (default ``None``)
+        :param company_id: Company id of the invoice (default ``None``)
+        :param project_id: Project id of the invoice (default ``None``)
         :param sort_by: Field to sort results by (default ``None``)
         :param sort_order: asc or desc (default ``"asc"``)
         :param page: Page number (default ``1``)
@@ -126,6 +130,8 @@ class Invoice(MWRAPBase):
         :type tags: list
         :type identifier: str
         :type term: str
+        :type company_id: int
+        :type project_id: int
         :type sort_by: str
         :type sort_order: str
         :type page: int
@@ -141,6 +147,8 @@ class Invoice(MWRAPBase):
             ("tags", tags),
             ("identifier", identifier),
             ("term", term),
+            ("company_id", company_id),
+            ("project_id", project_id),
             ("page", page),
         ):
 

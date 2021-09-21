@@ -179,7 +179,7 @@ class TestInvoice(UnitTest):
 
         assert response["method"] == "GET"
 
-    def test_timesheet_acitivities(self):
+    def test_timesheet_activities(self):
         invoice_id = 2
 
         response = self.moco.Invoice.timesheet_activities(
@@ -271,6 +271,8 @@ class TestInvoice(UnitTest):
         tags = ["these", "are", "the", "tags"]
         identifier = "INVOICE-001"
         term = "horse"
+        company_id = 123
+        project_id = 456
 
         response = self.moco.Invoice.getlist(
             status=status,
@@ -278,7 +280,9 @@ class TestInvoice(UnitTest):
             date_to=date_to,
             tags=tags,
             identifier=identifier,
-            term=term
+            term=term,
+            company_id=company_id,
+            project_id=project_id
         )
 
         params = response["params"]
@@ -289,6 +293,9 @@ class TestInvoice(UnitTest):
         assert params["tags"] == ",".join(tags)
         assert params["identifier"] == identifier
         assert params["term"] == term
+        assert params["company_id"] == company_id
+        assert params["project_id"] == project_id
+
         assert response["method"] == "GET"
 
     def test_getlist_sort_default(self):
