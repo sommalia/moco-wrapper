@@ -72,6 +72,7 @@ class TestProjectRecurringExpense(UnitTest):
         project_id = 2
         start_date = '2019-10-10'
         period = "weekly"
+        period_dir = "none"
         title = "hosting xl"
         quantity = 100
         unit = "vserver"
@@ -99,7 +100,8 @@ class TestProjectRecurringExpense(UnitTest):
             description=description,
             billable=billable,
             budget_relevant=budget_relevant,
-            custom_properties=custom_properties
+            custom_properties=custom_properties,
+            service_period_direction=period_dir
         )
 
         data = response["data"]
@@ -116,6 +118,7 @@ class TestProjectRecurringExpense(UnitTest):
         assert data["billable"] == billable
         assert data["budget_relevant"] == budget_relevant
         assert data["custom_properties"] == custom_properties
+        assert data["service_period_direction"] == period_dir
 
         assert response["method"] == "POST"
 
@@ -189,6 +192,7 @@ class TestProjectRecurringExpense(UnitTest):
         custom_properties = {
             "add_dog": True
         }
+        period_dir = "backward"
 
         response = self.moco.ProjectRecurringExpense.update(
             project_id=project_id,
@@ -202,7 +206,8 @@ class TestProjectRecurringExpense(UnitTest):
             description=description,
             billable=billable,
             budget_relevant=budget_relevant,
-            custom_properties=custom_properties
+            custom_properties=custom_properties,
+            service_period_direction=period_dir
         )
 
         data = response["data"]
@@ -217,6 +222,7 @@ class TestProjectRecurringExpense(UnitTest):
         assert data["billable"] == billable
         assert data["budget_relevant"] == budget_relevant
         assert data["custom_properties"] == custom_properties
+        assert data["service_period_direction"] == period_dir
 
         assert response["method"] == "PUT"
 

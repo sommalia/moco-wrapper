@@ -34,6 +34,30 @@ class ProjectRecurringExpensePeriod(str, Enum):
     ANNUAL = "annual"
 
 
+class ProjectRecurringExpenseServicePeriodDirection(str, Enum):
+    """
+    Enumeration for allowed values ``service_period_direction`` of :meth:`.ProjectRecurringExpense.create`.
+
+    Example usage:
+
+    .. code-block:: python
+
+        from moco_wrapper.models.project_recurring_expense import ProjectRecurringExpenseServicePeriodDirection
+        from moco_wrapper import Moco
+
+        m = Moco()
+        recur_expense = m.ProjectRecurringExpense.create(
+            ..
+            service_period_direction = ProjectRecurringExpenseServicePeriodDirection.BACKWARD
+        )
+
+    """
+
+    NONE = "none"
+    FORWARD = "forward"
+    BACKWARD = "backward"
+
+
 class ProjectRecurringExpense(MWRAPBase):
     """
     Class for handling recurring expenses of a project.
@@ -155,6 +179,7 @@ class ProjectRecurringExpense(MWRAPBase):
         description: str = None,
         billable: bool = True,
         budget_relevant: bool = False,
+        service_period_direction: ProjectRecurringExpenseServicePeriodDirection = None,
         custom_properties: dict = None,
     ):
         """
@@ -172,6 +197,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :param description: Description of the expense (default ``None``)
         :param billable: If this expense billable (default ``True``)
         :param budget_relevant: If this expense is budget relevant (default ``False``)
+        :param service_period_direction: Direction of the service period (default ``None``)
         :param custom_properties: Additional fields as dictionary (default ``None``)
 
         :type project_id: int
@@ -186,6 +212,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type description: str
         :type billable: bool
         :type budget_relevant: bool
+        :type service_period_direction: :class:`.ProjectRecurringExpenseServicePeriodDirection`, str
         :type custom_properties: dict
 
         :returns: The created recurring expense object
@@ -214,7 +241,8 @@ class ProjectRecurringExpense(MWRAPBase):
             ("description", description),
             ("billable", billable),
             ("budget_relevant", budget_relevant),
-            ("custom_properties", custom_properties)
+            ("custom_properties", custom_properties),
+            ("service_period_direction", service_period_direction)
         ):
             if value is not None:
                 if key in ["finish_date"] and isinstance(value, datetime.date):
@@ -237,6 +265,7 @@ class ProjectRecurringExpense(MWRAPBase):
         description: str = None,
         billable: bool = None,
         budget_relevant: bool = None,
+        service_period_direction: ProjectRecurringExpenseServicePeriodDirection = None,
         custom_properties: dict = None,
     ):
         """
@@ -253,6 +282,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :param description: Description of the expense (default ``None``)
         :param billable: If this expense billable (default ``None``)
         :param budget_relevant: If this expense is budget relevant (default ``None``)
+        :param service_period_direction: Direction of the service period (default ``None``)
         :param custom_properties: Additional fields as dictionary (default ``None``)
 
         :type project_id: int
@@ -265,6 +295,7 @@ class ProjectRecurringExpense(MWRAPBase):
         :type finish_date: datetime.date, str
         :type description: str
         :type billable: bool
+        :type service_period_direction: :class:`.ProjectRecurringExpenseServicePeriodDirection`, str
         :type custom_properties: dict
 
         :returns: The updated recurring expense object
@@ -286,6 +317,7 @@ class ProjectRecurringExpense(MWRAPBase):
             ("description", description),
             ("billable", billable),
             ("budget_relevant", budget_relevant),
+            ("service_period_direction", service_period_direction),
             ("custom_properties", custom_properties)
         ):
             if value is not None:

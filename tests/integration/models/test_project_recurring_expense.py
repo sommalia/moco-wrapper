@@ -1,5 +1,7 @@
 from moco_wrapper.util.response import PagedListResponse, ObjectResponse, EmptyResponse
-from moco_wrapper.models.project_recurring_expense import ProjectRecurringExpensePeriod
+from moco_wrapper.models.project_recurring_expense import \
+    ProjectRecurringExpensePeriod, ProjectRecurringExpenseServicePeriodDirection
+
 from moco_wrapper.models.company import CompanyType
 
 from datetime import date
@@ -95,6 +97,7 @@ class TestProjectRecurringExpense(IntegrationTest):
         with self.recorder.use_cassette("TestProjectRecurringExpense.test_create_full"):
             start_date = date(2020, 1, 1)
             period = ProjectRecurringExpensePeriod.BIWEEKLY
+            period_dir = ProjectRecurringExpenseServicePeriodDirection.BACKWARD
             title = "TestProjectRecurringExpense.test_create_full"
             quantity = 1.5
             unit = "h"
@@ -118,6 +121,7 @@ class TestProjectRecurringExpense(IntegrationTest):
                 description=description,
                 billable=billable,
                 budget_relevant=budget_relevant,
+                service_period_direction=period_dir
             )
 
             assert recexp_create.response.status_code == 200
@@ -126,6 +130,7 @@ class TestProjectRecurringExpense(IntegrationTest):
 
             assert recexp_create.data.start_date == start_date.isoformat()
             assert recexp_create.data.period == period
+            assert recexp_create.data.service_period_direction == period_dir
             assert recexp_create.data.quantity == quantity
             assert recexp_create.data.unit == unit
             assert recexp_create.data.unit_price == unit_price
@@ -141,6 +146,7 @@ class TestProjectRecurringExpense(IntegrationTest):
         with self.recorder.use_cassette("TestProjectRecurringExpense.test_update"):
             start_date = date(2020, 1, 1)
             period = ProjectRecurringExpensePeriod.BIWEEKLY
+            period_dir = ProjectRecurringExpenseServicePeriodDirection.FORWARD
             title = "TestProjectRecurringExpense.test_update"
             quantity = 1.5
             unit = "h"
@@ -159,7 +165,8 @@ class TestProjectRecurringExpense(IntegrationTest):
                 quantity=1,
                 unit="h",
                 unit_price=2,
-                unit_cost=1
+                unit_cost=1,
+                service_period_direction="backward"
             )
 
             recexp_update = self.moco.ProjectRecurringExpense.update(
@@ -174,6 +181,7 @@ class TestProjectRecurringExpense(IntegrationTest):
                 description=description,
                 billable=billable,
                 budget_relevant=budget_relevant,
+                service_period_direction=period_dir
             )
 
             assert recexp_create.response.status_code == 200
@@ -184,6 +192,7 @@ class TestProjectRecurringExpense(IntegrationTest):
 
             assert recexp_update.data.start_date == start_date.isoformat()
             assert recexp_update.data.period == period
+            assert recexp_update.data.service_period_direction == period_dir
             assert recexp_update.data.quantity == quantity
             assert recexp_update.data.unit == unit
             assert recexp_update.data.unit_price == unit_price
