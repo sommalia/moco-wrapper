@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-21T07:58:47",
+      "recorded_at": "2021-09-22T07:03:11",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945641670/expenses"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642806/expenses"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/4SSQW8bIRCF/8s7Ywu2tjfmnntVpZdeEIZxQ8UChSGqFfm/V2i1TdSq7W3nfTtPzLx5RfDQZ6nOahbwlgkak5zkTqqdVBDgwHGIT9T4Y83fyPHjj0Kp0Z6psfEUicm4SqNZwFNzNRQOOUEDAt+7TRz4Bq32UqCnwNB4xvppSg2OoKeNGZcbQ38Y9Xv2Tna9VkruBo3Hz58gcOn+K7GpFOnFJobm2kngEmK0l/H6t5o89NXGRgKN6ktwZArVkD00pNpLtR/T43dqrjUv0KnH+AfivIFriGR6jVvteuO8mFJzocqBGvTrXcDlpdh0g163P5+UfJim+SiQ7PKXXY/5VjuquAuUFW8e58PxdFCnWf7PY+sbFr26Z9vIBKbFjDtYx3vTf0lrut7YEd0kJ7WT592knuSsjw/6MH8ZaZZxPv/65/5zAPdP9mRuAgAA",
+          "base64_string": "H4sIAAAJbogA/4SSQW8bIRCF/8s7Ywtwanu5515V6aUXhNlxQ8UChSGqFfm/V2i1TdSq7W3nfTtPzLx5RZhhJnlQehKYHRMMtNRyJ9VOKghw4DjEJ2r8seZv5PnxR6HUaM/U2M4Uicn6SqNZYKbmaygccoIBBL53lzjwDUbtpUBPgWHwjPXTlho8weiNWZ8bwxxG/Z69k32vlZK/weDx8ycIXPr8ldhWivTiEsNw7SRwCTG6y3j9W00zzNXFRgKN6kvwZAvVkGcYSLWXaj+mx+/UXmteYFKP8Q/EeQPXEMn2Grfa98Z5saXmQpUDNZjXu4DPS3HpBrNu/3RU8qzPJy2Q3PKXXY/5VjuquAuUFW8e08OH44M+y+P/PLa+YdGrf3aNbGBa7LiDdbw3/Ze0pjtbN6LTUqudnHZaP8mTkQej1JeRZhnn869/7j8HAAwklUNuAgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 21 Sep 2021 07:58:47 GMT"
+            "Wed, 22 Sep 2021 07:03:11 GMT"
           ],
           "Etag": [
-            "W/\"78f74aa531db84f1b99679f376a2dc0b\""
+            "W/\"cbe64bdaa002d920141a7797c0ce2b51\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "2ab00259-6de1-4c5b-b596-8414d07ceda2"
+            "4783fc26-044e-40e0-8854-8cfe439e00a3"
           ],
           "X-Runtime": [
-            "0.049003"
+            "0.047122"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,11 +91,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945641670/expenses"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642806/expenses"
       }
     },
     {
-      "recorded_at": "2021-09-21T07:58:47",
+      "recorded_at": "2021-09-22T07:03:11",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -125,7 +125,7 @@
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945641670/expenses/901917"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642806/expenses/903129"
       },
       "response": {
         "body": {
@@ -137,7 +137,7 @@
             "no-cache"
           ],
           "Date": [
-            "Tue, 21 Sep 2021 07:58:47 GMT"
+            "Wed, 22 Sep 2021 07:03:11 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -158,10 +158,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b99f50f7-0e9f-423f-8cef-b02caa94aa58"
+            "733debe4-862a-46c0-90a1-3f1782153c01"
           ],
           "X-Runtime": [
-            "0.030404"
+            "0.061800"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -171,7 +171,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945641670/expenses/901917"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642806/expenses/903129"
       }
     }
   ],

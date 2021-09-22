@@ -60,6 +60,8 @@ class ProjectExpense(MWRAPBase):
         description: str = None,
         billable: bool = True,
         budget_relevant: bool = False,
+        service_period_from: datetime.date = None,
+        service_period_to: datetime.date = None,
         custom_properties: dict = None,
         file: File = None
     ):
@@ -76,6 +78,8 @@ class ProjectExpense(MWRAPBase):
         :param description: Description of the expense (default ``None``)
         :param billable: If this expense billable (default ``True``)
         :param budget_relevant: If this expense is budget relevant (default ``False``)
+        :param service_period_from: Service period start date (default ``None``)
+        :param service_period_to: Service period end date (default ``None``)
         :param custom_properties: Additional fields as dictionary (default ``None``)
         :param file: File attached to the expense (default ``None``)
 
@@ -89,6 +93,8 @@ class ProjectExpense(MWRAPBase):
         :type description: str
         :type billable: bool
         :type budget_relevant: bool
+        :type service_period_from: datetime.date, str
+        :type service_period_to: datetime.date, str
         :type custom_properties: dict
         :type file: :class:`moco_wrapper.util.io.File`
 
@@ -117,10 +123,14 @@ class ProjectExpense(MWRAPBase):
             ("billable", billable),
             ("budget_relevant", budget_relevant),
             ("custom_properties", custom_properties),
+            ("service_period_from", service_period_from),
+            ("service_period_to", service_period_to),
             ("file", file)
         ):
             if value is not None:
-                if isinstance(value, File):
+                if key in ["service_period_from", "service_period_to"] and isinstance(value, datetime.date):
+                    data[key] = self._convert_date_to_iso(value)
+                elif isinstance(value, File):
                     data[key] = {
                         "filename": value.name,
                         "base64": value.to_base64()
@@ -174,6 +184,8 @@ class ProjectExpense(MWRAPBase):
         description: str = None,
         billable: bool = None,
         budget_relevant: bool = None,
+        service_period_from: datetime.date = None,
+        service_period_to: datetime.date = None,
         custom_properties: dict = None
     ):
         """
@@ -190,8 +202,9 @@ class ProjectExpense(MWRAPBase):
         :param description: Description of the expense (default ``None``)
         :param billable: If this expense billable (default ``None``)
         :param budget_relevant: If this expense is budget relevant (default ``None``)
+        :param service_period_from: Service period start date (default ``None``)
+        :param service_period_to: Service period end date (default ``None``)
         :param custom_properties: Additional fields as dictionary (default ``None``)
-        :param file: File attached to the project expense (default ``None``)
 
         :type project_id: int
         :type expense_id: int
@@ -204,6 +217,8 @@ class ProjectExpense(MWRAPBase):
         :type description: str
         :type billable: bool
         :type budget_relevant: bool
+        :type service_period_from: datetime.date, str
+        :type service_period_to: datetime.date, str
         :type custom_properties: dict
 
         :returns: The updated expense object
@@ -225,10 +240,12 @@ class ProjectExpense(MWRAPBase):
             ("description", description),
             ("billable", billable),
             ("budget_relevant", budget_relevant),
+            ("service_period_from", service_period_from),
+            ("service_period_to", service_period_to),
             ("custom_properties", custom_properties)
         ):
             if value is not None:
-                if key in ["date"] and isinstance(value, datetime.date):
+                if key in ["date", "service_period_from", "service_period_to"] and isinstance(value, datetime.date):
                     data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value

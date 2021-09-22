@@ -107,6 +107,8 @@ class TestProjectExpense(IntegrationTest):
             description = "misc tools"
             billable = True
             budget_relevant = True
+            service_period_from = date(2021, 1, 1)
+            service_period_to = date(2021, 1, 31)
 
             ex_create = self.moco.ProjectExpense.create(
                 project_id=project.id,
@@ -118,7 +120,9 @@ class TestProjectExpense(IntegrationTest):
                 unit_cost=unit_cost,
                 description=description,
                 billable=billable,
-                budget_relevant=budget_relevant
+                budget_relevant=budget_relevant,
+                service_period_from=service_period_from,
+                service_period_to=service_period_to
             )
 
             assert ex_create.response.status_code == 200
@@ -135,6 +139,8 @@ class TestProjectExpense(IntegrationTest):
             assert ex_create.data.description == description
             assert ex_create.data.billable == billable
             assert ex_create.data.budget_relevant == budget_relevant
+            assert ex_create.data.service_period_from == service_period_from.isoformat()
+            assert ex_create.data.service_period_to == service_period_to.isoformat()
 
     def test_get(self):
         project = self.get_project()
@@ -198,6 +204,8 @@ class TestProjectExpense(IntegrationTest):
             description = "misc tools"
             billable = True
             budget_relevant = True
+            service_period_from = date(2021, 1, 1)
+            service_period_to = date(2021, 3, 1)
 
             ex_create = self.moco.ProjectExpense.create(
                 project_id=project.id,
@@ -220,7 +228,9 @@ class TestProjectExpense(IntegrationTest):
                 unit_cost=unit_cost,
                 description=description,
                 billable=billable,
-                budget_relevant=budget_relevant
+                budget_relevant=budget_relevant,
+                service_period_from=service_period_from,
+                service_period_to=service_period_to
             )
 
             assert ex_create.response.status_code == 200
@@ -239,6 +249,8 @@ class TestProjectExpense(IntegrationTest):
             assert ex_update.data.description == description
             assert ex_update.data.billable == billable
             assert ex_update.data.budget_relevant == budget_relevant
+            assert ex_update.data.service_period_from == service_period_from.isoformat()
+            assert ex_update.data.service_period_to == service_period_to.isoformat()
 
     def test_delete(self):
         project = self.get_project()

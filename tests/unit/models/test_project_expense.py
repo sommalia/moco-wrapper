@@ -14,6 +14,8 @@ class TestProjectExpense(UnitTest):
         description = "this is the description of the server that is in the expense"
         billable = False
         budget_relevant = True
+        service_period_from = "2021-01-01"
+        service_period_to = "2021-03-01"
         custom_properties = {
             "server_os": "Windows XP"
         }
@@ -35,6 +37,8 @@ class TestProjectExpense(UnitTest):
             budget_relevant=budget_relevant,
             custom_properties=custom_properties,
             file=file,
+            service_period_from=service_period_from,
+            service_period_to=service_period_to
         )
 
         data = response["data"]
@@ -50,6 +54,8 @@ class TestProjectExpense(UnitTest):
         assert data["budget_relevant"] == budget_relevant
         assert data["custom_properties"] == custom_properties
         assert data["file"] == file
+        assert data["service_period_from"] == service_period_from
+        assert data["service_period_to"] == service_period_to
 
         assert response["method"] == "POST"
 
@@ -147,6 +153,8 @@ class TestProjectExpense(UnitTest):
         description = "this is the description of the server that is in the expense"
         billable = False
         budget_relevant = True
+        service_period_from = "2021-01-01"
+        service_period_to = "2021-03-01"
         custom_properties = {
             "server_os": "Windows XP"
         }
@@ -163,7 +171,9 @@ class TestProjectExpense(UnitTest):
             description=description,
             billable=billable,
             budget_relevant=budget_relevant,
-            custom_properties=custom_properties
+            custom_properties=custom_properties,
+            service_period_from=service_period_from,
+            service_period_to=service_period_to
         )
 
         data = response["data"]
@@ -178,6 +188,8 @@ class TestProjectExpense(UnitTest):
         assert data["billable"] == billable
         assert data["budget_relevant"] == budget_relevant
         assert data["custom_properties"] == custom_properties
+        assert data["service_period_from"] == service_period_from
+        assert data["service_period_to"] == service_period_to
 
         assert response["method"] == "PUT"
 

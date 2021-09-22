@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-21T07:59:03",
+      "recorded_at": "2021-09-22T07:03:28",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -31,11 +31,11 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945641670/expenses/bulk"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642806/expenses/bulk"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/+SSQW8TMRCF/8s7O5G9bZKu770jVC4gZDneCZh6bWOPK6Iq/x1Zq6URCDggLnDbeW/9pJn3vXuGn6BHqUZ1JzBZJmgMcpAbqTZSQYA9hy4+UOVXJX0ix/dfMsVKW6bKxhWyTObYwuP63Z9NVF3xmX2K0IDA52Yjez5Dq60UaNEzNCo/YhlMLt4R9LC6xqXK0Dd9vvauZNdKoejO0Lh/8xoCxzZ9IDaFAj3ZyNBcGgkcfQj22Nd4mWmCPtlQSaBSefKOTKbi0wQNqbZSbfsZ8L1rTiXN0LGF8IPFaTVOPpBpJayza5XTbHJJmQp7qtDPFwGX5mzjGXqp4bBX8m4YDjuBaOefHL3vt8RRwUUgL/aaMd7u9rdqf5C/y1jf9YhW3EdbyXim2XQglvVe9G/S0vBkbC9vkIPayHEzqAd50LtRy5u3vc3cOfrVPxdxxd14zZ36E+6Gf4Y79Z9z97e4e/91ADFiHPrxBAAA",
+          "base64_string": "H4sIAAAJbogA/+SSzY4TMRCE36XOTmQ7S3583ztCywWELMfTAbOesbHbK6JV3h1ZoyERCDggLuxtumpcUnd9758RBpiD3KiNEhgcEwy01HIl1UoqCHDg2MUHqvy6pM/k+f5rpqnSmqmy9YUckz22+Lh892cDVV9C5pAmGEDgS3MTBz7DqLUUaFNgGFR+xDzYXIInGL241qfKMJs+33o3sm+l0OTPMLh/+wYCxzZ8JLaFIj25iWG4NBI4hhjdsa9xnWmAOblYSaBSeQqebKYS0gADqdZSrfsZ8KNrTyWNMFOL8SeL02KcQiTbSlxm3yqn0eaSMhUOVGGeLwI+jdlNZ5i5ht1Wyb3e77TA5MZfHL3vN8dRwUUgz/aScbh7tb3Te7n9U8byrke04j+5SjYwjbYDMa931b9Lc8ODdb08LbVaycNK6we5M3Jj9P5dbzN3jn73z0XccKdvuVN/w53+b7hTL5y7f8Xdh28DAOY16o7xBAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -53,10 +53,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 21 Sep 2021 07:59:03 GMT"
+            "Wed, 22 Sep 2021 07:03:28 GMT"
           ],
           "Etag": [
-            "W/\"e744c67badc75ffc9313c22ce976306e\""
+            "W/\"855d9453694b9cf25135f1c52168ae16\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6ef86815-ea8c-44e8-bcc5-d5248b032282"
+            "912e2bbc-2447-4487-8a71-526377ff3327"
           ],
           "X-Runtime": [
-            "0.058925"
+            "0.071154"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -91,7 +91,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945641670/expenses/bulk"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642806/expenses/bulk"
       }
     }
   ],
