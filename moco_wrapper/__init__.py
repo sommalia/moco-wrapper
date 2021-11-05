@@ -4,7 +4,7 @@
 
 __author__ = """Sommalia"""
 __email__ = 'sommalia@protonmail.com'
-__version__ = '0.10.1'
+__version__ = '0.11.0'
 
 from . import models
 from . import util
