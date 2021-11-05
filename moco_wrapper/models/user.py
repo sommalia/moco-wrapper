@@ -87,7 +87,7 @@ class User(MWRAPBase):
         :type work_phone: str
         :type home_address: str
         :type birthday: datetime.date, str
-        .type tags: list
+        :type tags: list
         :type custom_properties: dict
         :type info: str
 
@@ -212,7 +212,6 @@ class User(MWRAPBase):
                     data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
-
 
         return self._moco.put("user_update", ep_params=ep_params, data=data)
 
