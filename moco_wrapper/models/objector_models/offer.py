@@ -12,5 +12,8 @@ class Offer(object):
             d = obj.Deal(**kwargs["deal"])
             nk["deal"] = d
 
+        if "company" in kwargs.keys() and kwargs["company"] is not None:
+            c = obj.Company(**kwargs["company"])
+            nk["company"] = c
+
         self.__dict__.update(nk)
-        

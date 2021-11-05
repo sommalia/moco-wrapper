@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:12:48",
+      "recorded_at": "2021-11-05T13:29:14",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"deal_category_id\": 69660, \"money\": 1000, \"status\": \"pending\", \"reminder_date\": \"2020-01-01\", \"currency\": \"EUR\", \"name\": \"TestOffer.get_deal\", \"user_id\": 933638919}"
+          "string": "{\"name\": \"TestOffer.get_deal\", \"currency\": \"EUR\", \"money\": 1000, \"user_id\": 933653237, \"deal_category_id\": 83062, \"reminder_date\": \"2020-01-01\", \"status\": \"pending\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQP2vrQBDEv8vUa3P6g7Cuf9UrHjycJiGIs24ljkh3Ym9VCKPvHkRstylnmd2Z/d0RPGxZX0xVE6KbGRZXzvpvGFjOI2vn2U0gZHW6ZlgsHH2IIwjCc4iepfNOj73SlOZkipMpQJhT5A22MMacDaFfRTj2Gyz+vP0HIcQhwQIEdWOG/fg8TFnT3C2SFhYNnGHvO2HNLLA/VduqaqpLW7SEIUjWR2XlrCBM7jVxt95jJywsOUXYuE7TM+E499BpXlzcXtIpj0m2Z1rTNo15cfmborovDSwcQVgk3dwtTEGPP3dCL+yUfef0CaMoT6a8FrUtSltf3kFYF/+LZ/8OAAD//2gstnmUAQAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":341631,\"name\":\"TestOffer.get_deal\",\"status\":\"pending\",\"reminder_date\":\"2020-01-01\",\"closed_on\":\"\",\"money\":1000.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":83062,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2021-11-05T13:29:14Z\",\"updated_at\":\"2021-11-05T13:29:14Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "276"
+            "419"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:12:48 GMT"
+            "Fri, 05 Nov 2021 13:29:14 GMT"
           ],
           "Etag": [
-            "W/\"996af444b2b99a7cb5f2500c9ecd85a1\""
+            "W/\"b5af424f2bb917df849fb13d1a4aebd4\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "cf44b45b-f427-4b20-a49e-007522ceaf14"
+            "ec94ff30-c193-4e37-a4f5-ca4dd01a62ac"
           ],
           "X-Runtime": [
-            "0.056387"
+            "0.114846"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

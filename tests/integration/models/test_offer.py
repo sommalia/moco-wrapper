@@ -324,6 +324,50 @@ class TestOffer(IntegrationTest):
             assert offer_create.data.tax == tax
             assert offer_create.data.currency == currency
 
+    def test_create_with_company(self):
+        company = self.get_customer()
+
+        with self.recorder.use_cassette("TestOffer.test_create_with_company"):
+            rec_address = "My Customer Address 34"
+            creation_date = date(2020, 1, 2)
+            due_date = date(2021, 1, 1)
+            title = "TestOffer.test_create_company"
+            tax = 21.5
+            currency = "EUR"
+
+            gen = OfferItemGenerator()
+            items = [
+                gen.generate_title(
+                    title="offer from company title"
+                ),
+                gen.generate_lump_position(
+                    title="misc",
+                    net_total=2000
+                )
+            ]
+
+            offer_create = self.moco.Offer.create(
+                deal_id=None,
+                company_id=company.id,
+                recipient_address=rec_address,
+                creation_date=creation_date,
+                due_date=due_date,
+                title=title,
+                tax=tax,
+                currency=currency,
+                items=items
+            )
+
+            assert offer_create.response.status_code == 201
+
+            assert type(offer_create) is ObjectResponse
+
+            assert offer_create.data.company.id == company.id
+            assert offer_create.data.date == creation_date.isoformat()
+            assert offer_create.data.title == title
+            assert offer_create.data.tax == tax
+            assert offer_create.data.currency == currency
+
     def test_create_full(self):
         project = self.get_project()
         contact = self.get_contact()

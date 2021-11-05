@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T13:29:14",
+      "recorded_at": "2021-11-05T13:29:40",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"deal_id\": null, \"project_id\": null, \"company_id\": 761108891, \"recipient_address\": \"My Customer Address 34\", \"title\": \"TestOffer.test_create_company\", \"tax\": 21.5, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"offer from company title\"}, {\"type\": \"item\", \"title\": \"misc\", \"net_total\": 2000, \"optional\": false}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"change_address\": \"offer\"}"
         },
         "headers": {
           "Accept": [
@@ -20,6 +20,9 @@
           "Connection": [
             "keep-alive"
           ],
+          "Content-Length": [
+            "398"
+          ],
           "Content-Type": [
             "application/json"
           ],
@@ -27,12 +30,12 @@
             "python-requests/2.25.1"
           ]
         },
-        "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/offers"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/7TPsWrDMBSF4Vcxd5ZBsipTa+tcupUOLqXI0sUWVmUjXxdCyJtly4tlcyAassT7gf8730fwDvSr5HXFIJo/BA3vUyQzkseEERjMaepM54OnA2jBwCY0hO7XEGioeCVKIUquPoXUXGnZtMBgnd2DzYnd0nJLv8Ueu4kKTAthCHlf8j0ALxngH9NiB29HygRqD4HaBF+YBhNdWGOf3693uV9v8Y/LObrg7YBFuy6mx3tA8zzAz3UAEHPS+n0CAAA=",
+          "base64_string": "H4sIAAAJbogA/7STz4/TPhDF/5Xonb2VnfRH6tt+v0JwQUhouYBWkdeZrIwSO9gTRLXq/46cNN0C4sjNfePOfOY95wWuhd6Vx/2+FHAteXadowiN+1JJKXcQaA0TNEpZyjup7mSZtYmaV13NuoIAO+6z+ECJP3QdxQ1T4sZGMkyNDcNo/AkCkawbHXluTNtGSgka70/F/1PiMFAs7he1qLYQsFOM5O0JGm8+fYSAJ244sOmhSynlRgqw+QFdqs1O4DmGlK71bTXXW5dsmDxDzz8TG57y0IWszejmOUF/eczzMkUzxjBSZEcJ+uUssNLrxbXDXilZ10cl4M2Ql/6PXBod9cXb4ekdzgJjDF/JMrSf+l6gpUy8nC9zG8OrhUrdyd2DqnR51NVxs1f1ZwhMY7b5b/e2clPWMt9b+wX/S7+bDn9WkuknNuzmCgS6EHjOHgKOach2LLvuD7WS9UGAT2PedIn5Ne6Qoy66GIbi4lKxXkkUvztLzfLP1YhkoxuXyYv0bTKeHZ8u+UzeXW3L52aMztKleBP/HGaYO2VvO9MnOotb6PoKnVe6YR5csv+cb32evyM+CjjPFL3pGxs8m/xKFuxjVe13VVkdBDoXE18eV/6OINCbq2KebIvz+ecA7GZymMQDAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -44,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "200"
+            "488"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 13:29:14 GMT"
+            "Fri, 05 Nov 2021 13:29:40 GMT"
           ],
           "Etag": [
-            "W/\"d67b381f475dc9e190ec59415c624174\""
+            "W/\"1c503690f486a827aa6e07add8966e1b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -75,20 +78,20 @@
             "none"
           ],
           "X-Request-Id": [
-            "0b88680e-6d76-429b-9d93-2e56ad6f24f0"
+            "92ef2aec-2933-43ed-9731-66bd2c2cdc96"
           ],
           "X-Runtime": [
-            "0.018653"
+            "0.729820"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
           ]
         },
         "status": {
-          "code": 200,
-          "message": "OK"
+          "code": 201,
+          "message": "Created"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/offers"
       }
     }
   ],

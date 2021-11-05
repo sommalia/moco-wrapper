@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:12:42",
+      "recorded_at": "2021-11-05T13:29:08",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,33 +24,29 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&to=2020-01-31&status=accepted&from=2020-01-01&page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/offers?status=accepted&from=2020-01-01&to=2020-01-31&identifier=TEST-IDENT&page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "26"
+            "2"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:12:42 GMT"
+            "Fri, 05 Nov 2021 13:29:08 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -59,8 +55,7 @@
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "27f20a19-fdc1-4e65-bc57-47e0dc1f32d1"
+            "5e3efb6c-3ac5-4684-b006-cfd86e632394"
           ],
           "X-Runtime": [
-            "0.037099"
+            "0.020850"
           ],
           "X-Total": [
             "0"
@@ -97,7 +92,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/offers?identifier=TEST-IDENT&to=2020-01-31&status=accepted&from=2020-01-01&page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/offers?status=accepted&from=2020-01-01&to=2020-01-31&identifier=TEST-IDENT&page=1"
       }
     }
   ],

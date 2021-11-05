@@ -81,6 +81,7 @@ class TestOffer(UnitTest):
     def test_create(self):
         deal_id = 1
         project_id = 2
+        company_id = 3
         recipient_address = "My Customer Address 22"
         creation_date = "2018-09-17"
         due_date = "2018-10-16"
@@ -97,6 +98,7 @@ class TestOffer(UnitTest):
         response = self.moco.Offer.create(
             deal_id=deal_id,
             project_id=project_id,
+            company_id=company_id,
             recipient_address=recipient_address,
             creation_date=creation_date,
             due_date=due_date,
@@ -117,6 +119,7 @@ class TestOffer(UnitTest):
 
         assert data["deal_id"] == deal_id
         assert data["project_id"] == project_id
+        assert data["company_id"] == company_id
         assert data["recipient_address"] == recipient_address
         assert data["date"] == creation_date
         assert data["due_date"] == due_date

@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:12:47",
+      "recorded_at": "2021-11-05T13:29:14",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/9zWT2+bPBwH8LdS/c5uZfM3+JTDc3l2zqnTFP0CpnjFNjOGlFR57xMLzQrtCtut3LD1BeGPvhh/fQaZAU98P/I3CUsI5NLWTqMSwMGJ2gGBEq8zeEgzIICpk60A7mwjCIgnJ6wGnmNZ90OFshzu7vPbQ2fUXSaAgDIHWYp9VRjdPw0IHI19fD0ujBJ7zDIr6voyI3VuLlcHaV2RYQdcN2VJAFt0aPeNLV9m0qZ2Ru0rayphnRQ18OczgUZLB3xYKk1YtAm8mMCwpp1AdcPgTCC1Ap3I9uiAg0c9esvYrefvaMJDygN6DwSaKnsns9mxkNOQ+/49nMkINQ7GqF9Moceo/xmx1HQToD6yrXhCVZXiztiHz6oa7BjlHuMs+bPq68xENfLnqipVJWxtNLrFumHBktNpq7rUqAp1d5ca9Xl9acyZz4MPfX9nJr7hxHf3xvf/q680erFw2/6wj6sRjniYcPqx8DUzFY7Hwr9eZiQ8dHoRbHc6tlm+GtiYM8YDb666l8wUNhzDZo1S3U1TC/uWV+qHm9RoZzF19VJr/9DSANexCdO4/22F0Yz0kJlKR2PpF8mx8yC/iPYUqU7UK6px//n7c7iXzBQ3eKfG/y57zFWBck2y/YFrvrZ9Ziq7mTs7/A1skaf4HVcE2++qs4eGS+b87WcAAAD//yQ/2zhBDAAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909172730,\"name\":\"Team 1\"},\"created_at\":\"2021-11-05T13:05:38Z\",\"updated_at\":\"2021-11-05T13:06:51Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "525"
+            "352"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:12:47 GMT"
+            "Fri, 05 Nov 2021 13:29:14 GMT"
           ],
           "Etag": [
-            "W/\"fca0b06ca6d54afc78adf2b0343c483a\""
+            "W/\"ec31e1971fef21068991d9c55845653c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,13 +76,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "d04104d6-5048-46dd-aa70-9c52c1c8f64a"
+            "d3b23fec-07be-4991-84e3-7254fbebd6ee"
           ],
           "X-Runtime": [
-            "0.056710"
+            "0.033972"
           ],
           "X-Total": [
-            "9"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

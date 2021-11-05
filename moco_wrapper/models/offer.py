@@ -178,8 +178,6 @@ class Offer(MWRAPBase):
 
     def create(
         self,
-        deal_id: int,
-        project_id: int,
         recipient_address: str,
         creation_date: datetime.date,
         due_date: datetime.date,
@@ -187,6 +185,9 @@ class Offer(MWRAPBase):
         tax: float,
         currency: str,
         items: list,
+        company_id: int = None,
+        deal_id: int = None,
+        project_id: int = None,
         change_address: OfferChangeAddress = OfferChangeAddress.OFFER,
         salutation: str = None,
         footer: str = None,
@@ -197,8 +198,6 @@ class Offer(MWRAPBase):
         """
         Create a new offer.
 
-        :param deal_id: Deal id of the offer
-        :param project_id: project id of the offer
         :param recipient_address: Address of the recipient
         :param creation_date: Creation date
         :param due_date: Date the offer is due
@@ -206,6 +205,9 @@ class Offer(MWRAPBase):
         :param tax: Tax (0.0-100.0)
         :param currency: Currency code used (e.g. EUR, CHF)
         :param items: List of offer items
+        :param company_id: Id of the associated company
+        :param deal_id: Deal id of the offer
+        :param project_id: project id of the offer
         :param change_address: change offer address propagation (default :attr:`.OfferChangeAddress.OFFER`)
         :param salutation: Salutation text (default ``None``)
         :param footer: Footer text (default ``None``)
@@ -213,8 +215,6 @@ class Offer(MWRAPBase):
         :param contact_id: Id of the contact for the offer (default ``None``)
         :param custom_properties: Dict of custom properties (default ``None``)
 
-        :type deal_id: int
-        :type project_id: int
         :type recipient_address: str
         :type creation_date: datetime.date, str
         :type due_date: datetime.date, str
@@ -222,6 +222,9 @@ class Offer(MWRAPBase):
         :type tax: float
         :type currency: str
         :type items: list
+        :type company_id: int
+        :type deal_id: int
+        :type project_id: int
         :type change_address: :class:`.OfferChangeAddress`, str
         :type salutation: str
         :type footer: str
@@ -235,16 +238,20 @@ class Offer(MWRAPBase):
         .. note::
             Either ``deal_id`` or ``project_id`` must be specified (or both)
 
+        .. note::
+            If you specify the parameter ``project_id`` the parameter ``company_id`` will be disregard
+
         .. seealso::
             :class:`moco_wrapper.util.generator.OfferItemGenerator`
         """
 
-        if project_id is None and deal_id is None:
-            raise ValueError("Either deal_id or project_id (or both) must be specified")
+        if deal_id is None and project_id is None and company_id is None:
+            raise ValueError("Either deal_id, project_id or company_id must be specified")
 
         data = {
             "deal_id": deal_id,
             "project_id": project_id,
+            "company_id": company_id,
             "recipient_address": recipient_address,
             "title": title,
             "tax": tax,
