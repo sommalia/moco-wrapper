@@ -20,6 +20,7 @@ class TestUser(UnitTest):
             "custom_shirt": True
         }
         info = "more information"
+        tags = ["test1", "test3"]
 
         response = self.moco.User.create(
             firstname=firstname,
@@ -35,7 +36,8 @@ class TestUser(UnitTest):
             home_address=home_address,
             birthday=birthday,
             custom_properties=custom_properties,
-            info=info
+            info=info,
+            tags=tags
         )
 
         data = response["data"]
@@ -54,6 +56,7 @@ class TestUser(UnitTest):
         assert data["custom_properties"] == custom_properties
         assert data["bday"] == birthday.isoformat()
         assert data["info"] == info
+        assert sorted(data["tags"]) == sorted(tags)
 
         assert response["method"] == "POST"
 
@@ -75,6 +78,7 @@ class TestUser(UnitTest):
                                 "custom_shirt": True
                             },
         info = "more information"
+        tags = ["test5", "test5"]
 
         response = self.moco.User.update(
             user_id=user_id,
@@ -91,7 +95,8 @@ class TestUser(UnitTest):
             home_address=home_address,
             birthday=birthday,
             custom_properties=custom_properties,
-            info=info
+            info=info,
+            tags=tags
         )
 
         data = response["data"]
@@ -110,6 +115,7 @@ class TestUser(UnitTest):
         assert data["custom_properties"] == custom_properties
         assert data["bday"] == birthday
         assert data["info"] == info
+        assert sorted(data["tags"]) == sorted(tags)
 
         assert response["method"] == "PUT"
 

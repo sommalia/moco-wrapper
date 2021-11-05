@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-20T13:37:53",
+      "recorded_at": "2021-11-05T13:54:42",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -33,23 +33,23 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "[{\"id\":909170073,\"name\":\"Team 1\",\"custom_properties\":{},\"users\":[{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"}],\"created_at\":\"2021-03-18T14:39:25Z\",\"updated_at\":\"2021-03-18T14:39:25Z\"}]"
+          "string": "[{\"id\":909172730,\"name\":\"Team 1\",\"custom_properties\":{},\"users\":[{\"id\":933653240,\"firstname\":\"-\",\"lastname\":\"TestProject.get_other_user\"},{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\"}],\"created_at\":\"2021-11-05T13:05:38Z\",\"updated_at\":\"2021-11-05T13:05:38Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
           "Content-Length": [
-            "193"
+            "266"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 20 Mar 2021 13:37:53 GMT"
+            "Fri, 05 Nov 2021 13:54:42 GMT"
           ],
           "Etag": [
-            "W/\"3915d030c8fd899aad5c867cb265f087\""
+            "W/\"8543958af0d018b0cf52bb41731e8ea8\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -76,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "7937780a-712e-447e-bda9-d6aef248f123"
+            "85bfaadc-8947-4ab1-91eb-0c8e77aadf72"
           ],
           "X-Runtime": [
-            "0.041349"
+            "0.026221"
           ],
           "X-Total": [
             "1"

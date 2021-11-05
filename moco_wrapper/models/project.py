@@ -82,7 +82,7 @@ class Project(MWRAPBase):
         billing_variant: ProjectBillingVariant = None,
         hourly_rate: float = None,
         budget: float = None,
-        labels: list = None,
+        tags: list = None,
         custom_properties: dict = None,
         info: str = None,
         fixed_price: bool = False,
@@ -105,7 +105,7 @@ class Project(MWRAPBase):
         :param billing_variant: Billing variant used (default ``None``)
         :param hourly_rate: Hourly rate that will get billed (default ``None``)
         :param budget: Budget for the project (default ``None``)
-        :param labels: Array of additional labels (default ``None``)
+        :param tags: Array of additional tags (default ``None``)
         :param custom_properties: Custom values used by the project (default ``None``)
         :param info: Additional information (default ``None``)
         :param fixed_price: If the project is a fixed price projects (default ``False``)
@@ -125,7 +125,7 @@ class Project(MWRAPBase):
         :type billing_variant: :class:`.ProjectBillingVariant`, str
         :type hourly_rate: float
         :type budget: float
-        :type labels: list
+        :type tags: list
         :type custom_properties: dict
         :type info: str
         :type fixed_price: bool
@@ -161,7 +161,7 @@ class Project(MWRAPBase):
             ("billing_variant", billing_variant),
             ("hourly_rate", hourly_rate),
             ("budget", budget),
-            ("labels", labels),
+            ("tags", tags),
             ("custom_properties", custom_properties),
             ("info", info),
             ("fixed_price", fixed_price)
@@ -191,7 +191,7 @@ class Project(MWRAPBase):
         billing_variant: ProjectBillingVariant = None,
         hourly_rate: float = None,
         budget: float = None,
-        labels: list = None,
+        tags: list = None,
         custom_properties: dict = None,
         info: str = None
     ):
@@ -213,7 +213,7 @@ class Project(MWRAPBase):
         :param billing_variant: Billing variant used (default ``None``)
         :param hourly_rate: Hourly rate that will get billed (default ``None``)
         :param budget: Budget for the project (default ``None``)
-        :param labels: Array of additional labels (default ``None``)
+        :param tags: Array of additional tags (default ``None``)
         :param custom_properties: Custom values used by the project (default ``None``)
         :param info: Additional information (default ``None``)
 
@@ -232,7 +232,7 @@ class Project(MWRAPBase):
         :type billing_variant: :class:`.ProjectBillingVariant`, str
         :type hourly_rate: float
         :type budget: float
-        :type labels: list
+        :type tags: list
         :type custom_properties: dict
         :type info: str
 
@@ -259,7 +259,7 @@ class Project(MWRAPBase):
             ("billing_variant", billing_variant),
             ("hourly_rate", hourly_rate),
             ("budget", budget),
-            ("labels", labels),
+            ("tags", tags),
             ("custom_properties", custom_properties),
             ("info", info)
         ):

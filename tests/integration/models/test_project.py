@@ -133,7 +133,7 @@ class TestProject(IntegrationTest):
             billing_variant = ProjectBillingVariant.PROJECT
             hourly_rate = 12.5
             budget = 100
-            labels = ["low risk", "low income"]
+            tags = ["low risk", "low income"]
             info = "general information"
 
             project_create = self.moco.Project.create(
@@ -150,7 +150,7 @@ class TestProject(IntegrationTest):
                 billing_variant=billing_variant,
                 hourly_rate=hourly_rate,
                 budget=budget,
-                labels=labels,
+                tags=tags,
                 info=info
             )
 
@@ -171,7 +171,7 @@ class TestProject(IntegrationTest):
             assert project_create.data.billing_variant == billing_variant
             assert project_create.data.hourly_rate == hourly_rate
             assert project_create.data.budget == budget
-            assert sorted(project_create.data.labels) == sorted(labels)
+            assert sorted(project_create.data.tags) == sorted(tags)
             assert project_create.data.info == info
 
     def test_get(self):
@@ -186,7 +186,7 @@ class TestProject(IntegrationTest):
             billing_variant = ProjectBillingVariant.PROJECT
             hourly_rate = 12.5
             budget = 100
-            labels = ["low risk", "low income"]
+            tags = ["low risk", "low income"]
             info = "general information"
 
             project_create = self.moco.Project.create(
@@ -199,7 +199,7 @@ class TestProject(IntegrationTest):
                 billing_variant=billing_variant,
                 hourly_rate=hourly_rate,
                 budget=budget,
-                labels=labels,
+                tags=tags,
                 info=info
             )
 
@@ -220,7 +220,7 @@ class TestProject(IntegrationTest):
             assert project_get.data.billing_variant == billing_variant
             assert project_get.data.hourly_rate == hourly_rate
             assert project_get.data.budget == budget
-            assert sorted(project_get.data.labels) == sorted(labels)
+            assert sorted(project_get.data.tags) == sorted(tags)
             assert project_get.data.info == info
 
     def test_update(self):
@@ -239,7 +239,7 @@ class TestProject(IntegrationTest):
             billing_variant = ProjectBillingVariant.PROJECT
             hourly_rate = 12.5
             budget = 100
-            labels = ["low risk", "low income"]
+            tags = ["low risk", "low income"]
             info = "general information"
 
             project_create = self.moco.Project.create(
@@ -264,7 +264,7 @@ class TestProject(IntegrationTest):
                 billing_variant=billing_variant,
                 hourly_rate=hourly_rate,
                 budget=budget,
-                labels=labels,
+                tags=tags,
                 info=info
             )
 
@@ -287,7 +287,7 @@ class TestProject(IntegrationTest):
             assert project_update.data.billing_variant == billing_variant
             assert project_update.data.hourly_rate == hourly_rate
             assert project_update.data.budget == budget
-            assert sorted(project_update.data.labels) == sorted(labels)
+            assert sorted(project_update.data.tags) == sorted(tags)
             assert project_update.data.info == info
 
     def test_create_contract(self):

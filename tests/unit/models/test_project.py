@@ -20,7 +20,7 @@ class TestProject(UnitTest):
         billing_variant = "project"
         hourly_rate = 124
         budget = 120000
-        labels = ["this", "is", "my", "board"]
+        tags = ["this", "is", "my", "board"]
         custom_properties = {
             "boards": 14
         }
@@ -42,7 +42,7 @@ class TestProject(UnitTest):
             billing_variant=billing_variant,
             hourly_rate=hourly_rate,
             budget=budget,
-            labels=labels,
+            tags=tags,
             custom_properties=custom_properties,
             info=info
         )
@@ -62,7 +62,7 @@ class TestProject(UnitTest):
         assert data["setting_include_time_report"] == setting_include_time_report
         assert data["billing_variant"] == billing_variant
         assert data["hourly_rate"] == hourly_rate
-        assert data["labels"] == labels
+        assert data["tags"] == tags
         assert data["custom_properties"] == custom_properties
         assert data["info"] == info
 
@@ -84,7 +84,7 @@ class TestProject(UnitTest):
         billing_variant = "project"
         hourly_rate = 124
         budget = 120000
-        labels = ["this", "is", "my", "board"]
+        tags = ["this", "is", "my", "board"]
         custom_properties = {
             "boards": 14
         }
@@ -106,7 +106,7 @@ class TestProject(UnitTest):
             billing_variant=billing_variant,
             hourly_rate=hourly_rate,
             budget=budget,
-            labels=labels,
+            tags=tags,
             custom_properties=custom_properties,
             info=info
         )
@@ -125,7 +125,7 @@ class TestProject(UnitTest):
         assert data["setting_include_time_report"] == setting_include_time_report
         assert data["billing_variant"] == billing_variant
         assert data["hourly_rate"] == hourly_rate
-        assert data["labels"] == labels
+        assert data["tags"] == tags
         assert data["custom_properties"] == custom_properties
         assert data["info"] == info
 

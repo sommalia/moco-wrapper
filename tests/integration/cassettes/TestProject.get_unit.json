@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:49:16",
+      "recorded_at": "2021-11-05T13:49:06",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5zRsWrDMBAG4FcJNyvFsmI70twO7dQhU0swqn1NBJFkpPMQgt+9JDQB2QaXrua+33e/Pi9gWlAyk7zcbvKKgdMWQcEOtV1xYND0kbytu+A7DGQwgroMDPqIIYK6eyFKsZXVhsG3CZF+Q9780QGDk358efYIA0tQIVK0w0gperUdhuidJuNdyqWoeMrXqb2mvZ+0c8YdXhyF89MBqfZ0xFBfbxhvw2UaR5Nt9FfTjlUplpR53DAtoEpx78wI3+LGqkhV21t7Xt1OmljjDqvGOwq6oTgJKtOg+2AaM9dVsZlZYZmV2VJZsz9bfJhZtf2PKvnf1J5BE1ATtrUmUJBnebbmfJ2LXSZVkSkhP4BB37ULM8P+JwAA//+YxVXliQMAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":909172730,\"name\":\"Team 1\",\"custom_properties\":{},\"users\":[{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\"}],\"created_at\":\"2021-11-05T13:05:38Z\",\"updated_at\":\"2021-11-05T13:05:38Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "298"
+            "193"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:49:16 GMT"
+            "Fri, 05 Nov 2021 13:49:06 GMT"
           ],
           "Etag": [
-            "W/\"ceebcf88f6bb7b483909350a724c482a\""
+            "W/\"876b578aa051df4c22374300a9e6f6be\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "733a8d41-2e75-4afc-998e-4d8bdffc4ddf"
+            "607ab102-ae04-4740-988c-4985d00f7cb3"
           ],
           "X-Runtime": [
-            "0.041688"
+            "0.027548"
           ],
           "X-Total": [
             "1"

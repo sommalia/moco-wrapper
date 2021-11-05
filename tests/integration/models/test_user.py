@@ -44,6 +44,7 @@ class TestUser(IntegrationTest):
             lastname = "TestUser.test_create_full"
             email = "{}@example.org".format(self.id_generator())
             password = self.id_generator()
+            tags = ["test1", "test2"]
 
             active = False
             external = True
@@ -67,7 +68,8 @@ class TestUser(IntegrationTest):
                 work_phone=work_phone,
                 home_address=home_address,
                 birthday=birthday,
-                info=info
+                info=info,
+                tags=tags
             )
 
             assert user_create.response.status_code == 200
@@ -85,6 +87,7 @@ class TestUser(IntegrationTest):
             assert user_create.data.home_address == home_address
             assert user_create.data.birthday == birthday.isoformat()
             assert user_create.data.info == info
+            assert sorted(user_create.data.tags) == sorted(tags)
 
     def test_get(self):
         unit = self.get_unit()
@@ -159,6 +162,7 @@ class TestUser(IntegrationTest):
             home_address = "gen. dumpster diver area 123"
             birthday = date(2020, 1, 1)
             info = "info for this person"
+            tags = ["test4", "test55"]
 
             user_create = self.moco.User.create(
                 firstname="-",
@@ -182,7 +186,8 @@ class TestUser(IntegrationTest):
                 work_phone=work_phone,
                 home_address=home_address,
                 birthday=birthday,
-                info=info
+                info=info,
+                tags=tags
             )
 
             assert user_create.response.status_code == 200
@@ -202,6 +207,7 @@ class TestUser(IntegrationTest):
             assert user_update.data.home_address == home_address
             assert user_update.data.birthday == birthday.isoformat()
             assert user_update.data.info == info
+            assert sorted(user_update.data.tags) == sorted(tags)
 
     def test_delete(self):
         unit = self.get_unit()

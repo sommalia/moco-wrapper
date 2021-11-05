@@ -51,6 +51,7 @@ class User(MWRAPBase):
         work_phone: str = None,
         home_address: str = None,
         birthday: datetime.date = None,
+        tags: list = None,
         custom_properties: dict = None,
         info: str = None,
     ):
@@ -70,6 +71,7 @@ class User(MWRAPBase):
         :param work_phone: Work phone number (default ``None``)
         :param home_address: Physical home address (default ``None``)
         :param birthday: Birthday date (default ``None``)
+        :param tags: List of additional tags (default ``None``)
         :param custom_properties: Custom fields to add to the user (default ``None``)
         :param info: Additional information about the user (default ``None``)
 
@@ -85,6 +87,7 @@ class User(MWRAPBase):
         :type work_phone: str
         :type home_address: str
         :type birthday: datetime.date, str
+        .type tags: list
         :type custom_properties: dict
         :type info: str
 
@@ -108,6 +111,7 @@ class User(MWRAPBase):
             ("work_phone", work_phone),
             ("home_address", home_address),
             ("bday", birthday),
+            ("tags", tags),
             ("custom_properties", custom_properties),
             ("info", info)
         ):
@@ -135,6 +139,7 @@ class User(MWRAPBase):
         work_phone: str = None,
         home_address: str = None,
         birthday: datetime.date = None,
+        tags: list = None,
         custom_properties: dict = None,
         info: str = None,
     ):
@@ -155,6 +160,7 @@ class User(MWRAPBase):
         :param work_phone: Work phone number (default ``None``)
         :param home_address: Physical home address (default ``None``)
         :param birthday: Birthday date (default ``None``)
+        :param tags: List of additional tags (default ``None``)
         :param custom_properties: Custom fields to add to the user (default ``None``)
         :param info: Additional information about the user (default ``None``)
 
@@ -171,6 +177,7 @@ class User(MWRAPBase):
         :type work_phone: str
         :type home_address: str
         :type birthday: datetime.date, str
+        :type tags: list
         :type custom_properties: dict
         :type info: str
 
@@ -196,6 +203,7 @@ class User(MWRAPBase):
             ("work_phone", work_phone),
             ("home_address", home_address),
             ("bday", birthday),
+            ("tags", tags),
             ("custom_properties", custom_properties),
             ("info", info)
         ):
