@@ -89,7 +89,7 @@ class Company(MWRAPBase):
         address: str = None,
         info: str = None,
         custom_properties: dict = None,
-        labels: list = None,
+        tags: list = None,
         user_id: int = None,
         currency: str = None,
         identifier: str = None,
@@ -115,7 +115,7 @@ class Company(MWRAPBase):
         :param address: Company address (default ``None``)
         :param info: Additional information about the company (default ``None``)
         :param custom_properties: Custom properties dictionary (default ``None``)
-        :param labels: Array of labels (default ``None``)
+        :param tags: Array of tags (default ``None``)
         :param user_id: User Id of the responsible person (default ``None``)
         :param currency: Currency the company uses (only customer) (default ``None``)
         :param identifier: Identifier of the company
@@ -141,7 +141,7 @@ class Company(MWRAPBase):
         :type address: str
         :type info: str
         :type custom_properties: dict
-        :type labels: list
+        :type tags: list
         :type user_id: int
         :type currency: str
         :type identifier: str
@@ -177,7 +177,7 @@ class Company(MWRAPBase):
             ("address", address),
             ("info", info),
             ("custom_properties", custom_properties),
-            ("labels", labels),
+            ("tags", tags),
             ("user_id", user_id),
             ("country_code", country_code),
             ("vat_identifier", vat_identifier),
@@ -221,7 +221,7 @@ class Company(MWRAPBase):
         address: str = None,
         info: str = None,
         custom_properties: dict = None,
-        labels: list = None,
+        tags: list = None,
         user_id: int = None,
         currency: str = None,
         identifier: str = None,
@@ -248,7 +248,7 @@ class Company(MWRAPBase):
         :param address: Company address (default ``None``)
         :param info: Additional information about the company (default ``None``)
         :param custom_properties: Custom properties dictionary (default ``None``)
-        :param labels: Array of labels (default ``None``)
+        :param tags: Array of tags (default ``None``)
         :param user_id: Id of the responsible person (default ``None``)
         :param currency: Currency the company uses (only customer) (default ``None``)
         :param identifier: Identifier of the company (only mandatory when not automatically assigned)
@@ -274,7 +274,7 @@ class Company(MWRAPBase):
         :type address: str
         :type info: str
         :type custom_properties: dict
-        :type labels: list
+        :type tags: list
         :type user_id: int
         :type currency: str
         :type identifier: str
@@ -307,7 +307,7 @@ class Company(MWRAPBase):
             ("address", address),
             ("info", info),
             ("custom_properties", custom_properties),
-            ("labels", labels),
+            ("tags", tags),
             ("user_id", user_id),
             ("currency", currency),
             ("identifier", identifier),

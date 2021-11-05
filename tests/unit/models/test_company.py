@@ -18,8 +18,7 @@ class TestCompany(UnitTest):
         custom_properties = {
             "test": "test"
         }
-
-        labels = ["best", "company", "ever"]
+        tags = ["best", "company", "ever"]
         user_id = 12
         currency = "EUR"
         identifier = "COMP-1"
@@ -38,7 +37,7 @@ class TestCompany(UnitTest):
             address=address,
             info=info,
             custom_properties=custom_properties,
-            labels=labels,
+            tags=tags,
             user_id=user_id,
             currency=currency,
             identifier=identifier,
@@ -59,7 +58,7 @@ class TestCompany(UnitTest):
         assert data["address"] == address
         assert data["info"] == info
         assert data["custom_properties"] == custom_properties
-        assert data["labels"] == labels
+        assert data["tags"] == tags
         assert data["user_id"] == user_id
         assert data["currency"] == currency
         assert data["identifier"] == identifier
@@ -83,8 +82,7 @@ class TestCompany(UnitTest):
         custom_properties = {
             "test": "test"
         }
-
-        labels = ["best", "company", "ever"]
+        tags = ["best", "company", "ever"]
         user_id = 12
         currency = "EUR"
         identifier = "COMP-1"
@@ -103,7 +101,7 @@ class TestCompany(UnitTest):
             address=address,
             info=info,
             custom_properties=custom_properties,
-            labels=labels,
+            tags=tags,
             user_id=user_id,
             currency=currency,
             identifier=identifier,
@@ -123,7 +121,7 @@ class TestCompany(UnitTest):
         assert data["address"] == address
         assert data["info"] == info
         assert data["custom_properties"] == custom_properties
-        assert data["labels"] == labels
+        assert data["tags"] == tags
         assert data["user_id"] == user_id
         assert data["currency"] == currency
         assert data["identifier"] == identifier

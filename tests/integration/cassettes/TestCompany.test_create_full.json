@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:00:03",
+      "recorded_at": "2021-11-05T14:01:08",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"address\": \"test street 1\", \"website\": \"https://mocoapp.com\", \"info\": \"in this company every property is set\", \"custom_properties\": {\"test\": \"test\"}, \"user_id\": 933638919, \"email\": \"email@example.org\", \"name\": \"company every prop set\", \"billing_email_cc\": \"billingcc@example.org\", \"country_code\": \"CH\", \"vat_identifier\": \"CHE123456789\", \"type\": \"customer\", \"billing_tax\": 25.5, \"labels\": [\"these\", \"are\", \"labels\"], \"footer\": \"this is the footer\", \"currency\": \"EUR\", \"fax\": \"12345\", \"phone\": \"12345\", \"invoice_due_days\": 15, \"identifier\": \"2ZAGXM\"}"
+          "string": "{\"name\": \"company every prop set\", \"type\": \"customer\", \"website\": \"https://mocoapp.com\", \"fax\": \"12345\", \"phone\": \"12345\", \"email\": \"email@example.org\", \"billing_email_cc\": \"billingcc@example.org\", \"address\": \"test street 1\", \"info\": \"in this company every property is set\", \"custom_properties\": {\"test\": \"test\"}, \"tags\": [\"these\", \"are\", \"labels\"], \"user_id\": 933653237, \"country_code\": \"CH\", \"vat_identifier\": \"CHE123456789\", \"footer\": \"this is the footer\", \"currency\": \"EUR\", \"identifier\": \"KAMJ2L\", \"billing_tax\": 25.5, \"invoice_due_days\": 15}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "549"
+            "547"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SRT2vcMBTEv4qZs5LY3nh3rVNLCe2ll9JCSQlGKz3vqtiSkJ63MWG/e5Hjpv+gPRn/NPP0NPMEayB323LfNk3dCvAcCBJ6SuxHihBwalyIH4Nyc0FninMRog9FIobANzoky1lyYg5J3tyMXnsVwrX2IwRoVHaAfP6+okc1hoGufTxC4GCHwbpjt5x1WkP+QFr/IQ0n7/IlVb25bSDQq8df/pQxkVKCBFPiInEk4qKCgPaT4zh32ptsf/MOAmfFnTXk2PaW4kLvlknb3b6FAKtjgvwCFQkCgzrQkDI+USI8CEwpu56zazeb7WbfVq1Ab2PiNa68xuJ9IeqgDS4v4/4x3rreQ8K6gk82FX8nT5Hnwqa1gN57Xl6xqG0q+ETFCsXaZLfaLCXIp4uAjqSYTKcYEnVZl1dVdVXffix3sixlubmHwBTMfzW/xVjfv377+X2mjik6yF4NiX7WzLmzurlu8loxktMzJO4+fYCAoV5NA3fWnb3V1JmJOqPmBFk1AiH6r6Q5x/Zw+R4AAP//wAeOebUCAAA=",
+          "base64_string": "H4sIAAAJbogA/4SRS2vcMBSF/4o5a2Vie+J5aNVSAqWPTWk3DcFopOsZFVsS0vU0Jsx/L3Lc9AXNSujTOVeXcx5hDeR2U1Xlbt+UAjwFgoQeE/uBIgScGmbih6DcVNCZ4lSE6EORiCHwnQ7JcpacmEOS19eD116FsNJ+gAANyvaQT+crelBD6Gnl4xECB9v31h3b+a3VGvIn0vovaTh5lz+p6vVNA4FOPfx2U8ZESgkSTImLxJGIiwoC2o+O49Rqb7L9zVsInBW31pBj21mKM72dJ222uz0EWB0T5B1UJAj06kB9yvhEiXAvMKbsespuv15vmnW93gp0NiZe4sprzN5nog7a4PI87j/jres8JKwr+GRT8W/yFHkqbFoK6LznvA9mtU0Fn6hYoFiabBebpQT5eBHQkRSTaRVDoi7r6qqqrsrmc3Ujy0qWu68QGIN5UfNHjO9ff3xXf8jUMUUH2ak+0a+aOXdWN6smrxUjOT1B4vbLJwgY6tTYc2vd2VtNrRmpNWpKkFUjEKL/RpoT5N395ccAjIXBWLUCAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "416"
+            "413"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:00:03 GMT"
+            "Fri, 05 Nov 2021 14:01:08 GMT"
           ],
           "Etag": [
-            "W/\"89a40bc16954c09b775d29c44c2a7562\""
+            "W/\"7080002edc425017a39766a9538e9520\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a2707753-fade-42d3-9bd8-88f3cbeea35a"
+            "4b36bb0a-46cb-4189-a99f-b6cc29bbd97f"
           ],
           "X-Runtime": [
-            "0.106321"
+            "0.283132"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

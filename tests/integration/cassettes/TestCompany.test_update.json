@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:00:08",
+      "recorded_at": "2021-11-05T14:01:14",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"type\": \"customer\", \"name\": \"dummy company, test update\"}"
+          "string": "{\"name\": \"dummy company, test update\", \"type\": \"customer\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yRQW/UMBSE/8pqzi5yNrTd+ExP3BBcQMhy7Jdi5NiR/VyIqv3vyEkWOPVmfxqNZua9wjuoxwd5Ge7veynA60JQsLVwmilDIJq5EVfneT3ZNC8mruLEVPhUF2eYIPCLxuK5ySBAs/EBKtYQBEYfgo/PeoPa2htffqR46Cfze38Y5zKVsn9sqpHzqm1yTffhCQIvhrV3FNlPnvLNis1zgfr2XaCWRvdOQ98/9JehGwQmnwsfNVpuCATzl5jROlwbGikcRj5O6QiXEjfTLdI2il5yWiizpwL1ehWwmQyT04ahcJZnedd1d+f3n+WjklLJy1cI7Eu9rfm/GT5KKYcGI1OOUJMJhf7NyW2zbngnW6qcKdoVCk9fPkHA0WRqYO3jS/KWtKuknVkLVDvwktNPsrwVvf4JAAD//6Q0OLj/AQAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":761108951,\"type\":\"customer\",\"name\":\"dummy company, test update\",\"website\":\"\",\"email\":null,\"billing_email_cc\":null,\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":null,\"tags\":[],\"user\":{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2021-11-05T14:01:13Z\",\"updated_at\":\"2021-11-05T14:01:13Z\",\"identifier\":\"K0006\",\"intern\":false,\"billing_tax\":19.0,\"currency\":\"EUR\",\"default_invoice_due_days\":30,\"projects\":[]}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Content-Length": [
-            "330"
+            "511"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:00:08 GMT"
+            "Fri, 05 Nov 2021 14:01:14 GMT"
           ],
           "Etag": [
-            "W/\"5912aee92581c59eca680391520810a1\""
+            "W/\"70d6fc36fae586d713d49d50eaa40c4f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "e148bdc7-4a48-4e3f-bb37-9c86c0559af2"
+            "224b8b9d-16ce-4428-a9bc-f8c2d9f3654f"
           ],
           "X-Runtime": [
-            "0.118562"
+            "0.215933"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,11 +90,11 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T07:00:09",
+      "recorded_at": "2021-11-05T14:01:14",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"labels\": [\"these\", \"are\", \"the\", \"labels\"], \"website\": \"https://myownwebsite.com\", \"name\": \"test company updated name\"}"
+          "string": "{\"name\": \"test company updated name\", \"website\": \"https://myownwebsite.com\", \"tags\": [\"these\", \"are\", \"the\", \"labels\"]}"
         },
         "headers": {
           "Accept": [
@@ -115,21 +110,21 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "121"
+            "119"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies/760895530"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761108951"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SSQW/cIBCF/8rqnUnCrptkzbk59Va1l1YRwjDOUmFAME5qRfvfK+xNmkvVi2UejzczH7zCO6j7O3nsb287KcBLJijYuXKaqEAgmqkpTJV3Nk3ZxGU3Z2eY3G7dE3ihoXpurhNzrurmZlrSS7zI1zZNEKDJ+AAV5xAEBh+Cj096FbW1b3o+pdhyIDCa39uPca5QrdvCpjlyWbRNrvk+P0Dg2bD2jiL70VN5i2LzVKF+wpTWYjADhQoBPtH2rYRHgbm2ExuGvuvuumO/7wVGXyp/mHxNeFfMYB3O76H/LeLjmC5DpcSt4DrKyljnkjIV9lShXs8CtlBjqw1D4SAP8mq/vzp8+ibvlZRKHn9A4ML/X56+eT4SwRcpZd/EyFQi1GhCpb/XwI31vr+WratSKNoFCg/fv0LA0WjmwNrH5+QtaTeTdmapUO295JJ+keUG4fH8JwAA///YnKxqTgIAAA==",
+          "base64_string": "H4sIAAAJbogA/4SRQW8bIRSE/4o1Z5KAN3Zqzs2pt6q9NIoQhrcxFQsreCRdRf7vFbab+lL1tm92eMN8vCN46IetUvLTbqMEeJkJGq5VzhMVCCQ7dYWp8srlabZpWbXZWya/Ov0TeKN9DdxdB+a56ru7aclv6SLfujxBgCYbInRqMQrsQ4whvZiTaJyDBgTmQ059CwRG++v8Yb0vVOt5cLklLotx2Xff50cIvFo2wVPiMAYqfwLYvlToJ9jSLxjtnmKFAB/6yAeqhGeBVvuJM4TdMGw3w3p4EBhDqXzV+7ThQ7F753H8WPrfkJDGfCmVM/fAXvBM2Mwlz1Q4UIV+Pwq4Qp2ssQyNtVyrG6Vu5OabutdSaTX8gMCF/r88991zTQRfpJTbLiamkqBHGyv9fQTurNXuVgq4Vgolt0Dj8ftXCHgabYtsQnrNwZHxjYy3S4UepMBc8k9yXKGfno+/BwAHLHSmTAIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -147,10 +142,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:00:09 GMT"
+            "Fri, 05 Nov 2021 14:01:14 GMT"
           ],
           "Etag": [
-            "W/\"1590d78ce490a94f627b1b80ad3fe247\""
+            "W/\"ff137e5edd8971a1408c2ca36b0874e0\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -172,10 +167,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "110f9504-b15d-45bb-878c-ce12330f51ae"
+            "a85dd675-f797-46f9-81f4-5334284aa550"
           ],
           "X-Runtime": [
-            "0.167266"
+            "0.262864"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +180,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies/760895530"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761108951"
       }
     }
   ],

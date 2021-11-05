@@ -72,7 +72,7 @@ class TestCompany(IntegrationTest):
             address = "test street 1"
             info = "in this company every property is set"
             custom_properties = {"test": "test"}
-            labels = ["these", "are", "labels"]
+            tags = ["these", "are", "labels"]
             currency = "EUR"
             identifier = self.id_generator()
             billing_tax = 25.5
@@ -92,7 +92,7 @@ class TestCompany(IntegrationTest):
                 address=address,
                 info=info,
                 custom_properties=custom_properties,
-                labels=labels,
+                tags=tags,
                 user_id=user.id,
                 currency=currency,
                 identifier=identifier,
@@ -116,7 +116,7 @@ class TestCompany(IntegrationTest):
             assert company_create.data.billing_email_cc == billing_email_cc
             assert company_create.data.address == address
             assert company_create.data.info == info
-            assert sorted(company_create.data.labels) == sorted(labels)
+            assert sorted(company_create.data.tags) == sorted(tags)
             assert company_create.data.user.id == user.id
             assert company_create.data.currency == currency
             assert company_create.data.identifier is not None
@@ -135,13 +135,13 @@ class TestCompany(IntegrationTest):
 
             name = "test company updated name"
             website = "https://myownwebsite.com"
-            labels = ["these", "are", "the", "labels"]
+            tags = ["these", "are", "the", "labels"]
 
             company_update = self.moco.Company.update(
                 company_id=company_create.data.id,
                 name=name,
                 website=website,
-                labels=labels
+                tags=tags,
             )
 
             assert company_create.response.status_code == 200
@@ -151,7 +151,7 @@ class TestCompany(IntegrationTest):
 
             assert company_update.data.name == name
             assert company_update.data.website == website
-            assert sorted(company_update.data.labels) == sorted(labels)
+            assert sorted(company_update.data.tags) == sorted(tags)
 
     def test_update_full(self):
         user = self.get_user()
@@ -172,7 +172,7 @@ class TestCompany(IntegrationTest):
             address = "test street 1"
             info = "in this company every property is set"
             custom_properties = {"test": "test"}
-            labels = ["these", "are", "labels"]
+            tags = ["these", "are", "tags"]
             currency = "EUR"
             identifier = self.id_generator()
             billing_tax = 25.5
@@ -193,7 +193,7 @@ class TestCompany(IntegrationTest):
                 address=address,
                 info=info,
                 custom_properties=custom_properties,
-                labels=labels,
+                tags=tags,
                 user_id=user.id,
                 currency=currency,
                 identifier=identifier,
@@ -217,7 +217,7 @@ class TestCompany(IntegrationTest):
             assert company_update.data.email == email
             assert company_update.data.address == address
             assert company_update.data.info == info
-            assert sorted(company_update.data.labels) == sorted(labels)
+            assert sorted(company_update.data.tags) == sorted(tags)
             assert company_update.data.user.id == user.id
             assert company_update.data.currency == currency
             assert company_update.data.identifier is not None
