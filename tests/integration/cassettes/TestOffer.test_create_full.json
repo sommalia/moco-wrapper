@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T13:29:47",
+      "recorded_at": "2021-11-05T13:42:23",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"deal_id\": 341631, \"project_id\": 945690433, \"company_id\": null, \"recipient_address\": \"My Customer Address 34\", \"title\": \"TestOffer.test_create_full\", \"tax\": 21.5, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"offer from project title\"}, {\"type\": \"item\", \"title\": \"misc\", \"net_total\": 2000, \"optional\": false}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"change_address\": \"offer\", \"salutation\": \"salute\", \"footer\": \"footer\", \"discount\": 20, \"contact_id\": 569409}"
+          "string": "{\"deal_id\": 341631, \"project_id\": 945690433, \"company_id\": null, \"recipient_address\": \"My Customer Address 34\", \"title\": \"TestOffer.test_create_full\", \"tax\": 21.5, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"offer from project title\"}, {\"type\": \"item\", \"title\": \"misc\", \"net_total\": 2000, \"optional\": false}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"change_address\": \"offer\", \"salutation\": \"salute\", \"footer\": \"footer\", \"discount\": 20, \"contact_id\": 569409, \"tags\": [\"test1\", \"test2\"]}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "479"
+            "507"
           ],
           "Content-Type": [
             "application/json"
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/7RTwW7UMBD9lWjO7spOst6NbwUhuCAQKhdQFbnOpDJK7GCPEasq/46cbLpbQNy4OW/GM+89vzyB7UDty0bKioHt0JHtLQZQcFsKzrkEBp0mBAUlL/kNFze8zFjC9oKLBRfAgCwNGbzDSB/6HsOOMFJrAmrCtk/DAAwCGjtZdNTqrgsYIyh4fypep0h+xFDcrmhR1cDApBDQmRMoePP5EzBwSC150gMoITnfcQakf4IqxW7P4DH4GJ/rTV3nemej8ckRqHLpj6Qp5a0rry4T148R1Nf7vDDTaKfgJwxkMYJ6mhkYP07anUCtnh2kEPx4bAQDp8cs+RXaOFkcirfjwzuYGUzBf0ND242m3suG19XvRn/MRmdPz3Mu1j0itduQmUGHWfO6vqqFrC67X95ZGjPlVV2raXsmIW74/k5UqmxUfdjxUnwBBmnq/t0npcx92zzvXsy7mvBnJeohkSa7VJYPBAa997Sk7HxgYAnH/ACrPHk4Cn5sGNBpyvrWWF3i5XO0ij74sTgbVGwtEcMPa7Bdb7o0DNm5aIKdVhYr9D1pR5ZOoJZEJGdpK+VzOwVr8Fy8StzS7JdJ+TF6PUSc2RXphj+TzpKuOI82mv/Or+T8rxTvGVhHGJweWuMd6atcVpXcV2V1YNDbEOkcw/zfAoNBPyP6wXQwz78GACl/XQE0BAAA",
+          "base64_string": "H4sIAAAJbogA/7RTwY7TMBD9lWjO3sp20rTxbUEILgiElgtoFXmdycoosYM9QVSr/juapN12AXHj5rwZv3nz/PIEvgOz1U291wJ8h4F87zGBgVutpJQNCOgsIRjQUssbqW6kZmzG9oKrBVcggDwNDN5hpg99j2lDmKl1CS1h28/DAAISOj95DNTarkuYMxh4fyhez5niiKm4XdGirECAm1PC4A5g4M3nTyAgILUUyQ5gVC3lRgog+xOMVputgMcUc36uN1XF9c5nF+dAYPTSn8nSzFNXXR0Lt48ZzFdgucsimEnDPc9nVe2U4oSJPGYwT0cBLo6TDQcwq4W7Wim53zdKQLAjO/AKfZ48DsXb8eEdHAVMKX5DR+cbTbWtG1mV5W++f2Tf2eITz8XJR6T2THIU0CFbsI4vK1WXl9kv7yyNLHldtrV0fjWlbuT2TpWm0mzfvmq+gIB56v7VpzfNdsd9Z74YXvBdMfxZyXaYyZJfKssHgoA+RlpCdzoI8IQjv8e6Xr3bK83e0mHi/daUXdIWOWlFn+JYnAwqzi0Z0w/vsF1vhnkY2Lnskp9WFSv0fbaBPB3ALAGZg6dzic/tlLzDU/EqgEtzXJj4MXo7ZDyKa9H6WTSvdKV59Nn9d31ayr9KvBfgA2EKdmhdDGSvclmW9bbU5U5A71OmUwz5fwABg31G7IPr4Hj8NQCUunP3QwQAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "525"
+            "532"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 13:29:47 GMT"
+            "Fri, 05 Nov 2021 13:42:23 GMT"
           ],
           "Etag": [
-            "W/\"bacfefb0e25070e3f0ef6405c50b6ef5\""
+            "W/\"6a703541a779054446e9ea0eab10c310\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "15362df7-564c-4242-b1f8-7a58ff883321"
+            "d2dc6f68-d126-4dc8-9cbd-7aa8ef941db7"
           ],
           "X-Runtime": [
-            "0.713146"
+            "1.266143"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

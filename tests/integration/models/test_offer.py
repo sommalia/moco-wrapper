@@ -383,6 +383,7 @@ class TestOffer(IntegrationTest):
             salutation = "salute"
             footer = "footer"
             discount = 20
+            tags = ["test1", "test2"]
 
             gen = OfferItemGenerator()
             items = [
@@ -408,7 +409,8 @@ class TestOffer(IntegrationTest):
                 salutation=salutation,
                 footer=footer,
                 discount=discount,
-                contact_id=contact.id
+                contact_id=contact.id,
+                tags=tags
             )
 
             assert offer_create.response.status_code == 201
@@ -423,6 +425,7 @@ class TestOffer(IntegrationTest):
             assert offer_create.data.salutation == salutation
             assert offer_create.data.footer == footer
             assert offer_create.data.discount == discount
+            assert sorted(offer_create.data.tags) == sorted(tags)
 
     def test_pdf(self):
         project = self.get_project()

@@ -94,6 +94,7 @@ class TestOffer(UnitTest):
         footer = "footer text"
         discount = 10.2
         contact_id = 3
+        tags = ["test", "another"]
 
         response = self.moco.Offer.create(
             deal_id=deal_id,
@@ -110,7 +111,8 @@ class TestOffer(UnitTest):
             salutation=salutation,
             footer=footer,
             discount=discount,
-            contact_id=contact_id
+            contact_id=contact_id,
+            tags=tags
         )
 
         data = response["data"]
@@ -131,6 +133,7 @@ class TestOffer(UnitTest):
         assert data["footer"] == footer
         assert data["discount"] == discount
         assert data["contact_id"] == contact_id
+        assert sorted(data["tags"]) == sorted(tags)
 
     def test_update_status(self):
         offer_id = 123

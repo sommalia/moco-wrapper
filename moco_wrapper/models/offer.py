@@ -193,6 +193,7 @@ class Offer(MWRAPBase):
         footer: str = None,
         discount: float = None,
         contact_id: int = None,
+        tags: list = None,
         custom_properties: dict = None
     ):
         """
@@ -205,14 +206,15 @@ class Offer(MWRAPBase):
         :param tax: Tax (0.0-100.0)
         :param currency: Currency code used (e.g. EUR, CHF)
         :param items: List of offer items
-        :param company_id: Id of the associated company
-        :param deal_id: Deal id of the offer
-        :param project_id: project id of the offer
+        :param company_id: Id of the associated company (default ``None``)
+        :param deal_id: Deal id of the offer (default ``None``)
+        :param project_id: project id of the offer (default ``None``)
         :param change_address: change offer address propagation (default :attr:`.OfferChangeAddress.OFFER`)
         :param salutation: Salutation text (default ``None``)
         :param footer: Footer text (default ``None``)
         :param discount: Discount in percent (default ``None``)
         :param contact_id: Id of the contact for the offer (default ``None``)
+        :param tags: List of tags (default ``None``)
         :param custom_properties: Dict of custom properties (default ``None``)
 
         :type recipient_address: str
@@ -230,6 +232,7 @@ class Offer(MWRAPBase):
         :type footer: str
         :type discount: float
         :type contact_id: int
+        :type tags: list
         :type custom_properties: dict
 
         :returns: The created offer
@@ -271,6 +274,7 @@ class Offer(MWRAPBase):
             ("footer", footer),
             ("discount", discount),
             ("contact_id", contact_id),
+            ("tags", tags),
             ("custom_properties", custom_properties)
         ):
             if value is not None:
