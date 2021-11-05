@@ -131,7 +131,7 @@ class Schedule(MWRAPBase):
             ("from", from_date),
             ("to", to_date),
             ("user_id", user_id),
-            ("absence_code ", absence_code),
+            ("absence_code", absence_code),
             ("page", page),
         ):
             if value is not None:
