@@ -21,7 +21,7 @@ class TestSchedule(UnitTest):
         assert params["from"] == from_date
         assert params["to"] == to_date
         assert params["user_id"] == user_id
-        assert params["absence_code "] == absence_code
+        assert params["absence_code"] == absence_code
 
         assert response["method"] == "GET"
 
