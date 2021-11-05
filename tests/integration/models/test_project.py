@@ -1,4 +1,4 @@
-from moco_wrapper.util.response import ObjectResponse, PagedListResponse, ListResponse
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse, ListResponse, EmptyResponse
 from moco_wrapper.models.project import ProjectBillingVariant
 from moco_wrapper.models.company import CompanyType
 
@@ -510,3 +510,28 @@ class TestProject(IntegrationTest):
             assert project_create.data.customer.id == customer.id
             assert project_create.data.budget == budget
             assert project_create.data.fixed_price == fixed_price
+
+
+    def test_destroy(self):
+        user = self.get_user()
+        customer = self.get_customer()
+
+        with self.recorder.use_cassette("TestProject.test_delete"):
+
+            project_create = self.moco.Project.create(
+                name="TestProject.test_delete_create",
+                currency="EUR",
+                leader_id=user.id,
+                customer_id=customer.id,
+                finish_date=date(2020, 1, 1),
+            )
+
+            project_delete = self.moco.Project.destroy(
+                project_id=project_create.data.id
+            )
+
+            assert project_create.response.status_code == 200
+            assert project_delete.response.status_code == 200
+
+            assert type(project_create) is ObjectResponse
+            assert type(project_delete) is EmptyResponse

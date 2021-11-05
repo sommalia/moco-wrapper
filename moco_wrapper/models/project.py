@@ -54,7 +54,8 @@ class Project(MWRAPBase):
             Endpoint("project_get", "/projects/{id}", "GET", om.Project),
             Endpoint("project_getlist", "/projects", "GET", om.Project),
             Endpoint("project_assigned", "/projects/assigned", "GET", om.Project),
-            Endpoint("project_report", "/projects/{id}/report", "GET", om.ProjectReport)
+            Endpoint("project_report", "/projects/{id}/report", "GET", om.ProjectReport),
+            Endpoint("project_destroy", "/projects/{id}", "DELETE")
         ]
 
     def __init__(self, moco):
@@ -462,3 +463,28 @@ class Project(MWRAPBase):
         }
 
         return self._moco.get("project_report", ep_params=ep_params)
+
+    def destroy(
+        self,
+        project_id: int
+    ):
+        """
+        Deletes a project. Only possible if there are no activities, invoices, offers or expenses
+
+        :param project_id: Id of the project to delete
+
+        :type project_id: int
+
+        :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
+
+        .. note::
+            Deleting a project is only possible if there are no acitivities, invoices offers or
+            expenses
+        """
+
+        ep_params = {
+            "id": project_id
+        }
+
+        return self._moco.get("project_destroy", ep_params=ep_params)

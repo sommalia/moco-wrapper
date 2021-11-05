@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T13:48:49",
+      "recorded_at": "2021-11-05T14:11:07",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestProject.test_create_full\", \"currency\": \"EUR\", \"leader_id\": 933653237, \"customer_id\": 761108936, \"finish_date\": \"2021-01-01\", \"billing_address\": \"general street 22\", \"billing_email_to\": \"billing@example.org\", \"billing_email_cc\": \"billing-cc@example.org\", \"billing_notes\": \"billing notes text\", \"setting_include_time_report\": true, \"billing_variant\": \"project\", \"hourly_rate\": 12.5, \"budget\": 100, \"tags\": [\"low risk\", \"low income\"], \"info\": \"general information\", \"fixed_price\": false}"
+          "string": "{\"name\": \"TestProject.test_create_full\", \"currency\": \"EUR\", \"leader_id\": 933653237, \"customer_id\": 761108966, \"finish_date\": \"2021-01-01\", \"billing_address\": \"general street 22\", \"billing_email_to\": \"billing@example.org\", \"billing_email_cc\": \"billing-cc@example.org\", \"billing_notes\": \"billing notes text\", \"setting_include_time_report\": true, \"billing_variant\": \"project\", \"hourly_rate\": 12.5, \"budget\": 100, \"tags\": [\"low risk\", \"low income\"], \"info\": \"general information\", \"fixed_price\": false}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/7RUwW7bMAz9lYC7uoFkO26j0y7FrsXQXTYMgiLTqRZZMii6TVHk3wclcZJ1W4FhG+AL6afHJ74HvYBrQS3rRbMUdVMW4FoM7DqHBAruSinEAgoIpkdQcI+J7yh+Q8tzxsTaEhpG3Y3eQwHGsntEUEwjFrBy3puVP9Wd22KrB3IWQXXGp30vuPSgW8OZvhSlvBL5gwLsSITBPoOC208f4cDnwlo/GnImMCgYDlIu/pm2JUwJFKwxIBk/S0yIPCvLCxT2xnnNEdTUeo9b0w8e55HWPwGtPQOvrP0NNkTGdAbO9vWMcZv1JWTO2l2wfmxRs+tREw6ReFrPamzXyKCkEHMxlRq3A4aUiffdhziSf9a035cs54sCXOjixX1zSb1hF0NeYvQxG/mu68rG3EABbNYJ1Bfw8Wnmgo09QrEvyKUNfC3AmxX6tyF2TBx7PVAckNhldS+7AjyaFgnUMVNV1SyqsrrOLlPiY4RybDKdOXXMyrawm1jPBNeNlOJmWTW/jN8aWZ9O7PK90iarPgyXor5eVLU4Hd2ndsMeHY9hsu0yna+yezQjjN6/3nr2Z1f8MEee5twGfnJ24//DkPI05AOZzm3+/hLZyhiYjOXz6uqmko0shSxgTEj6z738F7paNH5CHB6ZVhue3ggpr8TiXlaqvlH18jMUMA75DXkLs/s+ALkObITrBAAA",
+          "base64_string": "H4sIAAAJbogA/7RUwW7bMAz9lYC7qoFlx06r0y7FrsXQXTYMgiLTqRZZMii6TVHk3wclcZJ1W4FhG+AL6Sfy6b0HvYBrQd0s6uamqMtSgGsxsOscEii4K2UhlyAgmB5BwT0mvqP4DS3PGRNrS2gYdTd6DwKMZfeIoJhGFLBy3puVP9Wd22KrB3IWQXXGp30vuPSgW8N5fFmU8qrIHwiwIxEG+wwKbj99hMM8F9b60ZAzgUHBcKBy8c+0LWFKoGCNAcn4WWJC5FlZXqCwN85rjqCm1nvcmn7wOI+0/glo7Rl4Ze1vsCEypjNwtq9njNvMLyFz5u6C9WOLml2PmnCIxJM8q7FdI4OSRTEvplLjdsCQ8uB99yGO5J817fWS5bwW4EIXL+6bS+oNuxiyiNHHbOS7risbcw0C2KwTqC/g49PMBRt7BLEvyKUNfBXgzQr92xA7Jo69HigOSOwyu5edAI+mRQJ1zFRVNXVVVsvsMiU+RijHJo8zp45Z2RZ209TzgGUjZXF90zS/jN8aWZ9O7PK90iazPiyXxWJZL6vF6eg+tRv26HgMk22X6XyV3aMZYfT+terZn534YU992nMb+MnZjf8PS846fCDTuc3fXyJbGQOTsXyWbtFUspFVKQWMCUn/uZf/gleLxk+IwyPTasPTGyHlVVHfy4WSUhXLzyBgHPIb8hZm930A4xV04OsEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -47,16 +47,16 @@
             "gzip"
           ],
           "Content-Length": [
-            "531"
+            "530"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 13:48:49 GMT"
+            "Fri, 05 Nov 2021 14:11:07 GMT"
           ],
           "Etag": [
-            "W/\"25c9b08c4552b600a47f26a7072726b3\""
+            "W/\"1adf7eed7d93559098ff81b1432245bf\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "25594034-6d27-4de4-89f4-b0c2f5d37f65"
+            "52f9b793-5514-4215-8521-930cbace590e"
           ],
           "X-Runtime": [
-            "0.139444"
+            "0.137822"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

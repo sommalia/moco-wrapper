@@ -249,3 +249,12 @@ class TestProject(UnitTest):
         )
 
         assert response["method"] == "GET"
+
+    def test_destroy(self):
+        project_id = 132
+
+        response = self.moco.Project.destroy(
+            project_id=project_id
+        )
+
+        assert response["method"] == "DELETE"

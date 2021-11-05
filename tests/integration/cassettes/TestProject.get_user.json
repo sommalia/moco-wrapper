@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T13:48:36",
+      "recorded_at": "2021-11-05T14:10:54",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -32,30 +32,35 @@
       },
       "response": {
         "body": {
+          "base64_string": "H4sIAAAJbogA/9zSzW7aQBAH8Fep5rwgm7VD2VMeoQd6IYpWY+8Am+6HNTtO8yHevbKgVYkUEa7cPKO/Lc3v74d38A7MSuu7Vi/0UsHWc5GEkcCAUBFQEPDfBrvegQLsxT8TGOGRFNCLECcwWwxlGiP6cHp7yt93rznOHYGCmDsfyA77nKbvg4LfmX/9P+9zJIvOMZVy3Pi0zcenzrPsHb6CSWMICvAZBdmOHP5uBHcFzMOjgn4skqMdOA/E4qmAeT8oGJMXMKejq1W9XCx1peB03ZowfqvhoKBnQiFnUcDAolrUs7qeVe261qZqjf6+AQXj4D7LNCvT6g0c1BlvU53zzs5t11TkB+cn6mW+I7FZ9sR2LMRfFc/ljQLd0wvGIdA88+5GzJuVqZaXzafMR/P6ovnPQjyfflZ7bP2r2skJt7eo3Tam0Re0T5mP2ndXaA/E28wRU0+Wach8bQE6PXVv7hYLaI2uLhXQGl1t4PD4ZwAFUinawwUAAA==",
           "encoding": "utf-8",
-          "string": "[{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909172730,\"name\":\"Team 1\"},\"created_at\":\"2021-11-05T13:05:38Z\",\"updated_at\":\"2021-11-05T13:29:33Z\"}]"
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
+          "Content-Encoding": [
+            "gzip"
+          ],
           "Content-Length": [
-            "352"
+            "379"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 13:48:36 GMT"
+            "Fri, 05 Nov 2021 14:10:54 GMT"
           ],
           "Etag": [
-            "W/\"669b91ceda0fc0f4dd6dcb8efc42aabc\""
+            "W/\"09b7ea727a29bf8983cffd08b9ad0cf9\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin"
+            "Origin",
+            "Accept-Encoding"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -76,13 +81,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "7ddcc6d5-aa7a-44ad-a896-9f3e3f851a16"
+            "01862317-011b-47c1-a7d6-844b360adfbd"
           ],
           "X-Runtime": [
-            "0.044368"
+            "0.158150"
           ],
           "X-Total": [
-            "1"
+            "4"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
