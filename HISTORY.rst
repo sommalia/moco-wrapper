@@ -2,12 +2,19 @@
 History
 =======
 
+0.11.1 (2022-04-05)
+-------------------
+
+* Create deals with tags
+* Getlist of companies with terms
+
+
 0.11.0 (2021-11-05)
 -------------------
 
 * Added support of project destruction
 * Added extended service period parameters to project expenses
-* Added creating project expeneses with files
+* Added creating project expenses with files
 * Added seconds parameter to activity update for more detailed logging
 * Added purchase drafts
 * Renamed labels to tags
