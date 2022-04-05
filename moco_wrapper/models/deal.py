@@ -74,6 +74,7 @@ class Deal(MWRAPBase):
         info: str = None,
         status: DealStatus = DealStatus.PENDING,
         closed_on: datetime.date = None,
+        tags: list = None,
         custom_properties: dict = None
     ):
         """
@@ -89,6 +90,7 @@ class Deal(MWRAPBase):
         :param info: Additional information (default ``None``)
         :param status: Current state of the deal (default :attr:`.DealStatus.PENDING`)
         :param closed_on: Date the deal was closed on (default ``None``)
+        :param tags: List of tags (default ``None``)
         :param custom_properties: Dict of custom properties (default ``None``)
 
         :type name: str
@@ -101,6 +103,7 @@ class Deal(MWRAPBase):
         :type info: str
         :type status: :class:`.DealStatus`, str
         :type closed_on: datetime.date, str
+        :type tags: list
         :type custom_properties: dict
 
         :returns: The created deal object
@@ -128,6 +131,7 @@ class Deal(MWRAPBase):
             ("info", info),
             ("status", status),
             ("closed_on", closed_on),
+            ("tags", tags),
             ("custom_properties", custom_properties)
         ):
             if value is not None:
@@ -151,6 +155,7 @@ class Deal(MWRAPBase):
         info: str = None,
         status: DealStatus = None,
         closed_on: datetime.date = None,
+        tags: list = None,
         custom_properties: dict = None
     ):
         """
@@ -167,6 +172,7 @@ class Deal(MWRAPBase):
         :param info: Additional information (default ``None``)
         :param status: Current state of the deal (default ``None``)
         :param closed_on: Date the deal was closed on (default ``None``)
+        :param tags: List of tags (default ``None``)
         :param custom_properties: Dict of custom properties (default ``None``)
 
         :type deal_id: int
@@ -180,6 +186,7 @@ class Deal(MWRAPBase):
         :type info: str
         :type status: :class:`.DealStatus`, str
         :type closed_on: datetime.date, str
+        :type tags: list
         :type custom_properties: dict
 
         :returns: The updated deal object
@@ -205,6 +212,7 @@ class Deal(MWRAPBase):
             ("info", info),
             ("status", status),
             ("closed_on", closed_on),
+            ("tags", tags),
             ("custom_properties", custom_properties)
         ):
 

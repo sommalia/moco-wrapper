@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-18T15:36:25",
+      "recorded_at": "2022-04-05T15:22:36",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestDeal.test_get_create\", \"currency\": \"EUR\", \"money\": 210, \"user_id\": 933643740, \"deal_category_id\": 74697, \"reminder_date\": \"2020-01-10\", \"status\": \"won\"}"
+          "string": "{\"name\": \"TestDeal.test_get_create\", \"currency\": \"EUR\", \"money\": 210, \"user_id\": 933662266, \"deal_category_id\": 90586, \"reminder_date\": \"2020-01-10\", \"status\": \"won\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -36,26 +36,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":278269,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2021-03-18\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":74697,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2021-03-18T15:36:25Z\",\"updated_at\":\"2021-03-18T15:36:25Z\"}"
+          "string": "{\"id\":385427,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2022-04-05\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-05T15:22:36Z\",\"updated_at\":\"2022-04-05T15:22:36Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "430"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 18 Mar 2021 15:36:25 GMT"
+            "Tue, 05 Apr 2022 15:22:36 GMT"
           ],
           "Etag": [
-            "W/\"601499770a98bf6a775918ae5fd7f53d\""
+            "W/\"39a475bbd60e103ced0eaf6b76244c9a\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "50c145be-c6b2-4988-9567-a59845fa9fc1"
+            "9722ad9c-efc3-435b-bbe0-544e9f0f9f50"
           ],
           "X-Runtime": [
-            "0.055407"
+            "0.141316"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2021-03-18T15:36:26",
+      "recorded_at": "2022-04-05T15:22:36",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -113,35 +113,35 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/278269"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/385427"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":278269,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2021-03-18\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":74697,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2021-03-18T15:36:25Z\",\"updated_at\":\"2021-03-18T15:36:25Z\"}"
+          "string": "{\"id\":385427,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2022-04-05\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-05T15:22:36Z\",\"updated_at\":\"2022-04-05T15:22:36Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "430"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 18 Mar 2021 15:36:26 GMT"
+            "Tue, 05 Apr 2022 15:22:36 GMT"
           ],
           "Etag": [
-            "W/\"601499770a98bf6a775918ae5fd7f53d\""
+            "W/\"39a475bbd60e103ced0eaf6b76244c9a\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -159,10 +159,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "bc6db2d0-12a0-470e-b678-7a26bc8a6246"
+            "408de632-4373-40cb-b0cb-bf5d4345a9ca"
           ],
           "X-Runtime": [
-            "0.330641"
+            "0.029623"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -172,7 +172,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/278269"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/385427"
       }
     }
   ],

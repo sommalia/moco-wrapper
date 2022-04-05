@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-18T15:36:37",
+      "recorded_at": "2022-04-05T15:22:48",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestDeal.test_update_create\", \"currency\": \"EUR\", \"money\": 0, \"user_id\": 933643740, \"deal_category_id\": 74697, \"reminder_date\": \"2000-01-01\", \"status\": \"pending\"}"
+          "string": "{\"name\": \"TestDeal.test_update_create\", \"currency\": \"EUR\", \"money\": 0, \"user_id\": 933662266, \"deal_category_id\": 90586, \"reminder_date\": \"2000-01-01\", \"status\": \"pending\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -36,26 +36,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":278270,\"name\":\"TestDeal.test_update_create\",\"status\":\"pending\",\"reminder_date\":\"2000-01-01\",\"closed_on\":\"\",\"money\":0.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":74697,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2021-03-18T15:36:37Z\",\"updated_at\":\"2021-03-18T15:36:37Z\"}"
+          "string": "{\"id\":385428,\"name\":\"TestDeal.test_update_create\",\"status\":\"pending\",\"reminder_date\":\"2000-01-01\",\"closed_on\":\"\",\"money\":0.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-05T15:22:47Z\",\"updated_at\":\"2022-04-05T15:22:47Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "425"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 18 Mar 2021 15:36:37 GMT"
+            "Tue, 05 Apr 2022 15:22:47 GMT"
           ],
           "Etag": [
-            "W/\"74e58eb627f59468d5af7dc2f96a336e\""
+            "W/\"857a4dc1264d39aed0ff740888370135\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "1ecf7269-5c02-4a1b-8a97-1732af53e62d"
+            "61c3ae47-ea64-4337-bf4b-18224c5ba0a6"
           ],
           "X-Runtime": [
-            "0.052383"
+            "0.127231"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,11 +90,11 @@
       }
     },
     {
-      "recorded_at": "2021-03-18T15:36:37",
+      "recorded_at": "2022-04-05T15:22:48",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestDeal.test_update\", \"currency\": \"EUR\", \"money\": 400, \"reminder_date\": \"2020-01-01\", \"user_id\": 933643740, \"deal_category_id\": 74697, \"company_id\": 760975931, \"info\": \"updated info\", \"status\": \"dropped\", \"closed_on\": \"2021-01-01\"}"
+          "string": "{\"name\": \"TestDeal.test_update\", \"currency\": \"EUR\", \"money\": 400, \"reminder_date\": \"2020-01-01\", \"user_id\": 933662266, \"deal_category_id\": 90586, \"company_id\": 761252043, \"info\": \"updated info\", \"status\": \"dropped\", \"closed_on\": \"2021-01-01\", \"tags\": [\"these\", \"update\", \"other\"]}"
         },
         "headers": {
           "Accept": [
@@ -110,21 +110,21 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "242"
+            "280"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/278270"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/385428"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/4SQTWvzMBCE/8rLnJUgf8SOdX576q2kl5ZiFGsTRG1JSOuDCfnvxflwCoX2Zmt3np2ZE6yByuttXksBpweCwo4S/yfdr5kSt2MwmgkCiTWPCQom+hDIQCDSYJ2h2F5WFHKZy5XMVjKDQNf7RKb17jrIlsHgHU1QpZRrKdCNMZLrJig8vb5AwLqDh8L1rvl3+RVgfUxQ7x+zILEf2hB9oMiWEtTpLDAmilDXQE1RVGVRl1LgYGPiW7A5DwR6vbzofWdwFggU02zUjX1/v/DA1ZVs6k1TZD8rOhK3nR+CdtPMuX/efHwT8hRmCwv6b5RmOvr4YJVVUy+qZ+9Yf7KlSA4CIfq93tve8gSVzepIc3ut5qX9YpVtd9lGFZUq6jeIe8O/7Jy/BgBVNgsEIAIAAA==",
+          "base64_string": "H4sIAAAJbogA/4SRvW7cMBCEXyWYmjIo6scy66RKFziNg0DgieszEYkkyFUhGPfuAa07pTgE7rTa3W9nhu9wFroZulYNAt4sBI1nyvyVzPzAlHlcozVMEMhseM3QsCnESBYCiRbnLaXxY0RDSSUrWVeyhsA0h0x2DH5v1EdjCZ426FbKBykwrSmRnzZofPv5AwLOvwZo7Hftl49SgM05Q/9C4DdKpX6jXFRd5f0uoMxhGWMKkRI7ytDvF4E1U4LejT41Td8r1fcCry5lvhouPiEwm+OPOU0WF4FIKRcDfp3n24V/uMe+Vp2SbXMf3Zl4nMISjd8K5/Z5v8hbLBIO9Ocow3QO6WA9yW7oj63vwbP5w44SeQjEFE7m5GbHG3RdthOVVEfD+6uoSraV7J7rTiul28eXI9L/zgwvuPwdAOWAZbA4AgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -135,20 +135,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "313"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 18 Mar 2021 15:36:37 GMT"
+            "Tue, 05 Apr 2022 15:22:48 GMT"
           ],
           "Etag": [
-            "W/\"75993b21846cf6f414b7a0ad814daf74\""
+            "W/\"a078d42dabb0dd358ea762c21dc399ea\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -167,10 +167,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "e5874de1-7598-4bbf-827d-7cef303558b4"
+            "9c4d936c-d998-46eb-8502-2fbe3077be76"
           ],
           "X-Runtime": [
-            "0.055440"
+            "0.208557"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -180,7 +180,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/278270"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/385428"
       }
     }
   ],
