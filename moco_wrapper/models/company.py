@@ -348,6 +348,7 @@ class Company(MWRAPBase):
     def getlist(
         self,
         company_type: CompanyType = None,
+        term: str = None,
         tags: list = None,
         identifier: str = None,
         sort_by: str = None,
@@ -358,6 +359,7 @@ class Company(MWRAPBase):
         Get a list of company objects.
 
         :param company_type: Type of company to filter for (default ``None``)
+        :param term: Term to search for (default ``None``)
         :param tags: List of tags (default ``None``)
         :param identifier: Company identifier (default ``None``)
         :param sort_by: Field to sort by (default ``None``)
@@ -378,6 +380,7 @@ class Company(MWRAPBase):
         params = {}
         for key, value in (
             ("type", company_type),
+            ("term", term),
             ("tags", tags),
             ("identifier", identifier),
             ("page", page)
