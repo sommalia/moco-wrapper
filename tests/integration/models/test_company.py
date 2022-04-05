@@ -258,6 +258,20 @@ class TestCompany(IntegrationTest):
             assert company_getlist.total is not None
             assert company_getlist.page_size is not None
 
+    def test_getlist_with_term(self):
+        with self.recorder.use_cassette("TestCompany.test_getlist_with_term"):
+            company_getlist = self.moco.Company.getlist(term="test term")
+
+            assert company_getlist.response.status_code == 200
+
+            assert type(company_getlist) is PagedListResponse
+
+            assert company_getlist.current_page == 1
+            assert company_getlist.is_last is not None
+            assert company_getlist.next_page is not None
+            assert company_getlist.total is not None
+            assert company_getlist.page_size is not None
+
     def test_create_supplier_with_iban(self):
         with self.recorder.use_cassette("TestCompany.test_create_supplier_with_iban"):
             iban = "FI0342541877156574"  # random iban

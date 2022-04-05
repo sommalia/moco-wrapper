@@ -348,9 +348,9 @@ class Company(MWRAPBase):
     def getlist(
         self,
         company_type: CompanyType = None,
-        term: str = None,
         tags: list = None,
         identifier: str = None,
+        term: str = None,
         sort_by: str = None,
         sort_order: str = 'asc',
         page: int = 1
@@ -380,9 +380,9 @@ class Company(MWRAPBase):
         params = {}
         for key, value in (
             ("type", company_type),
-            ("term", term),
             ("tags", tags),
             ("identifier", identifier),
+            ("term", term),
             ("page", page)
         ):
             if value is not None:
