@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2022-04-05T15:22:54",
+      "recorded_at": "2022-04-17T06:50:42",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -36,7 +36,7 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":385429,\"name\":\"TestDeal.test_create\",\"status\":\"pending\",\"reminder_date\":\"2020-01-01\",\"closed_on\":\"\",\"money\":200.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-05T15:22:53Z\",\"updated_at\":\"2022-04-05T15:22:53Z\"}"
+          "string": "{\"id\":388481,\"name\":\"TestDeal.test_create\",\"status\":\"pending\",\"reminder_date\":\"2020-01-01\",\"closed_on\":\"\",\"money\":200.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-17T06:50:42Z\",\"updated_at\":\"2022-04-17T06:50:42Z\"}"
         },
         "headers": {
           "Cache-Control": [
@@ -46,10 +46,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 05 Apr 2022 15:22:54 GMT"
+            "Sun, 17 Apr 2022 06:50:42 GMT"
           ],
           "Etag": [
-            "W/\"8b0123282bc6a12e929fc1f07861a323\""
+            "W/\"8b0a5bbc65b3a3da2b29d80a81c9f3da\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "947aa065-6962-4ea7-b01d-c385d4ae753d"
+            "082396f6-18d7-4526-a49e-7bf8f794eda1"
           ],
           "X-Runtime": [
-            "0.061566"
+            "0.065920"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

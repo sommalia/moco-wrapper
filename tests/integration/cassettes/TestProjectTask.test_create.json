@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T09:00:14",
+      "recorded_at": "2022-04-17T06:58:48",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -31,31 +31,31 @@
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945640440/tasks"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892375/tasks"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":9976478,\"name\":\"TestProjectTask.test_create\",\"billable\":true,\"active\":true,\"budget\":null,\"hourly_rate\":0.0,\"created_at\":\"2021-09-20T09:00:14Z\",\"updated_at\":\"2021-09-20T09:00:14Z\"}"
+          "string": "{\"id\":12540285,\"name\":\"TestProjectTask.test_create\",\"billable\":true,\"active\":true,\"budget\":null,\"hourly_rate\":0.0,\"created_at\":\"2022-04-17T06:58:48Z\",\"updated_at\":\"2022-04-17T06:58:48Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "185"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 09:00:14 GMT"
+            "Sun, 17 Apr 2022 06:58:48 GMT"
           ],
           "Etag": [
-            "W/\"fb166d3522ecf03f8c5bdbecc2e88923\""
+            "W/\"4f864d56d528d79401a8e8e1ab239690\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "07fb9ef3-1eb2-40fb-ab0e-e3a5eeb08278"
+            "dc530bb8-757b-4663-81e8-d521e1d0b771"
           ],
           "X-Runtime": [
-            "0.023568"
+            "0.028215"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -86,7 +86,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945640440/tasks"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892375/tasks"
       }
     }
   ],

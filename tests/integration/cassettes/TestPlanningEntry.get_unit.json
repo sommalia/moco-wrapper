@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:39:04",
+      "recorded_at": "2022-04-17T07:14:15",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/5zRzWrEIBDA8VcJc3ZBY7703Et7zqllWWxiW6Fq0MmhLHn30qW7oAlk2WuY3z/D+HYGM4IUVLCmq8qWgFNWg4ReK1swIDDMEb09TcFPOqDREeR5ITBHHSLIq+e84Z1oKwIfJkT8j7z4LwcEvtXty5PXsJAE1TxFvY6Yomc76RC9U2i8yzkTKccVV+/DmKuG7ylz++l64zbFszMZvuRyVadqnK39Kf7uuLbGfRaDdxjUgHEVatLQdTDNXMK5rDZWuIN1e8faVLsPs6Ua9pCi96kjgSFohXo8KQQJJS3pgbFDyXsqZE0lF69AYJ7GnZnl+BsAAP//y/KZ8DoDAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":909175374,\"name\":\"Team 1\",\"custom_properties\":{},\"users\":[{\"id\":933662729,\"firstname\":\"John\",\"lastname\":\"Doe\",\"email\":\"xrdr964slo@example.org\"},{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\",\"email\":\"<DOMAIN>@byom.de\"}],\"created_at\":\"2022-04-05T14:52:48Z\",\"updated_at\":\"2022-04-05T14:52:48Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "263"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:39:04 GMT"
+            "Sun, 17 Apr 2022 07:14:15 GMT"
           ],
           "Etag": [
-            "W/\"ee093aa2dd09a859572fab3ece68844c\""
+            "W/\"847bd157d32431ba1d788ab15a56b394\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "ce1263dc-4fa4-45b4-97e9-5512ad23a821"
+            "cbcad8cf-5661-4e55-a298-3225f8d3eac3"
           ],
           "X-Runtime": [
-            "0.038306"
+            "0.027810"
           ],
           "X-Total": [
             "1"

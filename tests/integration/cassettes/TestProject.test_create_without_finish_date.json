@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T14:12:06",
+      "recorded_at": "2022-04-17T07:16:42",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestProject.test_create_without_finish_date_create\", \"currency\": \"EUR\", \"leader_id\": 933653237, \"customer_id\": 761108966, \"fixed_price\": false}"
+          "string": "{\"name\": \"TestProject.test_create_without_finish_date_create\", \"currency\": \"EUR\", \"leader_id\": 933662266, \"customer_id\": 761263122, \"fixed_price\": false}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/7STT28bIRDFv8v0SiLY9a5j7lGvUZVeWkUIw6xNjWEFQ/4o8nev8NobJ6pUVW1vuw/4zWPe8ArOglwtun7Fu5YzcBYDucFhAgl3jeBNBwyC3iNIuMdMdyn+QEPXhJmUSagJ1ZOjbSykBhdc3ipbtWkJGGhD7hFBUirIYO2812s//w/uGa0akzMIctA+H7UZAzIU7xmYkhIG8wISbr9+gYnjwkY96uR0IJAwTsYu1rS1CXMGCRci7rXziuKZfAZNujEf9RAJ81nMSFRFF4wvFhW5PaqEY0w0u18Xu0GaMcc/hc8jhlxB/Joz2MaS/ItKxxseFReGOBk10cfa/E/D0PT6BhiQ3mSQ3x8YeL1Gf/o2JVPcqzHFERO5yn49MPCobQ3vlGzb9l3btMva1ZTpFGQNDypuVvTaWDicqW+AZS8Ev1n1/S+HYIOk5hOH6jTvqr2puOCLZbfsVvPR4+zsyKOjEjanUC6n4cOsvOvku54Jzq/5gV3W6flc5zbQkzM7/x+KiLnI56QHt/v7SzwwMDFQ0obeWrfoW9GLtm0YlIxJ/XmW/8KXRe3PO6b3bJWub63hjbgS4op392IhRSN5/w0YlNH+Zs/h5wAahDK0cQQAAA==",
+          "base64_string": "H4sIAAAJbogA/6xTXW/bIBT9L3evNMLYdRLeq71WU/eyqUIErhMWAhZc90NV/vtEHLtJNWma1jf7AOcczrm8gbMg183tai3q1YqBsxjIdQ4TSLgXgtctMAj6gCDhATPdp/gLDS0IMymTUBOqZ0e7OJDqXHB5p2zBxiVgoA25JwRJaUAGG+e93vj5v3MvaFWfnEGQnfb5hM00IMPgPQMzpITBvIKEu+/fYORxYauedHI6EEjoR2MXa9rahDmDhAsQD9p5RXFinohG3JiPeIiEeQIzEhXQBeMHi4rcAVXCPiaa3W8Gu0WaaU5/Cl96DLkQ8QVnsItD8q8qnW54Qlzo4mjURB9L+F+6TrR6BQxIbzPIn48MvN6gP3+bIVM8qD7FHhO5wv12ZOBR21Leudm6blsh2rakmjKdiyzlQaGbEb0xFo4MTFQTw5R8kXlnXLaVaOtKiD9OxRZJzSeOxXreF7+jm0rcNrwWq/noaZj25NHRELbnli7H48PwXEV7FWLF+YIf2ZXOeta5C/TszN5/vkjNZ5GvSXdu//+XeCwtBEra0Ht0TdvwthIluyFjUv9e7mf4sqj9tGN84Fbp8vgEF+KGNzfV8oEvZdXKRvwABkNv/7Ln+HsAsa4Nf4IEAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "475"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 14:12:06 GMT"
+            "Sun, 17 Apr 2022 07:16:42 GMT"
           ],
           "Etag": [
-            "W/\"5513a51d51fbce4d6d1fad3a66ccc779\""
+            "W/\"777bc008b77275236978726517b3e027\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6ac0709f-7c3a-4bfc-9a29-6f00c1ca59f5"
+            "4f96c24b-d972-42d9-a344-0d5ed7a06368"
           ],
           "X-Runtime": [
-            "0.137499"
+            "0.082157"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

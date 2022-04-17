@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-28T15:05:28",
+      "recorded_at": "2022-04-17T06:51:50",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"status\": \"created\", \"tax\": 8.0, \"service_period_to\": \"2019-12-31\", \"currency\": \"EUR\", \"title\": \"TestInvoice.test_create\", \"service_period_from\": \"2019-12-01\", \"customer_id\": 760900795, \"change_address\": \"invoice\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit\": \"hours\", \"title\": \"Service\", \"quantity\": 2, \"unit_price\": 65, \"net_total\": 130, \"type\": \"item\"}], \"date\": \"2018-09-17\", \"recipient_address\": \"My Customer Address 22\", \"tags\": [], \"due_date\": \"2018-10-16\"}"
+          "string": "{\"customer_id\": 761263108, \"recipient_address\": \"My Customer Address 22\", \"date\": \"2018-09-17\", \"due_date\": \"2018-10-16\", \"service_period_from\": \"2019-12-01\", \"service_period_to\": \"2019-12-31\", \"title\": \"TestInvoice.test_create\", \"tax\": 8.0, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"type\": \"item\", \"title\": \"Service\", \"quantity\": 2, \"unit\": \"hours\", \"unit_price\": 65, \"net_total\": 130}], \"status\": \"created\", \"change_address\": \"invoice\", \"tags\": []}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTwW7bOhD8FWPPlB/JxLLN20NRoAXaS5peWgQEQ64TthKpkqugQpF/LyjJtlID6aU3emZ2dzy7+gXegRJyJ/imZmD7TLHFpAu6rfme8+1+w6BL8RtaGuHQNw0D7zCQP3hMoOBGcs6FAAbOEIICycWu4vtKbAvWo17igleiBgYZ05O3qDtMPjpQIOR/kov9BaUPKbZT9b4SsuLiUkJxIbgaBWSoz6DAJjSEDhgkfMKUTQPqYJqMDMhTU3zdYqb34Sl6i2vCTHqqGUus7zwG0sa5hLk0/Dis3sxBrf6f0JWUUOJLCYMdQMHbzzfAICBpilQmiiu+5gzI/AS1K6+HFHM+sdd8fc3A+WxjHwjUKLYmP+rXMO3MkGfC4b0nHfr2vuxk2pJN6C7AJtrv6M4ZmIcM6usdOwalDY1ZSl4JUcndrdgovlFy+wUY9J17TbMrmmOfGF5oFtWXTDZNT4b8yACDQ4w03hYw8IRtsTgday12db2XDGjoyu6mHZ53+S72KZezw2yT76aW0z//0ZtAnoY5sT54OlLlrbvkLc7kYnV8zZ/ZcvjVafhyyMnC1PHFfPjgM/nwsIqHlWma1eNs8l85uj45KmEt0vg0fSZ/y0Oep8PR29JAvfnDwXjOz3cMOjO0GGg+oYStDw7T+PP5dwAAAP//bC+Cl14EAAA=",
+          "base64_string": "H4sIAAAJbogA/6xUTW/bOBD9K8acaS9J24ql22KxwC7QXtL00iIgGHLssJVJlRwZNQL/94KmrChxP4CiN/rNmPPem0c9gbPQSCnr1WbDwPSJwh6jyuhNJWS1FHzDoIvhExo6w75vWwbOoie3dRihgVspOecrYGA1ITQgudjMeT0XNxnrUU1xweeiAgYJ48EZVB1GFyw0IORfkov6qqS2MezLrfVcyDkX1y0UJg3LcwNp6hM0YCJqQgsMIh4wJrTQbHWb8ALoVjl/CJnLs8BL6VUv2u/0kqM2y7vDRP+XmxaEiVQZfZ5sXOfQk9LWRkyZ19vj7J/B79nfBZ1JCXkLMaI3R2jg3/e3wMAjKQqUyYglX3AGpL9Cs8mngyZoyhrX9UbIaW3Qq8yjjjsclThPUSvsB+DEYBdDSuOIFV+sGFiXTOg9QXOeaHR6VD/DlNXHNBQsPjhSvt8/5HyUxJiI9gpsg/k82UfJn+pi6DCSwwTN0ykr2iVoPt6zyy5VFg2SSznnq7m4ueNVsxbNqv4ADPoup+1HPWueey73BP/insm/rytJtz1pcucKMNiGQFlePjvCfaZYFiF4LaqqEgzo2OVglIA8B+W/0Mc0CXFpKz5ZTCa6rswp0Jdee3J0HNztvaOLq/msuugMDsVJVviCn9gLRnJkNJ0y8irTfkkK3rhEzu9mYTvTbTt7HNT8MZrLkWb2deLbu0Ltd5yTz5TgQnhqXrV+Rev80k73DDp93KOnIYER985bjMNP5wmj160ywZM241usl8uqkrKqGGxdTOT1Pi8+fxWAQatHRD8YC6fTtwEAT39l6YkFAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "518"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 28 Nov 2020 15:05:28 GMT"
+            "Sun, 17 Apr 2022 06:51:50 GMT"
           ],
           "Etag": [
-            "W/\"647d9949287d824481830f3c4a23d258\""
+            "W/\"441b59e7f8d9646636ee00e51ae84ee1\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d0bc9fa2-4722-40ab-a8e7-23b0978f0e37"
+            "9f19d123-5f37-4b7d-8572-ab745230e6b1"
           ],
           "X-Runtime": [
-            "1.027681"
+            "1.489352"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

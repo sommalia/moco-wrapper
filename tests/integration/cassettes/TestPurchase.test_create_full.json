@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-20T13:03:22",
+      "recorded_at": "2022-04-17T06:59:22",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"date\": \"2020-01-01\", \"currency\": \"EUR\", \"payment_method\": \"bank_transfer\", \"items\": [{\"title\": \"TestPurchase.item_title_1\", \"total\": 100, \"tax\": 2, \"tax_included\": false}, {\"title\": \"TestPurchase.item_title_2\", \"total\": 200, \"tax\": 3.5}], \"due_date\": \"2021-01-01\", \"service_period_from\": \"2020-01-01\", \"service_period_to\": \"2020-12-31\", \"company_id\": 760976917, \"receipt_identifier\": \"ZARR50\", \"info\": \"TestPurchase.test_create_full\", \"reference\": \"reference text\", \"custom_properties\": {\"test\": \"vars\"}, \"tags\": [\"test\", \"purchase\"]}"
+          "string": "{\"date\": \"2020-01-01\", \"currency\": \"EUR\", \"payment_method\": \"bank_transfer\", \"items\": [{\"title\": \"TestPurchase.item_title_1\", \"total\": 100, \"tax\": 2, \"tax_included\": false}, {\"title\": \"TestPurchase.item_title_2\", \"total\": 200, \"tax\": 3.5}], \"due_date\": \"2021-01-01\", \"service_period_from\": \"2020-01-01\", \"service_period_to\": \"2020-12-31\", \"company_id\": 761263118, \"receipt_identifier\": \"FJCQM7\", \"info\": \"TestPurchase.test_create_full\", \"reference\": \"reference text\", \"custom_properties\": {\"test\": \"vars\"}, \"tags\": [\"test\", \"purchase\"]}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/5STQW/bPAyG/0rBs2LIUmI3un2H7z4E3aVDISgWnQqzZUOihgaF//ugxHFT79DtJtOvyIcvqXdwFpTY1XsuGTiLnlzrMICC/0XJ5YZzLoBBwAbdSPqT4vm/w2HHgQE56hAUPGGkbyk0ryZi4Qh7ffmjywekpgAGzrfDWkcYSTcBDaFuU9dl2dF4UD51Xa7cYkDf5PzL+YHwjYCBNZTjggu+4eWGlzmWUH/EyyUeMfxyDeoRgxusbsPQr6+uJDTcBKXYyIuADKUICkb01vkTMBjNuUdPukd6HSwoOBr/U1MwPrYYgIFH0jSQ6UCJvSzElsEpDDHegpKLgjNoUshtnrPz3w/AoHUd6hS6mxFNijT0egzDiIEcRlDvEwMypwjqB4yzn3kcGAleGDRDPxp/BnWdcl3xfV3ty5qBN/0f8zoh6duN+xFMS4+5zguDFPN+XHPupay2st7yzBsizYkvBEsZc2wsTAzyRuQc16uyrB4fd3+xPJ89LDnPdpF5W1ydvz9O2vmmSxYtqNZ0EVeOl7PjhvA0hOzPxCCmcewchryK1pH2qT/mPmvOOZ/YHXP1NbNYMc9zv4OuirqaqWWxW1NTSGtoce37X6DzClzeldWGlucgN4I/lVJxqYR4BgZptF9opt8DABQrdUwnBAAA",
+          "base64_string": "H4sIAAAJbogA/6xTT2vcPhD9KmHO2kWSf2vHuv5oD4VCW9JLSxBaabwRtWUjjUJC8Hcv2nid3eSQFnqzZ978eW+ensA7ULtW8Kph4B0G8p3HCAo+SMk5l8AgokU/kb5If/z0/9fPDTAgTz2CghtM9CVHe2cSbj3hoI8ZLa6Q7BYY+NCNr3GEibSNaAh1l/u+wPYmgAq578vkDiMGW/qv31eEDwQMnKESl1zyDRcbLkoso36JizWeMN57i3rC6EenuzgOr0tfQWg8AYTcVEcAGcoJFEwYnA8HYDCZxwED6QHpbnSgYG/CL03RhNRhBAYBSdNIpgdVcb7lDA5xTOkl1m45A5tjYflYVP/+DRh0vkedY3/SweZE46CnOE4YyWMC9TQzIHNIoH7CtMhZroGJ4JaBHYfJhEdQzxduaiHrSohrBsEMb851QNKnivMLzCvFMueWQU7FG88926qqaynruuwbEy2NjxusY8zeOpgZFEOUHss6opX19R9451JC8SwhmYeTgHL5X77uDZ2227XXoj7PRbzHmFDbOxMPCKozfcLiSopGY14C87FE+2D77NCtsIuzCX6caw3hYYxF5JlBytPUe4zFzs6TDnnYF7Eazjmf2Rnx9n3i8pK4fEO8WYlX290b4s157h8Sl7z5W+LFi8f37XTZsTxLueH/bURzw2u1a5WUP4BBntw7mPn3ANhJhECsBAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "504"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 20 Mar 2021 13:03:22 GMT"
+            "Sun, 17 Apr 2022 06:59:22 GMT"
           ],
           "Etag": [
-            "W/\"292db08bf016cf0da10ffc381ff2fbc8\""
+            "W/\"4c5fac22e5fe680b522b8b3fae7cfede\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c3c91327-aa2b-44b6-8bc0-efa6ac2b74e6"
+            "507799b2-d93e-4f7f-ad4d-94049f1f6546"
           ],
           "X-Runtime": [
-            "0.132174"
+            "0.187334"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

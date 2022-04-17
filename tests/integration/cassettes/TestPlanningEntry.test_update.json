@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:39:17",
+      "recorded_at": "2022-04-17T07:14:28",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"hours_per_day\": 3, \"ends_on\": \"2020-02-02\", \"symbol\": 1, \"project_id\": 945379776, \"starts_on\": \"2020-02-01\", \"comment\": \"TestPlanningEntry.test_update_create\", \"user_id\": 933639371}"
+          "string": "{\"project_id\": 945892377, \"hours_per_day\": 3, \"starts_on\": \"2020-02-01\", \"ends_on\": \"2020-02-02\", \"comment\": \"TestPlanningEntry.test_update_create\", \"user_id\": 933662730, \"symbol\": 1}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yQsW7zIBSF3+XMNxE2/uPf7N0zZOqCqLlJqDBEcD1YVd69cqNkaCWPoMN3Dt8Xgofphq5V/wkSJDIMQKjiilSbEwxa1aqdaneqAYGT/33dgnDNc6n2xsV6t8DovSKMeZo4CQxOXOUYXUohXd6SlGUvXMXON++E7VjYCa+ly/SRI0yzvo25wKQ5RkJh521OcYE5u1iZMFcuMI/1g9YHPei+IZxDqZLctH5iB0J0r+PfCRcWm+XKxf7Q7oRbyZ88ygvc/dP90PcHQvCcJJzD2opjq5TuQNhEP2GEca6SJy52M/9MrUMeRrx18vTcrJ5PTWf0YJr+HYSHvK3M/TsAAP//YXBGBd4BAAA=",
+          "base64_string": "H4sIAAAJbogA/3yRsY7qMBBF/+W+doIcBxJw/3oKqm0sbzIBrxwb2ZMiWvHvqyyCYpEobV2f8T3zDT/A1G1T16ohiJfAMAChiMtSbIow0EqrSulK1SBwHP5eaxAuac7FXjnbwS0wzUYR+jRNHAUGJy5yDC5GH8//o+RlI1zEztfBCds+sxNehy7TZwow9fo2pAyDf+OoW7cHIbMbbIphgRldKEyYC2eYe4dD07St7hpFGH0uEt20NqlACO55fP3HmcUmuXC2v7Qb4ZrTF/fyBG93+4Nuuo7gB47iR79OxVFrpXcgvEU/YIR+LpImzvZt/pHCq4EboXD2XOy6sziHQLibG6xbJWuldaW2Vd2dVGfqrdHdBwh3ye8yt58BAPZUa90HAgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "275"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:39:17 GMT"
+            "Sun, 17 Apr 2022 07:14:27 GMT"
           ],
           "Etag": [
-            "W/\"8c269894b02229824186c3d150f768a1\""
+            "W/\"cb8bf170a40e089e61fec9367518187a\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "552cec5e-0c1c-46c9-8ee0-9c7638d12328"
+            "5e4ce32c-0f89-46ec-ab5e-6cd14574fc68"
           ],
           "X-Runtime": [
-            "0.055763"
+            "0.032456"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,11 +95,11 @@
       }
     },
     {
-      "recorded_at": "2020-12-02T14:39:17",
+      "recorded_at": "2022-04-17T07:14:28",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"hours_per_day\": 2.5, \"ends_on\": \"2020-01-02\", \"symbol\": 4, \"project_id\": 945379776, \"starts_on\": \"2020-01-01\", \"comment\": \"TestPlanningEntry.test_update\"}"
+          "string": "{\"project_id\": 945892377, \"starts_on\": \"2020-01-01\", \"ends_on\": \"2020-01-02\", \"hours_per_day\": 2.5, \"comment\": \"TestPlanningEntry.test_update\", \"symbol\": 4}"
         },
         "headers": {
           "Accept": [
@@ -121,15 +121,15 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries/494208"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries/1631103"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/3yQMY/iMBCF/8urJ8hxArm4v56C6hrLFw/glWMje1JEK/77Koug2JUobb353qf3ieBh+rHX6g9BgkSGAQhVXJFqc4KBVlo1qm1UCwIn//Nbg3DNS6n2xsV6t8Lo3Z4w5XnmJDA4cZVjdCmFdPmbpKw74Sp2uXknvLWt8/8cYfrtKOYCk5YYCYWdtznFFebsYmXCUrnAPLTHrjt0Yze0hHMoVZKbN/sGhOhez9/dFxab5crFftPuhFvJHzzJC9zvu2EchgMheE4SzmFrxVEr1fUgvEU/YYRpqZJnLvZt/pnaRKbCTthbJ8+BW90ofWp7042mHf6B8FjtXeb+FQAA///Gs1k51wEAAA==",
+          "base64_string": "H4sIAAAJbogA/3yRsc7iMBCE32Wu3fxynJCA++spqGgsX7IBnxwb2ZsiOvHupxyC4tBPaWv2m9nZP/AjTN01da0agngJDAMQirgsxaYIA620qlRdqRoEjuP/3xqEa1pysTfOdnQrjP7aEYY0zxwFBicucgwuRh8vP6Pk9Uu4iF1uoxPe3Nb5Vwow7TYUUobBj2nSnduDkNmNNsWwwkwuFCYshTPMI/yhabpO940iTD4XiW7eVqhACO71fA9wYbFJrpztP9qdcMvpNw/yAre7/UE3fU/wI0fxk99ccdRa6R0IH9FPGGFYiqSZs/2of6rw3sCdUDh7LnY7VlxCIAyZnfBo3dauVlpXqq3q/qR6U7dG92cQHu1+q9mfcf87AIUyvhsAAgAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -140,20 +140,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "274"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:39:17 GMT"
+            "Sun, 17 Apr 2022 07:14:28 GMT"
           ],
           "Etag": [
-            "W/\"79113052ea2e6f9e349352a60ff66f7f\""
+            "W/\"0efb330a0b58638c00667950bd59485e\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -172,10 +172,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6476131b-ad37-4461-9471-28f9c68dc6e2"
+            "3ae68532-536c-45a8-9d39-3b9d5b954b65"
           ],
           "X-Runtime": [
-            "0.045095"
+            "0.038115"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,7 +185,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries/494208"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/planning_entries/1631103"
       }
     }
   ],

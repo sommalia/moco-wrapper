@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:12:27",
+      "recorded_at": "2022-04-17T07:02:12",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,43 +24,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&page=1&to=2021-01-01&user_id=933638919"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&to=2021-01-01&user_id=933662266&page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SOzUoDQRCE36XOndA7s/5sP4cnQ1jaTEeDsz/M9CAS9t0lFxFBPNSlqqj6DldcEiT04SEy4cPsPX+OruXVfHxbWqmQnvdMWNXdygy5QifIod8z/dKRsP4VbYRzWSYIAgfedd2OOxB8gcwtZ0KrVm7jN5whxvv4OHQD4Xwp1WedDAK36iBk/Xb05ZSwEU7F1C2N6j8OQnziQe5Yen4Goa3pn852/AoAAP//iTZBCA8BAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "188"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:12:27 GMT"
+            "Sun, 17 Apr 2022 07:02:12 GMT"
           ],
           "Etag": [
-            "W/\"89b4be860d1443c164c8d8a90722a6c1\""
+            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,13 +76,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "7fec325e-db40-4dd5-9ecd-372363568ded"
+            "8eccc022-055a-4366-9b5f-413a61e62cd8"
           ],
           "X-Runtime": [
-            "0.098568"
+            "0.020189"
           ],
           "X-Total": [
-            "1"
+            "0"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -97,7 +92,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&page=1&to=2021-01-01&user_id=933638919"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&to=2021-01-01&user_id=933662266&page=1"
       }
     }
   ],

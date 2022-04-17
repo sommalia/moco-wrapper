@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:29:34",
+      "recorded_at": "2022-04-17T06:47:52",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"commentable_type\": \"Company\", \"commentable_id\": 760902791, \"text\": \"TestComment.test_create_company\"}"
+          "string": "{\"commentable_id\": 761263092, \"commentable_type\": \"Company\", \"text\": \"TestComment.test_create_company\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPTWrDMBBG7/KtlaIf40Ta5gpZdSMm0hQClmKkMTQU3724BkNX2c57A+/7wSMjnM1oL4NWSM9SuArdJ45/YNRe27M3/5G8ZkbA9Vlmqi8oCH8LAm7c5bp7H8JdYmpMwjEdYqG60IQgbWGFHedI27PVVp+MPWl7M0OwPrjhEwrLnN87nRvCvsU7N7qLN17h69G6VCpb65YDhYmOC91Txrr+BgAA//9y5BpGAgEAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":15291836,\"commentable_id\":761263092,\"commentable_type\":\"Company\",\"text\":\"TestComment.test_create_company\",\"manual\":true,\"created_at\":\"2022-04-17T06:47:52Z\",\"updated_at\":\"2022-04-17T06:47:52Z\",\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"}}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "184"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:29:34 GMT"
+            "Sun, 17 Apr 2022 06:47:52 GMT"
           ],
           "Etag": [
-            "W/\"fd15ced5d2118a5f582348cf14ccf64a\""
+            "W/\"0ae0d4c5f00f6a70a0c3204f7c45c999\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "cb693175-cfe0-4c81-a0dd-c85783fd0337"
+            "01a8d8bf-b968-4f70-b7de-1d7a9ade306c"
           ],
           "X-Runtime": [
-            "0.280028"
+            "0.051569"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

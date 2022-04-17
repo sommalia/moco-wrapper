@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T14:01:42",
+      "recorded_at": "2022-04-17T06:49:12",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -35,30 +35,35 @@
       },
       "response": {
         "body": {
+          "base64_string": "H4sIAAAJbogA/4SRMW/bMBSE/0pwM1NQsiNHnJupW9EuDQKCJp9sFjQpkI9OjcD/vWAkOO2UTfre4XB3fIN3ULuh64dNJ3sBvswEBVsLpxNlCERz+pfcvXo+3p0NQ+CV9sVzu0KATsYHqFhDENj7EHw86HeorV0k8zHFVT2ZP8uHcS5TKcuPTTVyvmibXNN9fYLA2bD2jiL7yVN+p12/2T4Mu8cRAmwOBer5RaCWdl4ajZvNMPT9MAhMPhdeSzCVljuYGzF763AVCGZPYTXycUprypS4mbbEyyR6zmmmzJ4K1NtVwGYyTE4bhkIv+/5ebu+73Q85qO2ouu4XBOrsPtX8V/GblN1jg5EpR6jJhEIfq3Ibrxu/yA/UHmTt/jDKXrZhbqJMZ8qFtD2afKCbnY+cjaa6glam5kzRXqDw9PM7BBxNpgbWPp6Tt6RdJe3MpUBtpMCc02+yXKCeX65/BwCuYSgZSwIAAA==",
           "encoding": "utf-8",
-          "string": "{\"id\":761108955,\"type\":\"customer\",\"name\":\"customer with vat\",\"website\":\"\",\"email\":null,\"billing_email_cc\":null,\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":\"DE123456789\",\"tags\":[],\"user\":{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2021-11-05T14:01:42Z\",\"updated_at\":\"2021-11-05T14:01:42Z\",\"identifier\":\"K0009\",\"intern\":false,\"billing_tax\":19.0,\"currency\":\"EUR\",\"default_invoice_due_days\":30,\"projects\":[]}"
+          "string": ""
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "511"
+          "Content-Encoding": [
+            "gzip"
           ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 14:01:42 GMT"
+            "Sun, 17 Apr 2022 06:49:12 GMT"
           ],
           "Etag": [
-            "W/\"f04d2f9a206e145c1eb731e1accd980f\""
+            "W/\"be95079dd79334d9ae5c17620e925f24\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin"
+            "Origin",
+            "Accept-Encoding"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -73,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3f8c55ba-3aff-41a0-b0ff-32acac567d9f"
+            "b7de5130-d91b-4e2b-803f-9ba936735e03"
           ],
           "X-Runtime": [
-            "0.247851"
+            "0.250186"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

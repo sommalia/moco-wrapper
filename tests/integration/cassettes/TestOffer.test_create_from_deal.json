@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T13:29:21",
+      "recorded_at": "2022-04-17T06:53:02",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"deal_id\": 341631, \"project_id\": null, \"company_id\": null, \"recipient_address\": \"My Customer Address 34\", \"title\": \"TestOffer.test_create_from_deal\", \"tax\": 21.5, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"This is the title of the offer\"}, {\"type\": \"description\", \"description\": \"this is the description\"}, {\"type\": \"item\", \"title\": \"MailChimp Setup\", \"quantity\": 1, \"unit\": \"h\", \"unit_price\": 100.0, \"net_total\": 400, \"optional\": false}, {\"type\": \"item\", \"title\": \"On-Site Support\", \"quantity\": 20, \"unit\": \"h\", \"unit_price\": 20, \"net_total\": 400, \"optional\": true}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"change_address\": \"offer\"}"
+          "string": "{\"deal_id\": 388482, \"project_id\": null, \"company_id\": null, \"recipient_address\": \"My Customer Address 34\", \"title\": \"TestOffer.test_create_from_deal\", \"tax\": 21.5, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"This is the title of the offer\"}, {\"type\": \"description\", \"description\": \"this is the description\"}, {\"type\": \"item\", \"title\": \"MailChimp Setup\", \"quantity\": 1, \"unit\": \"h\", \"unit_price\": 100.0, \"net_total\": 400, \"optional\": false}, {\"type\": \"item\", \"title\": \"On-Site Support\", \"quantity\": 20, \"unit\": \"h\", \"unit_price\": 20, \"net_total\": 400, \"optional\": true}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"change_address\": \"offer\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/7SUUWvbMBDHv4q5ZyVIduI0eitlj6Wwdi8bxWj2udFwJE06jYWS7z5kJa7Tsg4Ke4v+p9z97n8nP4PuQK7Lbb3eMtAdGtK9Rg8SrkvBOS+BQacIQULJS77gYpG1iM2LLkZdAAPSNCTxAQPd9T36JWGgpvWoCJve233ToRqAgcdWO42GGtV1HkMACbeH4iYGsnv0xXVWi2oFDNroPZr2ABI+ffkMDAxSQ5bUAFJwvuQMSP0GWYrlmsGTtyFM4ax1OrQ2GgI53g6kKKaSmaxL6OopgPz2mKolhsZ569CTxgDy+cigtXunzAGkicPAwHn7A1s6H8e2ZDa0Wom6EgyM2l+a8YSU+0/pcuVG0dlEIRZ8/SAqWW5lyZdX2/orMIiue++eWNZ8le6d81lzkW+W4W0kqCGSIj1GgEFvLY3TBwaacJ8MyS3VmyvBNysGdHCppzzo2cB3OhQ6FLTDYowVth8PNjWeSqH/pVts8v/PnoXWa5frZ+lnVIY0HU5zikZPDqffjfO6xVNwtgTjUO2YKe1Er4aARzZHX0/o86pTA7nEPyGBZn1eJvpv5PVEnkYy8/xW6eFmp/euuEeK7iMmixdU2KVVmXl8elgz1pPyrs+bv9HemcW9Jizuo3PW00doy9lOvMEtX9OuXtOSj3h8ZKANoTdqaFprSKUnnBdlW1X1uiqrDYNe+0Cn55u+YMBgUJOivrcdHI9/BgCXv9MvPgUAAA==",
+          "base64_string": "H4sIAAAJbogA/7RUQWvjPBD9K2bOSpDlJE10K+U7lsLX7mWXYrTyONHiSF5pVDaU/PdFlus6LduFwt7iN8rMe2+e9AymAbmp+Gp3xcA0aMm0Bj1IuBaCcy6AQaMIQYLggi94uchYxPoVLwe8BAZkqEvgAwa6a1v0S8JAtfaoCOvWu2PdoOqAgUdteoOWatU0HkMACben4iYGckf0xXVGi2oFDHT0Hq0+gYT/vvwPDCxSTY5UB7LkfMkZkPoFUpTLNYMnRSCztPVuW1YXRY9P6APW+qD8HkG2qgvIwFjyqsY4AmcGe+9CmIbkzo0J2kVLIIeZgRTFRDzra5IBah9AfntMnJOSuveuR08GA8jnMwPtjr2yJ5A2dh2D3rsfqOnlczBn5F5tt6utYGDV8dLSPVJ2MbXLk+skOa1CLPhqUV498I1cV5KLZVmJr8Ag9s3H59aiSude+jl70W/W4X0lqC6SIjNUgEHrHA0ZAgaG8JgMyZK2peC7Mm3r1CdNOS6z2BxMKEwo6IDFUCtcO3y4JDyNQv9kNNb5/y+eBe1Nn+dn6GdUlgydxj1FayaH0++690bjWJxFaViqGzqlZI1JmFMvJ+rzqZOAPOKvJIFmOi8b/TPmYmKeVjLz/FaZ7uZgjn1xjxT7z5hcvlKFQ4rKzOPxes64jsiHPld/YntnF/eGsLiPfe88fYatmGXiHV3xlu3qLVvyEc+Pw4uB3qqu1s6S0tOTs6uqzUaIzYZBa3yg8fqmdxAYdGpC1HfdwPn8ewBJpU6WhAUAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "556"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 13:29:21 GMT"
+            "Sun, 17 Apr 2022 06:53:02 GMT"
           ],
           "Etag": [
-            "W/\"0fbfc42f0306729af09d1ee3768d4156\""
+            "W/\"a30aa552f064f9d68c99decbce7c7ea3\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "60216f18-a0e7-4a06-b3ea-799a9d83f9e4"
+            "b2c797d9-f59d-4c1a-8bc7-fe0df0e46a4d"
           ],
           "X-Runtime": [
-            "0.789165"
+            "0.878668"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

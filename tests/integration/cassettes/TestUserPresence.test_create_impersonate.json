@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T10:08:06",
+      "recorded_at": "2022-04-17T07:30:00",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"from\": \"10:30\", \"to\": \"10:45\", \"date\": \"2017-10-12\"}"
+          "string": "{\"from\": \"10:30\", \"to\": \"10:45\", \"date\": \"2016-05-11\"}"
         },
         "headers": {
           "Accept": [
@@ -30,7 +30,7 @@
             "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933651007"
+            "933662743"
           ]
         },
         "method": "POST",
@@ -39,26 +39,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":4365936,\"date\":\"2017-10-12\",\"from\":\"10:30\",\"to\":\"10:45\",\"is_home_office\":false,\"user\":{\"id\":933651007,\"firstname\":\"-\",\"lastname\":\"TestUserPresence.get_other_user\"},\"created_at\":\"2021-09-20T10:08:06Z\",\"updated_at\":\"2021-09-20T10:08:06Z\"}"
+          "string": "{\"id\":5419949,\"date\":\"2016-05-11\",\"from\":\"10:30\",\"to\":\"10:45\",\"is_home_office\":false,\"user\":{\"id\":933662743,\"firstname\":\"-\",\"lastname\":\"TestUserPresence.get_other_user\"},\"created_at\":\"2022-04-17T07:29:59Z\",\"updated_at\":\"2022-04-17T07:29:59Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "242"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:08:06 GMT"
+            "Sun, 17 Apr 2022 07:29:59 GMT"
           ],
           "Etag": [
-            "W/\"29362ae53c0b6710ce0879aa722a112b\""
+            "W/\"f51339c1249075677a789d6ac0527b57\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -76,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "59fcc7af-2ac1-4c8b-a59b-b6adb1bbb4b5"
+            "19a5ee51-63fe-45bc-83ed-25107fea19d6"
           ],
           "X-Runtime": [
-            "0.028763"
+            "0.041402"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

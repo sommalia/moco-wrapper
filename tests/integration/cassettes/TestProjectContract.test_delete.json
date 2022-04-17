@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:07:10",
+      "recorded_at": "2022-04-17T07:17:29",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"fixed_price\": false, \"leader_id\": 933638919, \"name\": \"dummy project, test contract get\", \"customer_id\": 760895547, \"finish_date\": \"2020-01-01\", \"currency\": \"EUR\"}"
+          "string": "{\"name\": \"TestProjectContract.test_delete_project_create\", \"currency\": \"EUR\", \"leader_id\": 933662266, \"customer_id\": 761263123, \"finish_date\": \"2020-01-01\", \"fixed_price\": false}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "164"
+            "178"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6yTT2/bMAzFv0rAs1JIzh87ug7FrsXQXTYMgiIxqRZZNiSqa1Dkuw9KbDfNDsOw3qxn8ZF8P/sVnAW5Wa4WteCVYOAsBnI7hxEkPFScVwtgEHSLIMHmtj3O+tj9RENsRphoZrpAURua7ZGAgTbknhEkxYwMts57vfXTeede0Ko+OoMgd9qnsxZcelJWU2lR8YrPuZhzAQxMjhGDOYKE+69f4OLnwl496+h0IJAwDHP1TlsbMSWQcCViq51X1IEM2ftb3ZhbPXSEaRQTEhXRBeOzRUWuRRWx7yJNW2yzLQGMNueTwpceQypG/I4zeOpy9EcVz5ueFRd23WVQ0vsE8vsPBl5v0Q/PJifqWtXHrsdIrji9nhh41LYAGugtFutFsxGbkmVMNMAqdKDYTYreGgun0fXNoF7zZrNaLesJ9CMmergk+2ngWwpJp0OZbCir6rppllPRueBAHh3lsIc/6d98G+8Se5eN4PyOn9h1m9XU5j7QL2cO/uN7rKcen6PeucP/2xeEQ35vuS3XouFi1TQMcsKo/p3hR8xlUfvxhomoCa3SNP6BQsyr5SOvJa+l4N+AQe7tX+6cfgcAAP//s1dgwk0EAAA=",
+          "base64_string": "H4sIAAAJbogA/7RTwW7bMAz9F+6qFLLsOImuQ7FrMXSXDYWgSHSqRZEMie5aFPn3QbHjpjkUGLbd7Cfp8fE98hWcBblpluuNqDdLBs5iINc5TCDhTgje1MAg6AOChHvMdJfiTzT0OQZK2tANYSZl0SOh6sczZRJqQmCgDbknBElpQAZb573e+vm/c89oVZ+cQZCd9vmEBZcflS3vJQgu+IJXC14BAzOkhMG8gITbb19h5HNhp550cjoQSJgEXJxpaxPmDBIuQDxo5xVFkGHw/ho35hoPkTCfwYxEBXTB+MGiIndAlbCPieYutoPdIc00pz+Fzz2GXIj4DWfwGIfkX1Q6dXpCXOjiKNREH0sAn7pOtHoNDEjvMsgfDwy83qKfvs2QKR5Un2KPiVzhfj0y8KhtCXBKt67bVoi2Le6mTFOYJTgodDOit8bCkYGJ6sww+jOWeWNctZVo60rUH07GDknNL4+lhbwvukdVlVg2vG42M8VpsPbk0dEQdlNal+NyNUzvLH5nZsX5DT+yyzpLPte5DfTLmb3/D0WquciXpDu3//smHkoa46a9Wde0DW8rUa8ZDBmT+vOQ/4Uui9qfb4wLb5UuSyi4EAveLKrVPV/JaiXF5jswGPqy1B/dOf4eAITKYvGOBAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "464"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:07:10 GMT"
+            "Sun, 17 Apr 2022 07:17:29 GMT"
           ],
           "Etag": [
-            "W/\"4b7f500a0ae54570d648a9d6a3cb8658\""
+            "W/\"5ff37ec1716fe9361f66c97c4f6b2e79\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4cb15d18-0d5e-44b1-82cc-02957c18da42"
+            "cd494f87-e15f-49cb-a062-6fe39291762b"
           ],
           "X-Runtime": [
-            "0.185695"
+            "0.081652"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,11 +95,11 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T07:07:10",
+      "recorded_at": "2022-04-17T07:17:30",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"hourly_rate\": 100, \"active\": true, \"user_id\": 933638956, \"billable\": false, \"budget\": 9900}"
+          "string": "{\"user_id\": 933662732, \"billable\": false, \"active\": true, \"budget\": 9900, \"hourly_rate\": 100}"
         },
         "headers": {
           "Accept": [
@@ -121,43 +121,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371021/contracts"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892395/contracts"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TLwUrEMBCH8Xf5n2dl0u52m3kOT17KNJnVQNxKOhFEfHcpgte9/vi+b5QMOU9h5nCZI6Hv1pbD4jhO4xwvE+FW2u53fTcI0nb3pslBqPqvxwXCWmrVtRrkpnU3giYvnwbx1o2w9vxqDomR+YkJb1tv9Wtp6gYJf5aaqVte1CEYeOBTCKfh/MxX4asEfgGhf+QHzc9vAAAA//+rs82y2AAAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":464061239,\"user_id\":933662732,\"firstname\":\"-\",\"lastname\":\"TestProjectContract.get_other_user\",\"billable\":false,\"active\":true,\"budget\":9900.0,\"hourly_rate\":100.0,\"created_at\":\"2022-04-17T07:17:30Z\",\"updated_at\":\"2022-04-17T07:17:30Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "172"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:07:10 GMT"
+            "Sun, 17 Apr 2022 07:17:30 GMT"
           ],
           "Etag": [
-            "W/\"4502e589edd20408ea7a3475f6b837b6\""
+            "W/\"10c61dc2fbef63a2980902111f613f8e\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -172,10 +167,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "04ca1c80-d4db-4284-9986-915bbaf6cd50"
+            "094687db-dc2a-4e4f-a7fd-58590d186e35"
           ],
           "X-Runtime": [
-            "0.121855"
+            "0.029655"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -185,11 +180,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371021/contracts"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892395/contracts"
       }
     },
     {
-      "recorded_at": "2020-11-24T07:07:10",
+      "recorded_at": "2022-04-17T07:17:30",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -215,15 +210,14 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371021/contracts/461801589"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892395/contracts/464061239"
       },
       "response": {
         "body": {
-          "base64_string": "",
           "encoding": null,
           "string": ""
         },
@@ -231,18 +225,14 @@
           "Cache-Control": [
             "no-cache"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Date": [
-            "Tue, 24 Nov 2020 07:07:10 GMT"
+            "Sun, 17 Apr 2022 07:17:30 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -257,10 +247,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3c01bd03-c728-433e-9bd5-7281c317e9d8"
+            "6d5e8ab7-7a64-4889-a239-82082b00e406"
           ],
           "X-Runtime": [
-            "0.039096"
+            "0.024533"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -270,7 +260,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945371021/contracts/461801589"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892395/contracts/464061239"
       }
     }
   ],

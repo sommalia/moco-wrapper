@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2022-04-05T15:22:30",
+      "recorded_at": "2022-04-17T06:50:20",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestDeal.test_create_full\", \"currency\": \"EUR\", \"money\": 200, \"user_id\": 933662266, \"deal_category_id\": 90586, \"reminder_date\": \"2020-01-01\", \"company_id\": 761252043, \"info\": \"more info\", \"status\": \"lost\", \"closed_on\": \"2021-01-01\", \"tags\": [\"test\", \"create\", \"deal\", \"tags\"]}"
+          "string": "{\"name\": \"TestDeal.test_create_full\", \"currency\": \"EUR\", \"money\": 200, \"user_id\": 933662266, \"deal_category_id\": 90586, \"reminder_date\": \"2020-01-01\", \"company_id\": 761263107, \"info\": \"more info\", \"status\": \"lost\", \"closed_on\": \"2021-01-01\", \"tags\": [\"test\", \"create\", \"deal\", \"tags\"]}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/4SRsW7bMBCGX6X451NAUpaacG6nbkW6tCgEWjwZRClSIE+DEPjdC9mJM3jwRhx43313/xuCh22fu4PpCcnNDItXrvKNXXwSrjKMhZ3wMK0xglDFyVphEXMVEArPIXkug3fCsDDKqEbpRmkQxpgr+yEnWBhldKN0ozQIc068wRqlnhRhXEvhNG6w+P7rJwghTRkWcy78JaQpgyDuVGH/4GoDgme3+1zqhN0Uf3dUlTwPS8kLFwlcYd/OhLVygb0u+9K2fW9M3xOmUKq8L30hEKK7Vdxx9DgTFi41J9i0xvgx4RP3tdemM+rQ3p/vxDKMeV5c2nbOx/O+UbZlV7ihH6Oc8CmXG+tFdc+f+f3ISdw/CVw4gbCUfHTHEINssHrvvtzQD06ugZlGHRrVverOGmNb9RuEdfEP/pz/DwAkuFJ6PAIAAA==",
+          "base64_string": "H4sIAAAJbogA/4SRMY8bIRCF/0r06tkT4DtsUydVuujSJIpWeBlbKCysYLZYnfzfo7Vze8UV7tCI9/HN4w0xwO0Oh+f9gZD9yHB45SZf2acn4Sb9UNkL9+c5JRCaeJkbHFJpAkLlMebAtQ9eGA5GGdUp3SkNwpBK49CXDAejjO6U7pQGYSyZFzij1JMiDHOtnIcFDt9+/gAh5nOBw1gqf4n5XEAQf2lwv3G3ASGwX31uc8Jqij8rqkkZ+6mWiatEbnBvV8LcuMLdlz3udtYaYy3hHGuT/0vfCITkt4k/DQFXwsS1lQyX55TeX/jA7a02dqfV/nN9F5Z+KOPk87Jy3o+fg7JMq8KGfozywpdSN9ZRvRzslvpesvi/ErlyBmGq5eRPMUVZ4PSavnUYei/3DzOdeu70/lVZ96KcPv4CYZ7CgzvXfwMAD/7DyjwCAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -50,10 +50,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 05 Apr 2022 15:22:30 GMT"
+            "Sun, 17 Apr 2022 06:50:19 GMT"
           ],
           "Etag": [
-            "W/\"6ac2c7f5b39853f0f60c5126272e5aa4\""
+            "W/\"fb412782b0c5e42e858f349b80c5f534\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "84667951-a4f5-4b9f-9db0-f0a0c9a7ed1a"
+            "26a30e47-675a-4085-985c-b0d6a146b48c"
           ],
           "X-Runtime": [
-            "0.174179"
+            "0.059848"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

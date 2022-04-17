@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-08T15:20:01",
+      "recorded_at": "2022-04-17T07:00:12",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/9zWQW+bPBgH8K9SPWcS2WAgPKce3vewnXbIqdOEHHCCW2wzY5KQKt99YqHdoGtJeys3bP1B+If1x98fQeaASRBEwSqhiQdbaWunuRKA4ETtwIOSP8/wTZaDBzxzci8AnW2EB+LohNWAW17W3VBxWfZ3d/nbTWvUMhfggTIbWYq0KozungYeHIx9+HtcGCVSnudW1PVlRuqtuVxtpHVFzltA3ZSlB3zPHbdpY8unmaypnVFpZU0lrJOiBnw8e9Bo6QD7pZKERivmxx70a1oLrm4onD3IrOBO5Cl3gOATnywoXfjBmiQYEmTkDjxoqnyc8RckXlMfWYSU3cHZG6DGbIj61RR6iPqfEdearhjXB3orjlxVpVgau/usqmxNCfoUafKK6igzUo2Cqa0qVSVsbTR3V+uGBU1Op1vVZkZVXLfLzKjP60tipAGyN33/ZEa+4ch3/cL3y7OvNPpq4f3+p32YjXCEYYLkbeHnzFg4Hgr/fpmBcL+nr4JtT4d9vp0NbIyUIvOntu4lM4YNh7B5o1R709TCvuSVeneTGe0sz1x9rXWw2RPG51HCJEYSYhhNSPeZgXQSxHQovRgCd53xreRaS737XzvbLnfCpcYVwqb957jKOxENz/Wn9/YXxF9ThkGC5DXvUWbsHUx7W3MvMvdB6eB4zGQ7G2mWII0npPvMuEOiofRTRwzB30N7ilQr6hkVdPdjC6Zq45IZ47J/FPTHZQ9bVXA5J9kQSThdyF1mLLuaOhW/B7bYZvyezwi2Oy9MHocvmfOPXwEAAP//wh+DXxsPAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909175374,\"name\":\"Team 1\"},\"created_at\":\"2022-04-05T14:52:49Z\",\"updated_at\":\"2022-04-17T06:46:14Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "608"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 08 Dec 2020 15:20:01 GMT"
+            "Sun, 17 Apr 2022 07:00:12 GMT"
           ],
           "Etag": [
-            "W/\"c9e2a0898e4a530ef6fcf5a9220fee13\""
+            "W/\"c3d16d71853474a3eba0c47a614b6e51\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,13 +76,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "42442758-ae40-4792-82f6-587048aa74ed"
+            "eb9e43df-d1cb-47ae-bc76-308b6b6c5215"
           ],
           "X-Runtime": [
-            "0.053854"
+            "0.041557"
           ],
           "X-Total": [
-            "11"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

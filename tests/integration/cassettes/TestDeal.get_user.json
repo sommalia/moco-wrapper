@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2022-04-05T15:22:22",
+      "recorded_at": "2022-04-17T06:50:13",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -33,7 +33,7 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "[{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909175374,\"name\":\"Team 1\"},\"created_at\":\"2022-04-05T14:52:49Z\",\"updated_at\":\"2022-04-05T14:55:40Z\"}]"
+          "string": "[{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909175374,\"name\":\"Team 1\"},\"created_at\":\"2022-04-05T14:52:49Z\",\"updated_at\":\"2022-04-17T06:46:14Z\"}]"
         },
         "headers": {
           "Cache-Control": [
@@ -43,10 +43,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 05 Apr 2022 15:22:22 GMT"
+            "Sun, 17 Apr 2022 06:50:13 GMT"
           ],
           "Etag": [
-            "W/\"8496ca33feab6e019558985321a86f56\""
+            "W/\"c3d16d71853474a3eba0c47a614b6e51\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -76,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c8f1197c-2f8f-4785-94c0-368afcae37f9"
+            "6d48dcf3-1baa-4347-8c77-552b45ff5c82"
           ],
           "X-Runtime": [
-            "0.053826"
+            "0.068590"
           ],
           "X-Total": [
             "1"

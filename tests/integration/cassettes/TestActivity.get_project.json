@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T09:24:37",
+      "recorded_at": "2022-04-17T06:46:21",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"name\": \"TestActivity.get_project\", \"currency\": \"EUR\", \"leader_id\": 933650868, \"customer_id\": 761081781, \"finish_date\": \"2020-01-01\", \"fixed_price\": false}"
+          "string": "{\"name\": \"TestActivity.get_project\", \"currency\": \"EUR\", \"leader_id\": 933662266, \"customer_id\": 761263091, \"finish_date\": \"2020-01-01\", \"fixed_price\": false}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/6xTTWsbMRD9L3OWjXbt/dKt0FDoKZT00hKELI1t1bJ2kUZpTPB/L3LWa8dQSkluq7ea92beG72ANSC6ZVUveVUsGViDnuzaYgAB92XBFxUw8GqPIOABI33SZJ8sHeYbJDmE/hdqAgYqwwiCQkIGK+ucWrnpvLbPaOQQrEYQa+XiCfM2bqVRlKlLXvIZL2a8AAY6hYBeH0DA3fdv8Mpn/UY+qWCVJxBwUT7/U8YEjBEEXBXgXlknqQfhk3O3uNa3uO8J4xmMSJRB67VLBiXZPcqAQx9ommKVzAZpojmdJD4P6GMm4nPOYNun4A4ynCY9Idav+9dGSW0iiJ+PDJxaoRu/dYrU77O9AwaymenlyMChMjmYMbXFoq54W7fZyxBpDOlrv/WQ6Sbkc49wPJNe6pu64G3RtMXf851KjgxIxV1ubxTvmqZsq6n0PuexI4eWkt+MCVyvwM2CvLHtjUEF53N+ZNcy9SRz5+m31Tv38RrNpPElqLXdvX+ERwa69xSUpotvy7rsKt52FYMUMcj/DvIj2jKo3PmGDqgIjVT5VZW8LGa8m5X8gXeiXIpF8wMYpMH8487xzwAFo5L8SQQAAA==",
+          "base64_string": "H4sIAAAJbogA/7RTTW8bIRD9L9Mrjli8xja3HqJeoyq9tIoQhlmHGrMrGNJYkf97hT/WsaWqqtrelrfMezPvDW/gHahlO1ssxXTWMvAOI/nOYwIFD0JwLoBBNFsEBY+Y6aMl/+Jpd7dG0kPqv6MlYGAqjKAoFWSw8iGYVRjPnX9Fp4fkLYLqTMgHLPr8rJ2hSi244BPeTHgDDGxJCaPdgYL7L5/hyOfjWr+Y5E0kUHBRPv8zziXMGRS8K8Ct8UFTDyqWEG5xa2/x2BPmM5iRqII+2lAcavJb1AmHPtE4xaq4NdJIczhpfB0w5krE7ziD576ksNPpMOkB8bHrj43aPvTV6g9dJ6RZAAMy6wzq2xODYFYYTt+2ZOq31fABE/nK/bZnENC4GtUpx+lUSiGkrO6mTKfYCHM1KpgRMSvrYM/A9vrMcPTnKHNhnMtGyClfNr/egbFkX3vPm9rwsZ1GzFouGjnWPtTQNhTQU4nrU0zv9+Rmi668vXKx4fyO79mVznzUuY/0w9tN+A8ii1HkUzKd3/z9EE81hkjJWLpY18qWy6ZZCgYlY9J/nu6/6MuhCecbNqEhdNrU1ye4EBPeTpr5I5eqlUrwr8CgDO43d/Y/BwA5HIZccQQAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "457"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 09:24:37 GMT"
+            "Sun, 17 Apr 2022 06:46:20 GMT"
           ],
           "Etag": [
-            "W/\"4815e429c16007d96c54f5da06407dd8\""
+            "W/\"b95a1fd854afab1cd7cc682b61c3c850\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "e139c255-f60c-4029-bd0a-967077263ba7"
+            "2755885d-f03e-4757-80ea-76b1fe010746"
           ],
           "X-Runtime": [
-            "0.358921"
+            "0.131435"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

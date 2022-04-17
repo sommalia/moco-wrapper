@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-26T08:55:15",
+      "recorded_at": "2022-04-17T06:50:08",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"lastname\": \"TestContact.test_getlist_term\", \"firstname\": \"dummy contact to search by term\", \"gender\": \"F\"}"
+          "string": "{\"firstname\": \"dummy contact to search by term\", \"lastname\": \"TestContact.test_getlist_term\", \"gender\": \"F\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQwWrrMBBFf8XMWnnYybNJtC30C7JqKWJsTWK1ksZI47Yh5N+L6zTE3XR57xwuzDmDs6D/12WzbRQcKVpKoOERFBxcyhIxEGiwYwinouMo2EkhXGTC1PVFeyqEUgAFHm/wnrI8zOg/oSzmSOJdFnNFxYmfOFDwyq0ZODtxHOcmcOs8maHneGU+OL2ZA37epd9XCuj8XUZrE+U8Nz0Huie+84JoXZLe4gl0HL1XgO8omMyY/E8jeMygn18UdGMWDmZIPFASRxn0+aKg4zBgvC2MedI4y91tNs1mu6t2S6WTmaU3bDsL01YiFLIGBTSsy3W5qqrVutmXW13XuqqfQME42D8ZFw88PXj5CgAA///x8x5A5QEAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":677506,\"gender\":\"F\",\"firstname\":\"dummy contact to search by term\",\"lastname\":\"TestContact.test_getlist_term\",\"title\":\"\",\"job_position\":\"\",\"mobile_phone\":\"\",\"work_fax\":\"\",\"work_phone\":\"\",\"work_email\":\"\",\"work_address\":\"\",\"home_email\":\"\",\"home_address\":\"\",\"birthday\":null,\"salutation\":\"\",\"info\":\"\",\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"company\":null,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T06:50:08Z\",\"updated_at\":\"2022-04-17T06:50:08Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "289"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 26 Nov 2020 08:55:15 GMT"
+            "Sun, 17 Apr 2022 06:50:08 GMT"
           ],
           "Etag": [
-            "W/\"6d60fdbf45fc39afd3e4f8653fd1ad95\""
+            "W/\"5b3d96edda4864eddd01d1eecea7f36f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b6011f08-8a90-4c33-b874-f614e6921150"
+            "7a9153b0-d7ed-4eb4-be1f-a4471774b16b"
           ],
           "X-Runtime": [
-            "0.065337"
+            "0.081046"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2020-11-26T08:55:16",
+      "recorded_at": "2022-04-17T06:50:08",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -118,7 +113,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -126,35 +121,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/+yRwYrbMBCGX8XMWSlyHLuOroU+QU4NQYytSaxWsow0bhtC3r24zgYnsCwse9zj/+tjQP+3v4A1oDabWla5gBP1hiIo+A4CjjYm7tETKDCj9+esDT1jyxmHLBHGtsuac8YUPQhw+ATfCwFs2U0PIOBnaPQQkmUb+rnxobGO9NCF/sb8CfGXPuLfRXp+JY/WLTIaEymluemCpyXxPz8QjY3cGTyD6kfnBOBvZIx6jO6lYTwlUPuDgHZMHLweYhgosqUE6nIV0AY/YH+/MKZpt3nNbVFURb3Nt48bMiV+HAqb1sB0KxIyGY0MCtZyLVd5vlpvdvKrkrkq5A8QMA7mDeYqbjJLWdXVR8ncUeJvM/pl+oE+ETubWN/QT7fvcVvtZK3KUuXl626XzPXwLwAA///P4Da/qgMAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":677506,\"gender\":\"F\",\"firstname\":\"dummy contact to search by term\",\"lastname\":\"TestContact.test_getlist_term\",\"title\":\"\",\"job_position\":\"\",\"mobile_phone\":\"\",\"work_fax\":\"\",\"work_phone\":\"\",\"work_email\":\"\",\"work_address\":\"\",\"home_email\":\"\",\"home_address\":\"\",\"birthday\":null,\"salutation\":\"\",\"info\":\"\",\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"company\":null,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T06:50:08Z\",\"updated_at\":\"2022-04-17T06:50:08Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "322"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 26 Nov 2020 08:55:16 GMT"
+            "Sun, 17 Apr 2022 06:50:08 GMT"
           ],
           "Etag": [
-            "W/\"768d68dfa608f744d89060b1edfd28d5\""
+            "W/\"d1ccf5a0c8686dc847c8c50485c59c27\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -175,13 +165,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "f912db03-61c4-47c2-a412-4f650c36d821"
+            "30ecd397-a858-4c6e-8ed6-ff9d6ba840e8"
           ],
           "X-Runtime": [
-            "0.154281"
+            "0.067226"
           ],
           "X-Total": [
-            "2"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

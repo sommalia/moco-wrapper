@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-08T15:20:17",
+      "recorded_at": "2022-04-17T07:00:29",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"absence_code\": 3, \"date\": \"2020-01-01\", \"user_id\": 933638919, \"am\": false, \"pm\": true, \"comment\": \"TestSchedule.test_get_create\", \"symbol\": 3, \"overwrite\": true}"
+          "string": "{\"absence_code\": 3, \"date\": \"2020-01-01\", \"user_id\": 933662266, \"am\": false, \"pm\": true, \"comment\": \"TestSchedule.test_get_create\", \"symbol\": 3, \"overwrite\": true}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQMXOzMAyG/8v7reI7GycEvPUYOzZTF85gJeGKgbPFkOvx33uENtetq/TqeSR9ovewB1XosigJ3gnDIle5ypTOlAahm0LgUWBx5iRv3Y39MvB/4STNlaXpIm9TBBdgL25ITJgDrMSFCeke2mmANQSXUn8dd9burQ5Hc1LKVITRhc38Gt34ceNeNvGSZAocm+/eZnRt5x87DVOExb+6rkGQ+7wFXtrEY8dYCUvi+LQYU5iy0hXh0sckv3AgDO5ZecBXwn6Rb5z8/ELnmSrP+mhzZfXpHYRl9n9k1q8AAAD//6epsEBcAQAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":8587601,\"date\":\"2020-01-01\",\"comment\":\"TestSchedule.test_get_create\",\"am\":false,\"pm\":true,\"symbol\":3,\"assignment\":{\"id\":945874870,\"name\":\"Krankheit\",\"customer_name\":\"<DOMAIN>\",\"color\":\"#CCC\",\"type\":\"Absence\"},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:00:29Z\",\"updated_at\":\"2022-04-17T07:00:29Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "243"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 08 Dec 2020 15:20:17 GMT"
+            "Sun, 17 Apr 2022 07:00:29 GMT"
           ],
           "Etag": [
-            "W/\"d457a2d52912576709589899c1934b2d\""
+            "W/\"231c81ecdec24c89cd3012b24afb13d6\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c3cfc04c-6b92-420b-bce1-7258862442df"
+            "eeb0e098-d65e-494c-933f-8739dd8204da"
           ],
           "X-Runtime": [
-            "0.196241"
+            "0.042296"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2020-12-08T15:20:17",
+      "recorded_at": "2022-04-17T07:00:29",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -118,43 +113,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/schedules/4061868"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/schedules/8587601"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQMXOzMAyG/8v7reI7GycEvPUYOzZTF85gJeGKgbPFkOvx33uENtetq/TqeSR9ovewB1XosigJ3gnDIle5ypTOlAahm0LgUWBx5iRv3Y39MvB/4STNlaXpIm9TBBdgL25ITJgDrMSFCeke2mmANQSXUn8dd9burQ5Hc1LKVITRhc38Gt34ceNeNvGSZAocm+/eZnRt5x87DVOExb+6rkGQ+7wFXtrEY8dYCUvi+LQYU5iy0hXh0sckv3AgDO5ZecBXwn6Rb5z8/ELnmSrP+mhzZfXpHYRl9n9k1q8AAAD//6epsEBcAQAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":8587601,\"date\":\"2020-01-01\",\"comment\":\"TestSchedule.test_get_create\",\"am\":false,\"pm\":true,\"symbol\":3,\"assignment\":{\"id\":945874870,\"name\":\"Krankheit\",\"customer_name\":\"<DOMAIN>\",\"color\":\"#CCC\",\"type\":\"Absence\"},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:00:29Z\",\"updated_at\":\"2022-04-17T07:00:29Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "243"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 08 Dec 2020 15:20:17 GMT"
+            "Sun, 17 Apr 2022 07:00:29 GMT"
           ],
           "Etag": [
-            "W/\"d457a2d52912576709589899c1934b2d\""
+            "W/\"231c81ecdec24c89cd3012b24afb13d6\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -169,10 +159,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a0db45f3-a8a8-4473-aa20-2e3c72fffe34"
+            "ab26848f-62b0-45f1-81e9-156cce091e4b"
           ],
           "X-Runtime": [
-            "0.047996"
+            "0.028995"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +172,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/schedules/4061868"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/schedules/8587601"
       }
     }
   ],

@@ -45,7 +45,7 @@ class IntegrationTest(object):
         # ignore ssl errors
         self._moco.requestor.session.verify = False
 
-    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
+    def id_generator(self, size=10, chars=string.ascii_uppercase + string.digits):
         """
         create a random string
         """

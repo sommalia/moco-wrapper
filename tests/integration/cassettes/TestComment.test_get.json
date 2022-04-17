@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:29:22",
+      "recorded_at": "2022-04-17T06:47:41",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"commentable_type\": \"Project\", \"commentable_id\": 945379753, \"text\": \"TestComment.test_get_create\"}"
+          "string": "{\"commentable_id\": 945892355, \"commentable_type\": \"Project\", \"text\": \"TestComment.test_get_create\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPsWrDMBCG3+WflWKdkjjS2hfokKmLuEjXkmI5RjpDS/G7F2Ho0KXr/30H333jnhFGe6aLcwbpUYrMyrdJYgf+eHKjH09/kH4tgoCX+viQpDBQ+VQEXKXp8+49qTSN76IxVWEVGBSeV54QtK5isM85cj+kgYaDpcNAV3sM5APRKwzWJf/vNKkI+x/eubO7eOsN3u616cyld/YUGEz8u/AtZWzbTwAAAP///3+D3P4AAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":15291834,\"commentable_id\":945892355,\"commentable_type\":\"Project\",\"text\":\"TestComment.test_get_create\",\"manual\":true,\"created_at\":\"2022-04-17T06:47:41Z\",\"updated_at\":\"2022-04-17T06:47:41Z\",\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"}}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "188"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:29:22 GMT"
+            "Sun, 17 Apr 2022 06:47:41 GMT"
           ],
           "Etag": [
-            "W/\"c7f54a4a083436252f9fa59e0effbae0\""
+            "W/\"9fd7530f6a238e5cfed016184e782cf1\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "bd1b845e-2c77-48e4-b7b3-f4d263c938ac"
+            "a1074426-3105-47a2-ab5d-5c6fb8f9d2f5"
           ],
           "X-Runtime": [
-            "0.050803"
+            "0.050469"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2020-12-02T14:29:22",
+      "recorded_at": "2022-04-17T06:47:41",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -118,43 +113,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/comments/7162833"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/comments/15291834"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPsWrDMBCG3+WflWKdkjjS2hfokKmLuEjXkmI5RjpDS/G7F2Ho0KXr/30H333jnhFGe6aLcwbpUYrMyrdJYgf+eHKjH09/kH4tgoCX+viQpDBQ+VQEXKXp8+49qTSN76IxVWEVGBSeV54QtK5isM85cj+kgYaDpcNAV3sM5APRKwzWJf/vNKkI+x/eubO7eOsN3u616cyld/YUGEz8u/AtZWzbTwAAAP///3+D3P4AAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":15291834,\"commentable_id\":945892355,\"commentable_type\":\"Project\",\"text\":\"TestComment.test_get_create\",\"manual\":true,\"created_at\":\"2022-04-17T06:47:41Z\",\"updated_at\":\"2022-04-17T06:47:41Z\",\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"}}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "188"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:29:22 GMT"
+            "Sun, 17 Apr 2022 06:47:41 GMT"
           ],
           "Etag": [
-            "W/\"c7f54a4a083436252f9fa59e0effbae0\""
+            "W/\"9fd7530f6a238e5cfed016184e782cf1\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -169,10 +159,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4c8705d4-2648-4d0a-9c26-e007ea74e6cb"
+            "fa153e14-2d3b-4cbf-8ca9-b095e3f6b2f4"
           ],
           "X-Runtime": [
-            "0.024764"
+            "0.051103"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -182,7 +172,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/comments/7162833"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/comments/15291834"
       }
     }
   ],

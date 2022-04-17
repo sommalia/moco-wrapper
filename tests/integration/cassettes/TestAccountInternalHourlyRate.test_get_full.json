@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-04-01T07:14:30",
+      "recorded_at": "2022-04-17T06:46:09",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,35 +24,35 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/account/internal_hourly_rates?years=2021%2C2020&unit_id=909170073"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/account/internal_hourly_rates?years=2021%2C2020&unit_id=909175374"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "[{\"id\":933643800,\"full_name\":\"John Doe\",\"rates\":[]},{\"id\":933643740,\"full_name\":\"test abcd\",\"rates\":[]},{\"id\":933643794,\"full_name\":\"- TestUser.test_create\",\"rates\":[]},{\"id\":933643799,\"full_name\":\"- TestUser.test_performance_report_create\",\"rates\":[]}]"
+          "string": "[{\"id\":933662266,\"full_name\":\"test abcd\",\"rates\":[]}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "253"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 01 Apr 2021 07:14:30 GMT"
+            "Sun, 17 Apr 2022 06:46:09 GMT"
           ],
           "Etag": [
-            "W/\"d1c26251638b50b295b4c1700228bf70\""
+            "W/\"da7329c302445c5000f30eeba7838169\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -70,10 +70,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "1ed4d2e6-64ba-4715-a034-c88f8f7967b3"
+            "057d0a07-375c-4591-af9c-8f6d823e2fdd"
           ],
           "X-Runtime": [
-            "0.085597"
+            "0.020387"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -83,7 +83,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/account/internal_hourly_rates?years=2021%2C2020&unit_id=909170073"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/account/internal_hourly_rates?years=2021%2C2020&unit_id=909175374"
       }
     }
   ],

@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-04-06T12:09:21",
+      "recorded_at": "2022-04-17T06:57:38",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -27,35 +27,35 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945495526/payment_schedules"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892373/payment_schedules"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":134587,\"date\":\"2020-12-01\",\"title\":\"\",\"net_total\":1.0,\"project\":{\"id\":945495526,\"identifier\":\"P21004\",\"name\":\"TestProjectPaymentSchedule.get_project\"},\"checked\":false,\"billed\":false,\"created_at\":\"2021-04-06T12:09:21Z\",\"updated_at\":\"2021-04-06T12:09:21Z\"}"
+          "string": "{\"id\":182520,\"date\":\"2020-12-01\",\"title\":\"\",\"net_total\":1.0,\"project\":{\"id\":945892373,\"identifier\":\"P22021\",\"name\":\"TestProjectPaymentSchedule.get_project\"},\"checked\":false,\"billed\":false,\"created_at\":\"2022-04-17T06:57:38Z\",\"updated_at\":\"2022-04-17T06:57:38Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "260"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 06 Apr 2021 12:09:21 GMT"
+            "Sun, 17 Apr 2022 06:57:38 GMT"
           ],
           "Etag": [
-            "W/\"6781f0eba573d3f2ee0653ffd9ceb0bd\""
+            "W/\"297116bfef429845fec4f6a9d94f9da4\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "18874209-58c9-4187-94b4-4c295f96a527"
+            "85840e2a-2749-4a94-af98-a21b0a303960"
           ],
           "X-Runtime": [
-            "0.024334"
+            "0.041462"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -86,11 +86,11 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945495526/payment_schedules"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892373/payment_schedules"
       }
     },
     {
-      "recorded_at": "2021-04-06T12:09:21",
+      "recorded_at": "2022-04-17T06:57:38",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -116,35 +116,35 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945495526/payment_schedules/134587"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892373/payment_schedules/182520"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":134587,\"date\":\"2020-03-01\",\"title\":\"TestProjectPaymentSchedule.test_update\",\"net_total\":100.0,\"project\":{\"id\":945495526,\"identifier\":\"P21004\",\"name\":\"TestProjectPaymentSchedule.get_project\"},\"checked\":true,\"billed\":false,\"created_at\":\"2021-04-06T12:09:21Z\",\"updated_at\":\"2021-04-06T12:09:21Z\"}"
+          "string": "{\"id\":182520,\"date\":\"2020-03-01\",\"title\":\"TestProjectPaymentSchedule.test_update\",\"net_total\":100.0,\"project\":{\"id\":945892373,\"identifier\":\"P22021\",\"name\":\"TestProjectPaymentSchedule.get_project\"},\"checked\":true,\"billed\":false,\"created_at\":\"2022-04-17T06:57:38Z\",\"updated_at\":\"2022-04-17T06:57:38Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "299"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 06 Apr 2021 12:09:21 GMT"
+            "Sun, 17 Apr 2022 06:57:38 GMT"
           ],
           "Etag": [
-            "W/\"6acc8dbf5e0ca6b4202df9fcfde7cc30\""
+            "W/\"bd5ef9e940377e87c82da908aab5eb20\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -162,10 +162,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d93b1cc4-dcd1-4875-a90b-7f0741e78380"
+            "15dc095d-fca5-4377-a89d-1ebb44b0056c"
           ],
           "X-Runtime": [
-            "0.024053"
+            "0.029373"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -175,7 +175,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945495526/payment_schedules/134587"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892373/payment_schedules/182520"
       }
     }
   ],

@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-04-06T12:08:54",
+      "recorded_at": "2022-04-17T06:57:10",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/9zSwY6bMBAG4Fep5uxEBkOAOe2hp57pJVWFDAyLtxi7Y5Nmu8q7V1HS1Qap7e6xe2N+/VieT/7yBKYHrJTaZarIpIDBcIiztgQIkUIEAZN+TnTb9SBAd9EcCDDyQgLoGIlnwEFP4Txababr3+f+Xfvo7LYnEGBdayZq/Ojm8/kg4Ifjby/n0VlqdN8zhXBJzDy4y1drOI69fgScl2kSoA86am4Wnn4n3RKis41n54mjoQD4dBKwzCYCXleVVVJIWSgB151q0vZDAicBHZOO1Dc6AkIq02Qj1SYp6yRDVWG624OAxffrTraRuzqRmOeY7/ZwEi9RS7lC/eTG+Rb1o6PXmn4f059+uKOjtn6ireP7/1Q1lXVSoFSYyT+orjq3qkWV3apubklrCvFzIN6eH2FzucFrjdvjw1LevxNjharAPP+r8XNnbVy9wdgTD46tnjtqmLzjt7L7h1Ac1PthL1H9k71Ele/h9PXXALcYzY+HBQAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909175374,\"name\":\"Team 1\"},\"created_at\":\"2022-04-05T14:52:49Z\",\"updated_at\":\"2022-04-17T06:46:14Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "381"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 06 Apr 2021 12:08:54 GMT"
+            "Sun, 17 Apr 2022 06:57:10 GMT"
           ],
           "Etag": [
-            "W/\"e3093f953787c590833a95bc47e50947\""
+            "W/\"c3d16d71853474a3eba0c47a614b6e51\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,13 +76,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "25b67115-5418-4a8c-adde-dd923642cd47"
+            "ffb5bced-73dc-4c04-a77f-2db8b8ad1252"
           ],
           "X-Runtime": [
-            "0.090510"
+            "0.038460"
           ],
           "X-Total": [
-            "4"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

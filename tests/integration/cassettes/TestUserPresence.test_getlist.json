@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T10:07:32",
+      "recorded_at": "2022-04-17T07:29:26",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,7 +28,7 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933650868&page=1&is_home_office=false"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933662266&page=1&is_home_office=false"
       },
       "response": {
         "body": {
@@ -39,20 +39,20 @@
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "2"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:07:32 GMT"
+            "Sun, 17 Apr 2022 07:29:25 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -76,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6e2b8ef0-9aa2-43b7-9845-b1a02d532433"
+            "a2fec563-2fa5-4999-923c-30325e5bd424"
           ],
           "X-Runtime": [
-            "0.020985"
+            "0.023140"
           ],
           "X-Total": [
             "0"
@@ -92,7 +92,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933650868&page=1&is_home_office=false"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences?from=2020-01-01&to=2021-01-01&user_id=933662266&page=1&is_home_office=false"
       }
     }
   ],

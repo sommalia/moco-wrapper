@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T10:07:54",
+      "recorded_at": "2022-04-17T07:29:48",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -36,23 +36,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":5419937,\"date\":\"2022-04-17\",\"from\":\"09:26\",\"to\":\"09:29\",\"is_home_office\":false,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:26:18Z\",\"updated_at\":\"2022-04-17T07:29:47Z\"}"
         },
         "headers": {
           "Cache-Control": [
-            "no-cache"
-          ],
-          "Content-Length": [
-            "0"
+            "max-age=0, private, must-revalidate"
           ],
           "Content-Type": [
-            "application/json"
+            "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:07:54 GMT"
+            "Sun, 17 Apr 2022 07:29:47 GMT"
+          ],
+          "Etag": [
+            "W/\"e68f69140290871e0ae43a1d62d3a28e\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -70,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a37b786d-a4fb-441f-a5e0-6889c710bb68"
+            "09a9bee9-edb7-4aea-9027-5fd82ec89788"
           ],
           "X-Runtime": [
-            "0.034415"
+            "0.036098"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -87,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2021-09-20T10:07:54",
+      "recorded_at": "2022-04-17T07:29:48",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -122,23 +125,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":5419948,\"date\":\"2022-04-17\",\"from\":\"09:29\",\"to\":null,\"is_home_office\":false,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:29:48Z\",\"updated_at\":\"2022-04-17T07:29:48Z\"}"
         },
         "headers": {
           "Cache-Control": [
-            "no-cache"
-          ],
-          "Content-Length": [
-            "0"
+            "max-age=0, private, must-revalidate"
           ],
           "Content-Type": [
-            "application/json"
+            "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:07:54 GMT"
+            "Sun, 17 Apr 2022 07:29:48 GMT"
+          ],
+          "Etag": [
+            "W/\"3c92a7299b4de694c3222c51539642ed\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -156,10 +162,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "00c31e14-701b-4ade-b830-fbf5e22c29a7"
+            "40e4b870-482f-4447-a29a-58261907d628"
           ],
           "X-Runtime": [
-            "0.048916"
+            "0.033467"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
