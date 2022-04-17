@@ -1,3 +1,6 @@
+from os import path
+
+from moco_wrapper.util.io.file import File
 from moco_wrapper.models.comment import CommentTargetType
 from moco_wrapper.models.company import CompanyType
 from moco_wrapper.util.response import ObjectResponse, ListResponse, PagedListResponse, EmptyResponse
@@ -196,3 +199,59 @@ class TestComment(IntegrationTest):
             assert comment_delete.response.status_code == 204
 
             assert type(comment_delete) is EmptyResponse
+
+    def test_create_with_file(self):
+        pdf_path = path.join(path.dirname(path.dirname(__file__)), "files", "test_comment_with_file.pdf")
+        comment_file = File.load(pdf_path)
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestComment.test_create_with_file"):
+            text = "TestComment.test_create_with_file"
+
+            comment_create = self.moco.Comment.create(
+                commentable_id=project.id,
+                commentable_type=CommentTargetType.PROJECT,
+                text=text,
+                attachment=comment_file
+            )
+
+            assert comment_create.response.status_code == 200
+
+            assert type(comment_create) is ObjectResponse
+
+            assert comment_create.data.text == text
+            assert comment_create.data.commentable_id == project.id
+            assert comment_create.data.commentable_type == CommentTargetType.PROJECT
+            assert comment_create.data.user.id is not None
+
+
+    def test_update_with_file(self):
+        pdf_path = path.join(path.dirname(path.dirname(__file__)), "files", "test_comment_with_file.pdf")
+        comment_file = File.load(pdf_path)
+        project = self.get_project()
+
+        with self.recorder.use_cassette("TestComment.test_update_with_file"):
+            update_text = "TestComment.test_update_with_file"
+
+            comment_create = self.moco.Comment.create(
+                commentable_id=project.id,
+                commentable_type=CommentTargetType.PROJECT,
+                text="TestComment.test_update_create_with_file"
+            )
+
+            comment_update = self.moco.Comment.update(
+                comment_id=comment_create.data.id,
+                text=update_text,
+                attachment=comment_file
+            )
+
+            assert comment_create.response.status_code == 200
+            assert comment_update.response.status_code == 200
+
+            assert type(comment_create) is ObjectResponse
+            assert type(comment_update) is ObjectResponse
+
+            assert comment_update.data.text == update_text
+            assert comment_update.data.commentable_id == project.id
+            assert comment_update.data.commentable_type == CommentTargetType.PROJECT
+            assert comment_update.data.user.id is not None

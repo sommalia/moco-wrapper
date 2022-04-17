@@ -1,6 +1,7 @@
 from typing import List
 
 from moco_wrapper.util.endpoint import Endpoint
+from moco_wrapper.util.io import File
 from moco_wrapper.models import objector_models as om
 from moco_wrapper.models.base import MWRAPBase
 
@@ -96,7 +97,8 @@ class Comment(MWRAPBase):
         self,
         commentable_id: int,
         commentable_type: CommentTargetType,
-        text: str
+        text: str,
+        attachment: File = None
     ):
         """
         Create a single comment.
@@ -105,10 +107,12 @@ class Comment(MWRAPBase):
             comment on)
         :param commentable_type: Type of object to create the comment for.
         :param text: Comment text
+        :param attachment: Attachment file
 
         :type commentable_id: int
         :type commentable_type: :class:`.CommentTargetType`, str
         :type text: str
+        :type attachment: :class:`moco_wrapper.util.io.file.File`
 
         :returns: The created comment
         :rtype: :class:`moco_wrapper.util.response.ObjectResponse`
@@ -118,6 +122,10 @@ class Comment(MWRAPBase):
             "commentable_type": commentable_type,
             "text": text
         }
+
+        if attachment is not None:
+            data["attachment_filename"] = attachment.name
+            data["attachment_content"] = attachment.to_base64()
 
         return self._moco.post("comment_create", data=data)
 
@@ -140,6 +148,11 @@ class Comment(MWRAPBase):
 
         :returns: List of created comments.
         :rtype: :class:`moco_wrapper.util.response.ListResponse`
+
+        ..note::
+
+            At the moment it is not possible to bulk create comments with attachments
+
         """
         data = {
             "commentable_ids": commentable_ids,
@@ -152,7 +165,8 @@ class Comment(MWRAPBase):
     def update(
         self,
         comment_id: int,
-        text: str
+        text: str,
+        attachment: File = None
     ):
         """
         Update a comment.
@@ -173,6 +187,10 @@ class Comment(MWRAPBase):
         data = {
             "text": text,
         }
+
+        if attachment is not None:
+            data["attachment_filename"] = attachment.name
+            data["attachment_content"] = attachment.to_base64()
 
         return self._moco.put("comment_update", ep_params=ep_params, data=data)
 
