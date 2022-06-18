@@ -34,4 +34,6 @@ from .purchase import Purchase
 
 from .planning_entry import PlanningEntry
 
+from .report import Report
+
 

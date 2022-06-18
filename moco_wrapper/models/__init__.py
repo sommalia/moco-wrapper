@@ -48,6 +48,8 @@ from .session import Session
 
 from .tagging import Tagging
 
+from .report import Report
+
 from . import objector_models
 
 
