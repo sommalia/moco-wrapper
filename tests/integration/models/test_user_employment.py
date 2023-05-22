@@ -1,3 +1,7 @@
+import time
+
+import pytest
+
 from moco_wrapper.util.response import PagedListResponse, ObjectResponse
 
 from datetime import date
@@ -34,11 +38,23 @@ class TestUserEmployment(IntegrationTest):
             assert emp_list.page_size is not None
 
     def test_get(self):
+        user = self.get_user()
+
         with self.recorder.use_cassette("TestUserEmployment.test_get"):
-            emp_id = self.moco.UserEmployment.getlist()[0].id
+            self.cleanup_employments(user.id)
+
+            emp_create = self.moco.UserEmployment.create(
+                user_id=user.id,
+                pattern={
+                    "am": [1,1,1,1,1],
+                    "pm": [1,1,1,1,1]
+                },
+                from_date="2020-01-01",
+                to_date="2021-12-31"
+            )
 
             emp_get = self.moco.UserEmployment.get(
-                employment_id=emp_id
+                employment_id=emp_create.data.id
             )
 
             assert emp_get.response.status_code == 200
@@ -48,3 +64,34 @@ class TestUserEmployment(IntegrationTest):
             assert emp_get.data.user.id is not None
             assert emp_get.data.pattern is not None
             assert emp_get.data.from_date is not None
+
+
+    def test_create(self):
+        user = self.get_user()
+
+        with self.recorder.use_cassette("TestUserEmployment.test_create"):
+            self.cleanup_employments(user.id)
+
+            pattern = {
+                "am": [2,2,2,2,2],
+                "pm": [2,2,2,2,2]
+            }
+
+            from_date = date(2020, 2, 1)
+            to_date = date(2020, 2, 10)
+
+            emp_create = self.moco.UserEmployment.create(
+                user_id=user.id,
+                pattern=pattern,
+            )
+
+            assert emp_create.response.status_code == 200
+
+
+
+    def cleanup_employments(self, user_id):
+        # cleanup all employments of the user
+        items = self.moco.UserEmployment.getlist().items
+        for e in items:
+            print(e)
+            self.moco.UserEmployment.delete(e.id)

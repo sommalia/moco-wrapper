@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2022-04-17T07:02:12",
+      "recorded_at": "2022-06-26T06:50:56",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,12 +28,12 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&to=2021-01-01&user_id=933662266&page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&to=2021-01-01&user_id=933665669&page=1"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "[]"
+          "string": "[{\"id\":280193,\"weekly_target_hours\":20.0,\"pattern\":{\"am\":[2.0,2.0,2.0,2.0,2.0],\"pm\":[2.0,2.0,2.0,2.0,2.0]},\"from\":null,\"to\":null,\"user\":{\"id\":933665669,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-06-26T06:50:01Z\",\"updated_at\":\"2022-06-26T06:50:01Z\"}]"
         },
         "headers": {
           "Cache-Control": [
@@ -43,16 +43,13 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sun, 17 Apr 2022 07:02:12 GMT"
+            "Sun, 26 Jun 2022 06:50:56 GMT"
           ],
           "Etag": [
-            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+            "W/\"6199a3cffbcb63a9a284c8dd087bad94\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
-          ],
-          "Transfer-Encoding": [
-            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -76,13 +73,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "8eccc022-055a-4366-9b5f-413a61e62cd8"
+            "a00b62b3-6089-4e2f-9a83-5fa5dc81ad73"
           ],
           "X-Runtime": [
-            "0.020189"
+            "0.040114"
           ],
           "X-Total": [
-            "0"
+            "1"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -92,7 +89,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&to=2021-01-01&user_id=933662266&page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/employments?from=2020-01-01&to=2021-01-01&user_id=933665669&page=1"
       }
     }
   ],

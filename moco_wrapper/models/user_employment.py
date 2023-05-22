@@ -24,7 +24,9 @@ class UserEmployment(MWRAPBase):
         """
         return [
             Endpoint("employment_get", "/users/employments/{id}", "GET", om.UserEmployment),
-            Endpoint("employment_getlist", "/users/employments", "GET", om.UserEmployment)
+            Endpoint("employment_getlist", "/users/employments", "GET", om.UserEmployment),
+            Endpoint("employment_create", "/users/employments", "POST", om.UserEmployment),
+            Endpoint("employment_delete", "/users/employments/{id}", "DELETE", om.UserEmployment)
         ]
 
     def __init__(self, moco):
@@ -102,3 +104,82 @@ class UserEmployment(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get("employment_getlist", params=params)
+
+    def create(
+        self,
+        user_id: int,
+        pattern: dict,
+        from_date: datetime.date = None,
+        to_date: datetime.date = None,
+    ):
+        """
+        Creates an user employment
+
+        :param user_id: Id of the user to create the employment for
+        :param pattern: Work hours during the morning and the afternoon on each workday
+        :param from_date: When employment comes into effect default (``None``)
+        :param to_date: When the employment stops being in effect default (``None``)
+
+        :type user_id: int
+        :type pattern: dict
+        :type from_date: datetime, str
+        :type to_date: datetime, str
+
+        .. code-block:: python
+
+            from moco_wrapper import Moco
+
+            user_id = 123
+            pattern = {
+                "am": [4,4,4,4,4],
+                "pm": [4,4,4,4,4]
+            }
+
+            m = Moco()
+            new_schedule = m.UserEmployment.create(
+                user_id=user_id,
+                pattern=pattern
+            )
+        """
+
+        data = {
+            "user_id": user_id,
+            "pattern": pattern,
+        }
+
+        for key, value in (
+            ("from", from_date),
+            ("to", to_date)
+        ):
+            if value is not None:
+                if key in ["from", "to"] and isinstance(value, datetime.date):
+                    data[key] = self._convert_date_to_iso(value)
+                else:
+                    data[key] = value
+
+        print(data)
+
+        return self._moco.post("employment_create", data=data)
+
+    def delete(
+        self,
+        employment_id,
+    ):
+        """
+        Deletes an user employment
+
+        :param employment_id: Employment to delete
+
+        :type employment_id: int
+        """
+
+        ep_params = {
+            "id" : employment_id
+        }
+
+        return self._moco.delete("employment_delete", ep_params=ep_params)
+
+
+
+
+
