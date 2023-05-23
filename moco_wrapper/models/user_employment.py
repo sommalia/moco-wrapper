@@ -109,7 +109,7 @@ class UserEmployment(MWRAPBase):
         self,
         user_id: int,
         pattern: dict,
-        from_date: datetime.date = None,
+        from_date: datetime.date,
         to_date: datetime.date = None,
     ):
         """
@@ -117,7 +117,7 @@ class UserEmployment(MWRAPBase):
 
         :param user_id: Id of the user to create the employment for
         :param pattern: Work hours during the morning and the afternoon on each workday
-        :param from_date: When employment comes into effect default (``None``)
+        :param from_date: When employment comes into effect
         :param to_date: When the employment stops being in effect default (``None``)
 
         :type user_id: int
@@ -145,11 +145,17 @@ class UserEmployment(MWRAPBase):
         data = {
             "user_id": user_id,
             "pattern": pattern,
+            "from": from_date,
         }
 
+        # overwrite all date fields in data with isoformat for required fields
+        for date_key in ["from"]:
+            if isinstance(data[date_key], datetime.date):
+                data[date_key] = self._convert_date_to_iso(data[date_key])
+
+
         for key, value in (
-            ("from", from_date),
-            ("to", to_date)
+            ("to", to_date),
         ):
             if value is not None:
                 if key in ["from", "to"] and isinstance(value, datetime.date):

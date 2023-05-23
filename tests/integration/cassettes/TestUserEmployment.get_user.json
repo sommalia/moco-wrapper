@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2022-06-26T06:50:55",
+      "recorded_at": "2023-05-23T05:43:03",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -33,55 +33,67 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "[{\"id\":933665669,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909176302,\"name\":\"Team 1\"},\"created_at\":\"2022-06-18T05:24:27Z\",\"updated_at\":\"2022-06-26T04:52:21Z\"}]"
+          "string": "[{\"id\":933685437,\"firstname\":\"test\",\"lastname\":\"test\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"iban\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909181617,\"name\":\"Team 1\"},\"created_at\":\"2023-05-23T05:25:13Z\",\"updated_at\":\"2023-05-23T05:25:15Z\"}]"
         },
         "headers": {
-          "Cache-Control": [
+          "cache-control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Type": [
+          "content-type": [
             "application/json; charset=utf-8"
           ],
-          "Date": [
-            "Sun, 26 Jun 2022 06:50:55 GMT"
+          "date": [
+            "Tue, 23 May 2023 05:43:03 GMT"
           ],
-          "Etag": [
-            "W/\"b1de903410265a1d54b2fc83d40a95a3\""
+          "etag": [
+            "W/\"e67d9e6f1aa403edab21d81db372c4ec\""
           ],
-          "Referrer-Policy": [
+          "referrer-policy": [
             "strict-origin-when-cross-origin"
           ],
-          "Vary": [
+          "set-cookie": [
+            "server_id=web01; path=/"
+          ],
+          "strict-transport-security": [
+            "max-age=63072000; includeSubDomains"
+          ],
+          "transfer-encoding": [
+            "chunked"
+          ],
+          "vary": [
             "Origin"
           ],
-          "X-Content-Type-Options": [
+          "x-content-type-options": [
             "nosniff"
           ],
-          "X-Download-Options": [
+          "x-download-options": [
             "noopen"
           ],
-          "X-Frame-Options": [
+          "x-frame-options": [
             "SAMEORIGIN"
           ],
-          "X-Page": [
+          "x-page": [
             "1"
           ],
-          "X-Per-Page": [
+          "x-per-page": [
             "100"
           ],
-          "X-Permitted-Cross-Domain-Policies": [
+          "x-permitted-cross-domain-policies": [
             "none"
           ],
-          "X-Request-Id": [
-            "1f2ac557-d6dd-4095-8b07-00291a726168"
+          "x-request-id": [
+            "07645910-d72c-441f-a493-0df4f6416a65"
           ],
-          "X-Runtime": [
-            "0.058111"
+          "x-runtime": [
+            "0.047259"
           ],
-          "X-Total": [
+          "x-server": [
+            "web01"
+          ],
+          "x-total": [
             "1"
           ],
-          "X-Xss-Protection": [
+          "x-xss-protection": [
             "1; mode=block"
           ]
         },

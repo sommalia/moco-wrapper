@@ -83,6 +83,7 @@ class TestUserEmployment(IntegrationTest):
             emp_create = self.moco.UserEmployment.create(
                 user_id=user.id,
                 pattern=pattern,
+                from_date=from_date,
             )
 
             assert emp_create.response.status_code == 200
