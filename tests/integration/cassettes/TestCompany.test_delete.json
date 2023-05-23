@@ -1,0 +1,203 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2023-05-23T05:34:29",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "{\"name\": \"company to delete\", \"type\": \"customer\"}"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "49"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "python-requests/2.25.1"
+          ]
+        },
+        "method": "POST",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAJbogA/6yST4/bIBDFv8pqzuyKxPnLuXvqrWovXa0QgbFDhcEahrTWKt+9Inb+9NQeerPfvHno9+ADvAO13Sw22/V+sxfA44CgwJbMqUcCAdH0FyX1g4njE6cnhwEZQcBPPGTPdQoCsDc+gIolBAEHH4KPnb6I2trJMhxTnN2t+TV9GOcIc55+bCqRadQ2uer79AoCToa1dxjZtx7pegDGLvh81DYRYR5SdBgt6mBiV0yHoFoTMgpg02VQb+8CSq7bE/C+aTa79arZCmg9ZZ4ZGTODgGD+VM5VOmCYg3xs0wyREtfQCjQ1pgdKAxJ7zKA+zgIsoWF02jAoWMpl8yzXz8vmq1yrZqWWu+8goAzur57HBuCzlHJVxchI8cZ6LZ1rt4v9i7zfw6meP7HvFgspBTyYCE9IGbU9Gnqozkcmo7HMwvnKiPTf4ogw2hEUvH77cu+QDGO+UfloQ3Go2feoCYdEfMu84sV02aj34LA1JbB2Pl9eEyj5Iu+yNfn4TzPtzJhBPaz6eEreonYF52EjBQyUfqDlDOrt/fx7AFku8O5PAwAA",
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "cache-control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "content-encoding": [
+            "gzip"
+          ],
+          "content-type": [
+            "application/json; charset=utf-8"
+          ],
+          "date": [
+            "Tue, 23 May 2023 05:34:29 GMT"
+          ],
+          "etag": [
+            "W/\"00b228d709b50476d76a64f0a1e1fa2b\""
+          ],
+          "referrer-policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "set-cookie": [
+            "server_id=web02; path=/"
+          ],
+          "strict-transport-security": [
+            "max-age=63072000; includeSubDomains"
+          ],
+          "transfer-encoding": [
+            "chunked"
+          ],
+          "vary": [
+            "Origin",
+            "Accept-Encoding"
+          ],
+          "x-content-type-options": [
+            "nosniff"
+          ],
+          "x-download-options": [
+            "noopen"
+          ],
+          "x-frame-options": [
+            "SAMEORIGIN"
+          ],
+          "x-permitted-cross-domain-policies": [
+            "none"
+          ],
+          "x-request-id": [
+            "fcddcc95-36bd-44df-97ec-d7632466456c"
+          ],
+          "x-runtime": [
+            "0.568989"
+          ],
+          "x-server": [
+            "web02"
+          ],
+          "x-xss-protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies"
+      }
+    },
+    {
+      "recorded_at": "2023-05-23T05:34:30",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Authorization": [
+            "Token token=<TOKEN>"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "0"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Cookie": [
+            "server_id=web02"
+          ],
+          "User-Agent": [
+            "python-requests/2.25.1"
+          ]
+        },
+        "method": "DELETE",
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761675969"
+      },
+      "response": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "cache-control": [
+            "no-cache"
+          ],
+          "content-length": [
+            "0"
+          ],
+          "content-type": [
+            "application/json"
+          ],
+          "date": [
+            "Tue, 23 May 2023 05:34:30 GMT"
+          ],
+          "referrer-policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "strict-transport-security": [
+            "max-age=63072000; includeSubDomains"
+          ],
+          "vary": [
+            "Origin"
+          ],
+          "x-content-type-options": [
+            "nosniff"
+          ],
+          "x-download-options": [
+            "noopen"
+          ],
+          "x-frame-options": [
+            "SAMEORIGIN"
+          ],
+          "x-permitted-cross-domain-policies": [
+            "none"
+          ],
+          "x-request-id": [
+            "46ebfc65-f847-44b5-9a71-14aa3bcd877d"
+          ],
+          "x-runtime": [
+            "1.500889"
+          ],
+          "x-server": [
+            "web02"
+          ],
+          "x-xss-protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761675969"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}

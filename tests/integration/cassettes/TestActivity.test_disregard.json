@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T09:25:35",
+      "recorded_at": "2022-04-17T06:47:22",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2021-01-01\", \"description\": \"TestActivity.test_disregard_create_1\", \"hours\": 0.5}"
+          "string": "{\"project_id\": 945892354, \"task_id\": 12540219, \"date\": \"2021-01-01\", \"description\": \"TestActivity.test_disregard_create_1\", \"hours\": 0.5}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "136"
+            "137"
           ],
           "Content-Type": [
             "application/json"
@@ -30,7 +30,7 @@
             "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933650868"
+            "933662266"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/4SSTWvjMBCG/8uclSA7/tRtYU97zmkvQrEmiVrZCqNRoJT896I6dmnoB/jil3keXs/4FZwFVUjZFW1Zla0AaxhBQSnLYiPzAwLOIVEEJbe1AItxIHdhFyZQsMfIfwZ2V8cvW8bI2rpIeDJk9UBoGHUWHJz3aEEdjY84v5qDR1BMCQWwOYECEEA4BkYdka5uwE9Z7jkl79ehRH5JLhSecGBQ8+f0Vd1Usi4qAZMZ8bHmCVkvxGOXWy4Tn1dT37Zl1/3q0e/QF7IhRQ4j0iJsmyKvuiu+V67ITUCKH2i/2zW17JpOwNFR5Dv/L5wnEODNmvwNmFl2I5KObIjRasPLsuazzMn9zP2mlHvZq7JWu/o/CEiX/Bv8NHN7GwAVIDRmOgIAAA==",
+          "base64_string": "H4sIAAAJbogA/4SSwY7bIBCG3+U/kwiwTdbc+g576gVhmE1psR3BeKWoyrtXNHWqRm1X8umXv08/M/MdKcIqqQajh6FTAtEzwUJLrQ6yfRD4sm6lwsrjIFAprEussOpFSoFINZR04bQusHilyp8Cp/fE1yNTZRdTLXT2JbpQyDM5BYEp5UwR9s3nSgJTytlPmWC5bCTA/gwLCBSaVyZXqbynQH9krfay5fwItpL35FLWrxQY9v66sR9eRt0NvcDiZ3queSZ2O/Hc5dbK1G+7Semhl1qNH4rcT+ovtrBVXmcqu/FklDadHNW/lQ/kJrDV3+jYdcZobYzAWyqVf/Ft6hDI/pH4KcQGc5qpuMq+MEXneR/XfTH3pO1dH2R/UKdXaWx/slp/hsB2aXfx/3/aleSrK54JVh7l7ccAR3G3uF0CAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -49,20 +49,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "301"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 09:25:35 GMT"
+            "Sun, 17 Apr 2022 06:47:22 GMT"
           ],
           "Etag": [
-            "W/\"16bb1d7274bee91037196672329e9482\""
+            "W/\"e8988d77c0fd1b20f604738232ce0438\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "507bcf98-bcd7-4954-9696-4684e5e17adf"
+            "f317d234-5d46-4dc7-ae89-df49ab02ea1b"
           ],
           "X-Runtime": [
-            "0.039945"
+            "0.050187"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -98,11 +98,11 @@
       }
     },
     {
-      "recorded_at": "2021-09-20T09:25:35",
+      "recorded_at": "2022-04-17T06:47:23",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2021-01-01\", \"description\": \"TestActivity.test_disregard_create_2\", \"hours\": 1}"
+          "string": "{\"project_id\": 945892354, \"task_id\": 12540219, \"date\": \"2021-01-01\", \"description\": \"TestActivity.test_disregard_create_2\", \"hours\": 1}"
         },
         "headers": {
           "Accept": [
@@ -118,7 +118,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "134"
+            "135"
           ],
           "Content-Type": [
             "application/json"
@@ -127,7 +127,7 @@
             "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933650868"
+            "933662266"
           ]
         },
         "method": "POST",
@@ -135,7 +135,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/4SSy2rDMBBF/+WulSArfmpX6KrrrLoRij1J1Mp2kEaBUvLvxU3s0tAHeHWZc7ie0TtcB51JWWeVylUj0FkmaCipspWcPggcxxQidLaWAh3FNrgTu3GAxpYiP7Tszo7f1kyRTedioIMNnWkDWSajILBz3lMHvbc+ksDOeW93nqA5JBJge4AGBAL1I5OJFM6upW/Z1HNI3i9DKfg5OYXxhVqGvv5OkxdlLossFxhsT/c1D8RmJu67XATYxtfF1FSVqut/PeYT+kHWpshjT2EWVmU2rbrOflcuyEUgxS+02WzKQtZlLbB3IfKNfxqPAwS8XZLHkSaWXU/BRLaBqTOW52Vdz3JNbmduVkpuZaNVoTfFMwTSaXoGf81cPgYAPUM5jjoCAAA=",
+          "base64_string": "H4sIAAAJbogA/4SSza7bIBCF3+WsSQTYJjW7vsNddYMwzE1psR3BOFJU5d0rmjpVo/5IXh35+3SYmW9IEVZJNRg9DJ0WiJ4JFlpqdZDtg8DndSsVVh2lQKWwLrHCdkZKgUg1lHThtC6weKPKHwOna+Lbkamyi6kWOvsSXSjkmZyGwJRypgj77nMlgSnl7KdMsFw2EmB/hgUECs0rk6tUrinQb1mrvWw5P4Ot5D25lPULBYZ9vG7shw+j7oZeYPEzvdY8E7udeO1yb2Xq192k9NBLrcb/itwP6g+2sFVeZyq78WSUNp0c1d+VT+QusNVf6Nh1xmhtjMB7KpV/8m3qEMj+mfgpxAZzmqm4yr4wRed5H9djMY+k7V0fZH9QpzdpbH+yWn+CwHZpd/Hvf9qV5JsrnglWHuX9+wD/9hoAXQIAAA==",
           "encoding": "utf-8",
           "string": ""
         },
@@ -146,20 +146,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "302"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 09:25:35 GMT"
+            "Sun, 17 Apr 2022 06:47:22 GMT"
           ],
           "Etag": [
-            "W/\"6539f716ab14353828587f6bf5b1a891\""
+            "W/\"04a9fa3b873a38bde130973c0673751c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -178,10 +178,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c227a76d-16f6-4ae8-a6b9-4f915749075f"
+            "1f776fbd-6f70-480d-8cb9-d48351691014"
           ],
           "X-Runtime": [
-            "0.066980"
+            "0.058974"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -195,11 +195,11 @@
       }
     },
     {
-      "recorded_at": "2021-09-20T09:25:35",
+      "recorded_at": "2022-04-17T06:47:23",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"reason\": \"TestActivity.test_disregard\", \"activity_ids\": [1008172427, 1008172429], \"company_id\": 761081781}"
+          "string": "{\"reason\": \"TestActivity.test_disregard\", \"activity_ids\": [1015625531, 1015625532], \"company_id\": 761263091}"
         },
         "headers": {
           "Accept": [
@@ -230,26 +230,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "[1008172427,1008172429]"
+          "string": "[1015625531,1015625532]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "23"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 09:25:35 GMT"
+            "Sun, 17 Apr 2022 06:47:23 GMT"
           ],
           "Etag": [
-            "W/\"8017a82139f68cf13ce35c2787798671\""
+            "W/\"f0a5d26c6be677125b6451ba80b7b8a7\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -267,10 +267,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c8890ad4-deb6-4838-a252-8f57a85e8708"
+            "1a211b09-1459-4ff9-a377-cd19388738b8"
           ],
           "X-Runtime": [
-            "0.072140"
+            "0.142520"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

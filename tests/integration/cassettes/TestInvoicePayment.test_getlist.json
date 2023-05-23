@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:03:26",
+      "recorded_at": "2022-04-17T06:52:11",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,33 +24,26 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?page=1&invoice_id=1273230"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?invoice_id=2229491&page=1"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4qOBQQAAP//KbtMDQIAAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "26"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:03:26 GMT"
+            "Sun, 17 Apr 2022 06:52:11 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
@@ -58,9 +51,11 @@
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "c6c06fb0-f587-4b6e-a7ac-d50e97033bd7"
+            "3fb84b72-3862-4380-9bb2-a2deb6bde262"
           ],
           "X-Runtime": [
-            "0.034240"
+            "0.025162"
           ],
           "X-Total": [
             "0"
@@ -97,7 +92,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?page=1&invoice_id=1273230"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/invoices/payments?invoice_id=2229491&page=1"
       }
     }
   ],

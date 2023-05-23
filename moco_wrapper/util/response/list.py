@@ -71,7 +71,10 @@ class ListResponse(MWRAPResponse):
         :param key: Index
         :returns: item at key
         """
-        return self.items[key]
+        if key < len(self.items):
+            return self.items[key]
+
+        raise IndexError("list index out of range")
 
     def __len__(self):
         return len(self.items)

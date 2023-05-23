@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-28T15:05:35",
+      "recorded_at": "2022-04-17T06:51:57",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"status\": \"created\", \"tax\": 8.0, \"service_period_to\": \"2019-12-31\", \"currency\": \"EUR\", \"title\": \"TestInvoice.test_create_with_project\", \"service_period_from\": \"2019-12-01\", \"customer_id\": 760900795, \"change_address\": \"invoice\", \"items\": [{\"title\": \"Hours\", \"type\": \"title\"}, {\"description\": \"Listing of all hours\", \"type\": \"description\"}, {\"unit\": \"hours\", \"title\": \"Service\", \"quantity\": 2, \"unit_price\": 65, \"net_total\": 130, \"type\": \"item\"}], \"project_id\": 945375701, \"date\": \"2018-09-17\", \"recipient_address\": \"My Customer Address 22\", \"tags\": [], \"due_date\": \"2018-10-16\"}"
+          "string": "{\"customer_id\": 761263108, \"recipient_address\": \"My Customer Address 22\", \"date\": \"2018-09-17\", \"due_date\": \"2018-10-16\", \"service_period_from\": \"2019-12-01\", \"service_period_to\": \"2019-12-31\", \"title\": \"TestInvoice.test_create_with_project\", \"tax\": 8.0, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"Hours\"}, {\"type\": \"description\", \"description\": \"Listing of all hours\"}, {\"type\": \"item\", \"title\": \"Service\", \"quantity\": 2, \"unit\": \"hours\", \"unit_price\": 65, \"net_total\": 130}], \"status\": \"created\", \"change_address\": \"invoice\", \"project_id\": 945892356, \"tags\": []}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6xTwY7TMBD9lWrOTrHTJmlzQwgJJLgsywW0srz2dNeQ2sEeL0Ro/x05SbtZKi0Xbu57b2Ze30x+gzXQinIneNUw0CmSP2KQGW1qvue82VcM+uC/oaYR3m+rTVM1XDCwBh3Zg8UALVyVnHNRAgOjCKGFkotdwfeFaDKWUC5xwQtRA4OI4cFqlD0G6w20IMpXJRf7C0oegj9O1ftClAUXlxLyC8FmFJCiFKEFHVARGmAQ8AFDVB20B9VFZECWuuzrGiO9dw/ealwTRpJTjfxp6V7OCYz12vYWHUllTMCYu38cVm/m6FavJ3RV5ih0CgGdHqCFt5+vgIFDkuQpjxcbvuYMSP2Cdpdfd8HHeGa3fL1lYGzUPjmCdhRrFe/lS5g0aogzYfDWknTpeJsX5FLXsZyDuQA7r7+jeQpE3UVov96wU2pS0RhsyQshinJ3LaqWV+1m+wUYpN68pKmy5tTHu2eaRfUlE1WXSJEdGWBw8J7GQwMGlvCYLU7nW4tdXeczpaHPi5wW+rTYdz6FmG8Qow62n1pO//xHUo4sDXNiyVk6Ufkt+2A1zuRidXzNH9lyeH0evhxytjB1fDYfPthI1t2t/GGlum51P5v8X46as6Mc1iKNT9M38688yqfpcPK2NFBXfzkYz/nxhkGvhiM6mk8o4NE6g2H8+fgnAAD//41ocQ1wBAAA",
+          "base64_string": "H4sIAAAJbogA/6xUTY/TMBD9K9Wc3WK7TdrkhhASSHBZlgtoZXntaWtI7WBPCtWq/x25SbvZLR8S4ua+mXree/OcB3AWailltVhVDEyXKOwwqowuSyHLueArBm0MX9DQCa4WxaqS86Jk4Cx6cmuHEWq4kZJzXgADqwmhBsnFasqrqVhmrEM1xgWfihIYJIx7Z1C1GF2wUIOQLyQX1VVJrWPY9bdWUyGnXFy3UBg1zE8NpKlLUIOJqAktMIi4x5jQQr3WTcIzoBvl/D5kLlml75rmsfSsF+0veslRk+XdYqK3/U0zwkSqH62+O9qqwcgTDeNah56UtjZiyiTfHyavhg1MXvboRErIe4kRvTlADa8/3gADj6QokG6gFnM+4wxI/4B6lU97TVD3iy2qlZDj2iBema2OG7zIcp6iVtgNwJHBJoaULiMWfLZgYF0yofME9Wmi0Wmr/oQpqw9pKFi8d6R8t7vPYendNRHtFdgE83W0nD6R2bcWIzlMUD8cs6JNgvrzHTsvVmXRILmUU76YiuUtL+tC1EX5CRh0bY7eb3uWued8T/BP7hn9+7qSdNORJneqAIN1CJTl5bMj3GWK/SIEr0RZlgsGdGhzSvq0PKbmTehiGiW6b+t9sphMdG0/p4e+ddqTo8PgbucdnV3NZ9VGZ3AojrLCZ/zInjAqLozGUy68+ml/JQXvXCLnN5OwnuimmWwHNf+NZnmhmX0d+fahp/YvzslHSnAmPDavLJ7ROr204x2DVh926GlIYMSd8xbj8NN5wuh1o0zwpM3lLVbzeVlKmaWsXUzk9S4vPn8igEGjL4i+NxaOx58DAGQTznabBQAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "528"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 28 Nov 2020 15:05:35 GMT"
+            "Sun, 17 Apr 2022 06:51:57 GMT"
           ],
           "Etag": [
-            "W/\"7da6f064751b6616a8bda184549eb9aa\""
+            "W/\"806c62563b7941a7f368602853723156\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "326f7b9b-53af-4583-afcd-efe8bf71b12e"
+            "cfdfa667-cd3e-4e42-9ada-690c64bd9bbc"
           ],
           "X-Runtime": [
-            "1.070211"
+            "1.342075"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

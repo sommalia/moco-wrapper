@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-26T10:20:05",
+      "recorded_at": "2022-04-17T07:00:51",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,43 +24,38 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760895557"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/761263120"
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4pWKkotyElMTlXSUSpJLS5RKElMT8/MS1eACccCAgAA//9aGTyGIgAAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "52"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 26 Nov 2020 10:20:05 GMT"
+            "Sun, 17 Apr 2022 07:00:51 GMT"
           ],
           "Etag": [
-            "W/\"4882592cb35ff97e11af5df48ff9f204\""
+            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -75,10 +70,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "703cbb0b-e986-4401-baf4-0eb2a87ba2e9"
+            "67c7acba-cda9-478e-b4f9-218fc9b745ee"
           ],
           "X-Runtime": [
-            "0.029024"
+            "0.023938"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -88,7 +83,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/760895557"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/taggings/Company/761263120"
       }
     }
   ],

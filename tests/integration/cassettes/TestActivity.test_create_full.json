@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T09:24:49",
+      "recorded_at": "2022-04-17T06:46:32",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"project_id\": 945640514, \"task_id\": 9977288, \"date\": \"2020-01-01\", \"description\": \"TestActivity.test_create_full\", \"billable\": true, \"tag\": \"test_activity\", \"remote_service\": \"jira\", \"remote_id\": \"JIRA-123\", \"remote_url\": \"https://jira.example.org\", \"hours\": 3.5}"
+          "string": "{\"project_id\": 945892354, \"task_id\": 12540219, \"date\": \"2020-01-01\", \"description\": \"TestActivity.test_create_full\", \"billable\": true, \"tag\": \"test_activity\", \"remote_service\": \"jira\", \"remote_id\": \"JIRA-123\", \"remote_url\": \"https://jira.example.org\", \"hours\": 3.5}"
         },
         "headers": {
           "Accept": [
@@ -21,7 +21,7 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "264"
+            "265"
           ],
           "Content-Type": [
             "application/json"
@@ -30,7 +30,7 @@
             "python-requests/2.25.1"
           ],
           "X-IMPERSONATE-USER-ID": [
-            "933650868"
+            "933662266"
           ]
         },
         "method": "POST",
@@ -38,7 +38,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/4SSvW7bMBSF3+XMlEPqX9wCdGnGIlMXgZaubaaUKJCXQYvC714wTmzAaJv1gN+HQ5z7G3aGVlL2qiurtheYDRM0SlnKQqpCKgicfAoRuto1AjPFKdiNrV+h8UyRHye2r5Z/7Zgij1MgwzQeknMQ2FvnaIY+GBdJYG+dM3tH0BwSCbA5QuONM+8WCARaPNMYKbzaKZd5scHc8twYT1+/PRaqrG5xCg4aJ+Yt6oeHjOzop1k2RzsfjhDYgn+hiaEvnx7qpq1lo2qB1Sx0/5kj8fhB3Bc/C7CJP66moevKvv/UM75Bf5FNKbJfKHwIu1blQXr1b+UVOQukeEOHqmob2eclDzZEfuef/GmFgDPX5IunzLJdKIyRTWCaR8PQa3JO4DLjJcnHoAo5FKV8loMua10P3yGQtnws/3tz/jMA7vheJGACAAA=",
+          "base64_string": "H4sIAAAJbogA/4SSu27cMBBF/+XWlExSEh2xc5mUgas0BFeaXdOhHiCHRoxg/z1g1utFgjzaC52jmeH9jjDDKqkGo4dB9wKzZ4KFllo2UjVSQeBpKynDdu0gkGna1jnDKm2kFJgpTynsHLYVFo+U+WHi8BL4tWXK7KZEnskdS4wQOIQYaYY9+phJ4BBi9IdIsJwKCbA/wYIps/NvFggkWjYmlym9hKkO9xySv+V1A3z6+PmhUbq7xSVFWDwx79ne3VWkpW9+2SO1WzpBYE/bM00MeznC2A8fRt0NvcDql/qbX5Y5Ebsr8fvgZwH2+evVpPTQS63G/4rcT+oPtqlk3hZKV+O9Udp0clR/V74jZ4GSb+jYdcZobYzAMaTMb3y9MQSif0/8YZorzGGh5DL7xDQ7z7BriVHg8pCXpNZDN7Jv1P2jNLY3ttNfIFD2Wp9/f1PLFF9d8kywspXnHwMAJef2m4QCAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -49,20 +49,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "335"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 09:24:49 GMT"
+            "Sun, 17 Apr 2022 06:46:32 GMT"
           ],
           "Etag": [
-            "W/\"2c032e08b59896837367e12bc0dea30d\""
+            "W/\"653ceac13e9095f80f766b6a1741a52f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -81,10 +81,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4441b5d6-4d89-4e56-b12b-f04656574fb5"
+            "0a013420-3e6a-4654-89aa-a9e9cb66c92a"
           ],
           "X-Runtime": [
-            "0.046383"
+            "0.055284"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

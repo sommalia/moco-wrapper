@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T13:29:14",
+      "recorded_at": "2022-04-17T06:52:55",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -33,26 +33,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "[{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909172730,\"name\":\"Team 1\"},\"created_at\":\"2021-11-05T13:05:38Z\",\"updated_at\":\"2021-11-05T13:06:51Z\"}]"
+          "string": "[{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\",\"active\":true,\"extern\":false,\"email\":\"<DOMAIN>@byom.de\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909175374,\"name\":\"Team 1\"},\"created_at\":\"2022-04-05T14:52:49Z\",\"updated_at\":\"2022-04-17T06:46:14Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "352"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 13:29:14 GMT"
+            "Sun, 17 Apr 2022 06:52:55 GMT"
           ],
           "Etag": [
-            "W/\"ec31e1971fef21068991d9c55845653c\""
+            "W/\"c3d16d71853474a3eba0c47a614b6e51\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -76,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d3b23fec-07be-4991-84e3-7254fbebd6ee"
+            "f34f8372-b043-4e7b-9f37-9b47b0f4f180"
           ],
           "X-Runtime": [
-            "0.033972"
+            "0.033222"
           ],
           "X-Total": [
             "1"

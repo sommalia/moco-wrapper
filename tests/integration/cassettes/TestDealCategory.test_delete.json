@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:02:23",
+      "recorded_at": "2022-04-17T06:51:09",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"probability\": 1, \"name\": \"QX0ONG\"}"
+          "string": "{\"name\": \"CW1TO6\", \"probability\": 1}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/6pWykxRsjKzNDcy1VHKS8xNVbJSCoww8PdzV9JRKijKT0pMyszJLKlUsjLUUUouSk0sSU2JTyxRslIyMjAy0DU01DUyCTEwtzIwsjIyjlLSUSotSCGgphYQAAD//4ycz6F0AAAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":91041,\"name\":\"CW1TO6\",\"probability\":1,\"created_at\":\"2022-04-17T06:51:09Z\",\"updated_at\":\"2022-04-17T06:51:09Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "111"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:02:23 GMT"
+            "Sun, 17 Apr 2022 06:51:09 GMT"
           ],
           "Etag": [
-            "W/\"eede8a452c940b293d59f3bfdcf722d3\""
+            "W/\"6c498420ad812510fc1c11d5b29f051c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "05a391a9-b73f-40b2-90d4-bcbc824d4391"
+            "432e7028-ac5d-467a-a3de-86131abe3e0c"
           ],
           "X-Runtime": [
-            "0.034125"
+            "0.028983"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T07:02:23",
+      "recorded_at": "2022-04-17T06:51:09",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -121,15 +116,14 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/69725"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/91041"
       },
       "response": {
         "body": {
-          "base64_string": "",
           "encoding": null,
           "string": ""
         },
@@ -137,18 +131,14 @@
           "Cache-Control": [
             "no-cache"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Date": [
-            "Tue, 24 Nov 2020 07:02:23 GMT"
+            "Sun, 17 Apr 2022 06:51:09 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -163,10 +153,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "31453428-a884-402d-b042-013f55669619"
+            "a884dcb0-92a8-4263-8dbf-db7d2c835177"
           ],
           "X-Runtime": [
-            "0.034025"
+            "0.029286"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -176,7 +166,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/69725"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deal_categories/91041"
       }
     }
   ],

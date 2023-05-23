@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T14:01:48",
+      "recorded_at": "2022-04-17T06:49:17",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -36,26 +36,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":761108956,\"type\":\"supplier\",\"name\":\"dummy company, update iban\",\"website\":\"\",\"email\":null,\"billing_email_cc\":null,\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":null,\"tags\":[],\"user\":{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2021-11-05T14:01:47Z\",\"updated_at\":\"2021-11-05T14:01:47Z\",\"iban\":null}"
+          "string": "{\"id\":761263103,\"type\":\"supplier\",\"name\":\"dummy company, update iban\",\"website\":\"\",\"email\":null,\"billing_email_cc\":\"\",\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":null,\"tags\":[],\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2022-04-17T06:49:17Z\",\"updated_at\":\"2022-04-17T06:49:17Z\",\"iban\":null}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "407"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 14:01:47 GMT"
+            "Sun, 17 Apr 2022 06:49:17 GMT"
           ],
           "Etag": [
-            "W/\"7f1813de30881189fdb3cc02dae0d393\""
+            "W/\"3b2b7c4e69099894de77ca6c5dbe7191\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "595a33e1-6208-476a-a677-588c9738bc4e"
+            "9b56cc82-2223-4e40-ad67-1c0817c9e226"
           ],
           "X-Runtime": [
-            "0.175007"
+            "0.230856"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2021-11-05T14:01:48",
+      "recorded_at": "2022-04-17T06:49:17",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -120,31 +120,31 @@
           ]
         },
         "method": "PUT",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761108956"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761263103"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":761108956,\"type\":\"supplier\",\"name\":\"dummy company, update iban\",\"website\":\"\",\"email\":null,\"billing_email_cc\":\"\",\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":null,\"tags\":[],\"user\":{\"id\":933653237,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2021-11-05T14:01:47Z\",\"updated_at\":\"2021-11-05T14:01:48Z\",\"iban\":\"FI0342541877156574\"}"
+          "string": "{\"id\":761263103,\"type\":\"supplier\",\"name\":\"dummy company, update iban\",\"website\":\"\",\"email\":null,\"billing_email_cc\":\"\",\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":null,\"tags\":[],\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2022-04-17T06:49:17Z\",\"updated_at\":\"2022-04-17T06:49:17Z\",\"iban\":\"FI0342541877156574\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "421"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 14:01:48 GMT"
+            "Sun, 17 Apr 2022 06:49:17 GMT"
           ],
           "Etag": [
-            "W/\"2ae10b09715fbd4529e933ef95e90c0d\""
+            "W/\"272bdedc492acd250730cf2a9dd9c538\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -162,10 +162,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "913abafd-8aad-46e6-a979-e3257db8a03b"
+            "2a7d434b-0c5b-494e-9e7a-d4f878251af9"
           ],
           "X-Runtime": [
-            "0.101954"
+            "0.116512"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -175,7 +175,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761108956"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/companies/761263103"
       }
     }
   ],

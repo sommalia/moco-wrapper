@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:29:39",
+      "recorded_at": "2022-04-17T08:00:50",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"commentable_type\": \"Company\", \"text\": \"TestComment.test_create_bulk\", \"commentable_ids\": [760902791, 760902792]}"
+          "string": "{\"commentable_ids\": [761263092, 761263093], \"commentable_type\": \"Company\", \"text\": \"TestComment.test_create_bulk\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/9yPwUrDQBCG3+U/T2V3UpLsXvsKPSkSJskIxWwasrNgkb67xIDoQbx7ne8f+L6nd1xGxMbX3B4bwnBNSWeTftLuE9QuOG6C/4nstigiTte0yHwDwfTNEHHWbKd992CarRtWFdOuL9MrCEnmIhOirUUJOxs72T7ZsTt4Pjg++2PkEKvwCEJZxr83WVfEPSRUVV21wQfCy2XNNkvaRDcXECb5ukg/jLjf6Xt/+3s//9P+548AAAD///VKJ3wBAgAA",
+          "base64_string": "H4sIAAAJbogA/9yQwWrDQAxE/2XOSpHlZlPvNb+QU0sxsq1CqNcxthYaSv69LIbS9NJ7r3ojmHkvnzgPiNVeGmGpCP0lJZtcu9HaQg6hklBzI/fIr7Mh4nhJs05XENw+HBEnW/245R7cVm/7xdSt7fL4DkLSKeuI6Es2wsaGVsunsMiOH3fV4cRPkTnu+RmEPA9/Z1ZbELclTV2HIBIC4e28rD5pKkVLFxBG/b5o1w+43ehOwK+VPwXU/1TA69cA/eJ5NwMCAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "201"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:29:39 GMT"
+            "Sun, 17 Apr 2022 08:00:50 GMT"
           ],
           "Etag": [
-            "W/\"111864e92ecb2ba029bbc64d20c963c0\""
+            "W/\"285c2c473876d6ec5246d524e00e10da\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "152522c8-ee7a-4713-8b9a-e72116d38da2"
+            "966d638e-9d49-4549-8e3c-80d2c640cb89"
           ],
           "X-Runtime": [
-            "0.082022"
+            "0.063805"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

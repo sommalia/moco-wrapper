@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-04-01T07:14:30",
+      "recorded_at": "2022-04-17T06:46:09",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/5TRQU+EMBAF4L9i3rmYQtll27Mnz3jRbJoKg5IAbabltOG/G7NqxHU34dr0fTN583JC38JoqfNKykoJTG4kGNTkxrscAs0ckx9tYB+IU08R5rQIzJE4wnznldqX6iClQNdzTF/Io3+fIDC4n5cHT1jE71Cly3UoWydqiukpEt8nisk2TC5dErvNhO3mYbhw9hucN7q6jt7ABOLO8+imhixT8HxVrTaoc2j/Ico/9/msdN22e21aLEeBc9GtdQkGhSzyTKosP9R5aZQ2xe4ZAucht/4sx48BAPjM1eBhAgAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[{\"id\":909175374,\"name\":\"Team 1\",\"custom_properties\":{},\"users\":[{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\",\"email\":\"<DOMAIN>@byom.de\"}],\"created_at\":\"2022-04-05T14:52:48Z\",\"updated_at\":\"2022-04-05T14:52:48Z\"}]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "234"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 01 Apr 2021 07:14:30 GMT"
+            "Sun, 17 Apr 2022 06:46:09 GMT"
           ],
           "Etag": [
-            "W/\"460e6b663c6f5117d9d93bc551e88a7a\""
+            "W/\"8553753a1278904bd0ce5ef3eb91f5f8\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "d60a0c9a-9a5b-427d-8098-902faab6abd4"
+            "e4635345-143a-4ee9-9f02-32b65bc1df8f"
           ],
           "X-Runtime": [
-            "0.031275"
+            "0.048625"
           ],
           "X-Total": [
             "1"

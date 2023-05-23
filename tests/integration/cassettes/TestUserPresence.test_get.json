@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T10:07:26",
+      "recorded_at": "2022-04-17T07:29:20",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"from\": \"08:30\", \"to\": \"10:30\", \"date\": \"2017-11-25\"}"
+          "string": "{\"from\": \"08:30\", \"to\": \"10:30\", \"date\": \"2019-02-12\"}"
         },
         "headers": {
           "Accept": [
@@ -36,26 +36,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":4365923,\"date\":\"2017-11-25\",\"from\":\"08:30\",\"to\":\"10:30\",\"is_home_office\":false,\"user\":{\"id\":933650866,\"firstname\":\"test\",\"lastname\":\"test\"},\"created_at\":\"2021-09-20T10:07:26Z\",\"updated_at\":\"2021-09-20T10:07:26Z\"}"
+          "string": "{\"id\":5419944,\"date\":\"2019-02-12\",\"from\":\"08:30\",\"to\":\"10:30\",\"is_home_office\":false,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:29:20Z\",\"updated_at\":\"2022-04-17T07:29:20Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "218"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:07:26 GMT"
+            "Sun, 17 Apr 2022 07:29:20 GMT"
           ],
           "Etag": [
-            "W/\"a7a67cd26b2df84c25e88b28aa3d9783\""
+            "W/\"72d02774a0a3b8a9c3d77ebed6c805fa\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "5d9c1144-61d6-4c7d-b6d9-ad52cd11d528"
+            "5d654f6b-071b-42b4-8fd4-6df37d2e7fb0"
           ],
           "X-Runtime": [
-            "0.070377"
+            "0.032345"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2021-09-20T10:07:26",
+      "recorded_at": "2022-04-17T07:29:20",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -117,31 +117,31 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/4365923"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/5419944"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":4365923,\"date\":\"2017-11-25\",\"from\":\"08:30\",\"to\":\"10:30\",\"is_home_office\":false,\"user\":{\"id\":933650866,\"firstname\":\"test\",\"lastname\":\"test\"},\"created_at\":\"2021-09-20T10:07:26Z\",\"updated_at\":\"2021-09-20T10:07:26Z\"}"
+          "string": "{\"id\":5419944,\"date\":\"2019-02-12\",\"from\":\"08:30\",\"to\":\"10:30\",\"is_home_office\":false,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:29:20Z\",\"updated_at\":\"2022-04-17T07:29:20Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "218"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:07:26 GMT"
+            "Sun, 17 Apr 2022 07:29:20 GMT"
           ],
           "Etag": [
-            "W/\"a7a67cd26b2df84c25e88b28aa3d9783\""
+            "W/\"72d02774a0a3b8a9c3d77ebed6c805fa\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -159,10 +159,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "06496841-7974-489f-ad0e-73ecba779e66"
+            "934d1ccf-cf2f-4abf-9a44-3bef61d3a44e"
           ],
           "X-Runtime": [
-            "0.019103"
+            "0.035059"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -172,7 +172,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/4365923"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/presences/5419944"
       }
     }
   ],

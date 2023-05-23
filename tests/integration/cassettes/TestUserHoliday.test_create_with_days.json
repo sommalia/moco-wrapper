@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:12:44",
+      "recorded_at": "2022-04-17T07:02:29",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"title\": \"dummy holiday, (test create with days)\", \"year\": 2019, \"user_id\": 933638919, \"days\": 2}"
+          "string": "{\"year\": 2019, \"title\": \"dummy holiday, (test create with days)\", \"user_id\": 933662266, \"days\": 2}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SNwUoEMRBEfyXUSaFXkkzcdfo7PHmRdhOZwIwrSQcJMv8uYcDrnooqivd+kSP4OTh/IfQkBeytmwmadU1gxLZt3Sy3NUfpZB40VTXXkkST+cm6mCi9PoIwEuyfLGG5tVLB7jxKq6mAD888TefpZR78z1yqfsk2HIMJwir/i3xcI3bCIYrvomB46+3JuZMPr/bCznMIbyC073jns/8FAAD//9INyZLmAAAA",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":114772,\"year\":2019,\"title\":\"dummy holiday, (test create with days)\",\"days\":2.0,\"hours\":16.0,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:02:29Z\",\"updated_at\":\"2022-04-17T07:02:29Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "180"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:12:44 GMT"
+            "Sun, 17 Apr 2022 07:02:29 GMT"
           ],
           "Etag": [
-            "W/\"609d71b0d17ade04668d81ca74df65b6\""
+            "W/\"274d21688a7035afce47dcb2d60cb28c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "a45deb36-9246-443e-81ac-08d5b3da6bf6"
+            "433f939c-1140-4536-aef7-15fa9d5fb34a"
           ],
           "X-Runtime": [
-            "0.051739"
+            "0.055502"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

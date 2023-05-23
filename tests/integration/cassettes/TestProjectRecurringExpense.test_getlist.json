@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-22T07:25:46",
+      "recorded_at": "2022-04-17T06:57:50",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -28,7 +28,7 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642862/recurring_expenses?page=1"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892374/recurring_expenses?page=1"
       },
       "response": {
         "body": {
@@ -39,20 +39,20 @@
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "2"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 22 Sep 2021 07:25:46 GMT"
+            "Sun, 17 Apr 2022 06:57:50 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -76,10 +76,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "98e9822f-d088-4bec-b06d-8ca3ece2f0e9"
+            "c5f8d650-bc14-4813-a2a8-550fa4ae2757"
           ],
           "X-Runtime": [
-            "0.027423"
+            "0.024513"
           ],
           "X-Total": [
             "0"
@@ -92,7 +92,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945642862/recurring_expenses?page=1"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/945892374/recurring_expenses?page=1"
       }
     }
   ],

@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-04-06T10:55:56",
+      "recorded_at": "2022-04-17T06:46:15",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"year\": 2020, \"rates\": [{\"user_id\": 933643740, \"rate\": 210.5}]}"
+          "string": "{\"year\": 2020, \"rates\": [{\"user_id\": 933662266, \"rate\": 210.5}]}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "PATCH",
@@ -42,20 +42,20 @@
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "15"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 06 Apr 2021 10:55:56 GMT"
+            "Sun, 17 Apr 2022 06:46:14 GMT"
           ],
           "Etag": [
             "W/\"a29ee2b15c494311c52521766e44af56\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "e47011dc-9b7b-456d-a544-aa07c45e515c"
+            "e84ccf39-8e60-4717-a76f-5df373f9b631"
           ],
           "X-Runtime": [
-            "0.023847"
+            "0.079044"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

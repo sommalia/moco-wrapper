@@ -213,3 +213,12 @@ class TestCompany(UnitTest):
         )
 
         assert response["data"]["vat_identifier"] == vat
+
+    def test_delete(self):
+        company_id = 5
+
+        response = self.moco.Company.delete(
+            company_id=company_id
+        )
+
+        assert response["method"] == "DELETE"

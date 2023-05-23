@@ -66,7 +66,8 @@ class Company(MWRAPBase):
             Endpoint("company_create", "/companies", "POST", om.Company),
             Endpoint("company_update", "/companies/{id}", "PUT", om.Company),
             Endpoint("company_get", "/companies/{id}", "GET", om.Company),
-            Endpoint("company_getlist", "/companies", "GET", om.Company)
+            Endpoint("company_getlist", "/companies", "GET", om.Company),
+            Endpoint("company_delete", "/companies/{id}", "DELETE")
         ]
 
     def __init__(self, moco):
@@ -392,3 +393,24 @@ class Company(MWRAPBase):
             params["sort_by"] = "{} {}".format(sort_by, sort_order)
 
         return self._moco.get("company_getlist", params=params)
+
+    def delete(
+        self,
+        company_id: int
+    ):
+        """
+        Deletes a company
+
+        :param company_id: Id of the company to delete
+
+        :type: company_id: int
+
+        :returns: Empty response on success
+        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
+        """
+
+        ep_params = {
+            "id": company_id
+        }
+
+        return self._moco.delete("company_delete", ep_params=ep_params)

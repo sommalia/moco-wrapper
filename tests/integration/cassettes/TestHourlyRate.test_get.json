@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-18T14:43:24",
+      "recorded_at": "2022-04-17T06:45:58",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,35 +24,35 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/account/hourly_rates?company_id=760975905"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/account/hourly_rates?company_id=761263090"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"defaults_rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}],\"tasks\":[{\"id\":80229,\"name\":\"Projektleitung\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]},{\"id\":80230,\"name\":\"Entwicklung\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]},{\"id\":80231,\"name\":\"Grafik\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]}],\"users\":[{\"id\":933643740,\"full_name\":\"test abcd\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]}]}"
+          "string": "{\"defaults_rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}],\"tasks\":[{\"id\":101151,\"name\":\"Projektleitung\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]},{\"id\":101152,\"name\":\"Entwicklung\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]},{\"id\":101153,\"name\":\"Grafik\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]}],\"users\":[{\"id\":933662266,\"full_name\":\"test abcd\",\"rates\":[{\"currency\":\"EUR\",\"hourly_rate\":100.0}]}]}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "416"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 18 Mar 2021 14:43:24 GMT"
+            "Sun, 17 Apr 2022 06:45:58 GMT"
           ],
           "Etag": [
-            "W/\"8445b319e0ef9f312829fc483986494d\""
+            "W/\"4427f9dfa2a1ac388625c843bb5d0c57\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -70,10 +70,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b9de5933-da1a-46aa-838c-4b54789a4723"
+            "6caa0d6d-7f6b-4ff7-a6e2-7525e0820feb"
           ],
           "X-Runtime": [
-            "0.053009"
+            "0.088601"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -83,7 +83,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/account/hourly_rates?company_id=760975905"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/account/hourly_rates?company_id=761263090"
       }
     }
   ],

@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-11-05T13:29:34",
+      "recorded_at": "2022-04-17T06:53:15",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"deal_id\": null, \"project_id\": 945690433, \"company_id\": null, \"recipient_address\": \"My Customer Address 34\", \"title\": \"TestOffer.test_create_project\", \"tax\": 21.5, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"offer from project title\"}, {\"type\": \"item\", \"title\": \"misc\", \"net_total\": 2000, \"optional\": false}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"change_address\": \"offer\"}"
+          "string": "{\"deal_id\": null, \"project_id\": 945892357, \"company_id\": null, \"recipient_address\": \"My Customer Address 34\", \"title\": \"TestOffer.test_create_project\", \"tax\": 21.5, \"currency\": \"EUR\", \"items\": [{\"type\": \"title\", \"title\": \"offer from project title\"}, {\"type\": \"item\", \"title\": \"misc\", \"net_total\": 2000, \"optional\": false}], \"date\": \"2020-01-02\", \"due_date\": \"2021-01-01\", \"change_address\": \"offer\"}"
         },
         "headers": {
           "Accept": [
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/7RTzY7UPBB8lajP3pEdJ9mJb/t9QnBBILRcQKvI63RGRokd7A5itMq7I+dnZljEkVtS3W5XVZdfwLagyryuKsHAtujIdhYDKHjIBee8AAatJgQFOc/5HRd3PE/YhM0VFwsugAFZ6hP4iJE+dB2GA2GkxgTUhM0Y/Dc0BAwCGjtadNTotg0YIyh4f87+nyL5AUP2sKKZTATMFAI6cwYFbz5/AgYOqSFPugeVc84PnAHpn6BycSgZnIKP8VIv5FJvbTR+cgRq+Y2kaUqXrszaRF2fIqivTwzMwiKxHTGQxQjqZWZg/DBqdwa1unZfCcGPx1owcHpIov9DG0eLffZ2eH4HM4Nd73aiLsqq5oWUr6z+mKxOrm5zruadkC6mzQxaTJLd1PdsJ95o2ncgxB0vH4VUea2kPJRF+QUYTGPa01/7ikPO69S3z/Put3k3E/6sRN1PpMkuFWDQeU9LeICBJRySn6v06v4o+LFkQOcxSVxzcs2LT1nJuuCHbNOb7S0Rww9rsFlPruJbjCbYcb15hb5P2pGl87bgyVnarUrfzRiswa14k58lDX6ZlLztdB9xZrekqwvpJOmG82Cj+ef89ny/pvjEwDrC4HTfGO9I38RMyqqUubxn0NkQaUtVeojAoNcXRD+bFub51wAP6tjiBQQAAA==",
+          "base64_string": "H4sIAAAJbogA/7RTTY/TMBD9K9Gc3cpxPtr4tiAEFwRCywW0irzOpBgldrAnK6pV/jtyPtruIo7ckjf2zHtvnp/BNCDLjOdVxcA0aMm0Bj1IuBOCc54Dg0YRggTBBd/xdMdFxEasr3g64ykwIENdBO8x0Ke2Rb8nDFRrj4qwHrz7iZqAgUdtBoOWatU0HkMACR/PydsxkOvRJ3cLmmSRgB69R6vPIOHd1y/AwCLV5Eh1ICPJPWdA6jdIke4LBk+KQC7KiuqYZi+KHp/QB6z1D+VPCLJVXUAGxpJXNY4rMDE4eRfCZUqezVMaE7QbLYGcfwMpGiP1RV8TDVCnAPL7AwM9a4maB/RkMIB8nhho1w/KnjeGhzIVRVpVnIFVfbTuDZowGOyS9/3jB5gYbK6tN6q8OFYiKw6vFvY5LqyAS5/rCk5IF+snBg1G4+zYdWwjXkfL4ibFjue79HDPS1lkMs33x+rwDRiMQ9z2P88V+6zk8dzWz9kX/W46/F0JqhtJkZkrwKB1juYIAgND2Ec/F+nHVPBKpAzoPESrlrRdU+di4pLWuz5Z9SbbkYD+yWisl5uL+AaD9mZYJi/Qr1FZMnReFzxaQ5tV8bsevNG4Fm9SOKfBzZ2it2uGbkmLC+ko6YZzb4L+7/y2V/Ka4sOcfPRWdbV2ltRNzLKsLIUoSwat8YHWVMXnDAw6dUHUo25gmv4MAIN+a1dLBAAA",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "508"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Fri, 05 Nov 2021 13:29:34 GMT"
+            "Sun, 17 Apr 2022 06:53:15 GMT"
           ],
           "Etag": [
-            "W/\"062ffaca472f50b851f8e28ef731c82f\""
+            "W/\"07f081499aa1823f5683b095d4d20fdd\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6b6a2ed7-85fb-40e0-8cc9-c8ddde09a0fa"
+            "3a1ed2b6-6f29-4fdb-939a-6f483df4b06a"
           ],
           "X-Runtime": [
-            "0.758489"
+            "0.831990"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

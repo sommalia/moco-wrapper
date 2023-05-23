@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:39:06",
+      "recorded_at": "2022-04-17T07:14:16",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"firstname\": \"-\", \"lastname\": \"TestPlanningEntry.get_other_user\", \"unit_id\": 909168427, \"password\": \"41965Z\", \"email\": \"9EUADN@example.org\"}"
+          "string": "{\"firstname\": \"-\", \"lastname\": \"TestPlanningEntry.get_other_user\", \"email\": \"24NLG5EZ3U@example.org\", \"password\": \"8GNW8A4VU2\", \"unit_id\": 909175374}"
         },
         "headers": {
           "Accept": [
@@ -21,13 +21,13 @@
             "keep-alive"
           ],
           "Content-Length": [
-            "141"
+            "149"
           ],
           "Content-Type": [
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SQu24qQRBEf+Wq4gHtA8HdiZw4d0DkZNUwDTvyPFY9PRiE+HcLYSNnzvoctVSqusI72KHv1/3Qb1qDg5eiiSLDYgGDQE/cctG3QCn5dHxNKpflkXXMOrGMtbDAgPbqTwyrUtmAz8qSYA8Uyh0j+QCLgSu59MJninPgZZYjDGLe+cDjPOV0z4LBZ5aP3zzlyCM5J1zKw/h0yI9r50UnRxfYVEMwoBMpyVgl/Jh9LZrjOEueWdRzgb3eDGryCvu9QjO06/+rbmPwbEzxX4ubwV6YlN1ICouu6ZpF2y2abtuubD/YZv0Ogzq7P35uXwEAAP//rPPjjW8BAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":933662730,\"firstname\":\"-\",\"lastname\":\"TestPlanningEntry.get_other_user\",\"active\":true,\"extern\":false,\"email\":\"24nlg5ez3u@example.org\",\"mobile_phone\":\"\",\"work_phone\":\"\",\"home_address\":\"\",\"info\":\"\",\"birthday\":null,\"avatar_url\":null,\"tags\":[],\"custom_properties\":{},\"unit\":{\"id\":909175374,\"name\":\"Team 1\"},\"created_at\":\"2022-04-17T07:14:16Z\",\"updated_at\":\"2022-04-17T07:14:16Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "260"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:39:06 GMT"
+            "Sun, 17 Apr 2022 07:14:16 GMT"
           ],
           "Etag": [
-            "W/\"4aad9ab8b0d9573ae61885df3e3ca643\""
+            "W/\"58ac2ec1e9a080b35e78ea577b45aeee\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "8dafdc28-6e08-4951-b857-a6275b75194b"
+            "e2bcfe75-c4d4-40be-9cdf-96b94977958f"
           ],
           "X-Runtime": [
-            "1.420143"
+            "1.074907"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

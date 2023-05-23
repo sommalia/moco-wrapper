@@ -1,4 +1,4 @@
-from moco_wrapper.util.response import ObjectResponse, PagedListResponse
+from moco_wrapper.util.response import ObjectResponse, PagedListResponse, EmptyResponse
 from moco_wrapper.models.company import CompanyType
 
 import string
@@ -323,3 +323,19 @@ class TestCompany(IntegrationTest):
             assert type(company_update) is ObjectResponse
 
             assert company_update.data.iban == iban
+
+    def test_delete(self):
+        with self.recorder.use_cassette("TestCompany.test_delete"):
+            name = "company to delete"
+            company_create = self.moco.Company.create(
+                name=name,
+                company_type=CompanyType.CUSTOMER
+            )
+
+            assert company_create.response.status_code == 200
+
+            company_delete = self.moco.Company.delete(
+                company_id=company_create.data.id
+            )
+
+            assert type(company_delete) is EmptyResponse

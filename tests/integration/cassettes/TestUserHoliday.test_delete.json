@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:13:00",
+      "recorded_at": "2022-04-17T07:02:45",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"hours\": 0, \"title\": \"dummy holiday, test delete\", \"year\": 2020, \"user_id\": 933638919}"
+          "string": "{\"year\": 2020, \"title\": \"dummy holiday, test delete\", \"user_id\": 933662266, \"hours\": 0}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4TOzUrEQBAE4FcJde6Vnsz6k34OT16k3W7ZwMSVmZ7DIHl3CaJXb0VRfNQXVoPcn1NmwnCtkJlnJsQaxSGwvm1jut7KajpoCm8xmRcPB8F0NAjfMeF66/U39+YV8kMvOT/kpyUthPe1tvjQ7WAPB4Sif42+XQw74VJdw+1VA4Ljyyml03x+5kdJWZhfQOif9s9m/w4AAP//E1x7GtkAAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":114775,\"year\":2020,\"title\":\"dummy holiday, test delete\",\"days\":0.0,\"hours\":0.0,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:02:45Z\",\"updated_at\":\"2022-04-17T07:02:45Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "170"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:13:00 GMT"
+            "Sun, 17 Apr 2022 07:02:45 GMT"
           ],
           "Etag": [
-            "W/\"8639ff9fe53a0a46c161a17050ce8605\""
+            "W/\"7bdf635a187650bdaaef1826e619da9b\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "3da1f99a-150c-4efe-ae1c-c348d27f790b"
+            "ce9c5f6b-5043-4197-96bb-dd93804b950f"
           ],
           "X-Runtime": [
-            "0.055837"
+            "0.060778"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2020-11-24T07:13:00",
+      "recorded_at": "2022-04-17T07:02:45",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -121,15 +116,14 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/54130"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/114775"
       },
       "response": {
         "body": {
-          "base64_string": "",
           "encoding": null,
           "string": ""
         },
@@ -137,18 +131,14 @@
           "Cache-Control": [
             "no-cache"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Date": [
-            "Tue, 24 Nov 2020 07:13:00 GMT"
+            "Sun, 17 Apr 2022 07:02:45 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -163,10 +153,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "573625ad-aa74-4afe-9dfd-9a47fe0bd9b0"
+            "7b39c8c0-9dbe-4b49-b4f9-5494985292cd"
           ],
           "X-Runtime": [
-            "0.023356"
+            "0.024841"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -176,7 +166,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/54130"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/users/holidays/114775"
       }
     }
   ],

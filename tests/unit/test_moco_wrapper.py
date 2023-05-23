@@ -94,6 +94,9 @@ class TestMocoWrapper(UnitTest):
     def test_tagging_set(self):
         assert isinstance(self.moco.Tagging, models.Tagging)
 
+    def test_report_set(self):
+        assert isinstance(self.moco.Report, models.Report)
+
     def test_wrapper_init(self):
         new_moco = moco.Moco(
             auth={

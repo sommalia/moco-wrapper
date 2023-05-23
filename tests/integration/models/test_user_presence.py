@@ -214,7 +214,7 @@ class TestUserPresence(IntegrationTest):
 
             assert pre_touch.response.status_code == 200
 
-            assert type(pre_touch) is EmptyResponse
+            assert type(pre_touch) is ObjectResponse
 
     def test_touch_home_office(self):
         with self.recorder.use_cassette("TestUserPresence.test_touch"):
@@ -225,7 +225,7 @@ class TestUserPresence(IntegrationTest):
 
             assert pre_touch.response.status_code == 200
 
-            assert type(pre_touch) is EmptyResponse
+            assert type(pre_touch) is ObjectResponse
 
     def test_create_impersonate(self):
         other_user = self.get_other_user()

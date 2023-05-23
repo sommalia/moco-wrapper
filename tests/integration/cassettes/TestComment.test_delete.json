@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-12-02T14:29:51",
+      "recorded_at": "2022-04-17T06:48:09",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"commentable_type\": \"Project\", \"commentable_id\": 945379753, \"text\": \"TestActivity.test_delete_create\"}"
+          "string": "{\"commentable_id\": 945892355, \"commentable_type\": \"Project\", \"text\": \"TestActivity.test_delete_create\"}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,35 +35,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/4SPwWoDIRCG3+U/m7JqNhu99Q16yKkXmegULLoJOlsaSt69SKDQU67fNwPf/4Oc4Bd9MMd5UYiXWnkVOhcOQ7j9bBe3zPa/ktuV4fHWLp8cBQrC3wKPE3d5jZK/stxehLuExIWFQ2xMwlCotG5U4KVtrPDAKdB4NpOZdtrsJnPSe2+cn/U7FLZren7TucE/tjhrD/botFP4yK3LSnW0jhooFPojdI4J9/tvAAAA//+tk6wNAgEAAA==",
           "encoding": "utf-8",
-          "string": ""
+          "string": "{\"id\":15291841,\"commentable_id\":945892355,\"commentable_type\":\"Project\",\"text\":\"TestActivity.test_delete_create\",\"manual\":true,\"created_at\":\"2022-04-17T06:48:09Z\",\"updated_at\":\"2022-04-17T06:48:09Z\",\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"}}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "193"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Wed, 02 Dec 2020 14:29:51 GMT"
+            "Sun, 17 Apr 2022 06:48:09 GMT"
           ],
           "Etag": [
-            "W/\"37c61bbb3e22da3bf2d973620064a161\""
+            "W/\"043daed7e8e2a4affeae54ae1abaeebc\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -78,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "b6ac3315-7964-4b21-ab49-46d4ef29086a"
+            "bc4c0eba-5f79-46ac-815f-08dc6efe9601"
           ],
           "X-Runtime": [
-            "0.037290"
+            "0.047564"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -95,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2020-12-02T14:29:51",
+      "recorded_at": "2022-04-17T06:48:09",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -121,15 +116,14 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "DELETE",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/comments/7162857"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/comments/15291841"
       },
       "response": {
         "body": {
-          "base64_string": "",
           "encoding": null,
           "string": ""
         },
@@ -137,18 +131,14 @@
           "Cache-Control": [
             "no-cache"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
           "Date": [
-            "Wed, 02 Dec 2020 14:29:51 GMT"
+            "Sun, 17 Apr 2022 06:48:09 GMT"
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -163,10 +153,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "70224b43-17d2-4444-9a3f-ef6fa8bc53ac"
+            "e92789fe-1bdc-4db5-8028-57e81046ed2b"
           ],
           "X-Runtime": [
-            "0.022567"
+            "0.093967"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -176,7 +166,7 @@
           "code": 204,
           "message": "No Content"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/comments/7162857"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/comments/15291841"
       }
     }
   ],

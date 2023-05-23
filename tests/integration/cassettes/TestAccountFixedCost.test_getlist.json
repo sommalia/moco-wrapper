@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-18T15:17:03",
+      "recorded_at": "2022-04-17T06:45:52",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,7 +24,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
@@ -32,35 +32,30 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAJbogA/6zUz2rCQBDH8Xf5ndeyf7JG5zl6UqQEs9BATCTZHIr47kWhMNruOIfeP7DszJfZX9C1IO+sXxvkLvcJhJzmDIM2zcepO+duHEDD0vcGx3HOM2h/wVdqJpC33hmcxiF/gpxBcxqXIYMqa9/s1fzJvI4FHat0LOrYWsdqHdvo2FbHnFU6p3S/FnEwOE6pyan9aDIIt+2ubFi5zburKNYU/A4Gy7mVzHaH24s/XdX/2VUo/oZ9poxYU2XEiioj1lMZsZrKiLVURqykMmIdlRGvSFCqmfOCwot+IjlPPor93E2Ij/1sHvvxzwEB+rMUVVdJUCwgQbGCBMUSEhRrSFAsIkGxigTFMhIU70hiLCSJPY9fOkX3THz9OqXK7XA9fA8AGc101OQGAAA=",
           "encoding": "utf-8",
-          "string": ""
+          "string": "[]"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Encoding": [
-            "gzip"
-          ],
-          "Content-Length": [
-            "305"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Thu, 18 Mar 2021 15:17:03 GMT"
+            "Sun, 17 Apr 2022 06:45:52 GMT"
           ],
           "Etag": [
-            "W/\"3103c1fc5dcb037253a0dd45b642b9af\""
+            "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
           ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
           "Vary": [
-            "Origin",
-            "Accept-Encoding"
+            "Origin"
           ],
           "X-Content-Type-Options": [
             "nosniff"
@@ -81,13 +76,13 @@
             "none"
           ],
           "X-Request-Id": [
-            "0951706d-a7a8-4d08-897a-246a849761f4"
+            "4218e3d5-26e4-4b33-a9d2-84ca28087a8f"
           ],
           "X-Runtime": [
-            "0.130985"
+            "0.040185"
           ],
           "X-Total": [
-            "3"
+            "0"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

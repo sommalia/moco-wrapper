@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2022-04-05T15:22:36",
+      "recorded_at": "2022-04-17T06:50:25",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -36,7 +36,7 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":385427,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2022-04-05\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-05T15:22:36Z\",\"updated_at\":\"2022-04-05T15:22:36Z\"}"
+          "string": "{\"id\":388479,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2022-04-17\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-17T06:50:25Z\",\"updated_at\":\"2022-04-17T06:50:25Z\"}"
         },
         "headers": {
           "Cache-Control": [
@@ -46,10 +46,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 05 Apr 2022 15:22:36 GMT"
+            "Sun, 17 Apr 2022 06:50:25 GMT"
           ],
           "Etag": [
-            "W/\"39a475bbd60e103ced0eaf6b76244c9a\""
+            "W/\"a402a14f363c67ec096621904169c105\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "9722ad9c-efc3-435b-bbe0-544e9f0f9f50"
+            "f63853ab-58cd-494b-ac6a-15fd90657ff2"
           ],
           "X-Runtime": [
-            "0.141316"
+            "0.086779"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -90,7 +90,7 @@
       }
     },
     {
-      "recorded_at": "2022-04-05T15:22:36",
+      "recorded_at": "2022-04-17T06:50:25",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -117,12 +117,12 @@
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/385427"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/deals/388479"
       },
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":385427,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2022-04-05\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-05T15:22:36Z\",\"updated_at\":\"2022-04-05T15:22:36Z\"}"
+          "string": "{\"id\":388479,\"name\":\"TestDeal.test_get_create\",\"status\":\"won\",\"reminder_date\":\"2020-01-10\",\"closed_on\":\"2022-04-17\",\"money\":210.0,\"currency\":\"EUR\",\"info\":\"\",\"tags\":[],\"custom_properties\":{},\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"person\":null,\"customer\":null,\"company\":null,\"category\":{\"id\":90586,\"name\":\"Kontaktieren\",\"probability\":1},\"created_at\":\"2022-04-17T06:50:25Z\",\"updated_at\":\"2022-04-17T06:50:25Z\"}"
         },
         "headers": {
           "Cache-Control": [
@@ -132,10 +132,10 @@
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 05 Apr 2022 15:22:36 GMT"
+            "Sun, 17 Apr 2022 06:50:25 GMT"
           ],
           "Etag": [
-            "W/\"39a475bbd60e103ced0eaf6b76244c9a\""
+            "W/\"a402a14f363c67ec096621904169c105\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
@@ -159,10 +159,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "408de632-4373-40cb-b0cb-bf5d4345a9ca"
+            "d659a029-1733-491c-8770-1ef010430564"
           ],
           "X-Runtime": [
-            "0.029623"
+            "0.033411"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -172,7 +172,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/385427"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/deals/388479"
       }
     }
   ],

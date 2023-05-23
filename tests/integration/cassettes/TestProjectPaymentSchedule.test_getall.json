@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-04-06T12:09:00",
+      "recorded_at": "2022-04-17T06:57:16",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -24,11 +24,11 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "GET",
-        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/payment_schedules?from=2021-02-23&to=2023-02-02&checked=true&company_id=760986120"
+        "uri": "https://<DOMAIN>.mocoapp.com/api/v1/projects/payment_schedules?from=2021-02-23&to=2023-02-02&checked=true&company_id=761263115"
       },
       "response": {
         "body": {
@@ -39,20 +39,20 @@
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "2"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 06 Apr 2021 12:09:00 GMT"
+            "Sun, 17 Apr 2022 06:57:16 GMT"
           ],
           "Etag": [
             "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -70,10 +70,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "6a31401c-af90-4510-9233-2d10b8729dc4"
+            "994bd4b2-fc48-475a-9393-942156c097d6"
           ],
           "X-Runtime": [
-            "0.017927"
+            "0.026040"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
@@ -83,7 +83,7 @@
           "code": 200,
           "message": "OK"
         },
-        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/payment_schedules?from=2021-02-23&to=2023-02-02&checked=true&company_id=760986120"
+        "url": "https://<DOMAIN>.mocoapp.com/api/v1/projects/payment_schedules?from=2021-02-23&to=2023-02-02&checked=true&company_id=761263115"
       }
     }
   ],

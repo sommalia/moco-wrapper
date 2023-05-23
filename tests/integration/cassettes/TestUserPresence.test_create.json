@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-09-20T10:07:15",
+      "recorded_at": "2022-04-17T07:29:09",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"from\": \"08:30\", \"to\": \"10:30\", \"date\": \"2018-02-09\"}"
+          "string": "{\"from\": \"08:30\", \"to\": \"10:30\", \"date\": \"2015-04-02\"}"
         },
         "headers": {
           "Accept": [
@@ -36,26 +36,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":4365921,\"date\":\"2018-02-09\",\"from\":\"08:30\",\"to\":\"10:30\",\"is_home_office\":false,\"user\":{\"id\":933650866,\"firstname\":\"test\",\"lastname\":\"test\"},\"created_at\":\"2021-09-20T10:07:15Z\",\"updated_at\":\"2021-09-20T10:07:15Z\"}"
+          "string": "{\"id\":5419942,\"date\":\"2015-04-02\",\"from\":\"08:30\",\"to\":\"10:30\",\"is_home_office\":false,\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"created_at\":\"2022-04-17T07:29:09Z\",\"updated_at\":\"2022-04-17T07:29:09Z\"}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "218"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Mon, 20 Sep 2021 10:07:15 GMT"
+            "Sun, 17 Apr 2022 07:29:09 GMT"
           ],
           "Etag": [
-            "W/\"28dc632b199d9ddef5808fbfb07dad90\""
+            "W/\"138da0b172acb6cad2337a1d23340b4c\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "4eecb890-da9b-4b8f-ac8e-420eca26644d"
+            "9129f092-6fdf-4790-9aec-a1c22b55413f"
           ],
           "X-Runtime": [
-            "0.025987"
+            "0.032841"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

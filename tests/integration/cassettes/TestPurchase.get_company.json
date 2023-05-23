@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2021-03-20T13:03:22",
+      "recorded_at": "2022-04-17T06:59:21",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.25.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -36,26 +36,26 @@
       "response": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"id\":760976917,\"type\":\"supplier\",\"name\":\"TestPurchase.get_company\",\"website\":\"\",\"email\":null,\"billing_email_cc\":null,\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":null,\"tags\":[],\"user\":{\"id\":933643740,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2021-03-20T13:03:21Z\",\"updated_at\":\"2021-03-20T13:03:21Z\",\"iban\":null}"
+          "string": "{\"id\":761263118,\"type\":\"supplier\",\"name\":\"TestPurchase.get_company\",\"website\":\"\",\"email\":null,\"billing_email_cc\":\"\",\"phone\":\"\",\"fax\":\"\",\"address\":\"\",\"country_code\":\"DE\",\"vat_identifier\":null,\"tags\":[],\"user\":{\"id\":933662266,\"firstname\":\"test\",\"lastname\":\"abcd\"},\"labels\":[],\"info\":\"\",\"footer\":\"\",\"custom_properties\":{},\"created_at\":\"2022-04-17T06:59:21Z\",\"updated_at\":\"2022-04-17T06:59:21Z\",\"iban\":null}"
         },
         "headers": {
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
-          "Content-Length": [
-            "405"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Sat, 20 Mar 2021 13:03:21 GMT"
+            "Sun, 17 Apr 2022 06:59:21 GMT"
           ],
           "Etag": [
-            "W/\"e98be5ee99ab52f049b2f2993789f539\""
+            "W/\"d8fa7a863d613f9b99ab4323de7e22ab\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin"
@@ -73,10 +73,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "0268e518-9676-4aa9-8125-1cf2e52226be"
+            "51140f50-02e5-4d49-8313-fe2e6a486493"
           ],
           "X-Runtime": [
-            "0.234073"
+            "0.235374"
           ],
           "X-Xss-Protection": [
             "1; mode=block"

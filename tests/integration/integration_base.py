@@ -17,13 +17,14 @@ class IntegrationTest(object):
 
     The Integration tests check if the requests that are created will be sent out correctly and can be parsed back into a real object
     """
-
     def setup(self):
+        # export mocotest_delay=1 to enable delay between tests
+        self.delay_tests_enabled = pytest.placeholders.mocotest_delay == "1"
+        self.use_proxy = pytest.placeholders.mocotest_useproxy == "1"
+
         self.setup_moco()
         self.setup_betamax()
 
-        # export mocotest_delay=1 to enable delay between tests
-        self.delay_tests_enabled = pytest.placeholders.mocotest_delay == "1"
 
     def setup_betamax(self):
         self.recorder = betamax.Betamax(self._moco.session)
@@ -38,6 +39,9 @@ class IntegrationTest(object):
             objector=DefaultObjector(),
         )
 
+        if self.use_proxy:
+            self.enable_proxy()
+
     def enable_proxy(self):
         self._moco.requestor.session.proxies = {
             "https": "127.0.0.1:8080"
@@ -45,7 +49,7 @@ class IntegrationTest(object):
         # ignore ssl errors
         self._moco.requestor.session.verify = False
 
-    def id_generator(self, size=6, chars=string.ascii_uppercase + string.digits):
+    def id_generator(self, size=10, chars=string.ascii_uppercase + string.digits):
         """
         create a random string
         """

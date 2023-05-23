@@ -6,13 +6,15 @@ from betamax_serializers import pretty_json
 
 placeholders = {
     "test_placeholder" : "this is a test placeholder"
-} 
+}
 
 ##init placeholders from environment
 placeholders["mocotest_apikey"] = os.environ.get("mocotest_apikey", "test_api_key")
 placeholders["mocotest_domain"] = os.environ.get("mocotest_domain", "test_domain")
 placeholders["mocotest_delay"] = os.environ.get("mocotest_delay", "0")
+placeholders["mocotest_useproxy"] = os.environ.get("mocotest_useproxy", "0")
 
+print(placeholders)
 
 class Placeholders(object):
     def __init__(self, _dict):

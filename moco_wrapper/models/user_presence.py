@@ -172,8 +172,8 @@ class UserPresence(MWRAPBase):
 
         :type is_home_office: bool
 
-        :returns: Empty response on success
-        :rtype: :class:`moco_wrapper.util.response.EmptyResponse`
+        :returns: The created presence
+        :rtype: :class:`moco_wrapper.util.response.ObjectResponse
         """
 
         data = {}

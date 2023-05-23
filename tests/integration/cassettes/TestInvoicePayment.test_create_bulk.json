@@ -1,11 +1,11 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2020-11-24T07:03:37",
+      "recorded_at": "2022-04-17T06:52:22",
       "request": {
         "body": {
           "encoding": "utf-8",
-          "string": "{\"bulk_data\": [{\"currency\": \"EUR\", \"paid_total\": 200, \"invoice_id\": 1273230, \"date\": \"2020-01-01\"}, {\"currency\": \"EUR\", \"paid_total\": 150, \"invoice_id\": 1273230, \"date\": \"2020-01-02\"}]}"
+          "string": "{\"bulk_data\": [{\"date\": \"2020-01-01\", \"invoice_id\": 2229491, \"paid_total\": 200, \"currency\": \"EUR\"}, {\"date\": \"2020-01-02\", \"invoice_id\": 2229491, \"paid_total\": 150, \"currency\": \"EUR\"}]}"
         },
         "headers": {
           "Accept": [
@@ -27,7 +27,7 @@
             "application/json"
           ],
           "User-Agent": [
-            "python-requests/2.23.0"
+            "python-requests/2.25.1"
           ]
         },
         "method": "POST",
@@ -35,7 +35,7 @@
       },
       "response": {
         "body": {
-          "base64_string": "H4sIAAAAAAAA/7TPwUoDMRDG8VeR7zwrk4luIHdfoOhFkRCSCANttiwToUjfXUSrBQ966fXjnzC/pzdoRQyzn2ch1GwNEcLCE7uJHQjaXxctDfEzdRK8eCZobd30RduKiI0wMwcQTG378Ucdu93h6vT4SNhnrckWy1tEYb7m8ylpT7mUZXRLZaxr6+Xwnf0MuHvYgFDWlq3VlO10rHOT3NxziOyjD48gjH39oznSGd7/xsuF8O72X/iv7FL45/cAAAD//yP7iyn7AQAA",
+          "base64_string": "H4sIAAAJbogA/7yQT0sDMRBHv8vvnC2TcWts7h68SakXRUJIRhmo2bLOCkX63UXWPwUPerHXH28ew7t7hVZEfxb6PgSHmk0QwcTUke/Iw0Hby6BFEGeWmVf9yjtolWb6oDIiYs1MRAEOprZ9d2zk2a7m0+u8f5Jmi0ex9Gk7OOyy1mSD5S0iEy3oeEraUi5lmJqlMo2jtLL/wr4HXN6s4VBGySY1ZZu/5476zocNncclR+ZbOEy7+gtzcMc5Ln7m4FPl8Ms/5fjA/ivH/dsAgShTIR8CAAA=",
           "encoding": "utf-8",
           "string": ""
         },
@@ -46,20 +46,20 @@
           "Content-Encoding": [
             "gzip"
           ],
-          "Content-Length": [
-            "204"
-          ],
           "Content-Type": [
             "application/json; charset=utf-8"
           ],
           "Date": [
-            "Tue, 24 Nov 2020 07:03:37 GMT"
+            "Sun, 17 Apr 2022 06:52:22 GMT"
           ],
           "Etag": [
-            "W/\"1bef3a455fcf6f4c4bf375bca7740f66\""
+            "W/\"ff79a358583bfa353815b600fb23bb8f\""
           ],
           "Referrer-Policy": [
             "strict-origin-when-cross-origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
           ],
           "Vary": [
             "Origin",
@@ -78,10 +78,10 @@
             "none"
           ],
           "X-Request-Id": [
-            "5ddc4008-b337-4c65-a626-dcdd796bc824"
+            "ff8fe69c-435f-4136-93ae-d44cc716d825"
           ],
           "X-Runtime": [
-            "0.267313"
+            "0.084989"
           ],
           "X-Xss-Protection": [
             "1; mode=block"
