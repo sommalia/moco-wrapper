@@ -7,6 +7,7 @@ from .project import Project
 from .project_recurring_expense import ProjectRecurringExpense
 from .project_payment_schedule import ProjectPaymentSchedule
 from .project_expense import ProjectExpense
+from .project_group import ProjectGroup
 from .project_contract import ProjectContract
 from .project_task import ProjectTask
 from .project_report import ProjectReport
@@ -35,5 +36,4 @@ from .purchase import Purchase
 from .planning_entry import PlanningEntry
 
 from .report import Report
-
-
+from .webhook import Webhook

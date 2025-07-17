@@ -36,6 +36,10 @@ class DefaultObjector(BaseObjector):
                 "recurring_expenses": "ProjectRecurringExpense",
                 "payment_schedules": "ProjectPaymentSchedule",
             },
+            "project_groups": {
+                "base": "ProjectGroup",
+                "projects": "Project",
+            },
             "activities": {
                 "base": "Activity",
                 "start_timer": "Activity",
@@ -108,7 +112,10 @@ class DefaultObjector(BaseObjector):
                 "Purchase": None,
                 "Invoice": None,
                 "Offer": None,
-            }
+            },
+            "webhooks": {
+                "base": "Webhook",
+            },
         }
         """
         Dictionary used to find the appropriate classes from url-part-path created in :meth:`get_class_name_from_request_url`
