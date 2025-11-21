@@ -6,6 +6,7 @@ class EndpointManager(object):
     """
     Class for managing all models that the moco class uses
     """
+
     def __init__(self):
         """
         Class constructor
@@ -29,6 +30,7 @@ class EndpointManager(object):
         self.endpoints.extend(m.Project.endpoints())
         self.endpoints.extend(m.ProjectContract.endpoints())
         self.endpoints.extend(m.ProjectExpense.endpoints())
+        self.endpoints.extend(m.ProjectGroup.endpoints())
         self.endpoints.extend(m.ProjectPaymentSchedule.endpoints())
         self.endpoints.extend(m.ProjectRecurringExpense.endpoints())
         self.endpoints.extend(m.ProjectTask.endpoints())
@@ -45,6 +47,7 @@ class EndpointManager(object):
         self.endpoints.extend(m.UserPresence.endpoints())
         self.endpoints.extend(m.AccountInternalHourlyRate.endpoints())
         self.endpoints.extend(m.Report.endpoints())
+        self.endpoints.extend(m.Webhook.endpoints())
 
         self._build_map()
 

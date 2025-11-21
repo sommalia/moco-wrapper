@@ -79,6 +79,7 @@ class Moco(object):
         self.Project = models.Project(self)
         self.ProjectContract = models.ProjectContract(self)
         self.ProjectExpense = models.ProjectExpense(self)
+        self.ProjectGroup = models.ProjectGroup(self)
         self.ProjectTask = models.ProjectTask(self)
         self.ProjectRecurringExpense = models.ProjectRecurringExpense(self)
         self.ProjectPaymentSchedule = models.ProjectPaymentSchedule(self)
@@ -93,6 +94,7 @@ class Moco(object):
         self.Purchase = models.Purchase(self)
         self.Tagging = models.Tagging(self)
         self.Report = models.Report(self)
+        self.Webhook = models.Webhook(self)
 
         self._requestor = requestor
         self._objector = objector

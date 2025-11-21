@@ -73,6 +73,8 @@ class Project(MWRAPBase):
         leader_id: int,
         customer_id: int,
         deal_id: int = None,
+        project_group_id: int = None,
+        start_date: datetime.date = None,
         finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
@@ -96,6 +98,8 @@ class Project(MWRAPBase):
         :param leader_id: User id of the project leader
         :param customer_id: Company id of the customer
         :param deal_id: Deal id the the project originated from
+        :param project_group_id: The Project Group id the project belongs to (default ``None``)
+        :param start_date: Start date (default ``None``)
         :param finish_date: Finish date (default ``None``)
         :param identifier: Project Identifier (default ``None``)
         :param billing_address: Billing address the invoices go to (default ``None``)
@@ -116,6 +120,8 @@ class Project(MWRAPBase):
         :type leader_id: int
         :type customer_id: int
         :type deal_id: int
+        :type project_group_id: int
+        :type start_date: datetime.date, str
         :type finish_date: datetime.date, str
         :type identifier: str
         :type billing_address: str
@@ -152,6 +158,8 @@ class Project(MWRAPBase):
 
         for key, value in (
             ("deal_id", deal_id),
+            ("project_group_id", project_group_id),
+            ("start_date", start_date),
             ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),
@@ -165,10 +173,10 @@ class Project(MWRAPBase):
             ("tags", tags),
             ("custom_properties", custom_properties),
             ("info", info),
-            ("fixed_price", fixed_price)
+            ("fixed_price", fixed_price),
         ):
             if value is not None:
-                if key in ["finish_date"] and isinstance(value, datetime.date):
+                if key in ["finish_date", "start_date"] and isinstance(value, datetime.date):
                     data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
@@ -182,6 +190,8 @@ class Project(MWRAPBase):
         leader_id: int = None,
         customer_id: int = None,
         deal_id: int = None,
+        project_group_id: int = None,
+        start_date: datetime.date = None,
         finish_date: datetime.date = None,
         identifier: str = None,
         billing_address: str = None,
@@ -194,7 +204,7 @@ class Project(MWRAPBase):
         budget: float = None,
         tags: list = None,
         custom_properties: dict = None,
-        info: str = None
+        info: str = None,
     ):
         """
         Update an existing project.
@@ -204,6 +214,8 @@ class Project(MWRAPBase):
         :param leader_id: User id of the project leader (default ``None``)
         :param customer_id: Company id of the customer (default ``None``)
         :param deal_id: Deal id of the project (default ``None``)
+        :param project_group_id: The Project Group id the project belongs to (default ``None``)
+        :param start_date: Start date (default ``None``)
         :param finish_date: Finish date (default ``None``)
         :param identifier: Project Identifier (default ``None``)
         :param billing_address: Address the invoices go to (default ``None``)
@@ -223,6 +235,8 @@ class Project(MWRAPBase):
         :type leader_id: int
         :type customer_id: int
         :type deal_id: int
+        :type project_group_id: int
+        :type start_date: datetime.date, str
         :type finish_date: datetime.date, str
         :type identifier: str
         :type billing_address: str
@@ -250,6 +264,8 @@ class Project(MWRAPBase):
             ("leader_id", leader_id),
             ("customer_id", customer_id),
             ("deal_id", deal_id),
+            ("project_group_id", project_group_id),
+            ("start_date", start_date),
             ("finish_date", finish_date),
             ("identifier", identifier),
             ("billing_address", billing_address),
@@ -265,7 +281,7 @@ class Project(MWRAPBase):
             ("info", info)
         ):
             if value is not None:
-                if key in ["finish_date"] and isinstance(value, datetime.date):
+                if key in ["finish_date", "start_date"] and isinstance(value, datetime.date):
                     data[key] = self._convert_date_to_iso(value)
                 else:
                     data[key] = value
@@ -486,5 +502,6 @@ class Project(MWRAPBase):
         ep_params = {
             "id": project_id
         }
+        ep_params = {"id": project_id}
 
         return self._moco.get("project_destroy", ep_params=ep_params)

@@ -24,6 +24,7 @@ The Moco Instance
    models/project
    models/project_contract
    models/project_expense
+   models/project_group
    models/project_recurring_expense
    models/project_payment_schedule
    models/project_task
@@ -38,4 +39,5 @@ The Moco Instance
    models/user_holiday
    models/user_presence
    models/session
+   models/webhook
 
